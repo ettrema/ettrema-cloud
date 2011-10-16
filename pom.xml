@@ -9,11 +9,11 @@
 	<packaging>pom</packaging>
 	<name>ettrema-cloud</name>
 	<properties>
-		<clyde.version>1.2.2-SNAPSHOT</clyde.version>
-		<clyde-modules.version>1.0.6-SNAPSHOT</clyde-modules.version>
-		<milton.version>1.6.6-SNAPSHOT</milton.version>
-		<endrick.version>1.7.5-SNAPSHOT</endrick.version>
-		<berry.version>1.5-SNAPSHOT</berry.version>
+		<clyde.version>1.2.3</clyde.version>
+		<clyde-modules.version>1.0.6</clyde-modules.version>
+		<milton.version>1.6.6</milton.version>
+		<endrick.version>1.7.5</endrick.version>
+		<berry.version>1.4</berry.version>
 		<geroa.version>1.3</geroa.version>
 
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -43,12 +43,15 @@
 		</plugins>
 	</build>
 	
-    <repositories>
-        <repository>
-            <!-- needed for java2html -->
-            <id>mvnrepository.com</id>
-            <name>mvnrepository.com</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-    </repositories>	
+	<repositories>
+		<repository>
+			<id>ettrema-repo</id>
+			<url>http://www.ettrema.com/maven2</url>
+		</repository>
+		<repository>
+			<id>mvnrepository.com</id>
+			<name>mvnrepository.com</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>		
+	</repositories>	
 </project>
