@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configure id="Server" class="org.mortbay.jetty.Server">
+	<Call name="addLifeCycle">
+		<Arg>
+			<New class="org.mortbay.jetty.deployer.WebAppDeployer">
+				<Set name="contexts">
+					<Ref id="Contexts"/>
+				</Set>
+				<Set name="webAppDir">
+					<SystemProperty name="jetty.home" default="."/>/webapps
+				</Set>
+				<Set name="parentLoaderPriority">false</Set>
+				<Set name="extract">true</Set>
+				<Set name="allowDuplicates">false</Set>
+				<Set name="defaultsDescriptor">/home/fred/jetty/mywebdefaults.xml</Set> <!-- set to your customized defaults file -->
+			</New>
+		</Arg>
+	</Call>	
+</Configure>

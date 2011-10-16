@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>File manager</title>
+    </head>
+    <body>
+        <div class="layout">
+            <div class="center">
+                <div id="tabs">
+                    <ul>
+                        <li><a href="#files">Files</a></li>
+                        <li><a href="#preview">Content</a></li>
+                    </ul>
+                    <div id="files"></div>
+                    <div id="preview" class="preview"></div>
+                </div>
+
+                <div class="grabberV"></div>
+            </div>
+            <div class="west">
+                <!-- This is the container for the tree view - VERY important -->
+                <div id="tree"></div>
+            </div>
+        </div>
+        <div id="ajaxLoading" class="modal" style="display: none">
+            <p>Please wait while we process your request...</p>
+        </div>
+        <div id="addPageModal" class="modal" style="display: none">
+            <h2>Add a new file/folder</h2>
+            <p>Please choose which template to use:</p>
+            <ul class="templates">
+                <li></li>
+            </ul>
+        </div>
+        <div class="contextMenu" id="fileContextMenu">
+            <ul>                
+                <li id="contextView">View</li>
+                <li id="contextEdit">Edit</li>
+                <li id="contextRename">Rename</li>
+                <li id="contextDelete">Delete</li>
+            </ul>
+        </div>
+        <div id="migrator" class="modal" style="display: none">
+            <h2 id="headline">Migrator</h2>
+            <form action=""  method="POST" onsubmit="startMigration()" id="migrateForm">
+                <fieldset>
+                    <button id="btnMigrateScan" type="button" onclick="queryFiles(); return false;">Scan for file changes</button>
+                    <button id="btnMigrateRefresh" type="button" onclick="initStatus(); return false;">Refresh</button>
+                    <button id="btnMigrateStart" type="button" onclick="startMigration()">Migrate selected files</button>
+                    <button id="btnMigrateStop" type="button" onclick="stopMigration()">Cancel the current job</button>
+
+                    <div id="migrateFilesContainer" style="height: 400px; overflow: scroll-y">
+                        <table id="migrateFiles" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <td><input type="checkbox" id="selectAll" onclick="toggleMigrateFiles(this)" /></td>
+                                    <th>Local File</th>
+                                    <th>Local modified</th>
+                                    <th>Remote date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="5">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <input type="hidden" name="command" value="submit"/>
+                </fieldset>
+            </form>
+            <script type="text/javascript" src="/templates/js/migrate.js"></script>
+        </div>
+        <div id="thankyou" class="modal" style="display: none">
+            <h3>[TITLE]</h3>
+            <p>[MESSAGE]</p>
+        </div>        
+    </body>
+</html>

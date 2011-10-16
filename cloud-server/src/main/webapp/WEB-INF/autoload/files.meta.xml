@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+    <c:folder secureRead="true" versioningEnabled="false" allowedTemplates="+folder -* ">
+		<c:attributes>
+			<c:value name="title">Files</c:value>	
+		</c:attributes>
+        <c:components>
+            <c:subpage name="index.html" template="fileman">
+
+            </c:subpage>
+        </c:components>		
+		<c:permissions>
+			<c:groupPerm group="Authenticated" role="VIEWER" />
+            <c:groupPerm group="administrators" role="ADMINISTRATOR" />
+		</c:permissions>		
+    </c:folder>
+</c:meta>
+
+

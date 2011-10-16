@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Server configuration</title>
+	</head>
+	<body>
+		#if($rc.child.editMode)
+		<br />
+		$rc.formStart
+		#end
+		
+		<div id="contentHeading">
+			#if( $rc.child.editMode )
+			<button value="save" name="save" id="save" type="submit">Save</button>
+			#else
+			#if( $user.canAuthor($folder) ) 			
+			<button class="button" onclick="window.location='${targetPage.name}.edit'">Edit</button> 
+			#end			
+			#end
+			<h2>Server Configuration</h2>
+		</div>
+		
+		<table class="verticalFields">
+			<tbody>
+				<tr>
+					<th>Site title</th>
+					<td>$show.title</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br/>
+		#if($rc.child.editMode)
+		$rc.formEnd
+		#end
+		
+	</body>
+</html>
+

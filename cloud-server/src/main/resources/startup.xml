@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="berry" class="com.ettrema.berry.Berry" init-method="start">
+        <constructor-arg ref="milton.http.manager"/>
+        <!-- configure one of the http adapters above here. Eg simpleton or xlightweb -->
+        <constructor-arg>
+            <list>
+                <ref bean="notifier.email"/>
+                <ref bean="error.notifier"/>                
+                <ref bean="table.creator" />
+
+                <!-- Auto reload logging changes -->
+                <ref bean="log.monitor" />
+
+                <ref bean="cache.datanodes.mem"/>
+                <ref bean="cache.lists.mem"/>
+                <ref bean="cache.parentids.mem"/>
+                <ref bean="cache.rels.from.mem"/>
+                <ref bean="cache.rels.to.mem"/>
+
+                <ref bean="clyde.timer.service"/>
+
+                <!-- Allows stopping of everything in the root context -->
+                <ref bean="endrick.stop.service" />
+
+                <ref bean="thumb.generator.service"/>
+                <ref bean="mail.server.service"/>
+
+                <ref bean="aws.asynch.proc"/>
+                <ref bean="aws.queue.proc"/>
+				
+				<ref bean="synch.file.watcher"/>
+
+                <!-- Initial server setup, then remove -->
+                <ref bean="default.host.creator"/>
+                <ref bean="default.user.creator"/>
+            </list>
+        </constructor-arg>
+    </bean>
+   
+</beans>

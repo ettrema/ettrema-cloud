@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>$view.title</title>
+    </head>
+    <body>
+
+
+		$body 
+		
+			#set($blogs = $folder.child("blogs").pagesRecursive.ofType("blog").sortByCreatedDate.truncate(4))
+
+			#if( $blogs.size() == 0 )
+			#if($user.canAuthor($folder))
+			<p>No blogs yet, <a href="_autoname.new?templateSelect=blog">click here to create one</a></p>
+			#else
+			<p>No blogs yet</p>
+			#end
+			#else
+		<ul id="highlight">			
+            #foreach($blog in $blogs)
+			<li class="post type-post hentry category-featured category-headline">
+				<div class="posthead">
+					<div class="maindate fleft">
+						#set($dt = $formatter.toJodaDate($blog.createDate))								
+						$dt.dayOfMonth().get()
+						<br/>
+						<span>$dt.monthOfYear().asShortText</span>
+					</div>	 
+
+					<h1 class="maintitle fleft">
+						<a title="Permanent Link to $blog.title" rel="bookmark" href="$blog.href">$blog.title</a>
+					</h1>
+					<br class="clear"/>
+				</div>
+
+				<div class="entry">
+					$blog.brief
+					<p> 
+						<a class="more-link" href="$blog.href">Read the rest of this entry >></a>
+					</p>
+					<p class="postinfo">
+						<span class="category">Filed under - $blog.parent.link</span> 			 
+						<span class="comment">so far. Add yours now</span>
+					</p>					
+				</div>
+			</li>
+			#end
+		</ul>
+			#end			
+
+    </body>
+</html>

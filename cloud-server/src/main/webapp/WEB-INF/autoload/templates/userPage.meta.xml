@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template disableExport="false" template="normal" maxAge="0">
+		<c:fields>
+			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
+			<c:html name="body" rows="30" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
+		</c:fields>
+		<c:attributes>
+			<c:value name="breadcrumbs">				
+				<ul>
+					<li class="cat-item">
+						<a href="${user.href}">Home</a>
+					</li>
+					<li class="cat-item">
+						<a href="${user.href}files">Files</a>
+					</li>
+					#foreach($folder in $user.subFolders)
+						#if(!$folder.systemFolder)
+					<li class="cat-item">
+						<a href="${folder.href}">$folder.title</a>
+					</li>
+						#end					
+					#end
+				</ul>				
+			</c:value>			
+			<c:value name="sidebar">
+				
+				<div class="sidecontainer fright" id="sidebar">
+					<div class="widgets">
+						<h2 class="mainhead">RSS Feed</h2>
+						<p class="feed">
+							<a href="${folder.url}rss.xml">
+							Subscribe to feed 
+								<br/>
+								<span>get the latest updates!</span>
+							</a>
+						</p>
+					</div>
+				</div>					
+			</c:value>
+		</c:attributes>
+	</c:template>
+</c:meta>
+

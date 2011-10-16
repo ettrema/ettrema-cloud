@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+    
+    <c:template template="userPage" instanceType="page" maxAge="0">
+
+	</c:template>
+</c:meta>
+

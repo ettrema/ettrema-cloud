@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template disableExport="false" template="root">
+		<c:fields>
+			<c:text name="title" required="false" disAllowTemplating="false" />
+			<c:html name="body" required="false" disAllowTemplating="false" toolbar="Basic" />
+		</c:fields>
+		<c:roleRules />
+		<c:components>
+			<c:text name="dec">&amp;lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&amp;gt;</c:text>
+		</c:components>
+	</c:template>
+</c:meta>
+

@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>My Dashboard</title>
+    </head>
+    <body>
+		<h1>My Dashboard</h1>
+		<p>Welcome to your dashboard</p>
+		<p>Soon you'll see details of recently backed up files, have quick access
+		to sharing, music, calendars and all sorts of goodies</p>
+		<p>For now, you just have this...</p>
+    </body>
+</html>

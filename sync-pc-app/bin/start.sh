@@ -1,0 +1,1 @@
+java -jar ../target/shmego-jar-with-dependencies.jar

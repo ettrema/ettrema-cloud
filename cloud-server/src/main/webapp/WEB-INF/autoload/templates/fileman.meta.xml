@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template template="normal" contentType="text/html" instanceType="page" docType="XSTRICT">
+		<c:fields>
+			<c:text name="baseUrl" required="true" />
+		</c:fields>
+		<c:attributes>
+			<c:value name="extraHeader">
+				<link type="text/css" href="/templates/basic.css" rel="stylesheet" />
+				<link type="text/css" href="/templates/fileman.css" rel="stylesheet"  />	
+				
+				<script type="text/javascript" src="/templates/js/jquery.metadata.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.sizes.js"></script>
+				<script type="text/javascript" src="/templates/js/jlayout.border.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.dataTables.min.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.jlayout.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.jstree.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.simplemodal.js"></script>
+				<script type="text/javascript" src="/templates/js/toolTip.js"></script>
+				<script type="text/javascript" src="/templates/js/panels.js"></script>
+				<script type="text/javascript" src="/templates/js/buttons.js"></script>
+				<script type="text/javascript" src="/templates/js/types.js"></script>
+				<script type="text/javascript" src="/templates/js/jquery.dropshadow.js"></script>
+				<script type="text/javascript" src="/templates/js/tree.init.js"></script>
+				<script type="text/javascript" src="/templates/js/flowplayer-3.2.2.min.js"></script>
+
+				<script type="text/javascript" src="/templates/js/jquery.contextmenu.r2.js"></script>
+				<script type="text/javascript" src="/swfobject.js"></script>
+				<script type="text/javascript">
+            jQuery(function($) {
+                initTree( $view.baseUrl );
+                initFileManPanels();
+            });
+				</script>
+			</c:value>
+		</c:attributes>
+	</c:template>
+</c:meta>

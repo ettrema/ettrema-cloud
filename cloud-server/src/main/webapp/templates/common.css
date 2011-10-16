@@ -1,0 +1,14 @@
+#ajaxLoading {
+    display: none; /** initial state */
+}
+
+#ajaxLoading div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+}
+
+#ajaxLoading div img {
+    padding: 20px;
+    vertical-align: middle;
+}

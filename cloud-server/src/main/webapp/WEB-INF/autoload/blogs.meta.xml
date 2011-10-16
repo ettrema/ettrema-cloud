@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:folder secureRead="false" versioningEnabled="false" template="blogFolder" allowedTemplates="+folder +normal">
+		<c:attributes>
+			<c:value name="title">Blogs</c:value>	
+		</c:attributes>
+		<c:permissions>
+			<c:groupPerm group="administrators" role="ADMINISTRATOR" />
+		</c:permissions>
+	</c:folder>
+</c:meta>
+
+

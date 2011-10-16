@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="cache.datanodes.mem" class="com.ettrema.cache.MemoryCache">
+        <constructor-arg value="datanodes" />
+        <constructor-arg value="40000" />
+        <constructor-arg value="20000" />
+
+
+        <property name="lowMemoryLimit" value="20" />
+    </bean>
+
+    <bean id="cache.lists.mem" class="com.ettrema.cache.MemoryCache">
+        <constructor-arg value="lists" />
+        <constructor-arg value="30000" />
+        <constructor-arg value="10000" />
+
+        <property name="lowMemoryLimit" value="14" />
+    </bean>
+
+    <bean id="cache.parentids.mem" class="com.ettrema.cache.MemoryCache">
+        <constructor-arg value="parentids"/>
+        <constructor-arg value="500" />
+        <constructor-arg value="200" />
+
+        <property name="lowMemoryLimit" value="16" />
+    </bean>
+
+    <bean id="cache.rels.from.mem" class="com.ettrema.cache.MemoryCache">
+        <constructor-arg value="rels-from"/>
+        <constructor-arg value="2000" />
+        <constructor-arg value="1000" />
+
+        <property name="lowMemoryLimit" value="18" />
+    </bean>
+
+    <bean id="cache.rels.to.mem" class="com.ettrema.cache.MemoryCache">
+        <constructor-arg value="rels-to"/>
+        <constructor-arg value="2000" />
+        <constructor-arg value="1000" />
+
+        <property name="lowMemoryLimit" value="18" />
+    </bean>
+</beans>

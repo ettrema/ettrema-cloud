@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>compile</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>run</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-restart</actionName>
+            <displayName>restart</displayName>
+            <goals>
+                <goal>jetty:stop</goal>
+                <goal>compile</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>run</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-jetty:stop</actionName>
+            <displayName>jetty:stop</displayName>
+            <goals>
+                <goal>jetty:stop</goal>
+            </goals>
+        </action>
+    </actions>

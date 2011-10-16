@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template disableExport="false" template="root" maxAge="0">
+		<c:fields>
+			<c:text name="title" rows="1" cols="80" required="false" disAllowTemplating="false" />
+			<c:html name="extraHeader" rows="50" cols="80" required="false" disAllowTemplating="false" toolbar="Default" />
+			<c:html name="sidebar" rows="30" cols="20" required="false" disAllowTemplating="false" toolbar="Default" />
+			<c:html name="breadcrumbs" rows="30" cols="20" required="false" disAllowTemplating="false" toolbar="Default" />
+			<c:html name="body" rows="50" cols="80" required="false" disAllowTemplating="false" toolbar="Default" />
+		</c:fields>
+		<c:roleRules />
+		<c:components>
+			<c:text name="dec">&amp;lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&amp;gt;</c:text>
+		</c:components>
+	</c:template>
+</c:meta>
+

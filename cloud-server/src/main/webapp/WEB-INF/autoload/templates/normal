@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+	<head profile="http://gmpg.org/xfn/11">
+		<title>$view.title</title>
+		
+		<link rel="stylesheet" href="/templates/style.css" type="text/css" media="screen" />		
+		<link rel="stylesheet" href="http://demo.kreativethemes.com/brightsky/wp-content/plugins/lifestream/themes/default/media/lifestream.css"  type="text/css" media="screen"/>		
+		<link rel="stylesheet" type="text/css" href="/templates/validation.css" />
+		<link rel="stylesheet" type="text/css" href="/templates/ui-lightness/jquery-ui-1.8.11.custom.css" media="screen" />
+		
+		<script type="text/javascript" src="/templates/js/jquery-1.5.1.min.js">//</script>
+		<script type="text/javascript" src="/templates/js/jquery.cookie.js" >//</script>		
+		<script type="text/javascript" src="/templates/js/common.js">//</script>
+		<script type="text/javascript" src="/templates/js/utils.js">//</script>
+		<script type="text/javascript" src="/templates/js/user.js">//</script>
+		<script type="text/javascript" src="/templates/js/file.js"></script>		
+		<script type="text/javascript" src="/templates/js/uploads.js"></script>
+		<script type="text/javascript" src="/templates/js/comments.js">//</script>		
+		<script type="text/javascript" src="/templates/js/ajaxupload.js">//</script>		
+		<script type="text/javascript" src="/fckeditor.js">//</script>
+		<script type="text/javascript" src="/create_editor.js">//</script>
+		<script type="text/javascript" src="/templates/calendar/calendar.js">//</script>
+		<script type="text/javascript" src="/templates/calendar/lang/calendar-en.js">//</script>
+		<script type="text/javascript" src="/templates/calendar/calendar-setup.js">//</script>
+        <script type="text/javascript" src="/templates/js/jquery-ui-1.8.11.custom.min.js" xml:space="preserve">//</script>
+		<script type="text/javascript" src="/templates/js/validation.js?v1.3">//</script>
+
+		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/plugins/lifestream/lifestream.js"></script>
+		<script type="text/javascript" src="/templates/brightsky/js/cufon-yui.js"></script>
+		<script type="text/javascript" src="/templates/brightsky/js/vegur_400-vegur_700.font.js"></script>
+		<script type="text/javascript">
+			<!--
+			jQuery(function($) {
+				Cufon.replace('h1.maintitle, #header h1, h2.mainhead, li.t1 a, li.t2 a, li.t3 a');
+			});
+			-->
+		</script>
+		$view.extraHeader
+	</head>
+
+	<body class="$view.bodyClass $targetPage.templateName">
+
+		<div id="nav">
+			<div class="container">
+				<ul>
+					#foreach($folder in $targetPage.host.children.exclude("Trash","users","templates","Recent"))				
+					#if($folder.is('folder') and !$folder.class.name.contains('Host') )
+					#if($user.hasRole("VIEWER",$folder))
+					<li class="page_item">
+						<a href="${folder.href}index.html">$folder.title</a>
+					</li>
+					#end
+					#end
+					#end
+					
+					#if( $user.hasRole("AUTHOR", $folder.host.child("users")) )
+					<li class="page_item">
+						<a href="/users/index.html">Users</a>
+					</li>					
+					#end
+					#if( $user )
+					<li class="user_item">
+						<a href="javascript:doLogout()" shape="rect">Log out</a>
+					</li>					
+					<li class="user_item">
+						<a href="${user.href}.edit" style="text-align: right" shape="rect">
+							<span>$user.name</span>
+						</a>
+					</li>
+					#else
+					<li class="user_item">
+						<a href="/login.html" shape="rect">Log in</a>
+					</li>
+					#end		
+					
+					#if($user.canAuthor($targetPage) or  $user.canAuthor($folder))
+					<li class="user_item"><a id="filemanUpload" href="#">Upload</a></li>
+					<li class="page_item user_item">
+						<a href="${targetPage.name}.edit">Edit</a>
+					</li>
+					#end					
+
+				</ul>						
+			</div>
+		</div>
+
+		<div id="header" class="clear">
+
+			<div class="container cheader">
+				<h1 id="blogtitle">
+					<a href="/index.html">
+						$folder.find("/settings/config").params.title
+					</a>
+				</h1>		
+			</div>			
+		</div>
+		<div id="navcat">
+			<div class="container">
+				$view.breadcrumbs
+			</div>
+
+		</div>
+		<div class="clear"></div>
+
+		<div id="wrapper" class="container">
+			<div id="content" class="subcontainer fleft">
+				#if($rc.child.editMode)
+				$rc.formStart
+				$rc.toolBar
+				<br />
+				$view.title
+				#end
+				$body
+				#if($rc.child.editMode)
+				<br />
+				$rc.formEnd
+				#end	
+										
+			</div>
+
+			$view.sidebar	
+			
+			<br class="clear" />
+		</div><!-- end of #wrapper -->
+
+		<div id="footer">
+			<div class="container">
+				<div class="ftext fleft">
+					Bright Sky 2011. All rights reserved. 
+					|
+					<a href="${targetPage.name}.edit">admin</a>
+				</div>
+
+
+				<div class="fcred fright">
+					<span class="fleft">A quality product by</span> 
+					<a href="http://www.kreativethemes.com" class="fright" id="kreativethemes">KreativeThemes</a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+
+
+		<div id="uploads" class="modal" style="display: none">
+			<p>Drop files below to upload them, or if that doesnt work click the "Choose files to upload" button</p>
+			<button id="doUpload">
+				Choose files to upload
+			</button> 	
+			<button onclick="window.location.reload(); return false;" style="float: right">
+				Click here to refresh page
+			</button> 														
+			<div class="dropZone ui-state-default">
+				<div class="progress" style="width: 0; display: none"></div>
+				<div class="dropText">
+					Drop files here
+					<br/>
+					Firefox and Chrome only :(
+				</div>
+				<ul id="fileDropListing"></ul>
+			</div>
+		</div>
+		
+        <div id="createFolderModal" class="modal" style="display: none">
+            <p>Please enter the name of the folder to create below:</p>
+            <input type="text" name="newName" id="newName" />
+        </div>
+		
+		
+		<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/tab.js"></script>
+
+		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/jquery.fieldtag.min.js"></script>
+	</body>
+</html>
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+		   
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:app.properties"/>
+    </bean>
+
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="java.util.Date">
+                    <bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
+                        <constructor-arg index="0">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg>
+                                    <value>M/d/yy</value>
+                                </constructor-arg>
+                            </bean>
+                        </constructor-arg>
+                        <constructor-arg index="1">
+                            <value>true</value>
+                        </constructor-arg>
+                    </bean>
+                </entry>
+
+            </map>
+        </property>
+    </bean>
+</beans>

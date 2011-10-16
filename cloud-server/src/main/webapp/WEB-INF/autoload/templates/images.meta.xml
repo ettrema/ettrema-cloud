@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:folder template="folder">
+		<c:roleRules />
+		<c:attributes>
+			<c:value name="body" />
+		</c:attributes>
+		<c:thumbs>
+			<c:thumb id="_sys_thumb" h="78" w="132" />
+			<c:thumb id="_sys_hero" h="196" w="296" />
+			<c:thumb id="_sys_reg" h="600" w="600" />
+			<c:thumb id="_sys_slideshow" h="800" w="800" />
+		</c:thumbs>
+	</c:folder>
+</c:meta>
+

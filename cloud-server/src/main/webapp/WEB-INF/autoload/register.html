@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Get a personal cloud</title>
+    </head>
+    <body>
+        <div id="content">
+			<h1>Get a personal cloud</h1>
+            <form method="POST" action="" id="registerForm" onsubmit="return createAccount()">                
+                <br />
+                
+                <div class="instructions">
+                    <p>Please enter your details below to ask for an account. We'll review your request and enable it if we think you're a good sort.</p>
+                </div>
+
+                <div class="pageMessage"></div>
+
+                <table cellspacing="5" width="660" class="verticalFields">
+                    <tr>
+                        <th width="150px">Full name</th>
+                        <td><input type='text' name='fullName' class='required' value="" size='50' id='fullName' /></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input type='text' name='email' class='required' value="" size='50' id='email' /></td>
+                    </tr>
+                    <tr>
+                        <th>Password</th>
+                        <td><input type='password' class="required" id="password" name='password' value="" /></td>
+                    </tr>
+                    <tr>
+                        <th>Confirm Password</th>
+                        <td><input type='password' class="required" id="confirmPassword" name='confirmPassword' value="" /></td>
+                    </tr>                    
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button id="submit" type="submit">Can I have a cloud, please?</button>
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="templateSelect" value="user"/>
+                <input type="hidden" name="save" value="save"/>
+            </form>
+
+
+        </div>
+    </body>
+</html>

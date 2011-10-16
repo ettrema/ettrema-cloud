@@ -1,0 +1,1 @@
+<html>	<head>		<title>$targetPage.name</title>	</head>	<body>		<br />		$rc.formStart        $rc.toolBar		<br />		<label>Folder name:</label>		$show.title		<br />        $rc.formEnd	</body></html>

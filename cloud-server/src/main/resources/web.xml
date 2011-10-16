@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+    <bean id="root.context.locator" class="com.ettrema.context.RootContextLocator"/>
+
+    <bean id="host.finder" class="com.bradmcevoy.web.HostFinder">
+        <property name="hostMappings">
+            <map>
+                <entry key="127.0.0.1" value="test.ppod.com" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="existing.resource.factory" class="com.bradmcevoy.web.ExistingResourceFactory">
+        <constructor-arg ref="host.finder"/>
+    </bean>
+
+    <bean id="ajax.resource.factory" class="com.bradmcevoy.web.ajax.AjaxResourceFactory">
+        <constructor-arg ref="new.resource.factory"/>
+    </bean>
+
+
+    <bean id="fck.resource.factory" class="com.ettrema.http.fck.FckResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+    </bean>
+
+
+    <bean id="json.resource.factory" class="com.ettrema.json.JsonResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="milton.property.sources"/>
+        <constructor-arg ref="clyde.prop.patcher"/>
+        <constructor-arg ref="permissions.authoriser"/>
+        <constructor-arg ref="event.manager"/>
+        <property name="maxAgeSecsPropFind" value="" />
+    </bean>
+
+    <bean id="new.resource.factory" class="com.bradmcevoy.web.NewResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="host.finder"/>
+    </bean>
+
+    <bean id="source.resource.factory" class="com.bradmcevoy.web.SourceResourceFactory">
+        <constructor-arg ref="new.resource.factory"/>
+        <constructor-arg ref="host.finder"/>
+    </bean>
+
+    <bean id="code.resource.factory" class="com.bradmcevoy.web.code.CodeResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+    </bean>
+
+
+    <bean id="edit.resource.factory" class="com.bradmcevoy.web.EditResourceFactory">
+        <constructor-arg ref="source.resource.factory"/>
+        <constructor-arg ref="host.finder"/>
+    </bean>
+
+    <bean id="indexpage.resource.factory" class="com.bradmcevoy.web.IndexPageResourceFactory">
+        <constructor-arg ref="edit.resource.factory"/>
+    </bean>
+
+    <bean id="readonly.security.manager" class="com.bradmcevoy.http.ReadOnlySecurityManager"/>
+
+
+    <bean id="static.resource.factory" class="com.ettrema.http.fs.ClassPathResourceFactory">
+        <property name="modifiedDate" value="1/1/2000"/>
+    </bean>
+	
+    <bean id="servlet.resource.factory" class="com.bradmcevoy.http.ServletResourceFactory" autowire="constructor" />
+
+    <bean id="migration.helper" class="com.bradmcevoy.migrate.MigrationHelper">
+        <constructor-arg ref="code.resource.factory"/>
+    </bean>
+
+    <bean id="console.resource.factory" class="com.ettrema.console.ConsoleResourceFactory">
+        <constructor-arg ref="source.resource.factory" />
+        <constructor-arg value="/console" />
+        <constructor-arg value="/.source" /> <!-- resource to test authentication against = host root -->
+        <constructor-arg>
+            <list>
+                <bean class="com.bradmcevoy.web.console2.ProcessScanFactory" />
+                <bean class="com.bradmcevoy.web.console2.GrantFactory" />
+                <bean class="com.ettrema.console.RnFactory" />
+                <bean class="com.ettrema.console.LsFactory" >
+                    <constructor-arg>
+                        <bean class="com.bradmcevoy.web.console2.ClydeLsResultFormatter"/>
+                    </constructor-arg>
+                </bean>
+                <bean class="com.ettrema.console.CdFactory" />
+                <bean class="com.bradmcevoy.web.console2.RmFactory" />
+                <bean class="com.ettrema.console.HelpFactory" />
+                <bean class="com.ettrema.console.CpFactory" />
+                <bean class="com.bradmcevoy.web.console2.MvFactory" />
+                <bean class="com.bradmcevoy.web.console2.SetPasswordFactory" />
+                <bean class="com.bradmcevoy.web.console2.MkFactory" />
+                <bean class="com.ettrema.console.MkdirFactory" />
+                <bean class="com.bradmcevoy.web.console2.AliasFactory" />
+                <bean class="com.bradmcevoy.web.console2.MkHostFactory" />
+                <bean class="com.bradmcevoy.web.console2.MkUserFactory" />
+                <!--
+                <bean class="com.bradmcevoy.web.console2.SearchFactory" />
+                -->
+                <bean class="com.bradmcevoy.web.console2.EvalFactory" />
+                <bean class="com.bradmcevoy.web.console2.MvelFactory" />
+                <!--
+                <bean class="com.bradmcevoy.web.console2.ImportFactory" />
+                -->
+                <!--
+                <bean class="com.bradmcevoy.web.console2.ExportFactory" >
+                    <constructor-arg ref="migration.helper"/>
+                </bean>
+                -->
+                <bean class="com.bradmcevoy.web.console2.DuFactory" />
+                <bean class="com.bradmcevoy.web.console2.RecreateFactory" />
+                <bean class="com.bradmcevoy.web.console2.GenThumbsFactory" >
+                    <constructor-arg ref="root.context.locator"/>
+                    <property name="updateWall" value="false"/>
+                </bean>
+                <bean class="com.bradmcevoy.web.console2.PatchFactory" />
+                <bean class="com.bradmcevoy.web.console2.QueueFactory" >
+                    <constructor-arg ref="queue.manager"/>
+                    <property name="queueProcesor" ref="aws.queue.proc"/>
+                    <property name="asyncProcessor" ref="aws.asynch.proc"/>
+                </bean>
+                <bean class="com.bradmcevoy.web.console2.S3CopyFactory" />
+                <bean class="com.bradmcevoy.web.console2.S3ListFactory" />
+                <bean class="com.bradmcevoy.web.console2.RelateFactory" />
+                <bean class="com.bradmcevoy.web.console2.LnFactory" />
+                <bean class="com.bradmcevoy.web.console2.GroupFactory" />
+            </list>
+        </constructor-arg>
+        <constructor-arg value=""/> <!-- the web context path -->
+    </bean>
+
+    <bean id="rss.resource.factory" class="com.bradmcevoy.web.recent.RssResourceFactory">
+        <constructor-arg value="rss.xml"/>
+        <constructor-arg ref="existing.resource.factory"/>
+    </bean>
+
+    <bean id="mediafeed.resource.factory" class="com.bradmcevoy.media.MediaFeedResourceFactory">
+        <constructor-arg value="media.xml"/>
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="media.log.service"/>
+        <property name="cacheSeconds" value="0" />
+        <property name="linkGenerator" >
+            <bean class="com.bradmcevoy.media.DefaultMediaLinkGenerator"/>
+        </property>
+    </bean>
+
+    <bean id="multi.resource.factory" class="com.bradmcevoy.http.MultipleResourceFactory">
+        <constructor-arg>
+            <list>
+                <ref local="indexpage.resource.factory"/>				
+                <ref local="static.resource.factory"/>
+				<ref local="servlet.resource.factory"/>								
+                <ref local="json.resource.factory"/>				
+                <ref local="fck.resource.factory"/>
+                <ref local="console.resource.factory"/>
+                <ref local="rss.resource.factory"/>
+                <ref local="mediafeed.resource.factory"/>
+                <ref local="ajax.resource.factory"/>
+                <ref local="code.resource.factory"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jgroups.nonce.provider" class="com.bradmcevoy.http.http11.auth.SimpleMemoryNonceProvider">
+        <constructor-arg value="604800"/> <!-- 60x60x24x7-->
+    </bean>
+
+    <bean id="form.auth.handler" class="com.bradmcevoy.web.security.FormAuthenticationHandler">
+        <property name="userNameParam" value="_loginUserName"/>
+        <property name="passwordParam" value="_loginPassword"/>
+    </bean>
+
+    <bean id="cookie.auth.handler" class="com.bradmcevoy.web.security.CookieAuthenticationHandler">
+        <constructor-arg>
+            <list>
+                <ref bean="form.auth.handler"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="milton.authentication.service" class="com.bradmcevoy.http.AuthenticationService">
+        <constructor-arg ref="jgroups.nonce.provider"/>
+        <property name="extraHandlers">
+            <list>
+                <ref bean="cookie.auth.handler"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="standard.response.handler" class="com.bradmcevoy.http.webdav.DefaultWebDavResponseHandler">
+        <constructor-arg ref="milton.authentication.service"/>
+        <constructor-arg ref="resource.type.helper.caldav"/>
+        <property name="buffering" value="always"/>
+    </bean>
+
+    <bean id="milton.response.handler" class="com.bradmcevoy.web.error.LoginResponseHandler">
+        <constructor-arg ref="standard.response.handler"/>
+        <property name="loginPage" value="login.html" />
+        <property name="resourceFactory" ref="existing.resource.factory"/>
+        <property name="excludePaths">
+            <list>
+                <value>/_</value>
+                <value>/console</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="milton.response.handler.compressing" class="com.bradmcevoy.http.CompressingResponseHandler">
+        <constructor-arg ref="milton.response.handler" />
+    </bean>
+
+    <bean id="milton.handler.helper" class="com.bradmcevoy.http.HandlerHelper">
+        <constructor-arg ref="milton.authentication.service"/>
+        <constructor-arg>
+            <list>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="milton.protocol.http11" class="com.bradmcevoy.http.http11.Http11Protocol">
+        <constructor-arg ref="milton.response.handler.compressing" />
+        <constructor-arg ref="milton.handler.helper"/>
+    </bean>
+
+
+    <bean id="resource.type.helper.default" class="com.bradmcevoy.http.webdav.WebDavResourceTypeHelper"/>
+
+    <bean id="resource.type.helper.acl" class="com.ettrema.http.acl.AccessControlledResourceTypeHelper">
+        <constructor-arg ref="resource.type.helper.default"/>
+    </bean>
+
+    <bean id="resource.type.helper.caldav" class="com.ettrema.http.caldav.CalendarResourceTypeHelper">
+        <constructor-arg ref="resource.type.helper.acl"/>
+    </bean>
+
+
+    <bean id="milton.property.sources" class="com.bradmcevoy.http.webdav.PropertySourcesList">
+        <property name="sources">
+            <list>
+                <bean class="com.bradmcevoy.property.CustomPropertySource"/>
+                <bean class="com.bradmcevoy.property.MultiNamespaceCustomPropertySource"/>
+                <bean class="com.bradmcevoy.property.BeanPropertySource"/>
+                <bean class="com.bradmcevoy.web.ClydePropertySource"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="propsource.patch.setter" class="com.bradmcevoy.http.webdav.PropertySourcePatchSetter">
+        <constructor-arg ref="milton.property.sources"/>
+    </bean>
+
+    <bean id="milton.prop.patcher" class="com.bradmcevoy.http.webdav.PropertySourcePatchSetter">
+        <constructor-arg ref="milton.property.sources"/>
+    </bean>
+
+    <bean id="clyde.prop.patcher" class="com.bradmcevoy.web.ClydePropPatchSetter">
+        <constructor-arg ref="milton.prop.patcher"/>
+    </bean>
+    
+    <bean id="milton.protocol.webdav" class="com.bradmcevoy.http.webdav.WebDavProtocol">
+        <constructor-arg ref="milton.handler.helper" />
+        <constructor-arg ref="resource.type.helper.caldav"/>
+        <constructor-arg ref="milton.response.handler.compressing" />
+        <constructor-arg type="java.util.List" ref="milton.property.sources"/>
+    </bean>
+
+    <bean id="milton.protocol.caldav" class="com.ettrema.http.caldav.CalDavProtocol">
+        <constructor-arg ref="existing.resource.factory" />
+        <constructor-arg ref="milton.response.handler.compressing"/>
+        <constructor-arg ref="milton.handler.helper"/>
+        <constructor-arg ref="milton.protocol.webdav"/>
+    </bean>
+
+    <bean id="milton.protocol.acl" class="com.ettrema.http.acl.ACLProtocol">
+        <constructor-arg ref="milton.protocol.webdav"/>
+    </bean>
+
+    <bean id="milton.protocol.handlers" class="com.bradmcevoy.http.ProtocolHandlers">
+        <constructor-arg>
+            <list>
+                <ref bean="milton.protocol.http11"/>
+                <ref bean="milton.protocol.webdav"/>
+                <ref bean="milton.protocol.caldav"/>
+                <ref bean="milton.protocol.acl"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="milton.debug.filter" class="com.bradmcevoy.http.DebugFilter" >
+    </bean>
+
+    <bean id="milton.http.manager" class="com.bradmcevoy.http.HttpManager">
+        <constructor-arg ref="multi.resource.factory" />
+        <constructor-arg ref="milton.response.handler.compressing" />
+        <constructor-arg ref="milton.protocol.handlers"/>
+        <property name="filters">
+            <list>
+                <!--
+                <ref bean="milton.debug.filter" />
+                -->
+            </list>
+        </property>
+        <property name="eventManager" ref="event.manager"/>
+    </bean>
+
+
+    <bean id="clyde.security.manager" class="com.bradmcevoy.web.ClydeUserService">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="endrick.root.context"/>
+    </bean>
+<!--
+    <bean id="ftp.user.manager" class="com.ettrema.ftp.UserManagerAdapter">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="clyde.security.manager"/>
+    </bean>
+
+    <bean id="clyde.transactional.ftp.filter" class="com.bradmcevoy.web.TransactionalFtpFilter">
+        <constructor-arg ref="endrick.root.context"/>
+    </bean>
+
+    <bean id="ftp.server" class="com.ettrema.ftp.MiltonFtpAdapter">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="ftp.user.manager"/>
+        <constructor-arg ref="clyde.transactional.ftp.filter"/>
+    </bean>
+-->
+</beans>
