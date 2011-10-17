@@ -20,6 +20,11 @@
 			<version>${milton.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>endrick-filesystem</artifactId>
+			<version>${endrick.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>6.0</version>

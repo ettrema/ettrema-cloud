@@ -29,7 +29,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="log.monitor" class="com.bradmcevoy.utils.LogMonitorService">
-        <constructor-arg value="src/main/resources/log4j.properties"/>
+        <constructor-arg value="${log.file}"/>
         <constructor-arg value="3000"/>
     </bean>
 

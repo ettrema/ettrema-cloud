@@ -32,6 +32,7 @@
                 <ref bean="aws.asynch.proc"/>
                 <ref bean="aws.queue.proc"/>
 				
+				<!-- Only for DEV!! -->
 				<ref bean="synch.file.watcher"/>
 
                 <!-- Initial server setup, then remove -->
