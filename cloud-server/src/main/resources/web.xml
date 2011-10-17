@@ -224,7 +224,7 @@
     </bean>
 
     <bean id="milton.protocol.http11" class="com.bradmcevoy.http.http11.Http11Protocol">
-        <constructor-arg ref="milton.response.handler.compressing" />
+        <constructor-arg ref="milton.response.handler" /> <!-- hack: disable compressing response handler until tomcat is sorted out -->
         <constructor-arg ref="milton.handler.helper"/>
     </bean>
 

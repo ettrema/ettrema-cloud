@@ -32,8 +32,13 @@ function initUser() {
 function initUserCookie() {
     userUrl = $.cookie('_clydeUser');
     if( userUrl && userUrl.length > 1 ) {
+        userUrl = dropQuotes(userUrl);
+        log("userurl", userUrl);
+        userUrl = dropHost(userUrl);
+        log("userurl", userUrl);
         userName = userUrl.substr(0, userUrl.length-1); // drop trailing slash
-        userName = userName.substr(userName.lastIndexOf("/")+1, userName.length-1);
+        var pos = userUrl.indexOf("users");
+        userName = userName.substring(pos+6);
         log('user:',userUrl, userName);
     } else {
         userName = null;
@@ -137,4 +142,21 @@ function setAccountDisabled(isDisabled, container) {
             alert("Sorry, the account could not be updated. Please check your internet connection");
         }
     });
+}
+
+function dropQuotes(s) {
+    if( s.startsWith("\"") ) {
+        s = s.substr(1);
+    }
+    if( s.endsWith("\"") ) {
+        s = s.substr(0, s.length-1);
+    }    
+    return s;
+}
+
+function dropHost(s) {
+    var pos = s.indexOf("/",8);
+    log("pos",pos);
+    s = s.substr(pos);
+    return s;
 }

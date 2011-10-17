@@ -278,7 +278,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="image.service" class="com.bradmcevoy.web.image.HiQualityImageService">
-        <constructor-arg value="/webs/image_cache"/>
+        <constructor-arg value="${image.working.dir}"/>
     </bean>
 
     <bean id="thumb.href.service" class="com.bradmcevoy.media.MediaThumbHrefService">
