@@ -5,6 +5,10 @@
 		<c:attributes>
 			<c:value name="title">Files</c:value>	
 		</c:attributes>
+		<c:thumbs>
+			<c:thumb id="_sys_thumb" h="150" w="150" />
+			<c:thumb id="_sys_reg" h="600" w="600" />
+		</c:thumbs>				
         <c:components>
             <c:subpage name="index.html" template="fileman">
 

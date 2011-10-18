@@ -9,8 +9,7 @@
 	<packaging>pom</packaging>
 	<name>ettrema-cloud</name>
 	<properties>
-		<clyde.version>1.2.3</clyde.version>
-		<clyde-modules.version>1.0.6</clyde-modules.version>
+		<clyde.version>1.2.4-SNAPSHOT</clyde.version>
 		<milton.version>1.6.7-SNAPSHOT</milton.version>
 		<endrick.version>1.7.5</endrick.version>
 		<berry.version>1.4</berry.version>

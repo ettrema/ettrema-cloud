@@ -357,7 +357,7 @@
 							</connectors>
 							<stopKey>stop</stopKey>
 							<stopPort>8089</stopPort>
-							<useTestClasspath>false</useTestClasspath>
+							<useTestClasspath>true</useTestClasspath>
 							<scanIntervalSeconds>0</scanIntervalSeconds>
 						</configuration>
 					</plugin>   					

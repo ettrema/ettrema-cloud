@@ -3,6 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
+<!--
+    <bean id="log.monitor" class="com.bradmcevoy.utils.LogMonitorService">
+        <constructor-arg value="${log.file}"/>
+        <constructor-arg value="3000"/>
+    </bean>
+-->	
     <bean id="berry" class="com.ettrema.berry.Berry" init-method="start">
         <constructor-arg ref="milton.http.manager"/>
         <!-- configure one of the http adapters above here. Eg simpleton or xlightweb -->
@@ -13,8 +19,9 @@
                 <ref bean="table.creator" />
 
                 <!-- Auto reload logging changes -->
+				<!--
                 <ref bean="log.monitor" />
-
+				-->
                 <ref bean="cache.datanodes.mem"/>
                 <ref bean="cache.lists.mem"/>
                 <ref bean="cache.parentids.mem"/>

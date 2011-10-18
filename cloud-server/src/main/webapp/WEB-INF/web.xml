@@ -6,6 +6,7 @@
 	 version="2.4">
                 
 	<!-- Needed for dev, but don't use for tomcat -->
+	<!--
 	<servlet>
 		<servlet-name>default</servlet-name>
 		<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
@@ -14,7 +15,8 @@
 			<param-value>false</param-value>
 		</init-param>
 		<load-on-startup>0</load-on-startup>
-	</servlet>				
+	</servlet>		
+	-->
 				
 	<filter>
 		<filter-name>miltonFilter</filter-name>

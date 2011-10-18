@@ -8,6 +8,10 @@
 			<c:text name="bodyClass" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:html name="body" rows="15" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
 		</c:fields>
+		<c:thumbs>
+			<c:thumb id="_sys_thumb" h="150" w="150" />
+			<c:thumb id="_sys_reg" h="600" w="600" />
+		</c:thumbs>				
 		<c:components>
 			<c:text name="allowedTemplates">+documentsFolder -*</c:text>
 			<c:subpage name="index.html" template="userPage">
