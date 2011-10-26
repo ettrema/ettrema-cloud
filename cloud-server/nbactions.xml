@@ -6,7 +6,7 @@
                 <goal>compile</goal>
             </goals>
             <activatedProfiles>
-                <activatedProfile>run</activatedProfile>
+                <activatedProfile>run-linux</activatedProfile>
             </activatedProfiles>
         </action>
         <action>
