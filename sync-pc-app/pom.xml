@@ -1,112 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ettrema</groupId>
-    <artifactId>sync-pc-app</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ettrema</groupId>
+	<artifactId>sync-pc-app</artifactId>
 	<parent>
 		<groupId>com.ettrema</groupId>
 		<artifactId>ettrema-cloud</artifactId>
 		<version>1.0-SNAPSHOT</version>		
 	</parent>
-    <packaging>jar</packaging>
-    <name>sync-pc-app</name>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>target/build</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+	<packaging>jar</packaging>
+	<name>sync-pc-app</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/build</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
 
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <finalName>shmego</finalName>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>com.ettrema.backup.BackupApplication</mainClass>
-                        </manifest>
-                    </archive>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>shmego</finalName>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>com.ettrema.backup.BackupApplication</mainClass>
+						</manifest>
+					</archive>
 
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-my-jar-with-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-            </plugin>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-my-jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
 
-        </plugins>
-    </build>
-    <properties>
-        <your.staging.dir>target/staging</your.staging.dir>
-    </properties>
+		</plugins>
+	</build>
+	<properties>
+		<your.staging.dir>target/staging</your.staging.dir>
+	</properties>
 
-    <dependencies>
+	<profiles>
+		<profile>
+			<id>run</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
+						<executions>
+							<execution>
+								<phase>compile</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<configuration>
+									<mainClass>com.ettrema.backup.BackupApplication</mainClass>
+									<classpathScope>runtime</classpathScope>
+								</configuration>							
+								
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
 		<dependency>
 			<groupId>com.ettrema</groupId>
 			<artifactId>milton-client</artifactId>
 			<version>${milton.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>com.ettrema</groupId>
-            <artifactId>sync-engine</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.ettrema</groupId>
+			<artifactId>sync-engine</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
-    </dependencies>
-    <repositories>
-        <repository>
-            <id>ettrema-repo</id>
-            <url>http://www.ettrema.com/maven2</url>
-        </repository>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>ettrema-repo</id>
+			<url>http://www.ettrema.com/maven2</url>
+		</repository>
 
-        <repository>
-            <name>ESSI-Lab repository</name>
-            <url>http://ulisse.pin.unifi.it:8081/nexus/content/groups/open.repos</url>
-            <id>jtree</id>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+		<repository>
+			<name>ESSI-Lab repository</name>
+			<url>http://ulisse.pin.unifi.it:8081/nexus/content/groups/open.repos</url>
+			<id>jtree</id>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>
