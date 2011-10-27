@@ -6,7 +6,7 @@
 
     <bean id="root.context.locator" class="com.ettrema.context.RootContextLocator"/>
 
-    <bean id="host.finder" class="com.bradmcevoy.web.HostFinder">
+    <bean id="host.finder" class="com.ettrema.web.HostFinder">
         <property name="hostMappings">
             <map>
                 <entry key="127.0.0.1" value="test.ppod.com" />
@@ -14,11 +14,11 @@
         </property>
     </bean>
 
-    <bean id="existing.resource.factory" class="com.bradmcevoy.web.ExistingResourceFactory">
+    <bean id="existing.resource.factory" class="com.ettrema.web.ExistingResourceFactory">
         <constructor-arg ref="host.finder"/>
     </bean>
 
-    <bean id="ajax.resource.factory" class="com.bradmcevoy.web.ajax.AjaxResourceFactory">
+    <bean id="ajax.resource.factory" class="com.ettrema.web.ajax.AjaxResourceFactory">
         <constructor-arg ref="new.resource.factory"/>
     </bean>
 
@@ -37,27 +37,27 @@
         <property name="maxAgeSecsPropFind" value="" />
     </bean>
 
-    <bean id="new.resource.factory" class="com.bradmcevoy.web.NewResourceFactory">
+    <bean id="new.resource.factory" class="com.ettrema.web.NewResourceFactory">
         <constructor-arg ref="existing.resource.factory"/>
         <constructor-arg ref="host.finder"/>
     </bean>
 
-    <bean id="source.resource.factory" class="com.bradmcevoy.web.SourceResourceFactory">
+    <bean id="source.resource.factory" class="com.ettrema.web.SourceResourceFactory">
         <constructor-arg ref="new.resource.factory"/>
         <constructor-arg ref="host.finder"/>
     </bean>
 
-    <bean id="code.resource.factory" class="com.bradmcevoy.web.code.CodeResourceFactory">
+    <bean id="code.resource.factory" class="com.ettrema.web.code.CodeResourceFactory">
         <constructor-arg ref="existing.resource.factory"/>
     </bean>
 
 
-    <bean id="edit.resource.factory" class="com.bradmcevoy.web.EditResourceFactory">
+    <bean id="edit.resource.factory" class="com.ettrema.web.EditResourceFactory">
         <constructor-arg ref="source.resource.factory"/>
         <constructor-arg ref="host.finder"/>
     </bean>
 
-    <bean id="indexpage.resource.factory" class="com.bradmcevoy.web.IndexPageResourceFactory">
+    <bean id="indexpage.resource.factory" class="com.ettrema.web.IndexPageResourceFactory">
         <constructor-arg ref="edit.resource.factory"/>
     </bean>
 
@@ -70,7 +70,7 @@
 	
     <bean id="servlet.resource.factory" class="com.bradmcevoy.http.ServletResourceFactory" autowire="constructor" />
 
-    <bean id="migration.helper" class="com.bradmcevoy.migrate.MigrationHelper">
+    <bean id="migration.helper" class="com.ettrema.migrate.MigrationHelper">
         <constructor-arg ref="code.resource.factory"/>
     </bean>
 
@@ -80,72 +80,72 @@
         <constructor-arg value="/.source" /> <!-- resource to test authentication against = host root -->
         <constructor-arg>
             <list>
-                <bean class="com.bradmcevoy.web.console2.ProcessScanFactory" />
-                <bean class="com.bradmcevoy.web.console2.GrantFactory" />
+                <bean class="com.ettrema.web.console2.ProcessScanFactory" />
+                <bean class="com.ettrema.web.console2.GrantFactory" />
                 <bean class="com.ettrema.console.RnFactory" />
                 <bean class="com.ettrema.console.LsFactory" >
                     <constructor-arg>
-                        <bean class="com.bradmcevoy.web.console2.ClydeLsResultFormatter"/>
+                        <bean class="com.ettrema.web.console2.ClydeLsResultFormatter"/>
                     </constructor-arg>
                 </bean>
                 <bean class="com.ettrema.console.CdFactory" />
-                <bean class="com.bradmcevoy.web.console2.RmFactory" />
+                <bean class="com.ettrema.web.console2.RmFactory" />
                 <bean class="com.ettrema.console.HelpFactory" />
                 <bean class="com.ettrema.console.CpFactory" />
-                <bean class="com.bradmcevoy.web.console2.MvFactory" />
-                <bean class="com.bradmcevoy.web.console2.SetPasswordFactory" />
-                <bean class="com.bradmcevoy.web.console2.MkFactory" />
+                <bean class="com.ettrema.web.console2.MvFactory" />
+                <bean class="com.ettrema.web.console2.SetPasswordFactory" />
+                <bean class="com.ettrema.web.console2.MkFactory" />
                 <bean class="com.ettrema.console.MkdirFactory" />
-                <bean class="com.bradmcevoy.web.console2.AliasFactory" />
-                <bean class="com.bradmcevoy.web.console2.MkHostFactory" />
-                <bean class="com.bradmcevoy.web.console2.MkUserFactory" />
+                <bean class="com.ettrema.web.console2.AliasFactory" />
+                <bean class="com.ettrema.web.console2.MkHostFactory" />
+                <bean class="com.ettrema.web.console2.MkUserFactory" />
                 <!--
-                <bean class="com.bradmcevoy.web.console2.SearchFactory" />
+                <bean class="com.ettrema.web.console2.SearchFactory" />
                 -->
-                <bean class="com.bradmcevoy.web.console2.EvalFactory" />
-                <bean class="com.bradmcevoy.web.console2.MvelFactory" />
+                <bean class="com.ettrema.web.console2.EvalFactory" />
+                <bean class="com.ettrema.web.console2.MvelFactory" />
                 <!--
-                <bean class="com.bradmcevoy.web.console2.ImportFactory" />
+                <bean class="com.ettrema.web.console2.ImportFactory" />
                 -->
                 <!--
-                <bean class="com.bradmcevoy.web.console2.ExportFactory" >
+                <bean class="com.ettrema.web.console2.ExportFactory" >
                     <constructor-arg ref="migration.helper"/>
                 </bean>
                 -->
-                <bean class="com.bradmcevoy.web.console2.DuFactory" />
-                <bean class="com.bradmcevoy.web.console2.RecreateFactory" />
-                <bean class="com.bradmcevoy.web.console2.GenThumbsFactory" >
+                <bean class="com.ettrema.web.console2.DuFactory" />
+                <bean class="com.ettrema.web.console2.RecreateFactory" />
+                <bean class="com.ettrema.web.console2.GenThumbsFactory" >
                     <constructor-arg ref="root.context.locator"/>
                     <property name="updateWall" value="false"/>
                 </bean>
-                <bean class="com.bradmcevoy.web.console2.PatchFactory" />
-                <bean class="com.bradmcevoy.web.console2.QueueFactory" >
+                <bean class="com.ettrema.web.console2.PatchFactory" />
+                <bean class="com.ettrema.web.console2.QueueFactory" >
                     <constructor-arg ref="queue.manager"/>
                     <property name="queueProcesor" ref="aws.queue.proc"/>
                     <property name="asyncProcessor" ref="aws.asynch.proc"/>
                 </bean>
-                <bean class="com.bradmcevoy.web.console2.S3CopyFactory" />
-                <bean class="com.bradmcevoy.web.console2.S3ListFactory" />
-                <bean class="com.bradmcevoy.web.console2.RelateFactory" />
-                <bean class="com.bradmcevoy.web.console2.LnFactory" />
-                <bean class="com.bradmcevoy.web.console2.GroupFactory" />
+                <bean class="com.ettrema.web.console2.S3CopyFactory" />
+                <bean class="com.ettrema.web.console2.S3ListFactory" />
+                <bean class="com.ettrema.web.console2.RelateFactory" />
+                <bean class="com.ettrema.web.console2.LnFactory" />
+                <bean class="com.ettrema.web.console2.GroupFactory" />
             </list>
         </constructor-arg>
         <constructor-arg value=""/> <!-- the web context path -->
     </bean>
 
-    <bean id="rss.resource.factory" class="com.bradmcevoy.web.recent.RssResourceFactory">
+    <bean id="rss.resource.factory" class="com.ettrema.web.recent.RssResourceFactory">
         <constructor-arg value="rss.xml"/>
         <constructor-arg ref="existing.resource.factory"/>
     </bean>
 
-    <bean id="mediafeed.resource.factory" class="com.bradmcevoy.media.MediaFeedResourceFactory">
+    <bean id="mediafeed.resource.factory" class="com.ettrema.media.MediaFeedResourceFactory">
         <constructor-arg value="media.xml"/>
         <constructor-arg ref="existing.resource.factory"/>
         <constructor-arg ref="media.log.service"/>
         <property name="cacheSeconds" value="0" />
         <property name="linkGenerator" >
-            <bean class="com.bradmcevoy.media.DefaultMediaLinkGenerator"/>
+            <bean class="com.ettrema.media.DefaultMediaLinkGenerator"/>
         </property>
     </bean>
 
@@ -170,12 +170,12 @@
         <constructor-arg value="604800"/> <!-- 60x60x24x7-->
     </bean>
 
-    <bean id="form.auth.handler" class="com.bradmcevoy.web.security.FormAuthenticationHandler">
+    <bean id="form.auth.handler" class="com.ettrema.web.security.FormAuthenticationHandler">
         <property name="userNameParam" value="_loginUserName"/>
         <property name="passwordParam" value="_loginPassword"/>
     </bean>
 
-    <bean id="cookie.auth.handler" class="com.bradmcevoy.web.security.CookieAuthenticationHandler">
+    <bean id="cookie.auth.handler" class="com.ettrema.web.security.CookieAuthenticationHandler">
         <constructor-arg>
             <list>
                 <ref bean="form.auth.handler"/>
@@ -199,7 +199,7 @@
         <property name="buffering" value="always"/>
     </bean>
 
-    <bean id="milton.response.handler" class="com.bradmcevoy.web.error.LoginResponseHandler">
+    <bean id="milton.response.handler" class="com.ettrema.web.error.LoginResponseHandler">
         <constructor-arg ref="standard.response.handler"/>
         <property name="loginPage" value="login.html" />
         <property name="resourceFactory" ref="existing.resource.factory"/>
@@ -246,7 +246,7 @@
                 <bean class="com.bradmcevoy.property.CustomPropertySource"/>
                 <bean class="com.bradmcevoy.property.MultiNamespaceCustomPropertySource"/>
                 <bean class="com.bradmcevoy.property.BeanPropertySource"/>
-                <bean class="com.bradmcevoy.web.ClydePropertySource"/>
+                <bean class="com.ettrema.web.ClydePropertySource"/>
             </list>
         </property>
     </bean>
@@ -259,7 +259,7 @@
         <constructor-arg ref="milton.property.sources"/>
     </bean>
 
-    <bean id="clyde.prop.patcher" class="com.bradmcevoy.web.ClydePropPatchSetter">
+    <bean id="clyde.prop.patcher" class="com.ettrema.web.ClydePropPatchSetter">
         <constructor-arg ref="milton.prop.patcher"/>
     </bean>
     
@@ -310,7 +310,7 @@
     </bean>
 
 
-    <bean id="clyde.security.manager" class="com.bradmcevoy.web.ClydeUserService">
+    <bean id="clyde.security.manager" class="com.ettrema.web.ClydeUserService">
         <constructor-arg ref="existing.resource.factory"/>
         <constructor-arg ref="endrick.root.context"/>
     </bean>
@@ -320,7 +320,7 @@
         <constructor-arg ref="clyde.security.manager"/>
     </bean>
 
-    <bean id="clyde.transactional.ftp.filter" class="com.bradmcevoy.web.TransactionalFtpFilter">
+    <bean id="clyde.transactional.ftp.filter" class="com.ettrema.web.TransactionalFtpFilter">
         <constructor-arg ref="endrick.root.context"/>
     </bean>
 
