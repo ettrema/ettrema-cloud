@@ -29,7 +29,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="log.monitor" class="com.ettrema.utils.LogMonitorService">
-        <constructor-arg value="src/main/resources/log4j.properties"/>
+        <constructor-arg value="${log.file}"/>
         <constructor-arg value="3000"/>
     </bean>
 
@@ -281,7 +281,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <property name="ffmpegProcess" value="${ffmpeg.process}"/>
     </bean>
 
-    <bean id="image.service" class="com.bradmcevoy.web.image.HiQualityImageService">
+    <bean id="image.service" class="com.ettrema.web.image.HiQualityImageService">
         <constructor-arg value="${image.working.dir}"/>
     </bean>
 

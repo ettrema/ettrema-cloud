@@ -6,7 +6,7 @@
 
     <import resource="init.xml"/>
     <import resource="caches.xml"/>
-    <import resource="web.xml"/>
+    <import resource="web-beans.xml"/>
     <import resource="env.xml"/>
     <import resource="app.xml"/>
     <import resource="startup.xml"/>
