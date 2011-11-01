@@ -12,8 +12,9 @@
 			<c:thumb id="_sys_thumb" h="150" w="150" />
 			<c:thumb id="_sys_reg" h="600" w="600" />
 		</c:thumbs>				
+		
 		<c:components>
-			<c:text name="allowedTemplates">+documentsFolder -*</c:text>
+			<c:text name="allowedTemplates">+picturesFolder -*</c:text>
 			<c:subpage name="index.html" template="userPage">
 				<c:attributes>
 					<c:value name="title">$folder.params.title.value</c:value>
@@ -22,22 +23,36 @@
 						<div id="contentHeading">
 							<button type="button" onclick="showCreateFolder()">New folder</button>
 							<h2>$folder.title</h2>
+						</div> 
+						<div class="albums">
+						#foreach($year in $user.albumTimeline($folder.url))
+						<div class="year">
+							<hr/>
+							<ul>
+							#foreach($month in $year)
+								<li class="month">
+									<h4>$month.monthName $year.year</h4>
+									<ul>
+									#foreach($album in $month)
+										<li class="album">
+											<a href="$album.mainPath">
+												<img src="$album.thumbPath1"/>
+											#if($album.thumbPath2)
+												<img src="$album.thumbPath2" style="display: none"/>
+											#end
+											#if($album.thumbPath3)
+												<img src="$album.thumbPath3" style="display: none"/>
+											#end											
+											</a>
+										</li>
+									#end
+									</ul>
+								</li>
+							#end
+							</ul>
 						</div>
-						#set($children = $folder.children)
-						#if( $children.size() == 0 )
-						<p>No files or folders here yet</p>
-						#else
-						<p>$children.size() files</p>
-						<ul>
-						#foreach($child in $children.ofType("folder"))
-						<li class="folder">$child.link</li>
 						#end
-						#foreach($child in $children.ofType("file"))
-						<li class="file">$child.link</li>
-						#end
-						#end
-						
-						</ul>
+						</div>
 					</c:value>
 					<c:value name="sidebar">
 								

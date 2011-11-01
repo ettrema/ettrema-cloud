@@ -19,9 +19,7 @@
                 <ref bean="table.creator" />
 
                 <!-- Auto reload logging changes -->
-				<!--
                 <ref bean="log.monitor" />
-				-->
                 <ref bean="cache.datanodes.mem"/>
                 <ref bean="cache.lists.mem"/>
                 <ref bean="cache.parentids.mem"/>

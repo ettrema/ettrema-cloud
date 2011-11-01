@@ -142,7 +142,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         </constructor-arg>
     </bean>
 
-    <bean id="media.log.service" class="com.ettrema.media.MediaLogService">
+    <bean id="media.log.service" class="com.ettrema.media.MediaLogServiceImpl">
         <constructor-arg ref="image.service"/>
         <constructor-arg ref="event.manager"/>
         <constructor-arg ref="thumb.href.service"/>

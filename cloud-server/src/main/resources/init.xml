@@ -11,11 +11,11 @@
 		<property name="locations" >
 			<list>
 		<!-- Default properties, should run out of the box -->
-		<value>classpath:default.properties</value>
+				<value>classpath:default.properties</value>
 				
 		<!-- This refers to an optional file which should be outside the WAR (ie in tomcat/shared/classes -->
 		<!-- It contains environment specific configuration, such as database connection information -->
-		<value>classpath:env.properties</value>				
+				<value>classpath:env.properties</value>				
 			</list>
 		</property>
 	</bean>

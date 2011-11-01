@@ -477,3 +477,10 @@ table.data td {
     padding: 4px 5px 5px;
 	text-align: center;
 }
+.albums li.album {
+	float: left;
+	display: block;
+}
+.albums li.month, div.year {
+	clear: both;
+}
