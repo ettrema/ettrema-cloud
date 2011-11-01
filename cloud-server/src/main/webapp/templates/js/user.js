@@ -32,8 +32,11 @@ function initUser() {
 function initUserCookie() {
     userUrl = $.cookie('_clydeUser');
     if( userUrl && userUrl.length > 1 ) {
+		// find the name part
         userName = userUrl.substr(0, userUrl.length-1); // drop trailing slash
         userName = userName.substr(userName.lastIndexOf("/")+1, userName.length-1);
+		// drop the protocol from userUrl to just have a path
+		userUrl = userUrl.substr(userUrl.indexOf("/",8));
         log('user:',userUrl, userName);
     } else {
         userName = null;

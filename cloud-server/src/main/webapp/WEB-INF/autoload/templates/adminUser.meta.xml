@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template instanceType="user" disableExport="false" template="normal">
+		<c:fields>
+			<c:password name="password" />						
+		</c:fields>
+		<c:permissions>
+			<c:userPerm path="/" role="ADMINISTRATOR"/>
+		</c:permissions>
+		<c:components>
+			<c:subpage name="files" template="fileman">
+				<c:attributes>
+					<c:value name="baseUrl">userUrl</c:value> <!-- js variable -->
+				</c:attributes>				
+			</c:subpage>
+			<c:subpage name="index.html" template="normal">
+				<c:attributes>
+					<c:value name="title">Admin Dashboard</c:value>
+					<c:value name="body">
+						<h2>Admin Dashboard</h2>
+						<a href="/users">Users page</a>
+					</c:value>
+				</c:attributes>
+			</c:subpage>
+			
+						
+		</c:components>
+	</c:template>
+</c:meta>
+

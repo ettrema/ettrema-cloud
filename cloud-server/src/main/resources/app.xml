@@ -44,12 +44,12 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg ref="root.context.locator"/>
     </bean>
     
-    <bean id="aws.asynch.proc" class="com.ettrema.grid.aws.AwsAsynchProcessor">
+    <bean id="asynch.proc" class="com.ettrema.grid.DefaultAsynchProcessor">
         <constructor-arg ref="root.context.locator"/>
         <constructor-arg ref="queue.manager"/>
     </bean>
 
-    <bean id="aws.queue.proc" class="com.ettrema.grid.aws.AwsQueueProcessor">
+    <bean id="queue.proc" class="com.ettrema.grid.DefaultQueueProcessor">
         <constructor-arg ref="root.context.locator"/>
         <constructor-arg ref="queue.manager"/>
         <constructor-arg value="${queue.proc.batchsize}"/>
@@ -268,7 +268,11 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     <bean id="thumb.selector" class="com.ettrema.thumbs.ThumbSelector"/>
 
     <bean id="thumb.generator.service" class="com.ettrema.media.ThumbGeneratorService">
-        <constructor-arg ref="root.context.locator"/>
+        <constructor-arg ref="vfs.provider.postgres"/>
+		<constructor-arg ref="event.manager"/>
+		<constructor-arg ref="thumbs.processor"/>
+		<constructor-arg ref="asynch.proc"/>
+		<constructor-arg ref="flash.service"/>
         <property name="mediaLogService" ref="media.log.service"/>
     </bean>
 
@@ -394,7 +398,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <bean class="com.ettrema.web.captcha.ReCaptchaService"/>
                 <ref bean="password.validation.service" />
                 <bean class="com.ettrema.web.security.MemoryPasswordRecoveryService"/>
-                <ref bean="aws.asynch.proc" />
+                <ref bean="asynch.proc" />
                 <ref bean="permissionChecker"/>
                 <bean class="com.ettrema.web.csv.CsvService">
                     <constructor-arg ref="formatter" />
@@ -430,7 +434,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <ref bean="thumb.href.service"/>
                 <ref bean="group.service"/>
                 <ref bean="media.log.service"/>
-                <ref bean="aws.asynch.proc"/>
+                <ref bean="asynch.proc"/>
             </list>
         </property>
     </bean>

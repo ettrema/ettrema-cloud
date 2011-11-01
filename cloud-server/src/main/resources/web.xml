@@ -121,8 +121,8 @@
                 <bean class="com.ettrema.web.console2.PatchFactory" />
                 <bean class="com.ettrema.web.console2.QueueFactory" >
                     <constructor-arg ref="queue.manager"/>
-                    <property name="queueProcesor" ref="aws.queue.proc"/>
-                    <property name="asyncProcessor" ref="aws.asynch.proc"/>
+                    <property name="queueProcesor" ref="queue.proc"/>
+                    <property name="asyncProcessor" ref="asynch.proc"/>
                 </bean>
                 <bean class="com.ettrema.web.console2.S3CopyFactory" />
                 <bean class="com.ettrema.web.console2.S3ListFactory" />

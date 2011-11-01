@@ -11,15 +11,15 @@
 			<c:value name="breadcrumbs">				
 				<ul>
 					<li class="cat-item">
-						<a href="${user.href}">Home</a>
+						<a href="${user.url}">Home</a>
 					</li>
 					<li class="cat-item">
-						<a href="${user.href}files">Files</a>
+						<a href="${user.url}files">Files</a>
 					</li>
 					#foreach($folder in $user.subFolders)
 						#if(!$folder.systemFolder)
 					<li class="cat-item">
-						<a href="${folder.href}">$folder.title</a>
+						<a href="${folder.url}">$folder.title</a>
 					</li>
 						#end					
 					#end

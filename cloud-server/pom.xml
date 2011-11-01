@@ -208,16 +208,6 @@
 			<version>${endrick.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.ettrema</groupId>
-			<artifactId>endrick-aws</artifactId>
-			<version>${endrick.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.ettrema</groupId>
-			<artifactId>endrick-s3</artifactId>
-			<version>${endrick.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.mina</groupId>
 			<artifactId>mina-core</artifactId>
 			<version>2.0.0-M6</version>

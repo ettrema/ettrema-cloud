@@ -29,8 +29,8 @@
                 <ref bean="thumb.generator.service"/>
                 <ref bean="mail.server.service"/>
 
-                <ref bean="aws.asynch.proc"/>
-                <ref bean="aws.queue.proc"/>
+                <ref bean="asynch.proc"/>
+                <ref bean="queue.proc"/>
 				
 				<ref bean="synch.file.watcher"/>
 
