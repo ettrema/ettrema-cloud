@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-    <c:folder secureRead="true" versioningEnabled="false" allowedTemplates="+user(ANONYMOUS,AUTHENTICATED) ">
+    <c:folder secureRead="true" versioningEnabled="false" allowedTemplates="+user(ANONYMOUS,AUTHENTICATED) +adminUser(ADMINISTRATOR,ADMINISTRATOR) ">
 		<c:attributes>
 			<c:value name="title">Files</c:value>	
 		</c:attributes>

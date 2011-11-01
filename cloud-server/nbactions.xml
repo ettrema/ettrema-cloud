@@ -3,10 +3,11 @@
         <action>
             <actionName>run</actionName>
             <goals>
+                <goal>jetty:stop</goal>
                 <goal>compile</goal>
             </goals>
             <activatedProfiles>
-                <activatedProfile>run</activatedProfile>
+                <activatedProfile>run-linux</activatedProfile>
             </activatedProfiles>
         </action>
         <action>

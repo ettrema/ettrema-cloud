@@ -215,7 +215,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	 * @return - the configuration directory
 	 */
 	private File initConfig() {
-		File fConfigDir = new File(System.getProperty("user.home") + "/.shmego");
+		File fConfigDir = new File(System.getProperty("user.home") + "/.ettrema");
 		configurator = new Configurator(fConfigDir);
 		config = configurator.load();
 		return fConfigDir;

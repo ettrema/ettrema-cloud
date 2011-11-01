@@ -4,9 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 
-    <bean id="demo.lock.manager" class="com.ettrema.http.fs.FsMemoryLockManager" />
+    <bean id="demo.lock.manager" class="com.bradmcevoy.http.fs.FsMemoryLockManager" />
 
-    <bean id="demo.security.manager" class="com.ettrema.http.fs.SimpleSecurityManager" >
+    <bean id="demo.security.manager" class="com.bradmcevoy.http.fs.SimpleSecurityManager" >
         <property name="realm" value="aRealm" />
         <property name="nameAndPasswords">
             <map>
@@ -18,7 +18,7 @@
     </bean>
 
 
-    <bean id="demo.resource.factory" class="com.ettrema.http.fs.FileSystemResourceFactory">
+    <bean id="demo.resource.factory" class="com.bradmcevoy.http.fs.FileSystemResourceFactory">
         <property name="securityManager" ref="demo.security.manager" />
         <property name="lockManager" ref="demo.lock.manager" />
         <property name="maxAgeSeconds" value="3600" />

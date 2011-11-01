@@ -47,7 +47,7 @@
 					#if($folder.is('folder') and !$folder.class.name.contains('Host') )
 					#if($user.hasRole("VIEWER",$folder))
 					<li class="page_item">
-						<a href="${folder.href}index.html">$folder.title</a>
+						<a href="${folder.url}index.html">$folder.title</a>
 					</li>
 					#end
 					#end

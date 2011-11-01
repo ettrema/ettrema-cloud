@@ -22,28 +22,34 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg value="brad@bradmcevoy.com" />
     </bean>
 
-    <bean id="error.notifier" class="com.bradmcevoy.web.manage.logging.WebErrorReporter">
+    <bean id="error.notifier" class="com.ettrema.web.manage.logging.WebErrorReporter">
         <constructor-arg ref="notifier" />
         <constructor-arg ref="current.user.service" />
         <constructor-arg ref="current.request.service" />
     </bean>
 
+    <bean id="log.monitor" class="com.ettrema.utils.LogMonitorService">
+        <constructor-arg value="src/main/resources/log4j.properties"/>
+        <constructor-arg value="3000"/>
+    </bean>
+
+
     <bean id="event.dispatcher" class="com.ettrema.event.ClydeEventDispatcherImpl"/>
 
-    <bean id="mail.resource.factory" class="com.bradmcevoy.web.ClydeMailResourceFactory">
+    <bean id="mail.resource.factory" class="com.ettrema.web.ClydeMailResourceFactory">
         <constructor-arg ref="existing.resource.factory"/>
     </bean>
 
-    <bean id="clyde.timer.service" class="com.bradmcevoy.process.ClydeTimerService">
+    <bean id="clyde.timer.service" class="com.ettrema.process.ClydeTimerService">
         <constructor-arg ref="root.context.locator"/>
     </bean>
     
-    <bean id="aws.asynch.proc" class="com.ettrema.grid.aws.AwsAsynchProcessor">
+    <bean id="asynch.proc" class="com.ettrema.grid.DefaultAsynchProcessor">
         <constructor-arg ref="root.context.locator"/>
         <constructor-arg ref="queue.manager"/>
     </bean>
 
-    <bean id="aws.queue.proc" class="com.ettrema.grid.aws.AwsQueueProcessor">
+    <bean id="queue.proc" class="com.ettrema.grid.DefaultQueueProcessor">
         <constructor-arg ref="root.context.locator"/>
         <constructor-arg ref="queue.manager"/>
         <constructor-arg value="${queue.proc.batchsize}"/>
@@ -59,22 +65,22 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg ref="cache.datanodes.mem"/>
     </bean>
 
-    <bean id="authenticator" class="com.bradmcevoy.web.security.EmailAuthenticator">
+    <bean id="authenticator" class="com.ettrema.web.security.EmailAuthenticator">
         <constructor-arg ref="recursive.authenticator"/>
     </bean>
 
     <!-- unqualified names are recursively validated against each host in the tree, starting with the current. Qualified names are authenticated against the named host-->
-    <bean id="recursive.authenticator" class="com.bradmcevoy.web.security.RecursiveAuthenticator"/>
+    <bean id="recursive.authenticator" class="com.ettrema.web.security.RecursiveAuthenticator"/>
 
-    <bean id="facebook.manager" class="com.bradmcevoy.facebook.FaceBookGalleryManagerImpl"/>
+    <bean id="facebook.manager" class="com.ettrema.facebook.FaceBookGalleryManagerImpl"/>
 
-    <bean id="standardPermissionChecker" class="com.bradmcevoy.web.security.ClydePermissionChecker"/>
+    <bean id="standardPermissionChecker" class="com.ettrema.web.security.ClydePermissionChecker"/>
 
-    <bean id="userEditPermissionChecker" class="com.bradmcevoy.web.security.EditOwnUserPermissionChecker">
+    <bean id="userEditPermissionChecker" class="com.ettrema.web.security.EditOwnUserPermissionChecker">
         <constructor-arg ref="standardPermissionChecker"/>
     </bean>
 
-    <bean id="permissionChecker" class="com.bradmcevoy.web.security.SysAdminPermissionChecker">
+    <bean id="permissionChecker" class="com.ettrema.web.security.SysAdminPermissionChecker">
         <constructor-arg ref="userEditPermissionChecker"/>
         <constructor-arg>
             <list>
@@ -83,15 +89,15 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         </constructor-arg>
     </bean>
 
-    <bean id="authoring.permission.service" class="com.bradmcevoy.utils.DefaultAuthoringPermissionService"/>
+    <bean id="authoring.permission.service" class="com.ettrema.utils.DefaultAuthoringPermissionService"/>
 
-    <bean id="permissions.authoriser" class="com.bradmcevoy.web.security.PermissionsAuthoriser">
+    <bean id="permissions.authoriser" class="com.ettrema.web.security.PermissionsAuthoriser">
         <constructor-arg ref="permissionChecker"/>
         <constructor-arg ref="authoring.permission.service"/>
     </bean>
 
     <!-- this will disallow non-logged in access to secureRead resources-->
-    <bean id="secureread.authoriser" class="com.bradmcevoy.web.security.SecureReadAuthoriser">
+    <bean id="secureread.authoriser" class="com.ettrema.web.security.SecureReadAuthoriser">
         <constructor-arg ref="permissions.authoriser"/>
         <property name="securePropfind" value="false"/>
         <property name="securePropFindUserAgents" >
@@ -103,7 +109,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
 
     <!-- allow root users to do anything -->
     <!-- disabled for dev because is always root domain
-    <bean id="rootdomain.authoriser" class="com.bradmcevoy.web.security.RootDomainAuthoriser">
+    <bean id="rootdomain.authoriser" class="com.ettrema.web.security.RootDomainAuthoriser">
         <constructor-arg>
             <list>
                 <value>${sys.admin.domain}</value>
@@ -113,7 +119,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
      -->
 
     <!-- Only allow users defined on the root domain to manage source-->
-    <bean id="sourcepage.authoriser" class="com.bradmcevoy.web.security.AdminOnlySourcePageAuthoriser">
+    <bean id="sourcepage.authoriser" class="com.ettrema.web.security.AdminOnlySourcePageAuthoriser">
         <constructor-arg>
             <list>
                 <value>${sys.admin.domain}</value>
@@ -121,7 +127,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         </constructor-arg>
     </bean>
 
-    <bean id="authoriser" class="com.bradmcevoy.web.security.MultipleAuthoriser">
+    <bean id="authoriser" class="com.ettrema.web.security.MultipleAuthoriser">
         <constructor-arg>
             <list>
                 <ref bean="sourcepage.authoriser"/>
@@ -131,19 +137,19 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <ref bean="secureread.authoriser"/>
 
                 <!-- this will ensure that PROPFIND requests can only come from logged in users -->
-                <bean class="com.bradmcevoy.web.security.SecurePropFindAuthoriser"/>
+                <bean class="com.ettrema.web.security.SecurePropFindAuthoriser"/>
             </list>
         </constructor-arg>
     </bean>
 
-    <bean id="media.log.service" class="com.bradmcevoy.media.MediaLogService">
+    <bean id="media.log.service" class="com.ettrema.media.MediaLogService">
         <constructor-arg ref="image.service"/>
         <constructor-arg ref="event.manager"/>
         <constructor-arg ref="thumb.href.service"/>
         <property name="pageSize" value="50" />
     </bean>
 
-    <bean id="mail.filter" class="com.bradmcevoy.web.ClydeMailFilter" >
+    <bean id="mail.filter" class="com.ettrema.web.ClydeMailFilter" >
         <property name="contextLocator" ref="root.context.locator"/>
     </bean>
 
@@ -186,7 +192,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg ref="mail.server"/>
     </bean>
 
-    <bean id="vfs.helper" class="com.bradmcevoy.web.VfsHelper"/>
+    <bean id="vfs.helper" class="com.ettrema.web.VfsHelper"/>
 
     <bean id="ctx.jdbc" class="com.ettrema.context.CtxJdbcConnectionFactory">
         <constructor-arg value="${db.url}"/>
@@ -197,51 +203,51 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <property name="poolPreparedStatements" value="true"/>
     </bean>
 
-    <bean id="resource.creator" class="com.bradmcevoy.web.creation.PluggableResourceCreator">
+    <bean id="resource.creator" class="com.ettrema.web.creation.PluggableResourceCreator">
         <property name="extraCreators">
             <list>
-                <bean class="com.bradmcevoy.web.calendar.CalendarCreator" />
+                <bean class="com.ettrema.web.calendar.CalendarCreator" />
             </list>
         </property>
     </bean>
 
-    <bean id="template.manager.base" class="com.bradmcevoy.web.TemplateManagerImpl"/>
+    <bean id="template.manager.base" class="com.ettrema.web.TemplateManagerImpl"/>
 
-    <bean id="template.manager" class="com.bradmcevoy.web.RelativeTemplateManager">
+    <bean id="template.manager" class="com.ettrema.web.RelativeTemplateManager">
         <constructor-arg ref="template.manager.base"/>
     </bean>
 
-    <bean id="base.binary.service" class="com.bradmcevoy.binary.DefaultClydeBinaryService"/>
+    <bean id="base.binary.service" class="com.ettrema.binary.DefaultClydeBinaryService"/>
 
-    <bean id="clyde.binary.service" class="com.bradmcevoy.binary.VersioningBinaryManagerService">
+    <bean id="clyde.binary.service" class="com.ettrema.binary.VersioningBinaryManagerService">
         <constructor-arg ref="base.binary.service"/>
     </bean>
 
     <bean id="event.manager" class="com.ettrema.event.EventManagerImpl"/>
 <!--
-    <bean id="recent.manager" class="com.bradmcevoy.web.recent.RecentManager">
+    <bean id="recent.manager" class="com.ettrema.web.recent.RecentManager">
         <constructor-arg ref="event.manager"/>
     </bean>
 -->
-    <bean id="current.user.service" class="com.bradmcevoy.web.security.HttpCurrentUserService"/>
+    <bean id="current.user.service" class="com.ettrema.web.security.HttpCurrentUserService"/>
 
-    <bean id="current.request.service" class="com.bradmcevoy.utils.CurrentRequestService"/>
+    <bean id="current.request.service" class="com.ettrema.utils.CurrentRequestService"/>
 
-    <bean id="request.service" class="com.bradmcevoy.utils.RequestService">
+    <bean id="request.service" class="com.ettrema.utils.RequestService">
         <constructor-arg ref="current.request.service"/>
     </bean>
 
-    <bean id="href.service" class="com.bradmcevoy.utils.HrefService">
+    <bean id="href.service" class="com.ettrema.utils.HrefService">
         <constructor-arg ref="request.service"/>
     </bean>
 
-    <bean id="default.redirect.service" class="com.bradmcevoy.utils.DefaultRedirectService"/>
+    <bean id="default.redirect.service" class="com.ettrema.utils.DefaultRedirectService"/>
 
-    <bean id="folder.redirect.service" class="com.bradmcevoy.utils.FolderRedirectService">
+    <bean id="folder.redirect.service" class="com.ettrema.utils.FolderRedirectService">
 		<property name="redirectPage" value="" />
 	</bean>
 
-    <bean id="redirect.service" class="com.bradmcevoy.utils.MultiRedirectService">
+    <bean id="redirect.service" class="com.ettrema.utils.MultiRedirectService">
         <constructor-arg>
             <list>
                 <ref bean="default.redirect.service"/>
@@ -250,23 +256,27 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         </constructor-arg>
     </bean>
 
-    <bean id="theme.finder" class="com.bradmcevoy.web.children.ThemeFinder"/>
+    <bean id="theme.finder" class="com.ettrema.web.children.ThemeFinder"/>
 
-    <bean id="default.child.finder" class="com.bradmcevoy.web.children.DefaultChildFinder"/>
+    <bean id="default.child.finder" class="com.ettrema.web.children.DefaultChildFinder"/>
 
-    <bean id="child.finder" class="com.bradmcevoy.web.children.ThemeResourceChildFinder">
+    <bean id="child.finder" class="com.ettrema.web.children.ThemeResourceChildFinder">
         <constructor-arg ref="theme.finder"/>
         <constructor-arg ref="default.child.finder"/>
     </bean>
 
-    <bean id="thumb.selector" class="com.bradmcevoy.thumbs.ThumbSelector"/>
+    <bean id="thumb.selector" class="com.ettrema.thumbs.ThumbSelector"/>
 
-    <bean id="thumb.generator.service" class="com.bradmcevoy.media.ThumbGeneratorService">
-        <constructor-arg ref="root.context.locator"/>
+    <bean id="thumb.generator.service" class="com.ettrema.media.ThumbGeneratorService">
+        <constructor-arg ref="vfs.provider.postgres"/>
+		<constructor-arg ref="event.manager"/>
+		<constructor-arg ref="thumbs.processor"/>
+		<constructor-arg ref="asynch.proc"/>
+		<constructor-arg ref="flash.service"/>
         <property name="mediaLogService" ref="media.log.service"/>
     </bean>
 
-    <bean id="flash.service" class="com.bradmcevoy.video.FlashService">
+    <bean id="flash.service" class="com.ettrema.video.FlashService">
         <property name="mediaLogService" ref="media.log.service"/>
         <property name="ffmpegProcess" value="${ffmpeg.process}"/>
     </bean>
@@ -275,32 +285,32 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg value="${image.working.dir}"/>
     </bean>
 
-    <bean id="thumb.href.service" class="com.bradmcevoy.media.MediaThumbHrefService">
+    <bean id="thumb.href.service" class="com.ettrema.media.MediaThumbHrefService">
         <property name="prefixWithHost" value="false"/>
         <property name="rootPrefix" value=""/>
     </bean>
 
-    <bean id="group.service" class="com.bradmcevoy.web.groups.RelationalGroupHelper" >
+    <bean id="group.service" class="com.ettrema.web.groups.RelationalGroupHelper" >
         <constructor-arg ref="permissionChecker"/>
     </bean>
 
-    <bean id="password.validation.service" class="com.bradmcevoy.web.security.RegexPasswordValidationService">
+    <bean id="password.validation.service" class="com.ettrema.web.security.RegexPasswordValidationService">
         <constructor-arg>
-            <bean class="com.bradmcevoy.web.security.SimplePasswordValidationService"/>
+            <bean class="com.ettrema.web.security.SimplePasswordValidationService"/>
         </constructor-arg>
     </bean>
 
-    <bean id="password.storage.service" class="com.bradmcevoy.web.security.PasswordStorageService">
+    <bean id="password.storage.service" class="com.ettrema.web.security.PasswordStorageService">
         <constructor-arg ref="password.validation.service" />
     </bean>
 
-    <bean id="current.date.service" class="com.bradmcevoy.utils.MutableCurrentDateService"/>
+    <bean id="current.date.service" class="com.ettrema.utils.MutableCurrentDateService"/>
 
-    <bean id="formatter" class="com.bradmcevoy.web.Formatter">
+    <bean id="formatter" class="com.ettrema.web.Formatter">
         <constructor-arg ref="current.date.service" />
     </bean>
 
-    <bean id="thumbs.processor" class="com.bradmcevoy.media.ImageServiceThumbProcessor">
+    <bean id="thumbs.processor" class="com.ettrema.media.ImageServiceThumbProcessor">
         <constructor-arg ref="image.service" />
     </bean>
 
@@ -354,27 +364,27 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 </bean>
 
                 <bean class="com.ettrema.context.BeanFactory">
-                    <property name="beanClass" value="com.bradmcevoy.web.captcha.CaptchaServiceImpl"/>
+                    <property name="beanClass" value="com.ettrema.web.captcha.CaptchaServiceImpl"/>
                 </bean>
 
                 <bean class="com.ettrema.context.BeanFactory">
-                    <property name="beanClass" value="com.bradmcevoy.web.mail.MailProcessorImpl"/>
+                    <property name="beanClass" value="com.ettrema.web.mail.MailProcessorImpl"/>
                 </bean>
                 <bean class="com.ettrema.context.BeanFactory">
-                    <property name="beanClass" value="com.bradmcevoy.web.mail.MimeMessageParserImpl"/>
+                    <property name="beanClass" value="com.ettrema.web.mail.MimeMessageParserImpl"/>
                 </bean>
                 <bean class="com.ettrema.context.BeanFactory">
-                    <property name="beanClass" value="com.bradmcevoy.web.mail.GroupMessageSenderImpl"/>
+                    <property name="beanClass" value="com.ettrema.web.mail.GroupMessageSenderImpl"/>
                 </bean>
                 <bean class="com.ettrema.context.BeanFactory">
-                    <property name="beanClass" value="com.bradmcevoy.web.mail.VelocityTemplater"/>
+                    <property name="beanClass" value="com.ettrema.web.mail.VelocityTemplater"/>
                 </bean>
 
                 <bean class="com.ettrema.context.SingletonFactory">
                     <property name="bean" ref="resource.creator"/>
                 </bean>
                 
-                <bean class="com.bradmcevoy.media.ClydeMediaService"/>
+                <bean class="com.ettrema.media.ClydeMediaService"/>
             </list>
         </property>
         <property name="singletons">
@@ -385,15 +395,15 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <ref local="current.date.service"/>
                 <ref local="clyde.timer.service" />
                 <ref bean="password.storage.service" />
-                <bean class="com.bradmcevoy.web.captcha.ReCaptchaService"/>
+                <bean class="com.ettrema.web.captcha.ReCaptchaService"/>
                 <ref bean="password.validation.service" />
-                <bean class="com.bradmcevoy.web.security.MemoryPasswordRecoveryService"/>
-                <ref bean="aws.asynch.proc" />
+                <bean class="com.ettrema.web.security.MemoryPasswordRecoveryService"/>
+                <ref bean="asynch.proc" />
                 <ref bean="permissionChecker"/>
-                <bean class="com.bradmcevoy.web.csv.CsvService">
+                <bean class="com.ettrema.web.csv.CsvService">
                     <constructor-arg ref="formatter" />
                 </bean>
-                <bean class="com.bradmcevoy.web.comments.CommentServiceImpl"/>
+                <bean class="com.ettrema.web.comments.CommentServiceImpl"/>
                 <ref bean="cookie.auth.handler"/>
                 <ref bean="event.dispatcher"/>
                 <ref bean="current.request.service"/>
@@ -408,12 +418,12 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <ref bean="authoring.permission.service" />
                 <ref bean="theme.finder"/>
                 <ref bean="child.finder"/>
-                <bean class="com.bradmcevoy.web.locking.ClydeLockManagerImpl">
+                <bean class="com.ettrema.web.locking.ClydeLockManagerImpl">
                     <constructor-arg ref="current.user.service"/>
                 </bean>
-                <bean class="com.bradmcevoy.web.creation.NameIdCreatorService">
+                <bean class="com.ettrema.web.creation.NameIdCreatorService">
                     <constructor-arg>
-                        <bean class="com.bradmcevoy.web.creation.RelationshipCreatorService"/>
+                        <bean class="com.ettrema.web.creation.RelationshipCreatorService"/>
                     </constructor-arg>
                 </bean>
                 <ref bean="thumb.selector"/>
@@ -424,7 +434,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 <ref bean="thumb.href.service"/>
                 <ref bean="group.service"/>
                 <ref bean="media.log.service"/>
-                <ref bean="aws.asynch.proc"/>
+                <ref bean="asynch.proc"/>
             </list>
         </property>
     </bean>
@@ -442,7 +452,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
 
-    <bean id="clyde.app" class="com.bradmcevoy.web.ClydeApp">
+    <bean id="clyde.app" class="com.ettrema.web.ClydeApp">
         <constructor-arg ref="endrick.root.context"/>
         <constructor-arg ref="milton.http.manager"/>
         <constructor-arg value="false" /> <!-- disable stats-->

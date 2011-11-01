@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+			 xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+					http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+					>
 		   
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:app.properties"/>
-    </bean>
+	<util:list id="propertyFiles">
+		<!-- Default properties, should run out of the box -->
+		<value>classpath:default.properties</value>
+				
+		<!-- This refers to an optional file which should be outside the WAR (ie in tomcat/shared/classes -->
+		<!-- It contains environment specific configuration, such as database connection information -->
+		<value>classpath:env.properties</value>
+	</util:list>
 
-    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-        <property name="customEditors">
-            <map>
-                <entry key="java.util.Date">
-                    <bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
-                        <constructor-arg index="0">
-                            <bean class="java.text.SimpleDateFormat">
-                                <constructor-arg>
-                                    <value>M/d/yy</value>
-                                </constructor-arg>
-                            </bean>
-                        </constructor-arg>
-                        <constructor-arg index="1">
-                            <value>true</value>
-                        </constructor-arg>
-                    </bean>
-                </entry>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+		<property name="ignoreResourceNotFound" value="true"/>
+		<property name="locations" ref="propertyFiles" />
+	</bean>
 
-            </map>
-        </property>
-    </bean>
+	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="java.util.Date">
+					<bean class="org.springframework.beans.propertyeditors.CustomDateEditor">
+						<constructor-arg index="0">
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg>
+									<value>M/d/yy</value>
+								</constructor-arg>
+							</bean>
+						</constructor-arg>
+						<constructor-arg index="1">
+							<value>true</value>
+						</constructor-arg>
+					</bean>
+				</entry>
+
+			</map>
+		</property>
+	</bean>
 </beans>
