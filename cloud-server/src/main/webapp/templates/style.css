@@ -481,6 +481,15 @@ table.data td {
 	float: left;
 	display: block;
 }
-.albums li.month, div.year {
+.albums li.month, div.year, hr {
 	clear: both;
+}
+.album img {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border: 1px solid #BBBBBB;
+    padding: 10px;
+	margin: 5px 10px;
+}
+.year {
+	margin-bottom: 10px;
 }

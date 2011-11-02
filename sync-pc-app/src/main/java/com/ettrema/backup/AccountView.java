@@ -16,6 +16,7 @@ import com.ettrema.backup.config.Job;
 import javax.swing.ImageIcon;
 import com.ettrema.backup.engine.Engine;
 import com.ettrema.backup.engine.FileWatcher;
+import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.event.EventManager;
 import com.ettrema.httpclient.ProxyDetails;
 import org.jdesktop.application.Action;
@@ -100,10 +101,12 @@ public class AccountView extends javax.swing.JFrame {
 			config.getJobs().add(jobToSave);
 		}
 		engine.cancelScan(); // if scanning, cancel it so new changes can take effect
-		userPanel.save(jobToSave);
-		backupLocations1.save(jobToSave);
+		String accPath = config.getMediaLoungePath(userPanel.getAccountName());
+		userPanel.save(accPath, jobToSave);		
+		backupLocations1.save("", jobToSave);
 		jobToSave.getConfig().save();
 		_(FileWatcher.class).scanNow();
+		_(QueueManager.class).setPaused(false);
 		doClose();
 	}
 

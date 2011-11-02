@@ -13,14 +13,14 @@
 
 					#foreach($folder in $targetPage.parents.reverse)
 					<li class="cat-item">
-						<a href="${folder.href}index.html">$folder.title</a>
+						<a href="${folder.url}index.html">$folder.title</a>
 					</li>
 					#end	
 
 					#foreach($folder in $folder.subFolders)
 						#if(!$folder.systemFolder)
 					<li class="cat-item">
-						<a href="${folder.href}index.html">$folder.title</a>
+						<a href="${folder.url}index.html">$folder.title</a>
 					</li>
 						#end					
 					#end

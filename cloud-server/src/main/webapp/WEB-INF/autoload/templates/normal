@@ -63,7 +63,7 @@
 						<a href="javascript:doLogout()" shape="rect">Log out</a>
 					</li>					
 					<li class="user_item">
-						<a href="${user.href}.edit" style="text-align: right" shape="rect">
+						<a href="${user.url}.edit" style="text-align: right" shape="rect">
 							<span>$user.name</span>
 						</a>
 					</li>

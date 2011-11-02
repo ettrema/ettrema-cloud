@@ -28,7 +28,7 @@
 					</div>	 
 
 					<h1 class="maintitle fleft">
-						<a title="Permanent Link to $blog.title" rel="bookmark" href="$blog.href">$blog.title</a>
+						<a title="Permanent Link to $blog.title" rel="bookmark" href="$blog.url">$blog.title</a>
 					</h1>
 					<br class="clear"/>
 				</div>
@@ -36,7 +36,7 @@
 				<div class="entry">
 					$blog.brief
 					<p> 
-						<a class="more-link" href="$blog.href">Read the rest of this entry >></a>
+						<a class="more-link" href="$blog.url">Read the rest of this entry >></a>
 					</p>
 					<p class="postinfo">
 						<span class="category">Filed under - $blog.parent.link</span> 			 

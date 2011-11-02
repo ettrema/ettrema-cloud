@@ -158,6 +158,6 @@ public class Config extends AbstractObservable {
 	}	
 	
 	public String getMediaLoungePath(String user) {
-		return getSites() + "/" + user;
+		return getSites() + "/" + user + "/";
 	}
 }

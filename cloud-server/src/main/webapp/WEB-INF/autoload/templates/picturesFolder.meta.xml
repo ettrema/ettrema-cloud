@@ -27,7 +27,6 @@
 						<div class="albums">
 						#foreach($year in $user.albumTimeline($folder.url))
 						<div class="year">
-							<hr/>
 							<ul>
 							#foreach($month in $year)
 								<li class="month">
@@ -50,6 +49,7 @@
 								</li>
 							#end
 							</ul>
+							<hr/>							
 						</div>
 						#end
 						</div>

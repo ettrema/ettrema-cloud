@@ -209,18 +209,27 @@ public class ExistingUserPanel extends javax.swing.JPanel {
         this.txtPassword.setText(davRepo.getPwd());
     }
 
-    void save(Job job) {
+    public void save(String accPath, Job job) {
         for( Repo r : job.getRepos() ) {
             if( r instanceof DavRepo ) {
-                saveRepo((DavRepo)r);
+                saveRepo(accPath, (DavRepo)r);
             }
         }        
     }
 
-    private void saveRepo(DavRepo davRepo) {
-		davRepo.setHostName(txtHost.getText());
+    private void saveRepo(String accPath, DavRepo davRepo) {
+		String[] arr = txtHost.getText().split(":");
+		davRepo.setHostName(arr[0]);
+		if( arr.length > 1) {
+			int port = Integer.parseInt(arr[1]);
+			davRepo.setPort(port);
+		} else {
+			davRepo.setPort(80);
+		}
         davRepo.setUser(txtAccountName.getText());
         davRepo.setPwd(txtPassword.getPassword()); 
+		davRepo.setRootPath(accPath);
+		
     }
 
 }

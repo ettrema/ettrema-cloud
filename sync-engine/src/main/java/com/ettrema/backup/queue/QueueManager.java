@@ -25,8 +25,9 @@ public class QueueManager implements Observer {
     // working fields
     private long minStableMs = 1000;
     //private ScheduledFuture scheduledTask;
-    private boolean wasPaused;
     private List<Thread> queueProcessors = new ArrayList<Thread>();
+	
+	private boolean isRunning;
 
     public QueueManager( Config config, EventManager eventManager, HistoryDao historyDao, List<QueueItemHandler> handlers, ScheduledExecutorService svc ) {
         this.svc = svc;
@@ -38,7 +39,12 @@ public class QueueManager implements Observer {
     }
 
     public synchronized void startThread() {
+		if( isRunning ) {
+			log.warn("QueueManager is already running");
+			return ;
+		}
         log.trace( "starting queue processing thread" );
+		isRunning = true;
         for( Job job : config.getJobs() ) {
             for( Repo repo : job.getRepos() ) {
                 QueueProcessor proc = new QueueProcessor(eventManager, job, repo, repo.getQueue(), handlers, historyDao );
@@ -54,6 +60,7 @@ public class QueueManager implements Observer {
         for( Thread t : queueProcessors ) {
             t.interrupt();
         }
+		isRunning = false;
     }
 
     public long getMinStableMs() {
@@ -68,11 +75,11 @@ public class QueueManager implements Observer {
         return config.isPaused();
     }
 
-    public void setPaused( boolean b ) {
-        if( b != wasPaused ) {
-            log.trace( "setPaused : " + b );
-            wasPaused = b;
-            if( wasPaused ) {
+    public void setPaused( boolean newPauseState ) {
+		boolean oldPauseState = !isRunning;
+        if( newPauseState != oldPauseState ) {
+            log.trace( "setPaused : " + newPauseState );
+            if( newPauseState ) {
                 stopThread();
             } else {
                 startThread();
@@ -80,12 +87,15 @@ public class QueueManager implements Observer {
         }
     }
 
+	@Override
     public void onAdded( Object t, Object parent ) {
     }
 
+	@Override
     public void onRemoved( Object t, Object parent, Integer indexOf ) {
     }
 
+	@Override
     public void onUpdated( Object t, Object parent ) {
         if( t instanceof Config ) {
             setPaused( config.isPaused() );

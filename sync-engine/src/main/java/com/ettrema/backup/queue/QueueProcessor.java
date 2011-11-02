@@ -66,8 +66,10 @@ public class QueueProcessor implements Runnable {
                     if( retry == null ) {
 						System.out.println("QUEUE: take");
                         QueueItem item = queue.take();
+						System.out.println("QUEUE: process: " + item);
                         EventUtils.fireQuietly( new QueueProcessEvent( item, QueueProcessEvent.Status.PROCESSING ) );
                         start( item );
+						System.out.println("QUEUE: finished process: " + item);
                     } else {
 						System.out.println("QUEUE: retry");
                         log.trace( "retry: " + retry.getFileName() );

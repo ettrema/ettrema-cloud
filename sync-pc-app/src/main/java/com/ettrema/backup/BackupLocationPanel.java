@@ -227,10 +227,10 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtFolder;
     // End of variables declaration//GEN-END:variables
 
-    public Root toRoot(Job job) {
+    public Root toRoot(String accountPath, Job job) {
         boolean en = txtFolder.getText().length() > 0;
         if (en) {
-            Root root = new Root(txtFolder.getText(), "files/" + lblName.getText());
+            Root root = new Root(txtFolder.getText(), accountPath + "/" + lblName.getText());
             root.setJob(job);
             List<Dir> excludedDirs = new ArrayList<Dir>();
             if (excludedFolders != null) {

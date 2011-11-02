@@ -48,30 +48,7 @@ public class LocalCrcDaoImpl implements LocalCrcDao {
 
             @Override
             public void onCreate(Table t, Connection con) {
-                if (t.tableName.equals(VERSION.tableName)) {
-                    checkUpgradeOfVersionTable(con);
-                }
-            }
 
-            private void checkUpgradeOfVersionTable(Connection con) {
-                try {
-                    VersionTable oldTable = new VersionTable();
-                    CallableStatement stmt = con.prepareCall(oldTable.getSelect());
-                    ResultSet rs = stmt.executeQuery();
-                    int num = 0;
-                    while (rs.next()) {
-                        File f = new File(oldTable.path.get(rs));
-                        String repo = oldTable.repo.get(rs);
-                        long crc = oldTable.crc.get(rs);
-                        Date date = oldTable.date.get(rs);
-
-                        Timestamp ts = new Timestamp(date.getTime());
-                        insertVersion(con, f, crc, repo, ts);
-                        num++;
-                    }
-                } catch (SQLException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         };
         final TableCreatorService creatorService = new TableCreatorService(null, Arrays.asList(defs), dialect);

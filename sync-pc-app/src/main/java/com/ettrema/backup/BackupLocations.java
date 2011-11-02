@@ -258,17 +258,17 @@ public class BackupLocations extends javax.swing.JPanel {
         txtOtherDevice.setText(localRepo.getTarget().getAbsolutePath());
     }
 
-    void save(Job job) {
+    void save(String accPath, Job job) {
         job.getRoots().clear();
-        for( Root root : getRoots( job ) ) {
+        for( Root root : getRoots(accPath, job ) ) {
             job.getRoots().add( root );
         }        
     }
     
-    public List<Root> getRoots(Job job) {
+    public List<Root> getRoots(String accPath, Job job) {
         List<Root> list = new ArrayList<Root>();
         for( BackupLocationPanel pnl : locationPanels ) {
-            Root root = pnl.toRoot(job);
+            Root root = pnl.toRoot(accPath, job);
             if( root != null ) {
                 list.add( root );
             }
