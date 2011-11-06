@@ -37,6 +37,7 @@ public class QueueProcessor implements Runnable {
         this.historyDao = historyDao;
     }
 
+	@Override
     public void run() {
         try {
             go();

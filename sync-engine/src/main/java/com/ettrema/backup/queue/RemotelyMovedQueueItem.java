@@ -1,33 +1,29 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.FileMeta;
 import com.ettrema.backup.config.Repo;
 import java.io.File;
 
 /**
+ * Represents an action to take when a resource is moved remotely, meaning that
+ * we should probably make a corresponding change to the local resource
  *
- * @author brad
+ * @author bradm
  */
-public class RemoteModifiedQueueItem extends AbstractQueueItem {
+public class RemotelyMovedQueueItem extends AbstractQueueItem {
 
 	private final File file;
-	private final Long bytesToDownload;
-	private boolean conflicted;
+	private final File movedToFile;
 	private transient Repo repo;
 
-	public RemoteModifiedQueueItem(File file, Repo repo, FileMeta fileMeta) {
+	public RemotelyMovedQueueItem(File file, File movedToFile, Repo repo) {
 		this.file = file;
+		this.movedToFile = movedToFile;
 		this.repo = repo;
-		if (fileMeta != null) {
-			this.bytesToDownload = fileMeta.getLength();
-		} else {
-			bytesToDownload = null;
-		}
 	}
 
 	@Override
 	public String getActionDescription() {
-		return "download";
+		return "move local";
 	}
 
 	/**
@@ -49,14 +45,11 @@ public class RemoteModifiedQueueItem extends AbstractQueueItem {
 	}
 
 	public Long getBytesToDownload() {
-		return bytesToDownload;
+		return 0l;
 	}
 
 	@Override
 	public long getBytesToUpload() {
-		if( bytesToDownload == null ) {
-			return 0;
-		}
 		return getBytesToDownload(); // mis-match of terminology
 	}
 
@@ -70,11 +63,9 @@ public class RemoteModifiedQueueItem extends AbstractQueueItem {
 		return repo;
 	}
 
-	void setConflicted(boolean b) {
-		this.conflicted = b;
+	public File getMovedToFile() {
+		return movedToFile;
 	}
-
-	public boolean isConflicted() {
-		return conflicted;
-	}
+	
+	
 }

@@ -1,6 +1,5 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.QueueItem;
 import com.ettrema.backup.config.Repo;
 import java.io.File;
 
@@ -26,26 +25,32 @@ public class MovedQueueItem extends AbstractQueueItem {
         return fullPathFrom;
     }
 
+	@Override
     public String getActionDescription() {
         return "move";
     }
 
+	@Override
     public long getLastModified() {
         return timeLogged;
     }
 
+	@Override
     public File getFile() {
         return file;
     }
 
+	@Override
     public long getBytesToUpload() {
         return 0;
     }
 
+	@Override
     public String getFileName() {
         return file.getName();
     }
 
+	@Override
     public Repo getRepo() {
         return repo;
     }

@@ -19,7 +19,6 @@ import com.ettrema.backup.queue.DeletedFileHandler;
 import com.ettrema.backup.queue.MovedHandler;
 import com.ettrema.backup.queue.NewFileHandler;
 import com.ettrema.backup.queue.QueueInserter;
-import com.ettrema.backup.queue.QueueItemHandler;
 import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.backup.queue.RemotelyModifiedFileHandler;
 import com.ettrema.backup.utils.PathMunger;
@@ -27,6 +26,9 @@ import com.ettrema.backup.engine.BandwidthService;
 import com.ettrema.backup.engine.ConflictManager;
 import com.ettrema.backup.engine.Services;
 import com.ettrema.backup.engine.SimpleConflictManager;
+import com.ettrema.backup.queue.QueueItemHandler;
+import com.ettrema.backup.queue.RemotelyDeletedHandler;
+import com.ettrema.backup.queue.RemotelyMovedHandler;
 import com.ettrema.backup.rss.RssWatcher;
 import com.ettrema.backup.view.SummaryDetails;
 import com.ettrema.client.BrowserView;
@@ -136,7 +138,9 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			fileWatcher = new FileWatcher(config, engine);
 			conflictManager = new SimpleConflictManager();
 			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
-			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(engine), new MovedHandler(), remoteModHandler);
+			RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
+			RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
+			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(engine), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
 			queueProcessor = new QueueManager(config, eventManager, historyDao, handlers, executorService);
 			rssWatcher = new RssWatcher(config, engine, queueHandler, pathMunger);
 

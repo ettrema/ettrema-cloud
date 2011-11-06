@@ -35,7 +35,7 @@ public class HistoryView extends javax.swing.JFrame implements EventListener{
 
         this.setTitle( "History" );
         initComponents();
-        TableUtils.setTimeColumn( tblQueue, "Date" );
+        TableUtils.setDateTimeColumn( tblQueue, "Date" );
         TableUtils.setByteSizeColumn( tblQueue, "Size" );
 
         model = (DefaultTableModel) tblQueue.getModel();

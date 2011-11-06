@@ -4,7 +4,6 @@ import com.ettrema.backup.config.Queue;
 import com.ettrema.backup.config.QueueItem;
 import com.ettrema.backup.observer.Observer;
 import com.ettrema.backup.utils.TimeUtils;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

@@ -1,5 +1,6 @@
 package com.ettrema.backup.queue;
 
+import com.ettrema.backup.config.DavRepo;
 import com.ettrema.backup.config.FileMeta;
 import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Queue;
@@ -26,7 +27,7 @@ public class QueueInserter {
 
     public void onRemotelyUpdatedFile(Repo repo, File child, FileMeta meta) {
         log.info("queue remotely modified: " + child.getAbsolutePath());
-        RemoteModifiedQueueItem item = new RemoteModifiedQueueItem(child, repo, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, repo, meta);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
         } else {
@@ -36,7 +37,7 @@ public class QueueInserter {
 
     public void onConflict(Repo repo, String fullPath, File child, FileMeta meta) {
         log.info("queue conflicted: " + child.getAbsolutePath());
-        RemoteModifiedQueueItem item = new RemoteModifiedQueueItem(child, repo, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, repo, meta);
         item.setConflicted(true);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
@@ -113,4 +114,13 @@ public class QueueInserter {
         queue.addItem(item);
         EventUtils.fireQuietly(eventManager, new QueueItemEvent(queue, item, false));
     }
+
+	public void onRemotelyMoved(File localFile, File movedTo, Job job, Repo dr) {
+		RemotelyMovedQueueItem item = new RemotelyMovedQueueItem(localFile, movedTo, dr);
+		enqueue(dr.getQueue(), item);
+	}
+
+	public void onRemotelyDeleted(File localFile, Job job, DavRepo dr) {
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
 }

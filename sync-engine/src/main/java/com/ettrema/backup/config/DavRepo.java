@@ -199,7 +199,7 @@ public class DavRepo implements Repo {
 		}
 
 		try {
-			Resource remote = host().find(path);
+			Resource remote = host().find(path, !isScan); // invalidate the cache if its not during a scan, so we get fresh info
 			if (remote == null) {
 				log.trace("not found: " + path);
 				return null;
@@ -408,6 +408,7 @@ public class DavRepo implements Repo {
 	@Override
 	public void move(String fullPathFrom, File dest, Job job, QueueItem item) throws RepoNotAvailableException, PermanentUploadException, UploadException {
 		try {
+			System.out.println("move: " + fullPathFrom + " -> " + dest.getAbsolutePath());
 			log.info("move: " + fullPathFrom + " -> " + dest.getAbsolutePath());
 			String sSrcPath = _(PathMunger.class).munge(fullPathFrom, job);
 			Path pSrc = Path.path(sSrcPath);
@@ -555,6 +556,10 @@ public class DavRepo implements Repo {
 		this.job = j;
 	}
 
+	/**
+	 * read the quota fields from the response and update the account info
+	 * @param remote 
+	 */
 	private void updateAccountInfo(Resource remote) {
 		Long avail = remote.getQuotaAvailableBytes();
 		Long used = remote.getQuotaUsedBytes();

@@ -16,7 +16,6 @@ import com.ettrema.backup.engine.LocalCrcDaoImpl;
 import com.ettrema.backup.utils.PathMunger;
 import java.io.File;
 import java.util.Date;
-import org.apache.commons.io.IOUtils;
 
 /**
  *
@@ -43,7 +42,7 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 
 	@Override
 	public boolean supports(QueueItem item) {
-		return item instanceof RemoteModifiedQueueItem;
+		return item instanceof RemotelyModifiedQueueItem;
 	}
 
 	@Override
@@ -57,14 +56,14 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 	public void process(Repo r, Job job, QueueItem item) throws RepoNotAvailableException, PermanentUploadException {
 		item.setStarted(new Date());
 
-		RemoteModifiedQueueItem remoteModItem = (RemoteModifiedQueueItem) item;
+		RemotelyModifiedQueueItem remoteModItem = (RemotelyModifiedQueueItem) item;
 		File fLocalFile = item.getFile();
-		log.debug("process: " + fLocalFile.getAbsolutePath());
+		log.info("process remotely modified file: " + fLocalFile.getAbsolutePath());
 		SyncStatus syncStatus;
 		if (fLocalFile.exists()) {
 			String localPath = fLocalFile.getAbsolutePath();
 			Root root = pathMunger.findRootFromFile(job.getRoots(), fLocalFile);
-			if( root == null ) {
+			if (root == null) {
 				throw new RuntimeException("Couldnt find root for: " + fLocalFile.getAbsolutePath());
 			}
 			String rootPath = root.getFullPath();
@@ -75,7 +74,7 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 		} else {
 			log.trace("local file does not exist, so download");
 			syncStatus = SyncStatus.REMOTE_NEWER;
-		}		
+		}
 		switch (syncStatus) {
 			case IDENITICAL:
 				log.info("Not downloading because files are identical");
@@ -94,7 +93,7 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 		}
 
 		try {
-			File fTemp = File.createTempFile("shmego-download", item.getFileName());
+			File fTemp = new File(fLocalFile.getParentFile(), ".ettrema-download." + fLocalFile.getName());
 			log.trace("downloading to: " + fTemp.getAbsolutePath());
 			r.download(fTemp, fLocalFile, job, null);
 
@@ -119,11 +118,25 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 						if (!moveToOldVersions(fLocalFile)) {
 							log.error("Couldnt delete local file: " + item.getFile().getAbsolutePath());
 							item.setNotes("Couldnt delete local file: " + item.getFile().getAbsolutePath());
+							item.setCompleted(new Date());
 							return;
+						} else {
+							log.trace("moved previous version into old versions OK");
 						}
-						if (!fTemp.renameTo(fLocalFile)) {
-							log.error("Error moving temp download file to: " + fLocalFile.getAbsolutePath());
-							item.setNotes("Couldnt rename temp file to dest file");
+						boolean movedOk = false;
+						for (int i = 0; i < 5; i++) {
+							if (fTemp.renameTo(fLocalFile)) {
+								log.trace("moved to real file location: " + fLocalFile.getAbsolutePath());
+								movedOk = true;
+								break;
+							} else {
+								log.error("Error moving temp download file to: " + fLocalFile.getAbsolutePath() + " attempt " + i);
+								Thread.sleep(50);
+							}
+						}
+						if (!movedOk) {
+							log.error("Couldnt rename temp file: " + fTemp.getAbsolutePath() + " to dest file: " + fLocalFile.getAbsolutePath());
+							item.setNotes("Couldnt rename temp file: " + fTemp.getAbsolutePath() + " to dest file: " + fLocalFile.getAbsolutePath());
 							return;
 						}
 					}
@@ -133,17 +146,20 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 					log.error("Error moving temp download file to: " + fLocalFile.getAbsolutePath());
 					item.setNotes("Couldnt rename temp file to dest file");
 					return;
+				} else {
+					log.trace("renamed temp to: " + fLocalFile.getAbsolutePath());
 				}
 			}
-
 
 			long crc = crcCalculator.getLocalCrc(fLocalFile);
 
 			localCrcDao.setLocalBackedupCrc(fLocalFile, r, crc);
 
 		} catch (RepoNotAvailableException e) {
+			log.error("repo excetion");
 			throw e;
 		} catch (PermanentUploadException e) {
+			log.error("perm upload excetion");
 			throw e;
 
 		} catch (Exception e) {
@@ -161,27 +177,32 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 	 * @param f
 	 * @return
 	 */
-	private boolean moveToOldVersions(File f) {
-		File dir = f.getParentFile();
-		File oldVersions = new File(dir, ".shmego.oldversions");
-		if (!oldVersions.exists()) {
-			if (!oldVersions.mkdir()) {
-				log.error("Couldnt create old versions folder: " + oldVersions.getAbsolutePath());
+	public static boolean moveToOldVersions(File f) {
+		try {
+			File dir = f.getParentFile();
+			File oldVersions = new File(dir, ".ettrema.oldversions");
+			if (!oldVersions.exists()) {
+				if (!oldVersions.mkdir()) {
+					log.error("Couldnt create old versions folder: " + oldVersions.getAbsolutePath());
+					return false;
+				}
+			}
+
+			File dest = new File(oldVersions, f.getName());
+			while (dest.exists()) {
+				String destName = FileUtils.incrementFileName(f.getName(), true);
+				dest = new File(oldVersions, destName);
+			}
+
+			if (!f.renameTo(dest)) {
+				log.error("Couldnt move updated file to old versions folder");
 				return false;
 			}
+			log.trace("done move to: " + dest.getAbsolutePath());
+			return true;
+		} catch (Throwable e) {
+			log.error("Exception moving file to old versions: " + f.getAbsolutePath(), e);
+			throw new RuntimeException(e);
 		}
-
-		File dest = new File(oldVersions, f.getName());
-		while (dest.exists()) {
-			String destName = FileUtils.incrementFileName(f.getName(), true);
-			dest = new File(oldVersions, destName);
-		}
-
-		if (!f.renameTo(dest)) {
-			log.error("Couldnt move updated file to old versions folder");
-			return false;
-		}
-		log.trace("done move to: " + dest.getAbsolutePath());
-		return true;
 	}
 }

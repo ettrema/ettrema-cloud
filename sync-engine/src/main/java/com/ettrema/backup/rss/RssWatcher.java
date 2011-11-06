@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.apache.http.impl.cookie.DateUtils;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -77,7 +78,7 @@ public class RssWatcher {
 
 	// need to redo this, don't know job or repo when we get the rss, have to deduce
 	//if from the rss
-	private void processRss(Job job, DavRepo dr, byte[] arr) throws SAXException, JDOMException, Exception {
+	private void processRss(Job job, DavRepo dr, byte[] arr, Date dtRequested) throws SAXException, JDOMException, Exception {
 		log.trace("processRss: " + dr.getDescription());
 		ByteArrayInputStream bin = new ByteArrayInputStream(arr);
 		Document doc = getJDomDocument(bin);
@@ -92,29 +93,38 @@ public class RssWatcher {
 		for (Object oChild : elChannel.getChildren()) {
 			if (oChild instanceof Element) {
 				Element elChild = (Element) oChild;
-				String url = null;
-				if (elChild.getName().equals("item")) {
-					url = valueOf(elChild, "link");
-				} else if (elChild.getName().equals("image")) {
-					url = valueOf(elChild, "url");
-				}
-
+				String url = valueOf(elChild, "link");
+				log.trace("got url: " + url);
 				if (url != null) {
-					log.trace("got url: " + url);
 					String sPubDate = valueOf(elChild, "pubDate");
 					Date pubDate = df.parse(sPubDate);
-					if (latestUpdate == null || pubDate.after(latestUpdate)) {
-						System.out.println("pubDate is after latestDate");
-						latestUpdate = pubDate;
-						String sLocalFile = pathMunger.findFileFromUrl(job.getRoots(), url, File.separator);
+					String sLocalFile = pathMunger.findFileFromUrl(job.getRoots(), url, File.separator);
+					if (sLocalFile != null) {
+						log.trace("munged url to local path: " + sLocalFile);
 						File localFile = new File(sLocalFile);
-						queueInserter.onRemotelyUpdatedFile(dr, localFile, null);
+						if (elChild.getName().equals("item") || elChild.getName().equals("image")) {
+							log.trace("is an updated file");
+
+							queueInserter.onRemotelyUpdatedFile(dr, localFile, null);
+
+						} else if (elChild.getName().equals("moved")) {
+							String sMovedTo = valueOf(elChild, "movedTo");
+							sMovedTo = pathMunger.findFileFromUrl(job.getRoots(), sMovedTo, File.separator);
+							File movedTo = new File(sMovedTo);
+							queueInserter.onRemotelyMoved(localFile, movedTo, job, dr);
+						} else if (elChild.getName().equals("deleted")) {
+							queueInserter.onRemotelyDeleted(localFile, job, dr);
+						}
 					} else {
-						System.out.println("date is not after latest local");
+						log.warn("Couldnt munge remote path: " + url);
 					}
+					setLatestDate(pubDate);
 				}
 			}
 		}
+		// Since we processed everything that was requested in this batch, we
+		// can safely set the last date to the time the batch was requested
+		setLatestDate(dtRequested);
 	}
 
 	public org.jdom.Document getJDomDocument(InputStream fin) throws JDOMException {
@@ -136,6 +146,16 @@ public class RssWatcher {
 		} else {
 			return elChild.getText();
 		}
+	}
+
+	/**
+	 * Record this so we will request update only after this
+	 * 
+	 * @param pubDate 
+	 */
+	private void setLatestDate(Date pubDate) {
+		System.out.println("set latest date: " + pubDate);
+		latestUpdate = pubDate; // TODO: persist it!!!
 	}
 
 	private class RssWatchRunnable implements Runnable {
@@ -167,8 +187,11 @@ public class RssWatcher {
 
 	private void checkFeed(Job job, DavRepo dr) {
 		try {
-			byte[] arr = dr.host().get("Recent/rss.xml");
-			processRss(job, dr, arr);
+			String path = "_changelog.xml?since=" + formatDate(latestUpdate);
+			System.out.println("checkFeed: " + latestUpdate + " - " + path);
+			byte[] arr = dr.host().get(path);
+			Date dtRequested = new Date();
+			processRss(job, dr, arr, dtRequested);
 		} catch (com.ettrema.httpclient.NotFoundException e) {
 			// Just means no files have been uploaded yet
 			log.trace("rss.xml not found, indicates that no files have been uploaded yet");
@@ -176,6 +199,15 @@ public class RssWatcher {
 			log.trace("cant check feed, repository is offline");
 		} catch (Exception e) {
 			log.error("failed to check RSS for: " + dr.getHostName(), e);
+		}
+	}
+
+	private String formatDate(Date latestUpdate) {
+		if (latestUpdate != null) {
+			DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+			return df.format(latestUpdate);
+		} else {
+			return "";
 		}
 	}
 }

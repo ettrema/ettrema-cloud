@@ -30,18 +30,19 @@ public class PathMungerTest extends TestCase {
 
 	public void testfindFileFromUrl_Windows() {
 		List<Root> roots = new ArrayList<Root>();
-		Root root1 = new Root("\\files\\Docs", "Documents"); // assume windows path
+		Root root1 = new Root("\\files\\Docs", "/Documents"); // assume windows path
 		roots.add(root1);
-		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/Documents/abc.txt", "\\");
+		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/users/a1/Documents/abc.txt", "\\");
+		System.out.println("filePath: " + filePath);
 		assertEquals("\\files\\Docs\\abc.txt", filePath);
 	}
 	
 	public void testfindFileFromUrl_Nix() {
 		List<Root> roots = new ArrayList<Root>();
 		DavRepo repo = new DavRepo();
-		Root root1 = new Root("/files/Docs", "Documents"); // assume windows path
+		Root root1 = new Root("/files/Docs", "/Documents"); // assume windows path
 		roots.add(root1);
-		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/Documents/ab%20c.txt", "/");
+		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/users/a1/Documents/ab%20c.txt", "/");
 		assertEquals("/files/Docs/ab c.txt", filePath);
 	}	
 }

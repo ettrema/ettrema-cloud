@@ -224,11 +224,12 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="event.manager" class="com.ettrema.event.EventManagerImpl"/>
-<!--
+
     <bean id="recent.manager" class="com.ettrema.web.recent.RecentManager">
         <constructor-arg ref="event.manager"/>
+		<constructor-arg ref="current.user.service"/>		
     </bean>
--->
+
     <bean id="current.user.service" class="com.ettrema.web.security.HttpCurrentUserService"/>
 
     <bean id="current.request.service" class="com.ettrema.utils.CurrentRequestService"/>
@@ -473,6 +474,7 @@ in the config on subsequent restarts
             <list>
                 <ref bean="endrick.table.defs"/>
                 <ref bean="media.log.service"/>
+				<ref bean="recent.manager"/>
             </list>
         </constructor-arg>
         <constructor-arg>

@@ -135,8 +135,8 @@
     </bean>
 
     <bean id="rss.resource.factory" class="com.ettrema.web.recent.RssResourceFactory">
-        <constructor-arg value="rss.xml"/>
         <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="recent.manager"/>		
     </bean>
 
     <bean id="mediafeed.resource.factory" class="com.ettrema.media.MediaFeedResourceFactory">

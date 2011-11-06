@@ -1,5 +1,6 @@
 package com.ettrema.backup.utils;
 
+import com.bradmcevoy.common.Path;
 import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Root;
 import java.io.File;
@@ -20,14 +21,16 @@ public class PathMunger {
 
 	public String findFileFromUrl(List<Root> roots, String url, String seperator) {
 		String path = stripHost(url);
+		
 		for (Root root : roots) {
-			if( path.startsWith("/" + root.getRepoName())) {
+			if( path.startsWith(root.getRepoName())) {
 				path = stripRootPath(path, root.getRepoName());
 				path = path.replace("/", seperator);
-				path = root.getFullPath() + path;
+				path = root.getFullPath() + seperator + path;
 				return path;
 			}
 		}
+		log.trace("url does not correspond to any configured root directories. Path: " + path);
 		return null;
 	}
 	
@@ -79,11 +82,15 @@ public class PathMunger {
 	private String stripHost(String url) {
 		URI uri;
 		try {
-			uri = new URI(url);
+			uri = new URI(url); // Eg http://localhost/users/a1-a1/Documents/dir2/
 		} catch (URISyntaxException ex) {
 			throw new RuntimeException(url, ex);
 		}
-		return uri.getPath();
+		String spath = uri.getPath(); // Eg /users/a1-a1/Documents/dir2/
+		Path path = Path.path(spath);
+		path = path.getStripFirst().getStripFirst();
+		return path.toString();  // Eg /Documents/dir2
+		
 		// url = http://a.c.c/path
 //		int pos = url.indexOf("/", 8);
 //		if (pos > 0) {

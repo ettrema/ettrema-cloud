@@ -32,6 +32,7 @@ public class MovedHandler implements QueueItemHandler {
         item.setStarted( new Date() );
         try {
             repo.move(item.getFullPathFrom(), item.getFile(), job, i); 
+			i.setCompleted(new Date());
         } catch( RepoNotAvailableException ex ) {
             throw ex;
         } catch( PermanentUploadException ex ) {
