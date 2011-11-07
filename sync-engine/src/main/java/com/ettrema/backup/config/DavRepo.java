@@ -2,6 +2,7 @@ package com.ettrema.backup.config;
 
 import com.ettrema.cache.Cache;
 import com.ettrema.backup.engine.CrcCalculator;
+import com.ettrema.common.Withee;
 import com.ettrema.httpclient.HttpException;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,6 +184,54 @@ public class DavRepo implements Repo {
 			scanningBackedupBytes = 0l;
 		}
 		scanningBackedupBytes += length;
+	}
+
+	@Override
+	public void withFileMeta(String filePath, String localRootPath, String repoName, Withee<FileMeta> withee) throws RepoNotAvailableException {
+		String path = _(PathMunger.class).munge(filePath, localRootPath, repoName);
+
+		Path p = Path.path(path);
+		if (isCodeBehind(p)) {
+			p = codeBehindToPage(p);
+			path = p.toString();
+		} else if (isSource(p)) {
+			p = sourceToPage(p);
+			path = p.toString();
+		}
+
+		Resource remote = null;
+		try {
+			remote = host().find(path, true);
+			if (remote == null) {
+				log.trace("not found: " + path);
+				return;
+			} else {
+				log.trace("lock remote file: " + remote.href());
+				remote.lock();
+				log.trace("Locked with token: " + remote.getLockToken());
+				updateAccountInfo(remote);
+				FileMeta meta = new FileMeta(remote.name);
+				meta.setModifiedDate(remote.getModifiedDate());
+				if (remote instanceof Folder) {
+					meta.setDirectory(true);
+				} else {
+					com.ettrema.httpclient.File remoteFile = (com.ettrema.httpclient.File) remote;
+					meta.setLength(remoteFile.contentLength);
+					meta.setCrc(remoteFile.getCrc());
+				}
+				withee.with(meta);
+			}
+		} catch (com.ettrema.httpclient.Unauthorized e) {
+			throw new RepoNotAvailableException(e);
+		} catch (HttpException e) {
+			throw new RepoNotAvailableException(e);
+		} catch (IOException e) {
+			throw new RepoNotAvailableException(e);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			safelyUnlock(remote);
+		}
 	}
 
 	@Override
@@ -386,7 +435,7 @@ public class DavRepo implements Repo {
 			QueueItemProgressListener progressListener = new QueueItemProgressListener(item, _(ProgressListener.class));
 			ProgressListener throttle = _(ThrottleFactory.class).createThrottle(file.length(), progressListener);
 			item.setNotes("Uploading...");
-			log.trace("upload bytes: " + file.length() + " previous bytes: " + previousBytes);			
+			log.trace("upload bytes: " + file.length() + " previous bytes: " + previousBytes);
 			remoteFolder.upload(file, throttle);
 
 			long newBytes = file.length() - previousBytes;
@@ -688,7 +737,7 @@ public class DavRepo implements Repo {
 
 	@Override
 	public boolean ping() {
-		if( this.hostName == null || this.hostName.length() == 0 ) {
+		if (this.hostName == null || this.hostName.length() == 0) {
 			log.trace("Not configured");
 			return false;
 		}
@@ -856,7 +905,18 @@ public class DavRepo implements Repo {
 
 	@Override
 	public boolean isConfigured() {
-		return (hostName != null && hostName.length() > 0 ) &&
-				(user != null && user.length() > 0);
+		return (hostName != null && hostName.length() > 0)
+				&& (user != null && user.length() > 0);
+	}
+
+	private void safelyUnlock(Resource remote) {
+		if (remote == null) {
+			return;
+		}
+		try {
+			remote.unlock();
+		} catch (Throwable e) {
+			log.warn("Exception unlocking remote resource:" + remote.href(), e);
+		}
 	}
 }

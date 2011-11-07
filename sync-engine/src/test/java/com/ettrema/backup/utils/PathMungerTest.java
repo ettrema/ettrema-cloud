@@ -45,4 +45,12 @@ public class PathMungerTest extends TestCase {
 		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/users/a1/Documents/ab%20c.txt", "/");
 		assertEquals("/files/Docs/ab c.txt", filePath);
 	}	
+	
+	public void testRootUrl() {
+		List<Root> roots = new ArrayList<Root>();
+		Root root1 = new Root("", "/Documents"); // assume windows path
+		roots.add(root1);
+		String filePath = pathMunger.findFileFromUrl(roots, "http://www.somewhere.com/users/a1/Documents", "/");
+		assertEquals("/", filePath);
+	}	
 }

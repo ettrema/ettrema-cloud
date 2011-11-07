@@ -21,9 +21,9 @@ public class PathMunger {
 
 	public String findFileFromUrl(List<Root> roots, String url, String seperator) {
 		String path = stripHost(url);
-		
+
 		for (Root root : roots) {
-			if( path.startsWith(root.getRepoName())) {
+			if (path.startsWith(root.getRepoName())) {
 				path = stripRootPath(path, root.getRepoName());
 				path = path.replace("/", seperator);
 				path = root.getFullPath() + seperator + path;
@@ -33,22 +33,22 @@ public class PathMunger {
 		log.trace("url does not correspond to any configured root directories. Path: " + path);
 		return null;
 	}
-	
-	public Root findRootFromFile(List<Root> roots, File file) {	
+
+	public Root findRootFromFile(List<Root> roots, File file) {
 		Root bestRoot = null;
 		for (Root root : roots) {
-			if(file.getAbsolutePath().startsWith(root.getFullPath())) {
-				if( bestRoot == null) {
+			if (file.getAbsolutePath().startsWith(root.getFullPath())) {
+				if (bestRoot == null) {
 					bestRoot = root;
 				} else {
-					if( root.getFullPath().length() > bestRoot.getFullPath().length()) {
+					if (root.getFullPath().length() > bestRoot.getFullPath().length()) {
 						bestRoot = root;
 					}
 				}
-			}			
+			}
 		}
 		return bestRoot;
-	}	
+	}
 
 	public String munge(String filePath, String localRootPath, String repoName) {
 		//log.trace( "munge {} {} {}", new String[]{filePath, localRootPath, repoName} );
@@ -90,7 +90,7 @@ public class PathMunger {
 		Path path = Path.path(spath);
 		path = path.getStripFirst().getStripFirst();
 		return path.toString();  // Eg /Documents/dir2
-		
+
 		// url = http://a.c.c/path
 //		int pos = url.indexOf("/", 8);
 //		if (pos > 0) {
@@ -102,6 +102,13 @@ public class PathMunger {
 	}
 
 	private String stripRootPath(String path, String repoName) {
-		return path.substring(repoName.length()+1);
+		try {
+			if( repoName.equals(path)) {
+				return "";
+			}
+			return path.substring(repoName.length() + 1);
+		} catch (java.lang.StringIndexOutOfBoundsException e) {
+			throw new RuntimeException("RepoName: " + repoName + " - path: " + path, e);
+		}
 	}
 }

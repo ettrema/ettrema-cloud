@@ -1,5 +1,6 @@
 package com.ettrema.backup.config;
 
+import com.ettrema.common.Withee;
 import com.ettrema.httpclient.ProgressListener;
 import com.ettrema.httpclient.Utils.CancelledException;
 import java.io.File;
@@ -52,11 +53,25 @@ public interface Repo {
      * @param localRootPath - the full local path of the root currently being processed
      * @param repoName - the remote name of the root
      * @param isScan - if this is being called from a scan. This means that a given file will only
-     * be requested once, allowed the repo to accumulate the file size
+     * be requested once, allowed the repo to accumulate the file size. A repository might also
+	 * choose to cache information loaded during a scan, but to re-validate cached data if not in a scan
      * @return - null if the file doesnt exist in this repository
      */
     FileMeta getFileMeta( String filePath, String localRootPath, String repoName, boolean isScan ) throws RepoNotAvailableException;
 
+
+	/**
+	 * Use the file meta in a transaction like block. The repository will, if possible,
+	 * lock the resource so it cannot be changed during this block.
+	 * 
+	 * @param filePath
+	 * @param localRootPath
+	 * @param repoName
+	 * @param withee
+	 * @throws RepoNotAvailableException 
+	 */
+	void withFileMeta( String filePath, String localRootPath, String repoName, Withee<FileMeta> withee ) throws RepoNotAvailableException;
+	
     /**
      * Get a list of resources in the given repository folder path.
      * 
