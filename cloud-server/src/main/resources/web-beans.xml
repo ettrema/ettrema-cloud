@@ -9,7 +9,8 @@
     <bean id="host.finder" class="com.ettrema.web.HostFinder">
         <property name="hostMappings">
             <map>
-                <entry key="127.0.0.1" value="test.ppod.com" />
+                <entry key="127.0.0.1" value="localhost" />
+				<entry key="${other.host}" value="localhost" />
             </map>
         </property>
     </bean>
