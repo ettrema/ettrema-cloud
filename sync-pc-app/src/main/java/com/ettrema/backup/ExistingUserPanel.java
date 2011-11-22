@@ -205,6 +205,8 @@ public class ExistingUserPanel extends javax.swing.JPanel {
     }
 
     private void initRepo(DavRepo davRepo) {
+		String hostName = formatHostForEdit(davRepo);
+		this.txtHost.setText(hostName);
         this.txtAccountName.setText(davRepo.getUser());
         this.txtPassword.setText(davRepo.getPwd());
     }
@@ -231,5 +233,13 @@ public class ExistingUserPanel extends javax.swing.JPanel {
 		davRepo.setRootPath(accPath);
 		
     }
+
+	private String formatHostForEdit(DavRepo davRepo) {
+		if( davRepo.getPort() == 80) {
+			return davRepo.getHostName();
+		} else {
+			return davRepo.getHostName() + ":" + davRepo.getPort();
+		}
+	}
 
 }

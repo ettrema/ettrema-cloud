@@ -2,7 +2,7 @@
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0" >
+	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0">
 		<c:fields>
 			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:text name="bodyClass" rows="1" cols="90" required="false" disAllowTemplating="false" />
@@ -11,11 +11,11 @@
 		<c:thumbs>
 			<c:thumb id="_sys_thumb" h="150" w="150" />
 			<c:thumb id="_sys_reg" h="600" w="600" />
-		</c:thumbs>				
-		
+		</c:thumbs>
+		<c:roleRules />
 		<c:components>
-			<c:text name="allowedTemplates">+picturesFolder -*</c:text>
-			<c:subpage name="index.html" template="userPage">
+			<c:text name="allowedTemplates" rows="0" cols="0">+picturesFolder -*</c:text>
+			<c:subpage name="index.html" browsable="false" template="userPage" maxAge="0">
 				<c:attributes>
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
@@ -23,47 +23,70 @@
 						<div id="contentHeading">
 							<button type="button" onclick="showCreateFolder()">New folder</button>
 							<h2>$folder.title</h2>
-						</div> 
+						</div>
 						<div class="albums">
-						#foreach($year in $user.albumTimeline($folder.url))
-						<div class="year">
-							<ul>
-							#foreach($month in $year)
-								<li class="month">
-									<h4>$month.monthName $year.year</h4>
-									<ul>
-									#foreach($album in $month)
-										<li class="album">
-											<a href="$album.mainPath">
-												<img src="$album.thumbPath1"/>
-											#if($album.thumbPath2)
-												<img src="$album.thumbPath2" style="display: none"/>
+							#set($albums = $user.albumTimeline($folder.url))
+							
+							#foreach($year in $albums)
+							<div class="year">
+								<ul>
+									#foreach($month in $year)
+									<li class="month">
+										<h4>$month.monthName $year.year</h4>
+										<ul>
+											
+											#foreach($album in $month)
+											<li class="album">
+												<a href="$album.mainPath" shape="rect">
+													<img src="$album.thumbPath1" />
+													#if($album.thumbPath2)
+													<img src="$album.thumbPath2" style="display: none" />
+													#end
+													#if($album.thumbPath3)
+													<img src="$album.thumbPath3" style="display: none" />
+													#end
+												</a>
+											</li>
 											#end
-											#if($album.thumbPath3)
-												<img src="$album.thumbPath3" style="display: none"/>
-											#end											
-											</a>
-										</li>
+
+										</ul>
+									</li>
 									#end
-									</ul>
-								</li>
+								</ul>
+								<hr />
+							</div>
+							#end							
+						</div>
+						<div class="albums">
+							<ul class="album">
+							#foreach($pic in $folder.getChildren('image'))
+								<a href="$pic.thumb('_sys_reg').href" shape="rect" class="lightbox">
+									<img src="$pic.thumb('_sys_thumb').href" />
+								</a>
 							#end
 							</ul>
-							<hr/>							
-						</div>
-						#end
-						</div>
+						</div>			
+						<script type="text/javascript">
+							$(function() {
+								$('a.lightbox').lightBox(
+								{
+								imageLoading: '/templates/images/lightbox-ico-loading.gif',
+								imageBtnClose: '/templates/images/lightbox-btn-close.gif',
+								imageBtnPrev: '/templates/images/lightbox-btn-prev.gif',
+								imageBtnNext: '/templates/images/lightbox-btn-next.gif',
+								imageBlank:  '/templates/images/lightbox-blank.gif'
+								}
+								);
+							});
+						</script>						
 					</c:value>
-					<c:value name="sidebar">
-								
-					</c:value>					
+					<c:value name="sidebar" />
 				</c:attributes>
 				<c:components>
 					<c:genthumbs name="generateThumbs" />
 				</c:components>
 			</c:subpage>
-			
-		</c:components>		
+		</c:components>
 	</c:template>
 </c:meta>
 

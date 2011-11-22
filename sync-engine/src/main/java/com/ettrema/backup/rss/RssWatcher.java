@@ -164,7 +164,9 @@ public class RssWatcher {
 		public void run() {
 			try {
 				while (running) {
-					checkRssFeeds();
+					if( !config.isPaused() ) {
+						checkRssFeeds();
+					}
 					Thread.sleep(dwellTime);
 				}
 			} catch (InterruptedException ex) {

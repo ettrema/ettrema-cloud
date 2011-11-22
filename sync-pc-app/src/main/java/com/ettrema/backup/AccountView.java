@@ -89,6 +89,7 @@ public class AccountView extends javax.swing.JFrame {
 		}
 		String jobName = userPanel.getAccountName() + "@" + userPanel.getHostName();
 		Job jobToSave = this.job;
+		Config c;
 		if (jobToSave == null) {
 			DavRepo davRepo = new DavRepo();
 			List<Root> roots = new ArrayList<Root>();
@@ -99,9 +100,12 @@ public class AccountView extends javax.swing.JFrame {
 			davRepo.setJob(jobToSave);
 
 			config.getJobs().add(jobToSave);
+			c = config;
+		} else {
+			c = jobToSave.getConfig();
 		}
 		engine.cancelScan(); // if scanning, cancel it so new changes can take effect
-		String accPath = config.getMediaLoungePath(userPanel.getAccountName());
+		String accPath = c.getMediaLoungePath(userPanel.getAccountName());
 		userPanel.save(accPath, jobToSave);		
 		backupLocations1.save("", jobToSave);
 		jobToSave.getConfig().save();
