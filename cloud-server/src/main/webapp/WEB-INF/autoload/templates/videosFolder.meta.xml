@@ -2,49 +2,88 @@
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0" >
+	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0">
 		<c:fields>
 			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:text name="bodyClass" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:html name="body" rows="15" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
 		</c:fields>
+		<c:thumbs>
+			<c:thumb id="_sys_thumb" h="150" w="150" />
+			<c:thumb id="_sys_reg" h="600" w="600" />
+		</c:thumbs>
+		<c:roleRules>
+			<c:const />
+		</c:roleRules>
 		<c:components>
-			<c:text name="allowedTemplates">+documentsFolder -*</c:text>
-			<c:subpage name="index.html" template="userPage">
+			<c:text name="allowedTemplates" rows="0" cols="0">+videosFolder -*</c:text>
+			<c:subpage name="index.html" browsable="false" template="userPage" maxAge="0">
 				<c:attributes>
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
 					<c:value name="body">
 						<div id="contentHeading">
 							<button type="button" onclick="showCreateFolder()">New folder</button>
-							<h2>$folder.title</h2>
+							<h2>$folder.breadCrumbs(3)</h2>
 						</div>
-						#set($children = $folder.children)
-						#if( $children.size() == 0 )
-						<p>No files or folders here yet</p>
-						#else
-						<p>$children.size() files</p>
-						<ul>
-						#foreach($child in $children.ofType("folder"))
-						<li class="folder">$child.link</li>
-						#end
-						#foreach($child in $children.ofType("file"))
-						<li class="file">$child.link</li>
-						#end
-						#end
-						
-						</ul>
-					</c:value>
-					<c:value name="sidebar">
+						#set($folders = $folder.foldersRecursive.ofType("videosFolder"))
+						$folders.add($folder)
+						size: $folders.size()
+						<ul class="albums">
+							#foreach($child in $folders)
+							<li class="month">
+								$child.breadCrumbs(4)
+								<ul>
+									#foreach($video in $child.getChildren("video"))									
+									#set($thumb = $video.thumb("_sys_thumb"))
+									<li class="album">
+										<a rel="div.overlay" class="video" href="${child.url}_sys_flashs/${video.name}.flv">
+											<img src="$thumb.url"/>
+										</a>
+									</li>
+									#end
+									
+								</ul>
 								
-					</c:value>					
+							</li>
+							#end
+							
+						</ul>
+						
+						<div class="overlay">
+							<a id="player" href="#">
+								&nbsp;
+							</a>
+						</div>						
+						<script type="text/javascript">
+							$(function() {
+							var player = $f("player", "/templates/flowplayer-3.2.7.swf");
+							
+							$("a.video").overlay({
+							effect: 'apple',
+							target: "div.overlay",
+							onLoad: function(e) {
+								log("loading", url, this.getTrigger());
+								var url = this.getTrigger().attr("href");
+								
+								
+								//player.load();
+								player.play(url);
+							},
+							onClose: function() {
+								player.unload();
+							}
+							});								
+							});
+						</script>							
+					</c:value>
+					<c:value name="sidebar" />
 				</c:attributes>
 				<c:components>
 					<c:genthumbs name="generateThumbs" />
 				</c:components>
 			</c:subpage>
-			
-		</c:components>		
+		</c:components>
 	</c:template>
 </c:meta>
 

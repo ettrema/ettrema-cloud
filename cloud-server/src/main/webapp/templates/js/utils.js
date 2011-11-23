@@ -3,6 +3,7 @@ var userUrl = null;
 var userName = null;
 
 jQuery(function($) {
+	log("init the page");
     initUser();
     initButtons();
 	initPageUploads();
