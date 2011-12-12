@@ -6,6 +6,7 @@ jQuery(function($) {
     initUser();
     initButtons();
 	initPageUploads();
+	initSharing();
 });
 
 function initButtons() {

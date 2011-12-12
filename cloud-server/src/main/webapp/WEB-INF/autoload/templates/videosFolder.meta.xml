@@ -2,49 +2,47 @@
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0" >
+	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0">
 		<c:fields>
 			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:text name="bodyClass" rows="1" cols="90" required="false" disAllowTemplating="false" />
 			<c:html name="body" rows="15" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
 		</c:fields>
+		<c:roleRules />
 		<c:components>
-			<c:text name="allowedTemplates">+documentsFolder -*</c:text>
-			<c:subpage name="index.html" template="userPage">
+			<c:text name="allowedTemplates" rows="0" cols="0">+documentsFolder -*</c:text>
+			<c:subpage name="index.html" browsable="false" template="userPage" maxAge="0">
 				<c:attributes>
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
 					<c:value name="body">
 						<div id="contentHeading">
 							<button type="button" onclick="showCreateFolder()">New folder</button>
-							<h2>$folder.title</h2>
+							<h2>$folder.title XXXX</h2>
 						</div>
-						#set($children = $folder.children)
-						#if( $children.size() == 0 )
-						<p>No files or folders here yet</p>
-						#else
-						<p>$children.size() files</p>
+						#set($folders = $folder.foldersRecursive)
+						<p>
+						folders: $folders.size
+						</p>
 						<ul>
-						#foreach($child in $children.ofType("folder"))
-						<li class="folder">$child.link</li>
-						#end
-						#foreach($child in $children.ofType("file"))
-						<li class="file">$child.link</li>
-						#end
-						#end
-						
+							#foreach($subfolder in $folders)
+							#foreach($child in $subfolder.getChildren("video"))
+							<li class="file">$child.link</li>
+							#end
+							#end
+							
+							#foreach($child in $folder.getChildren("file"))
+							<li class="file">$child.link</li>
+							#end
 						</ul>
 					</c:value>
-					<c:value name="sidebar">
-								
-					</c:value>					
+					<c:value name="sidebar" />
 				</c:attributes>
 				<c:components>
 					<c:genthumbs name="generateThumbs" />
 				</c:components>
 			</c:subpage>
-			
-		</c:components>		
+		</c:components>
 	</c:template>
 </c:meta>
 

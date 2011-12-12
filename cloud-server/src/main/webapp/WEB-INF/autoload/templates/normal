@@ -15,8 +15,9 @@
 		<script type="text/javascript" src="/templates/js/common.js">//</script>
 		<script type="text/javascript" src="/templates/js/utils.js">//</script>
 		<script type="text/javascript" src="/templates/js/user.js">//</script>
-		<script type="text/javascript" src="/templates/js/file.js" />
-		<script type="text/javascript" src="/templates/js/uploads.js" />
+		<script type="text/javascript" src="/templates/js/file.js">//</script>
+		<script type="text/javascript" src="/templates/js/share.js">//</script>
+		<script type="text/javascript" src="/templates/js/uploads.js">//</script>
 		<script type="text/javascript" src="/templates/js/comments.js">//</script>
 		<script type="text/javascript" src="/templates/js/ajaxupload.js">//</script>
 		<script type="text/javascript" src="/fckeditor.js">//</script>
@@ -79,6 +80,9 @@
 					<li class="page_item user_item">
 						<a href="${targetPage.name}.edit">Edit</a>
 					</li>
+					<li class="page_item user_item">
+						<a id="shareFolder" href="#">Share</a>
+					</li>					
 					#end
 				</ul>
 			</div>
@@ -144,6 +148,11 @@
 			<p>Please enter the name of the folder to create below:</p>
 			<input type="text" name="newName" id="newName" />
 		</div>
+		<div id="shareFolderModal" class="modal" style="display: none">
+			<p>Please enter the name of the folder to create below:</p>
+			<input type="text" name="newName" id="newName" />
+		</div>
+			
 		<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js" />
 		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/tab.js" />
 		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/jquery.fieldtag.min.js" />
