@@ -62,8 +62,8 @@
 						<div class="albums">
 							<ul class="album">
 							#foreach($pic in $folder.getChildren('image'))
-								<a href="$pic.thumb('_sys_reg').href" shape="rect" class="lightbox">
-									<img src="$pic.thumb('_sys_thumb').href" />
+								<a href="$pic.thumb('_sys_reg').url" shape="rect" class="lightbox">
+									<img src="$pic.thumb('_sys_thumb').url" />
 								</a>
 							#end
 							</ul>

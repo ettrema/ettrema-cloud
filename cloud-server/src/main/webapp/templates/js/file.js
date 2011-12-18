@@ -623,3 +623,63 @@ function isDisplayable(href) {
 	}
 	return true;
 }
+
+function showShareForm() {
+    $("inviteForm").show(); // make sure not hidden from previous
+    $("#folderShareModal").modal({
+        minHeight:400,
+        minWidth: 600
+    });
+    var folder = $.URLDecode(toDisplayFolder(currentFolderUrl));
+    $(".descriptionHighlight").html(folder);
+}
+
+function inviteSend() {
+    var inviteMessage = $("#inviteMessage").val();
+
+    var invites = $("#inviteeEmails").val();
+
+    if( invites == "" ) {
+        alert('please enter at least one email address');
+        return;
+    }
+
+    $("#inviteForm").hide();
+    $("#inviteWhizzyWhirly").show();
+
+    var url = basePath() + currentFolderUrl + 'invite';
+    
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            invite: "invite",
+            inviteeEmails: invites,
+            inviteMessage: inviteMessage
+        },
+        dataType: "text",
+        success: onDoneInvite,
+        error: onErrorInvite
+    });
+}
+
+function inviteCancel() {
+    closeModal();
+}
+
+function onDoneInvite(resp) {
+    $("#inviteWhizzyWhirly").hide();
+    if( resp == "ok" ) {
+        $("#inviteDoneOk").show();
+    } else {
+        $("#inviteDoneErr").show();
+        $("#inviteForm").show();
+    }
+}
+
+function onErrorInvite(resp) {
+    $("#inviteWhizzyWhirly").hide();
+    $("#inviteDoneErr").show();
+    $("#inviteForm").show();
+}
+
