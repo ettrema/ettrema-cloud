@@ -10,7 +10,7 @@
         <property name="hostMappings">
             <map>
                 <entry key="127.0.0.1" value="localhost" />
-				<entry key="${other.host}" value="localhost" />
+                <entry key="${other.host}" value="localhost" />
             </map>
         </property>
     </bean>
@@ -105,14 +105,13 @@
                 -->
                 <bean class="com.ettrema.web.console2.EvalFactory" />
                 <bean class="com.ettrema.web.console2.MvelFactory" />
-                <!--
-                <bean class="com.ettrema.web.console2.ImportFactory" />
-                -->
-                <!--
+
+                <bean class="com.ettrema.web.console2.ImportFactory" >
+                    <constructor-arg ref="code.resource.factory" />
+                </bean>
                 <bean class="com.ettrema.web.console2.ExportFactory" >
                     <constructor-arg ref="migration.helper"/>
                 </bean>
-                -->
                 <bean class="com.ettrema.web.console2.DuFactory" />
                 <bean class="com.ettrema.web.console2.RecreateFactory" />
                 <bean class="com.ettrema.web.console2.GenThumbsFactory" >
@@ -155,7 +154,7 @@
             <list>
                 <ref local="indexpage.resource.factory"/>				
                 <ref local="static.resource.factory"/>
-				<ref local="servlet.resource.factory"/>								
+                <ref local="servlet.resource.factory"/>								
                 <ref local="json.resource.factory"/>				
                 <ref local="fck.resource.factory"/>
                 <ref local="console.resource.factory"/>
