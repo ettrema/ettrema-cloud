@@ -1,5 +1,11 @@
 // All about sharing folders and stuff
+
+jQuery(function($) {
+    initSharing();
+});
+
 function initSharing() {
+	log("initSharing");
 	$("#shareFolder").click(function() {
 		$("#shareFolderModal").dialog({
 			modal: true,

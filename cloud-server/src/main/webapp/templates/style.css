@@ -46,9 +46,13 @@ blockquote{margin :0 0 10px  0px;padding: 0px 0 0 50px;background: #FAFAFA url(b
 br.clear { clear:both; display:block; height:1px; margin:-1px 0 0 0;}   
 
 .container{width: 950px;margin: 0 auto;padding: 0;}
-.subcontainer{width: 620px;}
-.sidecontainer{width: 300px;}
-.noside .subcontainer{
+.subcontainer{
+	width: 620px;
+}
+.sidecontainer{
+	width: 300px;
+}
+.noside .subcontainer, .userPage .subcontainer{
 	width: 800px;
 }
 
@@ -242,6 +246,10 @@ ul#excerpt li{margin: 0 0px 30px 0;}
 /*== Sidebar */
 /*===========================================*/
 #sidebar{}
+
+.userPage #sidebar, .noside #sidebar {
+	display: none;
+}
 
 .widgets{margin: 0 0 20px;float: left;width: 300px;}
 .widgets ul{padding: 0 0 0 20px;}
@@ -492,4 +500,22 @@ table.data td {
 }
 .year {
 	margin-bottom: 10px;
+}
+
+.overlay {
+    background-image: url("/templates/images/white.png");
+    display: none;
+    padding: 40px;
+    width: 576px;
+	height: 450px;
+}
+a.close {
+    background: url("http://static.flowplayer.org/img/overlay/close.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 35px;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    width: 35px;
+	display: block;
 }

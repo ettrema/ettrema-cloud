@@ -26,11 +26,11 @@
 		<script type="text/javascript" src="/templates/calendar/lang/calendar-en.js">//</script>
 		<script type="text/javascript" src="/templates/calendar/calendar-setup.js">//</script>
 		<script type="text/javascript" src="/templates/js/jquery-ui-1.8.11.custom.min.js" xml:space="preserve">//</script>
-		<script type="text/javascript" src="/templates/js/validation.js?v1.3">//</script>
-		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/plugins/lifestream/lifestream.js" />
-		<script type="text/javascript" src="/templates/brightsky/js/cufon-yui.js" />
-		<script type="text/javascript" src="/templates/brightsky/js/vegur_400-vegur_700.font.js" />
-		<script type="text/javascript">
+		<script type="text/javascript" src="/templates/js/validation.js?v1.3" xml:space="preserve">//</script>
+		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/plugins/lifestream/lifestream.js" xml:space="preserve" />
+		<script type="text/javascript" src="/templates/brightsky/js/cufon-yui.js" xml:space="preserve" />
+		<script type="text/javascript" src="/templates/brightsky/js/vegur_400-vegur_700.font.js" xml:space="preserve" />
+		<script type="text/javascript" xml:space="preserve">
 			<!--
 			jQuery(function($) {
 				Cufon.replace('h1.maintitle, #header h1, h2.mainhead, li.t1 a, li.t2 a, li.t3 a');
@@ -47,7 +47,7 @@
 					#if($folder.is('folder') and !$folder.class.name.contains('Host') )
 					#if($user.hasRole("VIEWER",$folder))
 					<li class="page_item">
-						<a href="${folder.url}index.html">$folder.title</a>
+						<a href="${folder.url}index.html" shape="rect">$folder.title</a>
 					</li>
 					#end
 					#end
@@ -55,7 +55,7 @@
 					
 					#if( $user.hasRole("AUTHOR", $folder.host.child("users")) )
 					<li class="page_item">
-						<a href="/users/index.html">Users</a>
+						<a href="/users/index.html" shape="rect">Users</a>
 					</li>
 					#end
 					#if( $user )
@@ -75,10 +75,10 @@
 					
 					#if($user.canAuthor($targetPage) or  $user.canAuthor($folder))
 					<li class="user_item">
-						<a id="filemanUpload" href="#">Upload</a>
+						<a id="filemanUpload" href="#" shape="rect">Upload</a>
 					</li>
 					<li class="page_item user_item">
-						<a href="${targetPage.name}.edit">Edit</a>
+						<a href="${targetPage.name}.edit" shape="rect">Edit</a>
 					</li>
 					<li class="page_item user_item">
 						<a id="shareFolder" href="#">Share</a>
@@ -90,7 +90,7 @@
 		<div id="header" class="clear">
 			<div class="container cheader">
 				<h1 id="blogtitle">
-					<a href="/index.html">$folder.find("/settings/config").params.title</a>
+					<a href="/index.html" shape="rect">$folder.find("/settings/config").params.title</a>
 				</h1>
 			</div>
 		</div>
@@ -121,19 +121,19 @@
 				<div class="ftext fleft">
 					Bright Sky 2011. All rights reserved. 
 					|
-					<a href="${targetPage.name}.edit">admin</a>
+					<a href="${targetPage.name}.edit" shape="rect">admin</a>
 				</div>
 				<div class="fcred fright">
 					<span class="fleft">A quality product by</span>
-					<a href="http://www.kreativethemes.com" class="fright" id="kreativethemes">KreativeThemes</a>
+					<a href="http://www.kreativethemes.com" class="fright" id="kreativethemes" shape="rect">KreativeThemes</a>
 				</div>
 			</div>
 			<div class="clear" />
 		</div>
 		<div id="uploads" class="modal" style="display: none">
 			<p>Drop files below to upload them, or if that doesnt work click the "Choose files to upload" button</p>
-			<button id="doUpload">Choose files to upload</button>
-			<button onclick="window.location.reload(); return false;" style="float: right">Click here to refresh page</button>
+			<button id="doUpload" type="submit">Choose files to upload</button>
+			<button onclick="window.location.reload(); return false;" style="float: right" type="submit">Click here to refresh page</button>
 			<div class="dropZone ui-state-default">
 				<div class="progress" style="width: 0; display: none" />
 				<div class="dropText">

@@ -9,6 +9,7 @@ function initUser() {
     if( userUrl ) {
         return true; // already done
     }
+	log("initUser");
     initUserCookie();
     if( isEmpty(userUrl) ) {
         // no cookie, so authentication hasnt been performed.
@@ -30,12 +31,11 @@ function initUser() {
 }
 
 function initUserCookie() {
+	log("initUserCookie");
     userUrl = $.cookie('_clydeUser');
     if( userUrl && userUrl.length > 1 ) {
         userUrl = dropQuotes(userUrl);
-        log("userurl", userUrl);
         userUrl = dropHost(userUrl);
-        log("userurl", userUrl);
         userName = userUrl.substr(0, userUrl.length-1); // drop trailing slash
         var pos = userUrl.indexOf("users");
         userName = userName.substring(pos+6);
