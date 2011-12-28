@@ -58,9 +58,11 @@
         <constructor-arg ref="host.finder"/>
     </bean>
 
+<!--
     <bean id="indexpage.resource.factory" class="com.ettrema.web.IndexPageResourceFactory">
         <constructor-arg ref="edit.resource.factory"/>
     </bean>
+-->	
 
     <bean id="readonly.security.manager" class="com.bradmcevoy.http.ReadOnlySecurityManager"/>
 
@@ -152,7 +154,7 @@
     <bean id="multi.resource.factory" class="com.bradmcevoy.http.MultipleResourceFactory">
         <constructor-arg>
             <list>
-                <ref local="indexpage.resource.factory"/>				
+                <ref local="edit.resource.factory"/>				
                 <ref local="static.resource.factory"/>
                 <ref local="servlet.resource.factory"/>								
                 <ref local="json.resource.factory"/>				
@@ -314,6 +316,14 @@
         <constructor-arg ref="existing.resource.factory"/>
         <constructor-arg ref="endrick.root.context"/>
     </bean>
+	
+	<bean id="default.form.processor" class="com.ettrema.forms.DefaultFormProcessor"/>
+		
+	<bean id="form.processor" class="com.ettrema.forms.AnnotationFormProcessor">
+		<constructor-arg ref="default.form.processor"/>
+		<constructor-arg ref="permissionChecker"/>
+		<constructor-arg ref="current.request.service"/>						
+	</bean>
 <!--
     <bean id="ftp.user.manager" class="com.ettrema.ftp.UserManagerAdapter">
         <constructor-arg ref="existing.resource.factory"/>

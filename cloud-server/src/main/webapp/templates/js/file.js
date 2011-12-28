@@ -179,7 +179,7 @@ function toPropFindUrl(path) {
 	if( path == "") {
 		url = basePath() + "/";
 	} else {
-		url = path;
+		url = basePath() + path;
 	}
 	url = url + "_DAV/PROPFIND?fields=name,clyde:allowedTemplateNames,clyde:streamingVideoHref,getcontenttype>contentType,clyde:thumbHref,href,iscollection,getlastmodified>modifiedDate,getcontentlength>contentLength,clyde:templateName&depth=1";
 	log("toPropFindUrl","base:", basePath(), "path:", path,"final url:", url);

@@ -12,7 +12,9 @@
 			<c:thumb id="_sys_thumb" h="150" w="150" />
 			<c:thumb id="_sys_reg" h="600" w="600" />
 		</c:thumbs>
-		<c:roleRules />
+		<c:roleRules>
+			<c:const />
+		</c:roleRules>
 		<c:components>
 			<c:text name="allowedTemplates" rows="0" cols="0">+picturesFolder -*</c:text>
 			<c:subpage name="index.html" browsable="false" template="userPage" maxAge="0">
@@ -20,7 +22,14 @@
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
 					<c:value name="body">
+						<div id="contentHeading">
+							<button type="button" onclick="showCreateFolder()">New folder</button>
+							<h2>
+								$folder.breadCrumbs(3)
+							</h2>
+						</div>
 						<div class="albums">
+							#set($user = $folder.parentOfType("user"))
 							#set($albums = $user.albumTimeline($folder.url))
 							
 							#foreach($year in $albums)
@@ -30,7 +39,6 @@
 									<li class="month">
 										<h4>$month.monthName $year.year</h4>
 										<ul>
-											
 											#foreach($album in $month)
 											<li class="album">
 												<a href="$album.mainPath" shape="rect">
@@ -44,25 +52,28 @@
 												</a>
 											</li>
 											#end
-
 										</ul>
 									</li>
 									#end
 								</ul>
 								<hr />
 							</div>
-							#end							
+							#end
 						</div>
 						<div class="albums">
 							<ul class="album">
-							#foreach($pic in $folder.getChildren('image'))
-								<a href="$pic.thumb('_sys_reg').url" shape="rect" class="lightbox">
-									<img src="$pic.thumb('_sys_thumb').url" />
+								#foreach($pic in $folder.getChildren('image'))
+									#set($reg = $pic.thumb('_sys_reg'))
+									#set($thumb = $pic.thumb('_sys_thumb'))
+									#if( $thumb )
+								<a href="$reg.href" shape="rect" class="lightbox">
+									<img src="$thumb.href" />
 								</a>
-							#end
+									#end
+								#end
 							</ul>
-						</div>			
-						<script type="text/javascript">
+						</div>
+						<script type="text/javascript" xml:space="preserve">
 							$(function() {
 								$('a.lightbox').lightBox(
 								{
@@ -74,7 +85,7 @@
 								}
 								);
 							});
-						</script>						
+						</script>
 					</c:value>
 					<c:value name="sidebar" />
 				</c:attributes>

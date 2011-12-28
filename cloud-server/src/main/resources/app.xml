@@ -67,6 +67,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
 
     <bean id="authenticator" class="com.ettrema.web.security.EmailAuthenticator">
         <constructor-arg ref="recursive.authenticator"/>
+		<constructor-arg ref="user.locator"/>
     </bean>
 
     <!-- unqualified names are recursively validated against each host in the tree, starting with the current. Qualified names are authenticated against the named host-->
@@ -245,7 +246,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     <bean id="default.redirect.service" class="com.ettrema.utils.DefaultRedirectService"/>
 
     <bean id="folder.redirect.service" class="com.ettrema.utils.FolderRedirectService">
-		<property name="redirectPage" value="" />
+		<property name="redirectPage" value="index.html" />
 	</bean>
 
     <bean id="redirect.service" class="com.ettrema.utils.MultiRedirectService">
@@ -314,6 +315,8 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     <bean id="thumbs.processor" class="com.ettrema.media.ImageServiceThumbProcessor">
         <constructor-arg ref="image.service" />
     </bean>
+	
+	<bean id="user.locator" class="com.ettrema.web.security.UserLocator"/>
 
     <bean id="endrick.catalog" class="com.ettrema.context.FactoryCatalog">
         <property name="configFile" value="applicationContext.xml"/>
@@ -389,7 +392,9 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
             </list>
         </property>
         <property name="singletons">
-            <list>
+            <list>				
+				<ref bean="user.locator"/>
+				<ref bean="form.processor"/>
                 <ref bean="root.context.locator"/>
                 <ref bean="migration.helper"/>
                 <ref local="formatter"/>

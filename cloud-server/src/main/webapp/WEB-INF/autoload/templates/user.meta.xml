@@ -57,7 +57,7 @@
 						folder = token.parent.create("Videos","videosFolder");
 						folder.setAllowedTemplates("+videoFolder -*");
 						folder.save();
-						folder = token.parent.create("Shared With Me","folder");
+						folder = token.parent.create("Shared With Me","sharedWithMeFolder");
 						folder.setAllowedTemplates("-*");
 						folder.save();
 						folder = token.parent.create("Blogs","blogFolder");

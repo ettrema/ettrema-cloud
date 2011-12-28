@@ -52,11 +52,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>it.cnr.imaa.essi</groupId>
-			<artifactId>lablib-checkboxtree</artifactId>
-			<version>3.2</version>
-		</dependency>
-		<dependency>
 			<groupId>net.java.dev.appframework</groupId>
 			<artifactId>appframework</artifactId>
 			<version>1.03</version>

@@ -117,7 +117,11 @@
 			<artifactId>sync-engine</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>it.cnr.imaa.essi</groupId>
+			<artifactId>lablib-checkboxtree</artifactId>
+			<version>3.2</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
