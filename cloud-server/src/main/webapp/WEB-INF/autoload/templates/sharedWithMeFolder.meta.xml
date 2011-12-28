@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+	<c:template instanceType="folder" disableExport="false" template="normal" maxAge="0">
+		<c:fields>
+			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
+			<c:text name="bodyClass" rows="1" cols="90" required="false" disAllowTemplating="false" />
+			<c:html name="body" rows="15" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
+		</c:fields>
+		<c:thumbs>
+			<c:thumb id="_sys_thumb" h="150" w="150" />
+			<c:thumb id="_sys_reg" h="600" w="600" />
+		</c:thumbs>
+		<c:roleRules>
+			<c:const />
+		</c:roleRules>
+		<c:components>
+			<c:text name="allowedTemplates" rows="0" cols="0">-*</c:text>
+			<c:subpage name="index.html" browsable="false" template="userPage" maxAge="0">
+				<c:attributes>
+					<c:value name="title">$folder.params.title.value</c:value>
+					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
+					<c:value name="body">						
+						<table cellpadding="5" cellspacing="15">
+							<thead>
+								<th>From</th>
+								<th>Folder</th>
+								<th>Permissions</th>
+							</thead>
+							<tbody>
+								#foreach($rel in $folder.parent.sharedWithMe)
+								<tr>
+									<td>$!rel.subject</td>
+									<td><a href="$rel.resource.url">$rel.resource.title</a></td>
+									<td>$rel.role</td>
+								</tr>
+								#end
+								
+							</tbody>
+						</table>
+					</c:value>
+					<c:value name="sidebar" />
+				</c:attributes>
+				<c:components>
+					<c:genthumbs name="generateThumbs" />
+				</c:components>
+			</c:subpage>
+		</c:components>
+	</c:template>
+</c:meta>
+

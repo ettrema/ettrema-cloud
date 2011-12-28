@@ -29,6 +29,7 @@
 							</h2>
 						</div>
 						<div class="albums">
+							#set($user = $folder.parentOfType("user"))
 							#set($albums = $user.albumTimeline($folder.url))
 							
 							#foreach($year in $albums)

@@ -138,7 +138,7 @@ function setAccountDisabled(isDisabled, container) {
         },
         error: function(resp) {
             ajaxLoadingOff();
-            log(failed, resp);
+            log("failed to enable account", resp);
             alert("Sorry, the account could not be updated. Please check your internet connection");
         }
     });

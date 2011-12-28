@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="/templates/js/jquery.lightbox-0.5.pack.js" >//</script>
 		<script type="text/javascript" src="/templates/js/common.js" >//</script>
 		<script type="text/javascript" src="/templates/js/utils.js" >//</script>
+		<script type="text/javascript" src="/templates/js/share.js" >//</script>
 		<script type="text/javascript" src="/templates/js/user.js" >//</script>
 		<script type="text/javascript" src="/templates/js/file.js"  />
 		<script type="text/javascript" src="/templates/js/uploads.js"  />
@@ -150,13 +151,31 @@
 			<input type="text" name="newName" id="newName" />
 		</div>
 		<div id="shareFolderModal" class="modal" style="display: none">
-			<p>Please enter the name of the folder to create below:</p>
-			<input type="text" name="newName" id="newName" />
-		</div>
-			
+			<p>Please select the friend to share this folder with below </p>
+			<select name="otherName">
+				#foreach($otherUser in $targetPage.web.users.getChildren("user"))
+					#if(!$otherUser.is($user))
+				<option value="$otherUser.name">$otherUser.title</option>
+					#end
+				#end
+			</select>
+			<br/>
+			<br/>
+			<input type="checkbox" name="writable" /> Should your friend be able to modify files in this folder?			
+			<p>Current shares for this folder</p>
+			<table>
+				<thead>
+					<th>Friend</th>
+					<th>Access</th>
+				</thead>
+				<tbody>
+					<td>Loading..</td>
+					<td></td>
+				</tbody>
+			</table>
+		</div>			
 		<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js" />
 		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/tab.js" />
 		<script type="text/javascript" src="http://demo.kreativethemes.com/brightsky/wp-content/themes/brightsky/js/jquery.fieldtag.min.js" />
 	</body>
 </html>
-
