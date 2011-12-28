@@ -67,6 +67,9 @@ br.clear { clear:both; display:block; height:1px; margin:-1px 0 0 0;}
 .cheader{
 	height:145px;
 }
+.userPage .cheader{
+    display: none;
+}
 .blogsHome .cheader{
 	height:245px;
 }
@@ -116,7 +119,10 @@ h1#blogtitle a{
 
 /*navigation categories*/
 #navcat{height:35px;background: #E3ECEE;border-top:1px solid #fff;border-bottom: 1px solid #D6DDDF; }
-#navcat ul{float: left;border-left: 1px solid #D6DDDF;}
+#navcat ul{
+    float: left;border-left: 1px solid #D6DDDF;
+    width: 100%;
+}
 #navcat li{float: left;}
 #navcat  li a{color: #666;font-weight: bold;text-decoration: none;background: #E3ECEE;padding: 8px 20px;display: block;border-right: 1px solid #D6DDDF;}
 #navcat li.current_page_item  a{background: #fff;}
@@ -134,6 +140,19 @@ h1#blogtitle a{
 #navcat li.sfhover ul, 
 #navcat li li.sfhover ul{
 	left: auto; 
+}
+
+#navcat .container li.breadcrumbs a {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-right: none;
+}
+#navcat .container li.cat_item {
+    float: right;
+}
+#navcat .container li.cat_item li.breadcrumbs {
+    float: left;
 }
 
 

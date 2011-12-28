@@ -20,12 +20,6 @@
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
 					<c:value name="body">
-						<div id="contentHeading">
-							<button type="button" onclick="showCreateFolder()">New folder</button>
-							<h2>
-								$folder.breadCrumbs(3)
-							</h2>
-						</div>
 						<div class="albums">
 							#set($albums = $user.albumTimeline($folder.url))
 							

@@ -2,45 +2,40 @@
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-	<c:template disableExport="false" template="normal" maxAge="0">
-		<c:fields>
-			<c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
-			<c:html name="body" rows="30" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
-		</c:fields>
-		<c:attributes>
-			<c:value name="breadcrumbs">				
-				<ul>
-					<li class="cat-item">
-						<a href="${user.url}">Home</a>
-					</li>
-					<li class="cat-item">
-						<a href="${user.url}files">Files</a>
-					</li>
-					#foreach($folder in $user.subFolders)
-						#if(!$folder.systemFolder)
-					<li class="cat-item">
-						<a href="${folder.url}">$folder.title</a>
-					</li>
-						#end					
-					#end
-				</ul>				
-			</c:value>			
-			<c:value name="sidebar">
+    <c:template disableExport="false" template="normal" maxAge="0">
+        <c:fields>
+            <c:text name="title" rows="1" cols="90" required="false" disAllowTemplating="false" />
+            <c:html name="body" rows="30" cols="90" required="false" disAllowTemplating="false" toolbar="Default" />
+        </c:fields>
+        <c:attributes>
+            <c:value name="breadcrumbs">	
+            <li class="cat-item breadcrumbs">
+                #foreach($f in $folder.breadCrumbList($user).reverse)
+                    #if($velocityCount gt 2)
+                <span>&gt;</span>
+                    #end
+                    #if($velocityCount gt 1)
+                <a href="$f.url">$f.title</a>
+                    #end
+                #end
+                </li>
+            </c:value>			
+            <c:value name="sidebar">
 				
-				<div class="sidecontainer fright" id="sidebar">
-					<div class="widgets">
-						<h2 class="mainhead">RSS Feed</h2>
-						<p class="feed">
-							<a href="${folder.url}rss.xml">
+                <div class="sidecontainer fright" id="sidebar">
+                    <div class="widgets">
+                        <h2 class="mainhead">RSS Feed</h2>
+                        <p class="feed">
+                            <a href="${folder.url}rss.xml">
 							Subscribe to feed 
-								<br/>
-								<span>get the latest updates!</span>
-							</a>
-						</p>
-					</div>
-				</div>					
-			</c:value>
-		</c:attributes>
-	</c:template>
+                                <br/>
+                                <span>get the latest updates!</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>					
+            </c:value>
+        </c:attributes>
+    </c:template>
 </c:meta>
 
