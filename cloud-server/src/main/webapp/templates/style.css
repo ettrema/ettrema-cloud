@@ -504,14 +504,14 @@ table.data td {
     padding: 4px 5px 5px;
 	text-align: center;
 }
-.albums li.album {
+.albums li.album, li.previews {
 	float: left;
 	display: block;
 }
 .albums li.month, div.year, hr {
 	clear: both;
 }
-.album img {
+.album img, li.previews {
     background: none repeat scroll 0 0 #DDDDDD;
     border: 1px solid #BBBBBB;
     padding: 10px;
@@ -537,4 +537,18 @@ a.close {
     top: 2px;
     width: 35px;
 	display: block;
+}
+.readonly, .editable {
+	display: block;
+	height: 50px;
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 60px;
+	line-height: 50px;
+}
+.readonly {
+	background-image: url(/templates/images/readonly-50.png);
+}
+.editable {
+	background-image: url(/templates/images/editable-50.jpg);
 }
