@@ -207,6 +207,12 @@ public class DavRepo implements Repo {
 				return;
 			} else {
 				log.trace("lock remote file: " + remote.href());
+								
+				if( remote.getLockToken() != null ) {
+					log.info("remote source is locked, so will attempt to unlock it");
+					remote.unlock();
+				}
+				
 				remote.lock();
 				log.trace("Locked with token: " + remote.getLockToken());
 				updateAccountInfo(remote);

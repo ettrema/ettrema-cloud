@@ -50,14 +50,14 @@ public class RssWatcher {
 	}
 
 	public void start() {
-		if (watchThread != null) {
-			log.warn("already running");
-			return;
-		}
-		running = true;
-		watchThread = new Thread(new RssWatchRunnable(), "RssWatchThread");
-		watchThread.setDaemon(true);
-		watchThread.start();
+//		if (watchThread != null) {
+//			log.warn("already running");
+//			return;
+//		}
+//		running = true;
+//		watchThread = new Thread(new RssWatchRunnable(), "RssWatchThread");
+//		watchThread.setDaemon(true);
+//		watchThread.start();
 	}
 
 	public void stop() {
@@ -154,7 +154,7 @@ public class RssWatcher {
 	 * @param pubDate 
 	 */
 	private void setLatestDate(Date pubDate) {
-		System.out.println("set latest date: " + pubDate);
+		//System.out.println("set latest date: " + pubDate);
 		latestUpdate = pubDate; // TODO: persist it!!!
 	}
 
