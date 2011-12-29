@@ -552,3 +552,6 @@ a.close {
 .editable {
 	background-image: url(/templates/images/editable-50.jpg);
 }
+button.import {
+	float: right;
+}

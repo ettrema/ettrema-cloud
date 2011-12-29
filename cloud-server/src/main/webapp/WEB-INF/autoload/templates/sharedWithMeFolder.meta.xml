@@ -34,7 +34,10 @@
 										#set($editableClass = "editable")
 									#end
 									<td class="albums">
-										<h3 class="$editableClass"><a href="$rel.resource.url">$rel.resource.title</a></h3>
+										<button class="import" value="$rel.resource.url">Import</button>
+										<h3 class="$editableClass">
+											<a href="$rel.resource.url">$rel.resource.title</a>
+										</h3>
 										#if($rel.resource.is("picturesFolder"))
 											#set($thumbs = $rel.resource.thumbsList(5))
 										<ul>										
@@ -50,10 +53,10 @@
 										#else
 											#set($files = $rel.resource.pagesRecursive(5))
 											#foreach($file in $files)
-											<li class="previews">
-												<a href="$file.parent.url" shape="rect">$file.name</a>
+										<li class="previews">
+											<a href="$file.parent.url" shape="rect">$file.name</a>
 												
-											</li>
+										</li>
 											#end
 											
 										#end
@@ -63,6 +66,25 @@
 								
 							</tbody>
 						</table>
+						
+						<div id="importFolderModal" class="modal" style="display: none">
+							<p>Importing a shared folder makes it appear as part of your files, and will be
+							downloaded to your computer if you are using a file syncronisation program
+							</p>
+							<p>Once imported your file sync tool will prmopt you to download the folder</p>
+							<hr/>
+							<p>Please select your existing folder to add this to</p>
+							<select name="otherName">
+                #foreach($folder in $user.subFolders)
+								<option value="$folder.url">$folder.name</option>
+                #end
+							</select>
+							<br/>
+							<br/>
+							<p>Enter the name to give this folder</p>
+							<input type="text" name="newName" /> 
+							
+						</div>							
 					</c:value>
 					<c:value name="sidebar" />
 				</c:attributes>
