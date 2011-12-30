@@ -28,8 +28,8 @@ public class Config extends AbstractObservable {
 		notifyObservers();
 	}
 
-	public synchronized void saveData() {
-		// todo
+	public synchronized void saveState() {
+		configurator.saveState(this);
 		setChanged();
 		notifyObservers();
 	}

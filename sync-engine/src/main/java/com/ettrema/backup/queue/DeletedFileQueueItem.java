@@ -1,6 +1,5 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.Root;
 import java.io.File;
 
@@ -14,11 +13,8 @@ public class DeletedFileQueueItem extends AbstractQueueItem{
     private final long timeLogged;
     private final Root root;
 
-    private transient Repo repo;
-
-    public DeletedFileQueueItem( File file, Repo repo, Root root ) {
+    public DeletedFileQueueItem( File file, Root root ) {
         this.file = file;
-        this.repo = repo;
         this.root = root;
         this.timeLogged = System.currentTimeMillis();
     }
@@ -50,13 +46,18 @@ public class DeletedFileQueueItem extends AbstractQueueItem{
         return file.getName();
     }
 
-    @Override
-    public Repo getRepo() {
-        return repo;
-    }
-
     public Root getRoot() {
         return root;
     }
+
+	@Override
+	public void setProgressBytes(long bytes) {
+		
+	}
+
+	@Override
+	public long getProgressBytes() {
+		return 0;
+	}
         
 }

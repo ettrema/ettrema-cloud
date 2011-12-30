@@ -1,6 +1,5 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.Repo;
 import java.io.File;
 
 /**
@@ -12,12 +11,10 @@ public class NewFileQueueItem extends  AbstractQueueItem {
     private final File file;
     private boolean updated;
     private final long bytesToUpload;
+	private long doneBytes;
 
-    private transient Repo repo;
-
-    public NewFileQueueItem( File file, Repo repo ) {
+    public NewFileQueueItem( File file ) {
         this.file = file;
-        this.repo = repo;
         this.bytesToUpload = file.length();
     }
 
@@ -65,13 +62,14 @@ public class NewFileQueueItem extends  AbstractQueueItem {
         return file.getName();
     }
 
-    @Override
-    public Repo getRepo() {
-        return repo;
-    }
+	@Override
+	public long getProgressBytes() {
+		return doneBytes;
+	}
 
-
-
-
-
+	@Override
+	public void setProgressBytes(long bytes) {
+		this.doneBytes = bytes;
+	}
+	
 }

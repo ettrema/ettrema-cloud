@@ -19,9 +19,10 @@ public class QueueItemProgressListener implements ProgressListener {
     }
 
     @Override
-    public void onProgress(long bytesRead, Long totalBytes, String fileName) {
-        System.out.println("onProgrsss: " + bytesRead + " - " + fileName);
-        wrapped.onProgress(bytesRead, totalBytes, fileName);
+    public void onProgress(long bytesProcessed, Long totalBytes, String fileName) {
+        System.out.println("onProgrsss: " + bytesProcessed + " - " + fileName);
+        wrapped.onProgress(bytesProcessed, totalBytes, fileName);
+		queueItem.setProgressBytes(bytesProcessed);
     }
 
     @Override

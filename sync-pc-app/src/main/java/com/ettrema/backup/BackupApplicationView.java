@@ -1,5 +1,6 @@
 package com.ettrema.backup;
 
+import com.ettrema.backup.view.SummaryDetails.CurrentProgress;
 import javax.swing.JMenu;
 import com.ettrema.backup.config.Root;
 import com.ettrema.backup.config.Job;
@@ -505,7 +506,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
     private void sldThrottleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sldThrottleFocusLost
 		if (throttleChanged) {
 			System.out.println("sldThrottleFocusLost");
-			config.saveData();
+			config.saveState();
 			throttleChanged = false;
 		}
 
@@ -589,21 +590,30 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	}
 
 	public void doUpdateScreen() {
+		final SummaryDetails dets = _(SummaryDetails.class);		
+		final CurrentProgress currentProg = dets.getCurrentProgress();
+
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
 				try {
-					SummaryDetails dets = _(SummaryDetails.class);
 					lblTimeRemainingVal.setText(dets.getTimeRemaining());
-					if (dets.getCurrentFileName() == null || dets.getCurrentFileName().length() == 0) {
+					if (currentProg == null) {
 						progCurrent.setVisible(false);
 						lblCurrentVal.setText("No files are being processed");
+						progCurrent.setValue(0);
 					} else {
-						progCurrent.setVisible(true);
-						lblCurrentVal.setText(dets.getCurrentFileName());
+						lblCurrentVal.setText(currentProg.filename);
+						if (currentProg.percent != null) {
+							progCurrent.setVisible(true);
+							progCurrent.setValue(currentProg.percent);
+						} else {
+							progCurrent.setVisible(false);
+							progCurrent.setValue(0);
+						}
 					}
 					//System.out.println("doUpdateScreen: " + dets.getCurrentFilePerc());
-					progCurrent.setValue(dets.getCurrentFilePerc());
+
 					lblOverallProgressVal.setText(dets.getProgress());
 					lblUsageVal.setText(dets.getUsage());
 
@@ -642,7 +652,6 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	}
 
 	public void onUpdated(final Config t, Object parent) {
-		System.out.println("Config updated!!!");
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
@@ -736,7 +745,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	@Action
 	public void openMediaLounge() {
 		String url = config.getMediaLoungeUrl();
-		if( url != null ) {
+		if (url != null) {
 			browserController.openUrl(url);
 		} else {
 			JOptionPane.showMessageDialog(progCurrent, "Can't open because you havent set up any web repositories");

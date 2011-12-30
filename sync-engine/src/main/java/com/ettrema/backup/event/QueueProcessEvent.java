@@ -1,6 +1,7 @@
 package com.ettrema.backup.event;
 
 import com.ettrema.backup.config.QueueItem;
+import com.ettrema.backup.config.Repo;
 import com.ettrema.event.Event;
 
 /**
@@ -26,10 +27,12 @@ public class QueueProcessEvent implements Event{
 
     private final QueueItem item;
     private final Status status;
+	private final Repo repo;
 
-    public QueueProcessEvent( QueueItem item, Status status ) {
+    public QueueProcessEvent( QueueItem item, Status status, Repo repo ) {
         this.item = item;
         this.status = status;
+		this.repo = repo;
     }
 
     public QueueItem getItem() {
@@ -40,8 +43,7 @@ public class QueueProcessEvent implements Event{
         return status;
     }
 
-
-
-
-    
+	public Repo getRepo() {
+		return repo;
+	}    
 }

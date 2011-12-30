@@ -5,9 +5,7 @@ import com.ettrema.backup.observer.ObserverUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  *
@@ -16,8 +14,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Queue implements Iterable<QueueItem> {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( Queue.class );
-    private BlockingQueue<QueueItem> items = new LinkedBlockingQueue<QueueItem>();
-    private List<QueueItem> listOfItems = new ArrayList<QueueItem>();
+    private List<QueueItem> listOfItems = new java.util.concurrent.CopyOnWriteArrayList<QueueItem>();
     private transient List<Observer<QueueItem, Queue>> observers = new CopyOnWriteArrayList<Observer<QueueItem, Queue>>();
     private transient MyObserver myObserver; // used for dispatching observations from queueitems to queue observers
 
@@ -29,47 +26,50 @@ public class Queue implements Iterable<QueueItem> {
     }
 
     public boolean isEmpty() {
-        return items == null || items.isEmpty();
+        return listOfItems == null || listOfItems.isEmpty();
     }
 
     public void addItem( QueueItem item ) {
 //        log.debug( "addItem" );
-        items.add( item );
         listOfItems.add( item );
         item.addObserver( myObserver() );
-        ObserverUtils.notifyAdded( observers, item, this );
+        ObserverUtils.notifyAdded( observers(), item, this );
     }
 
     public void notifyObserversUpdated(QueueItem item) {
-        ObserverUtils.notifyUpdated( observers, item, this );
+        ObserverUtils.notifyUpdated( observers(), item, this );
     }
 
-    public void addObserver( Observer<QueueItem, Queue> ob ) {
+	public List<Observer<QueueItem, Queue>> observers() {
         if( observers == null ) {
             observers = new ArrayList<Observer<QueueItem, Queue>>();
         }
-        observers.add( ob );
+		return observers;
+	}
+	
+    public void addObserver( Observer<QueueItem, Queue> ob ) {
+        observers().add( ob );
     }
 
 	@Override
     public Iterator<QueueItem> iterator() {
-        return items.iterator();
+        return listOfItems.iterator();
     }
 
     public boolean contains( QueueItem nf ) {
-        if( items == null ) {
+        if( listOfItems == null ) {
             return false;
         }
-        return items.contains( nf );
+        return listOfItems.contains( nf );
     }
 
     public int size() {
-        return items.size();
+        return listOfItems.size();
     }
 
     public QueueItem item( int row ) {
         if( row >= listOfItems.size() ) {
-            throw new IndexOutOfBoundsException( "Row: " + row + " listOfItems: " + listOfItems.size() + " items:" + items.size() );
+            throw new IndexOutOfBoundsException( "Row: " + row + " listOfItems: " + listOfItems.size() + " items:" + listOfItems.size() );
         }
         return listOfItems.get( row );
 
@@ -81,7 +81,7 @@ public class Queue implements Iterable<QueueItem> {
 
     public long getRemainingBytes() {
         long l = 0;
-        for( QueueItem item : this ) {
+        for( QueueItem item : listOfItems ) {
             l += item.getBytesToUpload();
         }
         return l;
@@ -91,12 +91,16 @@ public class Queue implements Iterable<QueueItem> {
         // TODO
     }
 
-    public QueueItem take() throws InterruptedException {
-        QueueItem item = items.take();
-        int removedIndex = indexOf( item );
-        ObserverUtils.notifyRemoved( observers, item, this, removedIndex );
-        listOfItems.remove( item );
-        return item;
+    public synchronized QueueItem take() throws InterruptedException {
+		if( listOfItems.size() > 0 ) {
+			QueueItem item = listOfItems.remove(0);
+			int removedIndex = indexOf( item );
+			ObserverUtils.notifyRemoved( observers(), item, this, removedIndex );
+			listOfItems.remove( item );
+			return item;
+		} else {
+			return null;
+		}
     }
 
     private class MyObserver implements Observer<QueueItem, Queue> {

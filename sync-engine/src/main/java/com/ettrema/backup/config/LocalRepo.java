@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import org.apache.commons.io.FileUtils;
 
 /**
@@ -16,15 +17,20 @@ import org.apache.commons.io.FileUtils;
 public class LocalRepo implements Repo {
 
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(LocalRepo.class);
+	private String id;
 	private File target;
-	private transient Long backedupBytes;
-	private transient boolean offline;
-	private transient QueueItem current;
-	private transient Queue queue;
 	private transient Job job;
-	private transient Long maxBytes;
-	private transient Long usedBytes;
+	private transient LocalRepoState state;
 
+	public LocalRepo() {
+		id = UUID.randomUUID().toString();
+	}
+			
+	@Override
+	public String getId() {
+		return id;
+	}
+	
 	public File getTarget() {
 		return target;
 	}
@@ -35,20 +41,20 @@ public class LocalRepo implements Repo {
 
 	@Override
 	public Long getBackedUpBytes() {
-		return backedupBytes;
+		return state.backedupBytes;
 	}
 
 	private void addBackedUpBytes(long n) {
-		if (backedupBytes == null) {
-			backedupBytes = n;
+		if (state.backedupBytes == null) {
+			state.backedupBytes = n;
 		} else {
-			backedupBytes += n;
+			state.backedupBytes += n;
 		}
 	}
 
 	@Override
 	public void onScan() {
-		backedupBytes = null;
+		state.backedupBytes = null;
 	}
 
 	@Override
@@ -248,30 +254,30 @@ public class LocalRepo implements Repo {
 
 	@Override
 	public Queue getQueue() {
-		if (queue == null) {
-			queue = new Queue();
+		if (state.queue == null) {
+			state.queue = new Queue();
 		}
-		return queue;
+		return state.queue;
 	}
 
 	@Override
 	public boolean isOffline() {
-		return offline;
+		return state.offline;
 	}
 
 	@Override
 	public void setOffline(boolean b) {
-		this.offline = b;
+		state.offline = b;
 	}
 
 	@Override
 	public void setCurrent(QueueItem item) {
-		this.current = item;
+		state.current = item;
 	}
 
 	@Override
 	public QueueItem getCurrent() {
-		return current;
+		return state.current;
 	}
 
 	@Override
@@ -281,7 +287,7 @@ public class LocalRepo implements Repo {
 
 	@Override
 	public void setQueue(Queue queue) {
-		this.queue = queue;
+		state.queue = queue;
 	}
 
 	@Override
@@ -296,8 +302,8 @@ public class LocalRepo implements Repo {
 				log.trace("repo is offline because does not exist: " + target.getAbsolutePath());
 				return false;
 			} else {
-				maxBytes = target.getTotalSpace();
-				usedBytes = maxBytes - target.getFreeSpace();
+				state.maxBytes = target.getTotalSpace();
+				state.usedBytes = state.maxBytes - target.getFreeSpace();
 				log.trace("repo is online");
 				return true;
 			}
@@ -323,12 +329,12 @@ public class LocalRepo implements Repo {
 
 	@Override
 	public Long getMaxBytes() {
-		return maxBytes;
+		return state.maxBytes;
 	}
 
 	@Override
 	public Long getAccountUsedBytes() {
-		return usedBytes;
+		return state.usedBytes;
 	}
 
 	@Override
@@ -346,5 +352,28 @@ public class LocalRepo implements Repo {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	@Override
+	public Object getState() {
+		return state;
+	}
+
+	@Override
+	public void setState(Object state) {
+		this.state = (LocalRepoState) state;
+	}
+
+	
+	
+
+	public static class LocalRepoState {
+
+		private Long backedupBytes;
+		private boolean offline;
+		private QueueItem current;
+		private Queue queue;
+		private Long maxBytes;
+		private Long usedBytes;
 	}
 }

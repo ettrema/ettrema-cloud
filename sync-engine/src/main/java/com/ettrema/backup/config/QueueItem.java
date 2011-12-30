@@ -47,13 +47,6 @@ public interface QueueItem {
      */
     String getActionDescription();
 
-    /**
-     * The target repository
-     * 
-     * @return
-     */
-    Repo getRepo();
-
     Date getStarted();
 
     void setStarted( Date started );
@@ -65,5 +58,12 @@ public interface QueueItem {
     void setNotes( String string );
 
     String getNotes();
+	
+	/**
+	 * Called during progress of the operation
+	 */
+	void setProgressBytes( long bytes );
+	
+	long getProgressBytes();
 
 }

@@ -83,7 +83,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private EventManager eventManager;
 	private QueueInserter queueHandler;
 	private FileWatcher fileWatcher;
-	private QueueManager queueProcessor;
+	private QueueManager queueManager;
 	private PathMunger pathMunger;
 	private SummaryDetails summaryDetails;
 	private BrowserView browserView; // TODO: should be associated with davrepo
@@ -141,15 +141,15 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
 			RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
 			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(engine), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
-			queueProcessor = new QueueManager(config, eventManager, historyDao, handlers, executorService);
-			rssWatcher = new RssWatcher(config, engine, queueHandler, pathMunger);
+			queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
+			rssWatcher = new RssWatcher(configurator, config, engine, queueHandler, pathMunger);
 
-			view = new BackupApplicationView(this, engine, accountCreator, eventManager, queueProcessor, browserController, historyDao);
-			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService);
+			view = new BackupApplicationView(this, engine, accountCreator, eventManager, queueManager, browserController, historyDao);
+			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
 
 			initContext();
 
-			queueProcessor.startThread();
+			queueManager.startThread();
 
 			summaryDetails.refresh();
 
@@ -157,7 +157,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 
 			trayController = new TrayController(this, config, eventManager, summaryDetails, engine);
 			runningInSystemTray = trayController.show();
-			screenUpdateService = new ScreenUpdateService(view, trayController, config);
+			screenUpdateService = new ScreenUpdateService(view, trayController, config, eventManager);
 
 			if (config.isConfigured()) {
 				if (!runningInSystemTray) {
@@ -198,7 +198,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 		context.put(fileWatcher);
 		context.put(crcCalculator);
 
-		context.put(queueProcessor);
+		context.put(queueManager);
 		context.put(summaryDetails);
 		context.put(fileChangeChecker);
 		context.put(view);

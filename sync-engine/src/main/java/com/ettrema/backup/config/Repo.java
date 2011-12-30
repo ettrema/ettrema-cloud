@@ -13,6 +13,13 @@ import java.util.List;
  */
 public interface Repo {
 
+	/**
+	 * Must be persisted, as it is used to reference persisted state data
+	 * 
+	 * @return 
+	 */
+	String getId();
+	
     /**
      * Total bytes which have been backed up to this repository which correspond
      * to local files
@@ -203,6 +210,18 @@ public interface Repo {
 
 	boolean isConfigured();
 
+	/**
+	 * Get state data, ie not user entered configuration, but data which reflects
+	 * the current runtime state of the repository. This will be persisted
+	 * seperately from the configuration
+	 * 
+	 * @param props 
+	 */
+	Object getState();
 
+	/**
+	 * Restores persisted runtime state
+	 */
+	void setState(Object state);
     
 }

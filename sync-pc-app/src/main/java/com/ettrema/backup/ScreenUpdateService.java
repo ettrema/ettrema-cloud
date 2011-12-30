@@ -2,7 +2,11 @@ package com.ettrema.backup;
 
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Repo;
+import com.ettrema.backup.event.QueueItemEvent;
 import com.ettrema.common.Service;
+import com.ettrema.event.Event;
+import com.ettrema.event.EventListener;
+import com.ettrema.event.EventManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,10 +24,11 @@ public class ScreenUpdateService implements Service {
     private boolean running;
     private int counter;
 
-    public ScreenUpdateService( BackupApplicationView view, TrayController trayController, Config config ) {
+    public ScreenUpdateService( BackupApplicationView view, TrayController trayController, Config config, EventManager eventManager ) {
         this.view = view;
         this.trayController = trayController;
         this.config = config;
+		eventManager.registerEventListener( new ScreenUpdateEventListener(), QueueItemEvent.class );
     }
 
     public void start() {
@@ -99,4 +104,13 @@ public class ScreenUpdateService implements Service {
             return n / 1000000000 + "GB";
         }
     }
+	
+	private class ScreenUpdateEventListener implements EventListener {
+
+		public void onEvent(Event e) {
+			System.out.println("Screen upadte event list do checks -----------------");
+			doChecks();
+		}
+		
+	}
 }

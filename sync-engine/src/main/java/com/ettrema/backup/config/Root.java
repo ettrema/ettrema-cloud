@@ -97,7 +97,7 @@ public class Root {
     public void onScanCompletedOk() {
         scanCompleteTotalBytes = scanInProgressBytes;
         addedSinceLastScanBytes = 0l;
-        job.getConfig().saveData();
+        job.getConfig().saveState();
     }
 
     /**

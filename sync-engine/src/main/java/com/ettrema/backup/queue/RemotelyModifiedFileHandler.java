@@ -74,7 +74,7 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 				doDownloadAndVerify(fLocalFile, r, t, remoteModItem, job, item);
 			}
 		});
-		
+
 
 	}
 
@@ -91,18 +91,23 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 		switch (syncStatus) {
 			case IDENITICAL:
 				log.info("Not downloading because files are identical");
+				remoteModItem.setNotes("Files are identical, so nothing to do");
+				remoteModItem.setCompleted(new Date());
 				return true;
 			case LOCAL_NEWER:
 				log.info("Local file is newer, so queue upload");
 				queueInserter.onUpdatedFile(r, fLocalFile);
+				remoteModItem.setNotes("Local file is newer, will upload");
+				remoteModItem.setCompleted(new Date());
 				return true;
-		case CONFLICT:
-			log.info("Files are conflicted");
-			remoteModItem.setConflicted(true);
-			break;
-		case REMOTE_NEWER:
-			log.info("remote file is newer and files are not in conflict, so download");
-			break;
+			case CONFLICT:
+				log.info("Files are conflicted");
+				remoteModItem.setConflicted(true);
+				remoteModItem.setNotes("Conflict detected");
+				break;
+			case REMOTE_NEWER:
+				log.info("remote file is newer and files are not in conflict, so download");
+				break;
 		}
 		try {
 			File fTemp = new File(fLocalFile.getParentFile(), ".ettrema-download." + fLocalFile.getName());
@@ -167,17 +172,17 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 			}
 			long crc = crcCalculator.getLocalCrc(fLocalFile);
 			localCrcDao.setLocalBackedupCrc(fLocalFile, r, crc);
-		}catch (RepoNotAvailableException e) {
-		   log.error("repo excetion");
-		   throw e;
-	   }catch (PermanentUploadException e) {
-		  log.error("perm upload excetion");
-		  throw e;
+		} catch (RepoNotAvailableException e) {
+			log.error("repo excetion");
+			throw e;
+		} catch (PermanentUploadException e) {
+			log.error("perm upload excetion");
+			throw e;
 
-	  }catch (Exception e) {
-		 log.error("Exception transferring file", e);
-		 item.setNotes("error uploading file: " + e.getMessage());
-	 } finally {
+		} catch (Exception e) {
+			log.error("Exception transferring file", e);
+			item.setNotes("error uploading file: " + e.getMessage());
+		} finally {
 			item.setCompleted(new Date());
 			log.debug("completed remotely modified task");
 		}

@@ -2,6 +2,7 @@ package com.ettrema.backup.rss;
 
 import com.bradmcevoy.io.FileUtils;
 import com.ettrema.backup.config.Config;
+import com.ettrema.backup.config.Configurator;
 import com.ettrema.backup.config.DavRepo;
 import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Repo;
@@ -16,7 +17,6 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.http.impl.cookie.DateUtils;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -32,6 +32,7 @@ public class RssWatcher {
 
 	public static final String PATTERN_RESPONSE_HEADER = "E, dd MMM yyyy HH:mm:ss Z"; // Tue, 29 Jun 2010 10:37:14 +1200
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(RssWatcher.class);
+	private final Configurator configurator;
 	private final Config config;
 	private final Engine engine;
 	private final QueueInserter queueInserter;
@@ -40,9 +41,10 @@ public class RssWatcher {
 	private Thread watchThread;
 	private boolean running;
 	private final DateFormat df = new SimpleDateFormat(PATTERN_RESPONSE_HEADER);
-	private Date latestUpdate;
+	
 
-	public RssWatcher(Config config, Engine engine, QueueInserter queueInserter, PathMunger pathMunger) {
+	public RssWatcher(Configurator configurator, Config config, Engine engine, QueueInserter queueInserter, PathMunger pathMunger) {
+		this.configurator = configurator;
 		this.config = config;
 		this.engine = engine;
 		this.queueInserter = queueInserter;
@@ -50,14 +52,14 @@ public class RssWatcher {
 	}
 
 	public void start() {
-//		if (watchThread != null) {
-//			log.warn("already running");
-//			return;
-//		}
-//		running = true;
-//		watchThread = new Thread(new RssWatchRunnable(), "RssWatchThread");
-//		watchThread.setDaemon(true);
-//		watchThread.start();
+		if (watchThread != null) {
+			log.warn("already running");
+			return;
+		}
+		running = true;
+		watchThread = new Thread(new RssWatchRunnable(), "RssWatchThread");
+		watchThread.setDaemon(true);
+		watchThread.start();
 	}
 
 	public void stop() {
@@ -118,13 +120,14 @@ public class RssWatcher {
 					} else {
 						log.warn("Couldnt munge remote path: " + url);
 					}
-					setLatestDate(pubDate);
+					setLatestDate(dr, pubDate);
 				}
 			}
-		}
+		}		
 		// Since we processed everything that was requested in this batch, we
 		// can safely set the last date to the time the batch was requested
-		setLatestDate(dtRequested);
+		setLatestDate(dr, dtRequested);
+		configurator.saveState(dr);
 	}
 
 	public org.jdom.Document getJDomDocument(InputStream fin) throws JDOMException {
@@ -153,9 +156,8 @@ public class RssWatcher {
 	 * 
 	 * @param pubDate 
 	 */
-	private void setLatestDate(Date pubDate) {
-		//System.out.println("set latest date: " + pubDate);
-		latestUpdate = pubDate; // TODO: persist it!!!
+	private void setLatestDate(DavRepo repo, Date pubDate) {
+		repo.setLastPubDate(pubDate);
 	}
 
 	private class RssWatchRunnable implements Runnable {
@@ -189,8 +191,8 @@ public class RssWatcher {
 
 	private void checkFeed(Job job, DavRepo dr) {
 		try {
-			String path = "_changelog.xml?since=" + formatDate(latestUpdate);
-			System.out.println("checkFeed: " + latestUpdate + " - " + path);
+			String path = "_changelog.xml?since=" + formatDate(dr.getLastPubDate());
+			System.out.println("checkFeed: " + dr.getLastPubDate() + " - " + path);
 			byte[] arr = dr.host().get(path);
 			Date dtRequested = new Date();
 			processRss(job, dr, arr, dtRequested);

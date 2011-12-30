@@ -242,7 +242,7 @@ public class QueueView extends javax.swing.JFrame implements EventListener {
                 } else if( e instanceof QueueProcessEvent ) {
                     QueueProcessEvent qpe = (QueueProcessEvent) e;
                     QueueItem item = qpe.getItem();
-                    if( item.getRepo().getQueue() == queue ) {
+                    if( qpe.getRepo().getQueue() == queue ) {
                         setCurrent( item, qpe );
                     }
                 }

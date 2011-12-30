@@ -27,7 +27,7 @@ public class QueueInserter {
 
     public void onRemotelyUpdatedFile(Repo repo, File child, FileMeta meta) {
         log.info("queue remotely modified: " + child.getAbsolutePath());
-        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, repo, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, meta);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
         } else {
@@ -37,7 +37,7 @@ public class QueueInserter {
 
     public void onConflict(Repo repo, String fullPath, File child, FileMeta meta) {
         log.info("queue conflicted: " + child.getAbsolutePath());
-        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, repo, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, meta);
         item.setConflicted(true);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
@@ -49,7 +49,7 @@ public class QueueInserter {
     public void onNewFile(Repo repo, File file) {
         log.info("queue new file: " + file.getAbsolutePath());
 
-        NewFileQueueItem nf = new NewFileQueueItem(file, repo);
+        NewFileQueueItem nf = new NewFileQueueItem(file);
 
         if (repo.getQueue().contains(nf)) {
             log.debug("queue already contains item");
@@ -82,7 +82,7 @@ public class QueueInserter {
     }
 
     public void onUpdatedFile(Repo repo, File file) {
-        NewFileQueueItem nf = new NewFileQueueItem(file, repo);
+        NewFileQueueItem nf = new NewFileQueueItem(file);
         if (repo.getQueue().contains(nf)) {
             log.debug("queue already contains item");
             return;
@@ -92,7 +92,7 @@ public class QueueInserter {
     }
 
     public void onFileDeleted(File child, Job job, Root root, Repo repo) {
-        DeletedFileQueueItem item = new DeletedFileQueueItem(child, repo, root);
+        DeletedFileQueueItem item = new DeletedFileQueueItem(child, root);
         if (repo.getQueue().contains(item)) {
             log.debug("queue already contains item");
             return;
@@ -101,7 +101,7 @@ public class QueueInserter {
     }
 
     public void onMoved(String fullPathFrom, File dest, Job job, Root root, Repo repo) {
-        MovedQueueItem item = new MovedQueueItem(fullPathFrom, dest, repo);
+        MovedQueueItem item = new MovedQueueItem(fullPathFrom, dest);
         if (repo.getQueue().contains(item)) {
             log.debug("queue already contains item");
             return;
