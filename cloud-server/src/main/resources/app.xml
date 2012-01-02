@@ -67,7 +67,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
 
     <bean id="authenticator" class="com.ettrema.web.security.EmailAuthenticator">
         <constructor-arg ref="recursive.authenticator"/>
-		<constructor-arg ref="user.locator"/>
+        <constructor-arg ref="user.locator"/>
     </bean>
 
     <!-- unqualified names are recursively validated against each host in the tree, starting with the current. Qualified names are authenticated against the named host-->
@@ -228,7 +228,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
 
     <bean id="recent.manager" class="com.ettrema.web.recent.RecentManager">
         <constructor-arg ref="event.manager"/>
-		<constructor-arg ref="current.user.service"/>		
+        <constructor-arg ref="current.user.service"/>		
     </bean>
 
     <bean id="current.user.service" class="com.ettrema.web.security.HttpCurrentUserService"/>
@@ -246,8 +246,8 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     <bean id="default.redirect.service" class="com.ettrema.utils.DefaultRedirectService"/>
 
     <bean id="folder.redirect.service" class="com.ettrema.utils.FolderRedirectService">
-		<property name="redirectPage" value="index.html" />
-	</bean>
+        <property name="redirectPage" value="index.html" />
+    </bean>
 
     <bean id="redirect.service" class="com.ettrema.utils.MultiRedirectService">
         <constructor-arg>
@@ -271,10 +271,10 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
 
     <bean id="thumb.generator.service" class="com.ettrema.media.ThumbGeneratorService">
         <constructor-arg ref="vfs.provider.postgres"/>
-		<constructor-arg ref="event.manager"/>
-		<constructor-arg ref="thumbs.processor"/>
-		<constructor-arg ref="asynch.proc"/>
-		<constructor-arg ref="flash.service"/>
+        <constructor-arg ref="event.manager"/>
+        <constructor-arg ref="thumbs.processor"/>
+        <constructor-arg ref="asynch.proc"/>
+        <constructor-arg ref="flash.service"/>
         <property name="mediaLogService" ref="media.log.service"/>
     </bean>
 
@@ -316,7 +316,11 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg ref="image.service" />
     </bean>
 	
-	<bean id="user.locator" class="com.ettrema.web.security.UserLocator"/>
+    <bean id="user.locator" class="com.ettrema.web.security.UserLocator"/>
+    
+    <bean id="state.token.manager" class="com.ettrema.binary.StateTokenManager">
+        <constructor-arg ref="event.manager" />
+    </bean>
 
     <bean id="endrick.catalog" class="com.ettrema.context.FactoryCatalog">
         <property name="configFile" value="applicationContext.xml"/>
@@ -392,9 +396,10 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
             </list>
         </property>
         <property name="singletons">
-            <list>				
-				<ref bean="user.locator"/>
-				<ref bean="form.processor"/>
+            <list>	
+                <ref local="state.token.manager"/>
+                <ref bean="user.locator"/>
+                <ref bean="form.processor"/>
                 <ref bean="root.context.locator"/>
                 <ref bean="migration.helper"/>
                 <ref local="formatter"/>
@@ -479,7 +484,7 @@ in the config on subsequent restarts
             <list>
                 <ref bean="endrick.table.defs"/>
                 <ref bean="media.log.service"/>
-				<ref bean="recent.manager"/>
+                <ref bean="recent.manager"/>
             </list>
         </constructor-arg>
         <constructor-arg>
