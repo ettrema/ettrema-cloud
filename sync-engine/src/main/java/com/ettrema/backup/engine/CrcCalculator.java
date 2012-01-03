@@ -21,6 +21,18 @@ public class CrcCalculator {
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( CrcCalculator.class );
 
     public long getLocalCrc(File file) {
+        if( file.isDirectory() ) {
+            return getLocalCrcDirectory(file);
+        } else {
+            return getLocalCrcFile(file);
+        }
+    }
+    
+    public long getLocalCrcDirectory(File file) {
+        throw new RuntimeException("todo");
+    }
+    
+    public long getLocalCrcFile(File file) {
         long tm = System.currentTimeMillis();
         FileInputStream fin = null;
         BufferedInputStream bufin = null;

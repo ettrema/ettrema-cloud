@@ -183,7 +183,6 @@ public class Root {
             return;
         }
         checkFileFast(engine, child);
-
     }
 
     /**
@@ -275,4 +274,8 @@ public class Root {
 				(this.fullPath != null && this.fullPath.length() > 0) &&
 				f.exists() && f.isDirectory();
 	}
+
+    public boolean contains(File parent) {
+        return parent.getAbsolutePath().startsWith(this.getFullPath());
+    }
 }

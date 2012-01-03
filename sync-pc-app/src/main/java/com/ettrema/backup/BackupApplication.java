@@ -134,7 +134,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
 			accountCreator = new AccountCreator(config);
 			queueHandler = new QueueInserter(eventManager);
-			engine = new Engine(throttleFactory, config, configurator, eventManager, fileChangeChecker);
+			engine = new Engine(throttleFactory, config, configurator, eventManager, fileChangeChecker, crcCalculator);
 			fileWatcher = new FileWatcher(config, engine);
 			conflictManager = new SimpleConflictManager();
 			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);

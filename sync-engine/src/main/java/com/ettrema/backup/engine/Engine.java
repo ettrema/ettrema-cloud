@@ -32,18 +32,20 @@ public class Engine {
     private final FileChangeChecker fileChangeChecker;
     private final EventManager eventManager;
     private final ThrottleFactory throttleFactory;
+    private final CrcCalculator crcCalculator;
 
     private static Scanner scanner;
     private List<File> conflicts = new CopyOnWriteArrayList<File>();
     private boolean disableScanning;
 
-    public Engine( ThrottleFactory throttleFactory, Config config, Configurator configurator, EventManager eventManager, FileChangeChecker fileChangeChecker) {
+    public Engine( ThrottleFactory throttleFactory, Config config, Configurator configurator, EventManager eventManager, FileChangeChecker fileChangeChecker,CrcCalculator crcCalculator) {
         this.throttleFactory = throttleFactory;
         this.config = config;
         this.configurator = configurator;
         this.eventManager = eventManager;
         this.queueHandler = new QueueInserter( eventManager );
         this.fileChangeChecker = fileChangeChecker;
+        this.crcCalculator = crcCalculator;
     }
 
     /**
@@ -72,7 +74,7 @@ public class Engine {
 
         log.trace( "scan" );
         try {
-            scanner = new Scanner( this, config, eventManager );
+            scanner = new Scanner( this, config, eventManager, crcCalculator);
             scanner.scan();
             if( !config.isPaused() ) {
                 configurator.save( config );

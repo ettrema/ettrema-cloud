@@ -28,13 +28,16 @@ public class Scanner {
     private final Config config;
     private final Engine engine;
     private final EventManager eventManager;
+    private final LocalTokenScanner localTokenScanner;
+    
     private boolean cancelled;
     private File scanDir;
 
-    public Scanner( Engine engine, Config config, EventManager eventManager ) {
+    public Scanner( Engine engine, Config config, EventManager eventManager, CrcCalculator crcCalculator ) {
         this.engine = engine;
         this.config = config;
         this.eventManager = eventManager;
+        localTokenScanner = new LocalTokenScanner(engine, config, eventManager, crcCalculator );
     }
 
     public File getScanDir() {
@@ -43,10 +46,11 @@ public class Scanner {
 
     public void scan() throws Exception {
         log.debug( "scanning" );
-
+                
         EventUtils.fireQuietly( eventManager, new ScanEvent( true ) );
 
-
+        localTokenScanner.scan();
+        
         // flush old cached data
         for( Repo reng : config.getAllRepos() ) {
             reng.onScan();
