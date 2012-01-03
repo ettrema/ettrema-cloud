@@ -18,37 +18,22 @@ import net.contentobjects.jnotify.JNotifyException;
  */
 public class FileWatcher implements Observer<Config, Object> {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( FileWatcher.class );
-    private static final long SCAN_INTERVAL_MS = 1000 * 60 * 60 * 24; // once per day
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( FileWatcher.class );    
     private final Set<Integer> watchIds = new HashSet<Integer>();
+	private final FileSyncer fileSyncer;
     private final Config config;
-    private final Engine engine;
-    private long nextScanTime;
+    
     private boolean disabled;
     private List<WatchJob> watchJobs = Collections.EMPTY_LIST;
+    
 
-    private boolean scanNow;
-
-    public FileWatcher( Config config, Engine engine ) {
+    public FileWatcher( Config config, FileSyncer fileSyncer ) {
         this.config = config;
-        this.engine = engine;
+		this.fileSyncer = fileSyncer;
         config.addObserver( this );
     }
 
-    public void scanNow() {
-        scanNow = true;
-    }
-
     public void start() {
-
-        nextScanTime = System.currentTimeMillis() + ( 1000 * 60 * 1 ); // after 1 minute
-
-        Thread thNextScan = new Thread( new ScanStarter() );
-        thNextScan.setName( "Next scan" );
-        thNextScan.setDaemon( true );
-        thNextScan.start();
-
-
         for( Integer watchId : watchIds ) {
             try {
                 JNotify.removeWatch( watchId );
@@ -80,7 +65,7 @@ public class FileWatcher implements Observer<Config, Object> {
         boolean watchSubtree = true;
         try {
             // add actual watch
-            WatchJob watchJob = new WatchJob( job, root );
+            WatchJob watchJob = new WatchJob(fileSyncer, job, root);
             watchJobs.add( watchJob );
             Integer watchID = JNotify.addWatch( path, mask, watchSubtree, watchJob );
             watchIds.add( watchID );
@@ -111,43 +96,6 @@ public class FileWatcher implements Observer<Config, Object> {
         start();
     }
 
-    public long delayUntilNextScanSecs() {
-        return ( nextScanTime - System.currentTimeMillis() ) / 1000;
-    }
-
-    private void checkScanStart() {
-        if( System.currentTimeMillis() > nextScanTime || scanNow ) {
-            if( scanNow ) {
-                log.trace("manually initiated scan");
-            } else {
-                log.trace( "kick off scheduled scan" );
-            }
-            scanNow = false;
-            
-            nextScanTime = System.currentTimeMillis() + SCAN_INTERVAL_MS;
-            try {
-                engine.scan();
-            } finally {
-                nextScanTime = System.currentTimeMillis() + SCAN_INTERVAL_MS;
-            }
-
-        }
-    }
-
-    private class ScanStarter implements Runnable {
-
-        @Override
-        public void run() {
-            while( true ) {
-                checkScanStart();
-                try {
-                    Thread.sleep( 1000 );
-                } catch( InterruptedException ex ) {
-                    return;
-                }
-            }
-        }
-    }
 
     public void setDisabled( boolean disabled ) {
         this.disabled = disabled;

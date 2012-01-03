@@ -1,6 +1,7 @@
 package com.ettrema.backup.engine;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * This is used to notify the user of conflicts once conflicting remote files
@@ -11,4 +12,6 @@ import java.io.File;
  */
 public interface ConflictManager {
     void onConflict(File currentLocalFile, File remoteFile);
+
+	List<File> getConflicts();
 }
