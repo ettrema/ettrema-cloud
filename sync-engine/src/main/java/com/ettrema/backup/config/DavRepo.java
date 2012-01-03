@@ -8,7 +8,7 @@ import com.ettrema.httpclient.HttpException;
 import java.util.ArrayList;
 import java.util.List;
 import com.bradmcevoy.common.Path;
-import com.ettrema.backup.engine.SyncExclusionsService;
+import com.ettrema.backup.engine.ExclusionsService;
 import com.ettrema.backup.engine.ThrottleFactory;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.utils.EventUtils;
@@ -784,7 +784,7 @@ public class DavRepo implements Repo {
 
 	@Override
 	public boolean isExcludedFile(File child, Root root) {
-		return _(SyncExclusionsService.class).isExcludedFolder(child.getParentFile(), root);
+		return _(ExclusionsService.class).isExcludedFolder(child.getParentFile(), root);
 	}
 
 	/**

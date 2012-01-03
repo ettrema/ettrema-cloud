@@ -9,12 +9,12 @@ import java.io.File;
  *
  * @author brad
  */
-public interface FileSyncer extends Service {
+public interface FileSyncer {
 	
 	/**
-	 * Initiate a scan. This MUST NOT be a blocking call
+	 * Initiate a scan.
 	 */
-	void scan();
+	void scan(ScanStatus scanStatus);
 	
 	void onFileModified(File child, Root root);
 	
@@ -22,32 +22,4 @@ public interface FileSyncer extends Service {
 
     void onFileMoved( String fullPathFrom, File dest, Job job, Root root );
 
-	/**
-	 * If a scan is running, cancel it
-	 */
-	void cancelScan();
-
-	/**
-	 * Is a scan currently running
-	 * 
-	 * @return 
-	 */
-	boolean isScanning();
-
-	void setScanningDisabled(boolean state);
-	
-	/**
-	 * Get the directory which is currently being scanned, or null if there is no
-	 * scanning in progress
-	 * 
-	 * @return 
-	 */
-	File getCurrentScanDir();
-	
-	/**
-	 * Duration, in seconds, until the next scan is scheduled to run
-	 * 
-	 * @return 
-	 */
-	long delayUntilNextScanSecs();
 }

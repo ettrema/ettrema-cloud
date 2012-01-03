@@ -9,8 +9,6 @@ import com.ettrema.backup.config.RepoNotAvailableException;
 import com.ettrema.backup.config.Root;
 import com.ettrema.backup.engine.FileChangeChecker.SyncStatus;
 import com.ettrema.backup.event.RootChangedEvent;
-import com.ettrema.backup.event.ScanDirEvent;
-import com.ettrema.backup.event.ScanEvent;
 import com.ettrema.backup.queue.QueueInserter;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.event.EventManager;
@@ -27,22 +25,17 @@ import org.slf4j.LoggerFactory;
  */
 public class DirectComparisonFileSyncer implements FileSyncer {
 
-	private static final Logger log = LoggerFactory.getLogger(Root.class);
+	private static final Logger log = LoggerFactory.getLogger(DirectComparisonFileSyncer.class);
 	private static final long SCAN_INTERVAL_MS = 1000 * 60 * 60 * 24; // once per day
-	private final SyncExclusionsService exclusionsService;
+	private final ExclusionsService exclusionsService;
 	private final QueueInserter queueHandler;
 	private final Config config;
 	private final EventManager eventManager;
 	private final FileChangeChecker fileChangeChecker;
 	private final StatusService statusService;
+	private final ScanHelper scanHelper = new ScanHelper();
 	
-	private boolean scanNow;
-	private long nextScanTime;
-	private boolean enabled;
-	private boolean cancelled;
-	private File currentScanDir;
-
-	public DirectComparisonFileSyncer(SyncExclusionsService exclusionsService, QueueInserter queueHandler, Config config, EventManager eventManager, FileChangeChecker fileChangeChecker, StatusService statusService) {
+	public DirectComparisonFileSyncer(ExclusionsService exclusionsService, QueueInserter queueHandler, Config config, EventManager eventManager, FileChangeChecker fileChangeChecker, StatusService statusService) {
 		this.exclusionsService = exclusionsService;
 		this.queueHandler = queueHandler;
 		this.config = config;
@@ -51,55 +44,23 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		this.statusService = statusService;
 	}
 
+
 	/**
 	 * Sets the scanNow flag so a scan will be initiated on next poll
 	 */
 	@Override
-	public void scan() {
-		log.info("scan requested...");
-		scanNow = true;
-	}
-	
-	private void _scan() {
+	public void scan(ScanStatus scanStatus) {
 		log.debug("scanning");
 
-		EventUtils.fireQuietly(eventManager, new ScanEvent(true));
-
-
-		// flush old cached data
-		for (Repo reng : config.getAllRepos()) {
-			reng.onScan();
-			if (!reng.ping()) {
-				log.info("setting repo offline because ping failed: " + reng.getDescription());
-				reng.setOffline(false);
-			}
-		}
-		for (Root root : config.getAllRoots()) {
-			root.onScan();
-		}
-
 		log.trace("**** PHASE 1: Fast Scan, local data only ****");
-		if (scanAgainstLocalDb()) {
+		if (scanAgainstLocalDb(scanStatus)) {
 			return;
 		}
 
 		log.trace("**** PHASE 2: Thorough Scan, compare with server ****");
-		if (scanAgainstRepos()) {
+		if (scanAgainstRepos(scanStatus)) {
 			return;
 		}
-
-
-		EventUtils.fireQuietly(eventManager, new ScanEvent(false));
-
-		for (Root root : config.getAllRoots()) {
-			root.onScanCompletedOk();
-		}
-		for (Repo reng : config.getAllRepos()) {
-			reng.onScanComplete();
-		}
-
-
-		log.trace("finished scanning");
 	}
 
 	/**
@@ -112,10 +73,6 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	@Override
 	public void onFileDeleted(File child, Job job, Root root) {
 		log.debug("onFileDeleted: " + child.getAbsolutePath());
-		if (!exclusionsService.isBackupable(child, root)) {
-			return;
-		}
-
 		for (Repo r : job.getRepos()) {
 			queueHandler.onFileDeleted(child, job, root, r);
 		}
@@ -124,10 +81,6 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	@Override
 	public void onFileMoved(String fullPathFrom, File dest, Job job, Root root) {
 		log.debug("onFileMoved: " + dest.getAbsolutePath());
-		if (!exclusionsService.isBackupable(dest, root)) {
-			return;
-		}
-
 		for (Repo r : job.getRepos()) {
 			queueHandler.onMoved(fullPathFrom, dest, job, root, r);
 		}
@@ -146,93 +99,21 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	 */
 	@Override
 	public void onFileModified(File child, Root root) {
-		if (!exclusionsService.isBackupable(child, root)) {
-			return;
-		}
 		root.addNonScanBytes(child.length());
 		checkFileInRepos(child, false, root);
 	}
 
-	@Override
-	public void start() {
-		enabled = true;
-		nextScanTime = System.currentTimeMillis() + (1000 * 60 * 1); // after 1 minute
 
-		Thread thNextScan = new Thread(new ScanStarter());
-		thNextScan.setName("Next scan");
-		thNextScan.setDaemon(true);
-		thNextScan.start();
-	}
-
-	@Override
-	public void stop() {
-		enabled = false;
-	}
-
-	@Override
-	public void cancelScan() {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public boolean isScanning() {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	@Override
-	public void setScanningDisabled(boolean state) {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	private class ScanStarter implements Runnable {
-
-		@Override
-		public void run() {
-			while (enabled) {
-				checkScanStart();
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException ex) {
-					return;
-				}
-			}
-		}
-	}
-
-	private void checkScanStart() {
-		if (System.currentTimeMillis() > nextScanTime || scanNow) {
-			if (scanNow) {
-				log.trace("manually initiated scan");
-			} else {
-				log.trace("kick off scheduled scan");
-			}
-			scanNow = false;
-
-			nextScanTime = System.currentTimeMillis() + SCAN_INTERVAL_MS;
-			try {
-				_scan();
-			} finally {
-				nextScanTime = System.currentTimeMillis() + SCAN_INTERVAL_MS;
-			}
-
-		}
-	}
-
-	@Override
-	public long delayUntilNextScanSecs() {
-		return (nextScanTime - System.currentTimeMillis()) / 1000;
-	}
-
-	private boolean scanAgainstRepos() {
+	private boolean scanAgainstRepos(ScanStatus scanStatus) {
 		// begin scanning at roots
 		for (Job j : config.getJobs()) {
 			log.trace("scan job: " + j.toString());
-			if (enabled()) {
+			if (scanStatus.enabled()) {
 				for (Root r : j.getRoots()) {
-					if (enabled()) {
+					if (scanStatus.enabled()) {
 						log.trace("scan root: " + r.getFullPath());
 						File dir = new File(r.getFullPath());
-						scanAgainstRepo(dir, j, r.getExclusions(), r);
+						scanAgainstRepo(dir, j, r.getExclusions(), r, scanStatus);
 						EventUtils.fireQuietly(eventManager, new RootChangedEvent(r));
 					} else {
 						log.info("paused, abort scan");
@@ -247,18 +128,18 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		return false;
 	}
 
-	private boolean scanAgainstLocalDb() {
+	private boolean scanAgainstLocalDb(ScanStatus scanStatus) {
 		log.trace("scanAgainstLocalDb.1");
 		// begin scanning at roots
 		for (Job j : config.getJobs()) {
 			log.trace("scan job: " + j.toString());
-			if (enabled()) {
+			if (scanStatus.enabled()) {
 				Collection<Root> roots = new ArrayList<Root>(j.getRoots());
 				for (Root r : roots) {
-					if (enabled()) {
+					if (scanStatus.enabled()) {
 						log.trace("scan root: " + r.getFullPath());
 						File dir = new File(r.getFullPath());
-						scanAgainstLocalDb(dir, j, r.getExclusions(), r);
+						scanAgainstLocalDb(dir, j, r.getExclusions(), r, scanStatus);
 						EventUtils.fireQuietly(eventManager, new RootChangedEvent(r));
 					} else {
 						log.info("paused, abort scan");
@@ -273,9 +154,9 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		return false;
 	}
 
-	private void scanAgainstRepo(File scanDir, Job job, List<Dir> dirs, Root root) {
+	private void scanAgainstRepo(File scanDir, Job job, List<Dir> dirs, Root root, ScanStatus scanStatus) {
 		log.trace("scanAgainstRepo");
-		if (!enabled()) {
+		if (!scanStatus.enabled()) {
 			log.info("job cancelled");
 			return;
 		}
@@ -283,7 +164,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			log.info("Cancelling scan because all repositories are offline");
 			return;
 		}
-		if (isScanDirOtherRoot(scanDir, root, job)) {
+		if (scanHelper.isScanDirOtherRoot(scanDir, root, job)) {
 			log.info("not scanning because is another root");
 			return;
 		}
@@ -293,7 +174,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			return;
 		}
 
-		setCurrentScanDir(scanDir);
+		scanStatus.currentScanDir = scanDir;
 
 		// Have a little sleep to make sure we don't saturate the CPU
 		try {
@@ -307,9 +188,9 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			return;
 		}
 		for (File child : files) {
-			if (enabled()) {
+			if (scanStatus.enabled()) {
 				if (child.isDirectory()) {
-					scanAgainstRepo(child, job, dirs, root);
+					scanAgainstRepo(child, job, dirs, root, scanStatus);
 				} else {
 					try {
 						long tm = System.currentTimeMillis();
@@ -346,9 +227,9 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		}
 	}
 
-	private void scanAgainstLocalDb(File scanDir, Job job, List<Dir> dirs, Root root) {
+	private void scanAgainstLocalDb(File scanDir, Job job, List<Dir> dirs, Root root, ScanStatus scanStatus) {
 		log.trace("scanAgainstLocalDb.2:" + scanDir.getAbsolutePath());
-		if (!enabled()) {
+		if (!scanStatus.enabled()) {
 			log.info("job cancelled");
 			return;
 		}
@@ -356,7 +237,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			log.info("Cancelling scan because all repositories are offline");
 			return;
 		}
-		if (isScanDirOtherRoot(scanDir, root, job)) {
+		if (scanHelper.isScanDirOtherRoot(scanDir, root, job)) {
 			log.info("not scanning because is another root");
 			return;
 		}
@@ -366,7 +247,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			return;
 		}
 
-		setCurrentScanDir(scanDir);
+		scanStatus.currentScanDir = scanDir;
 
 		// Have a little sleep to make sure we don't saturate the CPU
 		try {
@@ -381,7 +262,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		}
 		// Scan local files
 		for (File child : files) {
-			if (enabled()) {
+			if (scanStatus.enabled()) {
 				if (!child.isDirectory()) {
 					try {
 						scanAgainstLocalDb(child, root);
@@ -396,44 +277,15 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		}
 		// Scan subdirs
 		for (File child : files) {
-			if (enabled()) {
+			if (scanStatus.enabled()) {
 				if (child.isDirectory()) {
-					scanAgainstLocalDb(child, job, dirs, root);
+					scanAgainstLocalDb(child, job, dirs, root, scanStatus);
 				}
 			} else {
 				log.info("paused, aborting scan");
 				return;
 			}
 		}
-	}
-
-	private void setCurrentScanDir(File scanDir) {
-		this.currentScanDir = scanDir;
-		EventUtils.fireQuietly(eventManager, new ScanDirEvent(scanDir));
-	}
-
-	/**
-	 * Check to see if the directory about to be scanned is another root on the same
-	 * job. If it is, we don't scan it because it will be scanned when the other
-	 * root is processed
-	 * 
-	 * @param scanDir
-	 * @param root
-	 * @param job
-	 * @return
-	 */
-	private boolean isScanDirOtherRoot(File scanDir, Root root, Job job) {
-		for (Root otherRoot : job.getRoots()) {
-			if (otherRoot == root) {
-				// thats cool
-			} else {
-				if (scanDir.getAbsolutePath().equals(otherRoot.getFullPath())) {
-					log.trace("same dir as other root: " + scanDir.getAbsolutePath() + " == " + otherRoot.getFullPath());
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -447,7 +299,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	 * @param job
 	 * @param root
 	 */
-	public void scanFileUpdated(File child, Root root) {
+	private void scanFileUpdated(File child, Root root) {
 		if (!exclusionsService.isBackupable(child, root)) {
 			return;
 		}
@@ -469,7 +321,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			if (!r.isOffline()) {
 				try {
 					if (!r.isExcludedFile(child, root)) {
-						FileMeta meta = getMeta(r, child, root.getFullPath(), root.getRepoName(), isScan);
+						FileMeta meta = scanHelper.getMeta(r, child, root.getFullPath(), root.getRepoName(), isScan);
 						checkFileUpdated(r, child, meta, root);
 					} else {
 						log.trace("file {} is excluded from {}", child.getAbsolutePath(), r.getDescription());
@@ -485,24 +337,6 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		}
 	}
 
-	private FileMeta getMeta(Repo r, File child, String localRootPath, String repoName, boolean isScan) throws RepoNotAvailableException {
-		FileMeta meta;
-		try {
-			meta = r.getFileMeta(child.getAbsolutePath(), localRootPath, repoName, isScan);
-		} catch (RepoNotAvailableException ex) {
-			log.info("repository not available: " + r.getClass().getCanonicalName(), ex);
-			log.trace("retrying..");
-			try {
-				meta = r.getFileMeta(child.getAbsolutePath(), localRootPath, repoName, isScan);
-			} catch (RepoNotAvailableException ex1) {
-				log.info("repo still not available");
-				throw ex1;
-			}
-		}
-
-
-		return meta;
-	}
 
 	private void checkFileFast(File child, Root root) {
 		for (Repo r : root.getJob().getRepos()) {
@@ -569,24 +403,5 @@ public class DirectComparisonFileSyncer implements FileSyncer {
                     log.trace( "checkFileUpdated - files are identical: " + child.getAbsolutePath() );
             }
         }
-    }	
-
-	private boolean enabled() {
-		return !cancelled && !config.isPaused();
-	}
-
-	public boolean isCancelled() {
-		return cancelled;
-	}
-
-	public void setCancelled(boolean cancelled) {
-		this.cancelled = cancelled;
-	}
-
-	@Override
-	public File getCurrentScanDir() {
-		return currentScanDir;
-	}
-	
-	
+    }			
 }

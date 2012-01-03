@@ -29,7 +29,8 @@ import com.ettrema.backup.engine.FileSyncer;
 import com.ettrema.backup.engine.Services;
 import com.ettrema.backup.engine.SimpleConflictManager;
 import com.ettrema.backup.engine.StatusService;
-import com.ettrema.backup.engine.SyncExclusionsService;
+import com.ettrema.backup.engine.ExclusionsService;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.queue.QueueItemHandler;
 import com.ettrema.backup.queue.RemotelyDeletedHandler;
 import com.ettrema.backup.queue.RemotelyMovedHandler;
@@ -78,8 +79,9 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private RootContext context;
 	private Configurator configurator;
 	private Config config;
-	private SyncExclusionsService exclusionsService;
+	private ExclusionsService exclusionsService;
 	private StatusService statusService;
+	private ScanService scanService;
 	private FileSyncer fileSyncer;
 	private AccountCreator accountCreator;
 	private BandwidthService bandwidthService;
@@ -138,9 +140,10 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
 			accountCreator = new AccountCreator(config);
 			queueHandler = new QueueInserter(eventManager);
-			exclusionsService = new SyncExclusionsService();
+			exclusionsService = new ExclusionsService();
 			statusService = new StatusService(eventManager);
-			fileSyncer = new DirectComparisonFileSyncer(exclusionsService, queueHandler, config, eventManager, fileChangeChecker, statusService);
+			fileSyncer = new DirectComparisonFileSyncer(exclusionsService, queueHandler, config, eventManager, fileChangeChecker, statusService);			
+			scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager);
 			fileWatcher = new FileWatcher(config, fileSyncer);
 			conflictManager = new SimpleConflictManager();
 			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
@@ -149,7 +152,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
 			queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
 
-			view = new BackupApplicationView(this, config, fileSyncer, accountCreator, eventManager, queueManager, browserController, historyDao, conflictManager);
+			view = new BackupApplicationView(this, config, scanService, accountCreator, eventManager, queueManager, browserController, historyDao, conflictManager);
 			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
 
 			initContext();
@@ -158,7 +161,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 
 			summaryDetails.refresh();
 
-			trayController = new TrayController(fileSyncer, this, config, eventManager, summaryDetails);
+			trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
 			runningInSystemTray = trayController.show();
 			screenUpdateService = new ScreenUpdateService(view, trayController, config, eventManager);
 

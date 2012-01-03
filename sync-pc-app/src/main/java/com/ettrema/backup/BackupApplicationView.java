@@ -11,6 +11,7 @@ import com.ettrema.backup.account.AccountCreator;
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.engine.ConflictManager;
 import com.ettrema.backup.engine.FileSyncer;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.history.HistoryDao;
 import com.ettrema.backup.observer.Observer;
 import com.ettrema.backup.queue.QueueManager;
@@ -44,7 +45,7 @@ import static com.ettrema.backup.BackupApplication._;
 public class BackupApplicationView extends FrameView implements Observer<Config, Object> {
 
 	private static final Logger log = LoggerFactory.getLogger(BackupApplicationView.class);
-	private final FileSyncer fileSyncer;
+	private final ScanService scanService;
 	private final ConflictManager conflictManager;
 	private final Config config;
 	private final EventManager eventManager;
@@ -56,9 +57,9 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	private String problemDescription;
 	private boolean throttleChanged;
 
-	public BackupApplicationView(SingleFrameApplication app,Config config, FileSyncer fileSyncer, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao, ConflictManager conflictManager) throws Exception {
+	public BackupApplicationView(SingleFrameApplication app,Config config, ScanService scanService, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao, ConflictManager conflictManager) throws Exception {
 		super(app);
-		this.fileSyncer = fileSyncer;
+		this.scanService = scanService;
 		this.eventManager = eventManager;
 		this.queueProcessor = queueProcessor;
 		this.accountCreator = accountCreator;
@@ -572,7 +573,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 
 	@Action
 	public void showNewAccount() {
-		AccountView queueView = new AccountView(fileSyncer, eventManager, config, accountCreator, null);
+		AccountView queueView = new AccountView(scanService, eventManager, config, accountCreator, null);
 		queueView.setVisible(true);
 
 	}
@@ -637,7 +638,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 
 	@Action
 	public void scanNow() {
-		fileSyncer.scan();
+		scanService.scan();
 	}
 
 	int getThrottlePerc() {
@@ -671,7 +672,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 			menuItem.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					QueueView queueView = new QueueView(fileSyncer, eventManager, queueProcessor, q, r);
+					QueueView queueView = new QueueView(scanService, eventManager, queueProcessor, q, r);
 					queueView.setVisible(true);
 				}
 			});
@@ -689,7 +690,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 			menuItem.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					AccountView queueView = new AccountView(fileSyncer, eventManager, j, accountCreator, null);
+					AccountView queueView = new AccountView(scanService, eventManager, j, accountCreator, null);
 					queueView.setVisible(true);
 				}
 			});

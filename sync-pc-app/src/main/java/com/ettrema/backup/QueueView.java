@@ -10,7 +10,7 @@ import com.ettrema.backup.config.Repo;
 import javax.swing.ImageIcon;
 import com.ettrema.backup.config.Queue;
 import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.engine.FileSyncer;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.event.QueueProcessEvent;
 import com.ettrema.backup.event.ScanDirEvent;
 import com.ettrema.backup.event.ScanEvent;
@@ -31,16 +31,16 @@ import static com.ettrema.backup.utils.TimeUtils.pad2;
 public class QueueView extends javax.swing.JFrame implements EventListener {
 
 	private static final long serialVersionUID = 1L;
-	private final FileSyncer fileSyncer;
+	private final ScanService scanService;
 	private final EventManager eventManager;
 	private final QueueManager queueProcessor;
 	private final Queue queue;
 	private final Repo repo;
 
 	/** Creates new form QueueView */
-	public QueueView(FileSyncer fileSyncer, EventManager eventManager, QueueManager queueProcessor, Queue queue, Repo repo) {
+	public QueueView(ScanService scanService, EventManager eventManager, QueueManager queueProcessor, Queue queue, Repo repo) {
 		this.queue = queue;
-		this.fileSyncer = fileSyncer;
+		this.scanService = scanService;
 		this.repo = repo;
 		this.queueProcessor = queueProcessor;
 		this.eventManager = eventManager;
@@ -52,7 +52,7 @@ public class QueueView extends javax.swing.JFrame implements EventListener {
 //        tblQueue.setRowSorter( rowSorter );
 
 
-		File scanDir = fileSyncer.getCurrentScanDir(); 
+		File scanDir = scanService.getCurrentScanDir(); 
 		if (scanDir != null) {
 			lblCurrentDirVal.setText(scanDir.getAbsolutePath());
 		}
@@ -75,7 +75,7 @@ public class QueueView extends javax.swing.JFrame implements EventListener {
 	}
 
 	private String getNextScanText() {
-		long nextScanTime = fileSyncer.delayUntilNextScanSecs() * 1000 + System.currentTimeMillis(); 
+		long nextScanTime = scanService.delayUntilNextScanSecs() * 1000 + System.currentTimeMillis(); 
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(nextScanTime);
 		String nextScan = pad2(cal.get(Calendar.HOUR_OF_DAY)) + ":" + pad2(cal.get(Calendar.MINUTE));

@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.engine.FileSyncer;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.event.QueueItemEvent;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.observer.Observer;
@@ -39,7 +40,7 @@ import static com.ettrema.backup.BackupApplication._;
 public class TrayController implements Observer<Config, Object> {
 
 	private static final Logger log = LoggerFactory.getLogger(TrayController.class);
-	private final FileSyncer fileSyncer;
+	private final ScanService scanService;
 	private final BackupApplication app;
 	private final Config config;
 	private final SummaryDetails summaryDetails;
@@ -56,8 +57,8 @@ public class TrayController implements Observer<Config, Object> {
 	private MenuItem exitItem;
 	private Image current;
 
-	public TrayController(FileSyncer fileSyncer, BackupApplication app, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
-		this.fileSyncer = fileSyncer;
+	public TrayController(ScanService scanService, BackupApplication app, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
+		this.scanService = scanService;
 		this.app = app;
 		this.config = config;
 		this.summaryDetails = summaryDetails;
@@ -176,7 +177,7 @@ public class TrayController implements Observer<Config, Object> {
 
 				public void itemStateChanged(ItemEvent e) {
 					log.info("set diabled scanning: " + disableScanning.getState());
-					fileSyncer.setScanningDisabled(disableScanning.getState());
+					scanService.setScanningDisabled(disableScanning.getState());
 				}
 			});
 
@@ -291,7 +292,7 @@ public class TrayController implements Observer<Config, Object> {
 	}
 
 	private boolean isScanning() {
-		return fileSyncer.isScanning();
+		return scanService.isScanning();
 	}
 
 	private boolean isPaused() {

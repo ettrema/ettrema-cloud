@@ -9,9 +9,9 @@ import java.util.List;
  *
  * @author brad
  */
-public class SyncExclusionsService {
+public class ExclusionsService {
 
-	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( SyncExclusionsService.class );
+	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( ExclusionsService.class );
 	
     public boolean isBackupable( File child, Root root ) {
         File f = child;
