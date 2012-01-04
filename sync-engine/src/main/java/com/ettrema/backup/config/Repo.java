@@ -172,13 +172,6 @@ public interface Repo {
     public String getDescription();
 
     /**
-     * Check to see if the repository is accessible
-     *
-     * @return - true if the repository is accessible
-     */
-    public boolean ping();
-
-    /**
      * Return true if the given file is in an excluded folder for this repository
      *
      * @param child

@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
 public class DirectComparisonFileSyncer implements FileSyncer {
 
 	private static final Logger log = LoggerFactory.getLogger(DirectComparisonFileSyncer.class);
-	private static final long SCAN_INTERVAL_MS = 1000 * 60 * 60 * 24; // once per day
 	private final ExclusionsService exclusionsService;
 	private final QueueInserter queueHandler;
 	private final Config config;
@@ -99,7 +98,6 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	 */
 	@Override
 	public void onFileModified(File child, Root root) {
-		root.addNonScanBytes(child.length());
 		checkFileInRepos(child, false, root);
 	}
 

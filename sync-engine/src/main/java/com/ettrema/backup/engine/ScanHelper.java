@@ -1,5 +1,6 @@
 package com.ettrema.backup.engine;
 
+import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.FileMeta;
 import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Repo;
@@ -60,5 +61,24 @@ class ScanHelper {
 
 
 		return meta;
-	}	
+	}
+
+	/**
+	 * True if the scanDir is above or outside any other Root in the config
+	 * 
+	 * Eg /a is above /a/b, /c is outside of /a and /b
+	 * 
+	 * @param scanDir
+	 * @param config
+	 * @return 
+	 */
+	public boolean isOutsideAnyRoot(File f, Config config) {
+		String p = f.getAbsolutePath();
+		for( Root r : config.getAllRoots()) {
+			if( p.startsWith(r.getFullPath())) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

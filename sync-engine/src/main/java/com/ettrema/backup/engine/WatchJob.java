@@ -84,7 +84,7 @@ public class WatchJob implements JNotifyListener {
         if( disabled ) {
             return;
         }
-        log.debug( "file created: " + rootPath + " : " + name );
+        log.info( "file created: " + rootPath + " : " + name );
         watchEvents.add( new CreatedWatchEvent( rootPath, name ) );
     }
 
@@ -94,7 +94,7 @@ public class WatchJob implements JNotifyListener {
             return;
         }
 
-        log.debug( "deleted " + rootPath + " : " + name );
+        log.info( "deleted " + rootPath + " : " + name );
         // when deleted,discard any previous modified events
         DeletedWatchEvent de = new DeletedWatchEvent( rootPath, name );
         de.removeModifiedEvents( de.getFullPath() );
@@ -108,7 +108,7 @@ public class WatchJob implements JNotifyListener {
             return;
         }
 
-        log.debug( "modified " + rootPath + " : " + name );
+        log.info( "modified " + rootPath + " : " + name );
         try {
             String fullPath = rootPath + File.separator + name;
             File f = new File( fullPath );
@@ -127,7 +127,7 @@ public class WatchJob implements JNotifyListener {
         if( disabled ) {
             return;
         }
-        log.debug( "renamed " + rootPath + " : " + name + "  newName:" + newName );
+        log.info( "renamed " + rootPath + " : " + name + "  newName:" + newName );
         watchEvents.add( new RenamedWatchEvent( rootPath, name, newName ) );
     }
 

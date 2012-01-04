@@ -1,5 +1,6 @@
 package com.ettrema.backup.engine;
 
+import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Dir;
 import com.ettrema.backup.config.Root;
 import java.io.File;
@@ -12,6 +13,23 @@ import java.util.List;
 public class ExclusionsService {
 
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( ExclusionsService.class );
+
+	private final Config config;
+
+	public ExclusionsService(Config config) {
+		this.config = config;
+	}
+		
+	
+	public boolean isBackupable(File scanDir) {
+		for( Root r : config.getAllRoots()) {
+			if( isBackupable(scanDir, r)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	
     public boolean isBackupable( File child, Root root ) {
         File f = child;
@@ -63,5 +81,6 @@ public class ExclusionsService {
             }
         }
         return false;
-    }	
+    }
+
 }

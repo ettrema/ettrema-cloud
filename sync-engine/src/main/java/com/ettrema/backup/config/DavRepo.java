@@ -16,17 +16,12 @@ import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.cache.MemoryCache;
 import com.ettrema.httpclient.Folder;
 import com.ettrema.httpclient.Host;
-import com.ettrema.httpclient.NotFoundException;
 import com.ettrema.httpclient.ProgressListener;
 import com.ettrema.httpclient.ProxyDetails;
 import com.ettrema.httpclient.Resource;
-import com.ettrema.httpclient.Unauthorized;
 import com.ettrema.httpclient.Utils.CancelledException;
 import java.io.File;
 import java.io.IOException;
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 
 import java.util.UUID;
 import static com.ettrema.backup.engine.Services._;
@@ -609,7 +604,7 @@ public class DavRepo implements Repo {
 	 * read the quota fields from the response and update the account info
 	 * @param remote 
 	 */
-	private void updateAccountInfo(Resource remote) {
+	public void updateAccountInfo(Resource remote) {
 		Long avail = remote.getQuotaAvailableBytes();
 		Long used = remote.getQuotaUsedBytes();
 		log.trace("updateAccountInfo: " + avail + " - " + used);
@@ -735,52 +730,6 @@ public class DavRepo implements Repo {
 		return this.hostName;
 	}
 
-	@Override
-	public boolean ping() {
-		if (this.hostName == null || this.hostName.length() == 0) {
-			log.trace("Not configured");
-			return false;
-		}
-		// Note that we MUST not call through to the host to do a check if there
-		// is a task in progress because the call will block on the Host methods
-		// And, if there is a task running we must be online
-		if (state.current != null) {
-			return true;
-		}
-		try {
-			try {
-				if (state.maxBytes == null) {
-					Resource r = this.host(true);
-					updateAccountInfo(r);
-					return true;
-				} else {
-					this.host().options("/");
-					return true;
-				}
-			} catch (RepoNotAvailableException ex) {
-				log.trace("repo exeption", ex);
-				return false;
-			}
-		} catch (NotFoundException ex) {
-			log.trace("not found");
-			return false;
-		} catch (ConnectException ex) {
-			log.trace("couldnt connect to: " + this.hostName + ":" + this.port, ex);
-			return false;
-		} catch (UnknownHostException ex) {
-			log.trace("couldnt connect, unknown host", ex);
-			return false;
-		} catch (SocketTimeoutException ex) {
-			log.trace("couldnt connect, socket timeout", ex);
-			return false;
-		} catch (Unauthorized ex) {
-			log.trace("authorisation failure", ex);
-			return false;
-		} catch (Throwable e) {
-			log.trace("unknown exception", e);
-			return false;
-		}
-	}
 
 	@Override
 	public boolean isExcludedFile(File child, Root root) {

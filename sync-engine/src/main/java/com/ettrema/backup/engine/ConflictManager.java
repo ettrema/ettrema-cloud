@@ -14,4 +14,12 @@ public interface ConflictManager {
     void onConflict(File currentLocalFile, File remoteFile);
 
 	List<File> getConflicts();
+
+	/**
+	 * Called when the conflict is between the type of resource ie file vs directory
+	 * 
+	 * @param l
+	 * @param childFile 
+	 */
+	void onTreeConflict(File l, com.ettrema.httpclient.File childFile);
 }

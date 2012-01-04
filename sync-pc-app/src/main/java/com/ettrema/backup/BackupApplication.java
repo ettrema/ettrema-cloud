@@ -24,13 +24,16 @@ import com.ettrema.backup.queue.RemotelyModifiedFileHandler;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.backup.engine.BandwidthService;
 import com.ettrema.backup.engine.ConflictManager;
-import com.ettrema.backup.engine.DirectComparisonFileSyncer;
+import com.ettrema.backup.engine.DirectFileRemoteSyncer;
 import com.ettrema.backup.engine.FileSyncer;
 import com.ettrema.backup.engine.Services;
-import com.ettrema.backup.engine.SimpleConflictManager;
 import com.ettrema.backup.engine.StatusService;
 import com.ettrema.backup.engine.ExclusionsService;
+import com.ettrema.backup.engine.RemoteSyncer;
 import com.ettrema.backup.engine.ScanService;
+import com.ettrema.backup.engine.StateTokenFileSyncer;
+import com.ettrema.backup.engine.StateTokenRemoteSyncer;
+import com.ettrema.backup.engine.TransferAuthorisationService;
 import com.ettrema.backup.queue.QueueItemHandler;
 import com.ettrema.backup.queue.RemotelyDeletedHandler;
 import com.ettrema.backup.queue.RemotelyMovedHandler;
@@ -98,10 +101,11 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private BrowserController browserController;
 	private TrayController trayController;
 	private FileChangeChecker fileChangeChecker;
-	private CrcCalculator crcCalculator;
-	private ScreenUpdateService screenUpdateService;
+	private CrcCalculator crcCalculator;	
 	private HistoryDao historyDao;
 	private ConflictManager conflictManager;
+	private TransferAuthorisationService transferAuthorisationService;
+	private List<RemoteSyncer> remoteSyncers;
 	private boolean runningInSystemTray = false;
 
 	/**
@@ -140,10 +144,14 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
 			accountCreator = new AccountCreator(config);
 			queueHandler = new QueueInserter(eventManager);
-			exclusionsService = new ExclusionsService();
+			exclusionsService = new ExclusionsService(config);
 			statusService = new StatusService(eventManager);
-			fileSyncer = new DirectComparisonFileSyncer(exclusionsService, queueHandler, config, eventManager, fileChangeChecker, statusService);			
-			scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager);
+			fileSyncer = new StateTokenFileSyncer(exclusionsService, config);
+			transferAuthorisationService = null; // TODO -----------------------------------------------------------------------------------
+			RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator);
+			RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
+			remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
+			scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
 			fileWatcher = new FileWatcher(config, fileSyncer);
 			conflictManager = new SimpleConflictManager();
 			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
@@ -163,7 +171,6 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 
 			trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
 			runningInSystemTray = trayController.show();
-			screenUpdateService = new ScreenUpdateService(view, trayController, config, eventManager);
 
 			if (config.isConfigured()) {
 				if (!runningInSystemTray) {
@@ -176,8 +183,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			}
 
 			fileWatcher.start();
-			screenUpdateService.start();
-			//rssWatcher.start();
+			scanService.scan();
 
 
 		} catch (Exception e) {

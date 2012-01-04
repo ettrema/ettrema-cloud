@@ -4,12 +4,12 @@ import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.Root;
-import com.ettrema.backup.event.ScanDirEvent;
 import com.ettrema.backup.event.ScanEvent;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.common.Service;
 import com.ettrema.event.EventManager;
 import java.io.File;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,20 +22,21 @@ public class ScanService implements Service {
 	private static final Logger log = LoggerFactory.getLogger(DirectComparisonFileSyncer.class);
 	private static final long SCAN_INTERVAL_MS = 1000 * 60 * 60 * 24; // once per day
 	private final FileSyncer fileSyncer;
+	private final List<RemoteSyncer> remoteSyncers;
 	private final ExclusionsService exclusionsService;
 	private final Config config;
 	private final EventManager eventManager;
-	private final ScanHelper scanHelper = new ScanHelper();
 	private ScanStatus scanStatus;
 	private boolean scanNow;
 	private long nextScanTime;
 	private boolean enabled;
 
-	public ScanService(FileSyncer fileSyncer, ExclusionsService exclusionsService, Config config, EventManager eventManager) {
+	public ScanService(FileSyncer fileSyncer, ExclusionsService exclusionsService, Config config, EventManager eventManager, List<RemoteSyncer> remoteSyncers) {
 		this.fileSyncer = fileSyncer;
 		this.exclusionsService = exclusionsService;
 		this.config = config;
 		this.eventManager = eventManager;
+		this.remoteSyncers = remoteSyncers;
 	}
 
 	/**
@@ -127,8 +128,9 @@ public class ScanService implements Service {
 		public void run() {
 			while (enabled) {
 				checkScanStart();
+				pingRepos();
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(3000);
 				} catch (InterruptedException ex) {
 					return;
 				}
@@ -136,6 +138,12 @@ public class ScanService implements Service {
 		}
 	}
 
+	private void pingRepos() {
+		for(RemoteSyncer rs : remoteSyncers) {
+			rs.ping();
+		}
+	}
+	
 	private void checkScanStart() {
 		if (System.currentTimeMillis() > nextScanTime || scanNow) {
 			if (scanNow) {

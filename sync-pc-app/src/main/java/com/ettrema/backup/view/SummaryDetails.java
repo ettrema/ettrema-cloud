@@ -62,7 +62,6 @@ public class SummaryDetails implements EventListener, ProgressListener {
 		eventManager.registerEventListener(this, QueueProcessEvent.class);
 		eventManager.registerEventListener(this, ScanEvent.class);
 		eventManager.registerEventListener(this, ScanDirEvent.class);
-		eventManager.registerEventListener(this, RootChangedEvent.class);
 		eventManager.registerEventListener(this, RepoChangedEvent.class);
 		config.addObserver(new Observer() {
 

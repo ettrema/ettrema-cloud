@@ -62,12 +62,7 @@ public class QueueProcessor implements Runnable {
 					if (log.isTraceEnabled()) {
 						log.trace("repo is offline:" + repo.getDescription());
 					}
-					if (repo.ping()) {
-						log.info("repository is back online: " + repo.getDescription());
-						repo.setOffline(false);
-					} else {
-						doSleep(3000);
-					}
+					doSleep(3000);
 				} else {
 					if (retry == null) {
 						QueueItem item = queue.take();
