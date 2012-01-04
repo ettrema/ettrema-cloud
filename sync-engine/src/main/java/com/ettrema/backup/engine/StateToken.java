@@ -14,8 +14,10 @@ public class StateToken {
 	/**
 	 * The CRC of the file or directory. If a directory, this is a CRC of the
 	 * concatencation of its member's names and CRC values
+         * 
+         * A null value indicates that the file was present but has been removed
 	 */
-	public long currentCrc;
+	public Long currentCrc;
 	/**
 	 * The time at which the current CRC was generated
 	 */

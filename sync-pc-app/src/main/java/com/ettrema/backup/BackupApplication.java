@@ -31,6 +31,7 @@ import com.ettrema.backup.engine.StatusService;
 import com.ettrema.backup.engine.ExclusionsService;
 import com.ettrema.backup.engine.RemoteSyncer;
 import com.ettrema.backup.engine.ScanService;
+import com.ettrema.backup.engine.StateTokenDaoImpl;
 import com.ettrema.backup.engine.StateTokenFileSyncer;
 import com.ettrema.backup.engine.StateTokenRemoteSyncer;
 import com.ettrema.backup.engine.TransferAuthorisationService;
@@ -58,241 +59,244 @@ import org.slf4j.LoggerFactory;
  */
 public class BackupApplication extends SingleFrameApplication implements Application.ExitListener {
 
-	private static final Logger log = LoggerFactory.getLogger(BackupApplication.class);
-	private static boolean isStarted;
+    private static final Logger log = LoggerFactory.getLogger(BackupApplication.class);
+    private static boolean isStarted;
 
-	/**
-	 * A convenient static getter for the application instance.
-	 * @return the instance of DesktopApplication1
-	 */
-	public static BackupApplication getApplication() {
-		return Application.getInstance(BackupApplication.class);
-	}
+    /**
+     * A convenient static getter for the application instance.
+     * @return the instance of DesktopApplication1
+     */
+    public static BackupApplication getApplication() {
+        return Application.getInstance(BackupApplication.class);
+    }
 
-	/**
-	 * Main method launching the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			launch(BackupApplication.class, args);
-		} catch (Throwable e) {
-			JOptionPane.showInputDialog("EXception: " + e.toString());
-		}
-	}
-	private RootContext context;
-	private Configurator configurator;
-	private Config config;
-	private ExclusionsService exclusionsService;
-	private StatusService statusService;
-	private ScanService scanService;
-	private FileSyncer fileSyncer;
-	private AccountCreator accountCreator;
-	private BandwidthService bandwidthService;
-	private ThrottleFactory throttleFactory;
-	private HistoryService historyService;
-	private EventManager eventManager;
-	private QueueInserter queueHandler;
-	private FileWatcher fileWatcher;
-	private QueueManager queueManager;
-	private PathMunger pathMunger;
-	private SummaryDetails summaryDetails;
-	private BrowserView browserView; // TODO: should be associated with davrepo
-	private BackupApplicationView view;
-	private BrowserController browserController;
-	private TrayController trayController;
-	private FileChangeChecker fileChangeChecker;
-	private CrcCalculator crcCalculator;	
-	private HistoryDao historyDao;
-	private ConflictManager conflictManager;
-	private TransferAuthorisationService transferAuthorisationService;
-	private List<RemoteSyncer> remoteSyncers;
-	private boolean runningInSystemTray = false;
+    /**
+     * Main method launching the application.
+     */
+    public static void main(String[] args) {
+        try {
+            launch(BackupApplication.class, args);
+        } catch (Throwable e) {
+            JOptionPane.showInputDialog("EXception: " + e.toString());
+        }
+    }
+    private RootContext context;
+    private Configurator configurator;
+    private Config config;
+    private ExclusionsService exclusionsService;
+    private StatusService statusService;
+    private ScanService scanService;
+    private StateTokenDaoImpl stateTokenDao;
+    private FileSyncer fileSyncer;
+    private AccountCreator accountCreator;
+    private BandwidthService bandwidthService;
+    private ThrottleFactory throttleFactory;
+    private HistoryService historyService;
+    private EventManager eventManager;
+    private QueueInserter queueHandler;
+    private FileWatcher fileWatcher;
+    private QueueManager queueManager;
+    private PathMunger pathMunger;
+    private SummaryDetails summaryDetails;
+    private BrowserView browserView; // TODO: should be associated with davrepo
+    private BackupApplicationView view;
+    private BrowserController browserController;
+    private TrayController trayController;
+    private FileChangeChecker fileChangeChecker;
+    private CrcCalculator crcCalculator;
+    private HistoryDao historyDao;
+    private ConflictManager conflictManager;
+    private TransferAuthorisationService transferAuthorisationService;
+    private List<RemoteSyncer> remoteSyncers;
+    private boolean runningInSystemTray = false;
 
-	/**
-	 * At startup create and show the main frame of the application.
-	 */
-	@Override
-	protected void startup() {
-		log.trace("startup");
+    /**
+     * At startup create and show the main frame of the application.
+     */
+    @Override
+    protected void startup() {
+        log.trace("startup");
 
-		if (isStarted) {
-			throw new RuntimeException("EEEK");
-		}
-		isStarted = true;
+        if (isStarted) {
+            throw new RuntimeException("EEEK");
+        }
+        isStarted = true;
 
-		addExitListener(this);
-		try {
-			File configDir = initConfig();
+        addExitListener(this);
+        try {
+            File configDir = initConfig();
 
-			ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(3);
+            ScheduledThreadPoolExecutor executorService = new ScheduledThreadPoolExecutor(3);
 
-			crcCalculator = new CrcCalculator();
+            crcCalculator = new CrcCalculator();
 
-			File dbDir = new File(configDir, "db");
-			dbDir.mkdir();
-			File dbFile = new File(dbDir, "versions");
-			ModifiedDateFileChangeChecker modifiedDateFileChangeChecker = new ModifiedDateFileChangeChecker();
-			DbInitialiser dbInit = new DbInitialiser(dbFile);
-			LocalCrcDaoImpl crcDao = new LocalCrcDaoImpl(dbInit.getUseConnection(), dbInit.getDialect(), crcCalculator);
-			fileChangeChecker = new LocalDbFileChangeChecker(crcDao, modifiedDateFileChangeChecker);
-			browserController = new BrowserController();
-			pathMunger = new PathMunger();
-			bandwidthService = new BandwidthService();
-			throttleFactory = new ThrottleFactory(bandwidthService);
-			historyService = new HistoryService();
-			eventManager = new EventManagerImpl();
-			historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
-			accountCreator = new AccountCreator(config);
-			queueHandler = new QueueInserter(eventManager);
-			exclusionsService = new ExclusionsService(config);
-			statusService = new StatusService(eventManager);
-			fileSyncer = new StateTokenFileSyncer(exclusionsService, config);
-			transferAuthorisationService = new GuiTransferAuthorisationService(); // TODO -----------------------------------------------------------------------------------
-			RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator);
-			RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
-			remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
-			scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
-			fileWatcher = new FileWatcher(config, fileSyncer);
-			conflictManager = new SimpleConflictManager();
-			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
-			RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
-			RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
-			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
-			queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
+            File dbDir = new File(configDir, "db");
+            dbDir.mkdir();
+            File dbFile = new File(dbDir, "versions");
+            ModifiedDateFileChangeChecker modifiedDateFileChangeChecker = new ModifiedDateFileChangeChecker();
+            DbInitialiser dbInit = new DbInitialiser(dbFile);
+            LocalCrcDaoImpl crcDao = new LocalCrcDaoImpl(dbInit.getUseConnection(), dbInit.getDialect(), crcCalculator);
+            fileChangeChecker = new LocalDbFileChangeChecker(crcDao, modifiedDateFileChangeChecker);
+            browserController = new BrowserController();
+            pathMunger = new PathMunger();
+            bandwidthService = new BandwidthService();
+            throttleFactory = new ThrottleFactory(bandwidthService);
+            historyService = new HistoryService();
+            eventManager = new EventManagerImpl();
+            historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
+            accountCreator = new AccountCreator(config);
+            queueHandler = new QueueInserter(eventManager);
+            exclusionsService = new ExclusionsService(config);
+            statusService = new StatusService(eventManager);
+            stateTokenDao = new StateTokenDaoImpl();
+            fileSyncer = new StateTokenFileSyncer(exclusionsService, config, stateTokenDao);
+            transferAuthorisationService = new GuiTransferAuthorisationService(); // TODO -----------------------------------------------------------------------------------
+            RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator, stateTokenDao);
+            RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
+            remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
+            scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
+            fileWatcher = new FileWatcher(config, fileSyncer);
+            conflictManager = new SimpleConflictManager();
+            RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
+            RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
+            RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
+            List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
+            queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
 
-			view = new BackupApplicationView(this, config, scanService, accountCreator, eventManager, queueManager, browserController, historyDao, conflictManager);
-			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
+            view = new BackupApplicationView(this, config, scanService, accountCreator, eventManager, queueManager, browserController, historyDao, conflictManager);
+            summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
 
-			initContext();
+            initContext();
 
-			queueManager.startThread();
+            queueManager.startThread();
 
-			summaryDetails.refresh();
+            summaryDetails.refresh();
 
-			trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
-			runningInSystemTray = trayController.show();
+            trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
+            runningInSystemTray = trayController.show();
 
-			if (config.isConfigured()) {
-				if (!runningInSystemTray) {
-					show(view); // configured, so don't need wizard, but can't display in tray so show main screen
-				} else {
-					// this is normal path. when configured and tray icon working don't show any screens
-				}
-			} else {
-				view.showNewAccount();  // not configured so always show wizard
-			}
+            if (config.isConfigured()) {
+                if (!runningInSystemTray) {
+                    show(view); // configured, so don't need wizard, but can't display in tray so show main screen
+                } else {
+                    // this is normal path. when configured and tray icon working don't show any screens
+                }
+            } else {
+                view.showNewAccount();  // not configured so always show wizard
+            }
 
-			fileWatcher.start();
-			scanService.scan();
+            fileWatcher.start();
+            scanService.start();
+            scanService.scan(); // just for dev
 
 
-		} catch (Exception e) {
-			log.error("couldnt start", e);
-			JOptionPane.showInputDialog("Couldnt start: " + e.toString());
-			System.exit(9);
-		}
-	}
+        } catch (Exception e) {
+            log.error("couldnt start", e);
+            JOptionPane.showInputDialog("Couldnt start: " + e.toString());
+            System.exit(9);
+        }
+    }
 
-	public void showView() {
-		show(view);
-	}
+    public void showView() {
+        show(view);
+    }
 
-	private void initContext() {
-		context = new RootContext();
-		context.put(config);
-		context.put(pathMunger);
-		context.put(bandwidthService);
-		context.put(throttleFactory);
-		context.put(historyService);
-		context.put(eventManager);
-		context.put(queueHandler);
-		context.put(fileSyncer);
-		context.put(fileWatcher);
-		context.put(crcCalculator);
+    private void initContext() {
+        context = new RootContext();
+        context.put(config);
+        context.put(pathMunger);
+        context.put(bandwidthService);
+        context.put(throttleFactory);
+        context.put(historyService);
+        context.put(eventManager);
+        context.put(queueHandler);
+        context.put(fileSyncer);
+        context.put(fileWatcher);
+        context.put(crcCalculator);
 
-		context.put(queueManager);
-		context.put(summaryDetails);
-		context.put(fileChangeChecker);
-		context.put(view);
-		Services.initInstance(context);
-	}
+        context.put(queueManager);
+        context.put(summaryDetails);
+        context.put(fileChangeChecker);
+        context.put(view);
+        Services.initInstance(context);
+    }
 
-	/**
-	 * This method is to initialize the specified window by injecting resources.
-	 * Windows shown in our application come fully initialized from the GUI
-	 * builder, so this additional configuration is not needed.
-	 */
-	@Override
-	protected void configureWindow(java.awt.Window root) {
-	}
+    /**
+     * This method is to initialize the specified window by injecting resources.
+     * Windows shown in our application come fully initialized from the GUI
+     * builder, so this additional configuration is not needed.
+     */
+    @Override
+    protected void configureWindow(java.awt.Window root) {
+    }
 
-	/**
-	 *
-	 * @return - the configuration directory
-	 */
-	private File initConfig() {
-		File fConfigDir = new File(System.getProperty("user.home") + "/.ettrema");
-		configurator = new Configurator(fConfigDir);
-		config = configurator.load();
-		return fConfigDir;
-	}
+    /**
+     *
+     * @return - the configuration directory
+     */
+    private File initConfig() {
+        File fConfigDir = new File(System.getProperty("user.home") + "/.ettrema");
+        configurator = new Configurator(fConfigDir);
+        config = configurator.load();
+        return fConfigDir;
+    }
 
-	public Configurator getConfigurator() {
-		return configurator;
-	}
+    public Configurator getConfigurator() {
+        return configurator;
+    }
 
-	public BackupApplicationView getView() {
-		return (BackupApplicationView) this.getMainView();
-	}
+    public BackupApplicationView getView() {
+        return (BackupApplicationView) this.getMainView();
+    }
 
-	public BrowserView getBrowser() {
-		if (browserView == null) {
-			log.trace("create new browser");
+    public BrowserView getBrowser() {
+        if (browserView == null) {
+            log.trace("create new browser");
 
-			browserView = new BrowserView(getFirstRepo(), this);
-		}
-		return browserView;
-	}
+            browserView = new BrowserView(getFirstRepo(), this);
+        }
+        return browserView;
+    }
 
-	public DavRepo getFirstRepo() {
-		List<Repo> repos = config.getAllRepos();
-		if( repos != null ) {
-			for(Repo r : repos) {
-				if( r instanceof DavRepo) {
-					return (DavRepo) r;
-				}
-			}			
-		}
-		return null;
-	}
+    public DavRepo getFirstRepo() {
+        List<Repo> repos = config.getAllRepos();
+        if (repos != null) {
+            for (Repo r : repos) {
+                if (r instanceof DavRepo) {
+                    return (DavRepo) r;
+                }
+            }
+        }
+        return null;
+    }
 
-	public RootContext getRootContext() {
-		return context;
-	}
+    public RootContext getRootContext() {
+        return context;
+    }
 
-	public static <T> T _(Class<T> c) {
-		if (getApplication() == null) {
-			return null;
-		}
-		if (getApplication().getRootContext() == null) {
-			return null;
-		}
-		return getApplication().getRootContext().get(c);
-	}
+    public static <T> T _(Class<T> c) {
+        if (getApplication() == null) {
+            return null;
+        }
+        if (getApplication().getRootContext() == null) {
+            return null;
+        }
+        return getApplication().getRootContext().get(c);
+    }
 
-	public boolean canExit(EventObject e) {
+    public boolean canExit(EventObject e) {
 //        Object source = ( e != null ) ? e.getSource() : null;
 //        Component owner = ( source instanceof Component ) ? (Component) source : null;
 //        int option = JOptionPane.showConfirmDialog( owner, "Really Exit?" );
 //        return option == JOptionPane.YES_OPTION;
-		if (runningInSystemTray) {
-			getMainFrame().setVisible(false);
-			return false;
-		} else {
-			return true;
-		}
-	}
+        if (runningInSystemTray) {
+            getMainFrame().setVisible(false);
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-	public void willExit(EventObject event) {
-	}
+    public void willExit(EventObject event) {
+    }
 }

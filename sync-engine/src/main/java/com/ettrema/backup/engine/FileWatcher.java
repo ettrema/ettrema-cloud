@@ -18,69 +18,67 @@ import net.contentobjects.jnotify.JNotifyException;
  */
 public class FileWatcher implements Observer<Config, Object> {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( FileWatcher.class );    
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(FileWatcher.class);
     private final Set<Integer> watchIds = new HashSet<Integer>();
-	private final FileSyncer fileSyncer;
+    private final FileSyncer fileSyncer;
     private final Config config;
-    
     private boolean disabled;
     private List<WatchJob> watchJobs = Collections.EMPTY_LIST;
-    
 
-    public FileWatcher( Config config, FileSyncer fileSyncer ) {
+    public FileWatcher(Config config, FileSyncer fileSyncer) {
         this.config = config;
-		this.fileSyncer = fileSyncer;
-        config.addObserver( this );
+        this.fileSyncer = fileSyncer;
+        config.addObserver(this);
     }
 
     public void start() {
-        for( Integer watchId : watchIds ) {
+        for (Integer watchId : watchIds) {
             try {
-                JNotify.removeWatch( watchId );
-            } catch( JNotifyException ex ) {
-                log.error( "Exception removing old watchid" );
+                JNotify.removeWatch(watchId);
+            } catch (JNotifyException ex) {
+                log.error("Exception removing old watchid");
             }
         }
         watchIds.clear();
 
         watchJobs = new CopyOnWriteArrayList<WatchJob>();
-        for( Job job : config.getJobs() ) {
-            for( Root root : job.getRoots() ) {
-                watch( job, root );
+        for (Job job : config.getJobs()) {
+            for (Root root : job.getRoots()) {
+                watch(job, root);
             }
         }
     }
 
-    private void watch( Job job, Root root ) {
+    private void watch(Job job, Root root) {
         String path = root.getFullPath();
 
         // watch mask, specify events you care about,
         // or JNotify.FILE_ANY for all events.
         int mask = JNotify.FILE_CREATED
-            | JNotify.FILE_DELETED
-            | JNotify.FILE_MODIFIED
-            | JNotify.FILE_RENAMED;
+                | JNotify.FILE_DELETED
+                | JNotify.FILE_MODIFIED
+                | JNotify.FILE_RENAMED;
 
         // watch subtree?
         boolean watchSubtree = true;
         try {
             // add actual watch
             WatchJob watchJob = new WatchJob(fileSyncer, job, root);
-            watchJobs.add( watchJob );
-            Integer watchID = JNotify.addWatch( path, mask, watchSubtree, watchJob );
-            watchIds.add( watchID );
-        } catch( JNotifyException ex ) {
-            log.error( "error watching: " + root.getFullPath(), ex );
+            watchJobs.add(watchJob);
+            Integer watchID = JNotify.addWatch(path, mask, watchSubtree, watchJob);
+            watchIds.add(watchID);
+        } catch (JNotifyException ex) {
+            log.error("error watching: " + root.getFullPath(), ex);
         }
 
     }
 
     @Override
-    public void onAdded( Config t, Object parent ) {
+    public void onAdded(Config t, Object parent) {
     }
 
     @Override
-    public void onRemoved( Config t, Object parent, Integer indexOf ) {
+    public void onRemoved(Config t, Object parent, Integer indexOf) {
     }
 
     /**
@@ -91,16 +89,15 @@ public class FileWatcher implements Observer<Config, Object> {
      * @param parent
      */
     @Override
-    public void onUpdated( Config t, Object parent ) {
+    public void onUpdated(Config t, Object parent) {
         System.out.println("FileWatcher: onUpdated: config has changed so reload");
         start();
     }
 
-
-    public void setDisabled( boolean disabled ) {
+    public void setDisabled(boolean disabled) {
         this.disabled = disabled;
-        for( WatchJob j : this.watchJobs ) {
-            j.setDisabled( disabled );
+        for (WatchJob j : this.watchJobs) {
+            j.setDisabled(disabled);
         }
     }
 

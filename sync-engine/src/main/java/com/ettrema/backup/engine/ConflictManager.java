@@ -1,5 +1,6 @@
 package com.ettrema.backup.engine;
 
+import com.ettrema.httpclient.Resource;
 import java.io.File;
 import java.util.List;
 
@@ -21,5 +22,5 @@ public interface ConflictManager {
 	 * @param l
 	 * @param childFile 
 	 */
-	void onTreeConflict(File l, com.ettrema.httpclient.File childFile);
+	void onTreeConflict(File l, Resource childFile);
 }

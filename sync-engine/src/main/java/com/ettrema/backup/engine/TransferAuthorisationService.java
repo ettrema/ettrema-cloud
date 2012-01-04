@@ -23,5 +23,9 @@ public interface TransferAuthorisationService {
 
 	public void requestUpload(File l);
 
+    public void requestRemoteDelete(Resource r);
+
+    public void requestDeleteLocal(File local);
+
 	
 }
