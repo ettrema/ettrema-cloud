@@ -147,7 +147,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			exclusionsService = new ExclusionsService(config);
 			statusService = new StatusService(eventManager);
 			fileSyncer = new StateTokenFileSyncer(exclusionsService, config);
-			transferAuthorisationService = null; // TODO -----------------------------------------------------------------------------------
+			transferAuthorisationService = new GuiTransferAuthorisationService(); // TODO -----------------------------------------------------------------------------------
 			RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator);
 			RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
 			remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
