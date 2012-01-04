@@ -1,13 +1,14 @@
 package com.ettrema.backup.config;
 
+import java.util.Date;
 import com.ettrema.cache.Cache;
 import com.ettrema.backup.engine.CrcCalculator;
 import com.ettrema.common.Withee;
 import com.ettrema.httpclient.HttpException;
 import java.util.ArrayList;
 import java.util.List;
-import com.ettrema.backup.engine.Engine;
 import com.bradmcevoy.common.Path;
+import com.ettrema.backup.engine.ExclusionsService;
 import com.ettrema.backup.engine.ThrottleFactory;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.utils.EventUtils;
@@ -15,18 +16,14 @@ import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.cache.MemoryCache;
 import com.ettrema.httpclient.Folder;
 import com.ettrema.httpclient.Host;
-import com.ettrema.httpclient.NotFoundException;
 import com.ettrema.httpclient.ProgressListener;
 import com.ettrema.httpclient.ProxyDetails;
 import com.ettrema.httpclient.Resource;
-import com.ettrema.httpclient.Unauthorized;
 import com.ettrema.httpclient.Utils.CancelledException;
 import java.io.File;
 import java.io.IOException;
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
 
+import java.util.UUID;
 import static com.ettrema.backup.engine.Services._;
 
 /**
@@ -37,6 +34,7 @@ public class DavRepo implements Repo {
 
 	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(DavRepo.class);
 	private static final int SO_TIMEOUT = 15 * 60 * 1000; // millis
+	private final String id;
 	private String hostName;
 	private String rootPath;
 	private String user;
@@ -50,37 +48,25 @@ public class DavRepo implements Repo {
 	private String proxyUserName;
 	private String proxyPassword;
 	// transient fields;
-	private transient QueueItem current;
 	private transient Host h;
-	private transient boolean offline;
-	private transient Long backedupBytes;
-	private transient Long scanningBackedupBytes;
-	private transient long backedupSinceLastScanBytes;
-	private transient Long accountUsedBytes;
-	private transient Long maxBytes;
-	private transient Queue queue;
 	private transient Job job;
 	private transient MemoryCache<Folder, List<Resource>> cache;
+	private transient DavRepoState state;
 
 	public DavRepo() {
+		id = UUID.randomUUID().toString();
 	}
 
 	public DavRepo(Job j) {
+		id = UUID.randomUUID().toString();
 		this.job = j;
 	}
 
-	public Cache<Folder, List<Resource>> getCache() {
-		if (cache == null) {
-			if (job == null) {
-				cache = new MemoryCache<Folder, List<Resource>>("resource-cache-default", 500, 50);
-			} else {
-				cache = new MemoryCache<Folder, List<Resource>>("resource-cache-" + job.getId(), 500, 50);
-			}
-			cache.start();
-		}
-		return cache;
+	@Override
+	public String getId() {
+		return id;
 	}
-
+		
 	public Host host() throws RepoNotAvailableException {
 		return host(false);
 	}
@@ -113,21 +99,21 @@ public class DavRepo implements Repo {
 
 	@Override
 	public Queue getQueue() {
-		if (queue == null) {
-			queue = new Queue();
+		if (state.queue == null) {
+			state.queue = new Queue();
 		}
-		return queue;
+		return state.queue;
 	}
 
 	@Override
 	public void setQueue(Queue queue) {
-		this.queue = queue;
+		state.queue = queue;
 	}
 
 	@Override
 	public void onScan() {
 		log.trace("onScan");
-		scanningBackedupBytes = 0l;
+		state.scanningBackedupBytes = 0l;
 		// check the host is accessible. if was offline and now online reset the status
 
 		try {
@@ -135,7 +121,7 @@ public class DavRepo implements Repo {
 			// test the connection
 			host.find("/");
 
-			if (offline) {
+			if (state.offline) {
 				// was offline, set back to online
 				setOffline(false);
 				log.trace("repo status changed, now online");
@@ -144,21 +130,21 @@ public class DavRepo implements Repo {
 			host.flush();
 		} catch (HttpException ex) {
 			log.error("exception in scan", ex);
-			if (!offline) {
+			if (!state.offline) {
 				setOffline(true);
 				log.trace("repo status changed, now offline");
 				EventUtils.fireQuietly(new RepoChangedEvent(this));
 			}
 		} catch (RepoNotAvailableException e) {
 			log.trace("RepoNotAvailableException");
-			if (!offline) {
+			if (!state.offline) {
 				setOffline(true);
 				log.trace("repo status changed, now offline");
 				EventUtils.fireQuietly(new RepoChangedEvent(this));
 			}
 		} catch (IOException ex) {
 			log.trace("IOException");
-			if (!offline) {
+			if (!state.offline) {
 				setOffline(true);
 				log.trace("repo status changed, now offline");
 				EventUtils.fireQuietly(new RepoChangedEvent(this));
@@ -171,19 +157,19 @@ public class DavRepo implements Repo {
 
 	@Override
 	public void onScanComplete() {
-		log.info("scan complete: backedupBytes: " + backedupBytes);
-		log.info("scan complete: scanningBackedupBytes: " + scanningBackedupBytes);
-		log.info("scan complete: backedupSinceLastScanBytes: " + backedupSinceLastScanBytes);
-		backedupBytes = scanningBackedupBytes;
-		scanningBackedupBytes = null;
-		backedupSinceLastScanBytes = 0;
+		log.info("scan complete: backedupBytes: " + state.backedupBytes);
+		log.info("scan complete: scanningBackedupBytes: " + state.scanningBackedupBytes);
+		log.info("scan complete: backedupSinceLastScanBytes: " + state.backedupSinceLastScanBytes);
+		state.backedupBytes = state.scanningBackedupBytes;
+		state.scanningBackedupBytes = null;
+		state.backedupSinceLastScanBytes = 0;
 	}
 
 	private void addBackedupBytes(long length) {
-		if (scanningBackedupBytes == null) {
-			scanningBackedupBytes = 0l;
+		if (state.scanningBackedupBytes == null) {
+			state.scanningBackedupBytes = 0l;
 		}
-		scanningBackedupBytes += length;
+		state.scanningBackedupBytes += length;
 	}
 
 	@Override
@@ -207,6 +193,12 @@ public class DavRepo implements Repo {
 				return;
 			} else {
 				log.trace("lock remote file: " + remote.href());
+
+				if (remote.getLockToken() != null) {
+					log.info("remote source is locked, so will attempt to unlock it");
+					remote.unlock();
+				}
+
 				remote.lock();
 				log.trace("Locked with token: " + remote.getLockToken());
 				updateAccountInfo(remote);
@@ -439,11 +431,11 @@ public class DavRepo implements Repo {
 			remoteFolder.upload(file, throttle);
 
 			long newBytes = file.length() - previousBytes;
-			backedupSinceLastScanBytes += newBytes;
-			if (backedupSinceLastScanBytes < 0) {  // unlikely situation
-				backedupSinceLastScanBytes = file.length();
+			state.backedupSinceLastScanBytes += newBytes;
+			if (state.backedupSinceLastScanBytes < 0) {  // unlikely situation
+				state.backedupSinceLastScanBytes = file.length();
 			}
-			log.trace("backedupSinceLastScanBytes: " + backedupSinceLastScanBytes + " newBytes: " + newBytes);
+			log.trace("backedupSinceLastScanBytes: " + state.backedupSinceLastScanBytes + " newBytes: " + newBytes);
 		} catch (HttpException e) {
 			log.warn("http exception uploading: " + file.getAbsolutePath(), e);
 			throw new RepoNotAvailableException(e);
@@ -575,15 +567,18 @@ public class DavRepo implements Repo {
 
 	@Override
 	public boolean isOffline() {
-		return offline;
+		if( state.offline == null ) {
+			state.offline = false;
+		}
+		return state.offline;
 	}
 
 	@Override
 	public void setOffline(boolean b) {
 
-		boolean changed = (b != this.offline);
+		boolean changed = (b != state.offline);
 
-		this.offline = b;
+		state.offline = b;
 
 		if (changed) {
 			EventUtils.fireQuietly(new RepoChangedEvent(this));
@@ -592,12 +587,12 @@ public class DavRepo implements Repo {
 
 	@Override
 	public void setCurrent(QueueItem item) {
-		this.current = item;
+		state.current = item;
 	}
 
 	@Override
 	public QueueItem getCurrent() {
-		return current;
+		return state.current;
 	}
 
 	@Override
@@ -609,28 +604,28 @@ public class DavRepo implements Repo {
 	 * read the quota fields from the response and update the account info
 	 * @param remote 
 	 */
-	private void updateAccountInfo(Resource remote) {
+	public void updateAccountInfo(Resource remote) {
 		Long avail = remote.getQuotaAvailableBytes();
 		Long used = remote.getQuotaUsedBytes();
 		log.trace("updateAccountInfo: " + avail + " - " + used);
 		if (used != null) {
-			accountUsedBytes = used;
+			state.accountUsedBytes = used;
 		}
 		if (avail != null && used != null) {
-			this.maxBytes = avail + used;
+			state.maxBytes = avail + used;
 		} else {
-			this.maxBytes = null;
+			state.maxBytes = null;
 		}
 	}
 
 	@Override
 	public Long getMaxBytes() {
-		return maxBytes;
+		return state.maxBytes;
 	}
 
 	@Override
 	public Long getAccountUsedBytes() {
-		return accountUsedBytes;
+		return state.accountUsedBytes;
 	}
 
 	/**
@@ -715,17 +710,17 @@ public class DavRepo implements Repo {
 
 	@Override
 	public Long getBackedUpBytes() {
-		if (backedupBytes != null) {
-			return backedupBytes + backedupSinceLastScanBytes;
+		if (state.backedupBytes != null) {
+			return state.backedupBytes + state.backedupSinceLastScanBytes;
 		} else {
-			if (scanningBackedupBytes == null) {
-				if (backedupSinceLastScanBytes > 0) {
-					return backedupSinceLastScanBytes;
+			if (state.scanningBackedupBytes == null) {
+				if (state.backedupSinceLastScanBytes > 0) {
+					return state.backedupSinceLastScanBytes;
 				} else {
 					return null;
 				}
 			} else {
-				return scanningBackedupBytes;
+				return state.scanningBackedupBytes;
 			}
 		}
 	}
@@ -735,56 +730,10 @@ public class DavRepo implements Repo {
 		return this.hostName;
 	}
 
-	@Override
-	public boolean ping() {
-		if (this.hostName == null || this.hostName.length() == 0) {
-			log.trace("Not configured");
-			return false;
-		}
-		// Note that we MUST not call through to the host to do a check if there
-		// is a task in progress because the call will block on the Host methods
-		// And, if there is a task running we must be online
-		if (current != null) {
-			return true;
-		}
-		try {
-			try {
-				if (this.maxBytes == null) {
-					Resource r = this.host(true);
-					updateAccountInfo(r);
-					return true;
-				} else {
-					this.host().options("/");
-					return true;
-				}
-			} catch (RepoNotAvailableException ex) {
-				log.trace("repo exeption", ex);
-				return false;
-			}
-		} catch (NotFoundException ex) {
-			log.trace("not found");
-			return false;
-		} catch (ConnectException ex) {
-			log.trace("couldnt connect to: " + this.hostName + ":" + this.port, ex);
-			return false;
-		} catch (UnknownHostException ex) {
-			log.trace("couldnt connect, unknown host", ex);
-			return false;
-		} catch (SocketTimeoutException ex) {
-			log.trace("couldnt connect, socket timeout", ex);
-			return false;
-		} catch (Unauthorized ex) {
-			log.trace("authorisation failure", ex);
-			return false;
-		} catch (Throwable e) {
-			log.trace("unknown exception", e);
-			return false;
-		}
-	}
 
 	@Override
 	public boolean isExcludedFile(File child, Root root) {
-		return _(Engine.class).isExcludedFolder(child.getParentFile(), root);
+		return _(ExclusionsService.class).isExcludedFolder(child.getParentFile(), root);
 	}
 
 	/**
@@ -919,4 +868,53 @@ public class DavRepo implements Repo {
 			log.warn("Exception unlocking remote resource:" + remote.href(), e);
 		}
 	}
+
+	public Cache<Folder, List<Resource>> getCache() {
+		if (cache == null) {
+			if (job == null) {
+				cache = new MemoryCache<Folder, List<Resource>>("resource-cache-default", 500, 50);
+			} else {
+				cache = new MemoryCache<Folder, List<Resource>>("resource-cache-" + job.getId(), 500, 50);
+			}
+			cache.start();
+		}
+		return cache;
+	}
+
+	public void setLastPubDate(Date date) {
+		getState().lastPubDate = date;
+	}
+	
+	public Date getLastPubDate() {
+		return getState().lastPubDate;
+	}
+	
+	@Override
+	public DavRepoState getState() {
+		if( state == null ) {
+			state = new DavRepoState();
+		}
+		return state;
+	}
+
+	@Override
+	public void setState(Object state) {
+		this.state = (DavRepoState) state;
+	}
+	
+	
+	
+	public static class DavRepoState {
+		public QueueItem current;
+		public Boolean offline;
+		public Long backedupBytes;
+		public Long scanningBackedupBytes;
+		public long backedupSinceLastScanBytes;
+		public Long accountUsedBytes;
+		public Long maxBytes;
+		public Queue queue;
+		public Date lastPubDate; // last time we checked for updates
+	}
+	
+	
 }

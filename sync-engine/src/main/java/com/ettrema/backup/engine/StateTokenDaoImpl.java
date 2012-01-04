@@ -1,65 +1,76 @@
 package com.ettrema.backup.engine;
 
+import com.ettrema.common.LogUtils;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Provides access to a database of tokens (ie CRC's) for local files
  *
  * @author brad
  */
 public class StateTokenDaoImpl {
+	
+	private static final Logger log = LoggerFactory.getLogger(StateTokenDaoImpl.class);
+	
+	private Map<String,List<StateToken>> map = new ConcurrentHashMap<String, List<StateToken>>();
+	
+	public List<StateToken> findForFolder(File parent) {
+		List<StateToken> list = map.get(parent.getAbsolutePath());
+		return list;
+	}
+	
+	public void saveOrUpdate(StateToken token) {
+		File f = new File(token.filePath);
+		List<StateToken> list = findForFolder(f.getParentFile());
+		if( list == null) {
+			list = new ArrayList<StateToken>();
+			map.put(f.getParent(), list);
+		}
+		Iterator<StateToken> it = list.iterator();
+		while(it.hasNext()) {
+			StateToken t = it.next();
+			if(t.filePath.equals(token.filePath)) {
+				it.remove();
+			}
+		}
+		list.add(token);
+		LogUtils.trace(log, "StateTokenDaoImpl: size is now:", map.size());
+	}
 
-    // todo: replace with db
-    private Map<File, StateToken> mapOfTokens = new ConcurrentHashMap<File, StateToken>();
-    private Map<File, Map<String, StateToken>> mapOfLists = new ConcurrentHashMap<File, Map<String, StateToken>>();
+	public StateToken get(File f) {
+		List<StateToken> list = findForFolder(f.getParentFile());
+		if( list == null ) {
+			return null;
+		}
+		String path = f.getAbsolutePath();
+		for( StateToken t : list ) {
+			if(t.filePath.equals(path)) {
+				return t;
+			}
+		}
+		return null;
+	}
 
-    public StateToken get(File file) {
-        return mapOfTokens.get(file);
-    }
-
-    public void set(File file, long crc, long time) {
-        System.out.println("StateTokenDaoImpl.set --- " + file.getAbsolutePath() + " - crc: " + crc);
-        StateToken st = new StateToken(file.getAbsolutePath(), crc, time);
-        mapOfTokens.put(file, st);
-        File parent = file.getParentFile();
-        Map<String, StateToken> list = mapOfLists.get(parent);
-        if (list == null) {
-            list = new ConcurrentHashMap<String, StateToken>();
-            mapOfLists.put(parent, list);
-        }
-        list.put(file.getName(), st);
-    }
-
-    /**
-     * Return all tokens directly inside the given directory
-     * 
-     * @param scanDir
-     * @return 
-     */
-    public List<StateToken> findForParent(File scanDir) {
-        List<StateToken> list = new ArrayList<StateToken>();
-        Map<String, StateToken> map = mapOfLists.get(scanDir);
-        if (map != null) {
-            Collection<StateToken> tokens = map.values();
-            list.addAll(tokens);
-        }
-        return list;
-    }
-
-    public void remove(File file) {
-        System.out.println("remove-------------------");
-        mapOfTokens.remove(file.getAbsoluteFile());
-        File parent = file.getParentFile();
-        Map<String, StateToken> list = mapOfLists.get(parent);
-        if (list == null) {
-            list = new ConcurrentHashMap<String, StateToken>();
-            mapOfLists.put(parent, list);
-        }
-        list.remove(file.getName());
-    }
+	public void delete(StateToken token) {
+		File f = new File(token.filePath);
+		List<StateToken> list = findForFolder(f.getParentFile());
+		if( list == null) {
+			return ;
+		}
+		Iterator<StateToken> it = list.iterator();
+		while(it.hasNext()) {
+			StateToken t = it.next();
+			if(t.filePath.equals(token.filePath)) {
+				it.remove();
+			}
+		}
+	}
+	
+	
 }

@@ -89,7 +89,7 @@ public class ExistingUserPanel extends javax.swing.JPanel {
         jLabel10.setName("jLabel10"); // NOI18N
         jLabel10.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         add(jLabel10);
-        jLabel10.setBounds(80, 50, 90, 16);
+        jLabel10.setBounds(80, 50, 90, 15);
 
         jLabel14.setFont(resourceMap.getFont("jLabel14.font")); // NOI18N
         jLabel14.setForeground(resourceMap.getColor("jLabel14.foreground")); // NOI18N
@@ -98,24 +98,24 @@ public class ExistingUserPanel extends javax.swing.JPanel {
         jLabel14.setName("jLabel14"); // NOI18N
         jLabel14.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         add(jLabel14);
-        jLabel14.setBounds(80, 90, 90, 16);
+        jLabel14.setBounds(80, 90, 90, 15);
 
         txtPassword.setFont(resourceMap.getFont("txtPassword.font")); // NOI18N
         txtPassword.setText(resourceMap.getString("txtPassword.text")); // NOI18N
         txtPassword.setName("txtPassword"); // NOI18N
         add(txtPassword);
-        txtPassword.setBounds(230, 80, 202, 25);
+        txtPassword.setBounds(260, 80, 202, 25);
 
         txtAccountName.setFont(resourceMap.getFont("txtAccountName.font")); // NOI18N
         txtAccountName.setText(resourceMap.getString("txtAccountName.text")); // NOI18N
         txtAccountName.setName("txtAccountName"); // NOI18N
         add(txtAccountName);
-        txtAccountName.setBounds(230, 50, 202, 25);
+        txtAccountName.setBounds(260, 50, 202, 25);
 
         txtHost.setFont(resourceMap.getFont("txtHost.font")); // NOI18N
         txtHost.setName("txtHost"); // NOI18N
         add(txtHost);
-        txtHost.setBounds(230, 20, 202, 25);
+        txtHost.setBounds(260, 20, 202, 25);
 
         lblHost.setFont(resourceMap.getFont("lblHost.font")); // NOI18N
         lblHost.setForeground(resourceMap.getColor("lblHost.foreground")); // NOI18N
@@ -124,7 +124,7 @@ public class ExistingUserPanel extends javax.swing.JPanel {
         lblHost.setName("lblHost"); // NOI18N
         lblHost.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         add(lblHost);
-        lblHost.setBounds(80, 20, 90, 16);
+        lblHost.setBounds(80, 20, 110, 15);
 
         jLabel1.setIcon(resourceMap.getIcon("jLabel1.icon")); // NOI18N
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N

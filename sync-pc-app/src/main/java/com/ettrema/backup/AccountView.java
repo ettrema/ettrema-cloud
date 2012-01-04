@@ -14,8 +14,9 @@ import com.ettrema.backup.config.Config;
 import com.ettrema.backup.account.AccountCreator;
 import com.ettrema.backup.config.Job;
 import javax.swing.ImageIcon;
-import com.ettrema.backup.engine.Engine;
+import com.ettrema.backup.engine.FileSyncer;
 import com.ettrema.backup.engine.FileWatcher;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.event.EventManager;
 import com.ettrema.httpclient.ProxyDetails;
@@ -30,7 +31,7 @@ import static com.ettrema.backup.BackupApplication._;
 public class AccountView extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private final Engine engine;
+	private final ScanService scanService;
 	private final EventManager eventManager;
 	private final Config config; // only provided when no job given
 	private final Job job;
@@ -43,8 +44,8 @@ public class AccountView extends javax.swing.JFrame {
 	 * @param accountCreator
 	 * @param proxyDetails 
 	 */
-	public AccountView(Engine engine, EventManager eventManager, Job job, AccountCreator accountCreator, ProxyDetails proxyDetails) {
-		this("Modify account", engine, eventManager, job, null, accountCreator, proxyDetails);
+	public AccountView(ScanService scanService, EventManager eventManager, Job job, AccountCreator accountCreator, ProxyDetails proxyDetails) {
+		this("Modify account", scanService, eventManager, job, null, accountCreator, proxyDetails);
 	}
 
 	/**
@@ -56,12 +57,12 @@ public class AccountView extends javax.swing.JFrame {
 	 * @param accountCreator
 	 * @param proxyDetails 
 	 */
-	public AccountView(Engine engine, EventManager eventManager, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails) {
-		this("New account", engine, eventManager, null, config, accountCreator, proxyDetails);
+	public AccountView(ScanService scanService, EventManager eventManager, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails) {
+		this("New account", scanService, eventManager, null, config, accountCreator, proxyDetails);
 	}
 
-	private AccountView(String title, Engine engine, EventManager eventManager, Job job, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails) {
-		this.engine = engine;
+	private AccountView(String title, ScanService scanService, EventManager eventManager, Job job, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails) {
+		this.scanService = scanService;
 		this.eventManager = eventManager;
 		this.job = job;
 		this.config = config;
@@ -84,8 +85,8 @@ public class AccountView extends javax.swing.JFrame {
 	@Action
 	public void doSave() {
 		System.out.println("doSave");
-		if( !isValidSettings()) {
-			return ;
+		if (!isValidSettings()) {
+			return;
 		}
 		String jobName = userPanel.getAccountName() + "@" + userPanel.getHostName();
 		Job jobToSave = this.job;
@@ -104,12 +105,12 @@ public class AccountView extends javax.swing.JFrame {
 		} else {
 			c = jobToSave.getConfig();
 		}
-		engine.cancelScan(); // if scanning, cancel it so new changes can take effect
+		scanService.cancelScan(); // if scanning, cancel it so new changes can take effect
 		String accPath = c.getMediaLoungePath(userPanel.getAccountName());
-		userPanel.save(accPath, jobToSave);		
+		userPanel.save(accPath, jobToSave);
 		backupLocations1.save("", jobToSave);
 		jobToSave.getConfig().save();
-		_(FileWatcher.class).scanNow();
+		scanService.scan();
 		_(QueueManager.class).setPaused(false);
 		doClose();
 	}

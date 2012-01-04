@@ -55,10 +55,12 @@ public class RemotelyDeletedQueueItem extends AbstractQueueItem {
 	}
 
 	@Override
-	public Repo getRepo() {
-		return repo;
+	public void setProgressBytes(long bytes) {
+		
 	}
 
-	
-	
+	@Override
+	public long getProgressBytes() {
+		return 0;
+	}
 }

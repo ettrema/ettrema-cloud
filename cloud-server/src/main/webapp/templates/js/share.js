@@ -25,7 +25,51 @@ function initSharing() {
 			}
 		});		
 	});
+	
+	$("button.import").click(function() {
+		var path = $(this).attr("value");
+		$("#importFolderModal").dialog({
+			modal: true,
+			width: 500,
+			title: "Import folder to your files",
+			buttons: { 				
+				"Ok": function() { 
+					$(this).dialog("close"); 					
+					var destFolder = $("#importFolderModal select").val();
+					var newName = $("#importFolderModal input").val();
+					importFolder(path, destFolder + newName);
+				} ,
+				"Cancel": function() {
+					$(this).dialog("close"); 
+				}
+			}
+		});		
+	});
 }
+
+
+function importFolder(path, newPath) {
+    log('importFolder', path, newPath);
+    ajaxLoadingOn();
+    $.ajax({
+        type: 'POST',
+        url: path,
+        data: {
+			_action: "bind",
+			url: newPath
+		},
+        dataType: "json",
+        success: function(resp) {
+            ajaxLoadingOff();
+        },
+        error: function(resp) {
+            ajaxLoadingOff();
+            log("failed to enable account", resp);
+            alert("Sorry, the account could not be updated. Please check your internet connection");
+        }
+    });	
+}
+
 
 function displayShares() {
     log('displayShares');

@@ -1,7 +1,6 @@
 package com.ettrema.backup.queue;
 
 import com.ettrema.backup.config.FileMeta;
-import com.ettrema.backup.config.Repo;
 import java.io.File;
 
 /**
@@ -13,11 +12,10 @@ public class RemotelyModifiedQueueItem extends AbstractQueueItem {
 	private final File file;
 	private final Long bytesToDownload;
 	private boolean conflicted;
-	private transient Repo repo;
+	private long doneBytes;
 
-	public RemotelyModifiedQueueItem(File file, Repo repo, FileMeta fileMeta) {
+	public RemotelyModifiedQueueItem(File file, FileMeta fileMeta) {
 		this.file = file;
-		this.repo = repo;
 		if (fileMeta != null) {
 			this.bytesToDownload = fileMeta.getLength();
 		} else {
@@ -65,11 +63,6 @@ public class RemotelyModifiedQueueItem extends AbstractQueueItem {
 		return file.getName();
 	}
 
-	@Override
-	public Repo getRepo() {
-		return repo;
-	}
-
 	void setConflicted(boolean b) {
 		this.conflicted = b;
 	}
@@ -77,4 +70,16 @@ public class RemotelyModifiedQueueItem extends AbstractQueueItem {
 	public boolean isConflicted() {
 		return conflicted;
 	}
+
+	@Override
+	public long getProgressBytes() {
+		return doneBytes;
+	}
+
+	@Override
+	public void setProgressBytes(long bytes) {
+		this.doneBytes = bytes;
+	}
+	
+	
 }

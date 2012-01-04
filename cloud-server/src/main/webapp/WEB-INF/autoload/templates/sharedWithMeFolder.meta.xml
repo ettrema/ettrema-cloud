@@ -22,23 +22,69 @@
 					<c:value name="title">$folder.params.title.value</c:value>
 					<c:value name="bodyClass">$!targetPage.parent.params.bodyClass</c:value>
 					<c:value name="body">						
-						<table cellpadding="5" cellspacing="15">
+						<table cellpadding="5" cellspacing="5" style="width: 100%">
 							<thead>
-								<th>From</th>
-								<th>Folder</th>
-								<th>Permissions</th>
+								<th colspan="2">Folders shared with me</th>
 							</thead>
 							<tbody>
 								#foreach($rel in $folder.parent.sharedWithMe)
 								<tr>
-									<td>$!rel.subject</td>
-									<td><a href="$rel.resource.url">$rel.resource.title</a></td>
-									<td>$rel.role</td>
+									#set($editableClass = "readonly")
+									#if($rel.writable)
+										#set($editableClass = "editable")
+									#end
+									<td class="albums">
+										<button class="import" value="$rel.resource.url">Import</button>
+										<h3 class="$editableClass">
+											<a href="$rel.resource.url">$rel.resource.title</a>
+										</h3>
+										#if($rel.resource.is("picturesFolder"))
+											#set($thumbs = $rel.resource.thumbsList(5))
+										<ul>										
+											#foreach($thumb in $thumbs)
+											<li class="album">
+												<a href="$thumb.parent.parent.url" shape="rect">
+													<img src="$thumb.url" />
+												</a>
+												
+											</li>
+											#end
+										</ul>
+										#else
+											#set($files = $rel.resource.pagesRecursive(5))
+											#foreach($file in $files)
+										<li class="previews">
+											<a href="$file.parent.url" shape="rect">$file.name</a>
+												
+										</li>
+											#end
+											
+										#end
+									</td>
 								</tr>
 								#end
 								
 							</tbody>
 						</table>
+						
+						<div id="importFolderModal" class="modal" style="display: none">
+							<p>Importing a shared folder makes it appear as part of your files, and will be
+							downloaded to your computer if you are using a file syncronisation program
+							</p>
+							<p>Once imported your file sync tool will prmopt you to download the folder</p>
+							<hr/>
+							<p>Please select your existing folder to add this to</p>
+							<select name="otherName">
+                #foreach($folder in $user.subFolders)
+								<option value="$folder.url">$folder.name</option>
+                #end
+							</select>
+							<br/>
+							<br/>
+							<p>Enter the name to give this folder</p>
+							<input type="text" name="newName" /> 
+							
+						</div>							
 					</c:value>
 					<c:value name="sidebar" />
 				</c:attributes>

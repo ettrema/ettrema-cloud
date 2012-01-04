@@ -42,7 +42,7 @@
                   <Component id="pnlInfo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="10" pref="10" max="10" attributes="0"/>
               </Group>
-              <Component id="jScrollPane1" alignment="0" pref="620" max="32767" attributes="1"/>
+              <Component id="jScrollPane1" alignment="0" pref="730" max="32767" attributes="1"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -50,7 +50,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="pnlInfo" min="-2" pref="66" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="223" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="222" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -67,7 +67,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblInfo" pref="580" max="32767" attributes="0"/>
+                      <Component id="lblInfo" pref="686" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -84,7 +84,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblInfo" min="-2" pref="24" max="-2" attributes="1"/>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">

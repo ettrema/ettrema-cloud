@@ -14,6 +14,8 @@ import com.ettrema.backup.event.RootChangedEvent;
 import com.ettrema.backup.event.ScanDirEvent;
 import com.ettrema.backup.event.ScanEvent;
 import com.ettrema.backup.observer.Observer;
+import com.ettrema.backup.queue.QueueManager;
+import com.ettrema.backup.queue.QueueManager.ProgressSummary;
 import com.ettrema.backup.utils.TimeUtils;
 import com.ettrema.event.Event;
 import com.ettrema.event.EventListener;
@@ -21,6 +23,7 @@ import com.ettrema.event.EventManager;
 import com.ettrema.httpclient.ProgressListener;
 import java.io.File;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Listens to events and progress notifications, to provide simpler
@@ -36,26 +39,29 @@ public class SummaryDetails implements EventListener, ProgressListener {
 	private final BandwidthService bandwidthService;
 	private final BackupApplicationView view;
 	private final ThrottleFactory throttleFactory;
+	private final QueueManager queueManager;
 	// data fields
 	private String timeRemaining; // the calculated time remaining
 	private String progress; // total bytes in the remote backup locations
 	private String usage; // total bytes in the local backup locations
-	private String currentFileName;
-	private int currentFilePerc; // the bytes of outstanding queue items;
+		
 	private boolean allOk;
 	private String problemDescription;
 	private Date lastProgress;
+	private CurrentProgress currentProgress;	
 
-	public SummaryDetails(ThrottleFactory throttleFactory, BackupApplicationView view, EventManager eventManager, Config config, BandwidthService bandwidthService) {
+	
+	
+	public SummaryDetails(ThrottleFactory throttleFactory, BackupApplicationView view, EventManager eventManager, Config config, BandwidthService bandwidthService, QueueManager queueManager) {
 		this.throttleFactory = throttleFactory;
 		this.view = view;
 		this.bandwidthService = bandwidthService;
 		this.config = config;
+		this.queueManager = queueManager;
 		eventManager.registerEventListener(this, QueueItemEvent.class);
 		eventManager.registerEventListener(this, QueueProcessEvent.class);
 		eventManager.registerEventListener(this, ScanEvent.class);
 		eventManager.registerEventListener(this, ScanDirEvent.class);
-		eventManager.registerEventListener(this, RootChangedEvent.class);
 		eventManager.registerEventListener(this, RepoChangedEvent.class);
 		config.addObserver(new Observer() {
 
@@ -105,6 +111,7 @@ public class SummaryDetails implements EventListener, ProgressListener {
 		progress = formatOverallProgress(getDavBytesBackedup(), getLocalTotalBytes(), getQueuedBytes());
 		usage = formatUsage(getAccountUsedBytes(), getDavMaxBytes());
 		calcNewStatus();
+		updateCurrentProgress();
 	}
 
 	/**
@@ -116,15 +123,8 @@ public class SummaryDetails implements EventListener, ProgressListener {
 	 */
 	public void onProgress(final long bytesRead, final Long totalBytes, String fileName) {
 		System.out.println("SummaryDetails: onProgress: " + fileName + " bytesRead: " + bytesRead);
-		fileName = nameOnly(fileName);
-		this.currentFileName = fileName;
 		this.lastProgress = new Date();		
-		if (totalBytes != null) {
-			int percent = (int) (bytesRead * 100 / totalBytes);
-			this.currentFilePerc = percent;
-		} else {
-			this.currentFilePerc = 0;
-		}
+		updateCurrentProgress();
 	}
 
 	/**
@@ -133,9 +133,8 @@ public class SummaryDetails implements EventListener, ProgressListener {
 	 * @param fileName
 	 */
 	public void onComplete(String fileName) {
-		this.currentFileName = "";
-		this.currentFilePerc = 0;
 		this.lastProgress = new Date();
+		updateCurrentProgress();
 	}
 
 	public boolean isCancelled() {
@@ -295,13 +294,41 @@ public class SummaryDetails implements EventListener, ProgressListener {
 		return n;
 	}
 
-	public String getCurrentFileName() {
-		return currentFileName;
+	public CurrentProgress getCurrentProgress() {
+		return currentProgress;
+	}
+	
+	public void updateCurrentProgress() {
+		List<ProgressSummary> summaryList = queueManager.getCurrentQueueItems();
+		System.out.println("getCurrentProgress ============ items: " + summaryList.size());
+		if( summaryList == null || summaryList.isEmpty()) {
+			currentProgress = null;
+		} else {
+			String name = null;
+			long totalBytes  = 0;
+			long doneBytes = 0;
+			for(ProgressSummary ps : summaryList) {
+				if( ps.filename != null ) {
+					if( name != null ) {
+						name += ", ";
+						name += ps.filename;
+					} else {
+						name = ps.filename;
+					}
+					totalBytes += ps.bytesTotal;
+					doneBytes += ps.bytesDone;
+				}
+			}
+			Integer perc;
+			if( totalBytes > 0 ) {
+				perc = (int)(doneBytes * 100l / totalBytes);
+			} else {
+				perc = null;
+			}
+			currentProgress = new CurrentProgress(name, perc);
+		}		
 	}
 
-	public int getCurrentFilePerc() {
-		return currentFilePerc;
-	}
 
 	public String getProgress() {
 		return progress;
@@ -329,5 +356,15 @@ public class SummaryDetails implements EventListener, ProgressListener {
 
 	public void onRead(int bytes) {
 
+	}
+	
+	public class CurrentProgress {
+		public final String filename;
+		public final Integer percent;
+
+		public CurrentProgress(String filename, Integer percent) {
+			this.filename = filename;
+			this.percent = percent;
+		}				
 	}
 }

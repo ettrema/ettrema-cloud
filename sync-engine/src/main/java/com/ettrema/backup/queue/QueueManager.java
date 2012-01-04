@@ -1,7 +1,9 @@
 package com.ettrema.backup.queue;
 
 import com.ettrema.backup.config.Config;
+import com.ettrema.backup.config.Configurator;
 import com.ettrema.backup.config.Job;
+import com.ettrema.backup.config.QueueItem;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.history.HistoryDao;
 import com.ettrema.backup.observer.Observer;
@@ -22,19 +24,23 @@ public class QueueManager implements Observer {
     private final EventManager eventManager;
     private final HistoryDao historyDao;
     private final ScheduledExecutorService svc;
+	private final Configurator configurator;
     // working fields
     private long minStableMs = 1000;
     //private ScheduledFuture scheduledTask;
-    private List<Thread> queueProcessors = new ArrayList<Thread>();
+    private List<Thread> queueProcThreads = new ArrayList<Thread>();
+	private List<QueueProcessor> queueProcessors = new ArrayList<QueueProcessor>();
+	
 	
 	private boolean isRunning;
 
-    public QueueManager( Config config, EventManager eventManager, HistoryDao historyDao, List<QueueItemHandler> handlers, ScheduledExecutorService svc ) {
+    public QueueManager( Config config, EventManager eventManager, HistoryDao historyDao, List<QueueItemHandler> handlers, ScheduledExecutorService svc, Configurator configurator ) {
         this.svc = svc;
         this.historyDao = historyDao;
         this.config = config;
         this.eventManager = eventManager;
         this.handlers = handlers;
+		this.configurator = configurator;
         config.addObserver( this );
     }
 
@@ -45,11 +51,14 @@ public class QueueManager implements Observer {
 		}
         log.trace( "starting queue processing thread" );
 		isRunning = true;
+		queueProcThreads.clear();
+		queueProcessors.clear();
         for( Job job : config.getJobs() ) {
             for( Repo repo : job.getRepos() ) {
-                QueueProcessor proc = new QueueProcessor(eventManager, job, repo, repo.getQueue(), handlers, historyDao );
+                QueueProcessor proc = new QueueProcessor(eventManager, job, repo, repo.getQueue(), handlers, historyDao, configurator );
+				queueProcessors.add(proc);
                 Thread thProc = new Thread( proc, "Queue Processor: " + repo.getDescription() );
-                queueProcessors.add( thProc );
+                queueProcThreads.add( thProc );
                 thProc.start();
             }
         }
@@ -57,7 +66,7 @@ public class QueueManager implements Observer {
 
     public synchronized void stopThread() {
         log.info( "stopping queue processors" );
-        for( Thread t : queueProcessors ) {
+        for( Thread t : queueProcThreads ) {
             t.interrupt();
         }
 		isRunning = false;
@@ -101,4 +110,28 @@ public class QueueManager implements Observer {
             setPaused( config.isPaused() );
         }
     }
+	
+	public List<ProgressSummary> getCurrentQueueItems() {
+		List<ProgressSummary> summaryList = new ArrayList<ProgressSummary>();
+		for(QueueProcessor qp : queueProcessors) {
+			QueueItem item = qp.getCurrentQueueItem();
+			if( item != null ) {				
+				ProgressSummary progressSummary = new ProgressSummary(item.getFileName(), item.getBytesToUpload(), item.getProgressBytes());
+				summaryList.add(progressSummary);
+			}
+		}
+		return summaryList;
+	}
+	
+	public class ProgressSummary {
+		public final String filename;
+		public final long bytesTotal;
+		public final long bytesDone;
+
+		public ProgressSummary(String filename, long bytesTotal, long bytesDone) {
+			this.filename = filename;
+			this.bytesTotal = bytesTotal;
+			this.bytesDone = bytesDone;
+		}				
+	}
 }

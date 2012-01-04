@@ -2,6 +2,7 @@ package com.ettrema.backup.history;
 
 import com.bradmcevoy.utils.With;
 import com.ettrema.backup.config.QueueItem;
+import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.engine.LocalCrcDaoImpl;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.db.Table;
@@ -103,14 +104,14 @@ public class HistoryDao {
         
     }
 
-    public void success( QueueItem item ) {
+    public void success( QueueItem item, Repo repo ) {
         log.trace( "success: " + item );
-        insertHistory( item.getFile(), item.getBytesToUpload(), item.getRepo().getDescription(), item.getActionDescription(), null, "success" );
+        insertHistory( item.getFile(), item.getBytesToUpload(), repo.getDescription(), item.getActionDescription(), null, "success" );
     }
 
-    public void failed( QueueItem item ) {
+    public void failed( QueueItem item, Repo repo ) {
         log.trace( "failed: " + item );
-        insertHistory( item.getFile(), 0, item.getRepo().getDescription(), item.getActionDescription(), item.getNotes(), "failed" );
+        insertHistory( item.getFile(), 0, repo.getDescription(), item.getActionDescription(), item.getNotes(), "failed" );
     }
 
     private void insertHistory( final File localFile, final long numBytes, final String repo, final String action, final String notes, final String status ) {

@@ -1,5 +1,6 @@
 package com.ettrema.backup;
 
+import com.ettrema.backup.view.SummaryDetails.CurrentProgress;
 import javax.swing.JMenu;
 import com.ettrema.backup.config.Root;
 import com.ettrema.backup.config.Job;
@@ -8,8 +9,9 @@ import com.ettrema.backup.config.Queue;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.account.AccountCreator;
 import com.ettrema.backup.config.Config;
-import com.ettrema.backup.engine.Engine;
-import com.ettrema.backup.engine.FileWatcher;
+import com.ettrema.backup.engine.ConflictManager;
+import com.ettrema.backup.engine.FileSyncer;
+import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.history.HistoryDao;
 import com.ettrema.backup.observer.Observer;
 import com.ettrema.backup.queue.QueueManager;
@@ -43,7 +45,8 @@ import static com.ettrema.backup.BackupApplication._;
 public class BackupApplicationView extends FrameView implements Observer<Config, Object> {
 
 	private static final Logger log = LoggerFactory.getLogger(BackupApplicationView.class);
-	private final Engine engine;
+	private final ScanService scanService;
+	private final ConflictManager conflictManager;
 	private final Config config;
 	private final EventManager eventManager;
 	private final QueueManager queueProcessor;
@@ -54,16 +57,17 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	private String problemDescription;
 	private boolean throttleChanged;
 
-	public BackupApplicationView(SingleFrameApplication app, Engine engine, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao) throws Exception {
+	public BackupApplicationView(SingleFrameApplication app,Config config, ScanService scanService, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao, ConflictManager conflictManager) throws Exception {
 		super(app);
-		this.engine = engine;
+		this.scanService = scanService;
 		this.eventManager = eventManager;
 		this.queueProcessor = queueProcessor;
 		this.accountCreator = accountCreator;
 		this.browserController = browserController;
 		this.historyDao = historyDao;
+		this.conflictManager = conflictManager;
 
-		this.config = engine.getConfig();
+		this.config = config;
 
 		initComponents();
 
@@ -505,7 +509,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
     private void sldThrottleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sldThrottleFocusLost
 		if (throttleChanged) {
 			System.out.println("sldThrottleFocusLost");
-			config.saveData();
+			config.saveState();
 			throttleChanged = false;
 		}
 
@@ -567,12 +571,9 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	private int busyIconIndex = 0;
 	private JDialog aboutBox;
 
-	void init(Engine engine) {
-	}
-
 	@Action
 	public void showNewAccount() {
-		AccountView queueView = new AccountView(engine, eventManager, config, accountCreator, null);
+		AccountView queueView = new AccountView(scanService, eventManager, config, accountCreator, null);
 		queueView.setVisible(true);
 
 	}
@@ -589,21 +590,30 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	}
 
 	public void doUpdateScreen() {
+		final SummaryDetails dets = _(SummaryDetails.class);
+		final CurrentProgress currentProg = dets.getCurrentProgress();
+
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
 				try {
-					SummaryDetails dets = _(SummaryDetails.class);
 					lblTimeRemainingVal.setText(dets.getTimeRemaining());
-					if (dets.getCurrentFileName() == null || dets.getCurrentFileName().length() == 0) {
+					if (currentProg == null) {
 						progCurrent.setVisible(false);
 						lblCurrentVal.setText("No files are being processed");
+						progCurrent.setValue(0);
 					} else {
-						progCurrent.setVisible(true);
-						lblCurrentVal.setText(dets.getCurrentFileName());
+						lblCurrentVal.setText(currentProg.filename);
+						if (currentProg.percent != null) {
+							progCurrent.setVisible(true);
+							progCurrent.setValue(currentProg.percent);
+						} else {
+							progCurrent.setVisible(false);
+							progCurrent.setValue(0);
+						}
 					}
 					//System.out.println("doUpdateScreen: " + dets.getCurrentFilePerc());
-					progCurrent.setValue(dets.getCurrentFilePerc());
+
 					lblOverallProgressVal.setText(dets.getProgress());
 					lblUsageVal.setText(dets.getUsage());
 
@@ -628,7 +638,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 
 	@Action
 	public void scanNow() {
-		_(FileWatcher.class).scanNow();
+		scanService.scan();
 	}
 
 	int getThrottlePerc() {
@@ -642,7 +652,6 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	}
 
 	public void onUpdated(final Config t, Object parent) {
-		System.out.println("Config updated!!!");
 		SwingUtilities.invokeLater(new Runnable() {
 
 			public void run() {
@@ -663,7 +672,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 			menuItem.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					QueueView queueView = new QueueView(engine, eventManager, queueProcessor, q, r);
+					QueueView queueView = new QueueView(scanService, eventManager, queueProcessor, q, r);
 					queueView.setVisible(true);
 				}
 			});
@@ -681,7 +690,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 			menuItem.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
-					AccountView queueView = new AccountView(engine, eventManager, j, accountCreator, null);
+					AccountView queueView = new AccountView(scanService, eventManager, j, accountCreator, null);
 					queueView.setVisible(true);
 				}
 			});
@@ -736,7 +745,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 	@Action
 	public void openMediaLounge() {
 		String url = config.getMediaLoungeUrl();
-		if( url != null ) {
+		if (url != null) {
 			browserController.openUrl(url);
 		} else {
 			JOptionPane.showMessageDialog(progCurrent, "Can't open because you havent set up any web repositories");
@@ -750,7 +759,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 
 	@Action
 	public void showConflicts() {
-		ConflictView view = new ConflictView(engine);
+		ConflictView view = new ConflictView(conflictManager);
 		view.setVisible(true);
 	}
 

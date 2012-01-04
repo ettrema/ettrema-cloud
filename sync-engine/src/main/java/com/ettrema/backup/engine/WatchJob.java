@@ -60,14 +60,16 @@ public class WatchJob implements JNotifyListener {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( WatchJob.class );
     private static final long TIME_TO_LIVE = 500;
+	private final FileSyncer fileSyncer;
     private final Job job;
     private final Root root;
     private final java.util.Queue<WatchEvent> watchEvents = new ConcurrentLinkedQueue<WatchEvent>();
     private boolean disabled;
 
-    public WatchJob( Job job, Root root ) {
+    public WatchJob( FileSyncer fileSyncer, Job job, Root root ) {
         this.job = job;
         this.root = root;
+		this.fileSyncer = fileSyncer;
         Executors.newSingleThreadScheduledExecutor().scheduleWithFixedDelay( new Runnable() {
 
 			@Override
@@ -82,7 +84,7 @@ public class WatchJob implements JNotifyListener {
         if( disabled ) {
             return;
         }
-        log.debug( "file created: " + rootPath + " : " + name );
+        log.info( "file created: " + rootPath + " : " + name );
         watchEvents.add( new CreatedWatchEvent( rootPath, name ) );
     }
 
@@ -92,7 +94,7 @@ public class WatchJob implements JNotifyListener {
             return;
         }
 
-        log.debug( "deleted " + rootPath + " : " + name );
+        log.info( "deleted " + rootPath + " : " + name );
         // when deleted,discard any previous modified events
         DeletedWatchEvent de = new DeletedWatchEvent( rootPath, name );
         de.removeModifiedEvents( de.getFullPath() );
@@ -106,7 +108,7 @@ public class WatchJob implements JNotifyListener {
             return;
         }
 
-        log.debug( "modified " + rootPath + " : " + name );
+        log.info( "modified " + rootPath + " : " + name );
         try {
             String fullPath = rootPath + File.separator + name;
             File f = new File( fullPath );
@@ -125,7 +127,7 @@ public class WatchJob implements JNotifyListener {
         if( disabled ) {
             return;
         }
-        log.debug( "renamed " + rootPath + " : " + name + "  newName:" + newName );
+        log.info( "renamed " + rootPath + " : " + name + "  newName:" + newName );
         watchEvents.add( new RenamedWatchEvent( rootPath, name, newName ) );
     }
 
@@ -151,7 +153,7 @@ public class WatchJob implements JNotifyListener {
     }
 
     private void onNewFile( File newFile ) {
-        root.onFileModified( newFile );
+        fileSyncer.onFileModified(newFile, root);
     }
 
     private void onMoved( String fullPathFrom, File dest ) {
@@ -160,12 +162,12 @@ public class WatchJob implements JNotifyListener {
 			log.trace("Didnt actually move, same location");
 			return ;
 		}
-        root.onMoved( fullPathFrom, dest );
+        fileSyncer.onFileMoved(fullPathFrom, dest, job, root);
     }
 
     private void onDeleted( File file ) {
         log.info( "onDeleted: " + file.getAbsolutePath() );
-        root.onFileDeleted( file );
+        fileSyncer.onFileDeleted(file, job, root);
     }
 
     public void setDisabled( boolean disabled ) {
@@ -297,7 +299,7 @@ public class WatchJob implements JNotifyListener {
         void visit() {
             log.trace( "visit modified" );
             removeModifiedEvents( getFullPath() );
-            root.onFileModified( getFile() );
+            fileSyncer.onFileModified( getFile(), root);
         }
     }
 

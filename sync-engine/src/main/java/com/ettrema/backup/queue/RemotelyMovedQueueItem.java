@@ -58,13 +58,18 @@ public class RemotelyMovedQueueItem extends AbstractQueueItem {
 		return file.getName();
 	}
 
-	@Override
-	public Repo getRepo() {
-		return repo;
-	}
-
 	public File getMovedToFile() {
 		return movedToFile;
+	}
+
+	@Override
+	public void setProgressBytes(long bytes) {
+		
+	}
+
+	@Override
+	public long getProgressBytes() {
+		return 0;
 	}
 	
 	

@@ -6,7 +6,7 @@ import com.ettrema.backup.config.PermanentUploadException;
 import com.ettrema.backup.config.QueueItem;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.RepoNotAvailableException;
-import com.ettrema.backup.engine.Engine;
+import com.ettrema.backup.engine.FileSyncer;
 import java.util.Date;
 
 /**
@@ -17,10 +17,10 @@ public class DeletedFileHandler implements QueueItemHandler {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(NewFileHandler.class);
 
-    private final Engine engine;
+    private final FileSyncer fileSyncer;
 
-    public DeletedFileHandler(Engine engine) {
-        this.engine = engine;
+    public DeletedFileHandler(FileSyncer fileSyncer) {
+        this.fileSyncer = fileSyncer;
     }
        
     
@@ -40,7 +40,7 @@ public class DeletedFileHandler implements QueueItemHandler {
         if (item.getFile().exists()) {
             log.info("file to be deleted exists locally, so won't do delete, but better check if its updated");
             DeletedFileQueueItem dfqi = (DeletedFileQueueItem) item;
-            engine.checkFileUpdated(r, item.getFile(), dfqi.getRoot());
+            fileSyncer.onFileModified( item.getFile(), dfqi.getRoot());
         } else {
             item.setStarted(new Date());
             try {

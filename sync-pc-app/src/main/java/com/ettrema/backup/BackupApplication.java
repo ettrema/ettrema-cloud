@@ -1,5 +1,6 @@
 package com.ettrema.backup;
 
+import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.engine.ThrottleFactory;
 import com.ettrema.backup.account.AccountCreator;
 import com.ettrema.backup.config.Config;
@@ -7,7 +8,6 @@ import com.ettrema.backup.config.Configurator;
 import com.ettrema.backup.config.DavRepo;
 import com.ettrema.backup.engine.CrcCalculator;
 import com.ettrema.backup.engine.DbInitialiser;
-import com.ettrema.backup.engine.Engine;
 import com.ettrema.backup.engine.FileChangeChecker;
 import com.ettrema.backup.engine.ModifiedDateFileChangeChecker;
 import com.ettrema.backup.engine.FileWatcher;
@@ -24,12 +24,19 @@ import com.ettrema.backup.queue.RemotelyModifiedFileHandler;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.backup.engine.BandwidthService;
 import com.ettrema.backup.engine.ConflictManager;
+import com.ettrema.backup.engine.DirectFileRemoteSyncer;
+import com.ettrema.backup.engine.FileSyncer;
 import com.ettrema.backup.engine.Services;
-import com.ettrema.backup.engine.SimpleConflictManager;
+import com.ettrema.backup.engine.StatusService;
+import com.ettrema.backup.engine.ExclusionsService;
+import com.ettrema.backup.engine.RemoteSyncer;
+import com.ettrema.backup.engine.ScanService;
+import com.ettrema.backup.engine.StateTokenFileSyncer;
+import com.ettrema.backup.engine.StateTokenRemoteSyncer;
+import com.ettrema.backup.engine.TransferAuthorisationService;
 import com.ettrema.backup.queue.QueueItemHandler;
 import com.ettrema.backup.queue.RemotelyDeletedHandler;
 import com.ettrema.backup.queue.RemotelyMovedHandler;
-import com.ettrema.backup.rss.RssWatcher;
 import com.ettrema.backup.view.SummaryDetails;
 import com.ettrema.client.BrowserView;
 import com.ettrema.context.RootContext;
@@ -75,7 +82,10 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private RootContext context;
 	private Configurator configurator;
 	private Config config;
-	private Engine engine;
+	private ExclusionsService exclusionsService;
+	private StatusService statusService;
+	private ScanService scanService;
+	private FileSyncer fileSyncer;
 	private AccountCreator accountCreator;
 	private BandwidthService bandwidthService;
 	private ThrottleFactory throttleFactory;
@@ -83,7 +93,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private EventManager eventManager;
 	private QueueInserter queueHandler;
 	private FileWatcher fileWatcher;
-	private QueueManager queueProcessor;
+	private QueueManager queueManager;
 	private PathMunger pathMunger;
 	private SummaryDetails summaryDetails;
 	private BrowserView browserView; // TODO: should be associated with davrepo
@@ -91,11 +101,11 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	private BrowserController browserController;
 	private TrayController trayController;
 	private FileChangeChecker fileChangeChecker;
-	private CrcCalculator crcCalculator;
-	private ScreenUpdateService screenUpdateService;
+	private CrcCalculator crcCalculator;	
 	private HistoryDao historyDao;
 	private ConflictManager conflictManager;
-	private RssWatcher rssWatcher;
+	private TransferAuthorisationService transferAuthorisationService;
+	private List<RemoteSyncer> remoteSyncers;
 	private boolean runningInSystemTray = false;
 
 	/**
@@ -134,30 +144,33 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
 			accountCreator = new AccountCreator(config);
 			queueHandler = new QueueInserter(eventManager);
-			engine = new Engine(throttleFactory, config, configurator, eventManager, fileChangeChecker, crcCalculator);
-			fileWatcher = new FileWatcher(config, engine);
+			exclusionsService = new ExclusionsService(config);
+			statusService = new StatusService(eventManager);
+			fileSyncer = new StateTokenFileSyncer(exclusionsService, config);
+			transferAuthorisationService = new GuiTransferAuthorisationService(); // TODO -----------------------------------------------------------------------------------
+			RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator);
+			RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
+			remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
+			scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
+			fileWatcher = new FileWatcher(config, fileSyncer);
 			conflictManager = new SimpleConflictManager();
 			RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueHandler, pathMunger);
 			RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
 			RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
-			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(engine), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
-			queueProcessor = new QueueManager(config, eventManager, historyDao, handlers, executorService);
-			rssWatcher = new RssWatcher(config, engine, queueHandler, pathMunger);
+			List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
+			queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
 
-			view = new BackupApplicationView(this, engine, accountCreator, eventManager, queueProcessor, browserController, historyDao);
-			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService);
+			view = new BackupApplicationView(this, config, scanService, accountCreator, eventManager, queueManager, browserController, historyDao, conflictManager);
+			summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
 
 			initContext();
 
-			queueProcessor.startThread();
+			queueManager.startThread();
 
 			summaryDetails.refresh();
 
-			view.init(engine);
-
-			trayController = new TrayController(this, config, eventManager, summaryDetails, engine);
+			trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
 			runningInSystemTray = trayController.show();
-			screenUpdateService = new ScreenUpdateService(view, trayController, config);
 
 			if (config.isConfigured()) {
 				if (!runningInSystemTray) {
@@ -170,8 +183,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 			}
 
 			fileWatcher.start();
-			screenUpdateService.start();
-			rssWatcher.start();
+			scanService.scan();
 
 
 		} catch (Exception e) {
@@ -194,11 +206,11 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 		context.put(historyService);
 		context.put(eventManager);
 		context.put(queueHandler);
-		context.put(engine);
+		context.put(fileSyncer);
 		context.put(fileWatcher);
 		context.put(crcCalculator);
 
-		context.put(queueProcessor);
+		context.put(queueManager);
 		context.put(summaryDetails);
 		context.put(fileChangeChecker);
 		context.put(view);
@@ -243,7 +255,15 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 	}
 
 	public DavRepo getFirstRepo() {
-		return engine.getFirstRepo();
+		List<Repo> repos = config.getAllRepos();
+		if( repos != null ) {
+			for(Repo r : repos) {
+				if( r instanceof DavRepo) {
+					return (DavRepo) r;
+				}
+			}			
+		}
+		return null;
 	}
 
 	public RootContext getRootContext() {
