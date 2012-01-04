@@ -39,8 +39,7 @@ public class DeletedFileHandler implements QueueItemHandler {
         log.debug("process");
         if (item.getFile().exists()) {
             log.info("file to be deleted exists locally, so won't do delete, but better check if its updated");
-            DeletedFileQueueItem dfqi = (DeletedFileQueueItem) item;
-            fileSyncer.onFileModified( item.getFile(), dfqi.getRoot());
+            fileSyncer.onFileModified( item.getFile());
         } else {
             item.setStarted(new Date());
             try {

@@ -12,75 +12,76 @@ import java.util.List;
  */
 public class ExclusionsService {
 
-	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( ExclusionsService.class );
-
+	private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ExclusionsService.class);
 	private final Config config;
 
 	public ExclusionsService(Config config) {
 		this.config = config;
 	}
-		
-	
+
 	public boolean isBackupable(File scanDir) {
-		for( Root r : config.getAllRoots()) {
-			if( isBackupable(scanDir, r)) {
+		for (Root r : config.getAllRoots()) {
+			if (isBackupable(scanDir, r)) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	
-    public boolean isBackupable( File child, Root root ) {
-        File f = child;
-        if( f.isFile() && f.length() == 0 ) {
-            log.trace( "not uploading empty file: " + f.getAbsolutePath() );
-            return false;
-        }
-        if( f.isFile() && f.getName().contains( ".conflicted." ) ) {
-            log.trace( "not uploading conflict file: " + f.getAbsolutePath() );
-            return false;
-        }
-        while( f.getAbsolutePath().startsWith( root.getFullPath() ) ) {
-            if( f.getName().equals( "Thumb.db" ) ) {
-                log.trace( "is thumbs.db" );
-                return false;
-            }
-            if( f.isHidden() ) {
-                //log.trace( "ishidden" );
-                return false;
-            }
-            if( f.getName().startsWith( "." ) ) {
-                log.trace( "starts with ." );
-                return false;
-            }
-            if( f.getName().endsWith( ".tmp" ) ) {
-                log.trace( "ends with .tmp" );
-                return false;
-            }
-            if( f.getName().startsWith( "~" ) ) {
-                log.trace( "starts with tilda" );
-                return false;
-            }
-            f = f.getParentFile();
-        }
 
-        return true;
-    }	
-	
-    public boolean isExcludedFolder( File dir, Root root ) {
-        if( dir.getAbsolutePath().equals( root.getFullPath() ) ) {
-            // can't exclude a root
-            return false;
-        }
-        List<Dir> exclusions = root.getExclusions();
-        String s = dir.getAbsolutePath();
-        for( Dir d : exclusions ) {
-            if( s.startsWith( d.getFullPath() ) ) {
-                return true;
-            }
-        }
-        return false;
-    }
+	public boolean isBackupable(File child, Root root) {
+		File f = child;
+		if (f.isFile() && f.length() == 0) {
+			log.trace("not uploading empty file: " + f.getAbsolutePath());
+			return false;
+		}
+		if (f.isFile() && f.getName().contains(".conflicted.")) {
+			log.trace("not uploading conflict file: " + f.getAbsolutePath());
+			return false;
+		}
+		while (f.getAbsolutePath().startsWith(root.getFullPath())) {
+			if (f.getName().startsWith("_sys")) {
+				log.trace("name begins with '_sys'");
+				return false;
+			}
 
+			if (f.getName().equals("Thumb.db")) {
+				log.trace("is thumbs.db");
+				return false;
+			}
+			if (f.isHidden()) {
+				//log.trace( "ishidden" );
+				return false;
+			}
+			if (f.getName().startsWith(".")) {
+				log.trace("starts with .");
+				return false;
+			}
+			if (f.getName().endsWith(".tmp")) {
+				log.trace("ends with .tmp");
+				return false;
+			}
+			if (f.getName().startsWith("~")) {
+				log.trace("starts with tilda");
+				return false;
+			}
+			f = f.getParentFile();
+		}
+
+		return true;
+	}
+
+	public boolean isExcludedFolder(File dir, Root root) {
+		if (dir.getAbsolutePath().equals(root.getFullPath())) {
+			// can't exclude a root
+			return false;
+		}
+		List<Dir> exclusions = root.getExclusions();
+		String s = dir.getAbsolutePath();
+		for (Dir d : exclusions) {
+			if (s.startsWith(d.getFullPath())) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

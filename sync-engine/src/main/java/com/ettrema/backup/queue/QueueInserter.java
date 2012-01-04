@@ -10,6 +10,7 @@ import com.ettrema.backup.config.Root;
 import com.ettrema.backup.event.QueueItemEvent;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.event.EventManager;
+import com.ettrema.httpclient.Folder;
 import java.io.File;
 
 /**
@@ -25,9 +26,9 @@ public class QueueInserter {
         this.eventManager = eventManager;
     }
 
-    public void onRemotelyUpdatedFile(Repo repo, File child, FileMeta meta) {
+    public void enqueueDownload(Repo repo, File child, Long bytesToDownload) {
         log.info("queue remotely modified: " + child.getAbsolutePath());
-        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, bytesToDownload);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
         } else {
@@ -37,7 +38,7 @@ public class QueueInserter {
 
     public void onConflict(Repo repo, String fullPath, File child, FileMeta meta) {
         log.info("queue conflicted: " + child.getAbsolutePath());
-        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, meta);
+        RemotelyModifiedQueueItem item = new RemotelyModifiedQueueItem(child, meta.getLength());
         item.setConflicted(true);
         if (repo.getQueue().contains(item)) {
             log.trace("not adding item, already in queue: " + item);
@@ -46,7 +47,7 @@ public class QueueInserter {
         }
     }
 
-    public void onNewFile(Repo repo, File file) {
+    public void enqueueUpload(Repo repo, File file) {
         log.info("queue new file: " + file.getAbsolutePath());
 
         NewFileQueueItem nf = new NewFileQueueItem(file);
@@ -65,7 +66,7 @@ public class QueueInserter {
             File contentFile = new File(s);
             if (contentFile.exists()) {
                 log.trace("content file exists, so enqueue: " + contentFile.getAbsolutePath());
-                onUpdatedFile(repo, contentFile);
+                _enqueueUpload(repo, contentFile);
             } else {
                 log.trace("does not exist: " + contentFile.getAbsolutePath());
             }
@@ -74,14 +75,14 @@ public class QueueInserter {
             File metaFile = new File(s + ".meta.xml");
             if( metaFile.exists()) {
                 log.trace("found meta file, so enqueue: " + metaFile.getAbsolutePath());
-                onUpdatedFile(repo, metaFile);
+                _enqueueUpload(repo, metaFile);
             }
         }
 
         enqueue(repo.getQueue(), nf);
     }
 
-    public void onUpdatedFile(Repo repo, File file) {
+    private void _enqueueUpload(Repo repo, File file) {
         NewFileQueueItem nf = new NewFileQueueItem(file);
         if (repo.getQueue().contains(nf)) {
             log.debug("queue already contains item");
@@ -91,8 +92,8 @@ public class QueueInserter {
         enqueue(repo.getQueue(), nf);
     }
 
-    public void onFileDeleted(File child, Job job, Root root, Repo repo) {
-        DeletedFileQueueItem item = new DeletedFileQueueItem(child, root);
+    public void enqueueRemoteDelete(File child, Repo repo) {
+        DeletedFileQueueItem item = new DeletedFileQueueItem(child);
         if (repo.getQueue().contains(item)) {
             log.debug("queue already contains item");
             return;
@@ -100,7 +101,7 @@ public class QueueInserter {
         enqueue(repo.getQueue(), item);
     }
 
-    public void onMoved(String fullPathFrom, File dest, Job job, Root root, Repo repo) {
+    public void enqueueRemoteMove(String fullPathFrom, File dest, Job job, Root root, Repo repo) {
         MovedQueueItem item = new MovedQueueItem(fullPathFrom, dest);
         if (repo.getQueue().contains(item)) {
             log.debug("queue already contains item");
@@ -115,12 +116,16 @@ public class QueueInserter {
         EventUtils.fireQuietly(eventManager, new QueueItemEvent(queue, item, false));
     }
 
-	public void onRemotelyMoved(File localFile, File movedTo, Job job, Repo dr) {
+	public void enqueueLocalMove(File localFile, File movedTo, Job job, Repo dr) {
 		RemotelyMovedQueueItem item = new RemotelyMovedQueueItem(localFile, movedTo, dr);
 		enqueue(dr.getQueue(), item);
 	}
 
-	public void onRemotelyDeleted(File localFile, Job job, DavRepo dr) {
+	public void enqueueLocalDelete(File localFile) {
+		throw new UnsupportedOperationException("Not yet implemented");
+	}
+
+	public void enqueueDownloadFolder(DavRepo repo, Folder remoteFolder) {
 		throw new UnsupportedOperationException("Not yet implemented");
 	}
 }

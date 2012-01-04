@@ -11,11 +11,9 @@ public class DeletedFileQueueItem extends AbstractQueueItem{
 
     private final File file;
     private final long timeLogged;
-    private final Root root;
 
-    public DeletedFileQueueItem( File file, Root root ) {
+    public DeletedFileQueueItem( File file ) {
         this.file = file;
-        this.root = root;
         this.timeLogged = System.currentTimeMillis();
     }
 
@@ -44,10 +42,6 @@ public class DeletedFileQueueItem extends AbstractQueueItem{
     @Override
     public String getFileName() {
         return file.getName();
-    }
-
-    public Root getRoot() {
-        return root;
     }
 
 	@Override

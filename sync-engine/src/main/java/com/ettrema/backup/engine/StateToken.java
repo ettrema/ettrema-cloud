@@ -4,7 +4,7 @@ package com.ettrema.backup.engine;
  *
  * @author brad
  */
-public class StateToken {
+public class StateToken implements Comparable<StateToken> {
 	
 	
 	/**
@@ -33,6 +33,14 @@ public class StateToken {
 	
 	public StateToken(String filePath) {
 		this.filePath = filePath;
+	}
+
+	@Override
+	public int compareTo(StateToken o) {
+		// Comparison must be same as on the server
+		String path1 = this.filePath.toUpperCase();
+		String path2 = o.filePath.toUpperCase();
+		return path1.compareTo(path2);
 	}
 	
 }

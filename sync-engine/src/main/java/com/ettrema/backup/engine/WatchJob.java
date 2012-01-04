@@ -153,7 +153,7 @@ public class WatchJob implements JNotifyListener {
     }
 
     private void onNewFile( File newFile ) {
-        fileSyncer.onFileModified(newFile, root);
+        fileSyncer.onFileModified(newFile);
     }
 
     private void onMoved( String fullPathFrom, File dest ) {
@@ -162,12 +162,12 @@ public class WatchJob implements JNotifyListener {
 			log.trace("Didnt actually move, same location");
 			return ;
 		}
-        fileSyncer.onFileMoved(fullPathFrom, dest, job, root);
+        fileSyncer.onFileMoved(fullPathFrom, dest);
     }
 
     private void onDeleted( File file ) {
         log.info( "onDeleted: " + file.getAbsolutePath() );
-        fileSyncer.onFileDeleted(file, job, root);
+        fileSyncer.onFileDeleted(file);
     }
 
     public void setDisabled( boolean disabled ) {
@@ -299,7 +299,7 @@ public class WatchJob implements JNotifyListener {
         void visit() {
             log.trace( "visit modified" );
             removeModifiedEvents( getFullPath() );
-            fileSyncer.onFileModified( getFile(), root);
+            fileSyncer.onFileModified( getFile());
         }
     }
 

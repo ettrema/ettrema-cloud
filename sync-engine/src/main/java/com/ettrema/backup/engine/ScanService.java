@@ -1,7 +1,6 @@
 package com.ettrema.backup.engine;
 
 import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.Root;
 import com.ettrema.backup.event.ScanEvent;
@@ -71,20 +70,20 @@ public class ScanService implements Service {
      * @param job
      * @param root
      */
-    public void onFileDeleted(File child, Job job, Root root) {
+    public void onFileDeleted(File child) {
         log.debug("onFileDeleted: " + child.getAbsolutePath());
-        if (!exclusionsService.isBackupable(child, root)) {
+        if (!exclusionsService.isBackupable(child)) {
             return;
         }
-        fileSyncer.onFileDeleted(child, job, root);
+        fileSyncer.onFileDeleted(child);
     }
 
-    public void onFileMoved(String fullPathFrom, File dest, Job job, Root root) {
+    public void onFileMoved(String fullPathFrom, File dest) {
         log.debug("onFileMoved: " + dest.getAbsolutePath());
-        if (!exclusionsService.isBackupable(dest, root)) {
+        if (!exclusionsService.isBackupable(dest)) {
             return;
         }
-        fileSyncer.onFileMoved(fullPathFrom, dest, job, root);
+        fileSyncer.onFileMoved(fullPathFrom, dest);
     }
 
     /**
@@ -98,12 +97,11 @@ public class ScanService implements Service {
      * @param job
      * @param root
      */
-    public void onFileModified(File child, Root root) {
-        if (!exclusionsService.isBackupable(child, root)) {
+    public void onFileModified(File child) {
+        if (!exclusionsService.isBackupable(child)) {
             return;
         }
-        root.addNonScanBytes(child.length());
-        fileSyncer.onFileModified(child, root);
+        fileSyncer.onFileModified(child);
     }
 
     @Override

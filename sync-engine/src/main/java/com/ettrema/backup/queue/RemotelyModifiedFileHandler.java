@@ -96,7 +96,7 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
 				return true;
 			case LOCAL_NEWER:
 				log.info("Local file is newer, so queue upload");
-				queueInserter.onUpdatedFile(r, fLocalFile);
+				queueInserter.enqueueUpload(r, fLocalFile);
 				remoteModItem.setNotes("Local file is newer, will upload");
 				remoteModItem.setCompleted(new Date());
 				return true;

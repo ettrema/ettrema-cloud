@@ -27,22 +27,21 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 
 	private static final Logger log = LoggerFactory.getLogger(DirectComparisonFileSyncer.class);
 	private final ExclusionsService exclusionsService;
-	private final QueueInserter queueHandler;
+	private final QueueInserter queueInserter;
 	private final Config config;
 	private final EventManager eventManager;
 	private final FileChangeChecker fileChangeChecker;
 	private final StatusService statusService;
 	private final ScanHelper scanHelper = new ScanHelper();
-	
+
 	public DirectComparisonFileSyncer(ExclusionsService exclusionsService, QueueInserter queueHandler, Config config, EventManager eventManager, FileChangeChecker fileChangeChecker, StatusService statusService) {
 		this.exclusionsService = exclusionsService;
-		this.queueHandler = queueHandler;
+		this.queueInserter = queueHandler;
 		this.config = config;
 		this.eventManager = eventManager;
 		this.fileChangeChecker = fileChangeChecker;
 		this.statusService = statusService;
 	}
-
 
 	/**
 	 * Sets the scanNow flag so a scan will be initiated on next poll
@@ -70,18 +69,31 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	 * @param root
 	 */
 	@Override
-	public void onFileDeleted(File child, Job job, Root root) {
+	public void onFileDeleted(File child) {
 		log.debug("onFileDeleted: " + child.getAbsolutePath());
-		for (Repo r : job.getRepos()) {
-			queueHandler.onFileDeleted(child, job, root, r);
+		for (Job job : config.getJobs()) {
+			for (Root root : job.getRoots()) {
+				if (root.contains(child)) {
+					for (Repo r : job.getRepos()) {
+						queueInserter.enqueueRemoteDelete(child, r);
+					}
+				}
+			}
 		}
 	}
 
 	@Override
-	public void onFileMoved(String fullPathFrom, File dest, Job job, Root root) {
+	public void onFileMoved(String fullPathFrom, File dest) {
 		log.debug("onFileMoved: " + dest.getAbsolutePath());
-		for (Repo r : job.getRepos()) {
-			queueHandler.onMoved(fullPathFrom, dest, job, root, r);
+		File from = new File(fullPathFrom);
+		for (Job job : config.getJobs()) {
+			for (Root root : job.getRoots()) {
+				if (root.contains(from)) {
+					for (Repo r : job.getRepos()) {
+						queueInserter.enqueueRemoteMove(fullPathFrom, dest, job, root, r);
+					}
+				}
+			}
 		}
 	}
 
@@ -97,10 +109,17 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 	 * @param root
 	 */
 	@Override
-	public void onFileModified(File child, Root root) {
-		checkFileInRepos(child, false, root);
+	public void onFileModified(File child) {
+		for (Job job : config.getJobs()) {
+			for (Root root : job.getRoots()) {
+				if (root.contains(child)) {
+					for (Repo r : job.getRepos()) {
+						checkFileInRepos(child, false, root);
+					}
+				}
+			}
+		}				
 	}
-
 
 	private boolean scanAgainstRepos(ScanStatus scanStatus) {
 		// begin scanning at roots
@@ -335,7 +354,6 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 		}
 	}
 
-
 	private void checkFileFast(File child, Root root) {
 		for (Repo r : root.getJob().getRepos()) {
 			if (!r.isOffline()) {
@@ -343,7 +361,7 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 					SyncStatus syncStatus = fileChangeChecker.checkFileFast(r, child);
 					if (syncStatus == SyncStatus.LOCAL_NEWER) {
 						log.trace("checkFileUpdated - local file is new, so upload: " + child.getAbsolutePath());
-						queueHandler.onUpdatedFile(r, child);
+						queueInserter.enqueueUpload(r, child);
 					}
 				} else {
 					log.trace("file {} is excluded from {}", child.getAbsolutePath(), r.getDescription());
@@ -351,31 +369,30 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 			}
 		}
 	}
-	
 
-    /**
-     *
-     * @param r
-     * @param child
-     * @param meta
-     * @param root
-     * @return - true if the file was uploaded
-     */
-    public void checkFileUpdated( Repo r, File child, FileMeta meta, Root root) {
-        if( meta == null ) {
-            log.trace( "checkFileUpdated - no meta, new file:" + child.getAbsolutePath() );
-            queueHandler.onNewFile( r, child );
-        } else {
-            SyncStatus syncStatus = fileChangeChecker.checkFile( r, meta, child );
-            switch( syncStatus ) {
-                case LOCAL_NEWER:
-                    log.trace( "checkFileUpdated - local file is new, so upload: " + child.getAbsolutePath() );
-                    queueHandler.onUpdatedFile( r, child );
-                    break;
-                case REMOTE_NEWER:                    
-                    log.trace( "checkFileUpdated - remote file is newer, so download: " + child.getAbsolutePath() );
-                    queueHandler.onRemotelyUpdatedFile( r, child, meta );
-                    
+	/**
+	 *
+	 * @param r
+	 * @param child
+	 * @param meta
+	 * @param root
+	 * @return - true if the file was uploaded
+	 */
+	public void checkFileUpdated(Repo r, File child, FileMeta meta, Root root) {
+		if (meta == null) {
+			log.trace("checkFileUpdated - no meta, new file:" + child.getAbsolutePath());
+			queueInserter.enqueueUpload(r, child);
+		} else {
+			SyncStatus syncStatus = fileChangeChecker.checkFile(r, meta, child);
+			switch (syncStatus) {
+				case LOCAL_NEWER:
+					log.trace("checkFileUpdated - local file is new, so upload: " + child.getAbsolutePath());
+					queueInserter.enqueueUpload(r, child);
+					break;
+				case REMOTE_NEWER:
+					log.trace("checkFileUpdated - remote file is newer, so download: " + child.getAbsolutePath());
+					queueInserter.enqueueDownload(r, child, meta.getLength());
+
 //                    if( r.isSync() ) {
 //                        log.trace( "checkFileUpdated - remote file is newer, so download: " + child.getAbsolutePath() );
 //                        queueHandler.onRemotelyUpdatedFile( r, root.getFullPath(), child, meta );
@@ -383,11 +400,11 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 //                        log.trace("remote file is newer, but sync is off so will upload");
 //                        queueHandler.onUpdatedFile( r, root.getFullPath(), child );
 //                    }
-                    break;
-                case CONFLICT:                    
-                    log.trace( "checkFileUpdated - conflict: " + child.getAbsolutePath() );
-                    queueHandler.onConflict( r, root.getFullPath(), child, meta );
-                    
+					break;
+				case CONFLICT:
+					log.trace("checkFileUpdated - conflict: " + child.getAbsolutePath());
+					queueInserter.onConflict(r, root.getFullPath(), child, meta);
+
 //                    if( r.isSync() ) {
 //                        log.trace( "checkFileUpdated - conflict: " + child.getAbsolutePath() );
 //                        conflicts.add( child );
@@ -396,10 +413,10 @@ public class DirectComparisonFileSyncer implements FileSyncer {
 //                        log.trace("local and remote files differ, but sync is false so will upload");
 //                        queueHandler.onUpdatedFile( r, root.getFullPath(), child );
 //                    }
-                    break;
-                default:
-                    log.trace( "checkFileUpdated - files are identical: " + child.getAbsolutePath() );
-            }
-        }
-    }			
+					break;
+				default:
+					log.trace("checkFileUpdated - files are identical: " + child.getAbsolutePath());
+			}
+		}
+	}
 }

@@ -1,6 +1,5 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.FileMeta;
 import java.io.File;
 
 /**
@@ -14,13 +13,9 @@ public class RemotelyModifiedQueueItem extends AbstractQueueItem {
 	private boolean conflicted;
 	private long doneBytes;
 
-	public RemotelyModifiedQueueItem(File file, FileMeta fileMeta) {
+	public RemotelyModifiedQueueItem(File file, Long bytesToDownload) {
 		this.file = file;
-		if (fileMeta != null) {
-			this.bytesToDownload = fileMeta.getLength();
-		} else {
-			bytesToDownload = null;
-		}
+		this.bytesToDownload = bytesToDownload;
 	}
 
 	@Override

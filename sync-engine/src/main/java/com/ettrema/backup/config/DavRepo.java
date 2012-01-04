@@ -1,6 +1,5 @@
 package com.ettrema.backup.config;
 
-import java.util.Date;
 import com.ettrema.cache.Cache;
 import com.ettrema.backup.engine.CrcCalculator;
 import com.ettrema.common.Withee;
@@ -195,7 +194,7 @@ public class DavRepo implements Repo {
                 log.trace("not found: " + path);
                 return;
             } else {
-                log.trace("lock remote file: " + remote.href());
+                log.trace("lock remote file: " + remote.encodedUrl());
 
                 if (remote.getLockToken() != null) {
                     log.info("remote source is locked, so will attempt to unlock it");
@@ -883,14 +882,6 @@ public class DavRepo implements Repo {
         return cache;
     }
 
-    public void setLastPubDate(Date date) {
-        getState().lastPubDate = date;
-    }
-
-    public Date getLastPubDate() {
-        return getState().lastPubDate;
-    }
-
     @Override
     public DavRepoState getState() {
         if (state == null) {
@@ -906,14 +897,14 @@ public class DavRepo implements Repo {
 
     public static class DavRepoState {
 
-        public QueueItem current;
+        public transient QueueItem current;
+        public transient Queue queue;
+		
         public Boolean offline;
         public Long backedupBytes;
         public Long scanningBackedupBytes;
         public long backedupSinceLastScanBytes;
         public Long accountUsedBytes;
         public Long maxBytes;
-        public Queue queue;
-        public Date lastPubDate; // last time we checked for updates
     }
 }

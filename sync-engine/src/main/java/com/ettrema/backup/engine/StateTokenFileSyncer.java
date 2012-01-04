@@ -23,6 +23,8 @@ public class StateTokenFileSyncer implements FileSyncer {
     private final StateTokenDaoImpl stateTokenDao;
     private final CrcCalculator crcCalculator = new CrcCalculator();
     private final ScanHelper scanHelper = new ScanHelper();
+	
+	private boolean uptodate;
 
     public StateTokenFileSyncer(ExclusionsService exclusionsService, Config config, StateTokenDaoImpl stateTokenDao) {
         this.exclusionsService = exclusionsService;
@@ -37,8 +39,9 @@ public class StateTokenFileSyncer implements FileSyncer {
     public void scan(ScanStatus scanStatus) {
         log.debug("scanning");
         try {
+			uptodate = false;
             if (scanAllRoots(scanStatus)) {
-                return;
+                uptodate = true;
             }
         } catch (InterruptedException ex) {
             log.info("scan has been interrupted");
@@ -53,7 +56,7 @@ public class StateTokenFileSyncer implements FileSyncer {
      * @param root
      */
     @Override
-    public void onFileDeleted(File child, Job job, Root root) {
+    public void onFileDeleted(File child) {
         log.debug("onFileDeleted: " + child.getAbsolutePath());
         try {
             scanDirectory(child.getParentFile(), new ScanStatus());
@@ -62,7 +65,7 @@ public class StateTokenFileSyncer implements FileSyncer {
     }
 
     @Override
-    public void onFileMoved(String fullPathFrom, File dest, Job job, Root root) {
+    public void onFileMoved(String fullPathFrom, File dest) {
         log.debug("onFileMoved: " + dest.getAbsolutePath());
         try {
             File fromDir = new File(fullPathFrom).getParentFile();
@@ -73,7 +76,7 @@ public class StateTokenFileSyncer implements FileSyncer {
     }
 
     @Override
-    public void onFileModified(File child, Root root) {
+    public void onFileModified(File child) {
         log.debug("onFileModified: " + child.getAbsolutePath());
         try {
             scanDirectory(child.getParentFile(), new ScanStatus());
@@ -81,6 +84,12 @@ public class StateTokenFileSyncer implements FileSyncer {
         }
     }
 
+	/**
+	 * 
+	 * @param scanStatus
+	 * @return - false indicates the scan was aborted, true that it completed
+	 * @throws InterruptedException 
+	 */
     private boolean scanAllRoots(ScanStatus scanStatus) throws InterruptedException {
         // begin scanning at roots
         Set<File> rootDirs = new HashSet<File>();
@@ -94,7 +103,7 @@ public class StateTokenFileSyncer implements FileSyncer {
                 }
             } else {
                 log.info("paused, abort scan");
-                return true;
+                return false;
             }
         }
         for (File rootDir : rootDirs) {
@@ -103,11 +112,11 @@ public class StateTokenFileSyncer implements FileSyncer {
                 scanDirectory(rootDir, scanStatus);
             } else {
                 log.info("paused, abort scan");
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     private boolean scanDirectory(File scanDir, ScanStatus scanStatus) throws InterruptedException {
@@ -211,16 +220,22 @@ public class StateTokenFileSyncer implements FileSyncer {
 
     private void updateDirectoryCrc(File dir) {
         List<StateToken> childTokens = stateTokenDao.findForFolder(dir);
-        long crc = crcCalculator.getLocalCrcDirectory(childTokens);
+        long crc = crcCalculator.getLocalCrcForDirectory(childTokens);
 
         StateToken dirToken = stateTokenDao.get(dir);
         if (dirToken == null) {
             dirToken = new StateToken(dir.getAbsolutePath());
         }
-        long oldCrc = dirToken.currentCrc;
+        Long oldCrc = dirToken.currentCrc;
         dirToken.currentCrc = crc;
         dirToken.currentTime = dir.lastModified();
         LogUtils.trace(log, "updateDirectoryCrc", dir.getAbsolutePath(), "new value", crc, "old value", oldCrc);
         stateTokenDao.saveOrUpdate(dirToken);
     }
+
+	public boolean isUptodate() {
+		return uptodate;
+	}
+	
+	
 }

@@ -1,8 +1,8 @@
 package com.ettrema.backup.engine;
 
-import com.ettrema.common.LogUtils;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +28,7 @@ public class StateTokenDaoImpl {
     }
 
     public void saveOrUpdate(StateToken token) {
-        LogUtils.trace(log, "saveOrUpdate", token.filePath,token.currentCrc);
+//        LogUtils.trace(log, "saveOrUpdate", token.filePath,token.currentCrc);
         File f = new File(token.filePath);
         List<StateToken> list = findForFolder(f.getParentFile());
         if (list == null) {
@@ -43,11 +43,12 @@ public class StateTokenDaoImpl {
             }
         }
         list.add(token);
-        LogUtils.trace(log, "StateTokenDaoImpl: size is now:", map.size());
+		Collections.sort(list);
+//        LogUtils.trace(log, "StateTokenDaoImpl: size is now:", map.size());
     }
 
     public StateToken get(File f) {
-        LogUtils.trace(log, "get", f.getAbsolutePath());
+//        LogUtils.trace(log, "get", f.getAbsolutePath());
         List<StateToken> list = findForFolder(f.getParentFile());
         if (list == null) {
             return null;

@@ -43,7 +43,7 @@ public class QueueProcessor implements Runnable {
 	public QueueItem getCurrentQueueItem() {
 		return repo.getCurrent();
 	}
-	
+
 	@Override
 	public void run() {
 		try {
@@ -86,7 +86,7 @@ public class QueueProcessor implements Runnable {
 							retry = null;
 						}
 					}
-				}				
+				}
 			} catch (InterruptedException e) {
 				throw e;
 			} catch (Exception e) {
@@ -99,7 +99,8 @@ public class QueueProcessor implements Runnable {
 	private void start(QueueItem item) {
 		QueueItemHandler hnd = findHandler(item);
 		//long timeStableMs = System.currentTimeMillis() - item.getLastModified();
-
+		System.out.println("");
+		System.out.println("Start queue item: " + item + " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx");
 		repo.setCurrent(item);
 		try {
 			hnd.process(repo, job, item);
@@ -118,6 +119,9 @@ public class QueueProcessor implements Runnable {
 			EventUtils.fireQuietly(new QueueProcessEvent(item, QueueProcessEvent.Status.ERROR, repo));
 		} finally {
 			repo.setCurrent(null);
+			System.out.println("End queue item: " + item + " XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxxx");
+			System.out.println("");
+
 			log.trace("notify updated: " + item.getCompleted());
 			queue.notifyObserversUpdated(item);
 		}

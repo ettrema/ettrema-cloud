@@ -1,5 +1,7 @@
 package com.ettrema.backup.engine;
 
+import com.ettrema.backup.config.DavRepo;
+import com.ettrema.backup.config.Repo;
 import com.ettrema.httpclient.Resource;
 import java.io.File;
 
@@ -17,15 +19,15 @@ public interface TransferAuthorisationService {
 	 * 
 	 * @param remote 
 	 */
-	void requestDownload(Resource remote);
+	void requestDownload(DavRepo repo, Resource remote);
 
-	public void resolveConflict(Resource r, File l);
+	void resolveConflict(Resource r, File l);
 
-	public void requestUpload(File l);
+	void requestUpload(File l);
 
-    public void requestRemoteDelete(Resource r);
+    void requestRemoteDelete(DavRepo repo, Resource r);
 
-    public void requestDeleteLocal(File local);
+    void requestDeleteLocal(File local);
 
 	
 }
