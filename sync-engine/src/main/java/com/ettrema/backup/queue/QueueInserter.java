@@ -61,7 +61,7 @@ public class QueueInserter {
 
         String s = file.getAbsolutePath();
         if (file.getName().endsWith(".meta.xml")) {
-            log.trace("is meta file, so look for content file");            
+            log.trace("is meta file, so look for content file");
             s = s.substring(0, s.length() - ".meta.xml".length());
             File contentFile = new File(s);
             if (contentFile.exists()) {
@@ -73,7 +73,7 @@ public class QueueInserter {
         } else {
             log.trace("not meta file, check to see if there is an associated meta file");
             File metaFile = new File(s + ".meta.xml");
-            if( metaFile.exists()) {
+            if (metaFile.exists()) {
                 log.trace("found meta file, so enqueue: " + metaFile.getAbsolutePath());
                 _enqueueUpload(repo, metaFile);
             }
@@ -116,16 +116,16 @@ public class QueueInserter {
         EventUtils.fireQuietly(eventManager, new QueueItemEvent(queue, item, false));
     }
 
-	public void enqueueLocalMove(File localFile, File movedTo, Job job, Repo dr) {
-		RemotelyMovedQueueItem item = new RemotelyMovedQueueItem(localFile, movedTo, dr);
-		enqueue(dr.getQueue(), item);
-	}
+    public void enqueueLocalMove(File localFile, File movedTo, Job job, Repo dr) {
+        RemotelyMovedQueueItem item = new RemotelyMovedQueueItem(localFile, movedTo, dr);
+        enqueue(dr.getQueue(), item);
+    }
 
-	public void enqueueLocalDelete(File localFile) {
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
+    public void enqueueLocalDelete(File localFile) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 
-	public void enqueueDownloadFolder(DavRepo repo, Folder remoteFolder) {
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
+    public void enqueueDownloadFolder(DavRepo repo, Folder remoteFolder) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
 }
