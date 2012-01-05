@@ -9,7 +9,6 @@ import com.ettrema.db.UseConnection;
 import com.ettrema.db.dialects.Dialect;
 import com.ettrema.db.types.FieldTypes;
 import java.io.File;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,7 +70,6 @@ public class LocalCrcDaoImpl {
      * @param localFile
      * @return
      */
-    @Override
     public long getLocalCurrentCrc(final File localFile) {
         final Timestamp modDate = new Timestamp(localFile.lastModified());
         Long crc = getCachedCrc(localFile, modDate);
@@ -93,7 +91,6 @@ public class LocalCrcDaoImpl {
      * @param repo
      * @return
      */
-    @Override
     public synchronized DateAndLong getLocalBackedupCrc(final File localFile, final Repo repo) {
         if (cachedDir == null || !localFile.getParent().equals(cachedDir.getAbsolutePath())) {
             cacheCrcDir(localFile.getParentFile(), repo);
@@ -141,7 +138,6 @@ public class LocalCrcDaoImpl {
      * @param repo
      * @param crc
      */
-    @Override
     public synchronized void setLocalBackedupCrc(final File localFile, final Repo repo, final long crc) {
         final String deleteSql = "DELETE FROM " + VERSION.tableName + " WHERE "
                 + VERSION.parent.getName() + " = ? AND "

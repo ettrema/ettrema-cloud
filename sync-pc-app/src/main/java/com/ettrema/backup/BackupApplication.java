@@ -147,15 +147,15 @@ public class BackupApplication extends SingleFrameApplication implements Applica
             queueInserter = new QueueInserter(eventManager);
             exclusionsService = new ExclusionsService(config);
             statusService = new StatusService(eventManager);
-            stateTokenDao = new StateTokenDaoImpl();
+            stateTokenDao = new StateTokenDaoImpl(dbInit.getUseConnection(), dbInit.getDialect());
             fileSyncer = new StateTokenFileSyncer(exclusionsService, config, stateTokenDao);
+            conflictManager = new SimpleConflictManager();            
             transferAuthorisationService = new GuiTransferAuthorisationService(queueInserter, pathMunger, config);
             RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator, stateTokenDao, fileSyncer, exclusionsService);
             RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
             remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
             scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
             fileWatcher = new FileWatcher(config, fileSyncer);
-            conflictManager = new SimpleConflictManager();
             RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
             RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
             RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
