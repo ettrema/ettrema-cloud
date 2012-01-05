@@ -25,7 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author brad
  */
-public class LocalCrcDaoImpl implements LocalCrcDao {
+public class LocalCrcDaoImpl {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(LocalCrcDaoImpl.class);
     public static final Version2Table VERSION = new Version2Table();

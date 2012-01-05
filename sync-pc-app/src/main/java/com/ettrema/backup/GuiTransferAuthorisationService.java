@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * GuiTransferAuthorisationService.java
  *
  * Created on 4/01/2012, 4:52:56 PM
