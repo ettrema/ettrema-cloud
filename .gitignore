@@ -2,3 +2,6 @@
 /sync-engine/target/
 /sync-pc-app/target/
 /cloud-server/files/
+/cloud-sync/branding/target/
+/cloud-sync/cloud-sync-module/target/
+/cloud-sync/application/target/
