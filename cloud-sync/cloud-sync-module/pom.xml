@@ -55,9 +55,15 @@
             <version>RELEASE71</version>
         </dependency>
         <dependency>
-            <groupId>com.ettrema</groupId>
-            <artifactId>shmego-backup</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>sync-engine</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>it.cnr.imaa.essi</groupId>
+            <artifactId>lablib-checkboxtree</artifactId>
+            <version>3.2</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
