@@ -4,6 +4,7 @@ import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.Root;
 import com.ettrema.backup.event.ScanEvent;
+import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.common.Service;
 import com.ettrema.event.EventManager;
@@ -25,23 +26,25 @@ public class ScanService implements Service {
     private final ExclusionsService exclusionsService;
     private final Config config;
     private final EventManager eventManager;
+    private final QueueManager queueManager;
     private ScanStatus scanStatus;
     private boolean scanNow;
     private long nextScanTime;
     private boolean enabled;
 
-    public ScanService(FileSyncer fileSyncer, ExclusionsService exclusionsService, Config config, EventManager eventManager, List<RemoteSyncer> remoteSyncers) {
+    public ScanService(FileSyncer fileSyncer, ExclusionsService exclusionsService, Config config, EventManager eventManager, List<RemoteSyncer> remoteSyncers, QueueManager queueManager) {
         this.fileSyncer = fileSyncer;
         this.exclusionsService = exclusionsService;
         this.config = config;
         this.eventManager = eventManager;
         this.remoteSyncers = remoteSyncers;
+        this.queueManager = queueManager;
     }
 
     /**
      * Sets the scanNow flag so a scan will be initiated on next poll
      */
-    public void scan() {
+    public void scan() throws InterruptedException {
         log.debug("scanning");
 
         EventUtils.fireQuietly(eventManager, new ScanEvent(true));
@@ -49,6 +52,7 @@ public class ScanService implements Service {
         try {
             scanStatus = new ScanStatus();
             fileSyncer.scan(scanStatus);
+            queueManager.checkQueues();
             EventUtils.fireQuietly(eventManager, new ScanEvent(false));
         } finally {
             scanStatus = null;
@@ -65,7 +69,7 @@ public class ScanService implements Service {
 
     /**
      * Called from the FileWatcher when a file deletion event has occurred.
-     * 
+     *
      * @param f
      * @param job
      * @param root
@@ -125,9 +129,9 @@ public class ScanService implements Service {
         @Override
         public void run() {
             while (enabled) {
-                checkScanStart();
-                pingRepos();
                 try {
+                    checkScanStart();
+                    pingRepos();
                     Thread.sleep(3000);
                 } catch (InterruptedException ex) {
                     return;
@@ -142,7 +146,7 @@ public class ScanService implements Service {
         }
     }
 
-    private void checkScanStart() {
+    private void checkScanStart() throws InterruptedException {
         if (System.currentTimeMillis() > nextScanTime || scanNow) {
             if (scanNow) {
                 log.trace("manually initiated scan");

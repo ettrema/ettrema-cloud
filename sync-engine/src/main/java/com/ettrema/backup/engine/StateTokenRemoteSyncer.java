@@ -14,6 +14,7 @@ import com.ettrema.httpclient.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -92,25 +93,22 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                         log.warn("remote root is not a folder: " + remote.href());
                     }
                 }
-                return;
             } catch (RepoNotAvailableException ex) {
                 log.trace("repo exeption", ex);
-                return;
             }
         } catch (Throwable e) {
             log.trace("unknown exception", e);
-            return;
         }
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param repo
      * @param remoteFolder
      * @param dir
      * @return - false indicates the comparison has been aborted
-     * @throws RepoNotAvailableException 
+     * @throws RepoNotAvailableException
      */
     private boolean compareFolder(DavRepo repo, Folder remoteFolder, File dir) throws RepoNotAvailableException {
         if (!stateTokenFileSyncer.isUptodate()) {
@@ -126,8 +124,13 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         List<StateToken> tokens;
         if (token == null) {
             log.info("New remote folder; " + remoteFolder.href() + " - local:" + dir.getAbsolutePath());
-            token = stateTokenDao.get(dir);
-            transferAuthorisationService.requestDownload(repo, remoteFolder);
+            try {
+                transferAuthorisationService.requestDownload(repo, remoteFolder);
+            } catch (IOException ex) {
+                throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
+            } catch (HttpException ex) {
+                java.util.logging.Logger.getLogger(StateTokenRemoteSyncer.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             if (!remoteFolder.getCrc().equals(token.currentCrc)) {
                 LogUtils.trace(log, "compareFolder: crc's are not equal", remoteFolder.href(), dir.getAbsolutePath(), remoteFolder.getCrc(), token.currentCrc);
@@ -248,7 +251,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         return null;
     }
 
-    private void compareFiles(DavRepo repo, File localFile, com.ettrema.httpclient.File remoteFile) {
+    private void compareFiles(DavRepo repo, File localFile, com.ettrema.httpclient.File remoteFile) throws IOException, HttpException {
         StateToken token = stateTokenDao.get(localFile);
         long localCrc;
         if (token == null) {

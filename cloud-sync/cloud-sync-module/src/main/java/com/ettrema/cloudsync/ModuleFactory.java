@@ -6,8 +6,6 @@ import com.ettrema.backup.engine.*;
 import com.ettrema.backup.history.HistoryDao;
 import com.ettrema.backup.history.HistoryService;
 import com.ettrema.backup.queue.*;
-import com.ettrema.backup.queue.QueueInserter;
-import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.cloudsync.account.AccountCreator;
 import com.ettrema.cloudsync.view.*;
@@ -88,8 +86,8 @@ public class ModuleFactory {
         dbDir.mkdir();
         File dbFile = new File(dbDir, "versions");
         accountView = new AccountView(null, true);
-        browserController = new BrowserController();        
-        windowController = new WindowController(accountView, browserController, config);        
+        browserController = new BrowserController();
+        windowController = new WindowController(accountView, browserController, config);
         ModifiedDateFileChangeChecker modifiedDateFileChangeChecker = new ModifiedDateFileChangeChecker();
         DbInitialiser dbInit = new DbInitialiser(dbFile);
         LocalCrcDaoImpl crcDao = new LocalCrcDaoImpl(dbInit.getUseConnection(), dbInit.getDialect(), crcCalculator);
@@ -111,13 +109,13 @@ public class ModuleFactory {
         RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator, stateTokenDao, fileSyncer, exclusionsService);
         RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
         remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
-        scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
         fileWatcher = new FileWatcher(config, fileSyncer);
-        RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
+        RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(config, crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
         RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
         RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
         List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
         queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
+        scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers, queueManager);
 
         summaryDetails = new SummaryDetails(throttleFactory, eventManager, config, bandwidthService, queueManager);
 
@@ -139,10 +137,8 @@ public class ModuleFactory {
 //            context.put(view);
         Services.initInstance(context);
 
-        queueManager.startThread();
-
         summaryDetails.refresh();
-        
+
         trayController = new TrayController(scanService, windowController, config, eventManager, summaryDetails);
         runningInSystemTray = trayController.show();
 
@@ -160,12 +156,12 @@ public class ModuleFactory {
 
     public void startAll() {
         try {
-        fileWatcher.start();
-        } catch(Throwable e) {
+            fileWatcher.start();
+            scanService.start();
+            scanService.scan(); // just for dev                 
+        } catch (Throwable e) {
             e.printStackTrace();
         }
-        scanService.start();
-        scanService.scan(); // just for dev        
     }
 
     public RootContext getRootContext() {

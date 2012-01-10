@@ -1,10 +1,6 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.Job;
-import com.ettrema.backup.config.PermanentUploadException;
-import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.config.RepoNotAvailableException;
+import com.ettrema.backup.config.*;
 
 /**
  *
@@ -36,5 +32,5 @@ public interface QueueItemHandler {
      * @param job
      * @param item
      */
-    void process(Repo repo, Job job, QueueItem item) throws RepoNotAvailableException, PermanentUploadException;
+    void process(Repo repo, QueueItem item) throws RepoNotAvailableException, PermanentUploadException;
 }

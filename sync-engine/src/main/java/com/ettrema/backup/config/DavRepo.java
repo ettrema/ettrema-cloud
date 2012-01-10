@@ -1,29 +1,23 @@
 package com.ettrema.backup.config;
 
-import com.ettrema.cache.Cache;
-import com.ettrema.backup.engine.CrcCalculator;
-import com.ettrema.common.Withee;
-import com.ettrema.httpclient.HttpException;
-import java.util.ArrayList;
-import java.util.List;
 import com.bradmcevoy.common.Path;
+import com.ettrema.backup.engine.CrcCalculator;
 import com.ettrema.backup.engine.ExclusionsService;
+import static com.ettrema.backup.engine.Services._;
 import com.ettrema.backup.engine.ThrottleFactory;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.backup.utils.PathMunger;
+import com.ettrema.cache.Cache;
 import com.ettrema.cache.MemoryCache;
-import com.ettrema.httpclient.Folder;
-import com.ettrema.httpclient.Host;
-import com.ettrema.httpclient.ProgressListener;
-import com.ettrema.httpclient.ProxyDetails;
-import com.ettrema.httpclient.Resource;
+import com.ettrema.common.Withee;
+import com.ettrema.httpclient.*;
 import com.ettrema.httpclient.Utils.CancelledException;
 import java.io.File;
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
-import static com.ettrema.backup.engine.Services._;
 
 /**
  *
@@ -63,7 +57,7 @@ public class DavRepo implements Repo {
 
     @Override
     public String getId() {
-        if( id == null ) {
+        if (id == null) {
             id = UUID.randomUUID().toString();
         }
         return id;
@@ -204,15 +198,8 @@ public class DavRepo implements Repo {
                 remote.lock();
                 log.trace("Locked with token: " + remote.getLockToken());
                 updateAccountInfo(remote);
-                FileMeta meta = new FileMeta(remote.name);
-                meta.setModifiedDate(remote.getModifiedDate());
-                if (remote instanceof Folder) {
-                    meta.setDirectory(true);
-                } else {
-                    com.ettrema.httpclient.File remoteFile = (com.ettrema.httpclient.File) remote;
-                    meta.setLength(remoteFile.contentLength);
-                    meta.setCrc(remoteFile.getCrc());
-                }
+                FileMeta meta = new DavFileMeta(remote);
+
                 withee.with(meta);
             }
         } catch (com.ettrema.httpclient.Unauthorized e) {
@@ -248,17 +235,9 @@ public class DavRepo implements Repo {
                 return null;
             } else {
                 updateAccountInfo(remote);
-                FileMeta meta = new FileMeta(remote.name);
-                meta.setModifiedDate(remote.getModifiedDate());
-                if (remote instanceof Folder) {
-                    meta.setDirectory(true);
-                } else {
-                    com.ettrema.httpclient.File remoteFile = (com.ettrema.httpclient.File) remote;
-                    meta.setLength(remoteFile.contentLength);
-                    meta.setCrc(remoteFile.getCrc());
-                    if (isScan) {
-                        addBackedupBytes(meta.getLength());
-                    }
+                FileMeta meta = new DavFileMeta(remote);
+                if (isScan) {
+                    addBackedupBytes(meta.getLength());
                 }
                 return meta;
             }
@@ -284,17 +263,9 @@ public class DavRepo implements Repo {
                         Iterable<? extends Resource> children = remoteFolder.children();
                         List<FileMeta> list = new ArrayList<FileMeta>();
                         for (Resource fChild : children) {
-                            FileMeta fmChild = new FileMeta(fChild.name);
-                            fmChild.setCrc(null); // don't have it
-                            if (fChild instanceof com.ettrema.httpclient.File) {
-                                com.ettrema.httpclient.File fChildFile = (com.ettrema.httpclient.File) fChild;
-                                fmChild.setDirectory(false);
-                                fmChild.setLength(fChildFile.contentLength);
-                            } else {
-                                fmChild.setDirectory(true);
-                            }
-                            fmChild.setModifiedDate(fChild.getModifiedDate());
-                            list.add(fmChild);
+                            FileMeta meta = new DavFileMeta(fChild);
+                            
+                            list.add(meta);
                         }
                         return list;
                     } else {
@@ -318,7 +289,7 @@ public class DavRepo implements Repo {
     }
 
     @Override
-    public boolean delete(File file, Job job) throws DeleteException, RepoNotAvailableException {
+    public boolean delete(File file) throws DeleteException, RepoNotAvailableException {
 
         String s = _(PathMunger.class).munge(file.getAbsolutePath(), job);
         Path path = Path.path(s);
@@ -354,14 +325,16 @@ public class DavRepo implements Repo {
     }
 
     /**
-     * Retrieve the repository version of the file associated with localTarget, and
-     * download it to the dest file location.
-     * 
-     * The dest file is normally a temporary file, because the download might 
-     * get interrupted so we don't want to be writing directly to the target file.
-     * 
+     * Retrieve the repository version of the file associated with localTarget,
+     * and download it to the dest file location.
+     *
+     * The dest file is normally a temporary file, because the download might
+     * get interrupted so we don't want to be writing directly to the target
+     * file.
+     *
      * @param dest - the file to create by retrieving the repository file
-     * @param localTarget - the local file which identifies the remote file to download
+     * @param localTarget - the local file which identifies the remote file to
+     * download
      * @param job - the backup job which has initiated the download
      * @param listener - will receive progress callbacks
      * @throws UploadException
@@ -391,7 +364,7 @@ public class DavRepo implements Repo {
     }
 
     @Override
-    public void upload(File file, Job job, QueueItem item) throws UploadException, RepoNotAvailableException, PermanentUploadException {
+    public void upload(File file, QueueItem item) throws UploadException, RepoNotAvailableException, PermanentUploadException {
         String s = _(PathMunger.class).munge(file.getAbsolutePath(), job);
         Path path = Path.path(s);
         log.trace("upload path:" + path);
@@ -449,7 +422,7 @@ public class DavRepo implements Repo {
     }
 
     @Override
-    public void move(String fullPathFrom, File dest, Job job, QueueItem item) throws RepoNotAvailableException, PermanentUploadException, UploadException {
+    public void move(String fullPathFrom, File dest, QueueItem item) throws RepoNotAvailableException, PermanentUploadException, UploadException {
         try {
             System.out.println("move: " + fullPathFrom + " -> " + dest.getAbsolutePath());
             log.info("move: " + fullPathFrom + " -> " + dest.getAbsolutePath());
@@ -467,7 +440,7 @@ public class DavRepo implements Repo {
                     throw new PermanentUploadException("Cant rename, source doesnt exist");
                 } else {
                     item.setNotes("moved remote resource doesnt exist. Local resource is a file so will upload immediately");
-                    upload(dest, job, item);
+                    upload(dest, item);
                 }
             } else {
                 if (isSameParent(pSrc, pDest)) {
@@ -604,7 +577,8 @@ public class DavRepo implements Repo {
 
     /**
      * read the quota fields from the response and update the account info
-     * @param remote 
+     *
+     * @param remote
      */
     public void updateAccountInfo(Resource remote) {
         Long avail = remote.getQuotaAvailableBytes();
@@ -809,7 +783,7 @@ public class DavRepo implements Repo {
 
     /**
      * Just flush the DAV folder to avoid too much memory consumption
-     * 
+     *
      * @param filePath
      * @param localRootPath
      * @param repoName
@@ -899,7 +873,6 @@ public class DavRepo implements Repo {
 
         public transient QueueItem current;
         public transient Queue queue;
-		
         public Boolean offline;
         public Long backedupBytes;
         public Long scanningBackedupBytes;

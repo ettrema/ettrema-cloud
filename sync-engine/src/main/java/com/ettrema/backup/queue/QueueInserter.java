@@ -124,8 +124,4 @@ public class QueueInserter {
     public void enqueueLocalDelete(File localFile) {
         throw new UnsupportedOperationException("Not yet implemented");
     }
-
-    public void enqueueDownloadFolder(DavRepo repo, Folder remoteFolder) {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
 }

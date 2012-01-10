@@ -35,7 +35,7 @@ public class DeletedFileHandler implements QueueItemHandler {
     }
 
     @Override
-    public void process(Repo r, Job job, QueueItem item) throws RepoNotAvailableException {
+    public void process(Repo r, QueueItem item) throws RepoNotAvailableException {
         log.debug("process");
         if (item.getFile().exists()) {
             log.info("file to be deleted exists locally, so won't do delete, but better check if its updated");
@@ -43,7 +43,7 @@ public class DeletedFileHandler implements QueueItemHandler {
         } else {
             item.setStarted(new Date());
             try {
-                r.delete(item.getFile(), job);
+                r.delete(item.getFile());
             } catch (DeleteException ex) {
                 log.info("Couldnt delete item: " + item.getFileName());
             } catch (RepoNotAvailableException ex) {

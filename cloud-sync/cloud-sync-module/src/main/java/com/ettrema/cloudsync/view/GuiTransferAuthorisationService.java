@@ -7,8 +7,10 @@ import com.ettrema.backup.engine.TransferAuthorisationService;
 import com.ettrema.backup.queue.QueueInserter;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.httpclient.Folder;
+import com.ettrema.httpclient.HttpException;
 import com.ettrema.httpclient.Resource;
 import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -27,40 +29,60 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
         this.pathMunger = pathMunger;
         this.config = config;
     }
-    
-	public void requestDownload(DavRepo repo, Resource remote) {
-		if (remote instanceof Folder) {
-			Folder remoteFolder = (Folder) remote;
-			queueInserter.enqueueDownloadFolder(repo, remoteFolder);
-		} else {
-			com.ettrema.httpclient.File remoteFile = (com.ettrema.httpclient.File) remote;
-			String sPath = pathMunger.findFileFromUrl(config.getAllRoots(), remoteFile.encodedUrl(), File.separator);
-			File local = new File(sPath);
-			queueInserter.enqueueDownload(repo, local, remoteFile.contentLength); 
 
-		}
-	}
+    @Override
+    public void requestDownload(DavRepo repo, Resource remote) throws IOException, HttpException {
+        Long bytesToDownload = calcBytesToDownload(remote);
+        String sPath = pathMunger.findFileFromUrl(config.getAllRoots(), remote.encodedUrl(), File.separator);
+        File local = new File(sPath);
+        queueInserter.enqueueDownload(repo, local, bytesToDownload);
+    }
 
-	public void resolveConflict(Resource r, File l) {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
+    @Override
+    public void resolveConflict(Resource r, File l) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-	public void requestUpload(File l) {
-		for (Repo r : config.getAllRepos()) {
-			queueInserter.enqueueUpload(r, l);
-		}
-	}
+    @Override
+    public void requestUpload(File l) {
+        for (Repo r : config.getAllRepos()) {
+            queueInserter.enqueueUpload(r, l);
+        }
+    }
 
-	public void requestRemoteDelete(DavRepo repo, Resource r) {
-		String sPath = pathMunger.findFileFromUrl(config.getAllRoots(), r.encodedUrl(), File.separator);
-		File local = new File(sPath);
-		queueInserter.enqueueRemoteDelete(local, repo);
-	}
+    @Override
+    public void requestRemoteDelete(DavRepo repo, Resource r) {
+        String sPath = pathMunger.findFileFromUrl(config.getAllRoots(), r.encodedUrl(), File.separator);
+        File local = new File(sPath);
+        queueInserter.enqueueRemoteDelete(local, repo);
+    }
 
-	public void requestDeleteLocal(File local) {
-		queueInserter.enqueueLocalDelete(local);
-	}
+    @Override
+    public void requestDeleteLocal(File local) {
+        queueInserter.enqueueLocalDelete(local);
+    }
 
+    private Long calcBytesToDownload(Resource remote) throws IOException, HttpException {
+        if (remote instanceof Folder) {
+            Folder remoteFolder = (Folder) remote;
+            return calcBytesToDownload(remoteFolder);
+        } else {
+            com.ettrema.httpclient.File remoteFile = (com.ettrema.httpclient.File) remote;
+            return calcBytesToDownload(remoteFile);
+        }
+    }
+
+    private Long calcBytesToDownload(com.ettrema.httpclient.File remoteFile) {
+        return remoteFile.contentLength;
+    }
+
+    private Long calcBytesToDownload(Folder remoteFolder) throws IOException, HttpException {
+        long l = 0;
+        for (Resource r : remoteFolder.children()) {
+            l += calcBytesToDownload(r);
+        }
+        return l;
+    }
 //	private interface TransferAuthorisation {
 //	}
 //
@@ -115,9 +137,6 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

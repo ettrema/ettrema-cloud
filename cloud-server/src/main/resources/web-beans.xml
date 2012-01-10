@@ -85,11 +85,13 @@
             <list>
                 <bean class="com.ettrema.web.console2.ProcessScanFactory" />
                 <bean class="com.ettrema.web.console2.GrantFactory" />
-				<bean class="com.ettrema.web.console2.CrawlFactory" >
-					<constructor-arg ref="asynch.proc" />
-					<constructor-arg ref="state.token.manager" />
-					<constructor-arg ref="root.context.locator" />
-				</bean>
+                <!--
+                <bean class="com.ettrema.web.console2.CrawlFactory" >
+                    <constructor-arg ref="asynch.proc" />
+                    <constructor-arg ref="state.token.manager" />
+                    <constructor-arg ref="root.context.locator" />
+                </bean>
+                -->
                 <bean class="com.ettrema.console.RnFactory" />
                 <bean class="com.ettrema.console.LsFactory" >
                     <constructor-arg>
@@ -322,13 +324,13 @@
         <constructor-arg ref="endrick.root.context"/>
     </bean>
 	
-	<bean id="default.form.processor" class="com.ettrema.forms.DefaultFormProcessor"/>
+    <bean id="default.form.processor" class="com.ettrema.forms.DefaultFormProcessor"/>
 		
-	<bean id="form.processor" class="com.ettrema.forms.AnnotationFormProcessor">
-		<constructor-arg ref="default.form.processor"/>
-		<constructor-arg ref="permissionChecker"/>
-		<constructor-arg ref="current.request.service"/>						
-	</bean>
+    <bean id="form.processor" class="com.ettrema.forms.AnnotationFormProcessor">
+        <constructor-arg ref="default.form.processor"/>
+        <constructor-arg ref="permissionChecker"/>
+        <constructor-arg ref="current.request.service"/>						
+    </bean>
 <!--
     <bean id="ftp.user.manager" class="com.ettrema.ftp.UserManagerAdapter">
         <constructor-arg ref="existing.resource.factory"/>

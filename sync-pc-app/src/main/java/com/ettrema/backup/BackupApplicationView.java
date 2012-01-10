@@ -44,105 +44,105 @@ import static com.ettrema.backup.BackupApplication._;
  */
 public class BackupApplicationView extends FrameView implements Observer<Config, Object> {
 
-	private static final Logger log = LoggerFactory.getLogger(BackupApplicationView.class);
-	private final ScanService scanService;
-	private final ConflictManager conflictManager;
-	private final Config config;
-	private final EventManager eventManager;
-	private final QueueManager queueProcessor;
-	private final AccountCreator accountCreator;
-	private final BrowserController browserController;
-	private final HistoryDao historyDao;
-	private boolean isProblem;
-	private String problemDescription;
-	private boolean throttleChanged;
+    private static final Logger log = LoggerFactory.getLogger(BackupApplicationView.class);
+    private final ScanService scanService;
+    private final ConflictManager conflictManager;
+    private final Config config;
+    private final EventManager eventManager;
+    private final QueueManager queueProcessor;
+    private final AccountCreator accountCreator;
+    private final BrowserController browserController;
+    private final HistoryDao historyDao;
+    private boolean isProblem;
+    private String problemDescription;
+    private boolean throttleChanged;
 
-	public BackupApplicationView(SingleFrameApplication app,Config config, ScanService scanService, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao, ConflictManager conflictManager) throws Exception {
-		super(app);
-		this.scanService = scanService;
-		this.eventManager = eventManager;
-		this.queueProcessor = queueProcessor;
-		this.accountCreator = accountCreator;
-		this.browserController = browserController;
-		this.historyDao = historyDao;
-		this.conflictManager = conflictManager;
+    public BackupApplicationView(SingleFrameApplication app, Config config, ScanService scanService, AccountCreator accountCreator, EventManager eventManager, QueueManager queueProcessor, BrowserController browserController, HistoryDao historyDao, ConflictManager conflictManager) throws Exception {
+        super(app);
+        this.scanService = scanService;
+        this.eventManager = eventManager;
+        this.queueProcessor = queueProcessor;
+        this.accountCreator = accountCreator;
+        this.browserController = browserController;
+        this.historyDao = historyDao;
+        this.conflictManager = conflictManager;
 
-		this.config = config;
+        this.config = config;
 
-		initComponents();
+        initComponents();
 
-		getFrame().setResizable(false);
+        getFrame().setResizable(false);
 
-		sldThrottle.setModel(new DefaultBoundedRangeModel(config.getThrottlePerc(), 1, 25, 100));
+        sldThrottle.setModel(new DefaultBoundedRangeModel(config.getThrottlePerc(), 1, 25, 100));
 
-		// status bar initialization - message timeout, idle icon and busy animation, etc
+        // status bar initialization - message timeout, idle icon and busy animation, etc
 
-		ResourceMap resourceMap = getResourceMap();
+        ResourceMap resourceMap = getResourceMap();
 
 
-		int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
-		messageTimer = new Timer(messageTimeout, new ActionListener() {
+        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+        messageTimer = new Timer(messageTimeout, new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
-				statusMessageLabel.setText("");
-			}
-		});
-		messageTimer.setRepeats(false);
-		int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
-		for (int i = 0; i < busyIcons.length; i++) {
-			busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
-		}
-		busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                statusMessageLabel.setText("");
+            }
+        });
+        messageTimer.setRepeats(false);
+        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+        for (int i = 0; i < busyIcons.length; i++) {
+            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
+        }
+        busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
 
-			public void actionPerformed(ActionEvent e) {
-				busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
-				statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
-			}
-		});
-		idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
-		statusAnimationLabel.setIcon(idleIcon);
-		progressBar.setVisible(false);
+            public void actionPerformed(ActionEvent e) {
+                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
+                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
+            }
+        });
+        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
+        statusAnimationLabel.setIcon(idleIcon);
+        progressBar.setVisible(false);
 
-		// connecting action tasks to status bar via TaskMonitor
-		TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
-		taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        // connecting action tasks to status bar via TaskMonitor
+        TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
+        taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
 
-			public void propertyChange(java.beans.PropertyChangeEvent evt) {
-				String propertyName = evt.getPropertyName();
-				if ("started".equals(propertyName)) {
-					if (!busyIconTimer.isRunning()) {
-						statusAnimationLabel.setIcon(busyIcons[0]);
-						busyIconIndex = 0;
-						busyIconTimer.start();
-					}
-					progressBar.setVisible(true);
-					progressBar.setIndeterminate(true);
-				} else if ("done".equals(propertyName)) {
-					busyIconTimer.stop();
-					statusAnimationLabel.setIcon(idleIcon);
-					progressBar.setVisible(false);
-					progressBar.setValue(0);
-				} else if ("message".equals(propertyName)) {
-					String text = (String) (evt.getNewValue());
-					statusMessageLabel.setText((text == null) ? "" : text);
-					messageTimer.restart();
-				} else if ("progress".equals(propertyName)) {
-					int value = (Integer) (evt.getNewValue());
-					progressBar.setVisible(true);
-					progressBar.setIndeterminate(false);
-					progressBar.setValue(value);
-				}
-			}
-		});
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                String propertyName = evt.getPropertyName();
+                if ("started".equals(propertyName)) {
+                    if (!busyIconTimer.isRunning()) {
+                        statusAnimationLabel.setIcon(busyIcons[0]);
+                        busyIconIndex = 0;
+                        busyIconTimer.start();
+                    }
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(true);
+                } else if ("done".equals(propertyName)) {
+                    busyIconTimer.stop();
+                    statusAnimationLabel.setIcon(idleIcon);
+                    progressBar.setVisible(false);
+                    progressBar.setValue(0);
+                } else if ("message".equals(propertyName)) {
+                    String text = (String) (evt.getNewValue());
+                    statusMessageLabel.setText((text == null) ? "" : text);
+                    messageTimer.restart();
+                } else if ("progress".equals(propertyName)) {
+                    int value = (Integer) (evt.getNewValue());
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(false);
+                    progressBar.setValue(value);
+                }
+            }
+        });
 
-		ImageIcon imageIcon = createImageIcon("/logo16x16.png", "logo");
-		Image logo = imageIcon.getImage();
-		getFrame().setIconImage(logo);
+        ImageIcon imageIcon = createImageIcon("/logo16x16.png", "logo");
+        Image logo = imageIcon.getImage();
+        getFrame().setIconImage(logo);
 
-		initQueueMenu();
-		initModifyAccountsMenu();
-		initDownloadMenu();
-		config.addObserver(this);
+        initQueueMenu();
+        initModifyAccountsMenu();
+        initDownloadMenu();
+        config.addObserver(this);
 
 //        Executors.newSingleThreadScheduledExecutor().scheduleWithFixedDelay( new Runnable() {
 //
@@ -151,38 +151,38 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
 //            }
 //        }, 3000, 1000, TimeUnit.MILLISECONDS );
 
-	}
+    }
 
-	public JPanel getMainPanel() {
-		return mainPanel;
-	}
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
-	final protected ImageIcon createImageIcon(String path, String description) {
-		java.net.URL imgURL = getClass().getResource(path);
-		if (imgURL != null) {
-			return new ImageIcon(imgURL, description);
-		} else {
-			System.err.println("Couldn't find file: " + path);
-			return null;
-		}
-	}
+    final protected ImageIcon createImageIcon(String path, String description) {
+        java.net.URL imgURL = getClass().getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL, description);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
 
-	@Action
-	public void showAboutBox() {
-		if (aboutBox == null) {
-			JFrame mainFrame = BackupApplication.getApplication().getMainFrame();
-			aboutBox = new BackupApplicationAboutBox(mainFrame);
-			aboutBox.setLocationRelativeTo(mainFrame);
-		}
-		BackupApplication.getApplication().show(aboutBox);
-	}
+    @Action
+    public void showAboutBox() {
+        if (aboutBox == null) {
+            JFrame mainFrame = BackupApplication.getApplication().getMainFrame();
+            aboutBox = new BackupApplicationAboutBox(mainFrame);
+            aboutBox.setLocationRelativeTo(mainFrame);
+        }
+        BackupApplication.getApplication().show(aboutBox);
+    }
 
-	/** This method is called from within the constructor to
-	 * initialize the form.
-	 * WARNING: Do NOT modify this code. The content of this method is
-	 * always regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -366,7 +366,7 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
             }
         });
         mainPanel.add(lblStatus);
-        lblStatus.setBounds(210, 34, 420, 39);
+        lblStatus.setBounds(220, 40, 420, 39);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/appinterface/Assets/AppInterface.png"))); // NOI18N
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
@@ -507,26 +507,26 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
     }//GEN-LAST:event_sldThrottleStateChanged
 
     private void sldThrottleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_sldThrottleFocusLost
-		if (throttleChanged) {
-			System.out.println("sldThrottleFocusLost");
-			config.saveState();
-			throttleChanged = false;
-		}
+        if (throttleChanged) {
+            System.out.println("sldThrottleFocusLost");
+            config.saveState();
+            throttleChanged = false;
+        }
 
     }//GEN-LAST:event_sldThrottleFocusLost
 
     private void lblStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStatusMouseClicked
-		if (isProblem) {
-			JOptionPane.showMessageDialog(this.getComponent(), problemDescription);
-		} else {
-			JOptionPane.showMessageDialog(this.getComponent(), "Real time file backup protection is active and functioning");
-		}
+        if (isProblem) {
+            JOptionPane.showMessageDialog(this.getComponent(), problemDescription);
+        } else {
+            JOptionPane.showMessageDialog(this.getComponent(), "Real time file backup protection is active and functioning");
+        }
     }//GEN-LAST:event_lblStatusMouseClicked
 
     private void sldThrottleMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sldThrottleMouseReleased
-		throttleChanged = true;
-		config.setThrottlePerc(sldThrottle.getValue());
-		_(SummaryDetails.class).refresh();
+        throttleChanged = true;
+        config.setThrottlePerc(sldThrottle.getValue());
+        _(SummaryDetails.class).refresh();
 
     }//GEN-LAST:event_sldThrottleMouseReleased
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -564,208 +564,208 @@ public class BackupApplicationView extends FrameView implements Observer<Config,
     private javax.swing.JPanel statusPanel;
     private javax.swing.JMenu toolsMenu;
     // End of variables declaration//GEN-END:variables
-	private final Timer messageTimer;
-	private final Timer busyIconTimer;
-	private final Icon idleIcon;
-	private final Icon[] busyIcons = new Icon[15];
-	private int busyIconIndex = 0;
-	private JDialog aboutBox;
+    private final Timer messageTimer;
+    private final Timer busyIconTimer;
+    private final Icon idleIcon;
+    private final Icon[] busyIcons = new Icon[15];
+    private int busyIconIndex = 0;
+    private JDialog aboutBox;
 
-	@Action
-	public void showNewAccount() {
-		AccountView queueView = new AccountView(scanService, eventManager, config, accountCreator, null);
-		queueView.setVisible(true);
+    @Action
+    public void showNewAccount() {
+        AccountView queueView = new AccountView(scanService, eventManager, config, accountCreator, null);
+        queueView.setVisible(true);
 
-	}
+    }
 
-	@Action
-	public void showRemoteBrowser() {
-		try {
-			JFrame browserFrame = BackupApplication.getApplication().getBrowser().getFrame();
-			browserFrame.setSize(500, 400);
-			browserFrame.setVisible(true);
-		} catch (Exception e) {
-			log.error("", e);
-		}
-	}
+    @Action
+    public void showRemoteBrowser() {
+        try {
+            JFrame browserFrame = BackupApplication.getApplication().getBrowser().getFrame();
+            browserFrame.setSize(500, 400);
+            browserFrame.setVisible(true);
+        } catch (Exception e) {
+            log.error("", e);
+        }
+    }
 
-	public void doUpdateScreen() {
-		final SummaryDetails dets = _(SummaryDetails.class);
-		final CurrentProgress currentProg = dets.getCurrentProgress();
+    public void doUpdateScreen() {
+        final SummaryDetails dets = _(SummaryDetails.class);
+        final CurrentProgress currentProg = dets.getCurrentProgress();
 
-		SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
 
-			public void run() {
-				try {
-					lblTimeRemainingVal.setText(dets.getTimeRemaining());
-					if (currentProg == null) {
-						progCurrent.setVisible(false);
-						lblCurrentVal.setText("No files are being processed");
-						progCurrent.setValue(0);
-					} else {
-						lblCurrentVal.setText(currentProg.filename);
-						if (currentProg.percent != null) {
-							progCurrent.setVisible(true);
-							progCurrent.setValue(currentProg.percent);
-						} else {
-							progCurrent.setVisible(false);
-							progCurrent.setValue(0);
-						}
-					}
-					//System.out.println("doUpdateScreen: " + dets.getCurrentFilePerc());
+            public void run() {
+                try {
+                    lblTimeRemainingVal.setText(dets.getTimeRemaining());
+                    if (currentProg == null) {
+                        progCurrent.setVisible(false);
+                        lblCurrentVal.setText("No files are being processed");
+                        progCurrent.setValue(0);
+                    } else {
+                        lblCurrentVal.setText(currentProg.filename);
+                        if (currentProg.percent != null) {
+                            progCurrent.setVisible(true);
+                            progCurrent.setValue(currentProg.percent);
+                        } else {
+                            progCurrent.setVisible(false);
+                            progCurrent.setValue(0);
+                        }
+                    }
+                    //System.out.println("doUpdateScreen: " + dets.getCurrentFilePerc());
 
-					lblOverallProgressVal.setText(dets.getProgress());
-					lblUsageVal.setText(dets.getUsage());
+                    lblOverallProgressVal.setText(dets.getProgress());
+                    lblUsageVal.setText(dets.getUsage());
 
-					org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(com.ettrema.backup.BackupApplication.class).getContext().getResourceMap(BackupApplicationView.class);
-					if (dets.isAllOk()) {
-						lblStatus.setIcon(resourceMap.getIcon("lblStatusOk.icon")); // NOI18N
-						lblStatus.setText("ShmeGO is protecting your files");
-						isProblem = false;
-					} else {
-						lblStatus.setIcon(resourceMap.getIcon("lblStatusErr.icon"));
-						lblStatus.setText("ShmeGO is not currently protecting your files");
-						problemDescription = dets.getProblemDescription();
-						isProblem = true;
-					}
-				} catch (Throwable e) {
-					log.error("exception in doUpdateScreen", e);
-				}
-			}
-		});
+                    org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(com.ettrema.backup.BackupApplication.class).getContext().getResourceMap(BackupApplicationView.class);
+                    if (dets.isAllOk()) {
+                        lblStatus.setIcon(resourceMap.getIcon("lblStatusOk.icon")); // NOI18N
+                        lblStatus.setText("ShmeGO is protecting your files");
+                        isProblem = false;
+                    } else {
+                        lblStatus.setIcon(resourceMap.getIcon("lblStatusErr.icon"));
+                        lblStatus.setText("ShmeGO is not currently protecting your files");
+                        problemDescription = dets.getProblemDescription();
+                        isProblem = true;
+                    }
+                } catch (Throwable e) {
+                    log.error("exception in doUpdateScreen", e);
+                }
+            }
+        });
 
-	}
+    }
 
-	@Action
-	public void scanNow() {
-		scanService.scan();
-	}
+    @Action
+    public void scanNow() {
+        scanService.scan();
+    }
 
-	int getThrottlePerc() {
-		return sldThrottle.getValue();
-	}
+    int getThrottlePerc() {
+        return sldThrottle.getValue();
+    }
 
-	public void onAdded(Config t, Object parent) {
-	}
+    public void onAdded(Config t, Object parent) {
+    }
 
-	public void onRemoved(Config t, Object parent, Integer indexOf) {
-	}
+    public void onRemoved(Config t, Object parent, Integer indexOf) {
+    }
 
-	public void onUpdated(final Config t, Object parent) {
-		SwingUtilities.invokeLater(new Runnable() {
+    public void onUpdated(final Config t, Object parent) {
+        SwingUtilities.invokeLater(new Runnable() {
 
-			public void run() {
-				System.out.println("BackupAppView - on updated");
-				initQueueMenu();
-				initDownloadMenu();
-				initModifyAccountsMenu();
-			}
-		});
-	}
+            public void run() {
+                System.out.println("BackupAppView - on updated");
+                initQueueMenu();
+                initDownloadMenu();
+                initModifyAccountsMenu();
+            }
+        });
+    }
 
-	private void initQueueMenu() {
-		log.debug("initQueueMenu");
-		menuQueues.removeAll();
-		for (final Repo r : config.getAllRepos()) {
-			final Queue q = r.getQueue();
-			JMenuItem menuItem = new JMenuItem(r.getDescription());
-			menuItem.addActionListener(new ActionListener() {
+    private void initQueueMenu() {
+        log.debug("initQueueMenu");
+        menuQueues.removeAll();
+        for (final Repo r : config.getAllRepos()) {
+            final Queue q = r.getQueue();
+            JMenuItem menuItem = new JMenuItem(r.getDescription());
+            menuItem.addActionListener(new ActionListener() {
 
-				public void actionPerformed(ActionEvent e) {
-					QueueView queueView = new QueueView(scanService, eventManager, queueProcessor, q, r);
-					queueView.setVisible(true);
-				}
-			});
-			menuQueues.add(menuItem);
+                public void actionPerformed(ActionEvent e) {
+                    QueueView queueView = new QueueView(scanService, eventManager, queueProcessor, q, r);
+                    queueView.setVisible(true);
+                }
+            });
+            menuQueues.add(menuItem);
 
-		}
-	}
+        }
+    }
 
-	private void initModifyAccountsMenu() {
-		log.debug("initModifyAccountsMenu");
-		System.out.println("init mod acc ---------------------------");
-		menuModifyAccounts.removeAll();
-		for (final Job j : config.getJobs()) {
-			JMenuItem menuItem = new JMenuItem(j.getFirstDavRepo());
-			menuItem.addActionListener(new ActionListener() {
+    private void initModifyAccountsMenu() {
+        log.debug("initModifyAccountsMenu");
+        System.out.println("init mod acc ---------------------------");
+        menuModifyAccounts.removeAll();
+        for (final Job j : config.getJobs()) {
+            JMenuItem menuItem = new JMenuItem(j.getFirstDavRepo());
+            menuItem.addActionListener(new ActionListener() {
 
-				public void actionPerformed(ActionEvent e) {
-					AccountView queueView = new AccountView(scanService, eventManager, j, accountCreator, null);
-					queueView.setVisible(true);
-				}
-			});
-			menuModifyAccounts.add(menuItem);
+                public void actionPerformed(ActionEvent e) {
+                    AccountView queueView = new AccountView(scanService, eventManager, j, accountCreator, null);
+                    queueView.setVisible(true);
+                }
+            });
+            menuModifyAccounts.add(menuItem);
 
-		}
-	}
+        }
+    }
 
-	private void initDownloadMenu() {
-		log.debug("initDownloadMenu");
-		menuRestore.removeAll();
-		for (final Job job : config.getJobs()) {
-			for (final Repo r : job.getRepos()) {
-				JMenu menuItem = new JMenu(r.getDescription());
-				menuRestore.add(menuItem);
+    private void initDownloadMenu() {
+        log.debug("initDownloadMenu");
+        menuRestore.removeAll();
+        for (final Job job : config.getJobs()) {
+            for (final Repo r : job.getRepos()) {
+                JMenu menuItem = new JMenu(r.getDescription());
+                menuRestore.add(menuItem);
 
-				//
+                //
 
-				JMenuItem subMenuItem = new JMenuItem("Everything");
-				subMenuItem.setToolTipText("Restore all files from " + r.getDescription() + " which aren't already on your computer");
-				subMenuItem.addActionListener(new ActionListener() {
+                JMenuItem subMenuItem = new JMenuItem("Everything");
+                subMenuItem.setToolTipText("Restore all files from " + r.getDescription() + " which aren't already on your computer");
+                subMenuItem.addActionListener(new ActionListener() {
 
-					public void actionPerformed(ActionEvent e) {
-						RestoreView restoreView = new RestoreView(job, r);
-						restoreView.setVisible(true);
-					}
-				});
-				menuItem.add(subMenuItem);
+                    public void actionPerformed(ActionEvent e) {
+                        RestoreView restoreView = new RestoreView(job, r);
+                        restoreView.setVisible(true);
+                    }
+                });
+                menuItem.add(subMenuItem);
 
-				for (final Root root : job.getRoots()) {
-					JMenuItem rootMenuItem = new JMenuItem(root.getRepoName());
-					rootMenuItem.setToolTipText("Restore files from " + r.getDescription() + "/" + root.getRepoName() + " which aren't already on your computer");
-					rootMenuItem.addActionListener(new ActionListener() {
+                for (final Root root : job.getRoots()) {
+                    JMenuItem rootMenuItem = new JMenuItem(root.getRepoName());
+                    rootMenuItem.setToolTipText("Restore files from " + r.getDescription() + "/" + root.getRepoName() + " which aren't already on your computer");
+                    rootMenuItem.addActionListener(new ActionListener() {
 
-						public void actionPerformed(ActionEvent e) {
-							RestoreView restoreView = new RestoreView(job, r, root);
-							restoreView.setVisible(true);
-						}
-					});
-					menuItem.add(rootMenuItem);
+                        public void actionPerformed(ActionEvent e) {
+                            RestoreView restoreView = new RestoreView(job, r, root);
+                            restoreView.setVisible(true);
+                        }
+                    });
+                    menuItem.add(rootMenuItem);
 
-				}
-			}
-		}
-	}
+                }
+            }
+        }
+    }
 
-	@Action
-	public void showSettings() {
-		// todo
-	}
+    @Action
+    public void showSettings() {
+        // todo
+    }
 
-	@Action
-	public void openMediaLounge() {
-		String url = config.getMediaLoungeUrl();
-		if (url != null) {
-			browserController.openUrl(url);
-		} else {
-			JOptionPane.showMessageDialog(progCurrent, "Can't open because you havent set up any web repositories");
-		}
-	}
+    @Action
+    public void openMediaLounge() {
+        String url = config.getMediaLoungeUrl();
+        if (url != null) {
+            browserController.openUrl(url);
+        } else {
+            JOptionPane.showMessageDialog(progCurrent, "Can't open because you havent set up any web repositories");
+        }
+    }
 
-	@Action
-	public void doQuit() {
-		System.exit(0);
-	}
+    @Action
+    public void doQuit() {
+        System.exit(0);
+    }
 
-	@Action
-	public void showConflicts() {
-		ConflictView view = new ConflictView(conflictManager);
-		view.setVisible(true);
-	}
+    @Action
+    public void showConflicts() {
+        ConflictView view = new ConflictView(conflictManager);
+        view.setVisible(true);
+    }
 
-	@Action
-	public void showHistory() {
-		HistoryView view = new HistoryView(historyDao, eventManager);
-		view.setVisible(true);
-	}
+    @Action
+    public void showHistory() {
+        HistoryView view = new HistoryView(historyDao, eventManager);
+        view.setVisible(true);
+    }
 }

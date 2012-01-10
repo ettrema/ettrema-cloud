@@ -115,8 +115,8 @@ public class SummaryDetails implements EventListener, ProgressListener {
      * @param fileName
      * @param bytesPerSec
      */
+    @Override
     public void onProgress(final long bytesRead, final Long totalBytes, String fileName) {
-        System.out.println("SummaryDetails: onProgress: " + fileName + " bytesRead: " + bytesRead);
         this.lastProgress = new Date();
         updateCurrentProgress();
     }
@@ -127,11 +127,13 @@ public class SummaryDetails implements EventListener, ProgressListener {
      *
      * @param fileName
      */
+    @Override
     public void onComplete(String fileName) {
         this.lastProgress = new Date();
         updateCurrentProgress();
     }
 
+    @Override
     public boolean isCancelled() {
         return false;
     }
@@ -298,7 +300,6 @@ public class SummaryDetails implements EventListener, ProgressListener {
 
     public void updateCurrentProgress() {
         List<ProgressSummary> summaryList = queueManager.getCurrentQueueItems();
-        System.out.println("getCurrentProgress ============ items: " + summaryList.size());
         if (summaryList == null || summaryList.isEmpty()) {
             currentProgress = null;
         } else {

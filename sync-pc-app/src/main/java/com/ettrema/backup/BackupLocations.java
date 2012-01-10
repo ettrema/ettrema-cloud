@@ -21,16 +21,6 @@ public class BackupLocations extends javax.swing.JPanel {
     private final BackupLocationPanel music;
     private final BackupLocationPanel docs;
     private final List<BackupLocationPanel> locationPanels;    
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame();
-                frame.add( new BackupLocations());
-                frame.setVisible(true);
-            }
-        });
-    }    
     
     public BackupLocations() {
         initComponents();
