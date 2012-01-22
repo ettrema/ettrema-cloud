@@ -1,25 +1,17 @@
 package com.ettrema.backup.queue;
 
 import com.bradmcevoy.io.FileUtils;
-import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.FileMeta;
-import com.ettrema.backup.config.Job;
-import com.ettrema.backup.config.PermanentUploadException;
-import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.config.RepoNotAvailableException;
-import com.ettrema.backup.config.Root;
-import com.ettrema.backup.engine.ConflictManager;
-import com.ettrema.backup.engine.CrcCalculator;
-import com.ettrema.backup.engine.FileChangeChecker;
+import com.ettrema.backup.config.*;
 import com.ettrema.backup.engine.FileChangeChecker.SyncStatus;
-import com.ettrema.backup.engine.LocalCrcDaoImpl;
+import com.ettrema.backup.engine.*;
 import com.ettrema.backup.utils.PathMunger;
+import com.ettrema.common.LogUtils;
 import com.ettrema.common.Withee;
-import com.ettrema.logging.LogUtils;
 import java.io.File;
 import java.util.Date;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -27,7 +19,7 @@ import java.util.List;
  */
 public class RemotelyModifiedFileHandler implements QueueItemHandler {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(RemotelyModifiedFileHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(RemotelyModifiedFileHandler.class);
     private final Config config;
     private final CrcCalculator crcCalculator;
     private final LocalCrcDaoImpl localCrcDao;
@@ -259,6 +251,8 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
                 if( !fLocalFile.mkdirs()) {
                     log.error("doDownloadDirectory: Unable to create local directory: " + fLocalFile.getAbsolutePath());
                     return false;
+                } else {
+                    log.trace("doDownloadDirectory: created local directory");
                 }
             }
             List<FileMeta> children = remoteMeta.getChildren();

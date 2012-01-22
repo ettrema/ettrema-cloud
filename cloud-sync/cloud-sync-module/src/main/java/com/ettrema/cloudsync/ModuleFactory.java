@@ -1,5 +1,6 @@
 package com.ettrema.cloudsync;
 
+import com.ettrema.backup.config.AccountPathService;
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Configurator;
 import com.ettrema.backup.engine.*;
@@ -69,8 +70,9 @@ public class ModuleFactory {
     private final ConflictManager conflictManager;
     private final TransferAuthorisationService transferAuthorisationService;
     private final List<RemoteSyncer> remoteSyncers;
+    private final AccountPathService accountPathService;
     private final WindowController windowController;
-    private final AccountView accountView;
+    
     private boolean runningInSystemTray = false;
 
     public ModuleFactory() throws Exception {
@@ -85,9 +87,8 @@ public class ModuleFactory {
         File dbDir = new File(configDir, "db");
         dbDir.mkdir();
         File dbFile = new File(dbDir, "versions");
-        accountView = new AccountView(null, true);
-        browserController = new BrowserController();
-        windowController = new WindowController(accountView, browserController, config);
+        
+        browserController = new BrowserController();        
         ModifiedDateFileChangeChecker modifiedDateFileChangeChecker = new ModifiedDateFileChangeChecker();
         DbInitialiser dbInit = new DbInitialiser(dbFile);
         LocalCrcDaoImpl crcDao = new LocalCrcDaoImpl(dbInit.getUseConnection(), dbInit.getDialect(), crcCalculator);
@@ -98,7 +99,8 @@ public class ModuleFactory {
         historyService = new HistoryService();
         eventManager = new EventManagerImpl();
         historyDao = new HistoryDao(dbInit.getUseConnection(), dbInit.getDialect(), eventManager);
-        accountCreator = new AccountCreator(config, windowController);
+        accountPathService = new AccountPathService(config);
+        accountCreator = new AccountCreator(config, accountPathService);
         queueInserter = new QueueInserter(eventManager);
         exclusionsService = new ExclusionsService(config);
         statusService = new StatusService(eventManager);
@@ -114,8 +116,9 @@ public class ModuleFactory {
         RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
         RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
         List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
-        queueManager = new QueueManager(config, eventManager, historyDao, handlers, executorService, configurator);
+        queueManager = new QueueManager(config, historyDao, handlers, configurator);
         scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers, queueManager);
+        windowController = new WindowController(scanService, browserController, config, accountCreator, accountPathService);
 
         summaryDetails = new SummaryDetails(throttleFactory, eventManager, config, bandwidthService, queueManager);
 
@@ -139,7 +142,7 @@ public class ModuleFactory {
 
         summaryDetails.refresh();
 
-        trayController = new TrayController(scanService, windowController, config, eventManager, summaryDetails);
+        trayController = new TrayController(queueManager, scanService, windowController, config, eventManager, summaryDetails);
         runningInSystemTray = trayController.show();
 
         if (config.isConfigured()) {

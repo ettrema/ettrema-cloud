@@ -1,15 +1,15 @@
 package com.ettrema.backup.config;
 
 import com.bradmcevoy.common.Path;
-import com.ettrema.backup.engine.CrcCalculator;
-import com.ettrema.backup.engine.ExclusionsService;
+import com.bradmcevoy.utils.FileUtils;
 import static com.ettrema.backup.engine.Services._;
-import com.ettrema.backup.engine.ThrottleFactory;
+import com.ettrema.backup.engine.*;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.utils.EventUtils;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.cache.Cache;
 import com.ettrema.cache.MemoryCache;
+import com.ettrema.common.LogUtils;
 import com.ettrema.common.Withee;
 import com.ettrema.httpclient.*;
 import com.ettrema.httpclient.Utils.CancelledException;
@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -25,7 +27,7 @@ import java.util.UUID;
  */
 public class DavRepo implements Repo {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(DavRepo.class);
+    private static final Logger log = LoggerFactory.getLogger(ScanService.class);
     private static final int SO_TIMEOUT = 15 * 60 * 1000; // millis
     private String id;
     private String hostName;
@@ -62,7 +64,32 @@ public class DavRepo implements Repo {
         }
         return id;
     }
+    
+    public void flushCache() {
+        if( h != null ) {
+            try {
+                h.flush();
+            } catch (IOException ex) {
+                log.warn("exception flushing cache", ex);
+            }
+        }
+    }
 
+    public Resource find(String path) throws RepoNotAvailableException {
+        try {
+            Resource r = host().find(path, false);
+            setOffline(false);
+            return r;
+        } catch (IOException ex) {
+            setOffline(true);
+            throw new RepoNotAvailableException(ex);
+        } catch (HttpException ex) {
+            setOffline(true);
+            throw new RepoNotAvailableException(ex);
+        }
+    }
+    
+    
     public Host host() throws RepoNotAvailableException {
         return host(false);
     }
@@ -186,7 +213,6 @@ public class DavRepo implements Repo {
             remote = host().find(path, true);
             if (remote == null) {
                 log.trace("not found: " + path);
-                return;
             } else {
                 log.trace("lock remote file: " + remote.encodedUrl());
 
@@ -352,7 +378,11 @@ public class DavRepo implements Repo {
             }
             if (remote instanceof com.ettrema.httpclient.File) {
                 com.ettrema.httpclient.File fRemote = (com.ettrema.httpclient.File) remote;
-                fRemote.downloadToFile(dest, listener);
+                if( copyLocallyByCrc(remote.getCrc(), dest)) {
+                    LogUtils.trace(log, "download: copied local file with same crc");
+                } else {
+                    fRemote.downloadToFile(dest, listener);
+                }
             }
         } catch (CancelledException e) {
             throw e;
@@ -556,6 +586,7 @@ public class DavRepo implements Repo {
         state.offline = b;
 
         if (changed) {
+            System.out.println("Offline state changed!!!!!!");
             EventUtils.fireQuietly(new RepoChangedEvent(this));
         }
     }
@@ -867,6 +898,35 @@ public class DavRepo implements Repo {
     @Override
     public void setState(Object state) {
         this.state = (DavRepoState) state;
+    }
+
+    /**
+     * Attempt to locate a local file with the same CRC as the one being downloaded.
+     * If found copy it to the dest file instead of downloading
+     * 
+     * @param remote
+     * @param dest
+     * @return true if the file was copied, otherwise false
+     */
+    private boolean copyLocallyByCrc(Long crc, File dest) {
+        if( crc == null ) {
+            return false;
+        } else {
+            List<StateToken> list = _(StateTokenDaoImpl.class).findByCrc(crc);
+            if( list.isEmpty()) {
+                return false;
+            } else {
+                for(StateToken token : list) {
+                    if( token.isCurrentlyValid()) {
+                        // copy this one
+                        File source = new File(token.filePath);
+                        FileUtils.copy(source, dest);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 
     public static class DavRepoState {

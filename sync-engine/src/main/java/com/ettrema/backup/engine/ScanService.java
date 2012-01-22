@@ -6,6 +6,7 @@ import com.ettrema.backup.config.Root;
 import com.ettrema.backup.event.ScanEvent;
 import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.backup.utils.EventUtils;
+import com.ettrema.common.LogUtils;
 import com.ettrema.common.Service;
 import com.ettrema.event.EventManager;
 import java.io.File;
@@ -19,7 +20,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ScanService implements Service {
 
-    private static final Logger log = LoggerFactory.getLogger(DirectComparisonFileSyncer.class);
+    private static final Logger log = LoggerFactory.getLogger(ScanService.class);
     private static final long SCAN_INTERVAL_MS = 1000 * 60 * 60 * 24; // once per day
     private final FileSyncer fileSyncer;
     private final List<RemoteSyncer> remoteSyncers;
@@ -41,8 +42,13 @@ public class ScanService implements Service {
         this.queueManager = queueManager;
     }
 
+    public void initiateScan() {
+        scanNow = true;
+    }
+
     /**
-     * Sets the scanNow flag so a scan will be initiated on next poll
+     * Do a scan of local and remote filesystems. This is now a syncronous call.
+     * to initiate a scan without blocking call initiateScan
      */
     public void scan() throws InterruptedException {
         log.debug("scanning");
@@ -52,7 +58,6 @@ public class ScanService implements Service {
         try {
             scanStatus = new ScanStatus();
             fileSyncer.scan(scanStatus);
-            queueManager.checkQueues();
             EventUtils.fireQuietly(eventManager, new ScanEvent(false));
         } finally {
             scanStatus = null;
@@ -131,8 +136,11 @@ public class ScanService implements Service {
             while (enabled) {
                 try {
                     checkScanStart();
-                    pingRepos();
-                    Thread.sleep(3000);
+                    if( queueManager.getQueueSize() == 0 ) {
+                        Thread.sleep(3000);
+                    } else {
+                        Thread.sleep(100); // just in case ... so we don't end up in a busy loop
+                    }
                 } catch (InterruptedException ex) {
                     return;
                 }
@@ -147,11 +155,20 @@ public class ScanService implements Service {
     }
 
     private void checkScanStart() throws InterruptedException {
+        LogUtils.trace(log, "checkScanStart: 1: check queues...");
+        queueManager.checkQueues(); // always check queues for outstanding actions to process
+        int size = queueManager.getQueueSize();
+        if( size > 0 ) {
+            LogUtils.trace(log, "checkScanStart: 1: exiting scan because there are already queued items: size:", size);
+            return ;
+        } else {
+            LogUtils.trace(log, "checkScanStart: 1: all queues are empty so continue scan");
+        }
         if (System.currentTimeMillis() > nextScanTime || scanNow) {
             if (scanNow) {
-                log.trace("manually initiated scan");
+                log.trace("checkScanStart: manually initiated local file system scan");
             } else {
-                log.trace("kick off scheduled scan");
+                log.trace("checkScanStart: kick off scheduled local file system scan");
             }
             scanNow = false;
 
@@ -161,8 +178,9 @@ public class ScanService implements Service {
             } finally {
                 nextScanTime = System.currentTimeMillis() + SCAN_INTERVAL_MS;
             }
-
         }
+        LogUtils.trace(log, "checkScanStart: 3: check remote repositories...");
+        pingRepos();        
     }
 
     public long delayUntilNextScanSecs() {
@@ -170,15 +188,21 @@ public class ScanService implements Service {
     }
 
     public File getCurrentScanDir() {
-        return scanStatus.currentScanDir;
+        if (scanStatus != null) {
+            return scanStatus.currentScanDir;
+        } else {
+            return null;
+        }
     }
 
     public void cancelScan() {
-        scanStatus.cancelled = true;
+        if (scanStatus != null) {
+            scanStatus.cancelled = true;
+        }
     }
 
     public boolean isScanning() {
-        return scanStatus != null;
+        return scanStatus != null && !scanStatus.cancelled;
     }
 
     public void setScanningDisabled(boolean state) {

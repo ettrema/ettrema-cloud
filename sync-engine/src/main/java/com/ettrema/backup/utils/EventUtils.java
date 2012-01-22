@@ -3,10 +3,9 @@ package com.ettrema.backup.utils;
 import com.bradmcevoy.http.exceptions.BadRequestException;
 import com.bradmcevoy.http.exceptions.ConflictException;
 import com.bradmcevoy.http.exceptions.NotAuthorizedException;
+import static com.ettrema.backup.engine.Services._;
 import com.ettrema.event.Event;
 import com.ettrema.event.EventManager;
-
-import static com.ettrema.backup.engine.Services._;
 
 /**
  *

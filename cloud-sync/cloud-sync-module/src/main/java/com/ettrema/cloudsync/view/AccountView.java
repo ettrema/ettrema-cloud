@@ -1,5 +1,13 @@
-
 package com.ettrema.cloudsync.view;
+
+import com.ettrema.backup.config.*;
+import com.ettrema.backup.engine.ScanService;
+import com.ettrema.cloudsync.account.AccountCreator;
+import com.ettrema.httpclient.ProxyDetails;
+import java.util.ArrayList;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -7,12 +15,98 @@ package com.ettrema.cloudsync.view;
  */
 public class AccountView extends javax.swing.JDialog {
 
+    private static final Logger log = LoggerFactory.getLogger(AccountView.class);
+    private final ScanService scanService;
+    private final Config config; // only provided when no job given
+    private final Job job;
+    private final AccountPathService accountPathService;
+
     /**
-     * Creates new form AccountView
+     * Open the view to modify an existing job
+     *
+     * @param scanService
+     * @param job
+     * @param accountCreator
+     * @param proxyDetails
+     * @param windowController
      */
-    public AccountView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public AccountView(ScanService scanService, Job job, AccountCreator accountCreator, ProxyDetails proxyDetails, AccountPathService accountPathService) {
+        this("Modify account", scanService, job, null, accountCreator, proxyDetails, accountPathService);
+    }
+
+    /**
+     * For creating a new job
+     *
+     * @param engine
+     * @param eventManager
+     * @param config
+     * @param accountCreator
+     * @param proxyDetails
+     */
+    public AccountView(ScanService scanService, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails, AccountPathService accountPathService) {
+        this("New account", scanService, null, config, accountCreator, proxyDetails, accountPathService);
+    }
+
+    private AccountView(String title, ScanService scanService, Job job, Config config, AccountCreator accountCreator, ProxyDetails proxyDetails, AccountPathService accountPathService) {
+        this.scanService = scanService;
+        this.job = job;
+        this.config = config;
+        this.accountPathService = accountPathService;
+        this.setTitle(title);
         initComponents();
+
+        userPanel.setAccountCreator(accountCreator);
+        userPanel.setProxyDetails(proxyDetails);
+
+        this.setSize(650, 720);
+        if (job != null) {
+            userPanel.load(job);
+            backupLocations1.load(job);
+        }
+    }
+
+    public void doSave() {
+        System.out.println("doSave");
+        if (!isValidSettings()) {
+            return;
+        }
+        String jobName = userPanel.getAccountName() + "@" + userPanel.getHostName();
+        Job jobToSave = this.job;
+        Config c;
+        if (jobToSave == null) {
+            DavRepo davRepo = new DavRepo();
+            List<Root> roots = new ArrayList<Root>();
+            List<Repo> repos = new ArrayList<Repo>();
+            repos.add(davRepo);
+            jobToSave = new Job(jobName, repos, roots);
+            jobToSave.setConfig(config);
+            davRepo.setJob(jobToSave);
+
+            config.getJobs().add(jobToSave);
+            c = config;
+        } else {
+            c = jobToSave.getConfig();
+        }
+        scanService.cancelScan(); // if scanning, cancel it so new changes can take effect
+        String accPath = accountPathService.getMediaLoungePath(userPanel.getAccountName());
+        userPanel.save(accPath, jobToSave);
+        backupLocations1.save("", jobToSave);
+        jobToSave.getConfig().save();
+        try {
+            scanService.scan();
+        } catch (InterruptedException ex) {
+            log.warn("scan was interrupted");
+        }
+        config.setPaused(false);
+        doClose();
+    }
+
+    private boolean isValidSettings() {
+        return userPanel.validateStep();
+    }
+
+    public void doClose() {
+        this.setVisible(false);
     }
 
     /**
@@ -25,13 +119,30 @@ public class AccountView extends javax.swing.JDialog {
     private void initComponents() {
 
         pnlOuter = new javax.swing.JPanel();
-        existingUserPanel1 = new com.ettrema.cloudsync.view.ExistingUserPanel();
+        userPanel = new com.ettrema.cloudsync.view.ExistingUserPanel();
         jSeparator1 = new javax.swing.JSeparator();
         backupLocations1 = new com.ettrema.cloudsync.view.BackupLocations();
+        jSeparator2 = new javax.swing.JSeparator();
+        cmdOk = new javax.swing.JButton();
+        cmdCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         pnlOuter.setBackground(new java.awt.Color(255, 255, 255));
+
+        cmdOk.setText(org.openide.util.NbBundle.getMessage(AccountView.class, "AccountView.cmdOk.text")); // NOI18N
+        cmdOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdOkActionPerformed(evt);
+            }
+        });
+
+        cmdCancel.setText(org.openide.util.NbBundle.getMessage(AccountView.class, "AccountView.cmdCancel.text")); // NOI18N
+        cmdCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlOuterLayout = new javax.swing.GroupLayout(pnlOuter);
         pnlOuter.setLayout(pnlOuterLayout);
@@ -40,21 +151,32 @@ public class AccountView extends javax.swing.JDialog {
             .addGroup(pnlOuterLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlOuterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(existingUserPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addComponent(userPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
                     .addComponent(jSeparator1)
-                    .addComponent(backupLocations1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(backupLocations1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOuterLayout.createSequentialGroup()
+                        .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlOuterLayout.setVerticalGroup(
             pnlOuterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlOuterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(existingUserPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(backupLocations1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addComponent(backupLocations1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(pnlOuterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdOk, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         getContentPane().add(pnlOuter, java.awt.BorderLayout.CENTER);
@@ -62,11 +184,20 @@ public class AccountView extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdCancelActionPerformed
 
+    private void cmdOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOkActionPerformed
+        doSave();
+    }//GEN-LAST:event_cmdOkActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.ettrema.cloudsync.view.BackupLocations backupLocations1;
-    private com.ettrema.cloudsync.view.ExistingUserPanel existingUserPanel1;
+    private javax.swing.JButton cmdCancel;
+    private javax.swing.JButton cmdOk;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel pnlOuter;
+    private com.ettrema.cloudsync.view.ExistingUserPanel userPanel;
     // End of variables declaration//GEN-END:variables
 }

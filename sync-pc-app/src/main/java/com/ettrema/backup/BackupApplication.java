@@ -1,42 +1,15 @@
 package com.ettrema.backup;
 
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.engine.ThrottleFactory;
 import com.ettrema.backup.account.AccountCreator;
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Configurator;
 import com.ettrema.backup.config.DavRepo;
-import com.ettrema.backup.engine.CrcCalculator;
-import com.ettrema.backup.engine.DbInitialiser;
-import com.ettrema.backup.engine.FileChangeChecker;
-import com.ettrema.backup.engine.ModifiedDateFileChangeChecker;
-import com.ettrema.backup.engine.FileWatcher;
-import com.ettrema.backup.engine.LocalCrcDaoImpl;
-import com.ettrema.backup.engine.LocalDbFileChangeChecker;
+import com.ettrema.backup.config.Repo;
+import com.ettrema.backup.engine.*;
 import com.ettrema.backup.history.HistoryDao;
 import com.ettrema.backup.history.HistoryService;
-import com.ettrema.backup.queue.DeletedFileHandler;
-import com.ettrema.backup.queue.MovedHandler;
-import com.ettrema.backup.queue.NewFileHandler;
-import com.ettrema.backup.queue.QueueInserter;
-import com.ettrema.backup.queue.QueueManager;
-import com.ettrema.backup.queue.RemotelyModifiedFileHandler;
+import com.ettrema.backup.queue.*;
 import com.ettrema.backup.utils.PathMunger;
-import com.ettrema.backup.engine.BandwidthService;
-import com.ettrema.backup.engine.ConflictManager;
-import com.ettrema.backup.engine.DirectFileRemoteSyncer;
-import com.ettrema.backup.engine.Services;
-import com.ettrema.backup.engine.StatusService;
-import com.ettrema.backup.engine.ExclusionsService;
-import com.ettrema.backup.engine.RemoteSyncer;
-import com.ettrema.backup.engine.ScanService;
-import com.ettrema.backup.engine.StateTokenDaoImpl;
-import com.ettrema.backup.engine.StateTokenFileSyncer;
-import com.ettrema.backup.engine.StateTokenRemoteSyncer;
-import com.ettrema.backup.engine.TransferAuthorisationService;
-import com.ettrema.backup.queue.QueueItemHandler;
-import com.ettrema.backup.queue.RemotelyDeletedHandler;
-import com.ettrema.backup.queue.RemotelyMovedHandler;
 import com.ettrema.backup.view.SummaryDetails;
 import com.ettrema.client.BrowserView;
 import com.ettrema.context.RootContext;
@@ -154,9 +127,9 @@ public class BackupApplication extends SingleFrameApplication implements Applica
             RemoteSyncer stateTokenRemoteSyncer = new StateTokenRemoteSyncer(config, transferAuthorisationService, conflictManager, crcCalculator, stateTokenDao, fileSyncer, exclusionsService);
             RemoteSyncer directFileRemoteSyncer = new DirectFileRemoteSyncer(config);
             remoteSyncers = Arrays.asList(stateTokenRemoteSyncer, directFileRemoteSyncer);
-            scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers);
+            scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers, queueManager);
             fileWatcher = new FileWatcher(config, fileSyncer);
-            RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
+            RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(config, crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
             RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
             RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
             List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
@@ -166,9 +139,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
             summaryDetails = new SummaryDetails(throttleFactory, view, eventManager, config, bandwidthService, queueManager);
 
             initContext();
-
-            queueManager.startThread();
-
+            
             summaryDetails.refresh();
 
             trayController = new TrayController(scanService, this, config, eventManager, summaryDetails);
@@ -186,7 +157,7 @@ public class BackupApplication extends SingleFrameApplication implements Applica
 
             fileWatcher.start();
             scanService.start();
-            scanService.scan(); // just for dev
+            scanService.initiateScan(); // just for dev
 
 
         } catch (Exception e) {

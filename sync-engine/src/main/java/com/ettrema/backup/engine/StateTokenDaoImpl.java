@@ -68,11 +68,7 @@ public class StateTokenDaoImpl {
                 stmt.setString(1, parent.getAbsolutePath());
                 ResultSet rs = stmt.executeQuery();
                 try {
-                    List<StateToken> list = new ArrayList<StateToken>();
-                    while (rs.next()) {
-                        appendStateToken(rs, list);
-                    }
-                    return list;
+                    return toList(rs);
                 } finally {
                     UseConnection.close(rs);
                     UseConnection.close(stmt);
@@ -155,6 +151,27 @@ public class StateTokenDaoImpl {
         return token;
     }
 
+    public List<StateToken> findByCrc(final Long crc) {
+        final String sql = TOKENS.getSelect() + " WHERE "
+                + TOKENS.currentCrc.getName() + " = ?";
+        List<StateToken> tokens = useConnection.use(new With<Connection, List<StateToken>>() {
+
+            @Override
+            public List<StateToken> use(Connection con) throws Exception {
+                PreparedStatement stmt = con.prepareStatement(sql);
+                TOKENS.currentCrc.set(stmt, 1, crc);
+                ResultSet rs = stmt.executeQuery();
+                try {
+                    return toList(rs);
+                } finally {
+                    UseConnection.close(rs);
+                    UseConnection.close(stmt);
+                }
+            }
+        });
+        return tokens;
+    }
+
     public void softDelete(StateToken token) {
         final String updateSql = "UPDATE " + TOKENS.tableName + " SET " + TOKENS.currentCrc.getName() + " = ? WHERE "
                 + TOKENS.parentPath.getName() + " = ? AND " + TOKENS.name.getName() + " = ?";
@@ -191,6 +208,14 @@ public class StateTokenDaoImpl {
                 return null;
             }
         });
+    }
+
+    private List<StateToken> toList(ResultSet rs) throws SQLException {
+        List<StateToken> list = new ArrayList<StateToken>();
+        while (rs.next()) {
+            appendStateToken(rs, list);
+        }
+        return list;
     }
 
     public static class StateTokenTable extends com.ettrema.db.Table {

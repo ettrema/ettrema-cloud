@@ -1,44 +1,31 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.Configurator;
-import com.ettrema.backup.config.Job;
-import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.config.Repo;
+import com.ettrema.backup.config.*;
 import com.ettrema.backup.history.HistoryDao;
-import com.ettrema.backup.observer.Observer;
-import com.ettrema.event.EventManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ScheduledExecutorService;
 
 /**
  *
  * @author brad
  */
-public class QueueManager implements Observer {
+public class QueueManager {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(QueueManager.class);
+    
+    public enum TransferDirection {
+        UPLOAD,
+        DOWNLOAD
+    }
+    
     private final Config config;
-    private final List<QueueItemHandler> handlers;
-    private final EventManager eventManager;
-    private final HistoryDao historyDao;
-    private final ScheduledExecutorService svc;
-    private final Configurator configurator;
     private final QueueProcessor proc;
     // working fields
     private long minStableMs = 1000;
-    private boolean isRunning;
 
-    public QueueManager(Config config, EventManager eventManager, HistoryDao historyDao, List<QueueItemHandler> handlers, ScheduledExecutorService svc, Configurator configurator) {
-        this.svc = svc;
-        this.historyDao = historyDao;
+    public QueueManager(Config config, HistoryDao historyDao, List<QueueItemHandler> handlers, Configurator configurator) {
         this.config = config;
-        this.eventManager = eventManager;
-        this.handlers = handlers;
-        this.configurator = configurator;
-        this.proc = new QueueProcessor(eventManager, handlers, historyDao, configurator);
-        config.addObserver(this);
+        this.proc = new QueueProcessor(handlers, historyDao, configurator);
     }
 
     public void checkQueues() throws InterruptedException {
@@ -48,6 +35,40 @@ public class QueueManager implements Observer {
             }
         }
     }
+    
+    public boolean isInProgress(TransferDirection direction) {
+        for (Job job : config.getJobs()) {
+            for (Repo repo : job.getRepos()) {
+                QueueItem current = repo.getCurrent();
+                if( current != null && getDirection(current).equals(direction) ) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    private TransferDirection getDirection(QueueItem current) {
+        if( current instanceof RemotelyDeletedQueueItem || current instanceof RemotelyModifiedQueueItem || current instanceof RemotelyMovedQueueItem) {
+            return TransferDirection.DOWNLOAD;           
+        } else {
+            return TransferDirection.UPLOAD;
+        }
+    }
+    
+    
+    public int getQueueSize() {
+        int i = 0;
+        for (Job job : config.getJobs()) {
+            for (Repo repo : job.getRepos()) {
+                i += repo.getQueue().size();
+                if( repo.getCurrent() != null ) {
+                    i++;
+                }
+            }
+        }
+        return i;        
+    }
 
     public long getMinStableMs() {
         return minStableMs;
@@ -56,23 +77,7 @@ public class QueueManager implements Observer {
     public void setMinStableMs(long minStableMs) {
         this.minStableMs = minStableMs;
     }
-
-    public boolean isPaused() {
-        return config.isPaused();
-    }
-
-    @Override
-    public void onAdded(Object t, Object parent) {
-    }
-
-    @Override
-    public void onRemoved(Object t, Object parent, Integer indexOf) {
-    }
-
-    @Override
-    public void onUpdated(Object t, Object parent) {
-    }
-
+    
     public List<ProgressSummary> getCurrentQueueItems() {
         List<ProgressSummary> summaryList = new ArrayList<ProgressSummary>();
         for (Job job : config.getJobs()) {

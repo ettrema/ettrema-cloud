@@ -1,11 +1,9 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.PermanentUploadException;
-import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.config.RepoNotAvailableException;
+import com.ettrema.backup.config.*;
 import com.ettrema.backup.engine.CrcCalculator;
 import com.ettrema.backup.engine.LocalCrcDaoImpl;
+import com.ettrema.logging.LogUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -60,22 +58,13 @@ public class NewFileHandler implements QueueItemHandler {
         try {
             if (item.getFile().exists()) {
                 if (item.getFile().isFile()) {
-                    long tm = System.currentTimeMillis();
-                    log.trace("Uploading file: " + f.getAbsolutePath() + " ----------------------------- ");
-                    r.upload(f, item);
 
-                    long crc = crcCalculator.getLocalCrc(f);
+                    uploadFile(f, r, item);
 
-                    localCrcDao.setLocalBackedupCrc(f, r, crc);
-
-                    //tm = System.currentTimeMillis() - tm;
-                    // String duration = TimeUtils.formatSecsAsTime(tm / 1000);
-                    //long bytes = item.getFile().length();
-
-                    //double bw = bytes * 1000 / tm;
                 } else {
                     // Upload directory
-                    throw new RuntimeException("not done yet");
+                    uploadDir(f, r, item);
+                    log.trace("finished Dir upload: " + f.getAbsolutePath());
                 }
             } else {
                 log.info("file no longer exists: " + item.getFile().getAbsolutePath());
@@ -94,6 +83,38 @@ public class NewFileHandler implements QueueItemHandler {
             item.setCompleted(new Date());
             log.debug("completed upload task");
         }
+    }
+
+    private void uploadDir(File dir, Repo r, QueueItem item) throws RepoNotAvailableException, UploadException, PermanentUploadException {
+        LogUtils.trace(log, "uploadDir: dir:" , dir.getAbsolutePath());
+        File[] children = dir.listFiles();
+        for(File child : children ) {
+            if( child.isDirectory() ) {
+                uploadDir(child, r, item);
+            } else {
+                uploadFile(child, r, item);
+            }
+        }
+    }
+    
+    private void uploadFile(File f, Repo r, QueueItem item) throws RepoNotAvailableException, UploadException, PermanentUploadException {
+        if (isFileOpen(f)) {
+            log.warn("UploadFile: File is locked so will skip: " + f.getAbsolutePath());
+            return;
+        }        
+        long tm = System.currentTimeMillis();
+        log.trace("Uploading file: " + f.getAbsolutePath() + " ----------------------------- ");
+        r.upload(f, item);
+
+        long crc = crcCalculator.getLocalCrc(f);
+
+        localCrcDao.setLocalBackedupCrc(f, r, crc);
+
+        //tm = System.currentTimeMillis() - tm;
+        // String duration = TimeUtils.formatSecsAsTime(tm / 1000);
+        //long bytes = item.getFile().length();
+
+        //double bw = bytes * 1000 / tm;
     }
 
     private boolean isFileOpen(File file) {

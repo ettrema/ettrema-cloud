@@ -1,14 +1,8 @@
 package com.ettrema.backup.engine;
 
-import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.DavRepo;
-import com.ettrema.backup.config.Job;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.config.RepoNotAvailableException;
-import com.ettrema.backup.config.Root;
+import com.ettrema.backup.config.*;
 import com.ettrema.common.LogUtils;
 import com.ettrema.httpclient.Folder;
-import com.ettrema.httpclient.Host;
 import com.ettrema.httpclient.HttpException;
 import com.ettrema.httpclient.Resource;
 import java.io.File;
@@ -76,12 +70,11 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         }
 
         try {
-            try {
-                Host host = davRepo.host(true);
-                davRepo.updateAccountInfo(host);
-
+            davRepo.flushCache();
+            try {                
                 for (Root root : job.getRoots()) {
-                    Resource remote = host.find(root.getRepoName());
+                    Resource remote = davRepo.find(root.getRepoName());
+                    davRepo.updateAccountInfo(remote);                    
                     File dir = new File(root.getFullPath());
                     LogUtils.trace(log, "pingDavRepo: root:", dir.getAbsolutePath(), "crc:", remote.getCrc());
                     if (remote instanceof Folder) {
@@ -120,8 +113,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
             log.trace("No crc: " + remoteFolder.href());
             return true;
         }
-        StateToken token = stateTokenDao.get(dir);
-        List<StateToken> tokens;
+        StateToken token = stateTokenDao.get(dir);        
         if (token == null) {
             log.info("New remote folder; " + remoteFolder.href() + " - local:" + dir.getAbsolutePath());
             try {
@@ -129,14 +121,14 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
             } catch (IOException ex) {
                 throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
             } catch (HttpException ex) {
-                java.util.logging.Logger.getLogger(StateTokenRemoteSyncer.class.getName()).log(Level.SEVERE, null, ex);
+                throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
             }
         } else {
             if (!remoteFolder.getCrc().equals(token.currentCrc)) {
-                LogUtils.trace(log, "compareFolder: crc's are not equal", remoteFolder.href(), dir.getAbsolutePath(), remoteFolder.getCrc(), token.currentCrc);
+                LogUtils.trace(log, "compareFolder: crc's are not equal", remoteFolder.href(), dir.getAbsolutePath(), "remote crc:", remoteFolder.getCrc(), "local crc:", token.currentCrc);
                 if (log.isTraceEnabled()) {
-                    tokens = stateTokenDao.findForFolder(dir);
-                    log.trace(crcCalculator.getLocalCrcForDirectoryData(tokens));
+                    List<StateToken> tokens = stateTokenDao.findForFolder(dir);
+                    log.trace("compareFolder: local crc for directory: " + crcCalculator.getLocalCrcForDirectoryData(tokens));
                 }
                 try {
                     // remote folder contains different contents to the local folder
@@ -163,6 +155,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         // This will download new remote files when local file are missing, and will delete
         // remote files if local files have been removed
         for (Resource r : remoteChildren) {
+            LogUtils.trace(log, "compareChildren: remote resource: ", r.href());
             File local = child(r.name, localChildren);
             if (local == null) {
                 local = new File(dir, r.name);
@@ -200,6 +193,8 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                         }
                     }
                 }
+            } else {
+                LogUtils.trace(log, "compareChildren: ignoring excluded remote file", r.href());
             }
         }
         // Now look for local file which don't match against a remote resource, these will

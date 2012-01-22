@@ -13,13 +13,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class Queue implements Iterable<QueueItem> {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger( Queue.class );
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(Queue.class);
     private List<QueueItem> listOfItems = new java.util.concurrent.CopyOnWriteArrayList<QueueItem>();
     private transient List<Observer<QueueItem, Queue>> observers = new CopyOnWriteArrayList<Observer<QueueItem, Queue>>();
     private transient MyObserver myObserver; // used for dispatching observations from queueitems to queue observers
 
     private MyObserver myObserver() {
-        if( myObserver == null ) {
+        if (myObserver == null) {
             myObserver = new MyObserver();
         }
         return myObserver;
@@ -29,59 +29,59 @@ public class Queue implements Iterable<QueueItem> {
         return listOfItems == null || listOfItems.isEmpty();
     }
 
-    public void addItem( QueueItem item ) {
+    public void addItem(QueueItem item) {
 //        log.debug( "addItem" );
-        listOfItems.add( item );
-        item.addObserver( myObserver() );
-        ObserverUtils.notifyAdded( observers(), item, this );
+        listOfItems.add(item);
+        item.addObserver(myObserver());
+        ObserverUtils.notifyAdded(observers(), item, this);
     }
 
     public void notifyObserversUpdated(QueueItem item) {
-        ObserverUtils.notifyUpdated( observers(), item, this );
+        ObserverUtils.notifyUpdated(observers(), item, this);
     }
 
-	public List<Observer<QueueItem, Queue>> observers() {
-        if( observers == null ) {
+    public List<Observer<QueueItem, Queue>> observers() {
+        if (observers == null) {
             observers = new ArrayList<Observer<QueueItem, Queue>>();
         }
-		return observers;
-	}
-	
-    public void addObserver( Observer<QueueItem, Queue> ob ) {
-        observers().add( ob );
+        return observers;
     }
 
-	@Override
+    public void addObserver(Observer<QueueItem, Queue> ob) {
+        observers().add(ob);
+    }
+
+    @Override
     public Iterator<QueueItem> iterator() {
         return listOfItems.iterator();
     }
 
-    public boolean contains( QueueItem nf ) {
-        if( listOfItems == null ) {
+    public boolean contains(QueueItem nf) {
+        if (listOfItems == null) {
             return false;
         }
-        return listOfItems.contains( nf );
+        return listOfItems.contains(nf);
     }
 
     public int size() {
         return listOfItems.size();
     }
 
-    public QueueItem item( int row ) {
-        if( row >= listOfItems.size() ) {
-            throw new IndexOutOfBoundsException( "Row: " + row + " listOfItems: " + listOfItems.size() + " items:" + listOfItems.size() );
+    public QueueItem item(int row) {
+        if (row >= listOfItems.size()) {
+            throw new IndexOutOfBoundsException("Row: " + row + " listOfItems: " + listOfItems.size() + " items:" + listOfItems.size());
         }
-        return listOfItems.get( row );
+        return listOfItems.get(row);
 
     }
 
-    public synchronized int indexOf( QueueItem item ) {
-        return listOfItems.indexOf( item );
+    public synchronized int indexOf(QueueItem item) {
+        return listOfItems.indexOf(item);
     }
 
     public long getRemainingBytes() {
         long l = 0;
-        for( QueueItem item : listOfItems ) {
+        for (QueueItem item : listOfItems) {
             l += item.getBytesToUpload();
         }
         return l;
@@ -92,30 +92,30 @@ public class Queue implements Iterable<QueueItem> {
     }
 
     public synchronized QueueItem take() throws InterruptedException {
-		if( listOfItems.size() > 0 ) {
-			QueueItem item = listOfItems.remove(0);
-			int removedIndex = indexOf( item );
-			ObserverUtils.notifyRemoved( observers(), item, this, removedIndex );
-			listOfItems.remove( item );
-			return item;
-		} else {
-			return null;
-		}
+        if (listOfItems.size() > 0) {
+            QueueItem item = listOfItems.remove(0);
+            int removedIndex = indexOf(item);
+            ObserverUtils.notifyRemoved(observers(), item, this, removedIndex);
+            listOfItems.remove(item);
+            return item;
+        } else {
+            return null;
+        }
     }
 
     private class MyObserver implements Observer<QueueItem, Queue> {
 
         @Override
-        public void onAdded( QueueItem t, Queue parent ) {
+        public void onAdded(QueueItem t, Queue parent) {
         }
 
         @Override
-        public void onUpdated( QueueItem t, Queue parent ) {
-            ObserverUtils.notifyUpdated( observers, t, Queue.this );
+        public void onUpdated(QueueItem t, Queue parent) {
+            ObserverUtils.notifyUpdated(observers, t, Queue.this);
         }
 
         @Override
-        public void onRemoved( QueueItem t, Queue parent, Integer indexOf ) {
+        public void onRemoved(QueueItem t, Queue parent, Integer indexOf) {
         }
     }
 }

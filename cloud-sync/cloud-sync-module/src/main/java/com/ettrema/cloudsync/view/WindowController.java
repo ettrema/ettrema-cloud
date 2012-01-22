@@ -1,8 +1,9 @@
 package com.ettrema.cloudsync.view;
 
+import com.ettrema.backup.config.AccountPathService;
 import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.DavRepo;
-import com.ettrema.backup.config.Repo;
+import com.ettrema.backup.engine.ScanService;
+import com.ettrema.cloudsync.account.AccountCreator;
 import org.openide.windows.WindowManager;
 
 /**
@@ -11,14 +12,18 @@ import org.openide.windows.WindowManager;
  */
 public class WindowController {
 
-    private final AccountView accountView;
     private final BrowserController browserController;
     private final Config config;
+    private final ScanService scanService;
+    private final AccountCreator accountCreator;
+    private final AccountPathService accountPathService;
 
-    public WindowController(AccountView accountView, BrowserController browserController, Config config) {
-        this.accountView = accountView;
+    public WindowController(ScanService scanService, BrowserController browserController, Config config, AccountCreator accountCreator, AccountPathService accountPathService) {
+        this.scanService = scanService;
         this.browserController = browserController;
         this.config = config;
+        this.accountCreator = accountCreator;
+        this.accountPathService = accountPathService;                
     }
 
     public void hideMain() {
@@ -29,35 +34,17 @@ public class WindowController {
         WindowManager.getDefault().getMainWindow().setVisible(true);
     }
 
-    public void showNewAccount() {
+    public void showNewAccount() {        
+        AccountView accountView = new AccountView(scanService, config, accountCreator, null, accountPathService);
         accountView.setVisible(true);
-
     }
 
     public void openMediaLounge() {
-        String url = getMediaLoungeUrl();
+        String url = accountPathService.getMediaLoungeUrl();
         browserController.openUrl(url);
     }
 
     public void showRemoteBrowser() {
         throw new UnsupportedOperationException("Not yet implemented");
-    }
-
-    private String getMediaLoungeUrl() {
-        for (Repo r : config.getAllRepos()) {
-            if (r instanceof DavRepo) {
-                DavRepo dr = (DavRepo) r;
-                return getMediaLoungeUrl(dr);
-            }
-        }
-        return null;
-    }
-
-    private String getMediaLoungeUrl(DavRepo dr) {
-        return "http://" + dr.getHostName() + "/" + getMediaLoungePath(dr.getUser());
-    }
-
-    public String getMediaLoungePath(String user) {
-        return config.getSites() + "/" + user + "/";
-    }
+    }   
 }

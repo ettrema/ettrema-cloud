@@ -1,12 +1,8 @@
 package com.ettrema.cloudsync.account;
 
+import com.ettrema.backup.config.AccountPathService;
 import com.ettrema.backup.config.Config;
-import com.ettrema.cloudsync.view.WindowController;
-import com.ettrema.httpclient.Host;
-import com.ettrema.httpclient.HttpException;
-import com.ettrema.httpclient.NotFoundException;
-import com.ettrema.httpclient.ProxyDetails;
-import com.ettrema.httpclient.Unauthorized;
+import com.ettrema.httpclient.*;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
@@ -31,11 +27,11 @@ public class AccountCreator {
     private static final Logger log = LoggerFactory.getLogger(AccountCreator.class);
     private static Pattern p = Pattern.compile("[a-z][a-z0-9/./-]*");
     private final Config config;
-    private final WindowController windowController;
+    private final AccountPathService accountPathService;
 
-    public AccountCreator(Config config, WindowController windowController) {
+    public AccountCreator(Config config, AccountPathService accountPathService) {
         this.config = config;
-        this.windowController = windowController;
+        this.accountPathService = accountPathService;
     }
 
     public String getBaseDomain() {
@@ -117,7 +113,7 @@ public class AccountCreator {
         log.trace("checkExists: " + accountName + " on server: " + hostName);
 
         Host host = new Host(hostName, getPort(), null, null, proxyDetails);
-        String accountPath = windowController.getMediaLoungePath(accountName);
+        String accountPath = accountPathService.getMediaLoungePath(accountName);
         System.out.println("accountPath: " + accountPath);
         try {
             host.options(accountPath);

@@ -1,37 +1,24 @@
 package com.ettrema.backup;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import static com.ettrema.backup.BackupApplication._;
 import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.engine.FileSyncer;
 import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.event.QueueItemEvent;
+import com.ettrema.backup.event.QueueProcessEvent;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.observer.Observer;
+import com.ettrema.backup.queue.QueueManager;
 import com.ettrema.backup.view.SummaryDetails;
 import com.ettrema.event.Event;
 import com.ettrema.event.EventListener;
 import com.ettrema.event.EventManager;
-import java.awt.AWTException;
-import java.awt.CheckboxMenuItem;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.ettrema.backup.BackupApplication._;
 
 /**
  *
@@ -40,6 +27,7 @@ import static com.ettrema.backup.BackupApplication._;
 public class TrayController implements Observer<Config, Object> {
 
     private static final Logger log = LoggerFactory.getLogger(TrayController.class);
+    private final QueueManager queueManager;
     private final ScanService scanService;
     private final BackupApplication app;
     private final Config config;
@@ -57,7 +45,8 @@ public class TrayController implements Observer<Config, Object> {
     private MenuItem exitItem;
     private Image current;
 
-    public TrayController(ScanService scanService, BackupApplication app, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
+    public TrayController(QueueManager queueManager, ScanService scanService, BackupApplication app, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
+        this.queueManager = queueManager;
         this.scanService = scanService;
         this.app = app;
         this.config = config;
@@ -68,6 +57,7 @@ public class TrayController implements Observer<Config, Object> {
         TrayControllerEventListener tcel = new TrayControllerEventListener();
         eventManager.registerEventListener(tcel, QueueItemEvent.class);
         eventManager.registerEventListener(tcel, RepoChangedEvent.class);
+        eventManager.registerEventListener(tcel, QueueProcessEvent.class);
 
         trayIconIdle = createImage("/logo16x16.png", "idle");
         trayIconUploading = createImage("/upload16x16.png", "idle");
@@ -229,35 +219,34 @@ public class TrayController implements Observer<Config, Object> {
         }
     }
 
-    public void checkState() {
-        //System.out.println("checkState");
+    public void checkState() {        
         // update status
         // status: scanning, uploading, downloading, offline, otherwise null
         if (!summaryDetails.isAllOk()) {
+            System.out.println("checkState: offline --------------------------------");
             setOffline();
         } else if (isUploading()) {
+            System.out.println("checkState: uploading --------------------------------");
             setUploading();
         } else if (isDownloading()) {
+            System.out.println("checkState: downloading --------------------------------");
             setDownloading();
         } else if (isScanning()) {
+            System.out.println("checkState: scanning --------------------------------");
             setScanning();
         } else {
+            System.out.println("checkState: idle --------------------------------");
             setIdle();
         }
 
     }
 
     private boolean isUploading() {
-        for (Repo r : config.getAllRepos()) {
-            if (!r.getQueue().isEmpty()) {
-                return true;
-            }
-        }
-        return false;
+        return queueManager.isInProgress(QueueManager.TransferDirection.UPLOAD);
     }
 
     private boolean isDownloading() {
-        return false; // todo
+        return queueManager.isInProgress(QueueManager.TransferDirection.DOWNLOAD);
     }
 
     private void setOffline() {

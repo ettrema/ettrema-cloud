@@ -1,45 +1,33 @@
 package com.ettrema.cloudsync.view;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import com.ettrema.backup.config.Config;
-import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.engine.ScanService;
 import com.ettrema.backup.event.QueueItemEvent;
+import com.ettrema.backup.event.QueueProcessEvent;
 import com.ettrema.backup.event.RepoChangedEvent;
 import com.ettrema.backup.observer.Observer;
-import com.ettrema.cloudsync.ModuleFactory;
+import com.ettrema.backup.queue.QueueManager;
+import com.ettrema.common.LogUtils;
 import com.ettrema.event.Event;
 import com.ettrema.event.EventListener;
 import com.ettrema.event.EventManager;
-import java.awt.AWTException;
-import java.awt.CheckboxMenuItem;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
-import java.awt.SystemTray;
-import java.awt.TrayIcon;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
+import org.openide.LifecycleManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static com.ettrema.cloudsync.ModuleFactory._;
-import org.openide.LifecycleManager;
 
 /**
  *
  * @author brad
  */
-public class TrayController implements Observer<Config, Object> {
+public class TrayController {
 
     private static final Logger log = LoggerFactory.getLogger(TrayController.class);
+    private final QueueManager queueManager;
     private final ScanService scanService;
     private final WindowController windowController;
     private final Config config;
@@ -57,17 +45,19 @@ public class TrayController implements Observer<Config, Object> {
     private MenuItem exitItem;
     private Image current;
 
-    public TrayController(ScanService scanService, WindowController windowController, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
+    public TrayController(QueueManager queueManager, ScanService scanService, WindowController windowController, Config config, EventManager eventManager, SummaryDetails summaryDetails) {
+        this.queueManager = queueManager;
         this.scanService = scanService;
         this.windowController = windowController;
         this.config = config;
         this.summaryDetails = summaryDetails;
 
-        config.addObserver(this);
+        config.addObserver(new TrayControllerObserver());
 
         TrayControllerEventListener tcel = new TrayControllerEventListener();
         eventManager.registerEventListener(tcel, QueueItemEvent.class);
         eventManager.registerEventListener(tcel, RepoChangedEvent.class);
+        eventManager.registerEventListener(tcel, QueueProcessEvent.class);
 
         trayIconIdle = createImage("/com/ettrema/cloudsync/logo16x16.png", "idle");
         trayIconUploading = createImage("/com/ettrema/cloudsync/upload16x16.png", "idle");
@@ -133,15 +123,19 @@ public class TrayController implements Observer<Config, Object> {
                     windowController.showMain();
                 }
 
+                @Override
                 public void mousePressed(MouseEvent e) {
                 }
 
+                @Override
                 public void mouseReleased(MouseEvent e) {
                 }
 
+                @Override
                 public void mouseEntered(MouseEvent e) {
                 }
 
+                @Override
                 public void mouseExited(MouseEvent e) {
                 }
             });
@@ -217,55 +211,61 @@ public class TrayController implements Observer<Config, Object> {
         }
     }
 
-    public void onAdded(Config t, Object parent) {
-    }
+    private class TrayControllerObserver implements Observer<Config, Object> {
 
-    public void onRemoved(Config t, Object parent, Integer indexOf) {
-    }
+        @Override
+        public void onAdded(Config t, Object parent) {
+        }
 
-    public void onUpdated(Config t, Object parent) {
-        final boolean command = config.isPaused();
-        boolean displayed = paused.getState();
-        if (command != displayed) {
-            SwingUtilities.invokeLater(new Runnable() {
+        @Override
+        public void onRemoved(Config t, Object parent, Integer indexOf) {
+        }
 
-                public void run() {
-                    System.out.println("TrayController-setstate");
-                    paused.setState(command);
-                }
-            });
+        @Override
+        public void onUpdated(Config t, Object parent) {
+            final boolean command = config.isPaused();
+            boolean displayed = paused.getState();
+            if (command != displayed) {
+                SwingUtilities.invokeLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        System.out.println("TrayController-setstate");
+                        paused.setState(command);
+                    }
+                });
+            }
         }
     }
 
     public void checkState() {
-        //System.out.println("checkState");
         // update status
         // status: scanning, uploading, downloading, offline, otherwise null
         if (!summaryDetails.isAllOk()) {
+            System.out.println("checkState: offline --------------------------------");
             setOffline();
         } else if (isUploading()) {
+            System.out.println("checkState: uploading --------------------------------");
             setUploading();
         } else if (isDownloading()) {
+            System.out.println("checkState: downloading --------------------------------");
             setDownloading();
         } else if (isScanning()) {
+            System.out.println("checkState: scanning --------------------------------");
             setScanning();
         } else {
+            System.out.println("checkState: idle --------------------------------");
             setIdle();
         }
 
     }
 
     private boolean isUploading() {
-        for (Repo r : config.getAllRepos()) {
-            if (!r.getQueue().isEmpty()) {
-                return true;
-            }
-        }
-        return false;
+        return queueManager.isInProgress(QueueManager.TransferDirection.UPLOAD);
     }
 
     private boolean isDownloading() {
-        return false; // todo
+        return queueManager.isInProgress(QueueManager.TransferDirection.DOWNLOAD);
     }
 
     private void setOffline() {
@@ -303,10 +303,6 @@ public class TrayController implements Observer<Config, Object> {
         return scanService.isScanning();
     }
 
-    private boolean isPaused() {
-        return summaryDetails.isPaused();
-    }
-
     private void setScanning() {
         if (trayIcon.getImage() == trayIconScanning) {
             return;
@@ -320,7 +316,7 @@ public class TrayController implements Observer<Config, Object> {
 
             @Override
             public void run() {
-                System.out.println("TrayController: seticon");
+                LogUtils.trace(log, "TrayController: setImage", image);
                 trayIcon.setImage(image);
             }
         });

@@ -1,17 +1,13 @@
 package com.ettrema.backup.queue;
 
-import com.ettrema.backup.config.DavRepo;
-import com.ettrema.backup.config.FileMeta;
-import com.ettrema.backup.config.Job;
-import com.ettrema.backup.config.Queue;
-import com.ettrema.backup.config.QueueItem;
-import com.ettrema.backup.config.Repo;
-import com.ettrema.backup.config.Root;
+import com.ettrema.backup.config.*;
 import com.ettrema.backup.event.QueueItemEvent;
 import com.ettrema.backup.utils.EventUtils;
+import com.ettrema.common.LogUtils;
 import com.ettrema.event.EventManager;
-import com.ettrema.httpclient.Folder;
 import java.io.File;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -19,7 +15,7 @@ import java.io.File;
  */
 public class QueueInserter {
 
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(QueueInserter.class);
+    private static final Logger log = LoggerFactory.getLogger(QueueInserter.class);
     private final EventManager eventManager;
 
     public QueueInserter(EventManager eventManager) {
@@ -113,6 +109,7 @@ public class QueueInserter {
 
     private void enqueue(Queue queue, QueueItem item) {
         queue.addItem(item);
+        LogUtils.trace(log, "enqueue: size:", queue.size());
         EventUtils.fireQuietly(eventManager, new QueueItemEvent(queue, item, false));
     }
 

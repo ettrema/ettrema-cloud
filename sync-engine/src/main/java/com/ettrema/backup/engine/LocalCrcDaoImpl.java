@@ -9,11 +9,7 @@ import com.ettrema.db.UseConnection;
 import com.ettrema.db.dialects.Dialect;
 import com.ettrema.db.types.FieldTypes;
 import java.io.File;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -206,7 +202,7 @@ public class LocalCrcDaoImpl {
                 ResultSet rs = stmt.executeQuery();
                 try {
                     if (rs.next()) {
-                        long crc = rs.getLong(CRC_CACHE.crc.getName());
+                        Long crc = CRC_CACHE.crc.get(rs);
                         return crc;
                     } else {
                         return null;
@@ -278,9 +274,9 @@ public class LocalCrcDaoImpl {
 
     public static class CrcCacheTable extends com.ettrema.db.Table {
 
-        public final Field path = add("path", FieldTypes.CHARACTER_VARYING, false);
-        public final Field crc = add("crc", FieldTypes.LONG, false); // the last backed up crc of this local file
-        public final Field date = add("date_modified", FieldTypes.TIMESTAMP, false); // the date/time which the file was backed up, or that it was first discoverd assert having been backed up;
+        public final Field<String> path = add("path", FieldTypes.CHARACTER_VARYING, false);
+        public final Field<Long> crc = add("crc", FieldTypes.LONG, false); // the last backed up crc of this local file
+        public final Field<java.sql.Timestamp> date = add("date_modified", FieldTypes.TIMESTAMP, false); // the date/time which the file was backed up, or that it was first discoverd assert having been backed up;
 
         public CrcCacheTable() {
             super("crc_cache");
