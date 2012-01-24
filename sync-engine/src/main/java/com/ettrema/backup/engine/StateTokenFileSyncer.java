@@ -5,6 +5,7 @@ import com.ettrema.backup.config.Job;
 import com.ettrema.backup.config.Root;
 import com.ettrema.common.LogUtils;
 import java.io.File;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -239,6 +240,7 @@ public class StateTokenFileSyncer implements FileSyncer {
         StateToken token = findToken(tokens, child);
         if (token == null) {
             token = new StateToken(child.getAbsolutePath());
+			List<StateToken> thisDirTokens = Collections.EMPTY_LIST; // Note that if it contains files they will be found and the folder's crc updated
             long crc = crcCalculator.getLocalCrcForDirectory(thisDirTokens);
             token.currentCrc = crc;
             token.currentTime = child.lastModified();
