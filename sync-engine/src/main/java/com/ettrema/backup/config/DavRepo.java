@@ -1,6 +1,10 @@
 package com.ettrema.backup.config;
 
 import com.bradmcevoy.common.Path;
+import com.bradmcevoy.http.exceptions.BadRequestException;
+import com.bradmcevoy.http.exceptions.ConflictException;
+import com.bradmcevoy.http.exceptions.NotAuthorizedException;
+import com.bradmcevoy.http.exceptions.NotFoundException;
 import com.bradmcevoy.utils.FileUtils;
 import static com.ettrema.backup.engine.Services._;
 import com.ettrema.backup.engine.*;
@@ -14,6 +18,7 @@ import com.ettrema.common.Withee;
 import com.ettrema.httpclient.*;
 import com.ettrema.httpclient.Utils.CancelledException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,9 +69,9 @@ public class DavRepo implements Repo {
         }
         return id;
     }
-    
+
     public void flushCache() {
-        if( h != null ) {
+        if (h != null) {
             try {
                 h.flush();
             } catch (IOException ex) {
@@ -80,6 +85,12 @@ public class DavRepo implements Repo {
             Resource r = host().find(path, false);
             setOffline(false);
             return r;
+        } catch (NotAuthorizedException ex) {
+            setOffline(true);
+            throw new RepoNotAvailableException(ex);
+        } catch (BadRequestException ex) {
+            setOffline(true);
+            throw new RepoNotAvailableException(ex);
         } catch (IOException ex) {
             setOffline(true);
             throw new RepoNotAvailableException(ex);
@@ -88,8 +99,7 @@ public class DavRepo implements Repo {
             throw new RepoNotAvailableException(ex);
         }
     }
-    
-    
+
     public Host host() throws RepoNotAvailableException {
         return host(false);
     }
@@ -151,6 +161,20 @@ public class DavRepo implements Repo {
                 EventUtils.fireQuietly(new RepoChangedEvent(this));
             }
             host.flush();
+        } catch (NotAuthorizedException ex) {
+            log.error("exception in scan", ex);
+            if (!state.offline) {
+                setOffline(true);
+                log.trace("repo status changed, now offline");
+                EventUtils.fireQuietly(new RepoChangedEvent(this));
+            }
+        } catch (BadRequestException ex) {
+            log.error("exception in scan", ex);
+            if (!state.offline) {
+                setOffline(true);
+                log.trace("repo status changed, now offline");
+                EventUtils.fireQuietly(new RepoChangedEvent(this));
+            }
         } catch (HttpException ex) {
             log.error("exception in scan", ex);
             if (!state.offline) {
@@ -228,8 +252,6 @@ public class DavRepo implements Repo {
 
                 withee.with(meta);
             }
-        } catch (com.ettrema.httpclient.Unauthorized e) {
-            throw new RepoNotAvailableException(e);
         } catch (HttpException e) {
             throw new RepoNotAvailableException(e);
         } catch (IOException e) {
@@ -267,12 +289,14 @@ public class DavRepo implements Repo {
                 }
                 return meta;
             }
-        } catch (com.ettrema.httpclient.Unauthorized e) {
+        } catch (NotAuthorizedException e) {
             throw new RepoNotAvailableException(e);
         } catch (HttpException e) {
             throw new RepoNotAvailableException(e);
         } catch (IOException e) {
             throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
+            throw new RepoNotAvailableException(ex);
         }
     }
 
@@ -290,7 +314,7 @@ public class DavRepo implements Repo {
                         List<FileMeta> list = new ArrayList<FileMeta>();
                         for (Resource fChild : children) {
                             FileMeta meta = new DavFileMeta(fChild);
-                            
+
                             list.add(meta);
                         }
                         return list;
@@ -311,6 +335,10 @@ public class DavRepo implements Repo {
             throw new RepoNotAvailableException(e);
         } catch (IOException e) {
             throw new RepoNotAvailableException(e);
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
+            throw new RepoNotAvailableException(ex);
         }
     }
 
@@ -333,7 +361,10 @@ public class DavRepo implements Repo {
             throw new RepoNotAvailableException(e);
         } catch (IOException ex) {
             throw new RepoNotAvailableException(ex);
-        }
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
+            throw new RepoNotAvailableException(ex);        }
         if (remote == null) {
             log.debug("remote file does not exist");
             return false;
@@ -378,7 +409,7 @@ public class DavRepo implements Repo {
             }
             if (remote instanceof com.ettrema.httpclient.File) {
                 com.ettrema.httpclient.File fRemote = (com.ettrema.httpclient.File) remote;
-                if( copyLocallyByCrc(remote.getCrc(), dest)) {
+                if (copyLocallyByCrc(remote.getCrc(), dest)) {
                     LogUtils.trace(log, "download: copied local file with same crc");
                 } else {
                     fRemote.downloadToFile(dest, listener);
@@ -389,6 +420,10 @@ public class DavRepo implements Repo {
         } catch (HttpException e) {
             throw new RepoNotAvailableException(e);
         } catch (IOException ex) {
+            throw new RepoNotAvailableException(ex);
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
             throw new RepoNotAvailableException(ex);
         }
     }
@@ -441,11 +476,21 @@ public class DavRepo implements Repo {
                 state.backedupSinceLastScanBytes = file.length();
             }
             log.trace("backedupSinceLastScanBytes: " + state.backedupSinceLastScanBytes + " newBytes: " + newBytes);
+        } catch (ConflictException ex) {
+            throw new PermanentUploadException(ex);
+        } catch (FileNotFoundException ex) {
+            throw new PermanentUploadException(ex);
+        } catch (NotFoundException ex) {
+            throw new PermanentUploadException(ex);
         } catch (HttpException e) {
             log.warn("http exception uploading: " + file.getAbsolutePath(), e);
             throw new RepoNotAvailableException(e);
         } catch (IOException ex) {
             System.out.println("davRepo: ioeex");
+            throw new RepoNotAvailableException(ex);
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
             throw new RepoNotAvailableException(ex);
         }
         log.trace("finished upload");
@@ -494,6 +539,14 @@ public class DavRepo implements Repo {
             throw new RepoNotAvailableException(e);
         } catch (IOException ex) {
             throw new RepoNotAvailableException(ex);
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException ex) {
+            throw new RepoNotAvailableException(ex);
+        } catch (ConflictException ex) {
+            throw new PermanentUploadException(ex);
+        } catch (NotFoundException ex) {
+            throw new PermanentUploadException(ex);
         }
     }
 
@@ -560,6 +613,14 @@ public class DavRepo implements Repo {
                             return null;
                         }
                     }
+                } catch (NotFoundException ex) {
+                    throw new RepoNotAvailableException(ex);
+                } catch (ConflictException ex) {
+                    throw new RepoNotAvailableException(ex);
+                } catch (NotAuthorizedException ex) {
+                    throw new RepoNotAvailableException(ex);
+                } catch (BadRequestException ex) {
+                    throw new RepoNotAvailableException(ex);
                 } catch (HttpException e) {
                     throw new RepoNotAvailableException(e);
                 } catch (IOException ex) {
@@ -839,6 +900,10 @@ public class DavRepo implements Repo {
                 Folder f = (Folder) remote;
                 f.flush();
             }
+        } catch (NotAuthorizedException e) {
+            throw new RepoNotAvailableException(e);
+        } catch (BadRequestException e) {
+            throw new RepoNotAvailableException(e);
         } catch (HttpException e) {
             throw new RepoNotAvailableException(e);
         } catch (IOException e) {
@@ -901,23 +966,23 @@ public class DavRepo implements Repo {
     }
 
     /**
-     * Attempt to locate a local file with the same CRC as the one being downloaded.
-     * If found copy it to the dest file instead of downloading
-     * 
+     * Attempt to locate a local file with the same CRC as the one being
+     * downloaded. If found copy it to the dest file instead of downloading
+     *
      * @param remote
      * @param dest
      * @return true if the file was copied, otherwise false
      */
     private boolean copyLocallyByCrc(Long crc, File dest) {
-        if( crc == null ) {
+        if (crc == null) {
             return false;
         } else {
             List<StateToken> list = _(StateTokenDaoImpl.class).findByCrc(crc);
-            if( list.isEmpty()) {
+            if (list.isEmpty()) {
                 return false;
             } else {
-                for(StateToken token : list) {
-                    if( token.isCurrentlyValid()) {
+                for (StateToken token : list) {
+                    if (token.isCurrentlyValid()) {
                         // copy this one
                         File source = new File(token.filePath);
                         FileUtils.copy(source, dest);

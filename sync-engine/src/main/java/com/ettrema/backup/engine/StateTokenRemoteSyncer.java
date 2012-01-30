@@ -1,5 +1,7 @@
 package com.ettrema.backup.engine;
 
+import com.bradmcevoy.http.exceptions.BadRequestException;
+import com.bradmcevoy.http.exceptions.NotAuthorizedException;
 import com.ettrema.backup.config.*;
 import com.ettrema.common.LogUtils;
 import com.ettrema.httpclient.Folder;
@@ -8,7 +10,6 @@ import com.ettrema.httpclient.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,7 +104,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
      * @return - false indicates the comparison has been aborted
      * @throws RepoNotAvailableException
      */
-    private boolean compareFolder(DavRepo repo, Folder remoteFolder, File dir) throws RepoNotAvailableException {
+    private boolean compareFolder(DavRepo repo, Folder remoteFolder, File dir) throws RepoNotAvailableException, NotAuthorizedException {
         if (!stateTokenFileSyncer.isUptodate()) {
             log.info("aborting sync check because file syncer is not up to date");
             return false;
@@ -137,6 +138,8 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                     throw new RepoNotAvailableException(ex);
                 } catch (HttpException ex) {
                     throw new RepoNotAvailableException(ex);
+                } catch (BadRequestException ex) {
+                    throw new RepoNotAvailableException(ex);
                 }
             } else {
                 // Identical, nothing to do
@@ -146,7 +149,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         return true;
     }
 
-    private void compareChildren(DavRepo repo, Folder remoteFolder, File dir) throws IOException, HttpException, RepoNotAvailableException {
+    private void compareChildren(DavRepo repo, Folder remoteFolder, File dir) throws IOException, HttpException, RepoNotAvailableException, NotAuthorizedException, BadRequestException {
         LogUtils.trace(log, "compareChildren", remoteFolder.encodedUrl(), dir.getAbsolutePath());
         List<? extends Resource> remoteChildren = remoteFolder.children();
         File[] localChildren = dir.listFiles();

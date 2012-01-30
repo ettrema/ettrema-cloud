@@ -1,5 +1,7 @@
 package com.ettrema.backup.config;
 
+import com.bradmcevoy.http.exceptions.BadRequestException;
+import com.bradmcevoy.http.exceptions.NotAuthorizedException;
 import com.ettrema.httpclient.Folder;
 import com.ettrema.httpclient.HttpException;
 import com.ettrema.httpclient.Resource;
@@ -7,8 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -78,6 +78,10 @@ public class DavFileMeta implements FileMeta {
                     list.add(new DavFileMeta(r));
                 }
                 return list;
+            } catch (NotAuthorizedException ex) {
+                throw new RepoNotAvailableException(ex);
+            } catch (BadRequestException ex) {
+                throw new RepoNotAvailableException(ex);
             } catch (IOException ex) {
                 throw new RepoNotAvailableException(ex);
             } catch (HttpException ex) {

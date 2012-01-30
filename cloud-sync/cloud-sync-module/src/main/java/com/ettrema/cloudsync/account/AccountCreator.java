@@ -1,5 +1,7 @@
 package com.ettrema.cloudsync.account;
 
+import com.bradmcevoy.http.exceptions.NotAuthorizedException;
+import com.bradmcevoy.http.exceptions.NotFoundException;
 import com.ettrema.backup.config.AccountPathService;
 import com.ettrema.backup.config.Config;
 import com.ettrema.httpclient.*;
@@ -58,7 +60,7 @@ public class AccountCreator {
         String jsonTxt;
         try {
             jsonTxt = host.post("index.html/create", params);
-        } catch (HttpException ex) {
+        } catch (Exception ex) {
             log.error("Failed to connect to the website", ex);
             JOptionPane.showMessageDialog(component, "Couldnt connect to the website", "Connect failed", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -128,7 +130,7 @@ public class AccountCreator {
         } catch (NotFoundException e) {
             log.trace("not found, does not exist", e);
             return false;
-        } catch (Unauthorized e) {
+        } catch (NotAuthorizedException e) {
             log.trace("not authorised, so does exist", e);
             return true;
         } catch (IOException ex) {

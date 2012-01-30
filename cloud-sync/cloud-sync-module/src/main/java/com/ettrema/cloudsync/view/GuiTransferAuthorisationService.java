@@ -1,5 +1,7 @@
 package com.ettrema.cloudsync.view;
 
+import com.bradmcevoy.http.exceptions.BadRequestException;
+import com.bradmcevoy.http.exceptions.NotAuthorizedException;
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.DavRepo;
 import com.ettrema.backup.config.Repo;
@@ -7,6 +9,7 @@ import com.ettrema.backup.engine.TransferAuthorisationService;
 import com.ettrema.backup.queue.QueueInserter;
 import com.ettrema.backup.utils.PathMunger;
 import com.ettrema.httpclient.Folder;
+import com.ettrema.httpclient.GenericHttpException;
 import com.ettrema.httpclient.HttpException;
 import com.ettrema.httpclient.Resource;
 import java.io.File;
@@ -32,7 +35,14 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
 
     @Override
     public void requestDownload(DavRepo repo, Resource remote) throws IOException, HttpException {
-        Long bytesToDownload = calcBytesToDownload(remote);
+        Long bytesToDownload;
+        try {
+            bytesToDownload = calcBytesToDownload(remote);
+        } catch (NotAuthorizedException ex) {
+            throw new GenericHttpException(remote.encodedUrl(), ex);
+        } catch (BadRequestException ex) {
+            throw new GenericHttpException(remote.encodedUrl(), ex);
+        }
         String sPath = pathMunger.findFileFromUrl(config.getAllRoots(), remote.encodedUrl(), File.separator);
         File local = new File(sPath);
         queueInserter.enqueueDownload(repo, local, bytesToDownload);
@@ -62,7 +72,7 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
         queueInserter.enqueueLocalDelete(local);
     }
 
-    private Long calcBytesToDownload(Resource remote) throws IOException, HttpException {
+    private Long calcBytesToDownload(Resource remote) throws IOException, HttpException, NotAuthorizedException, BadRequestException {
         if (remote instanceof Folder) {
             Folder remoteFolder = (Folder) remote;
             return calcBytesToDownload(remoteFolder);
@@ -76,7 +86,7 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
         return remoteFile.contentLength;
     }
 
-    private Long calcBytesToDownload(Folder remoteFolder) throws IOException, HttpException {
+    private Long calcBytesToDownload(Folder remoteFolder) throws IOException, HttpException, NotAuthorizedException, BadRequestException {
         long l = 0;
         for (Resource r : remoteFolder.children()) {
             l += calcBytesToDownload(r);
