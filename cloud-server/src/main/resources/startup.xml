@@ -32,17 +32,16 @@
                 <ref bean="endrick.stop.service" />
 
                 <ref bean="thumb.generator.service"/>
+                <ref bean="retrying.mail.sender"/>                
                 <ref bean="mail.server.service"/>
 
                 <ref bean="asynch.proc"/>
                 <ref bean="queue.proc"/>
 				
-				<!-- Only for DEV!! -->
-				<ref bean="synch.file.watcher"/>
-
-                <!-- Initial server setup, then remove -->
                 <ref bean="default.host.creator"/>
                 <ref bean="default.user.creator"/>
+                
+                <ref bean="sync.sysproperty.file.watcher.factory"/>                
             </list>
         </constructor-arg>
     </bean>

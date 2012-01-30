@@ -52,7 +52,11 @@
         <constructor-arg ref="existing.resource.factory"/>
     </bean>
 
-
+    <bean id="deploy.resource.factory" class="com.ettrema.web.manage.deploy.DeployResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="deployment.service"/>
+    </bean>
+    
     <bean id="edit.resource.factory" class="com.ettrema.web.EditResourceFactory">
         <constructor-arg ref="source.resource.factory"/>
         <constructor-arg ref="host.finder"/>
@@ -71,7 +75,9 @@
         <property name="modifiedDate" value="1/1/2000"/>
     </bean>
 	
-    <bean id="servlet.resource.factory" class="com.bradmcevoy.http.ServletResourceFactory" autowire="constructor" />
+    <bean id="servlet.resource.factory" class="com.bradmcevoy.http.ServletMappedPathResourceFactory" >
+        <property name="basePath" value="/static" />
+    </bean>
 
     <bean id="migration.helper" class="com.ettrema.migrate.MigrationHelper">
         <constructor-arg ref="code.resource.factory"/>
@@ -171,6 +177,7 @@
                 <ref local="mediafeed.resource.factory"/>
                 <ref local="ajax.resource.factory"/>
                 <ref local="code.resource.factory"/>
+                <ref local="deploy.resource.factory"/>                
             </list>
         </constructor-arg>
     </bean>
@@ -218,6 +225,7 @@
                 <value>/console</value>
             </list>
         </property>
+        <property name="enabled" value="true" />
     </bean>
 
     <bean id="milton.response.handler.compressing" class="com.bradmcevoy.http.CompressingResponseHandler">

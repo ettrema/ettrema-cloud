@@ -3,10 +3,10 @@ var userUrl = null;
 var userName = null;
 
 jQuery(function($) {
-	log("init the page");
+    log("init the page");
     initUser();
     initButtons();
-	initPageUploads();
+    initPageUploads();
 });
 
 function initButtons() {
@@ -107,8 +107,8 @@ function setAccountRejected(isDisabled, container) {
                 var newClass = isDisabled ? "disabled" : "enabled";
                 log('update state:', $("div", container), newClass);
                 $("div", container).attr("class",newClass);
-				alert("The account has been rejected and deleted");
-				window.location = "../";
+                alert("The account has been rejected and deleted");
+                window.location = "../";
             } else {
                 alert("The user could not be updated because: " + resp[0].description);
             }
@@ -121,17 +121,17 @@ function setAccountRejected(isDisabled, container) {
     });
 }
 function initPageUploads() {
-	log("init uploads");
-//	initAjaxUploads();
-	$('#fileDropContainer').dragUploadable(".", "picd", {
-		dragleaveClass: "dragleave",
-		dragenterClass: "dragenter",
-		dropListing: "#fileDropListing",
-		onUploaded: onUploaded
-	});
-	log("done multi uploads init");
+    log("init uploads");
+    //	initAjaxUploads();
+    $('#fileDropContainer').dragUploadable(".", "picd", {
+        dragleaveClass: "dragleave",
+        dragenterClass: "dragenter",
+        dropListing: "#fileDropListing",
+        onUploaded: onUploaded
+    });
+    log("done multi uploads init");
 }
 function onUploaded(file){
-	log("onUploaded", file);
-	// should reload files, but need ajax display
+    log("onUploaded", file);
+// should reload files, but need ajax display
 }

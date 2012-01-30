@@ -17,7 +17,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="notifier.email" class="com.ettrema.berry.admin.EmailNotifier">
-        <constructor-arg ref="mail.sender" />
+        <constructor-arg ref="${mail.sender}" />
         <constructor-arg value="brad@bradmcevoy.com" />
         <constructor-arg value="brad@bradmcevoy.com" />
     </bean>
@@ -33,6 +33,12 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg value="3000"/>
     </bean>
 
+    <bean id="zip.service" class="com.ettrema.web.manage.deploy.ZipService"/>
+    
+    <bean id="deployment.service" class="com.ettrema.web.manage.deploy.DeploymentService">
+        <constructor-arg ref="zip.service"/>
+        <constructor-arg ref="code.resource.factory"/>
+    </bean>
 
     <bean id="event.dispatcher" class="com.ettrema.event.ClydeEventDispatcherImpl"/>
 
@@ -154,18 +160,17 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <property name="contextLocator" ref="root.context.locator"/>
     </bean>
 
-<!-- host user password, port-->
-<!--
-    <bean id="mail.sender" class="com.ettrema.mail.send.RemoteSmtpMailSender">
-        <constructor-arg value="host goes here"/>
-        <constructor-arg value="user name here"/>
-        <constructor-arg value="password goes here"/>
-        <constructor-arg value="25"/>
+    <bean id="mail.sender.smtp" class="com.ettrema.mail.send.RemoteSmtpMailSender">
+        <constructor-arg value="${mail.smtp.host}"/>
+        <constructor-arg value="${mail.smtp.user}"/>
+        <constructor-arg value="${mail.smtp.password}"/>
+        <constructor-arg value="${mail.smtp.port}"/>
     </bean>
--->
 
-    <bean id="mail.sender" class="com.ettrema.mail.send.MockMailSender"></bean>
 
+    <bean id="mail.sender.mock" class="com.ettrema.mail.send.MockMailSender"></bean>
+    
+    <bean id="mail.sender.aspirin" class="com.ettrema.mail.send.AspirinMailSender"></bean>
 
     <bean id="mail.receiver.smtp" class="com.ettrema.mail.receive.SubethaSmtpServer">
         <constructor-arg value="25"/>
@@ -179,7 +184,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="mail.server" class="com.ettrema.mail.MailServer">
-        <constructor-arg ref="mail.sender"/>
+        <constructor-arg ref="${mail.sender}"/>
         <constructor-arg >
             <null/>
         </constructor-arg>
@@ -191,6 +196,10 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     
     <bean id="mail.server.service" class="com.ettrema.berry.GenericService">
         <constructor-arg ref="mail.server"/>
+    </bean>
+    
+    <bean id="retrying.mail.sender" class="com.ettrema.web.mail.RetryingMailService">
+        <constructor-arg ref="${mail.sender}" />
     </bean>
 
     <bean id="vfs.helper" class="com.ettrema.web.VfsHelper"/>
@@ -323,10 +332,11 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
     </bean>
 
     <bean id="endrick.catalog" class="com.ettrema.context.FactoryCatalog">
+        <!--
         <property name="configFile" value="applicationContext.xml"/>
+        -->
         <property name="factories">
             <list>
-                <bean class="com.ettrema.context.CtxRootFolderFactory"/>
                 <bean class="com.ettrema.context.date.CtxDateFormatFactory"/>
                 <ref bean="ctx.jdbc"/>
                 <bean class="com.ettrema.vfs.CtxVfsManagerFactory"/>
@@ -340,7 +350,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
                 </bean>
 
                 <bean class="com.ettrema.context.SingletonFactory">
-                    <property name="bean" ref="mail.sender"/>
+                    <property name="bean" ref="${mail.sender}"/>
                 </bean>
 
                 <bean class="com.ettrema.context.SingletonFactory">
@@ -396,7 +406,8 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
             </list>
         </property>
         <property name="singletons">
-            <list>	
+            <list>	            
+                <ref local="retrying.mail.sender"/>
                 <ref local="state.token.manager"/>
                 <ref bean="user.locator"/>
                 <ref bean="form.processor"/>
