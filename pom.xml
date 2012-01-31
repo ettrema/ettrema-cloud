@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <name>ettrema-cloud</name>
     <properties>
-        <clyde.version>2.0.1</clyde.version>
+        <clyde.version>2.0.2-SNAPSHOT</clyde.version>
         <milton.version>1.7.0</milton.version>
         <endrick.version>1.7.6</endrick.version>
         <berry.version>1.4</berry.version>
@@ -24,6 +24,17 @@
         <module>cloud-sync</module>
     </modules>
 
+    <distributionManagement>
+        <repository>
+            <id>ettrema-repo</id>
+            <url>http://www.ettrema.com/maven2</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>ettrema-repo</id>
+            <url>http://www.ettrema.com/maven2</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
