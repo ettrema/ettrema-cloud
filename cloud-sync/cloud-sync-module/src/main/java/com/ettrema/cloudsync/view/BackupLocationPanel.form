@@ -76,6 +76,9 @@
           <ResourceString bundle="com/ettrema/cloudsync/view/Bundle.properties" key="BackupLocationPanel.btnBrowse.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBrowseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnExclude">
       <Properties>
@@ -90,6 +93,9 @@
           <ResourceString bundle="com/ettrema/cloudsync/view/Bundle.properties" key="BackupLocationPanel.btnClear.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
