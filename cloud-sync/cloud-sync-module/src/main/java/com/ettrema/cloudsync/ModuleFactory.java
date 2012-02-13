@@ -114,8 +114,8 @@ public class ModuleFactory {
         fileWatcher = new FileWatcher(config, fileSyncer);
         RemotelyModifiedFileHandler remoteModHandler = new RemotelyModifiedFileHandler(config, crcCalculator, crcDao, conflictManager, fileChangeChecker, queueInserter, pathMunger);
         RemotelyMovedHandler remotelyMovedHandler = new RemotelyMovedHandler();
-        RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler();
-        List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, crcDao), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
+        RemotelyDeletedHandler remotelyDeletedHandler = new RemotelyDeletedHandler(fileSyncer);
+        List<QueueItemHandler> handlers = Arrays.asList(new NewFileHandler(crcCalculator, fileSyncer), new DeletedFileHandler(fileSyncer), new MovedHandler(), remoteModHandler, remotelyMovedHandler, remotelyDeletedHandler);
         queueManager = new QueueManager(config, historyDao, handlers, configurator);
         scanService = new ScanService(fileSyncer, exclusionsService, config, eventManager, remoteSyncers, queueManager);
         windowController = new WindowController(scanService, browserController, config, accountCreator, accountPathService);

@@ -68,8 +68,8 @@ public class GuiTransferAuthorisationService extends javax.swing.JDialog impleme
     }
 
     @Override
-    public void requestDeleteLocal(File local) {
-        queueInserter.enqueueLocalDelete(local);
+    public void requestDeleteLocal(DavRepo repo,File local) {
+        queueInserter.enqueueLocalDelete(local, repo);
     }
 
     private Long calcBytesToDownload(Resource remote) throws IOException, HttpException, NotAuthorizedException, BadRequestException {

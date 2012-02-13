@@ -2,6 +2,7 @@ package com.ettrema.backup.engine;
 
 import com.ettrema.backup.config.Config;
 import com.ettrema.backup.config.Job;
+import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.Root;
 import com.ettrema.common.LogUtils;
 import java.io.File;
@@ -291,5 +292,26 @@ public class StateTokenFileSyncer implements FileSyncer {
             }
         }
         return false;
+    }
+    
+    public synchronized void setLocalBackedupCrc(final File localFile, final Repo repo, final long crc) {
+        StateToken token = this.stateTokenDao.get(localFile);
+        if( token == null ) {
+            log.warn("Couldnt find token for file: " + localFile.getAbsolutePath());
+            return ;
+        }
+        token.backedupCrc = crc;
+        token.backedupTime = localFile.lastModified();
+        stateTokenDao.saveOrUpdate(token);
+                
+    }
+
+    public void deleteLocalCrc(File localFile) {
+        StateToken token = this.stateTokenDao.get(localFile);
+        if( token == null ) {
+            log.warn("Couldnt find token for file: " + localFile.getAbsolutePath());
+            return ;
+        }        
+        stateTokenDao.delete(token);
     }
 }

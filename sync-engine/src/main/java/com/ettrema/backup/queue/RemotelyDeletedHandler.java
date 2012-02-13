@@ -4,6 +4,7 @@ import com.ettrema.backup.config.PermanentUploadException;
 import com.ettrema.backup.config.QueueItem;
 import com.ettrema.backup.config.Repo;
 import com.ettrema.backup.config.RepoNotAvailableException;
+import com.ettrema.backup.engine.StateTokenFileSyncer;
 import java.io.File;
 import java.util.Date;
 
@@ -15,6 +16,14 @@ public class RemotelyDeletedHandler implements QueueItemHandler {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(RemotelyDeletedHandler.class);
 
+    private final StateTokenFileSyncer fileSyncer;
+
+    public RemotelyDeletedHandler(StateTokenFileSyncer fileSyncer) {
+        this.fileSyncer = fileSyncer;
+    }
+    
+    
+    
     @Override
     public boolean supports(QueueItem item) {
         return item instanceof RemotelyDeletedQueueItem;
@@ -38,6 +47,7 @@ public class RemotelyDeletedHandler implements QueueItemHandler {
                 log.trace("No local file/folder to delete, so will do nothing");
                 return;
             }
+            fileSyncer.deleteLocalCrc(fLocalFile);
             RemotelyModifiedFileHandler.moveToOldVersions(fLocalFile);
 
             remoteModItem.setNotes("Deleted: " + fLocalFile.getAbsolutePath());

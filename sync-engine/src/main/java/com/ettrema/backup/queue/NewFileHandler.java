@@ -2,7 +2,7 @@ package com.ettrema.backup.queue;
 
 import com.ettrema.backup.config.*;
 import com.ettrema.backup.engine.CrcCalculator;
-import com.ettrema.backup.engine.LocalCrcDaoImpl;
+import com.ettrema.backup.engine.StateTokenFileSyncer;
 import com.ettrema.logging.LogUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,11 +18,11 @@ public class NewFileHandler implements QueueItemHandler {
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(NewFileHandler.class);
     private final CrcCalculator crcCalculator;
-    private final LocalCrcDaoImpl localCrcDao;
+    private final StateTokenFileSyncer fileSyncer;
 
-    public NewFileHandler(CrcCalculator crcCalculator, LocalCrcDaoImpl localCrcDao) {
+    public NewFileHandler(CrcCalculator crcCalculator, StateTokenFileSyncer fileSyncer) {
         this.crcCalculator = crcCalculator;
-        this.localCrcDao = localCrcDao;
+        this.fileSyncer = fileSyncer;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class NewFileHandler implements QueueItemHandler {
 
         long crc = crcCalculator.getLocalCrc(f);
 
-        localCrcDao.setLocalBackedupCrc(f, r, crc);
+        fileSyncer.setLocalBackedupCrc(f, r, crc);
 
         //tm = System.currentTimeMillis() - tm;
         // String duration = TimeUtils.formatSecsAsTime(tm / 1000);

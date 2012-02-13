@@ -200,6 +200,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                 LogUtils.trace(log, "compareChildren: ignoring excluded remote file", r.href());
             }
         }
+        
         // Now look for local file which don't match against a remote resource, these will
         // either be uploaded or deleted locally
         if (localChildren != null) {
@@ -219,7 +220,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                             // we have a state token and it has been backed up previously, but is now not on server
                             // so check if crc has changed, which indicates local mods, otherwise delete local
                             LogUtils.trace(log, "compareChildren: found local resource which has a pristine backup, and no corresponding server resource. Delete local.", local.getAbsolutePath());
-                            transferAuthorisationService.requestDeleteLocal(local);
+                            transferAuthorisationService.requestDeleteLocal(repo, local);
                         }
                     }
                 }

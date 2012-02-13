@@ -43,7 +43,6 @@ public class LocalCrcDaoImpl {
 
             @Override
             public void onCreate(Table t, Connection con) {
-
             }
         };
         final TableCreatorService creatorService = new TableCreatorService(null, Arrays.asList(defs), dialect);
@@ -60,8 +59,8 @@ public class LocalCrcDaoImpl {
     }
 
     /**
-     * Check the current table for a cached CRC. If none present, or is out of date
-     * calculate a new CRC and persist it
+     * Check the current table for a cached CRC. If none present, or is out of
+     * date calculate a new CRC and persist it
      *
      * @param localFile
      * @return
@@ -78,8 +77,8 @@ public class LocalCrcDaoImpl {
     }
 
     /**
-     * Look in the versions table for an entry of this file backed up to
-     * the given repo.
+     * Look in the versions table for an entry of this file backed up to the
+     * given repo.
      *
      * If none found return null
      *
@@ -116,7 +115,7 @@ public class LocalCrcDaoImpl {
                         DateAndLong dl = new DateAndLong(date, crc);
                         String name = rs.getString(VERSION.name.getName());
                         map.put(name, dl);
-                    }                    
+                    }
                     return map;
                 } finally {
                     UseConnection.close(rs);
@@ -161,28 +160,17 @@ public class LocalCrcDaoImpl {
                 stmt.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
                 stmt.execute();
                 UseConnection.close(stmt);
-				
-				log.trace("Set local backed up crc: " + crc + " for: " + localFile.getAbsolutePath());
+
+                log.trace("Set local backed up crc: " + crc + " for: " + localFile.getAbsolutePath());
 
                 return null;
             }
         });
-		
-		cachedEntries = null; // flush cached entries
-		cachedDir = null;
+
+        cachedEntries = null; // flush cached entries
+        cachedDir = null;
     }
 
-    private void insertVersion(Connection con, File localFile, long crc, String repo, Timestamp date) throws SQLException {
-        final String insertSql = VERSION.getInsert();
-        PreparedStatement stmt = con.prepareStatement(insertSql);
-        stmt.setString(1, localFile.getParent());
-        stmt.setString(2, localFile.getName());
-        stmt.setLong(3, crc);
-        stmt.setString(4, repo);
-        stmt.setTimestamp(5, date);
-        stmt.execute();
-        UseConnection.close(stmt);
-    }
 
     private Long getCachedCrc(final File localFile, final Timestamp modDate) {
         long tm = System.currentTimeMillis();

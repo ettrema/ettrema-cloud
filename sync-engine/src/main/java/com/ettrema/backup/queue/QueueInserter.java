@@ -118,7 +118,9 @@ public class QueueInserter {
         enqueue(dr.getQueue(), item);
     }
 
-    public void enqueueLocalDelete(File localFile) {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public void enqueueLocalDelete(File localFile, Repo dr) {
+        RemotelyDeletedQueueItem deletedQueueItem = new RemotelyDeletedQueueItem(localFile);
+        enqueue(dr.getQueue(), deletedQueueItem);
+        
     }
 }

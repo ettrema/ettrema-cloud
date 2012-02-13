@@ -9,58 +9,55 @@ import java.io.File;
  */
 public class RemotelyDeletedQueueItem extends AbstractQueueItem {
 
-	private final File file;
-	private transient Repo repo;
+    private final File file;
 
-	public RemotelyDeletedQueueItem(File file, Repo repo) {
-		this.file = file;
-		this.repo = repo;
-	}
+    public RemotelyDeletedQueueItem(File file) {
+        this.file = file;
+    }
 
-	@Override
-	public String getActionDescription() {
-		return "delete local";
-	}
+    @Override
+    public String getActionDescription() {
+        return "delete local";
+    }
 
-	/**
-	 * @return the file
-	 */
-	@Override
-	public File getFile() {
-		return file;
-	}
+    /**
+     * @return the file
+     */
+    @Override
+    public File getFile() {
+        return file;
+    }
 
-	@Override
-	public String toString() {
-		return "Delete: " + file.getAbsolutePath();
-	}
+    @Override
+    public String toString() {
+        return "Delete: " + file.getAbsolutePath();
+    }
 
-	@Override
-	public long getLastModified() {
-		return this.file.lastModified();
-	}
+    @Override
+    public long getLastModified() {
+        return this.file.lastModified();
+    }
 
-	public Long getBytesToDownload() {
-		return 0l;
-	}
+    public Long getBytesToDownload() {
+        return 0l;
+    }
 
-	@Override
-	public long getBytesToUpload() {
-		return getBytesToDownload(); // mis-match of terminology
-	}
+    @Override
+    public long getBytesToUpload() {
+        return getBytesToDownload(); // mis-match of terminology
+    }
 
-	@Override
-	public String getFileName() {
-		return file.getName();
-	}
+    @Override
+    public String getFileName() {
+        return file.getName();
+    }
 
-	@Override
-	public void setProgressBytes(long bytes) {
-		
-	}
+    @Override
+    public void setProgressBytes(long bytes) {
+    }
 
-	@Override
-	public long getProgressBytes() {
-		return 0;
-	}
+    @Override
+    public long getProgressBytes() {
+        return 0;
+    }
 }

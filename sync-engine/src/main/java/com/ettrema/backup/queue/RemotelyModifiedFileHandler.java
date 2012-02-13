@@ -217,9 +217,10 @@ public class RemotelyModifiedFileHandler implements QueueItemHandler {
             }
 
             File dest = new File(oldVersions, f.getName());
+            String name = f.getName();
             while (dest.exists()) {
-                String destName = FileUtils.incrementFileName(f.getName(), true);
-                dest = new File(oldVersions, destName);
+                name = FileUtils.incrementFileName(name, false);
+                dest = new File(oldVersions, name);
             }
 
             if (!f.renameTo(dest)) {
