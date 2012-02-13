@@ -42,7 +42,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="userPanel" pref="579" max="32767" attributes="0"/>
                       <Component id="jSeparator1" max="32767" attributes="0"/>
-                      <Component id="backupLocations1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="backupLocations1" alignment="0" pref="575" max="32767" attributes="0"/>
                       <Component id="jSeparator2" alignment="0" pref="579" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="cmdCancel" min="-2" pref="147" max="-2" attributes="0"/>
@@ -65,7 +65,7 @@
                   <Component id="backupLocations1" min="-2" pref="165" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace pref="33" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cmdOk" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="cmdCancel" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>

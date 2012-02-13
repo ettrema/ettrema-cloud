@@ -8,6 +8,7 @@ import com.ettrema.cloudsync.account.AccountUtils.DirType;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.tree.TreePath;
@@ -25,7 +26,6 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     private List<File> excludedFolders;
     private AccountUtils.DirType dirType;
 
-
     public BackupLocationPanel() {
         this.parent = null;
         initComponents();
@@ -34,10 +34,11 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     public String getLocationText() {
         return lblName.getText();
     }
-    
+
     public void setLocationText(String s) {
         lblName.setText(s);
     }
+
     public DirType getDirType() {
         return dirType;
     }
@@ -45,15 +46,10 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     public void setDirType(DirType dirType) {
         this.dirType = dirType;
         File f = AccountUtils.getDefaultLocation(dirType);
-        if( f != null ) {
+        if (f != null) {
             txtFolder.setText(f.getAbsolutePath());
         }
     }
-    
-    
-    
-    
-    
 
     public void setDirectory(String s) {
         this.txtFolder.setText(s);
@@ -62,7 +58,6 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     public void setExcludedFolders(List<File> excludedFolders) {
         this.excludedFolders = excludedFolders;
     }
-    
 
     @Action
     public void browse() {
@@ -134,7 +129,6 @@ public class BackupLocationPanel extends javax.swing.JPanel {
     public void toggleEnabled() {
         txtFolder.setText("");
     }
-              
 
     public Root toRoot(String accountPath, Job job) {
         boolean en = txtFolder.getText().length() > 0;
@@ -152,7 +146,7 @@ public class BackupLocationPanel extends javax.swing.JPanel {
         } else {
             return null;
         }
-    }    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,10 +173,20 @@ public class BackupLocationPanel extends javax.swing.JPanel {
         txtFolder.setMaximumSize(new java.awt.Dimension(2147483647, 22));
 
         btnBrowse.setText(org.openide.util.NbBundle.getMessage(BackupLocationPanel.class, "BackupLocationPanel.btnBrowse.text")); // NOI18N
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseActionPerformed(evt);
+            }
+        });
 
         btnExclude.setText(org.openide.util.NbBundle.getMessage(BackupLocationPanel.class, "BackupLocationPanel.btnExclude.text")); // NOI18N
 
         btnClear.setText(org.openide.util.NbBundle.getMessage(BackupLocationPanel.class, "BackupLocationPanel.btnClear.text")); // NOI18N
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -210,6 +214,25 @@ public class BackupLocationPanel extends javax.swing.JPanel {
                 .addComponent(btnBrowse))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        this.txtFolder.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
+        JFileChooser fc;
+        if (isValidDirectory()) {
+            fc = new JFileChooser(this.getDirectory());
+        } else {
+            fc = new JFileChooser();
+        }
+        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int returnVal = fc.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            txtFolder.setText(file.getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnBrowseActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBrowse;
     private javax.swing.JButton btnClear;

@@ -40,8 +40,11 @@
 				
                 <ref bean="default.host.creator"/>
                 <ref bean="default.user.creator"/>
+                                
+                <ref bean="startup.deployment.service"/>                
                 
                 <ref bean="sync.sysproperty.file.watcher.factory"/>                
+                
             </list>
         </constructor-arg>
     </bean>
