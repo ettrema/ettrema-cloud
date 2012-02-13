@@ -8,12 +8,17 @@ import java.util.List;
  * @author brad
  */
 public class Job {
-    private final String id;
-    private final List<? extends Repo> repos;
-    private final List<Root> roots;
+    private String id;
+    private List<? extends Repo> repos;
+    private List<Root> roots;
 
     transient Config config;
 
+    public Job() {
+    }
+
+    
+    
     public Job( String id, List<? extends Repo> repos, List<Root> roots ) {
         this.id = id;
         this.repos = repos;

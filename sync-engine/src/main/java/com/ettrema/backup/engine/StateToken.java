@@ -26,7 +26,7 @@ public class StateToken implements Comparable<StateToken> {
     /**
      * The CRC of the file at the time it was last uploaded
      */
-    public Long backedupCrc;
+    private Long backedupCrc;
     /**
      * The time at which the file was uploaded
      */
@@ -66,5 +66,19 @@ public class StateToken implements Comparable<StateToken> {
                 return false;
             }
         }
+    }
+
+    /**
+     * @return the backedupCrc
+     */
+    public Long getBackedupCrc() {
+        return backedupCrc;
+    }
+
+    /**
+     * @param backedupCrc the backedupCrc to set
+     */
+    public void setBackedupCrc(Long backedupCrc) {
+        this.backedupCrc = backedupCrc;
     }
 }

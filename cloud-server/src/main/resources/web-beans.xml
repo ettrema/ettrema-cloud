@@ -209,10 +209,21 @@
         </property>
     </bean>
 
-    <bean id="standard.response.handler" class="com.bradmcevoy.http.webdav.DefaultWebDavResponseHandler">
+    <bean id="value.writers" class="com.bradmcevoy.http.values.ValueWriters"/>
+    
+    <bean id="http.response.handler" class="com.bradmcevoy.http.http11.DefaultHttp11ResponseHandler">
         <constructor-arg ref="milton.authentication.service"/>
-        <constructor-arg ref="resource.type.helper.caldav"/>
-        <property name="buffering" value="always"/>
+        <property name="buffering" value="whenNeeded"/> <!-- Only buffer output for generated content -->
+    </bean>
+    
+    <bean id="propfind.xml.generator" class="com.bradmcevoy.http.webdav.PropFindXmlGenerator">
+        <constructor-arg ref="value.writers"/>
+    </bean>    
+
+    <bean id="standard.response.handler" class="com.bradmcevoy.http.webdav.DefaultWebDavResponseHandler">
+        <constructor-arg ref="http.response.handler"/>
+        <constructor-arg ref="resource.type.helper.caldav"/>    
+        <constructor-arg ref="propfind.xml.generator"/>    
     </bean>
 
     <bean id="milton.response.handler" class="com.ettrema.web.error.LoginResponseHandler">

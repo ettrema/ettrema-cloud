@@ -87,7 +87,7 @@ public class StateTokenDaoImpl {
     private StateToken buildStateToken(ResultSet rs) throws SQLException {
         String path = TOKENS.parentPath.get(rs) + File.separator + TOKENS.name.get(rs);
         StateToken token = new StateToken(path);
-        token.backedupCrc = TOKENS.backedupCrc.get(rs);
+        token.setBackedupCrc(TOKENS.backedupCrc.get(rs));
         token.backedupTime = TOKENS.backedupDate.get(rs);
         token.currentCrc = TOKENS.currentCrc.get(rs);
         token.currentTime = TOKENS.currentModDate.get(rs);
@@ -115,7 +115,7 @@ public class StateTokenDaoImpl {
                 TOKENS.name.set(stmt, 2, f.getName());
                 TOKENS.currentCrc.set(stmt, 3, token.currentCrc);
                 TOKENS.currentModDate.set(stmt, 4, token.currentTime);
-                TOKENS.backedupCrc.set(stmt, 5, token.backedupCrc);
+                TOKENS.backedupCrc.set(stmt, 5, token.getBackedupCrc());
                 TOKENS.backedupDate.set(stmt, 6, token.backedupTime);
                 stmt.execute();
                 UseConnection.close(stmt);

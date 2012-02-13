@@ -15,7 +15,7 @@
         <script type="text/javascript" src="/templates/js/jquery.cookie.js" >//</script>
         <script type="text/javascript" src="/templates/js/jquery.lightbox-0.5.pack.js" >//</script>
         <script type="text/javascript" src="/static/templates/js/common.js" >//</script>
-        <script type="text/javascript" src="/static/templates/js/utils.js" >//</script>
+        <script type="text/javascript" src="/templates/js/utils.js" >//</script>
         <script type="text/javascript" src="/static/templates/js/share.js" >//</script>
         <script type="text/javascript" src="/static/templates/js/user.js" >//</script>
         <script type="text/javascript" src="/static/templates/js/file.js"  />

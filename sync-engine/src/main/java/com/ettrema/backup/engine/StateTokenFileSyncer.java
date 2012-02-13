@@ -186,7 +186,7 @@ public class StateTokenFileSyncer implements FileSyncer {
 
         // Now mark rows as removed for any items no longer present in the filesystem
         tokens = stateTokenDao.findForFolder(scanDir);
-        if (tokens != null) {
+        if (tokens != null && !tokens.isEmpty()) {
             for (StateToken t : tokens) {
                 File f = new File(t.filePath);
                 if (!f.exists()) {
@@ -300,7 +300,7 @@ public class StateTokenFileSyncer implements FileSyncer {
             log.warn("Couldnt find token for file: " + localFile.getAbsolutePath());
             return ;
         }
-        token.backedupCrc = crc;
+        token.setBackedupCrc((Long) crc);
         token.backedupTime = localFile.lastModified();
         stateTokenDao.saveOrUpdate(token);
                 

@@ -72,10 +72,10 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
 
         try {
             davRepo.flushCache();
-            try {                
+            try {
                 for (Root root : job.getRoots()) {
                     Resource remote = davRepo.find(root.getRepoName());
-                    davRepo.updateAccountInfo(remote);                    
+                    davRepo.updateAccountInfo(remote);
                     File dir = new File(root.getFullPath());
                     LogUtils.trace(log, "pingDavRepo: root:", dir.getAbsolutePath(), "crc:", remote.getCrc());
                     if (remote instanceof Folder) {
@@ -104,7 +104,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
      * @return - false indicates the comparison has been aborted
      * @throws RepoNotAvailableException
      */
-    private boolean compareFolder(DavRepo repo, Folder remoteFolder, File dir) throws RepoNotAvailableException, NotAuthorizedException {
+    private boolean compareFolder(DavRepo repo, Folder remoteFolder, File dir) throws RepoNotAvailableException, NotAuthorizedException, IOException, HttpException, BadRequestException {
         if (!stateTokenFileSyncer.isUptodate()) {
             log.info("aborting sync check because file syncer is not up to date");
             return false;
@@ -114,15 +114,19 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
             log.trace("No crc: " + remoteFolder.href());
             return true;
         }
-        StateToken token = stateTokenDao.get(dir);        
+        StateToken token = stateTokenDao.get(dir);
         if (token == null) {
-            log.info("New remote folder; " + remoteFolder.href() + " - local:" + dir.getAbsolutePath());
-            try {
-                transferAuthorisationService.requestDownload(repo, remoteFolder);
-            } catch (IOException ex) {
-                throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
-            } catch (HttpException ex) {
-                throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
+            if (remoteFolder.hasChildren()) {
+                log.info("New remote folder; " + remoteFolder.href() + " - local:" + dir.getAbsolutePath());
+                try {
+                    transferAuthorisationService.requestDownload(repo, remoteFolder);
+                } catch (IOException ex) {
+                    throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
+                } catch (HttpException ex) {
+                    throw new RepoNotAvailableException(remoteFolder.encodedUrl(), ex);
+                }
+            } else {
+                log.trace("ignore empty remote directory");
             }
         } else {
             if (!remoteFolder.getCrc().equals(token.currentCrc)) {
@@ -200,7 +204,7 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                 LogUtils.trace(log, "compareChildren: ignoring excluded remote file", r.href());
             }
         }
-        
+
         // Now look for local file which don't match against a remote resource, these will
         // either be uploaded or deleted locally
         if (localChildren != null) {
@@ -212,14 +216,14 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
                         // has either been added locally or removed remotely
                         // The stateToken will tell us if it has been added locally
                         StateToken token = stateTokenDao.get(local);
-                        if (token == null || token.backedupCrc == null) {
+                        if (token == null || token.getBackedupCrc() == null) {
                             // is added locally so upload
                             LogUtils.trace(log, "compareChildren: found local resource which has not been backed up, and no corresponding server resource. Upload", local.getAbsolutePath());
                             transferAuthorisationService.requestUpload(local);
                         } else {
                             // we have a state token and it has been backed up previously, but is now not on server
                             // so check if crc has changed, which indicates local mods, otherwise delete local
-                            LogUtils.trace(log, "compareChildren: found local resource which has a pristine backup, and no corresponding server resource. Delete local.", local.getAbsolutePath());
+                            LogUtils.trace(log, "compareChildren: found local resource which has a pristine backup, and no corresponding server resource. Delete local.", local.getAbsolutePath(), "backup crc", token.getBackedupCrc());
                             transferAuthorisationService.requestDeleteLocal(repo, local);
                         }
                     }
@@ -262,15 +266,15 @@ public class StateTokenRemoteSyncer implements RemoteSyncer {
         if (localCrc != remoteFile.getCrc().longValue()) {
             log.info("Different crc's: " + localFile.getAbsolutePath());
             if (token != null) {
-                if (token.backedupCrc == null) {
+                if (token.getBackedupCrc() == null) {
                     LogUtils.trace(log, "Local and remote CRC's differ. Local has never backed up. Conflict", localFile.getAbsolutePath(), remoteFile.encodedUrl());
                     transferAuthorisationService.resolveConflict(remoteFile, localFile);
-                } else if (token.backedupCrc == token.currentCrc) {
+                } else if (token.getBackedupCrc() == token.currentCrc) {
                     // local has been backed up, so can overwrite
                     LogUtils.trace(log, "CRC's differ. local has been backed up and is pristine, so can overwrite local. Download", localFile.getAbsolutePath());
                     transferAuthorisationService.requestDownload(repo, remoteFile);
                 } else {
-                    if (token.backedupCrc == remoteFile.getCrc()) {
+                    if (token.getBackedupCrc() == remoteFile.getCrc()) {
                         LogUtils.trace(log, "Local and remote CRC's differ. Remote is identical to last backup, so local has been updated. Upload", localFile.getAbsolutePath());
                         transferAuthorisationService.requestUpload(localFile);
                     } else {
