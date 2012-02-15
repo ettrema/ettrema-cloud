@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>$view.title</title>    
+    </head>
+
+    <body>
+
+        #if($rc.child.editMode)
+        $rc.formStart
+        $rc.toolBar
+        <br />
+        $show.title
+        #end
+
+        $body
+
+        #if($rc.child.editMode)
+        $rc.formEnd            
+        #end
+    </body>    
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
+<c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
+    <c:template template="root" maxAge="0" docType="XSTRICT">
+        <c:fields>
+            <c:text name="title" rows="1" cols="80" required="false" disAllowTemplating="false" />
+            <c:html name="body" rows="50" cols="80" required="false" disAllowTemplating="false" toolbar="Default" />
+        </c:fields>
+        <c:components>
+            
+        </c:components>
+    </c:template>
+</c:meta>
+
+

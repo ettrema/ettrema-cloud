@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+	<head>
+		<title>page title goes here</title>
+	</head>
+	<body>
+		body goes here
+                <table>
+                    <tr>
+                        <td>page name</td>
+                        <td>$targetPage.name</td>
+                    </tr>
+                    <tr>
+                        <td>page template</td>
+                        <td>$targetPage.template.name</td>
+                    </tr>
+                    <tr>
+                        <td>folder</td>
+                        <td>$folder.name</td>
+                    </tr>
+                    <tr>
+                        <td>files in this folder</td>
+                        <td>
+                            <ul>
+                            #foreach($file in $folder.children)
+                            <li>$file.link</li>
+                            #end
+                            </ul>
+                        </td>
+                    </tr>                    
+                </table>
+	</body>
+</html>
+

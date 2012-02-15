@@ -1,0 +1,19 @@
+
+<archetype>
+    <id>cloud-app-archetype</id>
+    <resources>
+        <source>src/main/resources/env.properties</source>
+        <source>src/main/webapp/autoload/templates/js/utils.js</source>
+        <source>src/main/webapp/autoload/templates/mystyle.css</source>
+        <source>src/main/webapp/autoload/templates/normal</source>
+        <source>src/main/webapp/autoload/templates/normal.meta.xml</source>
+        
+        <source>src/main/webapp/nodeploy/index.html</source>
+        <source>src/main/webapp/nodeploy/index.html.meta.xml</source>
+        <source>src/main/webapp/nodeploy/page2.html</source>
+        <source>src/main/webapp/nodeploy/page2.html.meta.xml</source>
+    </resources>
+    <testResources>
+        <source>src/test/resources/log4j.properties</source>
+    </testResources>
+</archetype>
