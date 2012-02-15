@@ -461,7 +461,7 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         </property>
     </bean>
 
-    <bean id="endrick.root.context" class="com.ettrema.context.RootContext">
+    <bean id="endrick.root.context" class="com.ettrema.context.RootContext" destroy-method="shutdown">
         <constructor-arg ref="endrick.catalog"/>
         <constructor-arg>
             <list/>

@@ -187,8 +187,17 @@
         </constructor-arg>
     </bean>
 
+    <bean id="nonce.map" class="java.util.concurrent.ConcurrentHashMap"/>
+    
+    <bean id="expired.nonce.remover" class="com.bradmcevoy.http.http11.auth.ExpiredNonceRemover" destroy-method="stop">
+        <constructor-arg value="604800"/> <!-- 60x60x24x7-->
+        <constructor-arg ref="nonce.map"/>        
+    </bean>
+
     <bean id="jgroups.nonce.provider" class="com.bradmcevoy.http.http11.auth.SimpleMemoryNonceProvider">
         <constructor-arg value="604800"/> <!-- 60x60x24x7-->
+        <constructor-arg ref="nonce.map"/>
+        <constructor-arg ref="expired.nonce.remover"/>
     </bean>
 
     <bean id="form.auth.handler" class="com.ettrema.web.security.FormAuthenticationHandler">

@@ -9,7 +9,7 @@
         <constructor-arg value="3000"/>
     </bean>
 -->	
-    <bean id="berry" class="com.ettrema.berry.Berry" init-method="start">
+    <bean id="berry" class="com.ettrema.berry.Berry" init-method="start" destroy-method="stop">
         <constructor-arg ref="milton.http.manager"/>
         <!-- configure one of the http adapters above here. Eg simpleton or xlightweb -->
         <constructor-arg>

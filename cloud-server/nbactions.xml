@@ -27,6 +27,9 @@
             <goals>
                 <goal>jetty:stop</goal>
             </goals>
+            <activatedProfiles>
+                <activatedProfile>run-linux</activatedProfile>
+            </activatedProfiles>            
         </action>
         <action>
             <actionName>CUSTOM-deploy</actionName>
