@@ -26,6 +26,7 @@ function initUser() {
         
         $("#login").hide();
         $("#userUrl").html(userUrl);
+        $(".requiresuser").show();
         return true;
     }
 }
