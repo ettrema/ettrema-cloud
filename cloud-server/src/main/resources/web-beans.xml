@@ -83,12 +83,17 @@
         <constructor-arg ref="code.resource.factory"/>
     </bean>
 
+
     <bean id="console.resource.factory" class="com.ettrema.console.ConsoleResourceFactory">
         <constructor-arg ref="source.resource.factory" />
         <constructor-arg value="/console" />
         <constructor-arg value="/.source" /> <!-- resource to test authentication against = host root -->
         <constructor-arg>
             <list>
+                <bean class="com.ettrema.web.console2.DeployFactory" >
+                    <constructor-arg ref="deployment.service"/>
+                    <property name="mavenRoot" value="http://www.ettrema.com/maven2"/>
+                </bean>                
                 <bean class="com.ettrema.web.console2.ProcessScanFactory" />
                 <bean class="com.ettrema.web.console2.GrantFactory" />
                 <!--
