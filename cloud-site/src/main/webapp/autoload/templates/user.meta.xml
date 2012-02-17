@@ -2,125 +2,127 @@
 <!DOCTYPE c:meta SYSTEM "http://clyde.ettrema.com/dtd/core.dtd">
 
 <c:meta xmlns:c="http://clyde.ettrema.com/ns/core">
-	<c:template instanceType="user" disableExport="false" template="normal">
-		<c:fields>
-			<c:email name="email" rows="1" cols="30" required="true" disAllowTemplating="true" />
-			<c:password name="password" />
-			<c:text name="fullName" rows="1" cols="50" required="true" description="Full name" disAllowTemplating="true" />
-			<c:boolean name="rejectedApplication" required="false" disAllowTemplating="false" />
-			<c:process name="account" browsable="false" startState="start">
-				<c:state name="start" browsable="false" interval="">
-					<c:transition name="start" browsable="false" toState="pending">
-						<rule class="com.bradmcevoy.process.TrueRule" />
-					</c:transition>
-				</c:state>
+    <c:template instanceType="user" disableExport="false" template="normal">
+        <c:fields>
+            <c:email name="email" rows="1" cols="30" required="true" disAllowTemplating="true" />
+            <c:password name="password" />
+            <c:text name="fullName" rows="1" cols="50" required="true" description="Full name" disAllowTemplating="true" />
+            <c:boolean name="rejectedApplication" required="false" disAllowTemplating="false" />
+            <c:process name="account" browsable="false" startState="start">
+                <c:state name="start" browsable="false" interval="">
+                    <c:transition name="start" browsable="false" toState="pending">
+                        <rule class="com.bradmcevoy.process.TrueRule" />
+                    </c:transition>
+                </c:state>
 				
-				<c:state name="pending" browsable="false" interval="">
-					<c:transition name="accept" browsable="false" toState="active">
-						<rule class="com.bradmcevoy.process.MvelRule">!token.parent.accountDisabled</rule>
-					</c:transition>
-					<c:transition name="reject" browsable="false" toState="cancelled">
-						<rule class="com.bradmcevoy.process.MvelRule">token.parent.params.rejectedApplication.toBoolean()</rule>
-					</c:transition>
-					<onEnter class="com.bradmcevoy.process.GroovyScript">targetPage = token.parent;
-						targetPage.accountDisabled = true;
-						targetPage.save();
-						token.parent.execute('sendWelcomeEmail');</onEnter>
-				</c:state>
+                <c:state name="pending" browsable="false" interval="">
+                    <c:transition name="accept" browsable="false" toState="active">
+                        <rule class="com.bradmcevoy.process.MvelRule">!token.parent.accountDisabled</rule>
+                    </c:transition>
+                    <c:transition name="reject" browsable="false" toState="cancelled">
+                        <rule class="com.bradmcevoy.process.MvelRule">token.parent.params.rejectedApplication.toBoolean()</rule>
+                    </c:transition>
+                    <onEnter class="com.bradmcevoy.process.GroovyScript">targetPage = token.parent;
+                        targetPage.accountDisabled = true;
+                        targetPage.save();
+                        token.parent.execute('sendWelcomeEmail');
+                    </onEnter>
+                </c:state>
 				
-				<c:state name="cancelled" browsable="false" interval="">
-					<c:transition name="accept" browsable="false" toState="active">
-						<rule class="com.bradmcevoy.process.MvelRule">!token.parent.accountDisabled</rule>
-					</c:transition>
-					<onEnter class="com.bradmcevoy.process.GroovyScript">token.parent.execute('sendCancelledEmail');
-						token.parent.delete();</onEnter>
-				</c:state>
+                <c:state name="cancelled" browsable="false" interval="">
+                    <c:transition name="accept" browsable="false" toState="active">
+                        <rule class="com.bradmcevoy.process.MvelRule">!token.parent.accountDisabled</rule>
+                    </c:transition>
+                    <onEnter class="com.bradmcevoy.process.GroovyScript">token.parent.execute('sendCancelledEmail');
+                        token.parent.delete();
+                    </onEnter>
+                </c:state>
 				
-				<c:state name="active" browsable="false" interval="">
-					<c:transition name="reject" browsable="false" toState="cancelled">
-						<rule class="com.bradmcevoy.process.MvelRule">token.parent.params.rejectedApplication.toBoolean()</rule>
-					</c:transition>
-					<c:transition name="disable" browsable="false" toState="pending">
-						<rule class="com.bradmcevoy.process.MvelRule">token.parent.accountDisabled</rule>
-					</c:transition>
-					<onEnter class="com.bradmcevoy.process.GroovyScript">
-						token.parent.execute('sendEnabledEmail');
-						folder = token.parent.create("Documents","documentsFolder");
-						folder.setAllowedTemplates("+documentsFolder -*");
-						folder.save();
-						folder = token.parent.create("Pictures","picturesFolder");
-						folder.setAllowedTemplates("+picturesFolder -*");
-						folder.save();
-						folder = token.parent.create("Music","musicFolder");
-						folder.setAllowedTemplates("+musicFolder -*");
-						folder.save();
-						folder = token.parent.create("Videos","videosFolder");
-						folder.setAllowedTemplates("+videoFolder -*");
-						folder.save();
-						folder = token.parent.create("Shared With Me","sharedWithMeFolder");
-						folder.setAllowedTemplates("-*");
-						folder.save();
-						folder = token.parent.create("Blogs","blogFolder");
-						folder.setAllowedTemplates("+blog +blogFolder -*");
-						folder.secureRead = false; // make public
-						folder.save();
+                <c:state name="active" browsable="false" interval="">
+                    <c:transition name="reject" browsable="false" toState="cancelled">
+                        <rule class="com.bradmcevoy.process.MvelRule">token.parent.params.rejectedApplication.toBoolean()</rule>
+                    </c:transition>
+                    <c:transition name="disable" browsable="false" toState="pending">
+                        <rule class="com.bradmcevoy.process.MvelRule">token.parent.accountDisabled</rule>
+                    </c:transition>
+                    <onEnter class="com.bradmcevoy.process.GroovyScript">
+                        token.parent.execute('sendEnabledEmail');
+                        folder = token.parent.create("Documents","documentsFolder");
+                        folder.setAllowedTemplates("+documentsFolder -*");
+                        folder.save();
+                        folder = token.parent.create("Pictures","picturesFolder");
+                        folder.setAllowedTemplates("+picturesFolder -*");
+                        folder.save();
+                        folder = token.parent.create("Music","musicFolder");
+                        folder.setAllowedTemplates("+musicFolder -*");
+                        folder.save();
+                        folder = token.parent.create("Videos","videosFolder");
+                        folder.setAllowedTemplates("+videoFolder -*");
+                        folder.save();
+                        folder = token.parent.create("Shared With Me","sharedWithMeFolder");
+                        folder.setAllowedTemplates("-*");
+                        folder.save();
+                        folder = token.parent.create("Blogs","blogFolder");
+                        folder.setAllowedTemplates("+blog +blogFolder -*");
+                        folder.secureRead = false; // make public
+                        folder.save();
 						
-					</onEnter>
-				</c:state>
-			</c:process>			
-		</c:fields>
-		<c:components>
-			<c:groupSelect name="inAdmin" group="administrators" />
-			<c:subpage name="files" template="fileman">
-				<c:attributes>
-					<c:value name="baseUrl">userUrl</c:value> <!-- js variable -->
-				</c:attributes>				
-			</c:subpage>
-			<c:subpage name="index.html" template="myDashboard"/>
-			<c:singleEmail name="sendEnabledEmail">
-				<c:bodyText>
-					<c:velocity>Welcome to the cloud! Your account has been enabled now
-Just go here: $targetPage.host.href
-And login with your email: targetPage.externalEmailText
-</c:velocity>
-				</c:bodyText>
-				<c:from>
-					<c:const>noreply@ettrema.com</c:const>
-				</c:from>
-				<c:to>
-					<c:mvel>targetPage.externalEmailText</c:mvel>
-				</c:to>
-				<c:subject>
-					<c:const>Personal cloud Registration</c:const>
-				</c:subject>
-				<c:replyTo>
-					<c:const>noreply@ettrema.com</c:const>
-				</c:replyTo>
-				<c:confirmationUrl>
-					<c:const>/thanks.html</c:const>
-				</c:confirmationUrl>
-			</c:singleEmail>
-			<c:singleEmail name="sendWelcomeEmail">
-				<c:bodyText>
-					<c:velocity>Thanks for asking for a personal cloud. We'll let you know as soon as we've checked its all ok.</c:velocity>
-				</c:bodyText>
-				<c:from>
-					<c:const>noreply@ettrema.com</c:const>
-				</c:from>
-				<c:to>
-					<c:mvel>targetPage.externalEmailText</c:mvel>
-				</c:to>
-				<c:subject>
-					<c:const>Personal cloud request</c:const>
-				</c:subject>
-				<c:replyTo>
-					<c:const>noreply@ettrema.com</c:const>
-				</c:replyTo>
-				<c:confirmationUrl>
-					<c:const>/thanks.html</c:const>
-				</c:confirmationUrl>
-			</c:singleEmail>			
-		</c:components>
-	</c:template>
+                    </onEnter>
+                </c:state>
+            </c:process>			
+        </c:fields>
+        <c:components>
+            <c:groupSelect name="inAdmin" group="administrators" />
+            <c:subpage name="files" template="fileman">
+                <c:attributes>
+                    <c:value name="baseUrl">userUrl</c:value> <!-- js variable -->
+                </c:attributes>				
+            </c:subpage>
+            <c:subpage name="index.html" template="myDashboard"/>
+            <c:singleEmail name="sendEnabledEmail">
+                <c:bodyText>
+                    <c:velocity>Welcome to the cloud! Your account has been enabled now
+                        Just go here: $targetPage.host.href
+                        And login with your email: targetPage.externalEmailText
+                    </c:velocity>
+                </c:bodyText>
+                <c:from>
+                    <c:const>noreply@ettrema.com</c:const>
+                </c:from>
+                <c:to>
+                    <c:mvel>targetPage.externalEmailText</c:mvel>
+                </c:to>
+                <c:subject>
+                    <c:const>Personal cloud Registration</c:const>
+                </c:subject>
+                <c:replyTo>
+                    <c:const>noreply@ettrema.com</c:const>
+                </c:replyTo>
+                <c:confirmationUrl>
+                    <c:const>/thanks.html</c:const>
+                </c:confirmationUrl>
+            </c:singleEmail>
+            <c:singleEmail name="sendWelcomeEmail">
+                <c:bodyText>
+                    <c:velocity>Thanks for asking for a personal cloud. We'll let you know as soon as we've checked its all ok.</c:velocity>
+                </c:bodyText>
+                <c:from>
+                    <c:const>noreply@ettrema.com</c:const>
+                </c:from>
+                <c:to>
+                    <c:mvel>targetPage.externalEmailText</c:mvel>
+                </c:to>
+                <c:subject>
+                    <c:const>Personal cloud request</c:const>
+                </c:subject>
+                <c:replyTo>
+                    <c:const>noreply@ettrema.com</c:const>
+                </c:replyTo>
+                <c:confirmationUrl>
+                    <c:const>/thanks.html</c:const>
+                </c:confirmationUrl>
+            </c:singleEmail>			
+        </c:components>
+    </c:template>
 </c:meta>
 
