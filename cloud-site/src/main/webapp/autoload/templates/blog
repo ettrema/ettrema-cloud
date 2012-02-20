@@ -1,51 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html>
-	<head>
-		<title>$rc.invoke('title',false)</title>
-	</head>
-	<body>
-		<div>
-			#if($rc.child.editMode)
-				${targetPage.link}
-			<br />
-				$rc.formStart
-				$rc.toolBar
-			<br />
-				$show.title
-			<br />
-				$show.brief
-			#else
-			<div class="posthead">
-				<div class="maindate fleft">
-								#set($dt = $formatter.toJodaDate($targetPage.createDate))								
-								$dt.dayOfMonth().get()
-					<br/>
-					<span>$dt.monthOfYear().asShortText</span>
-				</div>	 
+    <head>
+        <title>$rc.invoke('title',false)</title>
+    </head>
+    <body>
+        <div>
+            #if($rc.child.editMode)
+            ${targetPage.link}
+            <br />
+            $rc.formStart
+            $rc.toolBar
+            <br />
+            $show.title
+            <br />
+            $show.brief
+            #else
+            <div class="posthead">
+                <div class="maindate fleft">
+                    #set($dt = $formatter.toJodaDate($targetPage.createDate))								
+                    $dt.dayOfMonth().get()
+                    <br/>
+                    <span>$dt.monthOfYear().asShortText</span>
+                </div>	 
 
-				<h1 class="maintitle fleft">
-					<a href="$targetPage.url">
-						$view.title
-					</a>
-				</h1>
-				<br class="clear"/>
-			</div>
-					#end
-			<div class="entry">
-			$body
-			</div>
+                <h1 class="maintitle fleft">
+                    <a href="$targetPage.url">
+                        $view.title
+                    </a>
+                </h1>
+                <br class="clear"/>
+            </div>
+            #end
+            <div class="entry">
+                $body
+            </div>
 
-			#if($rc.child.editMode)
-			$rc.toolBar
-			$rc.formEnd
-			#end
-		</div>
+            #if($rc.child.editMode)
+            $rc.toolBar
+            $rc.formEnd
+            #end
+        </div>
 
-		
-		<hr/>
-		<br/>
-	</body>
+
+        <hr/>
+        <br/>
+    </body>
 </html>
 

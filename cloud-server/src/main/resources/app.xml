@@ -46,8 +46,22 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
         <constructor-arg ref="existing.resource.factory"/>
     </bean>
 
+    <bean id="sql.backup.task" class="com.ettrema.scheduled.SqlBackupTask">
+        <constructor-arg ref="current.date.service"/>
+        <property name="sql" value="${db.backup.dir}"/>
+        <property name="notBeforeHour" value="${db.backup.notBeforeHour}"/>
+        <property name="noLaterThenHour" value="${db.backup.noLaterThenHour}"/>
+        <property name="intervalMinutes" value="${db.backup.intervalMinutes}"/>
+    </bean>
+        
+
     <bean id="clyde.timer.service" class="com.ettrema.process.ClydeTimerService">
         <constructor-arg ref="root.context.locator"/>
+        <property name="scheduled">
+            <list>
+                <ref bean="sql.backup.task" />
+            </list>
+        </property>
     </bean>
     
     <bean id="asynch.proc" class="com.ettrema.grid.DefaultAsynchProcessor">

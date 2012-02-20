@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html>
-	<head>
-		<title>$view.title</title>
-	</head>
-	<body>
-		<div id="contentHeading">
-			<button type="button" onclick="window.location='_autoname.new?templateSelect=blog'">New blog</button>
-			<button type="button" onclick="showCreateFolder()">New folder</button>
-			<h2>$folder.title</h2>
-		</div>		
-		$body
+    <head>
+        <title>$view.title</title>
+    </head>
+    <body>
+        <div id="contentHeading">
+            <button type="button" onclick="window.location='_autoname.new?templateSelect=blog'">New blog</button>
+            <button type="button" onclick="showCreateFolder()">New folder</button>
+            <h2>$folder.title</h2>
+        </div>		
+        $body
 
-		#set($blogs = $folder.pagesRecursive.ofType("blog").sortByCreatedDate)
+        #set($blogs = $folder.pagesRecursive.ofType("blog").sortByCreatedDate)
 
-		#if( $blogs.size() == 0 )
-		<p>No blogs yet, <a href="_autoname.new?templateSelect=blog">click here to create one</a></p>
-		#else
-		<ul id="highlight">			
+        #if( $blogs.size() == 0 )
+        <p>No blogs yet, <a href="_autoname.new?templateSelect=blog">click here to create one</a></p>
+        #else
+        <ul id="highlight">			
             #foreach($blog in $blogs)
-			<li class="post type-post hentry category-featured category-headline">
-				<div class="posthead">
-					<div class="maindate fleft">
-						#set($dt = $formatter.toJodaDate($blog.createDate))								
-						$dt.dayOfMonth().get()
-						<br/>
-						<span>$dt.monthOfYear().asShortText</span>
-					</div>	 
+            <li class="post type-post hentry category-featured category-headline">
+                <div class="posthead">
+                    <div class="maindate fleft">
+                        #set($dt = $formatter.toJodaDate($blog.createDate))								
+                        $dt.dayOfMonth().get()
+                        <br/>
+                        <span>$dt.monthOfYear().asShortText</span>
+                    </div>	 
 
-					<h1 class="maintitle fleft">
-						<a title="Permanent Link to $blog.title" rel="bookmark" href="$blog.url">$blog.title</a>
-					</h1>
-					<br class="clear"/>
-				</div>
+                    <h1 class="maintitle fleft">
+                        <a title="Permanent Link to $blog.title" rel="bookmark" href="$blog.url">$blog.title</a>
+                    </h1>
+                    <br class="clear"/>
+                </div>
 
-				<div class="entry">
-					$blog.brief
-					<p> 
-						<a class="more-link" href="$blog.url">Read the rest of this entry >></a>
-					</p>
-					<p class="postinfo">
-						<span class="category">Filed under - $blog.parent.link</span> 			 
-						<span class="comment">so far. Add yours now</span>
-					</p>					
-				</div>
-			</li>
-			#end
-		</ul>
-		#end			
-		<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-		<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/brad_the_mc.json?callback=twitterCallback2&amp;count=1"></script>	
+                <div class="entry">
+                    $blog.brief
+                    <p> 
+                        <a class="more-link" href="$blog.url">Read the rest of this entry >></a>
+                    </p>
+                    <p class="postinfo">
+                        <span class="category">Filed under - $blog.parent.link</span> 			 
+                        <span class="comment">so far. Add yours now</span>
+                    </p>					
+                </div>
+            </li>
+            #end
+        </ul>
+        #end			
+        <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+        <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/brad_the_mc.json?callback=twitterCallback2&amp;count=1"></script>	
 
-	</body>
+    </body>
 </html>
