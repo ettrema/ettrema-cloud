@@ -96,13 +96,13 @@
                 </bean>                
                 <bean class="com.ettrema.web.console2.ProcessScanFactory" />
                 <bean class="com.ettrema.web.console2.GrantFactory" />
-                <!--
+
                 <bean class="com.ettrema.web.console2.CrawlFactory" >
                     <constructor-arg ref="asynch.proc" />
                     <constructor-arg ref="state.token.manager" />
                     <constructor-arg ref="root.context.locator" />
                 </bean>
-                -->
+
                 <bean class="com.ettrema.console.RnFactory" />
                 <bean class="com.ettrema.console.LsFactory" >
                     <constructor-arg>
@@ -120,9 +120,9 @@
                 <bean class="com.ettrema.web.console2.AliasFactory" />
                 <bean class="com.ettrema.web.console2.MkHostFactory" />
                 <bean class="com.ettrema.web.console2.MkUserFactory" />
-                <!--
-                <bean class="com.ettrema.web.console2.SearchFactory" />
-                -->
+                <bean class="com.ettrema.web.console2.SearchFactory">
+                    <constructor-arg ref="search.index.manager" />
+                </bean>
                 <bean class="com.ettrema.web.console2.EvalFactory" />
                 <bean class="com.ettrema.web.console2.MvelFactory" />
 

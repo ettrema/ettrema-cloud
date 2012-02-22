@@ -31,6 +31,7 @@
                 <!-- Allows stopping of everything in the root context -->
                 <ref bean="endrick.stop.service" />
 
+                <ref bean="search.indexing.listener"/>
                 <ref bean="thumb.generator.service"/>
                 <ref bean="retrying.mail.sender"/>                
                 <ref bean="mail.server.service"/>
@@ -41,7 +42,8 @@
                 <ref bean="default.host.creator"/>
                 <ref bean="default.user.creator"/>
                                 
-                <ref bean="startup.deployment.service"/>                
+                <ref bean="startup.deployment.service"/>       
+                <ref bean="search.index.manager"/>                       
                 
                 <ref bean="sync.sysproperty.file.watcher.factory"/>                
                 
