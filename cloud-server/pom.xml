@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.ettrema</groupId>
     <artifactId>cloud-server</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>cloud-server</name>
 

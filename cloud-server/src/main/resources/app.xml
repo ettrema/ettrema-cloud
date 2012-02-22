@@ -418,7 +418,8 @@ See http://www.bradmcevoy.com:8035/monitor/[year]/[month]/[day]/index.html
             </list>
         </property>
         <property name="singletons">
-            <list>	            
+            <list>	      
+                <bean class="com.ettrema.web.relations.RelationsHelper"/>
                 <ref local="retrying.mail.sender"/>
                 <ref local="state.token.manager"/>
                 <ref bean="user.locator"/>
