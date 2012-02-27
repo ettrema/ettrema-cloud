@@ -355,6 +355,11 @@
     <bean id="state.token.manager" class="com.ettrema.binary.StateTokenManager">
         <constructor-arg ref="event.manager" />
     </bean>
+    
+    <bean id="comment.service" class="com.ettrema.web.comments.CommentServiceImpl">
+        <constructor-arg ref="current.user.service" />
+        <constructor-arg ref="current.date.service" />
+    </bean>
 
     <bean id="endrick.catalog" class="com.ettrema.context.FactoryCatalog">
         <!--
@@ -451,8 +456,8 @@
                 <ref bean="permissionChecker"/>
                 <bean class="com.ettrema.web.csv.CsvService">
                     <constructor-arg ref="formatter" />
-                </bean>
-                <bean class="com.ettrema.web.comments.CommentServiceImpl"/>
+                </bean>                
+                <ref bean="comment.service"/>
                 <ref bean="cookie.auth.handler"/>
                 <ref bean="event.dispatcher"/>
                 <ref bean="current.request.service"/>

@@ -50,6 +50,8 @@
 
     <bean id="code.resource.factory" class="com.ettrema.web.code.CodeResourceFactory">
         <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="group.service" />
+        <constructor-arg ref="comment.service" />        
     </bean>
 
     <bean id="deploy.resource.factory" class="com.ettrema.web.manage.deploy.DeployResourceFactory">
