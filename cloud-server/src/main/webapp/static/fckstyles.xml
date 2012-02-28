@@ -26,48 +26,6 @@
 -->
 <Styles>
 
-	<!-- Block Styles -->
-
-	<!--
-	# These styles are already available in the "Format" combo, so they are not
-	# needed here by default.
-
-	<Style name="Heading 1" element="h1" />
-	<Style name="Heading 2" element="h2" />
-	<Style name="Heading 3" element="h3" />
-	<Style name="Heading 4" element="h4" />
-	<Style name="Heading 5" element="h5" />
-	<Style name="Heading 6" element="h6" />
-	<Style name="Paragraph" element="p" />
-	<Style name="Document Block" element="div" />
-	<Style name="Preformatted Text" element="pre" />
-	<Style name="Address" element="address" />
-	-->
-
-	<!-- Inline Styles -->
-
-	<!--
-	# These are core styles available as toolbar buttons.
-
-	<Style name="Bold" element="b">
-		<Override element="strong" />
-	</Style>
-	<Style name="Italic" element="i">
-		<Override element="em" />
-	</Style>
-	<Style name="Underline" element="u" />
-	<Style name="Strikethrough" element="strike" />
-	<Style name="Subscript" element="sub" />
-	<Style name="Superscript" element="sup" />
-	-->
-
-	<Style name="Marker: Yellow" element="span">
-		<Style name="background-color" value="Yellow" />
-	</Style>
-	<Style name="Marker: Green" element="span">
-		<Style name="background-color" value="Lime" />
-	</Style>
-
 	<Style name="Big" element="big" />
 	<Style name="Small" element="small" />
 	<Style name="Typewriter" element="tt" />
