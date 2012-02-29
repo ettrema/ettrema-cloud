@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Estonian language file.
+ */
 
-CKEDITOR.lang.et={dir:'ltr',editorTitle:'Rikkalik tekstiredaktor %1, abi jaoks vajuta ALT 0.',toolbars:'Redaktori tööriistaribad',editor:'Rikkalik tekstiredaktor',source:'Lähtekood',newPage:'Uus leht',save:'Salvestamine',preview:'Eelvaade',cut:'Lõika',copy:'Kopeeri',paste:'Aseta',print:'Printimine',underline:'Allajoonitud',bold:'Paks',italic:'Kursiiv',selectAll:'Kõige valimine',removeFormat:'Vormingu eemaldamine',strike:'Läbijoonitud',subscript:'Allindeks',superscript:'Ülaindeks',horizontalrule:'Horisontaaljoone sisestamine',pagebreak:'Lehevahetuskoha sisestamine',pagebreakAlt:'Lehevahetuskoht',unlink:'Lingi eemaldamine',undo:'Tagasivõtmine',redo:'Toimingu kordamine',common:{browseServer:'Serveri sirvimine',url:'URL',protocol:'Protokoll',upload:'Laadi üles',uploadSubmit:'Saada serverisse',image:'Pilt',flash:'Flash',form:'Vorm',checkbox:'Märkeruut',radio:'Raadionupp',textField:'Tekstilahter',textarea:'Tekstiala',hiddenField:'Varjatud lahter',button:'Nupp',select:'Valiklahter',imageButton:'Piltnupp',notSet:'<määramata>',id:'ID',name:'Nimi',langDir:'Keele suund',langDirLtr:'Vasakult paremale (LTR)',langDirRtl:'Paremalt vasakule (RTL)',langCode:'Keele kood',longDescr:'Pikk kirjeldus URL',cssClass:'Stiilistiku klassid',advisoryTitle:'Soovituslik pealkiri',cssStyle:'Laad',ok:'OK',cancel:'Loobu',close:'Sulge',preview:'Eelvaade',generalTab:'Üldine',advancedTab:'Täpsemalt',validateNumberFailed:'See väärtus pole number.',confirmNewPage:'Kõik salvestamata muudatused lähevad kaotsi. Kas oled kindel, et tahad laadida uue lehe?',confirmCancel:'Mõned valikud on muudetud. Kas oled kindel, et tahad dialoogi sulgeda?',options:'Valikud',target:'Sihtkoht',targetNew:'Uus aken (_blank)',targetTop:'Kõige ülemine aken (_top)',targetSelf:'Sama aken (_self)',targetParent:'Vanemaken (_parent)',langDirLTR:'Vasakult paremale (LTR)',langDirRTL:'Paremalt vasakule (RTL)',styles:'Stiili',cssClasses:'Stiililehe klassid',width:'Laius',height:'Kõrgus',align:'Joondus',alignLeft:'Vasak',alignRight:'Paremale',alignCenter:'Kesk',alignTop:'Üles',alignMiddle:'Keskele',alignBottom:'Alla',invalidHeight:'Kõrgus peab olema number.',invalidWidth:'Laius peab olema number.',invalidCssLength:'"%1" välja jaoks määratud väärtus peab olema positiivne täisarv CSS ühikuga (px, %, in, cm, mm, em, ex, pt või pc) või ilma.',invalidHtmlLength:'"%1" välja jaoks määratud väärtus peab olema positiivne täisarv HTML ühikuga (px või %) või ilma.',invalidInlineStyle:'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, pole saadaval</span>'},contextmenu:{options:'Kontekstimenüü valikud'},specialChar:{toolbar:'Erimärgi sisestamine',title:'Erimärgi valimine',options:'Erimärkide valikud'},link:{toolbar:'Lingi lisamine/muutmine',other:'<muu>',menu:'Muuda linki',title:'Link',info:'Lingi info',target:'Sihtkoht',upload:'Lae üles',advanced:'Täpsemalt',type:'Lingi liik',toUrl:'URL',toAnchor:'Ankur sellel lehel',toEmail:'E-post',targetFrame:'<raam>',targetPopup:'<hüpikaken>',targetFrameName:'Sihtmärk raami nimi',targetPopupName:'Hüpikakna nimi',popupFeatures:'Hüpikakna omadused',popupResizable:'Suurust saab muuta',popupStatusBar:'Olekuriba',popupLocationBar:'Aadressiriba',popupToolbar:'Tööriistariba',popupMenuBar:'Menüüriba',popupFullScreen:'Täisekraan (IE)',popupScrollBars:'Kerimisribad',popupDependent:'Sõltuv (Netscape)',popupLeft:'Vasak asukoht',popupTop:'Ülemine asukoht',id:'ID',langDir:'Keele suund',langDirLTR:'Vasakult paremale (LTR)',langDirRTL:'Paremalt vasakule (RTL)',acccessKey:'Juurdepääsu võti',name:'Nimi',langCode:'Keele suund',tabIndex:'Tab indeks',advisoryTitle:'Juhendav tiitel',advisoryContentType:'Juhendava sisu tüüp',cssClasses:'Stiilistiku klassid',charset:'Lingitud ressursi märgistik',styles:'Laad',rel:'Suhe',selectAnchor:'Vali ankur',anchorName:'Ankru nime järgi',anchorId:'Elemendi id järgi',emailAddress:'E-posti aadress',emailSubject:'Sõnumi teema',emailBody:'Sõnumi tekst',noAnchors:'(Selles dokumendis pole ankruid)',noUrl:'Palun kirjuta lingi URL',noEmail:'Palun kirjuta e-posti aadress'},anchor:{toolbar:'Ankru sisestamine/muutmine',menu:'Ankru omadused',title:'Ankru omadused',name:'Ankru nimi',errorName:'Palun sisesta ankru nimi',remove:'Eemalda ankur'},list:{numberedTitle:'Numberloendi omadused',bulletedTitle:'Punktloendi omadused',type:'Liik',start:'Algus',validateStartNumber:'Loendi algusnumber peab olema täisarv.',circle:'Ring',disc:'Täpp',square:'Ruut',none:'Puudub',notset:'<pole määratud>',armenian:'Armeenia numbrid',georgian:'Gruusia numbrid (an, ban, gan, jne)',lowerRoman:'Väiksed rooma numbrid (i, ii, iii, iv, v, jne)',upperRoman:'Suured rooma numbrid (I, II, III, IV, V, jne)',lowerAlpha:'Väiketähed (a, b, c, d, e, jne)',upperAlpha:'Suurtähed (A, B, C, D, E, jne)',lowerGreek:'Kreeka väiketähed (alpha, beta, gamma, jne)',decimal:'Numbrid (1, 2, 3, jne)',decimalLeadingZero:'Numbrid algusnulliga (01, 02, 03, jne)'},findAndReplace:{title:'Otsimine ja asendamine',find:'Otsi',replace:'Asenda',findWhat:'Otsitav:',replaceWith:'Asendus:',notFoundMsg:'Otsitud teksti ei leitud.',findOptions:'Otsingu valikud',matchCase:'Suur- ja väiketähtede eristamine',matchWord:'Ainult terved sõnad',matchCyclic:'Jätkatakse algusest',replaceAll:'Asenda kõik',replaceSuccessMsg:'%1 vastet asendati.'},table:{toolbar:'Tabel',title:'Tabeli omadused',menu:'Tabeli omadused',deleteTable:'Kustuta tabel',rows:'Read',columns:'Veerud',border:'Joone suurus',widthPx:'pikslit',widthPc:'protsenti',widthUnit:'laiuse ühik',cellSpace:'Lahtri vahe',cellPad:'Lahtri täidis',caption:'Tabeli tiitel',summary:'Kokkuvõte',headers:'Päised',headersNone:'Puudub',headersColumn:'Esimene tulp',headersRow:'Esimene rida',headersBoth:'Mõlemad',invalidRows:'Ridade arv peab olema nullist suurem.',invalidCols:'Tulpade arv peab olema nullist suurem.',invalidBorder:'Äärise suurus peab olema number.',invalidWidth:'Tabeli laius peab olema number.',invalidHeight:'Tabeli kõrgus peab olema number.',invalidCellSpacing:'Lahtrite vahe peab olema positiivne arv.',invalidCellPadding:'Lahtrite polsterdus (padding) peab olema positiivne arv.',cell:{menu:'Lahter',insertBefore:'Sisesta lahter enne',insertAfter:'Sisesta lahter peale',deleteCell:'Eemalda lahtrid',merge:'Ühenda lahtrid',mergeRight:'Ühenda paremale',mergeDown:'Ühenda alla',splitHorizontal:'Poolita lahter horisontaalselt',splitVertical:'Poolita lahter vertikaalselt',title:'Lahtri omadused',cellType:'Lahtri liik',rowSpan:'Ridade vahe',colSpan:'Tulpade vahe',wordWrap:'Sõnade murdmine',hAlign:'Horisontaalne joondus',vAlign:'Vertikaalne joondus',alignBaseline:'Baasjoon',bgColor:'Tausta värv',borderColor:'Äärise värv',data:'Andmed',header:'Päis',yes:'Jah',no:'Ei',invalidWidth:'Lahtri laius peab olema number.',invalidHeight:'Lahtri kõrgus peab olema number.',invalidRowSpan:'Ridade vahe peab olema täisarv.',invalidColSpan:'Tulpade vahe peab olema täisarv.',chooseColor:'Vali'},row:{menu:'Rida',insertBefore:'Sisesta rida enne',insertAfter:'Sisesta rida peale',deleteRow:'Eemalda read'},column:{menu:'Veerg',insertBefore:'Sisesta veerg enne',insertAfter:'Sisesta veerg peale',deleteColumn:'Eemalda veerud'}},button:{title:'Nupu omadused',text:'Tekst (väärtus)',type:'Liik',typeBtn:'Nupp',typeSbm:'Saada',typeRst:'Lähtesta'},checkboxAndRadio:{checkboxTitle:'Märkeruudu omadused',radioTitle:'Raadionupu omadused',value:'Väärtus',selected:'Märgitud'},form:{title:'Vormi omadused',menu:'Vormi omadused',action:'Toiming',method:'Meetod',encoding:'Kodeering'},select:{title:'Valiklahtri omadused',selectInfo:'Info',opAvail:'Võimalikud valikud:',value:'Väärtus',size:'Suurus',lines:'ridu',chkMulti:'Võimalik mitu valikut',opText:'Tekst',opValue:'Väärtus',btnAdd:'Lisa',btnModify:'Muuda',btnUp:'Üles',btnDown:'Alla',btnSetValue:'Määra vaikimisi',btnDelete:'Kustuta'},textarea:{title:'Tekstiala omadused',cols:'Veerge',rows:'Ridu'},textfield:{title:'Tekstilahtri omadused',name:'Nimi',value:'Väärtus',charWidth:'Laius (tähemärkides)',maxChars:'Maksimaalselt tähemärke',type:'Liik',typeText:'Tekst',typePass:'Parool'},hidden:{title:'Varjatud lahtri omadused',name:'Nimi',value:'Väärtus'},image:{title:'Pildi omadused',titleButton:'Piltnupu omadused',menu:'Pildi omadused',infoTab:'Pildi info',btnUpload:'Saada serverisse',upload:'Lae üles',alt:'Alternatiivne tekst',lockRatio:'Lukusta kuvasuhe',resetSize:'Lähtesta suurus',border:'Joon',hSpace:'H. vaheruum',vSpace:'V. vaheruum',alertUrl:'Palun kirjuta pildi URL',linkTab:'Link',button2Img:'Kas tahad teisendada valitud pildiga nupu tavaliseks pildiks?',img2Button:'Kas tahad teisendada valitud tavalise pildi pildiga nupuks?',urlMissing:'Pildi lähte-URL on puudu.',validateBorder:'Äärise laius peab olema täisarv.',validateHSpace:'Horisontaalne vaheruum peab olema täisarv.',validateVSpace:'Vertikaalne vaheruum peab olema täisarv.'},flash:{properties:'Flashi omadused',propertiesTab:'Omadused',title:'Flashi omadused',chkPlay:'Automaatne start ',chkLoop:'Korduv',chkMenu:'Flashi menüü lubatud',chkFull:'Täisekraan lubatud',scale:'Mastaap',scaleAll:'Näidatakse kõike',scaleNoBorder:'Äärist ei ole',scaleFit:'Täpne sobivus',access:'Skriptide ligipääs',accessAlways:'Kõigile',accessSameDomain:'Samalt domeenilt',accessNever:'Mitte ühelegi',alignAbsBottom:'Abs alla',alignAbsMiddle:'Abs keskele',alignBaseline:'Baasjoonele',alignTextTop:'Tekstist üles',quality:'Kvaliteet',qualityBest:'Parim',qualityHigh:'Kõrge',qualityAutoHigh:'Automaatne kõrge',qualityMedium:'Keskmine',qualityAutoLow:'Automaatne madal',qualityLow:'Madal',windowModeWindow:'Aken',windowModeOpaque:'Läbipaistmatu',windowModeTransparent:'Läbipaistev',windowMode:'Akna režiim',flashvars:'Flashi muutujad',bgcolor:'Tausta värv',hSpace:'H. vaheruum',vSpace:'V. vaheruum',validateSrc:'Palun kirjuta lingi URL',validateHSpace:'H. vaheruum peab olema number.',validateVSpace:'V. vaheruum peab olema number.'},spellCheck:{toolbar:'Õigekirjakontroll',title:'Õigekirjakontroll',notAvailable:'Kahjuks ei ole teenus praegu saadaval.',errorLoading:'Viga rakenduse teenushosti laadimisel: %s.',notInDic:'Puudub sõnastikust',changeTo:'Muuda',btnIgnore:'Ignoreeri',btnIgnoreAll:'Ignoreeri kõiki',btnReplace:'Asenda',btnReplaceAll:'Asenda kõik',btnUndo:'Võta tagasi',noSuggestions:'- Soovitused puuduvad -',progress:'Toimub õigekirja kontroll...',noMispell:'Õigekirja kontroll sooritatud: õigekirjuvigu ei leitud',noChanges:'Õigekirja kontroll sooritatud: ühtegi sõna ei muudetud',oneChange:'Õigekirja kontroll sooritatud: üks sõna muudeti',manyChanges:'Õigekirja kontroll sooritatud: %1 sõna muudetud',ieSpellDownload:'Õigekirja kontrollija ei ole paigaldatud. Soovid sa selle alla laadida?'},smiley:{toolbar:'Emotikon',title:'Sisesta emotikon',options:'Emotikonide valikud'},elementsPath:{eleLabel:'Elementide asukoht',eleTitle:'%1 element'},numberedlist:'Numberloend',bulletedlist:'Punktloend',indent:'Taande suurendamine',outdent:'Taande vähendamine',justify:{left:'Vasakjoondus',center:'Keskjoondus',right:'Paremjoondus',block:'Rööpjoondus'},blockquote:'Blokktsitaat',clipboard:{title:'Asetamine',cutError:'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+X).',copyError:'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt kopeerida. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+C).',pasteMsg:'Palun aseta tekst järgnevasse kasti kasutades klaviatuuri klahvikombinatsiooni (<STRONG>Ctrl/Cmd+V</STRONG>) ja vajuta seejärel <STRONG>OK</STRONG>.',securityMsg:'Sinu veebisirvija turvaseadete tõttu ei oma redaktor otsest ligipääsu lõikelaua andmetele. Sa pead asetama need uuesti siia aknasse.',pasteArea:'Asetamise ala'},pastefromword:{confirmCleanup:'Tekst, mida tahad asetada näib pärinevat Wordist. Kas tahad selle enne asetamist puhastada?',toolbar:'Asetamine Wordist',title:'Asetamine Wordist',error:'Asetatud andmete puhastamine ei olnud sisemise vea tõttu võimalik'},pasteText:{button:'Asetamine tavalise tekstina',title:'Asetamine tavalise tekstina'},templates:{button:'Mall',title:'Sisumallid',options:'Malli valikud',insertOption:'Praegune sisu asendatakse',selectPromptMsg:'Palun vali mall, mis avada redaktoris<br />(praegune sisu läheb kaotsi):',emptyListMsg:'(Ühtegi malli ei ole defineeritud)'},showBlocks:'Blokkide näitamine',stylesCombo:{label:'Stiil',panelTitle:'Vormindusstiilid',panelTitle1:'Blokkstiilid',panelTitle2:'Reasisesed stiilid',panelTitle3:'Objektistiilid'},format:{label:'Vorming',panelTitle:'Vorming',tag_p:'Tavaline',tag_pre:'Vormindatud',tag_address:'Aadress',tag_h1:'Pealkiri 1',tag_h2:'Pealkiri 2',tag_h3:'Pealkiri 3',tag_h4:'Pealkiri 4',tag_h5:'Pealkiri 5',tag_h6:'Pealkiri 6',tag_div:'Tavaline (DIV)'},div:{title:'Div-konteineri loomine',toolbar:'Div-konteineri loomine',cssClassInputLabel:'Stiililehe klassid',styleSelectLabel:'Stiil',IdInputLabel:'ID',languageCodeInputLabel:' Keelekood',inlineStyleInputLabel:'Reasisene stiil',advisoryTitleInputLabel:'Soovitatav pealkiri',langDirLabel:'Keele suund',langDirLTRLabel:'Vasakult paremale (LTR)',langDirRTLLabel:'Paremalt vasakule (RTL)',edit:'Muuda Div',remove:'Eemalda Div'},iframe:{title:'IFrame omadused',toolbar:'IFrame',noUrl:'Vali iframe URLi liik',scrolling:'Kerimisribade lubamine',border:'Raami äärise näitamine'},font:{label:'Kiri',voiceLabel:'Kiri',panelTitle:'Kiri'},fontSize:{label:'Suurus',voiceLabel:'Kirja suurus',panelTitle:'Suurus'},colorButton:{textColorTitle:'Teksti värv',bgColorTitle:'Tausta värv',panelTitle:'Värvid',auto:'Automaatne',more:'Rohkem värve...'},colors:{'000':'Must',800000:'Kastanpruun','8B4513':'Sadulapruun','2F4F4F':'Tume paehall','008080':'Sinakasroheline','000080':'Meresinine','4B0082':'Indigosinine',696969:'Tumehall',B22222:'Šamottkivi',A52A2A:'Pruun',DAA520:'Kuldkollane','006400':'Tumeroheline','40E0D0':'Türkiissinine','0000CD':'Keskmine sinine',800080:'Lilla',808080:'Hall',F00:'Punanae',FF8C00:'Tumeoranž',FFD700:'Kuldne','008000':'Roheline','0FF':'Tsüaniidsinine','00F':'Sinine',EE82EE:'Violetne',A9A9A9:'Tuhm hall',FFA07A:'Hele lõhe',FFA500:'Oranž',FFFF00:'Kollane','00FF00':'Lubja hall',AFEEEE:'Kahvatu türkiis',ADD8E6:'Helesinine',DDA0DD:'Ploomililla',D3D3D3:'Helehall',FFF0F5:'Lavendlipunane',FAEBD7:'Antiikvalge',FFFFE0:'Helekollane',F0FFF0:'Meloniroheline',F0FFFF:'Taevasinine',F0F8FF:'Beebisinine',E6E6FA:'Lavendel',FFF:'Valge'},scayt:{title:'Õigekirjakontroll kirjutamise ajal',opera_title:'Operas pole toetatud',enable:'SCAYT lubatud',disable:'SCAYT keelatud',about:'SCAYT-ist lähemalt',toggle:'SCAYT sisse/välja lülitamine',options:'Valikud',langs:'Keeled',moreSuggestions:'Veel soovitusi',ignore:'Eira',ignoreAll:'Eira kõiki',addWord:'Lisa sõna',emptyDic:'Sõnaraamatu nimi ei tohi olla tühi.',optionsTab:'Valikud',allCaps:'Läbivate suurtähtedega sõnade eiramine',ignoreDomainNames:'Domeeninimede eiramine',mixedCase:'Tavapäratu tõstuga sõnade eiramine',mixedWithDigits:'Numbreid sisaldavate sõnade eiramine',languagesTab:'Keeled',dictionariesTab:'Sõnaraamatud',dic_field_name:'Sõnaraamatu nimi',dic_create:'Loo',dic_restore:'Taasta',dic_delete:'Kustuta',dic_rename:'Nimeta ümber',dic_info:'Alguses säilitatakse kasutaja sõnaraamatut küpsises. Küpsise suurus on piiratud. Pärast sõnaraamatu kasvamist nii suureks, et see küpsisesse ei mahu, võib sõnaraamatut hoida meie serveris. Oma isikliku sõnaraamatu hoidmiseks meie serveris pead andma sellele nime. Kui sa juba oled sõnaraamatu salvestanud, sisesta selle nimi ja klõpsa taastamise nupule.',aboutTab:'Lähemalt'},about:{title:'CKEditorist',dlgTitle:'CKEditorist',help:'Abi jaoks vaata $1.',userGuide:'CKEditori kasutusjuhendit',moreInfo:'Litsentsi andmed leiab meie veebilehelt:',copy:'Copyright &copy; $1. Kõik õigused kaitstud.'},maximize:'Maksimeerimine',minimize:'Minimeerimine',fakeobjects:{anchor:'Ankur',flash:'Flashi animatsioon',iframe:'IFrame',hiddenfield:'Varjatud väli',unknown:'Tundmatu objekt'},resize:'Suuruse muutmiseks lohista',colordialog:{title:'Värvi valimine',options:'Värvi valikud',highlight:'Näidis',selected:'Valitud värv',clear:'Eemalda'},toolbarCollapse:'Tööriistariba peitmine',toolbarExpand:'Tööriistariba näitamine',toolbarGroups:{document:'Dokument',clipboard:'Lõikelaud/tagasivõtmine',editing:'Muutmine',forms:'Vormid',basicstyles:'Põhistiilid',paragraph:'Lõik',links:'Lingid',insert:'Sisesta',styles:'Stiilid',colors:'Värvid',tools:'Tööriistad'},bidi:{ltr:'Teksti suund vasakult paremale',rtl:'Teksti suund paremalt vasakule'},docprops:{label:'Dokumendi omadused',title:'Dokumendi omadused',design:'Disain',meta:'Meta andmed',chooseColor:'Vali',other:'<muu>',docTitle:'Lehekülje tiitel',charset:'Märgistiku kodeering',charsetOther:'Ülejäänud märgistike kodeeringud',charsetASCII:'ASCII',charsetCE:'Kesk-Euroopa',charsetCT:'Hiina traditsiooniline (Big5)',charsetCR:'Kirillisa',charsetGR:'Kreeka',charsetJP:'Jaapani',charsetKR:'Korea',charsetTR:'Türgi',charsetUN:'Unicode (UTF-8)',charsetWE:'Lääne-Euroopa',docType:'Dokumendi tüüppäis',docTypeOther:'Teised dokumendi tüüppäised',xhtmlDec:'Arva kaasa XHTML deklaratsioonid',bgColor:'Taustavärv',bgImage:'Taustapildi URL',bgFixed:'Mittekeritav tagataust',txtColor:'Teksti värv',margin:'Lehekülje äärised',marginTop:'Ülaserv',marginLeft:'Vasakserv',marginRight:'Paremserv',marginBottom:'Alaserv',metaKeywords:'Dokumendi võtmesõnad (eraldatud komadega)',metaDescription:'Dokumendi kirjeldus',metaAuthor:'Autor',metaCopyright:'Autoriõigus',previewHtml:'<p>See on <strong>näidistekst</strong>. Sa kasutad <a href="javascript:void(0)">CKEditori</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Voldi tööriistariba",
+ToolbarExpand		: "Laienda tööriistariba",
+
+// Toolbar Items and Context Menu
+Save				: "Salvesta",
+NewPage				: "Uus leht",
+Preview				: "Eelvaade",
+Cut					: "Lõika",
+Copy				: "Kopeeri",
+Paste				: "Kleebi",
+PasteText			: "Kleebi tavalise tekstina",
+PasteWord			: "Kleebi Wordist",
+Print				: "Prindi",
+SelectAll			: "Vali kõik",
+RemoveFormat		: "Eemalda vorming",
+InsertLinkLbl		: "Link",
+InsertLink			: "Sisesta link / Muuda linki",
+RemoveLink			: "Eemalda link",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Sisesta ankur / Muuda ankrut",
+AnchorDelete		: "Eemalda ankur",
+InsertImageLbl		: "Pilt",
+InsertImage			: "Sisesta pilt / Muuda pilti",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Sisesta flash / Muuda flashi",
+InsertTableLbl		: "Tabel",
+InsertTable			: "Sisesta tabel / Muuda tabelit",
+InsertLineLbl		: "Joon",
+InsertLine			: "Sisesta horisontaaljoon",
+InsertSpecialCharLbl: "Erimärgid",
+InsertSpecialChar	: "Sisesta erimärk",
+InsertSmileyLbl		: "Emotikon",
+InsertSmiley		: "Sisesta emotikon",
+About				: "FCKeditor teave",
+Bold				: "Paks",
+Italic				: "Kursiiv",
+Underline			: "Allajoonitud",
+StrikeThrough		: "Läbijoonitud",
+Subscript			: "Allindeks",
+Superscript			: "Ülaindeks",
+LeftJustify			: "Vasakjoondus",
+CenterJustify		: "Keskjoondus",
+RightJustify		: "Paremjoondus",
+BlockJustify		: "Rööpjoondus",
+DecreaseIndent		: "Vähenda taanet",
+IncreaseIndent		: "Suurenda taanet",
+Blockquote			: "Blokktsitaat",
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Võta tagasi",
+Redo				: "Korda toimingut",
+NumberedListLbl		: "Nummerdatud loetelu",
+NumberedList		: "Sisesta/Eemalda nummerdatud loetelu",
+BulletedListLbl		: "Punktiseeritud loetelu",
+BulletedList		: "Sisesta/Eemalda punktiseeritud loetelu",
+ShowTableBorders	: "Näita tabeli jooni",
+ShowDetails			: "Näita üksikasju",
+Style				: "Laad",
+FontFormat			: "Vorming",
+Font				: "Kiri",
+FontSize			: "Suurus",
+TextColor			: "Teksti värv",
+BGColor				: "Tausta värv",
+Source				: "Lähtekood",
+Find				: "Otsi",
+Replace				: "Asenda",
+SpellCheck			: "Kontrolli õigekirja",
+UniversalKeyboard	: "Universaalne klaviatuur",
+PageBreakLbl		: "Lehepiir",
+PageBreak			: "Sisesta lehevahetuskoht",
+
+Form			: "Vorm",
+Checkbox		: "Märkeruut",
+RadioButton		: "Raadionupp",
+TextField		: "Tekstilahter",
+Textarea		: "Tekstiala",
+HiddenField		: "Varjatud lahter",
+Button			: "Nupp",
+SelectionField	: "Valiklahter",
+ImageButton		: "Piltnupp",
+
+FitWindow		: "Maksimeeri redaktori mõõtmed",
+ShowBlocks		: "Näita blokke",
+
+// Context Menu
+EditLink			: "Muuda linki",
+CellCM				: "Lahter",
+RowCM				: "Rida",
+ColumnCM			: "Veerg",
+InsertRowAfter		: "Sisesta rida peale",
+InsertRowBefore		: "Sisesta rida enne",
+DeleteRows			: "Eemalda read",
+InsertColumnAfter	: "Sisesta veerg peale",
+InsertColumnBefore	: "Sisesta veerg enne",
+DeleteColumns		: "Eemalda veerud",
+InsertCellAfter		: "Sisesta lahter peale",
+InsertCellBefore	: "Sisesta lahter enne",
+DeleteCells			: "Eemalda lahtrid",
+MergeCells			: "Ühenda lahtrid",
+MergeRight			: "Ühenda paremale",
+MergeDown			: "Ühenda alla",
+HorizontalSplitCell	: "Poolita lahter horisontaalselt",
+VerticalSplitCell	: "Poolita lahter vertikaalselt",
+TableDelete			: "Kustuta tabel",
+CellProperties		: "Lahtri atribuudid",
+TableProperties		: "Tabeli atribuudid",
+ImageProperties		: "Pildi atribuudid",
+FlashProperties		: "Flash omadused",
+
+AnchorProp			: "Ankru omadused",
+ButtonProp			: "Nupu omadused",
+CheckboxProp		: "Märkeruudu omadused",
+HiddenFieldProp		: "Varjatud lahtri omadused",
+RadioButtonProp		: "Raadionupu omadused",
+ImageButtonProp		: "Piltnupu omadused",
+TextFieldProp		: "Tekstilahtri omadused",
+SelectionFieldProp	: "Valiklahtri omadused",
+TextareaProp		: "Tekstiala omadused",
+FormProp			: "Vormi omadused",
+
+FontFormats			: "Tavaline;Vormindatud;Aadress;Pealkiri 1;Pealkiri 2;Pealkiri 3;Pealkiri 4;Pealkiri 5;Pealkiri 6;Tavaline (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Töötlen XHTML'i. Palun oota...",
+Done				: "Tehtud",
+PasteWordConfirm	: "Tekst, mida soovid lisada paistab pärinevat Word'ist. Kas soovid seda enne kleepimist puhastada?",
+NotCompatiblePaste	: "See käsk on saadaval ainult Internet Explorer versioon 5.5 või uuema puhul. Kas soovid kleepida ilma puhastamata?",
+UnknownToolbarItem	: "Tundmatu tööriistarea üksus \"%1\"",
+UnknownCommand		: "Tundmatu käsunimi \"%1\"",
+NotImplemented		: "Käsku ei täidetud",
+UnknownToolbarSet	: "Tööriistariba \"%1\" ei eksisteeri",
+NoActiveX			: "Sinu veebisirvija turvalisuse seaded võivad limiteerida mõningaid tekstirdaktori kasutusvõimalusi. Sa peaksid võimaldama valiku \"Run ActiveX controls and plug-ins\" oma veebisirvija seadetes. Muidu võid sa täheldada vigu tekstiredaktori töös ja märgata puuduvaid funktsioone.",
+BrowseServerBlocked : "Ressursside sirvija avamine ebaõnnestus. Võimalda pop-up akende avanemine.",
+DialogBlocked		: "Ei olenud võimalik avada dialoogi akent. Võimalda pop-up akende avanemine.",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Loobu",
+DlgBtnClose			: "Sulge",
+DlgBtnBrowseServer	: "Sirvi serverit",
+DlgAdvancedTag		: "Täpsemalt",
+DlgOpOther			: "<Teine>",
+DlgInfoTab			: "Info",
+DlgAlertUrl			: "Palun sisesta URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<määramata>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Keele suund",
+DlgGenLangDirLtr	: "Vasakult paremale (LTR)",
+DlgGenLangDirRtl	: "Paremalt vasakule (RTL)",
+DlgGenLangCode		: "Keele kood",
+DlgGenAccessKey		: "Juurdepääsu võti",
+DlgGenName			: "Nimi",
+DlgGenTabIndex		: "Tab indeks",
+DlgGenLongDescr		: "Pikk kirjeldus URL",
+DlgGenClass			: "Stiilistiku klassid",
+DlgGenTitle			: "Juhendav tiitel",
+DlgGenContType		: "Juhendava sisu tüüp",
+DlgGenLinkCharset	: "Lingitud ressurssi märgistik",
+DlgGenStyle			: "Laad",
+
+// Image Dialog
+DlgImgTitle			: "Pildi atribuudid",
+DlgImgInfoTab		: "Pildi info",
+DlgImgBtnUpload		: "Saada serverissee",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Lae üles",
+DlgImgAlt			: "Alternatiivne tekst",
+DlgImgWidth			: "Laius",
+DlgImgHeight		: "Kõrgus",
+DlgImgLockRatio		: "Lukusta kuvasuhe",
+DlgBtnResetSize		: "Lähtesta suurus",
+DlgImgBorder		: "Joon",
+DlgImgHSpace		: "H. vaheruum",
+DlgImgVSpace		: "V. vaheruum",
+DlgImgAlign			: "Joondus",
+DlgImgAlignLeft		: "Vasak",
+DlgImgAlignAbsBottom: "Abs alla",
+DlgImgAlignAbsMiddle: "Abs keskele",
+DlgImgAlignBaseline	: "Baasjoonele",
+DlgImgAlignBottom	: "Alla",
+DlgImgAlignMiddle	: "Keskele",
+DlgImgAlignRight	: "Paremale",
+DlgImgAlignTextTop	: "Tekstit üles",
+DlgImgAlignTop		: "Üles",
+DlgImgPreview		: "Eelvaade",
+DlgImgAlertUrl		: "Palun kirjuta pildi URL",
+DlgImgLinkTab		: "Link",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash omadused",
+DlgFlashChkPlay		: "Automaatne start ",
+DlgFlashChkLoop		: "Korduv",
+DlgFlashChkMenu		: "Võimalda flash menüü",
+DlgFlashScale		: "Mastaap",
+DlgFlashScaleAll	: "Näita kõike",
+DlgFlashScaleNoBorder	: "Äärist ei ole",
+DlgFlashScaleFit	: "Täpne sobivus",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Link",
+DlgLnkInfoTab		: "Lingi info",
+DlgLnkTargetTab		: "Sihtkoht",
+
+DlgLnkType			: "Lingi tüüp",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Ankur sellel lehel",
+DlgLnkTypeEMail		: "E-post",
+DlgLnkProto			: "Protokoll",
+DlgLnkProtoOther	: "<muu>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Vali ankur",
+DlgLnkAnchorByName	: "Ankru nime järgi",
+DlgLnkAnchorById	: "Elemendi id järgi",
+DlgLnkNoAnchors		: "(Selles dokumendis ei ole ankruid)",
+DlgLnkEMail			: "E-posti aadress",
+DlgLnkEMailSubject	: "Sõnumi teema",
+DlgLnkEMailBody		: "Sõnumi tekst",
+DlgLnkUpload		: "Lae üles",
+DlgLnkBtnUpload		: "Saada serverisse",
+
+DlgLnkTarget		: "Sihtkoht",
+DlgLnkTargetFrame	: "<raam>",
+DlgLnkTargetPopup	: "<hüpikaken>",
+DlgLnkTargetBlank	: "Uus aken (_blank)",
+DlgLnkTargetParent	: "Esivanem aken (_parent)",
+DlgLnkTargetSelf	: "Sama aken (_self)",
+DlgLnkTargetTop		: "Pealmine aken (_top)",
+DlgLnkTargetFrameName	: "Sihtmärk raami nimi",
+DlgLnkPopWinName	: "Hüpikakna nimi",
+DlgLnkPopWinFeat	: "Hüpikakna omadused",
+DlgLnkPopResize		: "Suurendatav",
+DlgLnkPopLocation	: "Aadressiriba",
+DlgLnkPopMenu		: "Menüüriba",
+DlgLnkPopScroll		: "Kerimisribad",
+DlgLnkPopStatus		: "Olekuriba",
+DlgLnkPopToolbar	: "Tööriistariba",
+DlgLnkPopFullScrn	: "Täisekraan (IE)",
+DlgLnkPopDependent	: "Sõltuv (Netscape)",
+DlgLnkPopWidth		: "Laius",
+DlgLnkPopHeight		: "Kõrgus",
+DlgLnkPopLeft		: "Vasak asukoht",
+DlgLnkPopTop		: "Ülemine asukoht",
+
+DlnLnkMsgNoUrl		: "Palun kirjuta lingi URL",
+DlnLnkMsgNoEMail	: "Palun kirjuta E-Posti aadress",
+DlnLnkMsgNoAnchor	: "Palun vali ankur",
+DlnLnkMsgInvPopName	: "Hüpikakna nimi peab algama alfabeetilise tähega ja ei tohi sisaldada tühikuid",
+
+// Color Dialog
+DlgColorTitle		: "Vali värv",
+DlgColorBtnClear	: "Tühjenda",
+DlgColorHighlight	: "Märgi",
+DlgColorSelected	: "Valitud",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Sisesta emotikon",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Vali erimärk",
+
+// Table Dialog
+DlgTableTitle		: "Tabeli atribuudid",
+DlgTableRows		: "Read",
+DlgTableColumns		: "Veerud",
+DlgTableBorder		: "Joone suurus",
+DlgTableAlign		: "Joondus",
+DlgTableAlignNotSet	: "<Määramata>",
+DlgTableAlignLeft	: "Vasak",
+DlgTableAlignCenter	: "Kesk",
+DlgTableAlignRight	: "Parem",
+DlgTableWidth		: "Laius",
+DlgTableWidthPx		: "pikslit",
+DlgTableWidthPc		: "protsenti",
+DlgTableHeight		: "Kõrgus",
+DlgTableCellSpace	: "Lahtri vahe",
+DlgTableCellPad		: "Lahtri täidis",
+DlgTableCaption		: "Tabeli tiitel",
+DlgTableSummary		: "Kokkuvõte",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Lahtri atribuudid",
+DlgCellWidth		: "Laius",
+DlgCellWidthPx		: "pikslit",
+DlgCellWidthPc		: "protsenti",
+DlgCellHeight		: "Kõrgus",
+DlgCellWordWrap		: "Sõna ülekanne",
+DlgCellWordWrapNotSet	: "<Määramata>",
+DlgCellWordWrapYes	: "Jah",
+DlgCellWordWrapNo	: "Ei",
+DlgCellHorAlign		: "Horisontaaljoondus",
+DlgCellHorAlignNotSet	: "<Määramata>",
+DlgCellHorAlignLeft	: "Vasak",
+DlgCellHorAlignCenter	: "Kesk",
+DlgCellHorAlignRight: "Parem",
+DlgCellVerAlign		: "Vertikaaljoondus",
+DlgCellVerAlignNotSet	: "<Määramata>",
+DlgCellVerAlignTop	: "Üles",
+DlgCellVerAlignMiddle	: "Keskele",
+DlgCellVerAlignBottom	: "Alla",
+DlgCellVerAlignBaseline	: "Baasjoonele",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Reaulatus",
+DlgCellCollSpan		: "Veeruulatus",
+DlgCellBackColor	: "Tausta värv",
+DlgCellBorderColor	: "Joone värv",
+DlgCellBtnSelect	: "Vali...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Otsi ja asenda",
+
+// Find Dialog
+DlgFindTitle		: "Otsi",
+DlgFindFindBtn		: "Otsi",
+DlgFindNotFoundMsg	: "Valitud teksti ei leitud.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Asenda",
+DlgReplaceFindLbl		: "Leia mida:",
+DlgReplaceReplaceLbl	: "Asenda millega:",
+DlgReplaceCaseChk		: "Erista suur- ja väiketähti",
+DlgReplaceReplaceBtn	: "Asenda",
+DlgReplaceReplAllBtn	: "Asenda kõik",
+DlgReplaceWordChk		: "Otsi terviklike sõnu",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl+X).",
+PasteErrorCopy	: "Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt kopeerida. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl+C).",
+
+PasteAsText		: "Kleebi tavalise tekstina",
+PasteFromWord	: "Kleebi Wordist",
+
+DlgPasteMsg2	: "Palun kleebi järgnevasse kasti kasutades klaviatuuri klahvikombinatsiooni (<STRONG>Ctrl+V</STRONG>) ja vajuta seejärel <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Sinu veebisirvija turvaseadete tõttu, ei oma redaktor otsest ligipääsu lõikelaua andmetele. Sa pead kleepima need uuesti siia aknasse.",
+DlgPasteIgnoreFont		: "Ignoreeri kirja definitsioone",
+DlgPasteRemoveStyles	: "Eemalda stiilide definitsioonid",
+
+// Color Picker
+ColorAutomatic	: "Automaatne",
+ColorMoreColors	: "Rohkem värve...",
+
+// Document Properties
+DocProps		: "Dokumendi omadused",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Ankru omadused",
+DlgAnchorName		: "Ankru nimi",
+DlgAnchorErrorName	: "Palun sisest ankru nimi",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Puudub sõnastikust",
+DlgSpellChangeTo		: "Muuda",
+DlgSpellBtnIgnore		: "Ignoreeri",
+DlgSpellBtnIgnoreAll	: "Ignoreeri kõiki",
+DlgSpellBtnReplace		: "Asenda",
+DlgSpellBtnReplaceAll	: "Asenda kõik",
+DlgSpellBtnUndo			: "Võta tagasi",
+DlgSpellNoSuggestions	: "- Soovitused puuduvad -",
+DlgSpellProgress		: "Toimub õigekirja kontroll...",
+DlgSpellNoMispell		: "Õigekirja kontroll sooritatud: õigekirjuvigu ei leitud",
+DlgSpellNoChanges		: "Õigekirja kontroll sooritatud: ühtegi sõna ei muudetud",
+DlgSpellOneChange		: "Õigekirja kontroll sooritatud: üks sõna muudeti",
+DlgSpellManyChanges		: "Õigekirja kontroll sooritatud: %1 sõna muudetud",
+
+IeSpellDownload			: "Õigekirja kontrollija ei ole installeeritud. Soovid sa selle alla laadida?",
+
+// Button Dialog
+DlgButtonText		: "Tekst (väärtus)",
+DlgButtonType		: "Tüüp",
+DlgButtonTypeBtn	: "Nupp",
+DlgButtonTypeSbm	: "Saada",
+DlgButtonTypeRst	: "Lähtesta",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Nimi",
+DlgCheckboxValue	: "Väärtus",
+DlgCheckboxSelected	: "Valitud",
+
+// Form Dialog
+DlgFormName		: "Nimi",
+DlgFormAction	: "Toiming",
+DlgFormMethod	: "Meetod",
+
+// Select Field Dialog
+DlgSelectName		: "Nimi",
+DlgSelectValue		: "Väärtus",
+DlgSelectSize		: "Suurus",
+DlgSelectLines		: "ridu",
+DlgSelectChkMulti	: "Võimalda mitu valikut",
+DlgSelectOpAvail	: "Võimalikud valikud",
+DlgSelectOpText		: "Tekst",
+DlgSelectOpValue	: "Väärtus",
+DlgSelectBtnAdd		: "Lisa",
+DlgSelectBtnModify	: "Muuda",
+DlgSelectBtnUp		: "Üles",
+DlgSelectBtnDown	: "Alla",
+DlgSelectBtnSetValue : "Sea valitud olekuna",
+DlgSelectBtnDelete	: "Kustuta",
+
+// Textarea Dialog
+DlgTextareaName	: "Nimi",
+DlgTextareaCols	: "Veerge",
+DlgTextareaRows	: "Ridu",
+
+// Text Field Dialog
+DlgTextName			: "Nimi",
+DlgTextValue		: "Väärtus",
+DlgTextCharWidth	: "Laius (tähemärkides)",
+DlgTextMaxChars		: "Maksimaalselt tähemärke",
+DlgTextType			: "Tüüp",
+DlgTextTypeText		: "Tekst",
+DlgTextTypePass		: "Parool",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Nimi",
+DlgHiddenValue	: "Väärtus",
+
+// Bulleted List Dialog
+BulletedListProp	: "Täpitud loetelu omadused",
+NumberedListProp	: "Nummerdatud loetelu omadused",
+DlgLstStart			: "Alusta",
+DlgLstType			: "Tüüp",
+DlgLstTypeCircle	: "Ring",
+DlgLstTypeDisc		: "Ketas",
+DlgLstTypeSquare	: "Ruut",
+DlgLstTypeNumbers	: "Numbrid (1, 2, 3)",
+DlgLstTypeLCase		: "Väiketähed (a, b, c)",
+DlgLstTypeUCase		: "Suurtähed (A, B, C)",
+DlgLstTypeSRoman	: "Väiksed Rooma numbrid (i, ii, iii)",
+DlgLstTypeLRoman	: "Suured Rooma numbrid (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Üldine",
+DlgDocBackTab		: "Taust",
+DlgDocColorsTab		: "Värvid ja veerised",
+DlgDocMetaTab		: "Meta andmed",
+
+DlgDocPageTitle		: "Lehekülje tiitel",
+DlgDocLangDir		: "Kirja suund",
+DlgDocLangDirLTR	: "Vasakult paremale (LTR)",
+DlgDocLangDirRTL	: "Paremalt vasakule (RTL)",
+DlgDocLangCode		: "Keele kood",
+DlgDocCharSet		: "Märgistiku kodeering",
+DlgDocCharSetCE		: "Kesk-Euroopa",
+DlgDocCharSetCT		: "Hiina traditsiooniline (Big5)",
+DlgDocCharSetCR		: "Kirillisa",
+DlgDocCharSetGR		: "Kreeka",
+DlgDocCharSetJP		: "Jaapani",
+DlgDocCharSetKR		: "Korea",
+DlgDocCharSetTR		: "Türgi",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Lääne-Euroopa",
+DlgDocCharSetOther	: "Ülejäänud märgistike kodeeringud",
+
+DlgDocDocType		: "Dokumendi tüüppäis",
+DlgDocDocTypeOther	: "Teised dokumendi tüüppäised",
+DlgDocIncXHTML		: "Arva kaasa XHTML deklaratsioonid",
+DlgDocBgColor		: "Taustavärv",
+DlgDocBgImage		: "Taustapildi URL",
+DlgDocBgNoScroll	: "Mittekeritav tagataust",
+DlgDocCText			: "Tekst",
+DlgDocCLink			: "Link",
+DlgDocCVisited		: "Külastatud link",
+DlgDocCActive		: "Aktiivne link",
+DlgDocMargins		: "Lehekülje äärised",
+DlgDocMaTop			: "Ülaserv",
+DlgDocMaLeft		: "Vasakserv",
+DlgDocMaRight		: "Paremserv",
+DlgDocMaBottom		: "Alaserv",
+DlgDocMeIndex		: "Dokumendi võtmesõnad (eraldatud komadega)",
+DlgDocMeDescr		: "Dokumendi kirjeldus",
+DlgDocMeAuthor		: "Autor",
+DlgDocMeCopy		: "Autoriõigus",
+DlgDocPreview		: "Eelvaade",
+
+// Templates Dialog
+Templates			: "Šabloon",
+DlgTemplatesTitle	: "Sisu šabloonid",
+DlgTemplatesSelMsg	: "Palun vali šabloon, et avada see redaktoris<br />(praegune sisu läheb kaotsi):",
+DlgTemplatesLoading	: "Laen šabloonide nimekirja. Palun oota...",
+DlgTemplatesNoTpl	: "(Ühtegi šablooni ei ole defineeritud)",
+DlgTemplatesReplace	: "Asenda tegelik sisu",
+
+// About Dialog
+DlgAboutAboutTab	: "Teave",
+DlgAboutBrowserInfoTab	: "Veebisirvija info",
+DlgAboutLicenseTab	: "Litsents",
+DlgAboutVersion		: "versioon",
+DlgAboutInfo		: "Täpsema info saamiseks mine",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

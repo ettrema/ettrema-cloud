@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Dutch language file.
+ */
 
-CKEDITOR.lang.nl={dir:'ltr',editorTitle:'Tekstverwerker, %1, druk op ALT 0 voor hulp.',toolbars:'Werkbalken',editor:'Tekstverwerker',source:'Code',newPage:'Nieuwe pagina',save:'Opslaan',preview:'Voorbeeld',cut:'Knippen',copy:'Kopiëren',paste:'Plakken',print:'Printen',underline:'Onderstreept',bold:'Vet',italic:'Schuingedrukt',selectAll:'Alles selecteren',removeFormat:'Opmaak verwijderen',strike:'Doorhalen',subscript:'Subscript',superscript:'Superscript',horizontalrule:'Horizontale lijn invoegen',pagebreak:'Pagina-einde invoegen',pagebreakAlt:'Pagina-einde',unlink:'Link verwijderen',undo:'Ongedaan maken',redo:'Opnieuw uitvoeren',common:{browseServer:'Bladeren op server',url:'URL',protocol:'Protocol',upload:'Upload',uploadSubmit:'Naar server verzenden',image:'Afbeelding',flash:'Flash',form:'Formulier',checkbox:'Aanvinkvakje',radio:'Selectievakje',textField:'Tekstveld',textarea:'Tekstvak',hiddenField:'Verborgen veld',button:'Knop',select:'Selectieveld',imageButton:'Afbeeldingsknop',notSet:'<niet ingevuld>',id:'Kenmerk',name:'Naam',langDir:'Schrijfrichting',langDirLtr:'Links naar rechts (LTR)',langDirRtl:'Rechts naar links (RTL)',langCode:'Taalcode',longDescr:'Lange URL-omschrijving',cssClass:'Stylesheet-klassen',advisoryTitle:'Aanbevolen titel',cssStyle:'Stijl',ok:'OK',cancel:'Annuleren',close:'Sluiten',preview:'Voorbeeld',generalTab:'Algemeen',advancedTab:'Geavanceerd',validateNumberFailed:'Deze waarde is geen geldig getal.',confirmNewPage:'Alle aangebrachte wijzigingen gaan verloren. Weet u zeker dat u een nieuwe pagina wilt openen?',confirmCancel:'Enkele opties zijn gewijzigd. Weet u zeker dat u dit dialoogvenster wilt sluiten?',options:'Opties',target:'Doel',targetNew:'Nieuw venster (_blank)',targetTop:'Hele venster (_top)',targetSelf:'Zelfde venster (_self)',targetParent:'Origineel venster (_parent)',langDirLTR:'Links naar rechts (LTR)',langDirRTL:'Rechts naar links (RTL)',styles:'Stijlen',cssClasses:'Stylesheet klassen',width:'Breedte',height:'Hoogte',align:'Uitlijning',alignLeft:'Links',alignRight:'Rechts',alignCenter:'Centreren',alignTop:'Boven',alignMiddle:'Midden',alignBottom:'Beneden',invalidHeight:'De hoogte moet een getal zijn.',invalidWidth:'De breedte moet een getal zijn.',invalidCssLength:'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige CSS meeteenheid (px, %, in, cm, mm, em, ex, pt of pc).',invalidHtmlLength:'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige HTML meeteenheid (px of %).',invalidInlineStyle:'Waarde voor de online stijl moet bestaan uit een of meerdere tupels met het formaat "naam : waarde", gescheiden door puntkomma\'s.',cssLengthTooltip:'Geef een nummer in voor een waarde in pixels of geef een nummer in met een geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',unavailable:'%1<span class="cke_accessibility">, niet beschikbaar</span>'},contextmenu:{options:'Context menu opties'},specialChar:{toolbar:'Speciaal teken invoegen',title:'Selecteer speciaal teken',options:'Speciale tekens opties'},link:{toolbar:'Link invoegen/wijzigen',other:'<ander>',menu:'Link wijzigen',title:'Link',info:'Linkomschrijving',target:'Doel',upload:'Upload',advanced:'Geavanceerd',type:'Linktype',toUrl:'URL',toAnchor:'Interne link in pagina',toEmail:'E-mail',targetFrame:'<frame>',targetPopup:'<popup window>',targetFrameName:'Naam doelframe',targetPopupName:'Naam popupvenster',popupFeatures:'Instellingen popupvenster',popupResizable:'Herschaalbaar',popupStatusBar:'Statusbalk',popupLocationBar:'Locatiemenu',popupToolbar:'Menubalk',popupMenuBar:'Menubalk',popupFullScreen:'Volledig scherm (IE)',popupScrollBars:'Schuifbalken',popupDependent:'Afhankelijk (Netscape)',popupLeft:'Positie links',popupTop:'Positie boven',id:'Id',langDir:'Schrijfrichting',langDirLTR:'Links naar rechts (LTR)',langDirRTL:'Rechts naar links (RTL)',acccessKey:'Toegangstoets',name:'Naam',langCode:'Schrijfrichting',tabIndex:'Tabvolgorde',advisoryTitle:'Aanbevolen titel',advisoryContentType:'Aanbevolen content-type',cssClasses:'Stylesheet-klassen',charset:'Karakterset van gelinkte bron',styles:'Stijl',rel:'Relatie',selectAnchor:'Kies een interne link',anchorName:'Op naam interne link',anchorId:'Op kenmerk interne link',emailAddress:'E-mailadres',emailSubject:'Onderwerp bericht',emailBody:'Inhoud bericht',noAnchors:'(Geen interne links in document gevonden)',noUrl:'Geef de link van de URL',noEmail:'Geef een e-mailadres'},anchor:{toolbar:'Interne link',menu:'Eigenschappen interne link',title:'Eigenschappen interne link',name:'Naam interne link',errorName:'Geef de naam van de interne link op',remove:'Interne link verwijderen'},list:{numberedTitle:'Eigenschappen genummerde lijst',bulletedTitle:'Eigenschappen lijst met opsommingstekens',type:'Type',start:'Start',validateStartNumber:'Starnummer van de lijst moet een heel nummer zijn.',circle:'Cirkel',disc:'Schijf',square:'Vierkant',none:'Geen',notset:'<niet gezet>',armenian:'Armeense numering',georgian:'Greorgische numering (an, ban, gan, etc.)',lowerRoman:'Romeins kleine letters (i, ii, iii, iv, v, etc.)',upperRoman:'Romeins hoofdletters (I, II, III, IV, V, etc.)',lowerAlpha:'Kleine letters (a, b, c, d, e, etc.)',upperAlpha:'Hoofdletters (A, B, C, D, E, etc.)',lowerGreek:'Grieks kleine letters (alpha, beta, gamma, etc.)',decimal:'Cijfers (1, 2, 3, etc.)',decimalLeadingZero:'Cijfers beginnen met nul (01, 02, 03, etc.)'},findAndReplace:{title:'Zoeken en vervangen',find:'Zoeken',replace:'Vervangen',findWhat:'Zoeken naar:',replaceWith:'Vervangen met:',notFoundMsg:'De opgegeven tekst is niet gevonden.',findOptions:'Zoekopties',matchCase:'Hoofdlettergevoelig',matchWord:'Hele woord moet voorkomen',matchCyclic:'Doorlopend zoeken',replaceAll:'Alles vervangen',replaceSuccessMsg:'%1 resulaten vervangen.'},table:{toolbar:'Tabel',title:'Eigenschappen tabel',menu:'Eigenschappen tabel',deleteTable:'Tabel verwijderen',rows:'Rijen',columns:'Kolommen',border:'Breedte rand',widthPx:'pixels',widthPc:'procent',widthUnit:'eenheid breedte',cellSpace:'Afstand tussen cellen',cellPad:'Ruimte in de cel',caption:'Naam',summary:'Samenvatting',headers:'Koppen',headersNone:'Geen',headersColumn:'Eerste kolom',headersRow:'Eerste rij',headersBoth:'Beide',invalidRows:'Het aantal rijen moet een getal zijn groter dan 0.',invalidCols:'Het aantal kolommen moet een getal zijn groter dan 0.',invalidBorder:'De rand breedte moet een getal zijn.',invalidWidth:'De tabel breedte moet een getal zijn.',invalidHeight:'De tabel hoogte moet een getal zijn.',invalidCellSpacing:'Afstand tussen cellen moet een getal zijn.',invalidCellPadding:'Ruimte in de cel moet een getal zijn.',cell:{menu:'Cel',insertBefore:'Voeg cel in voor',insertAfter:'Voeg cel in achter',deleteCell:'Cellen verwijderen',merge:'Cellen samenvoegen',mergeRight:'Voeg samen naar rechts',mergeDown:'Voeg samen naar beneden',splitHorizontal:'Splits cellen horizontaal',splitVertical:'Splits cellen verticaal',title:'Cel eigenschappen',cellType:'Cel type',rowSpan:'Rijen samenvoegen',colSpan:'Kolommen samenvoegen',wordWrap:'Automatische terugloop',hAlign:'Horizontale uitlijning',vAlign:'Verticale uitlijning',alignBaseline:'Basislijn',bgColor:'Achtergrondkleur',borderColor:'Kleur rand',data:'Inhoud',header:'Kop',yes:'Ja',no:'Nee',invalidWidth:'De celbreedte moet een getal zijn.',invalidHeight:'De celhoogte moet een getal zijn.',invalidRowSpan:'Rijen samenvoegen moet een heel getal zijn.',invalidColSpan:'Kolommen samenvoegen moet een heel getal zijn.',chooseColor:'Kies'},row:{menu:'Rij',insertBefore:'Voeg rij in voor',insertAfter:'Voeg rij in achter',deleteRow:'Rijen verwijderen'},column:{menu:'Kolom',insertBefore:'Voeg kolom in voor',insertAfter:'Voeg kolom in achter',deleteColumn:'Kolommen verwijderen'}},button:{title:'Eigenschappen knop',text:'Tekst (waarde)',type:'Soort',typeBtn:'Knop',typeSbm:'Versturen',typeRst:'Leegmaken'},checkboxAndRadio:{checkboxTitle:'Eigenschappen aanvinkvakje',radioTitle:'Eigenschappen selectievakje',value:'Waarde',selected:'Geselecteerd'},form:{title:'Eigenschappen formulier',menu:'Eigenschappen formulier',action:'Actie',method:'Methode',encoding:'Codering'},select:{title:'Eigenschappen selectieveld',selectInfo:'Informatie',opAvail:'Beschikbare opties',value:'Waarde',size:'Grootte',lines:'Regels',chkMulti:'Gecombineerde selecties toestaan',opText:'Tekst',opValue:'Waarde',btnAdd:'Toevoegen',btnModify:'Wijzigen',btnUp:'Omhoog',btnDown:'Omlaag',btnSetValue:'Als geselecteerde waarde instellen',btnDelete:'Verwijderen'},textarea:{title:'Eigenschappen tekstvak',cols:'Kolommen',rows:'Rijen'},textfield:{title:'Eigenschappen tekstveld',name:'Naam',value:'Waarde',charWidth:'Breedte (tekens)',maxChars:'Maximum aantal tekens',type:'Soort',typeText:'Tekst',typePass:'Wachtwoord'},hidden:{title:'Eigenschappen verborgen veld',name:'Naam',value:'Waarde'},image:{title:'Eigenschappen afbeelding',titleButton:'Eigenschappen afbeeldingsknop',menu:'Eigenschappen afbeelding',infoTab:'Informatie afbeelding',btnUpload:'Naar server verzenden',upload:'Upload',alt:'Alternatieve tekst',lockRatio:'Afmetingen vergrendelen',resetSize:'Afmetingen resetten',border:'Rand',hSpace:'HSpace',vSpace:'VSpace',alertUrl:'Geef de URL van de afbeelding',linkTab:'Link',button2Img:'Wilt u de geselecteerde afbeeldingsknop vervangen door een eenvoudige afbeelding?',img2Button:'Wilt u de geselecteerde afbeelding vervangen door een afbeeldingsknop?',urlMissing:'De URL naar de afbeelding ontbreekt.',validateBorder:'Rand moet een heel nummer zijn.',validateHSpace:'HSpace moet een heel nummer zijn.',validateVSpace:'VSpace moet een heel nummer zijn.'},flash:{properties:'Eigenschappen Flash',propertiesTab:'Eigenschappen',title:'Eigenschappen Flash',chkPlay:'Automatisch afspelen',chkLoop:'Herhalen',chkMenu:"Flashmenu's inschakelen",chkFull:'Schermvullend toestaan',scale:'Schaal',scaleAll:'Alles tonen',scaleNoBorder:'Geen rand',scaleFit:'Precies passend',access:'Script toegang',accessAlways:'Altijd',accessSameDomain:'Zelfde domeinnaam',accessNever:'Nooit',alignAbsBottom:'Absoluut-onder',alignAbsMiddle:'Absoluut-midden',alignBaseline:'Basislijn',alignTextTop:'Boven tekst',quality:'Kwaliteit',qualityBest:'Beste',qualityHigh:'Hoog',qualityAutoHigh:'Automatisch hoog',qualityMedium:'Gemiddeld',qualityAutoLow:'Automatisch laag',qualityLow:'Laag',windowModeWindow:'Venster',windowModeOpaque:'Ondoorzichtig',windowModeTransparent:'Doorzichtig',windowMode:'Venster modus',flashvars:'Variabelen voor Flash',bgcolor:'Achtergrondkleur',hSpace:'HSpace',vSpace:'VSpace',validateSrc:'Geef de link van de URL',validateHSpace:'De HSpace moet een getal zijn.',validateVSpace:'De VSpace moet een getal zijn.'},spellCheck:{toolbar:'Spellingscontrole',title:'Spellingscontrole',notAvailable:'Excuses, deze dienst is momenteel niet beschikbaar.',errorLoading:'Er is een fout opgetreden bij het laden van de diesnt: %s.',notInDic:'Niet in het woordenboek',changeTo:'Wijzig in',btnIgnore:'Negeren',btnIgnoreAll:'Alles negeren',btnReplace:'Vervangen',btnReplaceAll:'Alles vervangen',btnUndo:'Ongedaan maken',noSuggestions:'-Geen suggesties-',progress:'Bezig met spellingscontrole...',noMispell:'Klaar met spellingscontrole: geen fouten gevonden',noChanges:'Klaar met spellingscontrole: geen woorden aangepast',oneChange:'Klaar met spellingscontrole: één woord aangepast',manyChanges:'Klaar met spellingscontrole: %1 woorden aangepast',ieSpellDownload:'De spellingscontrole niet geïnstalleerd. Wilt u deze nu downloaden?'},smiley:{toolbar:'Smiley',title:'Smiley invoegen',options:'Smiley opties'},elementsPath:{eleLabel:'Elementenpad',eleTitle:'%1 element'},numberedlist:'Genummerde lijst',bulletedlist:'Opsomming',indent:'Inspringen vergroten',outdent:'Inspringen verkleinen',justify:{left:'Links uitlijnen',center:'Centreren',right:'Rechts uitlijnen',block:'Uitvullen'},blockquote:'Citaatblok',clipboard:{title:'Plakken',cutError:'De beveiligingsinstelling van de browser verhinderen het automatisch knippen. Gebruik de sneltoets Ctrl/Cmd+X van het toetsenbord.',copyError:'De beveiligingsinstelling van de browser verhinderen het automatisch kopiëren. Gebruik de sneltoets Ctrl/Cmd+C van het toetsenbord.',pasteMsg:'Plak de tekst in het volgende vak gebruik makend van uw toetsenbord (<strong>Ctrl/Cmd+V</strong>) en klik op <strong>OK</strong>.',securityMsg:'Door de beveiligingsinstellingen van uw browser is het niet mogelijk om direct vanuit het klembord in de editor te plakken. Middels opnieuw plakken in dit venster kunt u de tekst alsnog plakken in de editor.',pasteArea:'Plakgebied'},pastefromword:{confirmCleanup:'De tekst die u plakte lijkt gekopieerd te zijn vanuit Word. Wilt u de tekst opschonen voordat deze geplakt wordt?',toolbar:'Plakken als Word-gegevens',title:'Plakken als Word-gegevens',error:'Het was niet mogelijk om de geplakte tekst op te schonen door een interne fout'},pasteText:{button:'Plakken als platte tekst',title:'Plakken als platte tekst'},templates:{button:'Sjablonen',title:'Inhoud sjabonen',options:'Template opties',insertOption:'Vervang de huidige inhoud',selectPromptMsg:'Selecteer het sjabloon dat in de editor geopend moet worden (de actuele inhoud gaat verloren):',emptyListMsg:'(Geen sjablonen gedefinieerd)'},showBlocks:'Toon blokken',stylesCombo:{label:'Stijl',panelTitle:'Opmaakstijlen',panelTitle1:'Blok stijlen',panelTitle2:'In-line stijlen',panelTitle3:'Object stijlen'},format:{label:'Opmaak',panelTitle:'Opmaak',tag_p:'Normaal',tag_pre:'Met opmaak',tag_address:'Adres',tag_h1:'Kop 1',tag_h2:'Kop 2',tag_h3:'Kop 3',tag_h4:'Kop 4',tag_h5:'Kop 5',tag_h6:'Kop 6',tag_div:'Normaal (DIV)'},div:{title:'Div aanmaken',toolbar:'Div aanmaken',cssClassInputLabel:'Stylesheet klassen',styleSelectLabel:'Stijl',IdInputLabel:'Id',languageCodeInputLabel:' Taalcode',inlineStyleInputLabel:'Inline stijl',advisoryTitleInputLabel:'informatieve titel',langDirLabel:'Schrijfrichting',langDirLTRLabel:'Links naar rechts (LTR)',langDirRTLLabel:'Rechts naar links (RTL)',edit:'Div wijzigen',remove:'Div verwijderen'},iframe:{title:'IFrame eigenschappen',toolbar:'IFrame',noUrl:'Geef de IFrame URL in',scrolling:'Scrollbalken inschakelen',border:'Framerand tonen'},font:{label:'Lettertype',voiceLabel:'Lettertype',panelTitle:'Lettertype'},fontSize:{label:'Lettergrootte',voiceLabel:'Lettergrootte',panelTitle:'Lettergrootte'},colorButton:{textColorTitle:'Tekstkleur',bgColorTitle:'Achtergrondkleur',panelTitle:'Kleuren',auto:'Automatisch',more:'Meer kleuren...'},colors:{'000':'Zwart',800000:'Kastanjebruin','8B4513':'Chocoladebruin','2F4F4F':'Donkerleigrijs','008080':'Blauwgroen','000080':'Marine','4B0082':'Indigo',696969:'Donkergrijs',B22222:'Baksteen',A52A2A:'Bruin',DAA520:'Donkergeel','006400':'Donkergroen','40E0D0':'Turquoise','0000CD':'Middenblauw',800080:'Paars',808080:'Grijs',F00:'Rood',FF8C00:'Donkeroranje',FFD700:'Goud','008000':'Groen','0FF':'Cyaan','00F':'Blauw',EE82EE:'Violet',A9A9A9:'Donkergrijs',FFA07A:'Lichtzalm',FFA500:'Oranje',FFFF00:'Geel','00FF00':'Felgroen',AFEEEE:'Lichtturquoise',ADD8E6:'Lichtblauw',DDA0DD:'Pruim',D3D3D3:'Lichtgrijs',FFF0F5:'Linnen',FAEBD7:'Ivoor',FFFFE0:'Lichtgeel',F0FFF0:'Honingdauw',F0FFFF:'Azuur',F0F8FF:'Licht hemelsblauw',E6E6FA:'Lavendel',FFF:'Wit'},scayt:{title:'Controleer de spelling tijdens het typen',opera_title:'Niet ondersteund door Opera',enable:'SCAYT inschakelen',disable:'SCAYT uitschakelen',about:'Over SCAYT',toggle:'SCAYT in/uitschakelen',options:'Opties',langs:'Talen',moreSuggestions:'Meer suggesties',ignore:'Negeren',ignoreAll:'Alles negeren',addWord:'Woord toevoegen',emptyDic:'De naam van het woordenboek mag niet leeg zijn.',optionsTab:'Opties',allCaps:'Negeer woorden helemaal in hoofdletters',ignoreDomainNames:'Negeer domeinnamen',mixedCase:'Negeer woorden met hoofd- en kleine letters',mixedWithDigits:'Negeer woorden met cijfers',languagesTab:'Talen',dictionariesTab:'Woordenboeken',dic_field_name:'Naam woordenboek',dic_create:'Aanmaken',dic_restore:'Terugzetten',dic_delete:'Verwijderen',dic_rename:'Hernoemen',dic_info:'Initieel wordt het gebruikerswoordenboek opgeslagen in een cookie. Cookies zijn echter beperkt in grootte. Zodra het gebruikerswoordenboek het punt bereikt waarop het niet meer in een cookie opgeslagen kan worden, dan wordt het woordenboek op de server opgeslagen. Om je persoonlijke woordenboek op je eigen server op te slaan, moet je een mapnaam opgeven. Indien je al een woordenboek hebt opgeslagen, typ dan de naam en klik op de Terugzetten knop.',aboutTab:'Over'},about:{title:'Over CKEditor',dlgTitle:'Over CKEditor',help:'Bekijk $1 voor hulp.',userGuide:'CKEditor gebruiksaanwijzing',moreInfo:'Voor licentie informatie, bezoek onze website:',copy:'Copyright &copy; $1. Alle rechten voorbehouden.'},maximize:'Maximaliseren',minimize:'Minimaliseren',fakeobjects:{anchor:'Anker',flash:'Flash animatie',iframe:'IFrame',hiddenfield:'Verborgen veld',unknown:'Onbekend object'},resize:'Sleep om te herschalen',colordialog:{title:'Selecteer kleur',options:'Kleuropties',highlight:'Actief',selected:'Geselecteerd',clear:'Wissen'},toolbarCollapse:'Werkbalk inklappen',toolbarExpand:'Werkbalk uitklappen',toolbarGroups:{document:'Document',clipboard:'Klembord/Ongedaan maken',editing:'Bewerken',forms:'Formulieren',basicstyles:'Basisstijlen',paragraph:'Paragraaf',links:'Links',insert:'Invoegen',styles:'Stijlen',colors:'Kleuren',tools:'Toepassingen'},bidi:{ltr:'Schrijfrichting van links naar rechts',rtl:'Schrijfrichting van rechts naar links'},docprops:{label:'Documenteigenschappen',title:'Documenteigenschappen',design:'Ontwerp',meta:'Meta tags',chooseColor:'Kiezen',other:'Anders...',docTitle:'Paginatitel',charset:'Tekencodering',charsetOther:'Andere tekencodering',charsetASCII:'ASCII',charsetCE:'Centraal Europees',charsetCT:'Tranditioneel Chinees (Big5)',charsetCR:'Cyrillisch',charsetGR:'Grieks',charsetJP:'Japans',charsetKR:'Koreaans',charsetTR:'Turks',charsetUN:'Unicode (UTF-8)',charsetWE:'West Europees',docType:'Documenttype-definitie',docTypeOther:'Andere documenttype-definitie',xhtmlDec:'XHTML declaratie invoegen',bgColor:'Achtergrondkleur',bgImage:'Achtergrondafbeelding URL',bgFixed:'Niet-scrollend (gefixeerde) achtergrond',txtColor:'Tekstkleur',margin:'Pagina marges',marginTop:'Boven',marginLeft:'Links',marginRight:'Rechts',marginBottom:'Onder',metaKeywords:'Trefwoorden voor indexering (komma-gescheiden)',metaDescription:'Documentbeschrijving',metaAuthor:'Auteur',metaCopyright:'Auteursrechten',previewHtml:'<p>Dit is <strong>voorbeeld tekst</strong>. Je gebruikt <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Menubalk inklappen",
+ToolbarExpand		: "Menubalk uitklappen",
+
+// Toolbar Items and Context Menu
+Save				: "Opslaan",
+NewPage				: "Nieuwe pagina",
+Preview				: "Voorbeeld",
+Cut					: "Knippen",
+Copy				: "Kopiëren",
+Paste				: "Plakken",
+PasteText			: "Plakken als platte tekst",
+PasteWord			: "Plakken als Word-gegevens",
+Print				: "Printen",
+SelectAll			: "Alles selecteren",
+RemoveFormat		: "Opmaak verwijderen",
+InsertLinkLbl		: "Link",
+InsertLink			: "Link invoegen/wijzigen",
+RemoveLink			: "Link verwijderen",
+VisitLink			: "Link volgen",
+Anchor				: "Interne link",
+AnchorDelete		: "Anker verwijderen",
+InsertImageLbl		: "Afbeelding",
+InsertImage			: "Afbeelding invoegen/wijzigen",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Flash invoegen/wijzigen",
+InsertTableLbl		: "Tabel",
+InsertTable			: "Tabel invoegen/wijzigen",
+InsertLineLbl		: "Lijn",
+InsertLine			: "Horizontale lijn invoegen",
+InsertSpecialCharLbl: "Speciale tekens",
+InsertSpecialChar	: "Speciaal teken invoegen",
+InsertSmileyLbl		: "Smiley",
+InsertSmiley		: "Smiley invoegen",
+About				: "Over FCKeditor",
+Bold				: "Vet",
+Italic				: "Schuingedrukt",
+Underline			: "Onderstreept",
+StrikeThrough		: "Doorhalen",
+Subscript			: "Subscript",
+Superscript			: "Superscript",
+LeftJustify			: "Links uitlijnen",
+CenterJustify		: "Centreren",
+RightJustify		: "Rechts uitlijnen",
+BlockJustify		: "Uitvullen",
+DecreaseIndent		: "Inspringen verkleinen",
+IncreaseIndent		: "Inspringen vergroten",
+Blockquote			: "Citaatblok",
+CreateDiv			: "DIV aanmaken",
+EditDiv				: "DIV wijzigen",
+DeleteDiv			: "DIV verwijderen",
+Undo				: "Ongedaan maken",
+Redo				: "Opnieuw uitvoeren",
+NumberedListLbl		: "Genummerde lijst",
+NumberedList		: "Genummerde lijst invoegen/verwijderen",
+BulletedListLbl		: "Opsomming",
+BulletedList		: "Opsomming invoegen/verwijderen",
+ShowTableBorders	: "Randen tabel weergeven",
+ShowDetails			: "Details weergeven",
+Style				: "Stijl",
+FontFormat			: "Opmaak",
+Font				: "Lettertype",
+FontSize			: "Grootte",
+TextColor			: "Tekstkleur",
+BGColor				: "Achtergrondkleur",
+Source				: "Code",
+Find				: "Zoeken",
+Replace				: "Vervangen",
+SpellCheck			: "Spellingscontrole",
+UniversalKeyboard	: "Universeel toetsenbord",
+PageBreakLbl		: "Pagina-einde",
+PageBreak			: "Pagina-einde invoegen",
+
+Form			: "Formulier",
+Checkbox		: "Aanvinkvakje",
+RadioButton		: "Selectievakje",
+TextField		: "Tekstveld",
+Textarea		: "Tekstvak",
+HiddenField		: "Verborgen veld",
+Button			: "Knop",
+SelectionField	: "Selectieveld",
+ImageButton		: "Afbeeldingsknop",
+
+FitWindow		: "De editor maximaliseren",
+ShowBlocks		: "Toon blokken",
+
+// Context Menu
+EditLink			: "Link wijzigen",
+CellCM				: "Cel",
+RowCM				: "Rij",
+ColumnCM			: "Kolom",
+InsertRowAfter		: "Voeg rij in achter",
+InsertRowBefore		: "Voeg rij in voor",
+DeleteRows			: "Rijen verwijderen",
+InsertColumnAfter	: "Voeg kolom in achter",
+InsertColumnBefore	: "Voeg kolom in voor",
+DeleteColumns		: "Kolommen verwijderen",
+InsertCellAfter		: "Voeg cel in achter",
+InsertCellBefore	: "Voeg cel in voor",
+DeleteCells			: "Cellen verwijderen",
+MergeCells			: "Cellen samenvoegen",
+MergeRight			: "Voeg samen naar rechts",
+MergeDown			: "Voeg samen naar beneden",
+HorizontalSplitCell	: "Splits cellen horizontaal",
+VerticalSplitCell	: "Splits cellen verticaal",
+TableDelete			: "Tabel verwijderen",
+CellProperties		: "Eigenschappen cel",
+TableProperties		: "Eigenschappen tabel",
+ImageProperties		: "Eigenschappen afbeelding",
+FlashProperties		: "Eigenschappen Flash",
+
+AnchorProp			: "Eigenschappen interne link",
+ButtonProp			: "Eigenschappen knop",
+CheckboxProp		: "Eigenschappen aanvinkvakje",
+HiddenFieldProp		: "Eigenschappen verborgen veld",
+RadioButtonProp		: "Eigenschappen selectievakje",
+ImageButtonProp		: "Eigenschappen afbeeldingsknop",
+TextFieldProp		: "Eigenschappen tekstveld",
+SelectionFieldProp	: "Eigenschappen selectieveld",
+TextareaProp		: "Eigenschappen tekstvak",
+FormProp			: "Eigenschappen formulier",
+
+FontFormats			: "Normaal;Met opmaak;Adres;Kop 1;Kop 2;Kop 3;Kop 4;Kop 5;Kop 6;Normaal (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Bezig met verwerken XHTML. Even geduld aub...",
+Done				: "Klaar",
+PasteWordConfirm	: "De tekst die u plakte lijkt gekopieerd te zijn vanuit Word. Wilt u de tekst opschonen voordat deze geplakt wordt?",
+NotCompatiblePaste	: "Deze opdracht is beschikbaar voor Internet Explorer versie 5.5 of hoger. Wilt u plakken zonder op te schonen?",
+UnknownToolbarItem	: "Onbekend item op menubalk \"%1\"",
+UnknownCommand		: "Onbekende opdrachtnaam: \"%1\"",
+NotImplemented		: "Opdracht niet geïmplementeerd.",
+UnknownToolbarSet	: "Menubalk \"%1\" bestaat niet.",
+NoActiveX			: "De beveilingsinstellingen van uw browser zouden sommige functies van de editor kunnen beperken. De optie \"Activeer ActiveX-elementen en plug-ins\" dient ingeschakeld te worden. Het kan zijn dat er nu functies ontbreken of niet werken.",
+BrowseServerBlocked : "De bestandsbrowser kon niet geopend worden. Zorg ervoor dat pop-up-blokkeerders uit staan.",
+DialogBlocked		: "Kan het dialoogvenster niet weergeven. Zorg ervoor dat pop-up-blokkeerders uit staan.",
+VisitLinkBlocked	: "Het was niet mogelijk een nieuw venster te openen. Controleer of er geen pop-up-blocker aktief is.",
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Annuleren",
+DlgBtnClose			: "Afsluiten",
+DlgBtnBrowseServer	: "Bladeren op server",
+DlgAdvancedTag		: "Geavanceerd",
+DlgOpOther			: "<Anders>",
+DlgInfoTab			: "Informatie",
+DlgAlertUrl			: "Geef URL op",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<niet ingevuld>",
+DlgGenId			: "Kenmerk",
+DlgGenLangDir		: "Schrijfrichting",
+DlgGenLangDirLtr	: "Links naar rechts (LTR)",
+DlgGenLangDirRtl	: "Rechts naar links (RTL)",
+DlgGenLangCode		: "Taalcode",
+DlgGenAccessKey		: "Toegangstoets",
+DlgGenName			: "Naam",
+DlgGenTabIndex		: "Tabvolgorde",
+DlgGenLongDescr		: "Lange URL-omschrijving",
+DlgGenClass			: "Stylesheet-klassen",
+DlgGenTitle			: "Aanbevolen titel",
+DlgGenContType		: "Aanbevolen content-type",
+DlgGenLinkCharset	: "Karakterset van gelinkte bron",
+DlgGenStyle			: "Stijl",
+
+// Image Dialog
+DlgImgTitle			: "Eigenschappen afbeelding",
+DlgImgInfoTab		: "Informatie afbeelding",
+DlgImgBtnUpload		: "Naar server verzenden",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Upload",
+DlgImgAlt			: "Alternatieve tekst",
+DlgImgWidth			: "Breedte",
+DlgImgHeight		: "Hoogte",
+DlgImgLockRatio		: "Afmetingen vergrendelen",
+DlgBtnResetSize		: "Afmetingen resetten",
+DlgImgBorder		: "Rand",
+DlgImgHSpace		: "HSpace",
+DlgImgVSpace		: "VSpace",
+DlgImgAlign			: "Uitlijning",
+DlgImgAlignLeft		: "Links",
+DlgImgAlignAbsBottom: "Absoluut-onder",
+DlgImgAlignAbsMiddle: "Absoluut-midden",
+DlgImgAlignBaseline	: "Basislijn",
+DlgImgAlignBottom	: "Beneden",
+DlgImgAlignMiddle	: "Midden",
+DlgImgAlignRight	: "Rechts",
+DlgImgAlignTextTop	: "Boven tekst",
+DlgImgAlignTop		: "Boven",
+DlgImgPreview		: "Voorbeeld",
+DlgImgAlertUrl		: "Geef de URL van de afbeelding",
+DlgImgLinkTab		: "Link",
+
+// Flash Dialog
+DlgFlashTitle		: "Eigenschappen Flash",
+DlgFlashChkPlay		: "Automatisch afspelen",
+DlgFlashChkLoop		: "Herhalen",
+DlgFlashChkMenu		: "Flashmenu\'s inschakelen",
+DlgFlashScale		: "Schaal",
+DlgFlashScaleAll	: "Alles tonen",
+DlgFlashScaleNoBorder	: "Geen rand",
+DlgFlashScaleFit	: "Precies passend",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Link",
+DlgLnkInfoTab		: "Linkomschrijving",
+DlgLnkTargetTab		: "Doel",
+
+DlgLnkType			: "Linktype",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Interne link in pagina",
+DlgLnkTypeEMail		: "E-mail",
+DlgLnkProto			: "Protocol",
+DlgLnkProtoOther	: "<anders>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Kies een interne link",
+DlgLnkAnchorByName	: "Op naam interne link",
+DlgLnkAnchorById	: "Op kenmerk interne link",
+DlgLnkNoAnchors		: "(Geen interne links in document gevonden)",
+DlgLnkEMail			: "E-mailadres",
+DlgLnkEMailSubject	: "Onderwerp bericht",
+DlgLnkEMailBody		: "Inhoud bericht",
+DlgLnkUpload		: "Upload",
+DlgLnkBtnUpload		: "Naar de server versturen",
+
+DlgLnkTarget		: "Doel",
+DlgLnkTargetFrame	: "<frame>",
+DlgLnkTargetPopup	: "<popup window>",
+DlgLnkTargetBlank	: "Nieuw venster (_blank)",
+DlgLnkTargetParent	: "Origineel venster (_parent)",
+DlgLnkTargetSelf	: "Zelfde venster (_self)",
+DlgLnkTargetTop		: "Hele venster (_top)",
+DlgLnkTargetFrameName	: "Naam doelframe",
+DlgLnkPopWinName	: "Naam popupvenster",
+DlgLnkPopWinFeat	: "Instellingen popupvenster",
+DlgLnkPopResize		: "Grootte wijzigen",
+DlgLnkPopLocation	: "Locatiemenu",
+DlgLnkPopMenu		: "Menubalk",
+DlgLnkPopScroll		: "Schuifbalken",
+DlgLnkPopStatus		: "Statusbalk",
+DlgLnkPopToolbar	: "Menubalk",
+DlgLnkPopFullScrn	: "Volledig scherm (IE)",
+DlgLnkPopDependent	: "Afhankelijk (Netscape)",
+DlgLnkPopWidth		: "Breedte",
+DlgLnkPopHeight		: "Hoogte",
+DlgLnkPopLeft		: "Positie links",
+DlgLnkPopTop		: "Positie boven",
+
+DlnLnkMsgNoUrl		: "Geef de link van de URL",
+DlnLnkMsgNoEMail	: "Geef een e-mailadres",
+DlnLnkMsgNoAnchor	: "Selecteer een interne link",
+DlnLnkMsgInvPopName	: "De naam van de popup moet met een alfa-numerieke waarde beginnen, en mag geen spaties bevatten.",
+
+// Color Dialog
+DlgColorTitle		: "Selecteer kleur",
+DlgColorBtnClear	: "Opschonen",
+DlgColorHighlight	: "Accentueren",
+DlgColorSelected	: "Geselecteerd",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Smiley invoegen",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Selecteer speciaal teken",
+
+// Table Dialog
+DlgTableTitle		: "Eigenschappen tabel",
+DlgTableRows		: "Rijen",
+DlgTableColumns		: "Kolommen",
+DlgTableBorder		: "Breedte rand",
+DlgTableAlign		: "Uitlijning",
+DlgTableAlignNotSet	: "<Niet ingevoerd>",
+DlgTableAlignLeft	: "Links",
+DlgTableAlignCenter	: "Centreren",
+DlgTableAlignRight	: "Rechts",
+DlgTableWidth		: "Breedte",
+DlgTableWidthPx		: "pixels",
+DlgTableWidthPc		: "procent",
+DlgTableHeight		: "Hoogte",
+DlgTableCellSpace	: "Afstand tussen cellen",
+DlgTableCellPad		: "Afstand vanaf rand cel",
+DlgTableCaption		: "Naam",
+DlgTableSummary		: "Samenvatting",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Eigenschappen cel",
+DlgCellWidth		: "Breedte",
+DlgCellWidthPx		: "pixels",
+DlgCellWidthPc		: "procent",
+DlgCellHeight		: "Hoogte",
+DlgCellWordWrap		: "Afbreken woorden",
+DlgCellWordWrapNotSet	: "<Niet ingevoerd>",
+DlgCellWordWrapYes	: "Ja",
+DlgCellWordWrapNo	: "Nee",
+DlgCellHorAlign		: "Horizontale uitlijning",
+DlgCellHorAlignNotSet	: "<Niet ingevoerd>",
+DlgCellHorAlignLeft	: "Links",
+DlgCellHorAlignCenter	: "Centreren",
+DlgCellHorAlignRight: "Rechts",
+DlgCellVerAlign		: "Verticale uitlijning",
+DlgCellVerAlignNotSet	: "<Niet ingevoerd>",
+DlgCellVerAlignTop	: "Boven",
+DlgCellVerAlignMiddle	: "Midden",
+DlgCellVerAlignBottom	: "Beneden",
+DlgCellVerAlignBaseline	: "Basislijn",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Overkoepeling rijen",
+DlgCellCollSpan		: "Overkoepeling kolommen",
+DlgCellBackColor	: "Achtergrondkleur",
+DlgCellBorderColor	: "Randkleur",
+DlgCellBtnSelect	: "Selecteren...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Zoeken en vervangen",
+
+// Find Dialog
+DlgFindTitle		: "Zoeken",
+DlgFindFindBtn		: "Zoeken",
+DlgFindNotFoundMsg	: "De opgegeven tekst is niet gevonden.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Vervangen",
+DlgReplaceFindLbl		: "Zoeken naar:",
+DlgReplaceReplaceLbl	: "Vervangen met:",
+DlgReplaceCaseChk		: "Hoofdlettergevoelig",
+DlgReplaceReplaceBtn	: "Vervangen",
+DlgReplaceReplAllBtn	: "Alles vervangen",
+DlgReplaceWordChk		: "Hele woord moet voorkomen",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "De beveiligingsinstelling van de browser verhinderen het automatisch knippen. Gebruik de sneltoets Ctrl+X van het toetsenbord.",
+PasteErrorCopy	: "De beveiligingsinstelling van de browser verhinderen het automatisch kopiëren. Gebruik de sneltoets Ctrl+C van het toetsenbord.",
+
+PasteAsText		: "Plakken als platte tekst",
+PasteFromWord	: "Plakken als Word-gegevens",
+
+DlgPasteMsg2	: "Plak de tekst in het volgende vak gebruik makend van uw toetsenbord (<strong>Ctrl+V</strong>) en klik op <strong>OK</strong>.",
+DlgPasteSec		: "Door de beveiligingsinstellingen van uw browser is het niet mogelijk om direct vanuit het klembord in de editor te plakken. Middels opnieuw plakken in dit venster kunt u de tekst alsnog plakken in de editor.",
+DlgPasteIgnoreFont		: "Negeer \"Font Face\"-definities",
+DlgPasteRemoveStyles	: "Verwijder \"Style\"-definities",
+
+// Color Picker
+ColorAutomatic	: "Automatisch",
+ColorMoreColors	: "Meer kleuren...",
+
+// Document Properties
+DocProps		: "Eigenschappen document",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Eigenschappen interne link",
+DlgAnchorName		: "Naam interne link",
+DlgAnchorErrorName	: "Geef de naam van de interne link op",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Niet in het woordenboek",
+DlgSpellChangeTo		: "Wijzig in",
+DlgSpellBtnIgnore		: "Negeren",
+DlgSpellBtnIgnoreAll	: "Alles negeren",
+DlgSpellBtnReplace		: "Vervangen",
+DlgSpellBtnReplaceAll	: "Alles vervangen",
+DlgSpellBtnUndo			: "Ongedaan maken",
+DlgSpellNoSuggestions	: "-Geen suggesties-",
+DlgSpellProgress		: "Bezig met spellingscontrole...",
+DlgSpellNoMispell		: "Klaar met spellingscontrole: geen fouten gevonden",
+DlgSpellNoChanges		: "Klaar met spellingscontrole: geen woorden aangepast",
+DlgSpellOneChange		: "Klaar met spellingscontrole: één woord aangepast",
+DlgSpellManyChanges		: "Klaar met spellingscontrole: %1 woorden aangepast",
+
+IeSpellDownload			: "De spellingscontrole niet geïnstalleerd. Wilt u deze nu downloaden?",
+
+// Button Dialog
+DlgButtonText		: "Tekst (waarde)",
+DlgButtonType		: "Soort",
+DlgButtonTypeBtn	: "Knop",
+DlgButtonTypeSbm	: "Versturen",
+DlgButtonTypeRst	: "Leegmaken",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Naam",
+DlgCheckboxValue	: "Waarde",
+DlgCheckboxSelected	: "Geselecteerd",
+
+// Form Dialog
+DlgFormName		: "Naam",
+DlgFormAction	: "Actie",
+DlgFormMethod	: "Methode",
+
+// Select Field Dialog
+DlgSelectName		: "Naam",
+DlgSelectValue		: "Waarde",
+DlgSelectSize		: "Grootte",
+DlgSelectLines		: "Regels",
+DlgSelectChkMulti	: "Gecombineerde selecties toestaan",
+DlgSelectOpAvail	: "Beschikbare opties",
+DlgSelectOpText		: "Tekst",
+DlgSelectOpValue	: "Waarde",
+DlgSelectBtnAdd		: "Toevoegen",
+DlgSelectBtnModify	: "Wijzigen",
+DlgSelectBtnUp		: "Omhoog",
+DlgSelectBtnDown	: "Omlaag",
+DlgSelectBtnSetValue : "Als geselecteerde waarde instellen",
+DlgSelectBtnDelete	: "Verwijderen",
+
+// Textarea Dialog
+DlgTextareaName	: "Naam",
+DlgTextareaCols	: "Kolommen",
+DlgTextareaRows	: "Rijen",
+
+// Text Field Dialog
+DlgTextName			: "Naam",
+DlgTextValue		: "Waarde",
+DlgTextCharWidth	: "Breedte (tekens)",
+DlgTextMaxChars		: "Maximum aantal tekens",
+DlgTextType			: "Soort",
+DlgTextTypeText		: "Tekst",
+DlgTextTypePass		: "Wachtwoord",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Naam",
+DlgHiddenValue	: "Waarde",
+
+// Bulleted List Dialog
+BulletedListProp	: "Eigenschappen opsommingslijst",
+NumberedListProp	: "Eigenschappen genummerde opsommingslijst",
+DlgLstStart			: "Start",
+DlgLstType			: "Soort",
+DlgLstTypeCircle	: "Cirkel",
+DlgLstTypeDisc		: "Schijf",
+DlgLstTypeSquare	: "Vierkant",
+DlgLstTypeNumbers	: "Nummers (1, 2, 3)",
+DlgLstTypeLCase		: "Kleine letters (a, b, c)",
+DlgLstTypeUCase		: "Hoofdletters (A, B, C)",
+DlgLstTypeSRoman	: "Klein Romeins (i, ii, iii)",
+DlgLstTypeLRoman	: "Groot Romeins (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Algemeen",
+DlgDocBackTab		: "Achtergrond",
+DlgDocColorsTab		: "Kleuring en marges",
+DlgDocMetaTab		: "META-data",
+
+DlgDocPageTitle		: "Paginatitel",
+DlgDocLangDir		: "Schrijfrichting",
+DlgDocLangDirLTR	: "Links naar rechts",
+DlgDocLangDirRTL	: "Rechts naar links",
+DlgDocLangCode		: "Taalcode",
+DlgDocCharSet		: "Karakterset-encoding",
+DlgDocCharSetCE		: "Centraal Europees",
+DlgDocCharSetCT		: "Traditioneel Chinees (Big5)",
+DlgDocCharSetCR		: "Cyriliaans",
+DlgDocCharSetGR		: "Grieks",
+DlgDocCharSetJP		: "Japans",
+DlgDocCharSetKR		: "Koreaans",
+DlgDocCharSetTR		: "Turks",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "West europees",
+DlgDocCharSetOther	: "Andere karakterset-encoding",
+
+DlgDocDocType		: "Opschrift documentsoort",
+DlgDocDocTypeOther	: "Ander opschrift documentsoort",
+DlgDocIncXHTML		: "XHTML-declaraties meenemen",
+DlgDocBgColor		: "Achtergrondkleur",
+DlgDocBgImage		: "URL achtergrondplaatje",
+DlgDocBgNoScroll	: "Vaste achtergrond",
+DlgDocCText			: "Tekst",
+DlgDocCLink			: "Link",
+DlgDocCVisited		: "Bezochte link",
+DlgDocCActive		: "Active link",
+DlgDocMargins		: "Afstandsinstellingen document",
+DlgDocMaTop			: "Boven",
+DlgDocMaLeft		: "Links",
+DlgDocMaRight		: "Rechts",
+DlgDocMaBottom		: "Onder",
+DlgDocMeIndex		: "Trefwoorden betreffende document (kommagescheiden)",
+DlgDocMeDescr		: "Beschrijving document",
+DlgDocMeAuthor		: "Auteur",
+DlgDocMeCopy		: "Copyright",
+DlgDocPreview		: "Voorbeeld",
+
+// Templates Dialog
+Templates			: "Sjablonen",
+DlgTemplatesTitle	: "Inhoud sjabonen",
+DlgTemplatesSelMsg	: "Selecteer het sjabloon dat in de editor geopend moet worden (de actuele inhoud gaat verloren):",
+DlgTemplatesLoading	: "Bezig met laden sjabonen. Even geduld alstublieft...",
+DlgTemplatesNoTpl	: "(Geen sjablonen gedefinieerd)",
+DlgTemplatesReplace	: "Vervang de huidige inhoud",
+
+// About Dialog
+DlgAboutAboutTab	: "Over",
+DlgAboutBrowserInfoTab	: "Browserinformatie",
+DlgAboutLicenseTab	: "Licentie",
+DlgAboutVersion		: "Versie",
+DlgAboutInfo		: "Voor meer informatie ga naar ",
+
+// Div Dialog
+DlgDivGeneralTab	: "Algemeen",
+DlgDivAdvancedTab	: "Geavanceerd",
+DlgDivStyle		: "Style",
+DlgDivInlineStyle	: "Inline Style"
+};

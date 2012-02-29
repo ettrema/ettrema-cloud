@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Malay language file.
+ */
 
-CKEDITOR.lang.ms={dir:'ltr',editorTitle:'Rich text editor, %1, press ALT 0 for help.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'Sumber',newPage:'Helaian Baru',save:'Simpan',preview:'Prebiu',cut:'Potong',copy:'Salin',paste:'Tampal',print:'Cetak',underline:'Underline',bold:'Bold',italic:'Italic',selectAll:'Pilih Semua',removeFormat:'Buang Format',strike:'Strike Through',subscript:'Subscript',superscript:'Superscript',horizontalrule:'Masukkan Garisan Membujur',pagebreak:'Insert Page Break for Printing',pagebreakAlt:'Page Break',unlink:'Buang Sambungan',undo:'Batalkan',redo:'Ulangkan',common:{browseServer:'Browse Server',url:'URL',protocol:'Protokol',upload:'Muat Naik',uploadSubmit:'Hantar ke Server',image:'Gambar',flash:'Flash',form:'Borang',checkbox:'Checkbox',radio:'Butang Radio',textField:'Text Field',textarea:'Textarea',hiddenField:'Field Tersembunyi',button:'Butang',select:'Field Pilihan',imageButton:'Butang Bergambar',notSet:'<tidak di set>',id:'Id',name:'Nama',langDir:'Arah Tulisan',langDirLtr:'Kiri ke Kanan (LTR)',langDirRtl:'Kanan ke Kiri (RTL)',langCode:'Kod Bahasa',longDescr:'Butiran Panjang URL',cssClass:'Kelas-kelas Stylesheet',advisoryTitle:'Tajuk Makluman',cssStyle:'Stail',ok:'OK',cancel:'Batal',close:'Close',preview:'Preview',generalTab:'General',advancedTab:'Advanced',validateNumberFailed:'This value is not a number.',confirmNewPage:'Any unsaved changes to this content will be lost. Are you sure you want to load new page?',confirmCancel:'Some of the options have been changed. Are you sure to close the dialog?',options:'Options',target:'Target',targetNew:'New Window (_blank)',targetTop:'Topmost Window (_top)',targetSelf:'Same Window (_self)',targetParent:'Parent Window (_parent)',langDirLTR:'Left to Right (LTR)',langDirRTL:'Right to Left (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'Lebar',height:'Tinggi',align:'Jajaran',alignLeft:'Kiri',alignRight:'Kanan',alignCenter:'Tengah',alignTop:'Atas',alignMiddle:'Pertengahan',alignBottom:'Bawah',invalidHeight:'Height must be a number.',invalidWidth:'Width must be a number.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, unavailable</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'Masukkan Huruf Istimewa',title:'Sila pilih huruf istimewa',options:'Special Character Options'},link:{toolbar:'Masukkan/Sunting Sambungan',other:'<lain>',menu:'Sunting Sambungan',title:'Sambungan',info:'Butiran Sambungan',target:'Sasaran',upload:'Muat Naik',advanced:'Advanced',type:'Jenis Sambungan',toUrl:'URL',toAnchor:'Pautan dalam muka surat ini',toEmail:'E-Mail',targetFrame:'<bingkai>',targetPopup:'<tetingkap popup>',targetFrameName:'Nama Bingkai Sasaran',targetPopupName:'Nama Tetingkap Popup',popupFeatures:'Ciri Tetingkap Popup',popupResizable:'Resizable',popupStatusBar:'Bar Status',popupLocationBar:'Bar Lokasi',popupToolbar:'Toolbar',popupMenuBar:'Bar Menu',popupFullScreen:'Skrin Penuh (IE)',popupScrollBars:'Bar-bar skrol',popupDependent:'Bergantungan (Netscape)',popupLeft:'Posisi Kiri',popupTop:'Posisi Atas',id:'Id',langDir:'Arah Tulisan',langDirLTR:'Kiri ke Kanan (LTR)',langDirRTL:'Kanan ke Kiri (RTL)',acccessKey:'Kunci Akses',name:'Nama',langCode:'Arah Tulisan',tabIndex:'Indeks Tab ',advisoryTitle:'Tajuk Makluman',advisoryContentType:'Jenis Kandungan Makluman',cssClasses:'Kelas-kelas Stylesheet',charset:'Linked Resource Charset',styles:'Stail',rel:'Relationship',selectAnchor:'Sila pilih pautan',anchorName:'dengan menggunakan nama pautan',anchorId:'dengan menggunakan ID elemen',emailAddress:'Alamat E-Mail',emailSubject:'Subjek Mesej',emailBody:'Isi Kandungan Mesej',noAnchors:'(Tiada pautan terdapat dalam dokumen ini)',noUrl:'Sila taip sambungan URL',noEmail:'Sila taip alamat e-mail'},anchor:{toolbar:'Masukkan/Sunting Pautan',menu:'Ciri-ciri Pautan',title:'Ciri-ciri Pautan',name:'Nama Pautan',errorName:'Sila taip nama pautan',remove:'Remove Anchor'},list:{numberedTitle:'Numbered List Properties',bulletedTitle:'Bulleted List Properties',type:'Type',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Circle',disc:'Disc',square:'Square',none:'None',notset:'<not set>',armenian:'Armenian numbering',georgian:'Georgian numbering (an, ban, gan, etc.)',lowerRoman:'Lower Roman (i, ii, iii, iv, v, etc.)',upperRoman:'Upper Roman (I, II, III, IV, V, etc.)',lowerAlpha:'Lower Alpha (a, b, c, d, e, etc.)',upperAlpha:'Upper Alpha (A, B, C, D, E, etc.)',lowerGreek:'Lower Greek (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal leading zero (01, 02, 03, etc.)'},findAndReplace:{title:'Find and Replace',find:'Cari',replace:'Ganti',findWhat:'Perkataan yang dicari:',replaceWith:'Diganti dengan:',notFoundMsg:'Text yang dicari tidak dijumpai.',findOptions:'Find Options',matchCase:'Padanan case huruf',matchWord:'Padana Keseluruhan perkataan',matchCyclic:'Match cyclic',replaceAll:'Ganti semua',replaceSuccessMsg:'%1 occurrence(s) replaced.'},table:{toolbar:'Jadual',title:'Ciri-ciri Jadual',menu:'Ciri-ciri Jadual',deleteTable:'Delete Table',rows:'Barisan',columns:'Jaluran',border:'Saiz Border',widthPx:'piksel-piksel',widthPc:'peratus',widthUnit:'width unit',cellSpace:'Ruangan Antara Sel',cellPad:'Tambahan Ruang Sel',caption:'Keterangan',summary:'Summary',headers:'Headers',headersNone:'None',headersColumn:'First column',headersRow:'First Row',headersBoth:'Both',invalidRows:'Number of rows must be a number greater than 0.',invalidCols:'Number of columns must be a number greater than 0.',invalidBorder:'Border size must be a number.',invalidWidth:'Table width must be a number.',invalidHeight:'Table height must be a number.',invalidCellSpacing:'Cell spacing must be a positive number.',invalidCellPadding:'Cell padding must be a positive number.',cell:{menu:'Cell',insertBefore:'Insert Cell Before',insertAfter:'Insert Cell After',deleteCell:'Buangkan Sel-sel',merge:'Cantumkan Sel-sel',mergeRight:'Merge Right',mergeDown:'Merge Down',splitHorizontal:'Split Cell Horizontally',splitVertical:'Split Cell Vertically',title:'Cell Properties',cellType:'Cell Type',rowSpan:'Rows Span',colSpan:'Columns Span',wordWrap:'Word Wrap',hAlign:'Horizontal Alignment',vAlign:'Vertical Alignment',alignBaseline:'Baseline',bgColor:'Background Color',borderColor:'Border Color',data:'Data',header:'Header',yes:'Yes',no:'No',invalidWidth:'Cell width must be a number.',invalidHeight:'Cell height must be a number.',invalidRowSpan:'Rows span must be a whole number.',invalidColSpan:'Columns span must be a whole number.',chooseColor:'Choose'},row:{menu:'Row',insertBefore:'Insert Row Before',insertAfter:'Insert Row After',deleteRow:'Buangkan Baris'},column:{menu:'Column',insertBefore:'Insert Column Before',insertAfter:'Insert Column After',deleteColumn:'Buangkan Lajur'}},button:{title:'Ciri-ciri Butang',text:'Teks (Nilai)',type:'Jenis',typeBtn:'Button',typeSbm:'Submit',typeRst:'Reset'},checkboxAndRadio:{checkboxTitle:'Ciri-ciri Checkbox',radioTitle:'Ciri-ciri Butang Radio',value:'Nilai',selected:'Dipilih'},form:{title:'Ciri-ciri Borang',menu:'Ciri-ciri Borang',action:'Tindakan borang',method:'Cara borang dihantar',encoding:'Encoding'},select:{title:'Ciri-ciri Selection Field',selectInfo:'Select Info',opAvail:'Pilihan sediada',value:'Nilai',size:'Saiz',lines:'garisan',chkMulti:'Benarkan pilihan pelbagai',opText:'Teks',opValue:'Nilai',btnAdd:'Tambah Pilihan',btnModify:'Ubah Pilihan',btnUp:'Naik ke atas',btnDown:'Turun ke bawah',btnSetValue:'Set sebagai nilai terpilih',btnDelete:'Padam'},textarea:{title:'Ciri-ciri Textarea',cols:'Lajur',rows:'Baris'},textfield:{title:'Ciri-ciri Text Field',name:'Nama',value:'Nilai',charWidth:'Lebar isian',maxChars:'Isian Maksimum',type:'Jenis',typeText:'Teks',typePass:'Kata Laluan'},hidden:{title:'Ciri-ciri Field Tersembunyi',name:'Nama',value:'Nilai'},image:{title:'Ciri-ciri Imej',titleButton:'Ciri-ciri Butang Bergambar',menu:'Ciri-ciri Imej',infoTab:'Info Imej',btnUpload:'Hantar ke Server',upload:'Muat Naik',alt:'Text Alternatif',lockRatio:'Tetapkan Nisbah',resetSize:'Saiz Set Semula',border:'Border',hSpace:'Ruang Melintang',vSpace:'Ruang Menegak',alertUrl:'Sila taip URL untuk fail gambar',linkTab:'Sambungan',button2Img:'Do you want to transform the selected image button on a simple image?',img2Button:'Do you want to transform the selected image on a image button?',urlMissing:'Image source URL is missing.',validateBorder:'Border must be a whole number.',validateHSpace:'HSpace must be a whole number.',validateVSpace:'VSpace must be a whole number.'},flash:{properties:'Flash Properties',propertiesTab:'Properties',title:'Flash Properties',chkPlay:'Auto Play',chkLoop:'Loop',chkMenu:'Enable Flash Menu',chkFull:'Allow Fullscreen',scale:'Scale',scaleAll:'Show all',scaleNoBorder:'No Border',scaleFit:'Exact Fit',access:'Script Access',accessAlways:'Always',accessSameDomain:'Same domain',accessNever:'Never',alignAbsBottom:'Bawah Mutlak',alignAbsMiddle:'Pertengahan Mutlak',alignBaseline:'Garis Dasar',alignTextTop:'Atas Text',quality:'Quality',qualityBest:'Best',qualityHigh:'High',qualityAutoHigh:'Auto High',qualityMedium:'Medium',qualityAutoLow:'Auto Low',qualityLow:'Low',windowModeWindow:'Window',windowModeOpaque:'Opaque',windowModeTransparent:'Transparent',windowMode:'Window mode',flashvars:'Variables for Flash',bgcolor:'Warna Latarbelakang',hSpace:'Ruang Melintang',vSpace:'Ruang Menegak',validateSrc:'Sila taip sambungan URL',validateHSpace:'HSpace must be a number.',validateVSpace:'VSpace must be a number.'},spellCheck:{toolbar:'Semak Ejaan',title:'Spell Check',notAvailable:'Sorry, but service is unavailable now.',errorLoading:'Error loading application service host: %s.',notInDic:'Tidak terdapat didalam kamus',changeTo:'Tukarkan kepada',btnIgnore:'Biar',btnIgnoreAll:'Biarkan semua',btnReplace:'Ganti',btnReplaceAll:'Gantikan Semua',btnUndo:'Batalkan',noSuggestions:'- Tiada cadangan -',progress:'Pemeriksaan ejaan sedang diproses...',noMispell:'Pemeriksaan ejaan siap: Tiada salah ejaan',noChanges:'Pemeriksaan ejaan siap: Tiada perkataan diubah',oneChange:'Pemeriksaan ejaan siap: Satu perkataan telah diubah',manyChanges:'Pemeriksaan ejaan siap: %1 perkataan diubah',ieSpellDownload:'Pemeriksa ejaan tidak dipasang. Adakah anda mahu muat turun sekarang?'},smiley:{toolbar:'Smiley',title:'Masukkan Smiley',options:'Smiley Options'},elementsPath:{eleLabel:'Elements path',eleTitle:'%1 element'},numberedlist:'Senarai bernombor',bulletedlist:'Senarai tidak bernombor',indent:'Tambahkan Inden',outdent:'Kurangkan Inden',justify:{left:'Jajaran Kiri',center:'Jajaran Tengah',right:'Jajaran Kanan',block:'Jajaran Blok'},blockquote:'Block Quote',clipboard:{title:'Tampal',cutError:'Keselamatan perisian browser anda tidak membenarkan operasi suntingan text/imej. Sila gunakan papan kekunci (Ctrl/Cmd+X).',copyError:'Keselamatan perisian browser anda tidak membenarkan operasi salinan text/imej. Sila gunakan papan kekunci (Ctrl/Cmd+C).',pasteMsg:'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',securityMsg:'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:'The text you want to paste seems to be copied from Word. Do you want to clean it before pasting?',toolbar:'Tampal dari Word',title:'Tampal dari Word',error:'It was not possible to clean up the pasted data due to an internal error'},pasteText:{button:'Tampal sebagai text biasa',title:'Tampal sebagai text biasa'},templates:{button:'Templat',title:'Templat Kandungan',options:'Template Options',insertOption:'Replace actual contents',selectPromptMsg:'Sila pilih templat untuk dibuka oleh editor<br>(kandungan sebenar akan hilang):',emptyListMsg:'(Tiada Templat Disimpan)'},showBlocks:'Show Blocks',stylesCombo:{label:'Stail',panelTitle:'Formatting Styles',panelTitle1:'Block Styles',panelTitle2:'Inline Styles',panelTitle3:'Object Styles'},format:{label:'Format',panelTitle:'Format',tag_p:'Normal',tag_pre:'Telah Diformat',tag_address:'Alamat',tag_h1:'Heading 1',tag_h2:'Heading 2',tag_h3:'Heading 3',tag_h4:'Heading 4',tag_h5:'Heading 5',tag_h6:'Heading 6',tag_div:'Perenggan (DIV)'},div:{title:'Create Div Container',toolbar:'Create Div Container',cssClassInputLabel:'Stylesheet Classes',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:' Language Code',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Advisory Title',langDirLabel:'Language Direction',langDirLTRLabel:'Left to Right (LTR)',langDirRTLLabel:'Right to Left (RTL)',edit:'Edit Div',remove:'Remove Div'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'Font',voiceLabel:'Font',panelTitle:'Font'},fontSize:{label:'Saiz',voiceLabel:'Font Size',panelTitle:'Saiz'},colorButton:{textColorTitle:'Warna Text',bgColorTitle:'Warna Latarbelakang',panelTitle:'Colors',auto:'Otomatik',more:'Warna lain-lain...'},colors:{'000':'Black',800000:'Maroon','8B4513':'Saddle Brown','2F4F4F':'Dark Slate Gray','008080':'Teal','000080':'Navy','4B0082':'Indigo',696969:'Dark Gray',B22222:'Fire Brick',A52A2A:'Brown',DAA520:'Golden Rod','006400':'Dark Green','40E0D0':'Turquoise','0000CD':'Medium Blue',800080:'Purple',808080:'Gray',F00:'Red',FF8C00:'Dark Orange',FFD700:'Gold','008000':'Green','0FF':'Cyan','00F':'Blue',EE82EE:'Violet',A9A9A9:'Dim Gray',FFA07A:'Light Salmon',FFA500:'Orange',FFFF00:'Yellow','00FF00':'Lime',AFEEEE:'Pale Turquoise',ADD8E6:'Light Blue',DDA0DD:'Plum',D3D3D3:'Light Grey',FFF0F5:'Lavender Blush',FAEBD7:'Antique White',FFFFE0:'Light Yellow',F0FFF0:'Honeydew',F0FFFF:'Azure',F0F8FF:'Alice Blue',E6E6FA:'Lavender',FFF:'White'},scayt:{title:'Spell Check As You Type',opera_title:'Not supported by Opera',enable:'Enable SCAYT',disable:'Disable SCAYT',about:'About SCAYT',toggle:'Toggle SCAYT',options:'Options',langs:'Languages',moreSuggestions:'More suggestions',ignore:'Ignore',ignoreAll:'Ignore All',addWord:'Add Word',emptyDic:'Dictionary name should not be empty.',optionsTab:'Options',allCaps:'Ignore All-Caps Words',ignoreDomainNames:'Ignore Domain Names',mixedCase:'Ignore Words with Mixed Case',mixedWithDigits:'Ignore Words with Numbers',languagesTab:'Languages',dictionariesTab:'Dictionaries',dic_field_name:'Dictionary name',dic_create:'Create',dic_restore:'Restore',dic_delete:'Delete',dic_rename:'Rename',dic_info:'Initially the User Dictionary is stored in a Cookie. However, Cookies are limited in size. When the User Dictionary grows to a point where it cannot be stored in a Cookie, then the dictionary may be stored on our server. To store your personal dictionary on our server you should specify a name for your dictionary. If you already have a stored dictionary, please type its name and click the Restore button.',aboutTab:'About'},about:{title:'About CKEditor',dlgTitle:'About CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'For licensing information please visit our web site:',copy:'Copyright &copy; $1. All rights reserved.'},maximize:'Maximize',minimize:'Minimize',fakeobjects:{anchor:'Anchor',flash:'Flash Animation',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:'Unknown Object'},resize:'Drag to resize',colordialog:{title:'Select color',options:'Color Options',highlight:'Highlight',selected:'Selected Color',clear:'Clear'},toolbarCollapse:'Collapse Toolbar',toolbarExpand:'Expand Toolbar',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text direction from left to right',rtl:'Text direction from right to left'},docprops:{label:'Ciri-ciri dokumen',title:'Ciri-ciri dokumen',design:'Design',meta:'Data Meta',chooseColor:'Choose',other:'<lain>',docTitle:'Tajuk Muka Surat',charset:'Enkod Set Huruf',charsetOther:'Enkod Set Huruf yang Lain',charsetASCII:'ASCII',charsetCE:'Central European',charsetCT:'Chinese Traditional (Big5)',charsetCR:'Cyrillic',charsetGR:'Greek',charsetJP:'Japanese',charsetKR:'Korean',charsetTR:'Turkish',charsetUN:'Unicode (UTF-8)',charsetWE:'Western European',docType:'Jenis Kepala Dokumen',docTypeOther:'Jenis Kepala Dokumen yang Lain',xhtmlDec:'Masukkan pemula kod XHTML',bgColor:'Warna Latarbelakang',bgImage:'URL Gambar Latarbelakang',bgFixed:'Imej Latarbelakang tanpa Skrol',txtColor:'Warna Text',margin:'Margin Muka Surat',marginTop:'Atas',marginLeft:'Kiri',marginRight:'Kanan',marginBottom:'Bawah',metaKeywords:'Kata Kunci Indeks Dokumen (dipisahkan oleh koma)',metaDescription:'Keterangan Dokumen',metaAuthor:'Penulis',metaCopyright:'Hakcipta',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Collapse Toolbar",
+ToolbarExpand		: "Expand Toolbar",
+
+// Toolbar Items and Context Menu
+Save				: "Simpan",
+NewPage				: "Helaian Baru",
+Preview				: "Prebiu",
+Cut					: "Potong",
+Copy				: "Salin",
+Paste				: "Tampal",
+PasteText			: "Tampal sebagai Text Biasa",
+PasteWord			: "Tampal dari Word",
+Print				: "Cetak",
+SelectAll			: "Pilih Semua",
+RemoveFormat		: "Buang Format",
+InsertLinkLbl		: "Sambungan",
+InsertLink			: "Masukkan/Sunting Sambungan",
+RemoveLink			: "Buang Sambungan",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Masukkan/Sunting Pautan",
+AnchorDelete		: "Remove Anchor",	//MISSING
+InsertImageLbl		: "Gambar",
+InsertImage			: "Masukkan/Sunting Gambar",
+InsertFlashLbl		: "Flash",	//MISSING
+InsertFlash			: "Insert/Edit Flash",	//MISSING
+InsertTableLbl		: "Jadual",
+InsertTable			: "Masukkan/Sunting Jadual",
+InsertLineLbl		: "Garisan",
+InsertLine			: "Masukkan Garisan Membujur",
+InsertSpecialCharLbl: "Huruf Istimewa",
+InsertSpecialChar	: "Masukkan Huruf Istimewa",
+InsertSmileyLbl		: "Smiley",
+InsertSmiley		: "Masukkan Smiley",
+About				: "Tentang FCKeditor",
+Bold				: "Bold",
+Italic				: "Italic",
+Underline			: "Underline",
+StrikeThrough		: "Strike Through",
+Subscript			: "Subscript",
+Superscript			: "Superscript",
+LeftJustify			: "Jajaran Kiri",
+CenterJustify		: "Jajaran Tengah",
+RightJustify		: "Jajaran Kanan",
+BlockJustify		: "Jajaran Blok",
+DecreaseIndent		: "Kurangkan Inden",
+IncreaseIndent		: "Tambahkan Inden",
+Blockquote			: "Blockquote",	//MISSING
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Batalkan",
+Redo				: "Ulangkan",
+NumberedListLbl		: "Senarai bernombor",
+NumberedList		: "Masukkan/Sunting Senarai bernombor",
+BulletedListLbl		: "Senarai tidak bernombor",
+BulletedList		: "Masukkan/Sunting Senarai tidak bernombor",
+ShowTableBorders	: "Tunjukkan Border Jadual",
+ShowDetails			: "Tunjukkan Butiran",
+Style				: "Stail",
+FontFormat			: "Format",
+Font				: "Font",
+FontSize			: "Saiz",
+TextColor			: "Warna Text",
+BGColor				: "Warna Latarbelakang",
+Source				: "Sumber",
+Find				: "Cari",
+Replace				: "Ganti",
+SpellCheck			: "Semak Ejaan",
+UniversalKeyboard	: "Papan Kekunci Universal",
+PageBreakLbl		: "Page Break",	//MISSING
+PageBreak			: "Insert Page Break",	//MISSING
+
+Form			: "Borang",
+Checkbox		: "Checkbox",
+RadioButton		: "Butang Radio",
+TextField		: "Text Field",
+Textarea		: "Textarea",
+HiddenField		: "Field Tersembunyi",
+Button			: "Butang",
+SelectionField	: "Field Pilihan",
+ImageButton		: "Butang Bergambar",
+
+FitWindow		: "Maximize the editor size",	//MISSING
+ShowBlocks		: "Show Blocks",	//MISSING
+
+// Context Menu
+EditLink			: "Sunting Sambungan",
+CellCM				: "Cell",	//MISSING
+RowCM				: "Row",	//MISSING
+ColumnCM			: "Column",	//MISSING
+InsertRowAfter		: "Insert Row After",	//MISSING
+InsertRowBefore		: "Insert Row Before",	//MISSING
+DeleteRows			: "Buangkan Baris",
+InsertColumnAfter	: "Insert Column After",	//MISSING
+InsertColumnBefore	: "Insert Column Before",	//MISSING
+DeleteColumns		: "Buangkan Lajur",
+InsertCellAfter		: "Insert Cell After",	//MISSING
+InsertCellBefore	: "Insert Cell Before",	//MISSING
+DeleteCells			: "Buangkan Sel-sel",
+MergeCells			: "Cantumkan Sel-sel",
+MergeRight			: "Merge Right",	//MISSING
+MergeDown			: "Merge Down",	//MISSING
+HorizontalSplitCell	: "Split Cell Horizontally",	//MISSING
+VerticalSplitCell	: "Split Cell Vertically",	//MISSING
+TableDelete			: "Delete Table",	//MISSING
+CellProperties		: "Ciri-ciri Sel",
+TableProperties		: "Ciri-ciri Jadual",
+ImageProperties		: "Ciri-ciri Gambar",
+FlashProperties		: "Flash Properties",	//MISSING
+
+AnchorProp			: "Ciri-ciri Pautan",
+ButtonProp			: "Ciri-ciri Butang",
+CheckboxProp		: "Ciri-ciri Checkbox",
+HiddenFieldProp		: "Ciri-ciri Field Tersembunyi",
+RadioButtonProp		: "Ciri-ciri Butang Radio",
+ImageButtonProp		: "Ciri-ciri Butang Bergambar",
+TextFieldProp		: "Ciri-ciri Text Field",
+SelectionFieldProp	: "Ciri-ciri Selection Field",
+TextareaProp		: "Ciri-ciri Textarea",
+FormProp			: "Ciri-ciri Borang",
+
+FontFormats			: "Normal;Telah Diformat;Alamat;Heading 1;Heading 2;Heading 3;Heading 4;Heading 5;Heading 6;Perenggan (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Memproses XHTML. Sila tunggu...",
+Done				: "Siap",
+PasteWordConfirm	: "Text yang anda hendak tampal adalah berasal dari Word. Adakah anda mahu membuang semua format Word sebelum tampal ke dalam text?",
+NotCompatiblePaste	: "Arahan ini bole dilakukan jika anda mempuunyai Internet Explorer version 5.5 atau yang lebih tinggi. Adakah anda hendak tampal text tanpa membuang format Word?",
+UnknownToolbarItem	: "Toolbar item tidak diketahui\"%1\"",
+UnknownCommand		: "Arahan tidak diketahui \"%1\"",
+NotImplemented		: "Arahan tidak terdapat didalam sistem",
+UnknownToolbarSet	: "Set toolbar \"%1\" tidak wujud",
+NoActiveX			: "Your browser's security settings could limit some features of the editor. You must enable the option \"Run ActiveX controls and plug-ins\". You may experience errors and notice missing features.",	//MISSING
+BrowseServerBlocked : "The resources browser could not be opened. Make sure that all popup blockers are disabled.",	//MISSING
+DialogBlocked		: "It was not possible to open the dialog window. Make sure all popup blockers are disabled.",	//MISSING
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Batal",
+DlgBtnClose			: "Tutup",
+DlgBtnBrowseServer	: "Browse Server",
+DlgAdvancedTag		: "Advanced",
+DlgOpOther			: "<Lain-lain>",
+DlgInfoTab			: "Info",	//MISSING
+DlgAlertUrl			: "Please insert the URL",	//MISSING
+
+// General Dialogs Labels
+DlgGenNotSet		: "<tidak di set>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Arah Tulisan",
+DlgGenLangDirLtr	: "Kiri ke Kanan (LTR)",
+DlgGenLangDirRtl	: "Kanan ke Kiri (RTL)",
+DlgGenLangCode		: "Kod Bahasa",
+DlgGenAccessKey		: "Kunci Akses",
+DlgGenName			: "Nama",
+DlgGenTabIndex		: "Indeks Tab ",
+DlgGenLongDescr		: "Butiran Panjang URL",
+DlgGenClass			: "Kelas-kelas Stylesheet",
+DlgGenTitle			: "Tajuk Makluman",
+DlgGenContType		: "Jenis Kandungan Makluman",
+DlgGenLinkCharset	: "Linked Resource Charset",
+DlgGenStyle			: "Stail",
+
+// Image Dialog
+DlgImgTitle			: "Ciri-ciri Imej",
+DlgImgInfoTab		: "Info Imej",
+DlgImgBtnUpload		: "Hantar ke Server",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Muat Naik",
+DlgImgAlt			: "Text Alternatif",
+DlgImgWidth			: "Lebar",
+DlgImgHeight		: "Tinggi",
+DlgImgLockRatio		: "Tetapkan Nisbah",
+DlgBtnResetSize		: "Saiz Set Semula",
+DlgImgBorder		: "Border",
+DlgImgHSpace		: "Ruang Melintang",
+DlgImgVSpace		: "Ruang Menegak",
+DlgImgAlign			: "Jajaran",
+DlgImgAlignLeft		: "Kiri",
+DlgImgAlignAbsBottom: "Bawah Mutlak",
+DlgImgAlignAbsMiddle: "Pertengahan Mutlak",
+DlgImgAlignBaseline	: "Garis Dasar",
+DlgImgAlignBottom	: "Bawah",
+DlgImgAlignMiddle	: "Pertengahan",
+DlgImgAlignRight	: "Kanan",
+DlgImgAlignTextTop	: "Atas Text",
+DlgImgAlignTop		: "Atas",
+DlgImgPreview		: "Prebiu",
+DlgImgAlertUrl		: "Sila taip URL untuk fail gambar",
+DlgImgLinkTab		: "Sambungan",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash Properties",	//MISSING
+DlgFlashChkPlay		: "Auto Play",	//MISSING
+DlgFlashChkLoop		: "Loop",	//MISSING
+DlgFlashChkMenu		: "Enable Flash Menu",	//MISSING
+DlgFlashScale		: "Scale",	//MISSING
+DlgFlashScaleAll	: "Show all",	//MISSING
+DlgFlashScaleNoBorder	: "No Border",	//MISSING
+DlgFlashScaleFit	: "Exact Fit",	//MISSING
+
+// Link Dialog
+DlgLnkWindowTitle	: "Sambungan",
+DlgLnkInfoTab		: "Butiran Sambungan",
+DlgLnkTargetTab		: "Sasaran",
+
+DlgLnkType			: "Jenis Sambungan",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Pautan dalam muka surat ini",
+DlgLnkTypeEMail		: "E-Mail",
+DlgLnkProto			: "Protokol",
+DlgLnkProtoOther	: "<lain-lain>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Sila pilih pautan",
+DlgLnkAnchorByName	: "dengan menggunakan nama pautan",
+DlgLnkAnchorById	: "dengan menggunakan ID elemen",
+DlgLnkNoAnchors		: "(Tiada pautan terdapat dalam dokumen ini)",
+DlgLnkEMail			: "Alamat E-Mail",
+DlgLnkEMailSubject	: "Subjek Mesej",
+DlgLnkEMailBody		: "Isi Kandungan Mesej",
+DlgLnkUpload		: "Muat Naik",
+DlgLnkBtnUpload		: "Hantar ke Server",
+
+DlgLnkTarget		: "Sasaran",
+DlgLnkTargetFrame	: "<bingkai>",
+DlgLnkTargetPopup	: "<tetingkap popup>",
+DlgLnkTargetBlank	: "Tetingkap Baru (_blank)",
+DlgLnkTargetParent	: "Tetingkap Parent (_parent)",
+DlgLnkTargetSelf	: "Tetingkap yang Sama (_self)",
+DlgLnkTargetTop		: "Tetingkap yang paling atas (_top)",
+DlgLnkTargetFrameName	: "Nama Bingkai Sasaran",
+DlgLnkPopWinName	: "Nama Tetingkap Popup",
+DlgLnkPopWinFeat	: "Ciri Tetingkap Popup",
+DlgLnkPopResize		: "Saiz bolehubah",
+DlgLnkPopLocation	: "Bar Lokasi",
+DlgLnkPopMenu		: "Bar Menu",
+DlgLnkPopScroll		: "Bar-bar skrol",
+DlgLnkPopStatus		: "Bar Status",
+DlgLnkPopToolbar	: "Toolbar",
+DlgLnkPopFullScrn	: "Skrin Penuh (IE)",
+DlgLnkPopDependent	: "Bergantungan (Netscape)",
+DlgLnkPopWidth		: "Lebar",
+DlgLnkPopHeight		: "Tinggi",
+DlgLnkPopLeft		: "Posisi Kiri",
+DlgLnkPopTop		: "Posisi Atas",
+
+DlnLnkMsgNoUrl		: "Sila taip sambungan URL",
+DlnLnkMsgNoEMail	: "Sila taip alamat e-mail",
+DlnLnkMsgNoAnchor	: "Sila pilih pautan berkenaaan",
+DlnLnkMsgInvPopName	: "The popup name must begin with an alphabetic character and must not contain spaces",	//MISSING
+
+// Color Dialog
+DlgColorTitle		: "Pilihan Warna",
+DlgColorBtnClear	: "Nyahwarna",
+DlgColorHighlight	: "Terang",
+DlgColorSelected	: "Dipilih",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Masukkan Smiley",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Sila pilih huruf istimewa",
+
+// Table Dialog
+DlgTableTitle		: "Ciri-ciri Jadual",
+DlgTableRows		: "Barisan",
+DlgTableColumns		: "Jaluran",
+DlgTableBorder		: "Saiz Border",
+DlgTableAlign		: "Penjajaran",
+DlgTableAlignNotSet	: "<Tidak diset>",
+DlgTableAlignLeft	: "Kiri",
+DlgTableAlignCenter	: "Tengah",
+DlgTableAlignRight	: "Kanan",
+DlgTableWidth		: "Lebar",
+DlgTableWidthPx		: "piksel-piksel",
+DlgTableWidthPc		: "peratus",
+DlgTableHeight		: "Tinggi",
+DlgTableCellSpace	: "Ruangan Antara Sel",
+DlgTableCellPad		: "Tambahan Ruang Sel",
+DlgTableCaption		: "Keterangan",
+DlgTableSummary		: "Summary",	//MISSING
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Ciri-ciri Sel",
+DlgCellWidth		: "Lebar",
+DlgCellWidthPx		: "piksel-piksel",
+DlgCellWidthPc		: "peratus",
+DlgCellHeight		: "Tinggi",
+DlgCellWordWrap		: "Mengulung Perkataan",
+DlgCellWordWrapNotSet	: "<Tidak diset>",
+DlgCellWordWrapYes	: "Ya",
+DlgCellWordWrapNo	: "Tidak",
+DlgCellHorAlign		: "Jajaran Membujur",
+DlgCellHorAlignNotSet	: "<Tidak diset>",
+DlgCellHorAlignLeft	: "Kiri",
+DlgCellHorAlignCenter	: "Tengah",
+DlgCellHorAlignRight: "Kanan",
+DlgCellVerAlign		: "Jajaran Menegak",
+DlgCellVerAlignNotSet	: "<Tidak diset>",
+DlgCellVerAlignTop	: "Atas",
+DlgCellVerAlignMiddle	: "Tengah",
+DlgCellVerAlignBottom	: "Bawah",
+DlgCellVerAlignBaseline	: "Garis Dasar",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Penggunaan Baris",
+DlgCellCollSpan		: "Penggunaan Lajur",
+DlgCellBackColor	: "Warna Latarbelakang",
+DlgCellBorderColor	: "Warna Border",
+DlgCellBtnSelect	: "Pilih...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Find and Replace",	//MISSING
+
+// Find Dialog
+DlgFindTitle		: "Carian",
+DlgFindFindBtn		: "Cari",
+DlgFindNotFoundMsg	: "Text yang dicari tidak dijumpai.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Gantian",
+DlgReplaceFindLbl		: "Perkataan yang dicari:",
+DlgReplaceReplaceLbl	: "Diganti dengan:",
+DlgReplaceCaseChk		: "Padanan case huruf",
+DlgReplaceReplaceBtn	: "Ganti",
+DlgReplaceReplAllBtn	: "Ganti semua",
+DlgReplaceWordChk		: "Padana Keseluruhan perkataan",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Keselamatan perisian browser anda tidak membenarkan operasi suntingan text/imej. Sila gunakan papan kekunci (Ctrl+X).",
+PasteErrorCopy	: "Keselamatan perisian browser anda tidak membenarkan operasi salinan text/imej. Sila gunakan papan kekunci (Ctrl+C).",
+
+PasteAsText		: "Tampal sebagai text biasa",
+PasteFromWord	: "Tampal dari perisian \"Word\"",
+
+DlgPasteMsg2	: "Please paste inside the following box using the keyboard (<strong>Ctrl+V</strong>) and hit <strong>OK</strong>.",	//MISSING
+DlgPasteSec		: "Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.",	//MISSING
+DlgPasteIgnoreFont		: "Ignore Font Face definitions",	//MISSING
+DlgPasteRemoveStyles	: "Remove Styles definitions",	//MISSING
+
+// Color Picker
+ColorAutomatic	: "Otomatik",
+ColorMoreColors	: "Warna lain-lain...",
+
+// Document Properties
+DocProps		: "Ciri-ciri dokumen",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Ciri-ciri Pautan",
+DlgAnchorName		: "Nama Pautan",
+DlgAnchorErrorName	: "Sila taip nama pautan",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Tidak terdapat didalam kamus",
+DlgSpellChangeTo		: "Tukarkan kepada",
+DlgSpellBtnIgnore		: "Biar",
+DlgSpellBtnIgnoreAll	: "Biarkan semua",
+DlgSpellBtnReplace		: "Ganti",
+DlgSpellBtnReplaceAll	: "Gantikan Semua",
+DlgSpellBtnUndo			: "Batalkan",
+DlgSpellNoSuggestions	: "- Tiada cadangan -",
+DlgSpellProgress		: "Pemeriksaan ejaan sedang diproses...",
+DlgSpellNoMispell		: "Pemeriksaan ejaan siap: Tiada salah ejaan",
+DlgSpellNoChanges		: "Pemeriksaan ejaan siap: Tiada perkataan diubah",
+DlgSpellOneChange		: "Pemeriksaan ejaan siap: Satu perkataan telah diubah",
+DlgSpellManyChanges		: "Pemeriksaan ejaan siap: %1 perkataan diubah",
+
+IeSpellDownload			: "Pemeriksa ejaan tidak dipasang. Adakah anda mahu muat turun sekarang?",
+
+// Button Dialog
+DlgButtonText		: "Teks (Nilai)",
+DlgButtonType		: "Jenis",
+DlgButtonTypeBtn	: "Button",	//MISSING
+DlgButtonTypeSbm	: "Submit",	//MISSING
+DlgButtonTypeRst	: "Reset",	//MISSING
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Nama",
+DlgCheckboxValue	: "Nilai",
+DlgCheckboxSelected	: "Dipilih",
+
+// Form Dialog
+DlgFormName		: "Nama",
+DlgFormAction	: "Tindakan borang",
+DlgFormMethod	: "Cara borang dihantar",
+
+// Select Field Dialog
+DlgSelectName		: "Nama",
+DlgSelectValue		: "Nilai",
+DlgSelectSize		: "Saiz",
+DlgSelectLines		: "garisan",
+DlgSelectChkMulti	: "Benarkan pilihan pelbagai",
+DlgSelectOpAvail	: "Pilihan sediada",
+DlgSelectOpText		: "Teks",
+DlgSelectOpValue	: "Nilai",
+DlgSelectBtnAdd		: "Tambah Pilihan",
+DlgSelectBtnModify	: "Ubah Pilihan",
+DlgSelectBtnUp		: "Naik ke atas",
+DlgSelectBtnDown	: "Turun ke bawah",
+DlgSelectBtnSetValue : "Set sebagai nilai terpilih",
+DlgSelectBtnDelete	: "Padam",
+
+// Textarea Dialog
+DlgTextareaName	: "Nama",
+DlgTextareaCols	: "Lajur",
+DlgTextareaRows	: "Baris",
+
+// Text Field Dialog
+DlgTextName			: "Nama",
+DlgTextValue		: "Nilai",
+DlgTextCharWidth	: "Lebar isian",
+DlgTextMaxChars		: "Isian Maksimum",
+DlgTextType			: "Jenis",
+DlgTextTypeText		: "Teks",
+DlgTextTypePass		: "Kata Laluan",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Nama",
+DlgHiddenValue	: "Nilai",
+
+// Bulleted List Dialog
+BulletedListProp	: "Ciri-ciri senarai berpeluru",
+NumberedListProp	: "Ciri-ciri senarai bernombor",
+DlgLstStart			: "Start",	//MISSING
+DlgLstType			: "Jenis",
+DlgLstTypeCircle	: "Circle",
+DlgLstTypeDisc		: "Disc",	//MISSING
+DlgLstTypeSquare	: "Square",
+DlgLstTypeNumbers	: "Nombor-nombor (1, 2, 3)",
+DlgLstTypeLCase		: "Huruf-huruf kecil (a, b, c)",
+DlgLstTypeUCase		: "Huruf-huruf besar (A, B, C)",
+DlgLstTypeSRoman	: "Nombor Roman Kecil (i, ii, iii)",
+DlgLstTypeLRoman	: "Nombor Roman Besar (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Umum",
+DlgDocBackTab		: "Latarbelakang",
+DlgDocColorsTab		: "Warna dan margin",
+DlgDocMetaTab		: "Data Meta",
+
+DlgDocPageTitle		: "Tajuk Muka Surat",
+DlgDocLangDir		: "Arah Tulisan",
+DlgDocLangDirLTR	: "Kiri ke Kanan (LTR)",
+DlgDocLangDirRTL	: "Kanan ke Kiri (RTL)",
+DlgDocLangCode		: "Kod Bahasa",
+DlgDocCharSet		: "Enkod Set Huruf",
+DlgDocCharSetCE		: "Central European",	//MISSING
+DlgDocCharSetCT		: "Chinese Traditional (Big5)",	//MISSING
+DlgDocCharSetCR		: "Cyrillic",	//MISSING
+DlgDocCharSetGR		: "Greek",	//MISSING
+DlgDocCharSetJP		: "Japanese",	//MISSING
+DlgDocCharSetKR		: "Korean",	//MISSING
+DlgDocCharSetTR		: "Turkish",	//MISSING
+DlgDocCharSetUN		: "Unicode (UTF-8)",	//MISSING
+DlgDocCharSetWE		: "Western European",	//MISSING
+DlgDocCharSetOther	: "Enkod Set Huruf yang Lain",
+
+DlgDocDocType		: "Jenis Kepala Dokumen",
+DlgDocDocTypeOther	: "Jenis Kepala Dokumen yang Lain",
+DlgDocIncXHTML		: "Masukkan pemula kod XHTML",
+DlgDocBgColor		: "Warna Latarbelakang",
+DlgDocBgImage		: "URL Gambar Latarbelakang",
+DlgDocBgNoScroll	: "Imej Latarbelakang tanpa Skrol",
+DlgDocCText			: "Teks",
+DlgDocCLink			: "Sambungan",
+DlgDocCVisited		: "Sambungan telah Dilawati",
+DlgDocCActive		: "Sambungan Aktif",
+DlgDocMargins		: "Margin Muka Surat",
+DlgDocMaTop			: "Atas",
+DlgDocMaLeft		: "Kiri",
+DlgDocMaRight		: "Kanan",
+DlgDocMaBottom		: "Bawah",
+DlgDocMeIndex		: "Kata Kunci Indeks Dokumen (dipisahkan oleh koma)",
+DlgDocMeDescr		: "Keterangan Dokumen",
+DlgDocMeAuthor		: "Penulis",
+DlgDocMeCopy		: "Hakcipta",
+DlgDocPreview		: "Prebiu",
+
+// Templates Dialog
+Templates			: "Templat",
+DlgTemplatesTitle	: "Templat Kandungan",
+DlgTemplatesSelMsg	: "Sila pilih templat untuk dibuka oleh editor<br>(kandungan sebenar akan hilang):",
+DlgTemplatesLoading	: "Senarai Templat sedang diproses. Sila Tunggu...",
+DlgTemplatesNoTpl	: "(Tiada Templat Disimpan)",
+DlgTemplatesReplace	: "Replace actual contents",	//MISSING
+
+// About Dialog
+DlgAboutAboutTab	: "Tentang",
+DlgAboutBrowserInfoTab	: "Maklumat Perisian Browser",
+DlgAboutLicenseTab	: "License",	//MISSING
+DlgAboutVersion		: "versi",
+DlgAboutInfo		: "Untuk maklumat lanjut sila pergi ke",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Swedish language file.
+ */
 
-CKEDITOR.lang.sv={dir:'ltr',editorTitle:'Rich text editor, %1, tryck ALT 0 för hjälp.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'Källa',newPage:'Ny sida',save:'Spara',preview:'Förhandsgranska',cut:'Klipp ut',copy:'Kopiera',paste:'Klistra in',print:'Skriv ut',underline:'Understruken',bold:'Fet',italic:'Kursiv',selectAll:'Markera allt',removeFormat:'Radera formatering',strike:'Genomstruken',subscript:'Nedsänkta tecken',superscript:'Upphöjda tecken',horizontalrule:'Infoga horisontal linje',pagebreak:'Infoga sidbrytning',pagebreakAlt:'Sidbrytning',unlink:'Radera länk',undo:'Ångra',redo:'Gör om',common:{browseServer:'Bläddra på server',url:'URL',protocol:'Protokoll',upload:'Ladda upp',uploadSubmit:'Skicka till server',image:'Bild',flash:'Flash',form:'Formulär',checkbox:'Kryssruta',radio:'Alternativknapp',textField:'Textfält',textarea:'Textruta',hiddenField:'Dolt fält',button:'Knapp',select:'Flervalslista',imageButton:'Bildknapp',notSet:'<ej angivet>',id:'Id',name:'Namn',langDir:'Språkriktning',langDirLtr:'Vänster till Höger (VTH)',langDirRtl:'Höger till Vänster (HTV)',langCode:'Språkkod',longDescr:'URL-beskrivning',cssClass:'Stilmall',advisoryTitle:'Titel',cssStyle:'Stilmall',ok:'OK',cancel:'Avbryt',close:'Stäng',preview:'Förhandsgranska',generalTab:'Allmänt',advancedTab:'Avancerad',validateNumberFailed:'Värdet är inte ett nummer.',confirmNewPage:'Alla ändringar i innehållet kommer att förloras. Är du säker på att du vill ladda en ny sida?',confirmCancel:'Några av de alternativ har ändrats. Är du säker på att stänga dialogrutan?',options:'Alternativ',target:'Mål',targetNew:'Nytt fönster (_blank)',targetTop:'Översta fönstret (_top)',targetSelf:'Samma fönster (_self)',targetParent:'Föregående fönster (_parent)',langDirLTR:'Vänster till höger (LTR)',langDirRTL:'Höger till vänster (RTL)',styles:'Stil',cssClasses:'Stilmallar',width:'Bredd',height:'Höjd',align:'Justering',alignLeft:'Vänster',alignRight:'Höger',alignCenter:'Centrerad',alignTop:'Överkant',alignMiddle:'Mitten',alignBottom:'Nederkant',invalidHeight:'Höjd måste vara ett nummer.',invalidWidth:'Bredd måste vara ett nummer.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, Ej tillgänglig</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'Klistra in utökat tecken',title:'Välj utökat tecken',options:'Special Character Options'},link:{toolbar:'Infoga/Redigera länk',other:'<annan>',menu:'Redigera länk',title:'Länk',info:'Länkinformation',target:'Mål',upload:'Ladda upp',advanced:'Avancerad',type:'Länktyp',toUrl:'URL',toAnchor:'Ankare i sidan',toEmail:'E-post',targetFrame:'<ram>',targetPopup:'<popup-fönster>',targetFrameName:'Målets ramnamn',targetPopupName:'Popup-fönstrets namn',popupFeatures:'Popup-fönstrets egenskaper',popupResizable:'Resizable',popupStatusBar:'Statusfält',popupLocationBar:'Adressfält',popupToolbar:'Verktygsfält',popupMenuBar:'Menyfält',popupFullScreen:'Helskärm (endast IE)',popupScrollBars:'Scrolllista',popupDependent:'Beroende (endast Netscape)',popupLeft:'Position från vänster',popupTop:'Position från sidans topp',id:'Id',langDir:'Språkriktning',langDirLTR:'Vänster till höger (VTH)',langDirRTL:'Höger till vänster (HTV)',acccessKey:'Behörighetsnyckel',name:'Namn',langCode:'Språkriktning',tabIndex:'Tabindex',advisoryTitle:'Titel',advisoryContentType:'Innehållstyp',cssClasses:'Stylesheet class',charset:'Teckenuppställning',styles:'Stilmall',rel:'Relationship',selectAnchor:'Välj ett ankare',anchorName:'efter ankarnamn',anchorId:'efter objektid',emailAddress:'E-postadress',emailSubject:'Ämne',emailBody:'Innehåll',noAnchors:'(Inga ankare kunde hittas)',noUrl:'Var god ange länkens URL',noEmail:'Var god ange E-postadress'},anchor:{toolbar:'Infoga/Redigera ankarlänk',menu:'Egenskaper för ankarlänk',title:'Egenskaper för ankarlänk',name:'Ankarnamn',errorName:'Var god ange ett ankarnamn',remove:'Remove Anchor'},list:{numberedTitle:'Egenskaper för punktlista',bulletedTitle:'Egenskaper för punktlista',type:'Typ',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Cirkel',disc:'Disk',square:'Fyrkant',none:'Ingen',notset:'<ej angiven>',armenian:'Armenisk numrering',georgian:'Georgisk numrering (an, ban, gan, etc.)',lowerRoman:'Romerska gemener (i, ii, iii, iv, v, etc.)',upperRoman:'Romerska versaler (I, II, III, IV, V, etc.)',lowerAlpha:'Alpha gemener (a, b, c, d, e, etc.)',upperAlpha:'Alpha versaler (A, B, C, D, E, etc.)',lowerGreek:'Grekiska gemener (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal nolla (01, 02, 03, etc.)'},findAndReplace:{title:'Sök och ersätt',find:'Sök',replace:'Ersätt',findWhat:'Sök efter:',replaceWith:'Ersätt med:',notFoundMsg:'Angiven text kunde ej hittas.',findOptions:'Find Options',matchCase:'Skiftläge',matchWord:'Inkludera hela ord',matchCyclic:'Matcha cykliska',replaceAll:'Ersätt alla',replaceSuccessMsg:'%1 förekomst(er) ersatta.'},table:{toolbar:'Tabell',title:'Tabellegenskaper',menu:'Tabellegenskaper',deleteTable:'Radera tabell',rows:'Rader',columns:'Kolumner',border:'Kantstorlek',widthPx:'pixlar',widthPc:'procent',widthUnit:'enhet bredd',cellSpace:'Cellavstånd',cellPad:'Cellutfyllnad',caption:'Rubrik',summary:'Sammanfattning',headers:'Ruberiker',headersNone:'Ingen',headersColumn:'Första kolumnen',headersRow:'Första raden',headersBoth:'Båda',invalidRows:'Antal rader måste vara större än 0.',invalidCols:'Antal kolumner måste vara ett nummer större än 0.',invalidBorder:'Ram måste vara ett nummer.',invalidWidth:'Tabell måste vara ett nummer.',invalidHeight:'Tabellens höjd måste vara ett nummer.',invalidCellSpacing:'Luft i cell måste vara ett nummer.',invalidCellPadding:'Luft i cell måste vara ett nummer.',cell:{menu:'Cell',insertBefore:'Lägg till cell före',insertAfter:'Lägg till cell efter',deleteCell:'Radera celler',merge:'Sammanfoga celler',mergeRight:'Sammanfoga höger',mergeDown:'Sammanfoga ner',splitHorizontal:'Dela cell horisontellt',splitVertical:'Dela cell vertikalt',title:'Egenskaper för cell',cellType:'Celltyp',rowSpan:'Rad spann',colSpan:'Kolumnen spann',wordWrap:'Radbrytning',hAlign:'Horisontell justering',vAlign:'Vertikal justering',alignBaseline:'Baslinje',bgColor:'Bakgrundsfärg',borderColor:'Ramfärg',data:'Data',header:'Rubrik',yes:'Ja',no:'Nej',invalidWidth:'Cellens bredd måste vara ett nummer.',invalidHeight:'Cellens höjd måste vara ett nummer.',invalidRowSpan:'Radutvidgning måste vara ett heltal.',invalidColSpan:'Kolumn måste vara ett heltal.',chooseColor:'Välj'},row:{menu:'Rad',insertBefore:'Lägg till Rad Före',insertAfter:'Lägg till rad efter',deleteRow:'Radera rad'},column:{menu:'Kolumn',insertBefore:'Lägg till kolumn före',insertAfter:'Lägg till kolumn efter',deleteColumn:'Radera kolumn'}},button:{title:'Egenskaper för knapp',text:'Text (värde)',type:'Typ',typeBtn:'Knapp',typeSbm:'Skicka',typeRst:'Återställ'},checkboxAndRadio:{checkboxTitle:'Egenskaper för kryssruta',radioTitle:'Egenskaper för alternativknapp',value:'Värde',selected:'Vald'},form:{title:'Egenskaper för formulär',menu:'Egenskaper för formulär',action:'Funktion',method:'Metod',encoding:'Kodning'},select:{title:'Egenskaper för flervalslista',selectInfo:'Information',opAvail:'Befintliga val',value:'Värde',size:'Storlek',lines:'Linjer',chkMulti:'Tillåt flerval',opText:'Text',opValue:'Värde',btnAdd:'Lägg till',btnModify:'Redigera',btnUp:'Upp',btnDown:'Ner',btnSetValue:'Markera som valt värde',btnDelete:'Radera'},textarea:{title:'Egenskaper för textruta',cols:'Kolumner',rows:'Rader'},textfield:{title:'Egenskaper för textfält',name:'Namn',value:'Värde',charWidth:'Teckenbredd',maxChars:'Max antal tecken',type:'Typ',typeText:'Text',typePass:'Lösenord'},hidden:{title:'Egenskaper för dolt fält',name:'Namn',value:'Värde'},image:{title:'Bildegenskaper',titleButton:'Egenskaper för bildknapp',menu:'Bildegenskaper',infoTab:'Bildinformation',btnUpload:'Skicka till server',upload:'Ladda upp',alt:'Alternativ text',lockRatio:'Lås höjd/bredd förhållanden',resetSize:'Återställ storlek',border:'Kant',hSpace:'Horis. marginal',vSpace:'Vert. marginal',alertUrl:'Var god och ange bildens URL',linkTab:'Länk',button2Img:'Vill du omvandla den valda bildknappen på en enkel bild?',img2Button:'Vill du omvandla den valda bildknappen på en enkel bild?',urlMissing:'Bildkällans URL saknas.',validateBorder:'Kantlinje måste vara ett heltal.',validateHSpace:'HSpace måste vara ett heltal.',validateVSpace:'VSpace måste vara ett heltal.'},flash:{properties:'Flashegenskaper',propertiesTab:'Egenskaper',title:'Flashegenskaper',chkPlay:'Automatisk uppspelning',chkLoop:'Upprepa/Loopa',chkMenu:'Aktivera Flashmeny',chkFull:'Tillåt helskärm',scale:'Skala',scaleAll:'Visa allt',scaleNoBorder:'Ingen ram',scaleFit:'Exakt passning',access:'Script-tillgång',accessAlways:'Alltid',accessSameDomain:'Samma domän',accessNever:'Aldrig',alignAbsBottom:'Absolut nederkant',alignAbsMiddle:'Absolut centrering',alignBaseline:'Baslinje',alignTextTop:'Text överkant',quality:'Kvalitet',qualityBest:'Bäst',qualityHigh:'Hög',qualityAutoHigh:'Auto Hög',qualityMedium:'Medium',qualityAutoLow:'Auto Låg',qualityLow:'Låg',windowModeWindow:'Fönster',windowModeOpaque:'Opaque',windowModeTransparent:'Transparent',windowMode:'Fönsterläge',flashvars:'Variabler för Flash',bgcolor:'Bakgrundsfärg',hSpace:'Horis. marginal',vSpace:'Vert. marginal',validateSrc:'Var god ange länkens URL',validateHSpace:'HSpace måste vara ett nummer.',validateVSpace:'VSpace måste vara ett nummer.'},spellCheck:{toolbar:'Stavningskontroll',title:'Kontrollera stavning',notAvailable:'Tyvärr är tjänsten ej tillgänglig nu',errorLoading:'Tjänsten är ej tillgänglig: %s.',notInDic:'Saknas i ordlistan',changeTo:'Ändra till',btnIgnore:'Ignorera',btnIgnoreAll:'Ignorera alla',btnReplace:'Ersätt',btnReplaceAll:'Ersätt alla',btnUndo:'Ångra',noSuggestions:'- Förslag saknas -',progress:'Stavningskontroll pågår...',noMispell:'Stavningskontroll slutförd: Inga stavfel påträffades.',noChanges:'Stavningskontroll slutförd: Inga ord rättades.',oneChange:'Stavningskontroll slutförd: Ett ord rättades.',manyChanges:'Stavningskontroll slutförd: %1 ord rättades.',ieSpellDownload:'Stavningskontrollen är ej installerad. Vill du göra det nu?'},smiley:{toolbar:'Smiley',title:'Infoga smiley',options:'Smileyinställningar'},elementsPath:{eleLabel:'Elementets sökväg',eleTitle:'%1 element'},numberedlist:'Numrerad lista',bulletedlist:'Punktlista',indent:'Öka indrag',outdent:'Minska indrag',justify:{left:'Vänsterjustera',center:'Centrera',right:'Högerjustera',block:'Justera till marginaler'},blockquote:'Blockcitat',clipboard:{title:'Klistra in',cutError:'Säkerhetsinställningar i Er webläsare tillåter inte åtgården Klipp ut. Använd (Ctrl/Cmd+X) istället.',copyError:'Säkerhetsinställningar i Er webläsare tillåter inte åtgården Kopiera. Använd (Ctrl/Cmd+C) istället',pasteMsg:'Var god och klistra in Er text i rutan nedan genom att använda (<STRONG>Ctrl/Cmd+V</STRONG>) klicka sen på <STRONG>OK</STRONG>.',securityMsg:'På grund av din webbläsares säkerhetsinställningar kan verktyget inte få åtkomst till urklippsdatan. Var god och använd detta fönster istället.',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:'Texten du vill klistra in verkar vara kopierad från Word. Vill du rensa innan du klistrar?',toolbar:'Klistra in från Word',title:'Klistra in från Word',error:'Det var inte möjligt att städa upp den inklistrade data på grund av ett internt fel'},pasteText:{button:'Klistra in som vanlig text',title:'Klistra in som vanlig text'},templates:{button:'Sidmallar',title:'Sidmallar',options:'Inställningar för mall',insertOption:'Ersätt aktuellt innehåll',selectPromptMsg:'Var god välj en mall att använda med editorn<br>(allt nuvarande innehåll raderas):',emptyListMsg:'(Ingen mall är vald)'},showBlocks:'Visa block',stylesCombo:{label:'Anpassad stil',panelTitle:'Formatmallar',panelTitle1:'Blockstil',panelTitle2:'Inbäddad stil',panelTitle3:'Objektets stil'},format:{label:'Teckenformat',panelTitle:'Teckenformat',tag_p:'Normal',tag_pre:'Formaterad',tag_address:'Adress',tag_h1:'Rubrik 1',tag_h2:'Rubrik 2',tag_h3:'Rubrik 3',tag_h4:'Rubrik 4',tag_h5:'Rubrik 5',tag_h6:'Rubrik 6',tag_div:'Normal (DIV)'},div:{title:'Skapa Div container',toolbar:'Skapa Div container',cssClassInputLabel:'Stilmallar',styleSelectLabel:'Stil',IdInputLabel:'Id',languageCodeInputLabel:' Språkkod',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Rådgivande titel',langDirLabel:'Språkriktning',langDirLTRLabel:'Vänster till Höger (LTR)',langDirRTLLabel:'Höger till vänster (RTL)',edit:'Redigera Div',remove:'Ta bort Div'},iframe:{title:'iFrame Egenskaper',toolbar:'iFrame',noUrl:'Skriv in URL för iFrame',scrolling:'Aktivera rullningslister',border:'Visa ramkant'},font:{label:'Typsnitt',voiceLabel:'Typsnitt',panelTitle:'Typsnitt'},fontSize:{label:'Storlek',voiceLabel:'Teckenstorlek',panelTitle:'Storlek'},colorButton:{textColorTitle:'Textfärg',bgColorTitle:'Bakgrundsfärg',panelTitle:'Färger',auto:'Automatisk',more:'Fler färger...'},colors:{'000':'Svart',800000:'Rödbrun','8B4513':'Mörkbrun','2F4F4F':'Skiffergrå','008080':'Kricka','000080':'Marinblå','4B0082':'Indigo',696969:'Mörkgrå',B22222:'Tegelsten',A52A2A:'Brun',DAA520:'Mörk guld','006400':'Mörkgrön','40E0D0':'Turkos','0000CD':'Medium blå',800080:'Lila',808080:'Grå',F00:'Röd',FF8C00:'Mörkorange',FFD700:'Guld','008000':'Grön','0FF':'Turkos','00F':'Blå',EE82EE:'Violett',A9A9A9:'Matt grå',FFA07A:'Laxrosa',FFA500:'Orange',FFFF00:'Gul','00FF00':'Lime',AFEEEE:'Ljusturkos',ADD8E6:'Ljusblå',DDA0DD:'Plommon',D3D3D3:'Ljusgrå',FFF0F5:'Ljus lavender',FAEBD7:'Antikvit',FFFFE0:'Ljusgul',F0FFF0:'Honung',F0FFFF:'Azurblå',F0F8FF:'Aliceblå',E6E6FA:'Lavender',FFF:'Vit'},scayt:{title:'Stavningskontroll medan du skriver',opera_title:'Stöds ej av Opera',enable:'Aktivera SCAYT',disable:'Inaktivera SCAYT',about:'Om SCAYT',toggle:'Växla SCAYT',options:'Inställningar',langs:'Språk',moreSuggestions:'Fler förslag',ignore:'Ignorera',ignoreAll:'Ignorera alla',addWord:'Lägg till ord',emptyDic:'Ordlistans namn får ej vara tomt.',optionsTab:'Inställningar',allCaps:'Ignorera alla ord med enbart versaler',ignoreDomainNames:'Ignorera domännamn',mixedCase:'Ignorera ord med blandat shiftläge',mixedWithDigits:'Ignorera ord med nummer',languagesTab:'Språk',dictionariesTab:'Ordlistor',dic_field_name:'Ordlistans namn',dic_create:'Skapa',dic_restore:'Återställ',dic_delete:'Ta bort',dic_rename:'Byt namn',dic_info:'Inledningsvis lagras ordlistan i en cookie. När ordlista växer till en punkt där det inte kan lagras i en cookie, lagras den på vår server. För att lagra din personliga ordlista på vår server du ska ange ett namn för din ordbok. Om du redan har en lagrad ordbok, skriv namnet och klicka på knappen Återställ.',aboutTab:'Om'},about:{title:'Om CKEditor',dlgTitle:'Om CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'För information av licenciering besök vår hemsida:',copy:'Copyright &copy; $1. Alla rättigheter reserverade.'},maximize:'Maximera',minimize:'Minimera',fakeobjects:{anchor:'Ankare',flash:'Flashanimation',iframe:'iFrame',hiddenfield:'Gömt fält',unknown:'Okänt objekt'},resize:'Dra för att ändra storlek',colordialog:{title:'Välj färg',options:'Färgalternativ',highlight:'Markera',selected:'Vald färg',clear:'Rensa'},toolbarCollapse:'Dölj verktygsfält',toolbarExpand:'Visa verktygsfält',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text riktning från vänster till höger',rtl:'Text riktning från höger till vänster'},docprops:{label:'Dokumentegenskaper',title:'Dokumentegenskaper',design:'Design',meta:'Metadata',chooseColor:'Välj',other:'<annan>',docTitle:'Sidtitel',charset:'Teckenuppsättningar',charsetOther:'Övriga teckenuppsättningar',charsetASCII:'ASCII',charsetCE:'Central Europa',charsetCT:'Traditionell Kinesisk (Big5)',charsetCR:'Kyrillisk',charsetGR:'Grekiska',charsetJP:'Japanska',charsetKR:'Koreanska',charsetTR:'Turkiska',charsetUN:'Unicode (UTF-8)',charsetWE:'Väst Europa',docType:'Sidhuvud',docTypeOther:'Övriga sidhuvuden',xhtmlDec:'Inkludera XHTML deklaration',bgColor:'Bakgrundsfärg',bgImage:'Bakgrundsbildens URL',bgFixed:'Fast bakgrund',txtColor:'Textfärg',margin:'Sidmarginal',marginTop:'Topp',marginLeft:'Vänster',marginRight:'Höger',marginBottom:'Botten',metaKeywords:'Sidans nyckelord',metaDescription:'Sidans beskrivning',metaAuthor:'Författare',metaCopyright:'Upphovsrätt',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Dölj verktygsfält",
+ToolbarExpand		: "Visa verktygsfält",
+
+// Toolbar Items and Context Menu
+Save				: "Spara",
+NewPage				: "Ny sida",
+Preview				: "Förhandsgranska",
+Cut					: "Klipp ut",
+Copy				: "Kopiera",
+Paste				: "Klistra in",
+PasteText			: "Klistra in som text",
+PasteWord			: "Klistra in från Word",
+Print				: "Skriv ut",
+SelectAll			: "Markera allt",
+RemoveFormat		: "Radera formatering",
+InsertLinkLbl		: "Länk",
+InsertLink			: "Infoga/Redigera länk",
+RemoveLink			: "Radera länk",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Infoga/Redigera ankarlänk",
+AnchorDelete		: "Radera ankarlänk",
+InsertImageLbl		: "Bild",
+InsertImage			: "Infoga/Redigera bild",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Infoga/Redigera Flash",
+InsertTableLbl		: "Tabell",
+InsertTable			: "Infoga/Redigera tabell",
+InsertLineLbl		: "Linje",
+InsertLine			: "Infoga horisontal linje",
+InsertSpecialCharLbl: "Utökade tecken",
+InsertSpecialChar	: "Klistra in utökat tecken",
+InsertSmileyLbl		: "Smiley",
+InsertSmiley		: "Infoga Smiley",
+About				: "Om FCKeditor",
+Bold				: "Fet",
+Italic				: "Kursiv",
+Underline			: "Understruken",
+StrikeThrough		: "Genomstruken",
+Subscript			: "Nedsänkta tecken",
+Superscript			: "Upphöjda tecken",
+LeftJustify			: "Vänsterjustera",
+CenterJustify		: "Centrera",
+RightJustify		: "Högerjustera",
+BlockJustify		: "Justera till marginaler",
+DecreaseIndent		: "Minska indrag",
+IncreaseIndent		: "Öka indrag",
+Blockquote			: "Blockquote",	//MISSING
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Ångra",
+Redo				: "Gör om",
+NumberedListLbl		: "Numrerad lista",
+NumberedList		: "Infoga/Radera numrerad lista",
+BulletedListLbl		: "Punktlista",
+BulletedList		: "Infoga/Radera punktlista",
+ShowTableBorders	: "Visa tabellkant",
+ShowDetails			: "Visa radbrytningar",
+Style				: "Anpassad stil",
+FontFormat			: "Teckenformat",
+Font				: "Typsnitt",
+FontSize			: "Storlek",
+TextColor			: "Textfärg",
+BGColor				: "Bakgrundsfärg",
+Source				: "Källa",
+Find				: "Sök",
+Replace				: "Ersätt",
+SpellCheck			: "Stavningskontroll",
+UniversalKeyboard	: "Universellt tangentbord",
+PageBreakLbl		: "Sidbrytning",
+PageBreak			: "Infoga sidbrytning",
+
+Form			: "Formulär",
+Checkbox		: "Kryssruta",
+RadioButton		: "Alternativknapp",
+TextField		: "Textfält",
+Textarea		: "Textruta",
+HiddenField		: "Dolt fält",
+Button			: "Knapp",
+SelectionField	: "Flervalslista",
+ImageButton		: "Bildknapp",
+
+FitWindow		: "Anpassa till fönstrets storlek",
+ShowBlocks		: "Show Blocks",	//MISSING
+
+// Context Menu
+EditLink			: "Redigera länk",
+CellCM				: "Cell",
+RowCM				: "Rad",
+ColumnCM			: "Kolumn",
+InsertRowAfter		: "Lägg till Rad Efter",
+InsertRowBefore		: "Lägg till Rad Före",
+DeleteRows			: "Radera rad",
+InsertColumnAfter	: "Lägg till Kolumn Efter",
+InsertColumnBefore	: "Lägg till Kolumn Före",
+DeleteColumns		: "Radera kolumn",
+InsertCellAfter		: "Lägg till Cell Efter",
+InsertCellBefore	: "Lägg till Cell Före",
+DeleteCells			: "Radera celler",
+MergeCells			: "Sammanfoga celler",
+MergeRight			: "Sammanfoga Höger",
+MergeDown			: "Sammanfoga Ner",
+HorizontalSplitCell	: "Dela Cell Horisontellt",
+VerticalSplitCell	: "Dela Cell Vertikalt",
+TableDelete			: "Radera tabell",
+CellProperties		: "Cellegenskaper",
+TableProperties		: "Tabellegenskaper",
+ImageProperties		: "Bildegenskaper",
+FlashProperties		: "Flashegenskaper",
+
+AnchorProp			: "Egenskaper för ankarlänk",
+ButtonProp			: "Egenskaper för knapp",
+CheckboxProp		: "Egenskaper för kryssruta",
+HiddenFieldProp		: "Egenskaper för dolt fält",
+RadioButtonProp		: "Egenskaper för alternativknapp",
+ImageButtonProp		: "Egenskaper för bildknapp",
+TextFieldProp		: "Egenskaper för textfält",
+SelectionFieldProp	: "Egenskaper för flervalslista",
+TextareaProp		: "Egenskaper för textruta",
+FormProp			: "Egenskaper för formulär",
+
+FontFormats			: "Normal;Formaterad;Adress;Rubrik 1;Rubrik 2;Rubrik 3;Rubrik 4;Rubrik 5;Rubrik 6;Normal (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Bearbetar XHTML. Var god vänta...",
+Done				: "Klar",
+PasteWordConfirm	: "Texten du vill klistra in verkar vara kopierad från Word. Vill du rensa innan du klistar in?",
+NotCompatiblePaste	: "Denna åtgärd är inte tillgängligt för Internet Explorer version 5.5 eller högre. Vill du klistra in utan att rensa?",
+UnknownToolbarItem	: "Okänt verktygsfält \"%1\"",
+UnknownCommand		: "Okänt kommando \"%1\"",
+NotImplemented		: "Kommandot finns ej",
+UnknownToolbarSet	: "Verktygsfält \"%1\" finns ej",
+NoActiveX			: "Din webläsares säkerhetsinställningar kan begränsa funktionaliteten. Du bör aktivera \"Kör ActiveX kontroller och plug-ins\". Fel och avsaknad av funktioner kan annars uppstå.",
+BrowseServerBlocked : "Kunde Ej öppna resursfönstret. Var god och avaktivera alla popup-blockerare.",
+DialogBlocked		: "Kunde Ej öppna dialogfönstret. Var god och avaktivera alla popup-blockerare.",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Avbryt",
+DlgBtnClose			: "Stäng",
+DlgBtnBrowseServer	: "Bläddra på server",
+DlgAdvancedTag		: "Avancerad",
+DlgOpOther			: "Övrigt",
+DlgInfoTab			: "Information",
+DlgAlertUrl			: "Var god och ange en URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<ej angivet>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Språkriktning",
+DlgGenLangDirLtr	: "Vänster till Höger (VTH)",
+DlgGenLangDirRtl	: "Höger till Vänster (HTV)",
+DlgGenLangCode		: "Språkkod",
+DlgGenAccessKey		: "Behörighetsnyckel",
+DlgGenName			: "Namn",
+DlgGenTabIndex		: "Tabindex",
+DlgGenLongDescr		: "URL-beskrivning",
+DlgGenClass			: "Stylesheet class",
+DlgGenTitle			: "Titel",
+DlgGenContType		: "Innehållstyp",
+DlgGenLinkCharset	: "Teckenuppställning",
+DlgGenStyle			: "Style",
+
+// Image Dialog
+DlgImgTitle			: "Bildegenskaper",
+DlgImgInfoTab		: "Bildinformation",
+DlgImgBtnUpload		: "Skicka till server",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Ladda upp",
+DlgImgAlt			: "Alternativ text",
+DlgImgWidth			: "Bredd",
+DlgImgHeight		: "Höjd",
+DlgImgLockRatio		: "Lås höjd/bredd förhållanden",
+DlgBtnResetSize		: "Återställ storlek",
+DlgImgBorder		: "Kant",
+DlgImgHSpace		: "Horis. marginal",
+DlgImgVSpace		: "Vert. marginal",
+DlgImgAlign			: "Justering",
+DlgImgAlignLeft		: "Vänster",
+DlgImgAlignAbsBottom: "Absolut nederkant",
+DlgImgAlignAbsMiddle: "Absolut centrering",
+DlgImgAlignBaseline	: "Baslinje",
+DlgImgAlignBottom	: "Nederkant",
+DlgImgAlignMiddle	: "Mitten",
+DlgImgAlignRight	: "Höger",
+DlgImgAlignTextTop	: "Text överkant",
+DlgImgAlignTop		: "Överkant",
+DlgImgPreview		: "Förhandsgranska",
+DlgImgAlertUrl		: "Var god och ange bildens URL",
+DlgImgLinkTab		: "Länk",
+
+// Flash Dialog
+DlgFlashTitle		: "Flashegenskaper",
+DlgFlashChkPlay		: "Automatisk uppspelning",
+DlgFlashChkLoop		: "Upprepa/Loopa",
+DlgFlashChkMenu		: "Aktivera Flashmeny",
+DlgFlashScale		: "Skala",
+DlgFlashScaleAll	: "Visa allt",
+DlgFlashScaleNoBorder	: "Ingen ram",
+DlgFlashScaleFit	: "Exakt passning",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Länk",
+DlgLnkInfoTab		: "Länkinformation",
+DlgLnkTargetTab		: "Mål",
+
+DlgLnkType			: "Länktyp",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Ankare i sidan",
+DlgLnkTypeEMail		: "E-post",
+DlgLnkProto			: "Protokoll",
+DlgLnkProtoOther	: "<övrigt>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Välj ett ankare",
+DlgLnkAnchorByName	: "efter ankarnamn",
+DlgLnkAnchorById	: "efter objektid",
+DlgLnkNoAnchors		: "(Inga ankare kunde hittas)",
+DlgLnkEMail			: "E-postadress",
+DlgLnkEMailSubject	: "Ämne",
+DlgLnkEMailBody		: "Innehåll",
+DlgLnkUpload		: "Ladda upp",
+DlgLnkBtnUpload		: "Skicka till servern",
+
+DlgLnkTarget		: "Mål",
+DlgLnkTargetFrame	: "<ram>",
+DlgLnkTargetPopup	: "<popup-fönster>",
+DlgLnkTargetBlank	: "Nytt fönster (_blank)",
+DlgLnkTargetParent	: "Föregående Window (_parent)",
+DlgLnkTargetSelf	: "Detta fönstret (_self)",
+DlgLnkTargetTop		: "Översta fönstret (_top)",
+DlgLnkTargetFrameName	: "Målets ramnamn",
+DlgLnkPopWinName	: "Popup-fönstrets namn",
+DlgLnkPopWinFeat	: "Popup-fönstrets egenskaper",
+DlgLnkPopResize		: "Kan ändra storlek",
+DlgLnkPopLocation	: "Adressfält",
+DlgLnkPopMenu		: "Menyfält",
+DlgLnkPopScroll		: "Scrolllista",
+DlgLnkPopStatus		: "Statusfält",
+DlgLnkPopToolbar	: "Verktygsfält",
+DlgLnkPopFullScrn	: "Helskärm (endast IE)",
+DlgLnkPopDependent	: "Beroende (endest Netscape)",
+DlgLnkPopWidth		: "Bredd",
+DlgLnkPopHeight		: "Höjd",
+DlgLnkPopLeft		: "Position från vänster",
+DlgLnkPopTop		: "Position från sidans topp",
+
+DlnLnkMsgNoUrl		: "Var god ange länkens URL",
+DlnLnkMsgNoEMail	: "Var god ange E-postadress",
+DlnLnkMsgNoAnchor	: "Var god ange ett ankare",
+DlnLnkMsgInvPopName	: "Popup-rutans namn måste börja med en alfabetisk bokstav och får inte innehålla mellanslag",
+
+// Color Dialog
+DlgColorTitle		: "Välj färg",
+DlgColorBtnClear	: "Rensa",
+DlgColorHighlight	: "Markera",
+DlgColorSelected	: "Vald",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Infoga smiley",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Välj utökat tecken",
+
+// Table Dialog
+DlgTableTitle		: "Tabellegenskaper",
+DlgTableRows		: "Rader",
+DlgTableColumns		: "Kolumner",
+DlgTableBorder		: "Kantstorlek",
+DlgTableAlign		: "Justering",
+DlgTableAlignNotSet	: "<ej angivet>",
+DlgTableAlignLeft	: "Vänster",
+DlgTableAlignCenter	: "Centrerad",
+DlgTableAlignRight	: "Höger",
+DlgTableWidth		: "Bredd",
+DlgTableWidthPx		: "pixlar",
+DlgTableWidthPc		: "procent",
+DlgTableHeight		: "Höjd",
+DlgTableCellSpace	: "Cellavstånd",
+DlgTableCellPad		: "Cellutfyllnad",
+DlgTableCaption		: "Rubrik",
+DlgTableSummary		: "Sammanfattning",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Cellegenskaper",
+DlgCellWidth		: "Bredd",
+DlgCellWidthPx		: "pixlar",
+DlgCellWidthPc		: "procent",
+DlgCellHeight		: "Höjd",
+DlgCellWordWrap		: "Automatisk radbrytning",
+DlgCellWordWrapNotSet	: "<Ej angivet>",
+DlgCellWordWrapYes	: "Ja",
+DlgCellWordWrapNo	: "Nej",
+DlgCellHorAlign		: "Horisontal justering",
+DlgCellHorAlignNotSet	: "<Ej angivet>",
+DlgCellHorAlignLeft	: "Vänster",
+DlgCellHorAlignCenter	: "Centrerad",
+DlgCellHorAlignRight: "Höger",
+DlgCellVerAlign		: "Vertikal justering",
+DlgCellVerAlignNotSet	: "<Ej angivet>",
+DlgCellVerAlignTop	: "Topp",
+DlgCellVerAlignMiddle	: "Mitten",
+DlgCellVerAlignBottom	: "Nederkant",
+DlgCellVerAlignBaseline	: "Underst",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Radomfång",
+DlgCellCollSpan		: "Kolumnomfång",
+DlgCellBackColor	: "Bakgrundsfärg",
+DlgCellBorderColor	: "Kantfärg",
+DlgCellBtnSelect	: "Välj...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Sök och ersätt",
+
+// Find Dialog
+DlgFindTitle		: "Sök",
+DlgFindFindBtn		: "Sök",
+DlgFindNotFoundMsg	: "Angiven text kunde ej hittas.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Ersätt",
+DlgReplaceFindLbl		: "Sök efter:",
+DlgReplaceReplaceLbl	: "Ersätt med:",
+DlgReplaceCaseChk		: "Skiftläge",
+DlgReplaceReplaceBtn	: "Ersätt",
+DlgReplaceReplAllBtn	: "Ersätt alla",
+DlgReplaceWordChk		: "Inkludera hela ord",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Säkerhetsinställningar i Er webläsare tillåter inte åtgården Klipp ut. Använd (Ctrl+X) istället.",
+PasteErrorCopy	: "Säkerhetsinställningar i Er webläsare tillåter inte åtgården Kopiera. Använd (Ctrl+C) istället",
+
+PasteAsText		: "Klistra in som vanlig text",
+PasteFromWord	: "Klistra in från Word",
+
+DlgPasteMsg2	: "Var god och klistra in Er text i rutan nedan genom att använda (<STRONG>Ctrl+V</STRONG>) klicka sen på <STRONG>OK</STRONG>.",
+DlgPasteSec		: "På grund av din webläsares säkerhetsinställningar kan verktyget inte få åtkomst till urklippsdatan. Var god och använd detta fönster istället.",
+DlgPasteIgnoreFont		: "Ignorera typsnittsdefinitioner",
+DlgPasteRemoveStyles	: "Radera Stildefinitioner",
+
+// Color Picker
+ColorAutomatic	: "Automatisk",
+ColorMoreColors	: "Fler färger...",
+
+// Document Properties
+DocProps		: "Dokumentegenskaper",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Ankaregenskaper",
+DlgAnchorName		: "Ankarnamn",
+DlgAnchorErrorName	: "Var god ange ett ankarnamn",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Saknas i ordlistan",
+DlgSpellChangeTo		: "Ändra till",
+DlgSpellBtnIgnore		: "Ignorera",
+DlgSpellBtnIgnoreAll	: "Ignorera alla",
+DlgSpellBtnReplace		: "Ersätt",
+DlgSpellBtnReplaceAll	: "Ersätt alla",
+DlgSpellBtnUndo			: "Ångra",
+DlgSpellNoSuggestions	: "- Förslag saknas -",
+DlgSpellProgress		: "Stavningskontroll pågår...",
+DlgSpellNoMispell		: "Stavningskontroll slutförd: Inga stavfel påträffades.",
+DlgSpellNoChanges		: "Stavningskontroll slutförd: Inga ord rättades.",
+DlgSpellOneChange		: "Stavningskontroll slutförd: Ett ord rättades.",
+DlgSpellManyChanges		: "Stavningskontroll slutförd: %1 ord rättades.",
+
+IeSpellDownload			: "Stavningskontrollen är ej installerad. Vill du göra det nu?",
+
+// Button Dialog
+DlgButtonText		: "Text (Värde)",
+DlgButtonType		: "Typ",
+DlgButtonTypeBtn	: "Knapp",
+DlgButtonTypeSbm	: "Skicka",
+DlgButtonTypeRst	: "Återställ",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Namn",
+DlgCheckboxValue	: "Värde",
+DlgCheckboxSelected	: "Vald",
+
+// Form Dialog
+DlgFormName		: "Namn",
+DlgFormAction	: "Funktion",
+DlgFormMethod	: "Metod",
+
+// Select Field Dialog
+DlgSelectName		: "Namn",
+DlgSelectValue		: "Värde",
+DlgSelectSize		: "Storlek",
+DlgSelectLines		: "Linjer",
+DlgSelectChkMulti	: "Tillåt flerval",
+DlgSelectOpAvail	: "Befintliga val",
+DlgSelectOpText		: "Text",
+DlgSelectOpValue	: "Värde",
+DlgSelectBtnAdd		: "Lägg till",
+DlgSelectBtnModify	: "Redigera",
+DlgSelectBtnUp		: "Upp",
+DlgSelectBtnDown	: "Ner",
+DlgSelectBtnSetValue : "Markera som valt värde",
+DlgSelectBtnDelete	: "Radera",
+
+// Textarea Dialog
+DlgTextareaName	: "Namn",
+DlgTextareaCols	: "Kolumner",
+DlgTextareaRows	: "Rader",
+
+// Text Field Dialog
+DlgTextName			: "Namn",
+DlgTextValue		: "Värde",
+DlgTextCharWidth	: "Teckenbredd",
+DlgTextMaxChars		: "Max antal tecken",
+DlgTextType			: "Typ",
+DlgTextTypeText		: "Text",
+DlgTextTypePass		: "Lösenord",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Namn",
+DlgHiddenValue	: "Värde",
+
+// Bulleted List Dialog
+BulletedListProp	: "Egenskaper för punktlista",
+NumberedListProp	: "Egenskaper för numrerad lista",
+DlgLstStart			: "Start",
+DlgLstType			: "Typ",
+DlgLstTypeCircle	: "Cirkel",
+DlgLstTypeDisc		: "Punkt",
+DlgLstTypeSquare	: "Ruta",
+DlgLstTypeNumbers	: "Nummer (1, 2, 3)",
+DlgLstTypeLCase		: "Gemener (a, b, c)",
+DlgLstTypeUCase		: "Versaler (A, B, C)",
+DlgLstTypeSRoman	: "Små romerska siffror (i, ii, iii)",
+DlgLstTypeLRoman	: "Stora romerska siffror (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Allmän",
+DlgDocBackTab		: "Bakgrund",
+DlgDocColorsTab		: "Färg och marginal",
+DlgDocMetaTab		: "Metadata",
+
+DlgDocPageTitle		: "Sidtitel",
+DlgDocLangDir		: "Språkriktning",
+DlgDocLangDirLTR	: "Vänster till Höger",
+DlgDocLangDirRTL	: "Höger till Vänster",
+DlgDocLangCode		: "Språkkod",
+DlgDocCharSet		: "Teckenuppsättningar",
+DlgDocCharSetCE		: "Central Europa",
+DlgDocCharSetCT		: "Traditionell Kinesisk (Big5)",
+DlgDocCharSetCR		: "Kyrillisk",
+DlgDocCharSetGR		: "Grekiska",
+DlgDocCharSetJP		: "Japanska",
+DlgDocCharSetKR		: "Koreanska",
+DlgDocCharSetTR		: "Turkiska",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Väst Europa",
+DlgDocCharSetOther	: "Övriga teckenuppsättningar",
+
+DlgDocDocType		: "Sidhuvud",
+DlgDocDocTypeOther	: "Övriga sidhuvuden",
+DlgDocIncXHTML		: "Inkludera XHTML deklaration",
+DlgDocBgColor		: "Bakgrundsfärg",
+DlgDocBgImage		: "Bakgrundsbildens URL",
+DlgDocBgNoScroll	: "Fast bakgrund",
+DlgDocCText			: "Text",
+DlgDocCLink			: "Länk",
+DlgDocCVisited		: "Besökt länk",
+DlgDocCActive		: "Aktiv länk",
+DlgDocMargins		: "Sidmarginal",
+DlgDocMaTop			: "Topp",
+DlgDocMaLeft		: "Vänster",
+DlgDocMaRight		: "Höger",
+DlgDocMaBottom		: "Botten",
+DlgDocMeIndex		: "Sidans nyckelord",
+DlgDocMeDescr		: "Sidans beskrivning",
+DlgDocMeAuthor		: "Författare",
+DlgDocMeCopy		: "Upphovsrätt",
+DlgDocPreview		: "Förhandsgranska",
+
+// Templates Dialog
+Templates			: "Sidmallar",
+DlgTemplatesTitle	: "Sidmallar",
+DlgTemplatesSelMsg	: "Var god välj en mall att använda med editorn<br>(allt nuvarande innehåll raderas):",
+DlgTemplatesLoading	: "Laddar mallar. Var god vänta...",
+DlgTemplatesNoTpl	: "(Ingen mall är vald)",
+DlgTemplatesReplace	: "Ersätt aktuellt innehåll",
+
+// About Dialog
+DlgAboutAboutTab	: "Om",
+DlgAboutBrowserInfoTab	: "Webläsare",
+DlgAboutLicenseTab	: "Licens",
+DlgAboutVersion		: "version",
+DlgAboutInfo		: "För mer information se",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

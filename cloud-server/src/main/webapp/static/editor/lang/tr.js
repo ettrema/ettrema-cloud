@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Turkish language file.
+ */
 
-CKEDITOR.lang.tr={dir:'ltr',editorTitle:'Zengin metin editörü, %1, yardım için ALT 0 tuşuna basın.',toolbars:'Editor toolbars',editor:'Zengin Metin Editörü',source:'Kaynak',newPage:'Yeni Sayfa',save:'Kaydet',preview:'Ön İzleme',cut:'Kes',copy:'Kopyala',paste:'Yapıştır',print:'Yazdır',underline:'Altı Çizgili',bold:'Kalın',italic:'İtalik',selectAll:'Tümünü Seç',removeFormat:'Biçimi Kaldır',strike:'Üstü Çizgili',subscript:'Alt Simge',superscript:'Üst Simge',horizontalrule:'Yatay Satır Ekle',pagebreak:'Sayfa Sonu Ekle',pagebreakAlt:'Page Break',unlink:'Köprü Kaldır',undo:'Geri Al',redo:'Tekrarla',common:{browseServer:'Sunucuyu Gez',url:'URL',protocol:'Protokol',upload:'Karşıya Yükle',uploadSubmit:'Sunucuya Yolla',image:'Resim',flash:'Flash',form:'Form',checkbox:'Onay Kutusu',radio:'Seçenek Düğmesi',textField:'Metin Girişi',textarea:'Çok Satırlı Metin',hiddenField:'Gizli Veri',button:'Düğme',select:'Seçim Menüsü',imageButton:'Resimli Düğme',notSet:'<tanımlanmamış>',id:'Kimlik',name:'Ad',langDir:'Dil Yönü',langDirLtr:'Soldan Sağa (LTR)',langDirRtl:'Sağdan Sola (RTL)',langCode:'Dil Kodlaması',longDescr:'Uzun Tanımlı URL',cssClass:'Biçem Sayfası Sınıfları',advisoryTitle:'Danışma Başlığı',cssStyle:'Biçem',ok:'Tamam',cancel:'İptal',close:'Kapat',preview:'Ön gösterim',generalTab:'Genel',advancedTab:'Gelişmiş',validateNumberFailed:'Bu değer sayı değildir.',confirmNewPage:'İceriğiniz kayıt edilmediğinden dolayı kaybolacaktır. Yeni bir sayfa yüklemek istediğinize eminsiniz?',confirmCancel:'Bazı seçenekler değişmiştir. Dialog penceresini kapatmak istediğinize eminmisiniz?',options:'Seçenekler',target:'Hedef',targetNew:'Yeni Pencere (_blank)',targetTop:'Enüst Pencere (_top)',targetSelf:'Aynı Pencere (_self)',targetParent:'Ana Pencere (_parent)',langDirLTR:'Left to Right (LTR)',langDirRTL:'Right to Left (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'Genişlik',height:'Yükseklik',align:'Hizalama',alignLeft:'Sol',alignRight:'Sağ',alignCenter:'Merkez',alignTop:'Tepe',alignMiddle:'Orta',alignBottom:'Alt',invalidHeight:'Yükseklik sayı olmalıdır.',invalidWidth:'Genişlik bir sayı olmalıdır.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, hazır değildir</span>'},contextmenu:{options:'İçerik Menüsü Seçenekleri'},specialChar:{toolbar:'Özel Karakter Ekle',title:'Özel Karakter Seç',options:'Özel Karakter Seçenekleri'},link:{toolbar:'Link Ekle/Düzenle',other:'<diğer>',menu:'Link Düzenle',title:'Link',info:'Link Bilgisi',target:'Hedef',upload:'Karşıya Yükle',advanced:'Gelişmiş',type:'Link Türü',toUrl:'URL',toAnchor:'Bu sayfada çapa',toEmail:'E-Posta',targetFrame:'<çerçeve>',targetPopup:'<yeni açılan pencere>',targetFrameName:'Hedef Çerçeve Adı',targetPopupName:'Yeni Açılan Pencere Adı',popupFeatures:'Yeni Açılan Pencere Özellikleri',popupResizable:'Resizable',popupStatusBar:'Durum Çubuğu',popupLocationBar:'Yer Çubuğu',popupToolbar:'Araç Çubuğu',popupMenuBar:'Menü Çubuğu',popupFullScreen:'Tam Ekran (IE)',popupScrollBars:'Kaydırma Çubukları',popupDependent:'Bağımlı (Netscape)',popupLeft:'Sola Göre Konum',popupTop:'Yukarıya Göre Konum',id:'Id',langDir:'Dil Yönü',langDirLTR:'Soldan Sağa (LTR)',langDirRTL:'Sağdan Sola (RTL)',acccessKey:'Erişim Tuşu',name:'Ad',langCode:'Dil Yönü',tabIndex:'Sekme İndeksi',advisoryTitle:'Danışma Başlığı',advisoryContentType:'Danışma İçerik Türü',cssClasses:'Biçem Sayfası Sınıfları',charset:'Bağlı Kaynak Karakter Gurubu',styles:'Biçem',rel:'Relationship',selectAnchor:'Bağlantı Seç',anchorName:'Bağlantı Adı ile',anchorId:'Eleman Kimlik Numarası ile',emailAddress:'E-Posta Adresi',emailSubject:'İleti Konusu',emailBody:'İleti Gövdesi',noAnchors:'(Bu belgede hiç çapa yok)',noUrl:"Lütfen Link URL'sini yazın",noEmail:'Lütfen E-posta adresini yazın'},anchor:{toolbar:'Bağlantı Ekle/Düzenle',menu:'Bağlantı Özellikleri',title:'Bağlantı Özellikleri',name:'Bağlantı Adı',errorName:'Lütfen bağlantı için ad giriniz',remove:'Remove Anchor'},list:{numberedTitle:'Sayılandırılmış Liste Özellikleri',bulletedTitle:'Simgeli Liste Özellikleri',type:'Tipi',start:'Başla',validateStartNumber:'List start number must be a whole number.',circle:'Daire',disc:'Disk',square:'Kare',none:'Yok',notset:'<ayarlanmamış>',armenian:'Ermenice sayılandırma',georgian:'Gürcüce numaralandırma (an, ban, gan, vs.)',lowerRoman:'Küçük Roman (i, ii, iii, iv, v, vs.)',upperRoman:'Büyük Roman (I, II, III, IV, V, vs.)',lowerAlpha:'Küçük Alpha (a, b, c, d, e, vs.)',upperAlpha:'Büyük Alpha (A, B, C, D, E, vs.)',lowerGreek:'Küçük Greek (alpha, beta, gamma, vs.)',decimal:'Ondalık (1, 2, 3, vs.)',decimalLeadingZero:'Başı sıfırlı ondalık (01, 02, 03, vs.)'},findAndReplace:{title:'Bul ve Değiştir',find:'Bul',replace:'Değiştir',findWhat:'Aranan:',replaceWith:'Bununla değiştir:',notFoundMsg:'Belirtilen yazı bulunamadı.',findOptions:'Find Options',matchCase:'Büyük/küçük harf duyarlı',matchWord:'Kelimenin tamamı uysun',matchCyclic:'Eşleşen döngü',replaceAll:'Tümünü Değiştir',replaceSuccessMsg:'%1 bulunanlardan değiştirildi.'},table:{toolbar:'Tablo',title:'Tablo Özellikleri',menu:'Tablo Özellikleri',deleteTable:'Tabloyu Sil',rows:'Satırlar',columns:'Sütunlar',border:'Kenar Kalınlığı',widthPx:'piksel',widthPc:'yüzde',widthUnit:'genişlik birimi',cellSpace:'Izgara kalınlığı',cellPad:'Izgara yazı arası',caption:'Başlık',summary:'Özet',headers:'Başlıklar',headersNone:'Yok',headersColumn:'İlk Sütun',headersRow:'İlk Satır',headersBoth:'Her İkisi',invalidRows:'Satır sayısı 0 sayısından büyük olmalıdır.',invalidCols:'Sütün sayısı 0 sayısından büyük olmalıdır.',invalidBorder:'Çerceve büyüklüklüğü sayı olmalıdır.',invalidWidth:'Tablo genişliği sayı olmalıdır.',invalidHeight:'Tablo yüksekliği sayı olmalıdır.',invalidCellSpacing:'Hücre boşluğu (spacing) sayı olmalıdır.',invalidCellPadding:'Hücre aralığı (padding) sayı olmalıdır.',cell:{menu:'Hücre',insertBefore:'Hücre Ekle - Önce',insertAfter:'Hücre Ekle - Sonra',deleteCell:'Hücre Sil',merge:'Hücreleri Birleştir',mergeRight:'Birleştir - Sağdaki İle ',mergeDown:'Birleştir - Aşağıdaki İle ',splitHorizontal:'Hücreyi Yatay Böl',splitVertical:'Hücreyi Dikey Böl',title:'Hücre Özellikleri',cellType:'Hücre Tipi',rowSpan:'Satırlar Mesafesi (Span)',colSpan:'Sütünlar Mesafesi (Span)',wordWrap:'Kelime Kaydırma',hAlign:'Düşey Hizalama',vAlign:'Yataş Hizalama',alignBaseline:'Tabana',bgColor:'Arkaplan Rengi',borderColor:'Çerçeve Rengi',data:'Veri',header:'Başlık',yes:'Evet',no:'Hayır',invalidWidth:'Hücre genişliği sayı olmalıdır.',invalidHeight:'Hücre yüksekliği sayı olmalıdır.',invalidRowSpan:'Satırların mesafesi tam sayı olmalıdır.',invalidColSpan:'Sütünların mesafesi tam sayı olmalıdır.',chooseColor:'Seçiniz'},row:{menu:'Satır',insertBefore:'Satır Ekle - Önce',insertAfter:'Satır Ekle - Sonra',deleteRow:'Satır Sil'},column:{menu:'Sütun',insertBefore:'Kolon Ekle - Önce',insertAfter:'Kolon Ekle - Sonra',deleteColumn:'Sütun Sil'}},button:{title:'Düğme Özellikleri',text:'Metin (Değer)',type:'Tip',typeBtn:'Düğme',typeSbm:'Gönder',typeRst:'Sıfırla'},checkboxAndRadio:{checkboxTitle:'Onay Kutusu Özellikleri',radioTitle:'Seçenek Düğmesi Özellikleri',value:'Değer',selected:'Seçili'},form:{title:'Form Özellikleri',menu:'Form Özellikleri',action:'İşlem',method:'Yöntem',encoding:'Kodlama'},select:{title:'Seçim Menüsü Özellikleri',selectInfo:'Bilgi',opAvail:'Mevcut Seçenekler',value:'Değer',size:'Boyut',lines:'satır',chkMulti:'Çoklu seçime izin ver',opText:'Metin',opValue:'Değer',btnAdd:'Ekle',btnModify:'Düzenle',btnUp:'Yukarı',btnDown:'Aşağı',btnSetValue:'Seçili değer olarak ata',btnDelete:'Sil'},textarea:{title:'Çok Satırlı Metin Özellikleri',cols:'Sütunlar',rows:'Satırlar'},textfield:{title:'Metin Girişi Özellikleri',name:'Ad',value:'Değer',charWidth:'Karakter Genişliği',maxChars:'En Fazla Karakter',type:'Tür',typeText:'Metin',typePass:'Şifre'},hidden:{title:'Gizli Veri Özellikleri',name:'Ad',value:'Değer'},image:{title:'Resim Özellikleri',titleButton:'Resimli Düğme Özellikleri',menu:'Resim Özellikleri',infoTab:'Resim Bilgisi',btnUpload:'Sunucuya Yolla',upload:'Karşıya Yükle',alt:'Alternatif Yazı',lockRatio:'Oranı Kilitle',resetSize:'Boyutu Başa Döndür',border:'Kenar',hSpace:'Yatay Boşluk',vSpace:'Dikey Boşluk',alertUrl:"Lütfen resmin URL'sini yazınız",linkTab:'Köprü',button2Img:'Seçili resim butonunu basit resime çevirmek istermisiniz?',img2Button:'Seçili olan resimi, resimli butona çevirmek istermisiniz?',urlMissing:'Resmin URL kaynağı eksiktir.',validateBorder:'Çerçeve tam sayı olmalıdır.',validateHSpace:'HSpace tam sayı olmalıdır.',validateVSpace:'VSpace tam sayı olmalıdır.'},flash:{properties:'Flash Özellikleri',propertiesTab:'Özellikler',title:'Flash Özellikleri',chkPlay:'Otomatik Oynat',chkLoop:'Döngü',chkMenu:'Flash Menüsünü Kullan',chkFull:'Tam ekrana İzinver',scale:'Boyutlandır',scaleAll:'Hepsini Göster',scaleNoBorder:'Kenar Yok',scaleFit:'Tam Sığdır',access:'Kod İzni',accessAlways:'Herzaman',accessSameDomain:'Aynı domain',accessNever:'Asla',alignAbsBottom:'Tam Altı',alignAbsMiddle:'Tam Ortası',alignBaseline:'Taban Çizgisi',alignTextTop:'Yazı Tepeye',quality:'Kalite',qualityBest:'En iyi',qualityHigh:'Yüksek',qualityAutoHigh:'Otomatik Yükseklik',qualityMedium:'Orta',qualityAutoLow:'Otomatik Düşüklük',qualityLow:'Düşük',windowModeWindow:'Pencere',windowModeOpaque:'Opak',windowModeTransparent:'Şeffaf',windowMode:'Pencere modu',flashvars:'Flash Değerleri',bgcolor:'Arka Renk',hSpace:'Yatay Boşluk',vSpace:'Dikey Boşluk',validateSrc:"Lütfen köprü URL'sini yazın",validateHSpace:'HSpace sayı olmalıdır.',validateVSpace:'VSpace sayı olmalıdır.'},spellCheck:{toolbar:'Yazım Denetimi',title:'Yazımı Denetle',notAvailable:'Üzügünüz, bu servis şuanda hizmet dışıdır.',errorLoading:'Uygulamada yüklerken hata oluştu: %s.',notInDic:'Sözlükte Yok',changeTo:'Şuna değiştir:',btnIgnore:'Yoksay',btnIgnoreAll:'Tümünü Yoksay',btnReplace:'Değiştir',btnReplaceAll:'Tümünü Değiştir',btnUndo:'Geri Al',noSuggestions:'- Öneri Yok -',progress:'Yazım denetimi işlemde...',noMispell:'Yazım denetimi tamamlandı: Yanlış yazıma rastlanmadı',noChanges:'Yazım denetimi tamamlandı: Hiçbir kelime değiştirilmedi',oneChange:'Yazım denetimi tamamlandı: Bir kelime değiştirildi',manyChanges:'Yazım denetimi tamamlandı: %1 kelime değiştirildi',ieSpellDownload:'Yazım denetimi yüklenmemiş. Şimdi yüklemek ister misiniz?'},smiley:{toolbar:'İfade',title:'İfade Ekle',options:'İfade Seçenekleri'},elementsPath:{eleLabel:'Elementlerin yolu',eleTitle:'%1 element'},numberedlist:'Numaralı Liste',bulletedlist:'Simgeli Liste',indent:'Sekme Arttır',outdent:'Sekme Azalt',justify:{left:'Sola Dayalı',center:'Ortalanmış',right:'Sağa Dayalı',block:'İki Kenara Yaslanmış'},blockquote:'Blok Oluştur',clipboard:{title:'Yapıştır',cutError:'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',copyError:'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kopyalama işlemine izin vermiyor. İşlem için (Ctrl/Cmd+C) tuşlarını kullanın.',pasteMsg:'Lütfen aşağıdaki kutunun içine yapıştırın. (<STRONG>Ctrl/Cmd+V</STRONG>) ve <STRONG>Tamam</STRONG> butonunu tıklayın.',securityMsg:'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin direkt olarak panoya erişimine izin vermiyor. Bu pencere içine tekrar yapıştırmalısınız..',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:"Yapıştırmaya çalıştığınız metin Word'den kopyalanmıştır. Yapıştırmadan önce silmek istermisiniz?",toolbar:"Word'den Yapıştır",title:"Word'den Yapıştır",error:'Yapıştırmadaki veri bilgisi hata düzelene kadar silinmeyecektir'},pasteText:{button:'Düz Metin Olarak Yapıştır',title:'Düz Metin Olarak Yapıştır'},templates:{button:'Şablonlar',title:'İçerik Şablonları',options:'Şablon Seçenekleri',insertOption:'Mevcut içerik ile değiştir',selectPromptMsg:'Düzenleyicide açmak için lütfen bir şablon seçin.<br>(hali hazırdaki içerik kaybolacaktır.):',emptyListMsg:'(Belirli bir şablon seçilmedi)'},showBlocks:'Blokları Göster',stylesCombo:{label:'Biçem',panelTitle:'Stilleri Düzenliyor',panelTitle1:'Blok Stilleri',panelTitle2:'Inline Stilleri',panelTitle3:'Nesne Stilleri'},format:{label:'Biçim',panelTitle:'Biçim',tag_p:'Normal',tag_pre:'Biçimli',tag_address:'Adres',tag_h1:'Başlık 1',tag_h2:'Başlık 2',tag_h3:'Başlık 3',tag_h4:'Başlık 4',tag_h5:'Başlık 5',tag_h6:'Başlık 6',tag_div:'Paragraf (DIV)'},div:{title:'Div İçeriği Oluştur',toolbar:'Div İçeriği Oluştur',cssClassInputLabel:'Stilltipi Sınıfı',styleSelectLabel:'Stil',IdInputLabel:'Id',languageCodeInputLabel:' Dil Kodu',inlineStyleInputLabel:'Inline Stili',advisoryTitleInputLabel:'Tavsiye Başlığı',langDirLabel:'Dil Yönü',langDirLTRLabel:'Soldan sağa (LTR)',langDirRTLLabel:'Sağdan sola (RTL)',edit:'Div Düzenle',remove:'Div Kaldır'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'Yazı Türü',voiceLabel:'Font',panelTitle:'Yazı Türü'},fontSize:{label:'Boyut',voiceLabel:'Font Size',panelTitle:'Boyut'},colorButton:{textColorTitle:'Yazı Rengi',bgColorTitle:'Arka Renk',panelTitle:'Renkler',auto:'Otomatik',more:'Diğer renkler...'},colors:{'000':'Siyah',800000:'Kestane','8B4513':'Koyu Kahverengi','2F4F4F':'Koyu Kurşuni Gri','008080':'Teal','000080':'Mavi','4B0082':'Çivit Mavisi',696969:'Silik Gri',B22222:'Ateş Tuğlası',A52A2A:'Kahverengi',DAA520:'Altun Sırık','006400':'Koyu Yeşil','40E0D0':'Turkuaz','0000CD':'Orta Mavi',800080:'Pembe',808080:'Gri',F00:'Kırmızı',FF8C00:'Koyu Portakal',FFD700:'Altın','008000':'Yeşil','0FF':'Ciyan','00F':'Mavi',EE82EE:'Menekşe',A9A9A9:'Koyu Gri',FFA07A:'Açık Sarımsı',FFA500:'Portakal',FFFF00:'Sarı','00FF00':'Açık Yeşil',AFEEEE:'Sönük Turkuaz',ADD8E6:'Açık Mavi',DDA0DD:'Mor',D3D3D3:'Açık Gri',FFF0F5:'Eflatun Pembe',FAEBD7:'Antik Beyaz',FFFFE0:'Açık Sarı',F0FFF0:'Balsarısı',F0FFFF:'Gök Mavisi',F0F8FF:'Reha Mavi',E6E6FA:'Eflatun',FFF:'Beyaz'},scayt:{title:'Girmiş olduğunuz kelime denetimi',opera_title:'Opera tarafından desteklenmemektedir',enable:'SCAYT etkinleştir',disable:'SCAYT pasifleştir',about:'SCAYT hakkında',toggle:'SCAYT değiştir',options:'Seçenekler',langs:'Diller',moreSuggestions:'Daha fazla öneri',ignore:'Yoksay',ignoreAll:'Tümünü Yoksay',addWord:'Kelime Ekle',emptyDic:'Sözlük adı boş olamaz.',optionsTab:'Seçenekler',allCaps:'Tüm büyük küçük kelimeleri yoksay',ignoreDomainNames:'Domain adlarını yoksay',mixedCase:'Karışık büyüklük ile Sözcükler yoksay',mixedWithDigits:'Sayılarla Kelimeler yoksay',languagesTab:'Diller',dictionariesTab:'Sözlükler',dic_field_name:'Sözlük adı',dic_create:'Oluştur',dic_restore:'Geri al',dic_delete:'Sil',dic_rename:'Yeniden adlandır',dic_info:"Initially the User Dictionary is stored in a Cookie. However, Cookies are limited in size. When the User Dictionary grows to a point where it cannot be stored in a Cookie, then the dictionary may be stored on our server. To store your personal dictionary on our server you should specify a name for your dictionary. If you already have a stored dictionary, please type it's name and click the Restore button.",aboutTab:'Hakkında'},about:{title:'CKEditor Hakkında',dlgTitle:'CKEditor Hakkında',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'Lisanslama hakkında daha fazla bilgi almak için lütfen sitemizi ziyaret edin:',copy:'Copyright &copy; $1. Tüm hakları saklıdır.'},maximize:'Büyült',minimize:'Küçült',fakeobjects:{anchor:'Bağlantı',flash:'Flash Animasyonu',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:'Bilinmeyen Nesne'},resize:'Boyutlandırmak için sürükle',colordialog:{title:'Renk seç',options:'Renk Seçenekleri',highlight:'İşaretle',selected:'Seçilmiş',clear:'Temizle'},toolbarCollapse:"Toolbar'ı topla",toolbarExpand:"Toolbar'ı aç",toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text direction from left to right',rtl:'Text direction from right to left'},docprops:{label:'Belge Özellikleri',title:'Belge Özellikleri',design:'Design',meta:'Tanım Bilgisi (Meta)',chooseColor:'Seçiniz',other:'<diğer>',docTitle:'Sayfa Başlığı',charset:'Karakter Kümesi Kodlaması',charsetOther:'Diğer Karakter Kümesi Kodlaması',charsetASCII:'ASCII',charsetCE:'Orta Avrupa',charsetCT:'Geleneksel Çince (Big5)',charsetCR:'Kiril',charsetGR:'Yunanca',charsetJP:'Japonca',charsetKR:'Korece',charsetTR:'Türkçe',charsetUN:'Unicode (UTF-8)',charsetWE:'Batı Avrupa',docType:'Belge Türü Başlığı',docTypeOther:'Diğer Belge Türü Başlığı',xhtmlDec:'XHTML Bildirimlerini Dahil Et',bgColor:'Arka Plan Rengi',bgImage:'Arka Plan Resim URLsi',bgFixed:'Sabit Arka Plan',txtColor:'Yazı Rengi',margin:'Kenar Boşlukları',marginTop:'Tepe',marginLeft:'Sol',marginRight:'Sağ',marginBottom:'Alt',metaKeywords:'Belge Dizinleme Anahtar Kelimeleri (virgülle ayrılmış)',metaDescription:'Belge Tanımı',metaAuthor:'Yazar',metaCopyright:'Telif',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Araç Çubuğunu Kapat",
+ToolbarExpand		: "Araç Çubuğunu Aç",
+
+// Toolbar Items and Context Menu
+Save				: "Kaydet",
+NewPage				: "Yeni Sayfa",
+Preview				: "Ön İzleme",
+Cut					: "Kes",
+Copy				: "Kopyala",
+Paste				: "Yapıştır",
+PasteText			: "Düzyazı Olarak Yapıştır",
+PasteWord			: "Word'den Yapıştır",
+Print				: "Yazdır",
+SelectAll			: "Tümünü Seç",
+RemoveFormat		: "Biçimi Kaldır",
+InsertLinkLbl		: "Köprü",
+InsertLink			: "Köprü Ekle/Düzenle",
+RemoveLink			: "Köprü Kaldır",
+VisitLink			: "Köprü Aç",
+Anchor				: "Çapa Ekle/Düzenle",
+AnchorDelete		: "Çapa Sil",
+InsertImageLbl		: "Resim",
+InsertImage			: "Resim Ekle/Düzenle",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Flash Ekle/Düzenle",
+InsertTableLbl		: "Tablo",
+InsertTable			: "Tablo Ekle/Düzenle",
+InsertLineLbl		: "Satır",
+InsertLine			: "Yatay Satır Ekle",
+InsertSpecialCharLbl: "Özel Karakter",
+InsertSpecialChar	: "Özel Karakter Ekle",
+InsertSmileyLbl		: "İfade",
+InsertSmiley		: "İfade Ekle",
+About				: "FCKeditor Hakkında",
+Bold				: "Kalın",
+Italic				: "İtalik",
+Underline			: "Altı Çizgili",
+StrikeThrough		: "Üstü Çizgili",
+Subscript			: "Alt Simge",
+Superscript			: "Üst Simge",
+LeftJustify			: "Sola Dayalı",
+CenterJustify		: "Ortalanmış",
+RightJustify		: "Sağa Dayalı",
+BlockJustify		: "İki Kenara Yaslanmış",
+DecreaseIndent		: "Sekme Azalt",
+IncreaseIndent		: "Sekme Arttır",
+Blockquote			: "Blok Oluştur",
+CreateDiv			: "Div Ekle",
+EditDiv				: "Div Düzenle",
+DeleteDiv			: "Div Sil",
+Undo				: "Geri Al",
+Redo				: "Tekrarla",
+NumberedListLbl		: "Numaralı Liste",
+NumberedList		: "Numaralı Liste Ekle/Kaldır",
+BulletedListLbl		: "Simgeli Liste",
+BulletedList		: "Simgeli Liste Ekle/Kaldır",
+ShowTableBorders	: "Tablo Kenarlarını Göster",
+ShowDetails			: "Detayları Göster",
+Style				: "Biçem",
+FontFormat			: "Biçim",
+Font				: "Yazı Türü",
+FontSize			: "Boyut",
+TextColor			: "Yazı Rengi",
+BGColor				: "Arka Renk",
+Source				: "Kaynak",
+Find				: "Bul",
+Replace				: "Değiştir",
+SpellCheck			: "Yazım Denetimi",
+UniversalKeyboard	: "Evrensel Klavye",
+PageBreakLbl		: "Sayfa sonu",
+PageBreak			: "Sayfa Sonu Ekle",
+
+Form			: "Form",
+Checkbox		: "Onay Kutusu",
+RadioButton		: "Seçenek Düğmesi",
+TextField		: "Metin Girişi",
+Textarea		: "Çok Satırlı Metin",
+HiddenField		: "Gizli Veri",
+Button			: "Düğme",
+SelectionField	: "Seçim Menüsü",
+ImageButton		: "Resimli Düğme",
+
+FitWindow		: "Düzenleyici boyutunu büyüt",
+ShowBlocks		: "Blokları Göster",
+
+// Context Menu
+EditLink			: "Köprü Düzenle",
+CellCM				: "Hücre",
+RowCM				: "Satır",
+ColumnCM			: "Sütun",
+InsertRowAfter		: "Satır Ekle - Sonra",
+InsertRowBefore		: "Satır Ekle - Önce",
+DeleteRows			: "Satır Sil",
+InsertColumnAfter	: "Kolon Ekle - Sonra",
+InsertColumnBefore	: "Kolon Ekle - Önce",
+DeleteColumns		: "Sütun Sil",
+InsertCellAfter		: "Hücre Ekle - Sonra",
+InsertCellBefore	: "Hücre Ekle - Önce",
+DeleteCells			: "Hücre Sil",
+MergeCells			: "Hücreleri Birleştir",
+MergeRight			: "Birleştir - Sağdaki İle ",
+MergeDown			: "Birleştir - Aşağıdaki İle ",
+HorizontalSplitCell	: "Hücreyi Yatay Böl",
+VerticalSplitCell	: "Hücreyi Dikey Böl",
+TableDelete			: "Tabloyu Sil",
+CellProperties		: "Hücre Özellikleri",
+TableProperties		: "Tablo Özellikleri",
+ImageProperties		: "Resim Özellikleri",
+FlashProperties		: "Flash Özellikleri",
+
+AnchorProp			: "Çapa Özellikleri",
+ButtonProp			: "Düğme Özellikleri",
+CheckboxProp		: "Onay Kutusu Özellikleri",
+HiddenFieldProp		: "Gizli Veri Özellikleri",
+RadioButtonProp		: "Seçenek Düğmesi Özellikleri",
+ImageButtonProp		: "Resimli Düğme Özellikleri",
+TextFieldProp		: "Metin Girişi Özellikleri",
+SelectionFieldProp	: "Seçim Menüsü Özellikleri",
+TextareaProp		: "Çok Satırlı Metin Özellikleri",
+FormProp			: "Form Özellikleri",
+
+FontFormats			: "Normal;Biçimli;Adres;Başlık 1;Başlık 2;Başlık 3;Başlık 4;Başlık 5;Başlık 6;Paragraf (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "XHTML işleniyor. Lütfen bekleyin...",
+Done				: "Bitti",
+PasteWordConfirm	: "Yapıştırdığınız yazı Word'den gelmişe benziyor. Yapıştırmadan önce gereksiz eklentileri silmek ister misiniz?",
+NotCompatiblePaste	: "Bu komut Internet Explorer 5.5 ve ileriki sürümleri için mevcuttur. Temizlenmeden yapıştırılmasını ister misiniz ?",
+UnknownToolbarItem	: "Bilinmeyen araç çubugu öğesi \"%1\"",
+UnknownCommand		: "Bilinmeyen komut \"%1\"",
+NotImplemented		: "Komut uyarlanamadı",
+UnknownToolbarSet	: "\"%1\" araç çubuğu öğesi mevcut değil",
+NoActiveX			: "Kullandığınız tarayıcının güvenlik ayarları bazı özelliklerin kullanılmasını engelliyor. Bu özelliklerin çalışması için \"Run ActiveX controls and plug-ins (Activex ve eklentileri çalıştır)\" seçeneğinin aktif yapılması gerekiyor. Kullanılamayan eklentiler ve hatalar konusunda daha fazla bilgi sahibi olun.",
+BrowseServerBlocked : "Kaynak tarayıcısı açılamadı. Tüm \"popup blocker\" programlarının devre dışı olduğundan emin olun. (Yahoo toolbar, Msn toolbar, Google toolbar gibi)",
+DialogBlocked		: "Diyalog açmak mümkün olmadı. Tüm \"Popup Blocker\" programlarının devre dışı olduğundan emin olun.",
+VisitLinkBlocked	: "Yeni pencere açmak mümkün olmadı. Tüm \"Popup Blocker\" programlarının devre dışı olduğundan emin olun",
+
+// Dialogs
+DlgBtnOK			: "Tamam",
+DlgBtnCancel		: "İptal",
+DlgBtnClose			: "Kapat",
+DlgBtnBrowseServer	: "Sunucuyu Gez",
+DlgAdvancedTag		: "Gelişmiş",
+DlgOpOther			: "<Diğer>",
+DlgInfoTab			: "Bilgi",
+DlgAlertUrl			: "Lütfen URL girin",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<tanımlanmamış>",
+DlgGenId			: "Kimlik",
+DlgGenLangDir		: "Dil Yönü",
+DlgGenLangDirLtr	: "Soldan Sağa (LTR)",
+DlgGenLangDirRtl	: "Sağdan Sola (RTL)",
+DlgGenLangCode		: "Dil Kodlaması",
+DlgGenAccessKey		: "Erişim Tuşu",
+DlgGenName			: "Ad",
+DlgGenTabIndex		: "Sekme İndeksi",
+DlgGenLongDescr		: "Uzun Tanımlı URL",
+DlgGenClass			: "Biçem Sayfası Sınıfları",
+DlgGenTitle			: "Danışma Başlığı",
+DlgGenContType		: "Danışma İçerik Türü",
+DlgGenLinkCharset	: "Bağlı Kaynak Karakter Gurubu",
+DlgGenStyle			: "Biçem",
+
+// Image Dialog
+DlgImgTitle			: "Resim Özellikleri",
+DlgImgInfoTab		: "Resim Bilgisi",
+DlgImgBtnUpload		: "Sunucuya Yolla",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Karşıya Yükle",
+DlgImgAlt			: "Alternatif Yazı",
+DlgImgWidth			: "Genişlik",
+DlgImgHeight		: "Yükseklik",
+DlgImgLockRatio		: "Oranı Kilitle",
+DlgBtnResetSize		: "Boyutu Başa Döndür",
+DlgImgBorder		: "Kenar",
+DlgImgHSpace		: "Yatay Boşluk",
+DlgImgVSpace		: "Dikey Boşluk",
+DlgImgAlign			: "Hizalama",
+DlgImgAlignLeft		: "Sol",
+DlgImgAlignAbsBottom: "Tam Altı",
+DlgImgAlignAbsMiddle: "Tam Ortası",
+DlgImgAlignBaseline	: "Taban Çizgisi",
+DlgImgAlignBottom	: "Alt",
+DlgImgAlignMiddle	: "Orta",
+DlgImgAlignRight	: "Sağ",
+DlgImgAlignTextTop	: "Yazı Tepeye",
+DlgImgAlignTop		: "Tepe",
+DlgImgPreview		: "Ön İzleme",
+DlgImgAlertUrl		: "Lütfen resmin URL'sini yazınız",
+DlgImgLinkTab		: "Köprü",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash Özellikleri",
+DlgFlashChkPlay		: "Otomatik Oynat",
+DlgFlashChkLoop		: "Döngü",
+DlgFlashChkMenu		: "Flash Menüsünü Kullan",
+DlgFlashScale		: "Boyutlandır",
+DlgFlashScaleAll	: "Hepsini Göster",
+DlgFlashScaleNoBorder	: "Kenar Yok",
+DlgFlashScaleFit	: "Tam Sığdır",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Köprü",
+DlgLnkInfoTab		: "Köprü Bilgisi",
+DlgLnkTargetTab		: "Hedef",
+
+DlgLnkType			: "Köprü Türü",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Bu sayfada çapa",
+DlgLnkTypeEMail		: "E-Posta",
+DlgLnkProto			: "Protokol",
+DlgLnkProtoOther	: "<diğer>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Çapa Seç",
+DlgLnkAnchorByName	: "Çapa Adı ile",
+DlgLnkAnchorById	: "Eleman Kimlik Numarası ile",
+DlgLnkNoAnchors		: "(Bu belgede hiç çapa yok)",
+DlgLnkEMail			: "E-Posta Adresi",
+DlgLnkEMailSubject	: "İleti Konusu",
+DlgLnkEMailBody		: "İleti Gövdesi",
+DlgLnkUpload		: "Karşıya Yükle",
+DlgLnkBtnUpload		: "Sunucuya Gönder",
+
+DlgLnkTarget		: "Hedef",
+DlgLnkTargetFrame	: "<çerçeve>",
+DlgLnkTargetPopup	: "<yeni açılan pencere>",
+DlgLnkTargetBlank	: "Yeni Pencere(_blank)",
+DlgLnkTargetParent	: "Anne Pencere (_parent)",
+DlgLnkTargetSelf	: "Kendi Penceresi (_self)",
+DlgLnkTargetTop		: "En Üst Pencere (_top)",
+DlgLnkTargetFrameName	: "Hedef Çerçeve Adı",
+DlgLnkPopWinName	: "Yeni Açılan Pencere Adı",
+DlgLnkPopWinFeat	: "Yeni Açılan Pencere Özellikleri",
+DlgLnkPopResize		: "Boyutlandırılabilir",
+DlgLnkPopLocation	: "Yer Çubuğu",
+DlgLnkPopMenu		: "Menü Çubuğu",
+DlgLnkPopScroll		: "Kaydırma Çubukları",
+DlgLnkPopStatus		: "Durum Çubuğu",
+DlgLnkPopToolbar	: "Araç Çubuğu",
+DlgLnkPopFullScrn	: "Tam Ekran (IE)",
+DlgLnkPopDependent	: "Bağımlı (Netscape)",
+DlgLnkPopWidth		: "Genişlik",
+DlgLnkPopHeight		: "Yükseklik",
+DlgLnkPopLeft		: "Sola Göre Konum",
+DlgLnkPopTop		: "Yukarıya Göre Konum",
+
+DlnLnkMsgNoUrl		: "Lütfen köprü URL'sini yazın",
+DlnLnkMsgNoEMail	: "Lütfen E-posta adresini yazın",
+DlnLnkMsgNoAnchor	: "Lütfen bir çapa seçin",
+DlnLnkMsgInvPopName	: "Açılır pencere adı abecesel bir karakterle başlamalı ve boşluk içermemelidir",
+
+// Color Dialog
+DlgColorTitle		: "Renk Seç",
+DlgColorBtnClear	: "Temizle",
+DlgColorHighlight	: "Vurgula",
+DlgColorSelected	: "Seçilmiş",
+
+// Smiley Dialog
+DlgSmileyTitle		: "İfade Ekle",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Özel Karakter Seç",
+
+// Table Dialog
+DlgTableTitle		: "Tablo Özellikleri",
+DlgTableRows		: "Satırlar",
+DlgTableColumns		: "Sütunlar",
+DlgTableBorder		: "Kenar Kalınlığı",
+DlgTableAlign		: "Hizalama",
+DlgTableAlignNotSet	: "<Tanımlanmamış>",
+DlgTableAlignLeft	: "Sol",
+DlgTableAlignCenter	: "Merkez",
+DlgTableAlignRight	: "Sağ",
+DlgTableWidth		: "Genişlik",
+DlgTableWidthPx		: "piksel",
+DlgTableWidthPc		: "yüzde",
+DlgTableHeight		: "Yükseklik",
+DlgTableCellSpace	: "Izgara kalınlığı",
+DlgTableCellPad		: "Izgara yazı arası",
+DlgTableCaption		: "Başlık",
+DlgTableSummary		: "Özet",
+DlgTableHeaders		: "Başlıklar",
+DlgTableHeadersNone		: "Yok",
+DlgTableHeadersColumn	: "İlk Sütun",
+DlgTableHeadersRow		: "İlk Satır",
+DlgTableHeadersBoth		: "Her İkisi",
+
+// Table Cell Dialog
+DlgCellTitle		: "Hücre Özellikleri",
+DlgCellWidth		: "Genişlik",
+DlgCellWidthPx		: "piksel",
+DlgCellWidthPc		: "yüzde",
+DlgCellHeight		: "Yükseklik",
+DlgCellWordWrap		: "Sözcük Kaydır",
+DlgCellWordWrapNotSet	: "<Tanımlanmamış>",
+DlgCellWordWrapYes	: "Evet",
+DlgCellWordWrapNo	: "Hayır",
+DlgCellHorAlign		: "Yatay Hizalama",
+DlgCellHorAlignNotSet	: "<Tanımlanmamış>",
+DlgCellHorAlignLeft	: "Sol",
+DlgCellHorAlignCenter	: "Merkez",
+DlgCellHorAlignRight: "Sağ",
+DlgCellVerAlign		: "Dikey Hizalama",
+DlgCellVerAlignNotSet	: "<Tanımlanmamış>",
+DlgCellVerAlignTop	: "Tepe",
+DlgCellVerAlignMiddle	: "Orta",
+DlgCellVerAlignBottom	: "Alt",
+DlgCellVerAlignBaseline	: "Taban Çizgisi",
+DlgCellType		: "Hücre Tipi",
+DlgCellTypeData		: "Veri",
+DlgCellTypeHeader	: "Başlık",
+DlgCellRowSpan		: "Satır Kapla",
+DlgCellCollSpan		: "Sütun Kapla",
+DlgCellBackColor	: "Arka Plan Rengi",
+DlgCellBorderColor	: "Kenar Rengi",
+DlgCellBtnSelect	: "Seç...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Bul ve Değiştir",
+
+// Find Dialog
+DlgFindTitle		: "Bul",
+DlgFindFindBtn		: "Bul",
+DlgFindNotFoundMsg	: "Belirtilen yazı bulunamadı.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Değiştir",
+DlgReplaceFindLbl		: "Aranan:",
+DlgReplaceReplaceLbl	: "Bununla değiştir:",
+DlgReplaceCaseChk		: "Büyük/küçük harf duyarlı",
+DlgReplaceReplaceBtn	: "Değiştir",
+DlgReplaceReplAllBtn	: "Tümünü Değiştir",
+DlgReplaceWordChk		: "Kelimenin tamamı uysun",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl+X) tuşlarını kullanın.",
+PasteErrorCopy	: "Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kopyalama işlemine izin vermiyor. İşlem için (Ctrl+C) tuşlarını kullanın.",
+
+PasteAsText		: "Düz Metin Olarak Yapıştır",
+PasteFromWord	: "Word'den yapıştır",
+
+DlgPasteMsg2	: "Lütfen aşağıdaki kutunun içine yapıştırın. (<STRONG>Ctrl+V</STRONG>) ve <STRONG>Tamam</STRONG> butonunu tıklayın.",
+DlgPasteSec		: "Gezgin yazılımınızın güvenlik ayarları düzenleyicinin direkt olarak panoya erişimine izin vermiyor. Bu pencere içine tekrar yapıştırmalısınız..",
+DlgPasteIgnoreFont		: "Yazı Tipi tanımlarını yoksay",
+DlgPasteRemoveStyles	: "Biçem Tanımlarını çıkar",
+
+// Color Picker
+ColorAutomatic	: "Otomatik",
+ColorMoreColors	: "Diğer renkler...",
+
+// Document Properties
+DocProps		: "Belge Özellikleri",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Çapa Özellikleri",
+DlgAnchorName		: "Çapa Adı",
+DlgAnchorErrorName	: "Lütfen çapa için ad giriniz",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Sözlükte Yok",
+DlgSpellChangeTo		: "Şuna değiştir:",
+DlgSpellBtnIgnore		: "Yoksay",
+DlgSpellBtnIgnoreAll	: "Tümünü Yoksay",
+DlgSpellBtnReplace		: "Değiştir",
+DlgSpellBtnReplaceAll	: "Tümünü Değiştir",
+DlgSpellBtnUndo			: "Geri Al",
+DlgSpellNoSuggestions	: "- Öneri Yok -",
+DlgSpellProgress		: "Yazım denetimi işlemde...",
+DlgSpellNoMispell		: "Yazım denetimi tamamlandı: Yanlış yazıma rastlanmadı",
+DlgSpellNoChanges		: "Yazım denetimi tamamlandı: Hiçbir kelime değiştirilmedi",
+DlgSpellOneChange		: "Yazım denetimi tamamlandı: Bir kelime değiştirildi",
+DlgSpellManyChanges		: "Yazım denetimi tamamlandı: %1 kelime değiştirildi",
+
+IeSpellDownload			: "Yazım denetimi yüklenmemiş. Şimdi yüklemek ister misiniz?",
+
+// Button Dialog
+DlgButtonText		: "Metin (Değer)",
+DlgButtonType		: "Tip",
+DlgButtonTypeBtn	: "Düğme",
+DlgButtonTypeSbm	: "Gönder",
+DlgButtonTypeRst	: "Sıfırla",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Ad",
+DlgCheckboxValue	: "Değer",
+DlgCheckboxSelected	: "Seçili",
+
+// Form Dialog
+DlgFormName		: "Ad",
+DlgFormAction	: "İşlem",
+DlgFormMethod	: "Yöntem",
+
+// Select Field Dialog
+DlgSelectName		: "Ad",
+DlgSelectValue		: "Değer",
+DlgSelectSize		: "Boyut",
+DlgSelectLines		: "satır",
+DlgSelectChkMulti	: "Çoklu seçime izin ver",
+DlgSelectOpAvail	: "Mevcut Seçenekler",
+DlgSelectOpText		: "Metin",
+DlgSelectOpValue	: "Değer",
+DlgSelectBtnAdd		: "Ekle",
+DlgSelectBtnModify	: "Düzenle",
+DlgSelectBtnUp		: "Yukarı",
+DlgSelectBtnDown	: "Aşağı",
+DlgSelectBtnSetValue : "Seçili değer olarak ata",
+DlgSelectBtnDelete	: "Sil",
+
+// Textarea Dialog
+DlgTextareaName	: "Ad",
+DlgTextareaCols	: "Sütunlar",
+DlgTextareaRows	: "Satırlar",
+
+// Text Field Dialog
+DlgTextName			: "Ad",
+DlgTextValue		: "Değer",
+DlgTextCharWidth	: "Karakter Genişliği",
+DlgTextMaxChars		: "En Fazla Karakter",
+DlgTextType			: "Tür",
+DlgTextTypeText		: "Metin",
+DlgTextTypePass		: "Parola",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Ad",
+DlgHiddenValue	: "Değer",
+
+// Bulleted List Dialog
+BulletedListProp	: "Simgeli Liste Özellikleri",
+NumberedListProp	: "Numaralı Liste Özellikleri",
+DlgLstStart			: "Başlangıç",
+DlgLstType			: "Tip",
+DlgLstTypeCircle	: "Çember",
+DlgLstTypeDisc		: "Disk",
+DlgLstTypeSquare	: "Kare",
+DlgLstTypeNumbers	: "Sayılar (1, 2, 3)",
+DlgLstTypeLCase		: "Küçük Harfler (a, b, c)",
+DlgLstTypeUCase		: "Büyük Harfler (A, B, C)",
+DlgLstTypeSRoman	: "Küçük Romen Rakamları (i, ii, iii)",
+DlgLstTypeLRoman	: "Büyük Romen Rakamları (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Genel",
+DlgDocBackTab		: "Arka Plan",
+DlgDocColorsTab		: "Renkler ve Kenar Boşlukları",
+DlgDocMetaTab		: "Tanım Bilgisi (Meta)",
+
+DlgDocPageTitle		: "Sayfa Başlığı",
+DlgDocLangDir		: "Dil Yönü",
+DlgDocLangDirLTR	: "Soldan Sağa (LTR)",
+DlgDocLangDirRTL	: "Sağdan Sola (RTL)",
+DlgDocLangCode		: "Dil Kodu",
+DlgDocCharSet		: "Karakter Kümesi Kodlaması",
+DlgDocCharSetCE		: "Orta Avrupa",
+DlgDocCharSetCT		: "Geleneksel Çince (Big5)",
+DlgDocCharSetCR		: "Kiril",
+DlgDocCharSetGR		: "Yunanca",
+DlgDocCharSetJP		: "Japonca",
+DlgDocCharSetKR		: "Korece",
+DlgDocCharSetTR		: "Türkçe",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Batı Avrupa",
+DlgDocCharSetOther	: "Diğer Karakter Kümesi Kodlaması",
+
+DlgDocDocType		: "Belge Türü Başlığı",
+DlgDocDocTypeOther	: "Diğer Belge Türü Başlığı",
+DlgDocIncXHTML		: "XHTML Bildirimlerini Dahil Et",
+DlgDocBgColor		: "Arka Plan Rengi",
+DlgDocBgImage		: "Arka Plan Resim URLsi",
+DlgDocBgNoScroll	: "Sabit Arka Plan",
+DlgDocCText			: "Metin",
+DlgDocCLink			: "Köprü",
+DlgDocCVisited		: "Ziyaret Edilmiş Köprü",
+DlgDocCActive		: "Etkin Köprü",
+DlgDocMargins		: "Kenar Boşlukları",
+DlgDocMaTop			: "Tepe",
+DlgDocMaLeft		: "Sol",
+DlgDocMaRight		: "Sağ",
+DlgDocMaBottom		: "Alt",
+DlgDocMeIndex		: "Belge Dizinleme Anahtar Kelimeleri (virgülle ayrılmış)",
+DlgDocMeDescr		: "Belge Tanımı",
+DlgDocMeAuthor		: "Yazar",
+DlgDocMeCopy		: "Telif",
+DlgDocPreview		: "Ön İzleme",
+
+// Templates Dialog
+Templates			: "Şablonlar",
+DlgTemplatesTitle	: "İçerik Şablonları",
+DlgTemplatesSelMsg	: "Düzenleyicide açmak için lütfen bir şablon seçin.<br>(hali hazırdaki içerik kaybolacaktır.):",
+DlgTemplatesLoading	: "Şablon listesi yüklenmekte. Lütfen bekleyiniz...",
+DlgTemplatesNoTpl	: "(Belirli bir şablon seçilmedi)",
+DlgTemplatesReplace	: "Mevcut içerik ile değiştir",
+
+// About Dialog
+DlgAboutAboutTab	: "Hakkında",
+DlgAboutBrowserInfoTab	: "Gezgin Bilgisi",
+DlgAboutLicenseTab	: "Lisans",
+DlgAboutVersion		: "sürüm",
+DlgAboutInfo		: "Daha fazla bilgi için:",
+
+// Div Dialog
+DlgDivGeneralTab	: "Genel",
+DlgDivAdvancedTab	: "Gelişmiş",
+DlgDivStyle		: "Sitil",
+DlgDivInlineStyle	: "Satıriçi Sitil"
+};

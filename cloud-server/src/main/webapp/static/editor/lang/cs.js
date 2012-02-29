@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Czech language file.
+ */
 
-CKEDITOR.lang.cs={dir:'ltr',editorTitle:'Textový editor, %1, nápovědu zobrazíte stiskem ALT 0.',toolbars:'Editor toolbars',editor:'Textový editor',source:'Zdroj',newPage:'Nová stránka',save:'Uložit',preview:'Náhled',cut:'Vyjmout',copy:'Kopírovat',paste:'Vložit',print:'Tisk',underline:'Podtržené',bold:'Tučné',italic:'Kurzíva',selectAll:'Vybrat vše',removeFormat:'Odstranit formátování',strike:'Přeškrtnuté',subscript:'Dolní index',superscript:'Horní index',horizontalrule:'Vložit vodorovnou linku',pagebreak:'Vložit konec stránky',pagebreakAlt:'Konec stránky',unlink:'Odstranit odkaz',undo:'Zpět',redo:'Znovu',common:{browseServer:'Vybrat na serveru',url:'URL',protocol:'Protokol',upload:'Odeslat',uploadSubmit:'Odeslat na server',image:'Obrázek',flash:'Flash',form:'Formulář',checkbox:'Zaškrtávací políčko',radio:'Přepínač',textField:'Textové pole',textarea:'Textová oblast',hiddenField:'Skryté pole',button:'Tlačítko',select:'Seznam',imageButton:'Obrázkové tlačítko',notSet:'<nenastaveno>',id:'Id',name:'Jméno',langDir:'Orientace jazyka',langDirLtr:'Zleva do prava (LTR)',langDirRtl:'Zprava do leva (RTL)',langCode:'Kód jazyka',longDescr:'Dlouhý popis URL',cssClass:'Třída stylu',advisoryTitle:'Pomocný titulek',cssStyle:'Styl',ok:'OK',cancel:'Storno',close:'Zavřít',preview:'Náhled',generalTab:'Obecné',advancedTab:'Rozšířené',validateNumberFailed:'Zadaná hodnota není číselná.',confirmNewPage:'Jakékoliv neuložené změny obsahu budou ztraceny. Skutečně chete otevrít novou stránku?',confirmCancel:'Některá z nastavení byla změněna. Skutečně chete zavřít dialogové okno?',options:'Nastavení',target:'Cíl',targetNew:'Nové okno (_blank)',targetTop:'Okno nejvyšší úrovně (_top)',targetSelf:'Stejné okno (_self)',targetParent:'Rodičovské onko (_parent)',langDirLTR:'Zleva doprava (LTR)',langDirRTL:'Zprava doleva (RTL)',styles:'Styly',cssClasses:'Třídy stylů',width:'Šířka',height:'Výška',align:'Zarovnání',alignLeft:'Vlevo',alignRight:'Vpravo',alignCenter:'Na střed',alignTop:'Nahoru',alignMiddle:'Na střed',alignBottom:'Dolů',invalidHeight:'Zadaná výška musí být číslo.',invalidWidth:'Zadaná šířka musí být číslo.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, nedostupné</span>'},contextmenu:{options:'Nastavení kontextové nabídky'},specialChar:{toolbar:'Vložit speciální znaky',title:'Výběr speciálního znaku',options:'Nastavení speciálních znaků'},link:{toolbar:'Vložit/změnit odkaz',other:'<jiný>',menu:'Změnit odkaz',title:'Odkaz',info:'Informace o odkazu',target:'Cíl',upload:'Odeslat',advanced:'Rozšířené',type:'Typ odkazu',toUrl:'URL',toAnchor:'Kotva v této stránce',toEmail:'E-Mail',targetFrame:'<rámec>',targetPopup:'<vyskakovací okno>',targetFrameName:'Název cílového rámu',targetPopupName:'Název vyskakovacího okna',popupFeatures:'Vlastnosti vyskakovacího okna',popupResizable:'Umožňující měnit velikost',popupStatusBar:'Stavový řádek',popupLocationBar:'Panel umístění',popupToolbar:'Panel nástrojů',popupMenuBar:'Panel nabídky',popupFullScreen:'Celá obrazovka (IE)',popupScrollBars:'Posuvníky',popupDependent:'Závislost (Netscape)',popupLeft:'Levý okraj',popupTop:'Horní okraj',id:'Id',langDir:'Orientace jazyka',langDirLTR:'Zleva do prava (LTR)',langDirRTL:'Zprava do leva (RTL)',acccessKey:'Přístupový klíč',name:'Jméno',langCode:'Orientace jazyka',tabIndex:'Pořadí prvku',advisoryTitle:'Pomocný titulek',advisoryContentType:'Pomocný typ obsahu',cssClasses:'Třída stylu',charset:'Přiřazená znaková sada',styles:'Styl',rel:'Relationship',selectAnchor:'Vybrat kotvu',anchorName:'Podle jména kotvy',anchorId:'Podle Id objektu',emailAddress:'E-Mailová adresa',emailSubject:'Předmět zprávy',emailBody:'Tělo zprávy',noAnchors:'(Ve stránce není definována žádná kotva!)',noUrl:'Zadejte prosím URL odkazu',noEmail:'Zadejte prosím e-mailovou adresu'},anchor:{toolbar:'Vložít/změnit záložku',menu:'Vlastnosti záložky',title:'Vlastnosti záložky',name:'Název záložky',errorName:'Zadejte prosím název záložky',remove:'Remove Anchor'},list:{numberedTitle:'Vlastnosti číslování',bulletedTitle:'Vlastnosti odrážek',type:'Typ',start:'Počátek',validateStartNumber:'Číslování musí začínat celým číslem.',circle:'Kroužky',disc:'Kolečka',square:'Čtverce',none:'Nic',notset:'<nenastaveno>',armenian:'Arménské',georgian:'Gruzínské (an, ban, gan, atd.)',lowerRoman:'Malé římské (i, ii, iii, iv, v, atd.)',upperRoman:'Velké římské (I, II, III, IV, V, atd.)',lowerAlpha:'Malá latinka (a, b, c, d, e, atd.)',upperAlpha:'Velká latinka (A, B, C, D, E, atd.)',lowerGreek:'Malé řecké (alpha, beta, gamma, atd.)',decimal:'Arabská čísla (1, 2, 3, atd.)',decimalLeadingZero:'Arabská čísla uvozená nulou (01, 02, 03, atd.)'},findAndReplace:{title:'Najít a nahradit',find:'Hledat',replace:'Nahradit',findWhat:'Co hledat:',replaceWith:'Čím nahradit:',notFoundMsg:'Hledaný text nebyl nalezen.',findOptions:'Find Options',matchCase:'Rozlišovat velikost písma',matchWord:'Pouze celá slova',matchCyclic:'Procházet opakovaně',replaceAll:'Nahradit vše',replaceSuccessMsg:'%1 nahrazení.'},table:{toolbar:'Tabulka',title:'Vlastnosti tabulky',menu:'Vlastnosti tabulky',deleteTable:'Smazat tabulku',rows:'Řádky',columns:'Sloupce',border:'Ohraničení',widthPx:'bodů',widthPc:'procent',widthUnit:'jednotka šířky',cellSpace:'Vzdálenost buněk',cellPad:'Odsazení obsahu v buňce',caption:'Popis',summary:'Souhrn',headers:'Záhlaví',headersNone:'Žádné',headersColumn:'První sloupec',headersRow:'První řádek',headersBoth:'Obojí',invalidRows:'Počet řádků musí být číslo větší než 0.',invalidCols:'Počet sloupců musí být číslo větší než 0.',invalidBorder:'Zdaná velikost okraje musí být číselná.',invalidWidth:'Zadaná šířka tabulky musí být číselná.',invalidHeight:'zadaná výška tabulky musí být číselná.',invalidCellSpacing:'Zadaná vzdálenost buněk musí být číselná.',invalidCellPadding:'Zadané odsazení obsahu v buňce musí být číselné.',cell:{menu:'Buňka',insertBefore:'Vložit buňku před',insertAfter:'Vložit buňku za',deleteCell:'Smazat buňky',merge:'Sloučit buňky',mergeRight:'Sloučit doprava',mergeDown:'Sloučit dolů',splitHorizontal:'Rozdělit buňky vodorovně',splitVertical:'Rozdělit buňky svisle',title:'Vlastnosti buňky',cellType:'Typ buňky',rowSpan:'Spojit řádky',colSpan:'Spojit sloupce',wordWrap:'Zalamování',hAlign:'Vodorovné zarovnání',vAlign:'Svislé zarovnání',alignBaseline:'Na účaří',bgColor:'Barva pozadí',borderColor:'Barva okraje',data:'Data',header:'Hlavička',yes:'Ano',no:'Ne',invalidWidth:'Zadaná šířka buňky musí být číslená.',invalidHeight:'Zadaná výška buňky musí být číslená.',invalidRowSpan:'Zadaný počet sloučených řádků musí být celé číslo.',invalidColSpan:'Zadaný počet sloučených sloupců musí být celé číslo.',chooseColor:'Výběr'},row:{menu:'Řádek',insertBefore:'Vložit řádek před',insertAfter:'Vložit řádek za',deleteRow:'Smazat řádky'},column:{menu:'Sloupec',insertBefore:'Vložit sloupec před',insertAfter:'Vložit sloupec za',deleteColumn:'Smazat sloupec'}},button:{title:'Vlastnosti tlačítka',text:'Popisek',type:'Typ',typeBtn:'Tlačítko',typeSbm:'Odeslat',typeRst:'Obnovit'},checkboxAndRadio:{checkboxTitle:'Vlastnosti zaškrtávacího políčka',radioTitle:'Vlastnosti přepínače',value:'Hodnota',selected:'Zaškrtnuto'},form:{title:'Vlastnosti formuláře',menu:'Vlastnosti formuláře',action:'Akce',method:'Metoda',encoding:'Kódování'},select:{title:'Vlastnosti seznamu',selectInfo:'Info',opAvail:'Dostupná nastavení',value:'Hodnota',size:'Velikost',lines:'Řádků',chkMulti:'Povolit mnohonásobné výběry',opText:'Text',opValue:'Hodnota',btnAdd:'Přidat',btnModify:'Změnit',btnUp:'Nahoru',btnDown:'Dolů',btnSetValue:'Nastavit jako vybranou hodnotu',btnDelete:'Smazat'},textarea:{title:'Vlastnosti textové oblasti',cols:'Sloupců',rows:'Řádků'},textfield:{title:'Vlastnosti textového pole',name:'Název',value:'Hodnota',charWidth:'Šířka ve znacích',maxChars:'Maximální počet znaků',type:'Typ',typeText:'Text',typePass:'Heslo'},hidden:{title:'Vlastnosti skrytého pole',name:'Název',value:'Hodnota'},image:{title:'Vlastnosti obrázku',titleButton:'Vlastností obrázkového tlačítka',menu:'Vlastnosti obrázku',infoTab:'Informace o obrázku',btnUpload:'Odeslat na server',upload:'Odeslat',alt:'Alternativní text',lockRatio:'Zámek',resetSize:'Původní velikost',border:'Okraje',hSpace:'H-mezera',vSpace:'V-mezera',alertUrl:'Zadejte prosím URL obrázku',linkTab:'Odkaz',button2Img:'Skutečně chcete převést zvolené obrázkové tlačítko na obyčejný obrázek?',img2Button:'Skutečně chcete převést zvolený obrázek na obrázkové tlačítko?',urlMissing:'Zadané URL zdroje obrázku nebylo nalezeno.',validateBorder:'Okraj musí být nastaven v celých číslech.',validateHSpace:'H-mezera musí být nastavena v celých číslech.',validateVSpace:'V-mezera musí být nastavena v celých číslech.'},flash:{properties:'Vlastnosti Flashe',propertiesTab:'Vlastnosti',title:'Vlastnosti Flashe',chkPlay:'Automatické spuštění',chkLoop:'Opakování',chkMenu:'Nabídka Flash',chkFull:'Povolit celoobrazovkový režim',scale:'Zobrazit',scaleAll:'Zobrazit vše',scaleNoBorder:'Bez okraje',scaleFit:'Přizpůsobit',access:'Přístup ke skriptu',accessAlways:'Vždy',accessSameDomain:'Ve stejné doméně',accessNever:'Nikdy',alignAbsBottom:'Zcela dolů',alignAbsMiddle:'Doprostřed',alignBaseline:'Na účaří',alignTextTop:'Na horní okraj textu',quality:'Kvalita',qualityBest:'Nejlepší',qualityHigh:'Vysoká',qualityAutoHigh:'Vysoká - auto',qualityMedium:'Střední',qualityAutoLow:'Nízká - auto',qualityLow:'Nejnižší',windowModeWindow:'Okno',windowModeOpaque:'Neprůhledné',windowModeTransparent:'Průhledné',windowMode:'Režim okna',flashvars:'Proměnné pro Flash',bgcolor:'Barva pozadí',hSpace:'H-mezera',vSpace:'V-mezera',validateSrc:'Zadejte prosím URL odkazu',validateHSpace:'Zadaná H-mezera musí být číslo.',validateVSpace:'Zadaná V-mezera musí být číslo.'},spellCheck:{toolbar:'Zkontrolovat pravopis',title:'Kontrola pravopisu',notAvailable:'Omlouváme se, ale služba nyní není dostupná.',errorLoading:'Chyba nahrávání služby aplikace z: %s.',notInDic:'Není ve slovníku',changeTo:'Změnit na',btnIgnore:'Přeskočit',btnIgnoreAll:'Přeskakovat vše',btnReplace:'Zaměnit',btnReplaceAll:'Zaměňovat vše',btnUndo:'Zpět',noSuggestions:'- žádné návrhy -',progress:'Probíhá kontrola pravopisu...',noMispell:'Kontrola pravopisu dokončena: Žádné pravopisné chyby nenalezeny',noChanges:'Kontrola pravopisu dokončena: Beze změn',oneChange:'Kontrola pravopisu dokončena: Jedno slovo změněno',manyChanges:'Kontrola pravopisu dokončena: %1 slov změněno',ieSpellDownload:'Kontrola pravopisu není nainstalována. Chcete ji nyní stáhnout?'},smiley:{toolbar:'Smajlíky',title:'Vkládání smajlíků',options:'Nastavení smajlíků'},elementsPath:{eleLabel:'Cesta objektu',eleTitle:'%1 objekt'},numberedlist:'Číslování',bulletedlist:'Odrážky',indent:'Zvětšit odsazení',outdent:'Zmenšit odsazení',justify:{left:'Zarovnat vlevo',center:'Zarovnat na střed',right:'Zarovnat vpravo',block:'Zarovnat do bloku'},blockquote:'Citace',clipboard:{title:'Vložit',cutError:'Bezpečnostní nastavení Vašeho prohlížeče nedovolují editoru spustit funkci pro vyjmutí zvoleného textu do schránky. Prosím vyjměte zvolený text do schránky pomocí klávesnice (Ctrl/Cmd+X).',copyError:'Bezpečnostní nastavení Vašeho prohlížeče nedovolují editoru spustit funkci pro kopírování zvoleného textu do schránky. Prosím zkopírujte zvolený text do schránky pomocí klávesnice (Ctrl/Cmd+C).',pasteMsg:'Do následujícího pole vložte požadovaný obsah pomocí klávesnice (<STRONG>Ctrl/Cmd+V</STRONG>) a stiskněte <STRONG>OK</STRONG>.',securityMsg:'Z důvodů nastavení bezpečnosti Vašeho prohlížeče nemůže editor přistupovat přímo do schránky. Obsah schránky prosím vložte znovu do tohoto okna.',pasteArea:'Oblast vlkádání'},pastefromword:{confirmCleanup:'Jak je vidět, vkládaný text je kopírován z Wordu. Chcete jej před vložením vyčistit?',toolbar:'Vložit z Wordu',title:'Vložit z Wordu',error:'Z důvodu vnitřní chyby nebylo možné provést vyčištění vkládaného textu.'},pasteText:{button:'Vložit jako čistý text',title:'Vložit jako čistý text'},templates:{button:'Šablony',title:'Šablony obsahu',options:'Nastavení šablon',insertOption:'Nahradit aktuální obsah',selectPromptMsg:'Prosím zvolte šablonu pro otevření v editoru<br>(aktuální obsah editoru bude ztracen):',emptyListMsg:'(Není definována žádná šablona)'},showBlocks:'Ukázat bloky',stylesCombo:{label:'Styl',panelTitle:'Formátovací styly',panelTitle1:'Blokové styly',panelTitle2:'Řádkové styly',panelTitle3:'Objektové styly'},format:{label:'Formát',panelTitle:'Formát',tag_p:'Normální',tag_pre:'Naformátováno',tag_address:'Adresa',tag_h1:'Nadpis 1',tag_h2:'Nadpis 2',tag_h3:'Nadpis 3',tag_h4:'Nadpis 4',tag_h5:'Nadpis 5',tag_h6:'Nadpis 6',tag_div:'Normální (DIV)'},div:{title:'Vytvořit Div kontejner',toolbar:'Vytvořit Div kontejner',cssClassInputLabel:'Třídy stylů',styleSelectLabel:'Styly',IdInputLabel:'Id',languageCodeInputLabel:' Kód jazyka',inlineStyleInputLabel:'Vnitřní styly',advisoryTitleInputLabel:'Nápovědní titulek',langDirLabel:'Orientace textu',langDirLTRLabel:'Zleva doprava (LTR)',langDirRTLLabel:'Zprava doleva (RTL)',edit:'Změnit Div',remove:'Odstranit Div'},iframe:{title:'Vlastnosti IFrame',toolbar:'IFrame',noUrl:'Zadejte prosím URL obsahu pro IFrame',scrolling:'Zapnout posuvníky',border:'Zobrazit okraj'},font:{label:'Písmo',voiceLabel:'Písmo',panelTitle:'Písmo'},fontSize:{label:'Velikost',voiceLabel:'Velikost písma',panelTitle:'Velikost'},colorButton:{textColorTitle:'Barva textu',bgColorTitle:'Barva pozadí',panelTitle:'Barvy',auto:'Automaticky',more:'Více barev...'},colors:{'000':'Černá',800000:'Kaštanová','8B4513':'Sedlová hněď','2F4F4F':'Tmavě bledě šedá','008080':'Čírka','000080':'Námořnická modř','4B0082':'Inkoustová',696969:'Tmavě šedá',B22222:'Pálená cihla',A52A2A:'Hnědá',DAA520:'Zlatý prut','006400':'Tmavě zelená','40E0D0':'Tyrkisová','0000CD':'Středně modrá',800080:'Purpurová',808080:'Šedá',F00:'Červená',FF8C00:'Tmavě oranžová',FFD700:'Zlatá','008000':'Zelená','0FF':'Kyanidová','00F':'Modrá',EE82EE:'Fialová',A9A9A9:'Kalně šedá',FFA07A:'Světle lososová',FFA500:'Oranžová',FFFF00:'Žlutá','00FF00':'Limetková',AFEEEE:'Bledě tyrkisová',ADD8E6:'Světle modrá',DDA0DD:'Švestková',D3D3D3:'Světle šedá',FFF0F5:'Levandulově ruměnná',FAEBD7:'Antická bílá',FFFFE0:'Světle žlutá',F0FFF0:'Medová rosa',F0FFFF:'Azurová',F0F8FF:'Alenčina modrá',E6E6FA:'Lavendulová',FFF:'Bílá'},scayt:{title:'Kontrola pravopisu během psaní (SCAYT)',opera_title:'Not supported by Opera',enable:'Zapnout SCAYT',disable:'Vypnout SCAYT',about:'O aplikaci SCAYT',toggle:'Vypínač SCAYT',options:'Nastavení',langs:'Jazyky',moreSuggestions:'Více návrhů',ignore:'Přeskočit',ignoreAll:'Přeskočit vše',addWord:'Přidat slovo',emptyDic:'Název slovníku nesmí být prázdný.',optionsTab:'Nastavení',allCaps:'Ignorovat slova velkými písmeny',ignoreDomainNames:'Ignorovat doménová jména',mixedCase:'Ignorovat slova obsahující různou velikost písma',mixedWithDigits:'Ignorovat slova obsahující čísla',languagesTab:'Jazyky',dictionariesTab:'Slovníky',dic_field_name:'Název slovníku',dic_create:'vytvořit',dic_restore:'Obnovit',dic_delete:'Smazat',dic_rename:'Přejmenovat',dic_info:'Zpočátku se uživatelský slovník ukládá do cookies ve vašem prohlížeči. Ovšem cookies mají omezenou velikost, takže když slovník dosáhne velikosti, kdy se již do cookies nevejde, může být uložen na našem serveru. Chcete-li uložit Váš osobní slovník na našem serveru, je třeba slovník nejdříve pojmenovat. Máte-li již slovník pojmenován a uložen, zadejte jeho název a klepněte na tlačítko Obnovit.',aboutTab:'O aplikaci'},about:{title:'O aplikaci CKEditor',dlgTitle:'O aplikaci CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'Pro informace o lincenci navštivte naši webovou stránku:',copy:'Copyright &copy; $1. All rights reserved.'},maximize:'Maximalizovat',minimize:'Minimalizovat',fakeobjects:{anchor:'Záložka',flash:'Flash animace',iframe:'IFrame',hiddenfield:'Skryté pole',unknown:'Neznámý objekt'},resize:'Uchopit pro změnu velikosti',colordialog:{title:'Výběr barvy',options:'Nastavení barvy',highlight:'Zvýraznit',selected:'Vybráno',clear:'Vyčistit'},toolbarCollapse:'Skrýt panel nástrojů',toolbarExpand:'Zobrazit panel nástrojů',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Orientace textu zleva doprava',rtl:'Orientace textu zprava do leva'},docprops:{label:'Vlastnosti dokumentu',title:'Vlastnosti dokumentu',design:'Design',meta:'Metadata',chooseColor:'Výběr',other:'<jiný>',docTitle:'Titulek stránky',charset:'Znaková sada',charsetOther:'Další znaková sada',charsetASCII:'ASCII',charsetCE:'Středoevropské jazyky',charsetCT:'Tradiční čínština (Big5)',charsetCR:'Cyrilice',charsetGR:'Řečtina',charsetJP:'Japonština',charsetKR:'Korejština',charsetTR:'Turečtina',charsetUN:'Unicode (UTF-8)',charsetWE:'Západoevropské jazyky',docType:'Typ dokumentu',docTypeOther:'Jiný typ dokumetu',xhtmlDec:'Zahrnou deklarace XHTML',bgColor:'Barva pozadí',bgImage:'URL obrázku na pozadí',bgFixed:'Nerolovatelné pozadí',txtColor:'Barva textu',margin:'Okraje stránky',marginTop:'Horní',marginLeft:'Levý',marginRight:'Pravý',marginBottom:'Dolní',metaKeywords:'Klíčová slova (oddělená čárkou)',metaDescription:'Popis dokumentu',metaAuthor:'Autor',metaCopyright:'Autorská práva',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Skrýt panel nástrojů",
+ToolbarExpand		: "Zobrazit panel nástrojů",
+
+// Toolbar Items and Context Menu
+Save				: "Uložit",
+NewPage				: "Nová stránka",
+Preview				: "Náhled",
+Cut					: "Vyjmout",
+Copy				: "Kopírovat",
+Paste				: "Vložit",
+PasteText			: "Vložit jako čistý text",
+PasteWord			: "Vložit z Wordu",
+Print				: "Tisk",
+SelectAll			: "Vybrat vše",
+RemoveFormat		: "Odstranit formátování",
+InsertLinkLbl		: "Odkaz",
+InsertLink			: "Vložit/změnit odkaz",
+RemoveLink			: "Odstranit odkaz",
+VisitLink			: "Otevřít odkaz",
+Anchor				: "Vložít/změnit záložku",
+AnchorDelete		: "Odstranit kotvu",
+InsertImageLbl		: "Obrázek",
+InsertImage			: "Vložit/změnit obrázek",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Vložit/Upravit Flash",
+InsertTableLbl		: "Tabulka",
+InsertTable			: "Vložit/změnit tabulku",
+InsertLineLbl		: "Linka",
+InsertLine			: "Vložit vodorovnou linku",
+InsertSpecialCharLbl: "Speciální znaky",
+InsertSpecialChar	: "Vložit speciální znaky",
+InsertSmileyLbl		: "Smajlíky",
+InsertSmiley		: "Vložit smajlík",
+About				: "O aplikaci FCKeditor",
+Bold				: "Tučné",
+Italic				: "Kurzíva",
+Underline			: "Podtržené",
+StrikeThrough		: "Přeškrtnuté",
+Subscript			: "Dolní index",
+Superscript			: "Horní index",
+LeftJustify			: "Zarovnat vlevo",
+CenterJustify		: "Zarovnat na střed",
+RightJustify		: "Zarovnat vpravo",
+BlockJustify		: "Zarovnat do bloku",
+DecreaseIndent		: "Zmenšit odsazení",
+IncreaseIndent		: "Zvětšit odsazení",
+Blockquote			: "Citace",
+CreateDiv			: "Vytvořit Div kontejner",
+EditDiv				: "Upravit Div kontejner",
+DeleteDiv			: "Odstranit Div kontejner",
+Undo				: "Zpět",
+Redo				: "Znovu",
+NumberedListLbl		: "Číslování",
+NumberedList		: "Vložit/odstranit číslovaný seznam",
+BulletedListLbl		: "Odrážky",
+BulletedList		: "Vložit/odstranit odrážky",
+ShowTableBorders	: "Zobrazit okraje tabulek",
+ShowDetails			: "Zobrazit podrobnosti",
+Style				: "Styl",
+FontFormat			: "Formát",
+Font				: "Písmo",
+FontSize			: "Velikost",
+TextColor			: "Barva textu",
+BGColor				: "Barva pozadí",
+Source				: "Zdroj",
+Find				: "Hledat",
+Replace				: "Nahradit",
+SpellCheck			: "Zkontrolovat pravopis",
+UniversalKeyboard	: "Univerzální klávesnice",
+PageBreakLbl		: "Konec stránky",
+PageBreak			: "Vložit konec stránky",
+
+Form			: "Formulář",
+Checkbox		: "Zaškrtávací políčko",
+RadioButton		: "Přepínač",
+TextField		: "Textové pole",
+Textarea		: "Textová oblast",
+HiddenField		: "Skryté pole",
+Button			: "Tlačítko",
+SelectionField	: "Seznam",
+ImageButton		: "Obrázkové tlačítko",
+
+FitWindow		: "Maximalizovat velikost editoru",
+ShowBlocks		: "Ukázat bloky",
+
+// Context Menu
+EditLink			: "Změnit odkaz",
+CellCM				: "Buňka",
+RowCM				: "Řádek",
+ColumnCM			: "Sloupec",
+InsertRowAfter		: "Vložit řádek za",
+InsertRowBefore		: "Vložit řádek před",
+DeleteRows			: "Smazat řádky",
+InsertColumnAfter	: "Vložit sloupec za",
+InsertColumnBefore	: "Vložit sloupec před",
+DeleteColumns		: "Smazat sloupec",
+InsertCellAfter		: "Vložit buňku za",
+InsertCellBefore	: "Vložit buňku před",
+DeleteCells			: "Smazat buňky",
+MergeCells			: "Sloučit buňky",
+MergeRight			: "Sloučit doprava",
+MergeDown			: "Sloučit dolů",
+HorizontalSplitCell	: "Rozdělit buňky vodorovně",
+VerticalSplitCell	: "Rozdělit buňky svisle",
+TableDelete			: "Smazat tabulku",
+CellProperties		: "Vlastnosti buňky",
+TableProperties		: "Vlastnosti tabulky",
+ImageProperties		: "Vlastnosti obrázku",
+FlashProperties		: "Vlastnosti Flashe",
+
+AnchorProp			: "Vlastnosti záložky",
+ButtonProp			: "Vlastnosti tlačítka",
+CheckboxProp		: "Vlastnosti zaškrtávacího políčka",
+HiddenFieldProp		: "Vlastnosti skrytého pole",
+RadioButtonProp		: "Vlastnosti přepínače",
+ImageButtonProp		: "Vlastností obrázkového tlačítka",
+TextFieldProp		: "Vlastnosti textového pole",
+SelectionFieldProp	: "Vlastnosti seznamu",
+TextareaProp		: "Vlastnosti textové oblasti",
+FormProp			: "Vlastnosti formuláře",
+
+FontFormats			: "Normální;Naformátováno;Adresa;Nadpis 1;Nadpis 2;Nadpis 3;Nadpis 4;Nadpis 5;Nadpis 6;Normální (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Probíhá zpracování XHTML. Prosím čekejte...",
+Done				: "Hotovo",
+PasteWordConfirm	: "Jak je vidět, vkládaný text je kopírován z Wordu. Chcete jej před vložením vyčistit?",
+NotCompatiblePaste	: "Tento příkaz je dostupný pouze v Internet Exploreru verze 5.5 nebo vyšší. Chcete vložit text bez vyčištění?",
+UnknownToolbarItem	: "Neznámá položka panelu nástrojů \"%1\"",
+UnknownCommand		: "Neznámý příkaz \"%1\"",
+NotImplemented		: "Příkaz není implementován",
+UnknownToolbarSet	: "Panel nástrojů \"%1\" neexistuje",
+NoActiveX			: "Nastavení bezpečnosti Vašeho prohlížeče omezuje funkčnost některých jeho možností. Je třeba zapnout volbu \"Spouštět ovládáací prvky ActiveX a moduly plug-in\", jinak nebude možné využívat všechny dosputné schopnosti editoru.",
+BrowseServerBlocked : "Průzkumník zdrojů nelze otevřít. Prověřte, zda nemáte aktivováno blokování popup oken.",
+DialogBlocked		: "Nelze otevřít dialogové okno. Prověřte, zda nemáte aktivováno blokování popup oken.",
+VisitLinkBlocked	: "Není možné otevřít nové okno. Prověřte, zda všechny nástroje pro blokování vyskakovacích oken jsou vypnuty.",
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Storno",
+DlgBtnClose			: "Zavřít",
+DlgBtnBrowseServer	: "Vybrat na serveru",
+DlgAdvancedTag		: "Rozšířené",
+DlgOpOther			: "<Ostatní>",
+DlgInfoTab			: "Info",
+DlgAlertUrl			: "Prosím vložte URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<nenastaveno>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Orientace jazyka",
+DlgGenLangDirLtr	: "Zleva do prava (LTR)",
+DlgGenLangDirRtl	: "Zprava do leva (RTL)",
+DlgGenLangCode		: "Kód jazyka",
+DlgGenAccessKey		: "Přístupový klíč",
+DlgGenName			: "Jméno",
+DlgGenTabIndex		: "Pořadí prvku",
+DlgGenLongDescr		: "Dlouhý popis URL",
+DlgGenClass			: "Třída stylu",
+DlgGenTitle			: "Pomocný titulek",
+DlgGenContType		: "Pomocný typ obsahu",
+DlgGenLinkCharset	: "Přiřazená znaková sada",
+DlgGenStyle			: "Styl",
+
+// Image Dialog
+DlgImgTitle			: "Vlastnosti obrázku",
+DlgImgInfoTab		: "Informace o obrázku",
+DlgImgBtnUpload		: "Odeslat na server",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Odeslat",
+DlgImgAlt			: "Alternativní text",
+DlgImgWidth			: "Šířka",
+DlgImgHeight		: "Výška",
+DlgImgLockRatio		: "Zámek",
+DlgBtnResetSize		: "Původní velikost",
+DlgImgBorder		: "Okraje",
+DlgImgHSpace		: "H-mezera",
+DlgImgVSpace		: "V-mezera",
+DlgImgAlign			: "Zarovnání",
+DlgImgAlignLeft		: "Vlevo",
+DlgImgAlignAbsBottom: "Zcela dolů",
+DlgImgAlignAbsMiddle: "Doprostřed",
+DlgImgAlignBaseline	: "Na účaří",
+DlgImgAlignBottom	: "Dolů",
+DlgImgAlignMiddle	: "Na střed",
+DlgImgAlignRight	: "Vpravo",
+DlgImgAlignTextTop	: "Na horní okraj textu",
+DlgImgAlignTop		: "Nahoru",
+DlgImgPreview		: "Náhled",
+DlgImgAlertUrl		: "Zadejte prosím URL obrázku",
+DlgImgLinkTab		: "Odkaz",
+
+// Flash Dialog
+DlgFlashTitle		: "Vlastnosti Flashe",
+DlgFlashChkPlay		: "Automatické spuštění",
+DlgFlashChkLoop		: "Opakování",
+DlgFlashChkMenu		: "Nabídka Flash",
+DlgFlashScale		: "Zobrazit",
+DlgFlashScaleAll	: "Zobrazit vše",
+DlgFlashScaleNoBorder	: "Bez okraje",
+DlgFlashScaleFit	: "Přizpůsobit",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Odkaz",
+DlgLnkInfoTab		: "Informace o odkazu",
+DlgLnkTargetTab		: "Cíl",
+
+DlgLnkType			: "Typ odkazu",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Kotva v této stránce",
+DlgLnkTypeEMail		: "E-Mail",
+DlgLnkProto			: "Protokol",
+DlgLnkProtoOther	: "<jiný>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Vybrat kotvu",
+DlgLnkAnchorByName	: "Podle jména kotvy",
+DlgLnkAnchorById	: "Podle Id objektu",
+DlgLnkNoAnchors		: "(Ve stránce není definována žádná kotva!)",
+DlgLnkEMail			: "E-Mailová adresa",
+DlgLnkEMailSubject	: "Předmět zprávy",
+DlgLnkEMailBody		: "Tělo zprávy",
+DlgLnkUpload		: "Odeslat",
+DlgLnkBtnUpload		: "Odeslat na Server",
+
+DlgLnkTarget		: "Cíl",
+DlgLnkTargetFrame	: "<rámec>",
+DlgLnkTargetPopup	: "<vyskakovací okno>",
+DlgLnkTargetBlank	: "Nové okno (_blank)",
+DlgLnkTargetParent	: "Rodičovské okno (_parent)",
+DlgLnkTargetSelf	: "Stejné okno (_self)",
+DlgLnkTargetTop		: "Hlavní okno (_top)",
+DlgLnkTargetFrameName	: "Název cílového rámu",
+DlgLnkPopWinName	: "Název vyskakovacího okna",
+DlgLnkPopWinFeat	: "Vlastnosti vyskakovacího okna",
+DlgLnkPopResize		: "Měnitelná velikost",
+DlgLnkPopLocation	: "Panel umístění",
+DlgLnkPopMenu		: "Panel nabídky",
+DlgLnkPopScroll		: "Posuvníky",
+DlgLnkPopStatus		: "Stavový řádek",
+DlgLnkPopToolbar	: "Panel nástrojů",
+DlgLnkPopFullScrn	: "Celá obrazovka (IE)",
+DlgLnkPopDependent	: "Závislost (Netscape)",
+DlgLnkPopWidth		: "Šířka",
+DlgLnkPopHeight		: "Výška",
+DlgLnkPopLeft		: "Levý okraj",
+DlgLnkPopTop		: "Horní okraj",
+
+DlnLnkMsgNoUrl		: "Zadejte prosím URL odkazu",
+DlnLnkMsgNoEMail	: "Zadejte prosím e-mailovou adresu",
+DlnLnkMsgNoAnchor	: "Vyberte prosím kotvu",
+DlnLnkMsgInvPopName	: "Název vyskakovacího okna musí začínat písmenem a nesmí obsahovat mezery",
+
+// Color Dialog
+DlgColorTitle		: "Výběr barvy",
+DlgColorBtnClear	: "Vymazat",
+DlgColorHighlight	: "Zvýrazněná",
+DlgColorSelected	: "Vybraná",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Vkládání smajlíků",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Výběr speciálního znaku",
+
+// Table Dialog
+DlgTableTitle		: "Vlastnosti tabulky",
+DlgTableRows		: "Řádky",
+DlgTableColumns		: "Sloupce",
+DlgTableBorder		: "Ohraničení",
+DlgTableAlign		: "Zarovnání",
+DlgTableAlignNotSet	: "<nenastaveno>",
+DlgTableAlignLeft	: "Vlevo",
+DlgTableAlignCenter	: "Na střed",
+DlgTableAlignRight	: "Vpravo",
+DlgTableWidth		: "Šířka",
+DlgTableWidthPx		: "bodů",
+DlgTableWidthPc		: "procent",
+DlgTableHeight		: "Výška",
+DlgTableCellSpace	: "Vzdálenost buněk",
+DlgTableCellPad		: "Odsazení obsahu",
+DlgTableCaption		: "Popis",
+DlgTableSummary		: "Souhrn",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Vlastnosti buňky",
+DlgCellWidth		: "Šířka",
+DlgCellWidthPx		: "bodů",
+DlgCellWidthPc		: "procent",
+DlgCellHeight		: "Výška",
+DlgCellWordWrap		: "Zalamování",
+DlgCellWordWrapNotSet	: "<nenanstaveno>",
+DlgCellWordWrapYes	: "Ano",
+DlgCellWordWrapNo	: "Ne",
+DlgCellHorAlign		: "Vodorovné zarovnání",
+DlgCellHorAlignNotSet	: "<nenastaveno>",
+DlgCellHorAlignLeft	: "Vlevo",
+DlgCellHorAlignCenter	: "Na střed",
+DlgCellHorAlignRight: "Vpravo",
+DlgCellVerAlign		: "Svislé zarovnání",
+DlgCellVerAlignNotSet	: "<nenastaveno>",
+DlgCellVerAlignTop	: "Nahoru",
+DlgCellVerAlignMiddle	: "Doprostřed",
+DlgCellVerAlignBottom	: "Dolů",
+DlgCellVerAlignBaseline	: "Na účaří",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Sloučené řádky",
+DlgCellCollSpan		: "Sloučené sloupce",
+DlgCellBackColor	: "Barva pozadí",
+DlgCellBorderColor	: "Barva ohraničení",
+DlgCellBtnSelect	: "Výběr...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Najít a nahradit",
+
+// Find Dialog
+DlgFindTitle		: "Hledat",
+DlgFindFindBtn		: "Hledat",
+DlgFindNotFoundMsg	: "Hledaný text nebyl nalezen.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Nahradit",
+DlgReplaceFindLbl		: "Co hledat:",
+DlgReplaceReplaceLbl	: "Čím nahradit:",
+DlgReplaceCaseChk		: "Rozlišovat velikost písma",
+DlgReplaceReplaceBtn	: "Nahradit",
+DlgReplaceReplAllBtn	: "Nahradit vše",
+DlgReplaceWordChk		: "Pouze celá slova",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Bezpečnostní nastavení Vašeho prohlížeče nedovolují editoru spustit funkci pro vyjmutí zvoleného textu do schránky. Prosím vyjměte zvolený text do schránky pomocí klávesnice (Ctrl+X).",
+PasteErrorCopy	: "Bezpečnostní nastavení Vašeho prohlížeče nedovolují editoru spustit funkci pro kopírování zvoleného textu do schránky. Prosím zkopírujte zvolený text do schránky pomocí klávesnice (Ctrl+C).",
+
+PasteAsText		: "Vložit jako čistý text",
+PasteFromWord	: "Vložit text z Wordu",
+
+DlgPasteMsg2	: "Do následujícího pole vložte požadovaný obsah pomocí klávesnice (<STRONG>Ctrl+V</STRONG>) a stiskněte <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Z důvodů nastavení bezpečnosti Vašeho prohlížeče nemůže editor přistupovat přímo do schránky. Obsah schránky prosím vložte znovu do tohoto okna.",
+DlgPasteIgnoreFont		: "Ignorovat písmo",
+DlgPasteRemoveStyles	: "Odstranit styly",
+
+// Color Picker
+ColorAutomatic	: "Automaticky",
+ColorMoreColors	: "Více barev...",
+
+// Document Properties
+DocProps		: "Vlastnosti dokumentu",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Vlastnosti záložky",
+DlgAnchorName		: "Název záložky",
+DlgAnchorErrorName	: "Zadejte prosím název záložky",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Není ve slovníku",
+DlgSpellChangeTo		: "Změnit na",
+DlgSpellBtnIgnore		: "Přeskočit",
+DlgSpellBtnIgnoreAll	: "Přeskakovat vše",
+DlgSpellBtnReplace		: "Zaměnit",
+DlgSpellBtnReplaceAll	: "Zaměňovat vše",
+DlgSpellBtnUndo			: "Zpět",
+DlgSpellNoSuggestions	: "- žádné návrhy -",
+DlgSpellProgress		: "Probíhá kontrola pravopisu...",
+DlgSpellNoMispell		: "Kontrola pravopisu dokončena: Žádné pravopisné chyby nenalezeny",
+DlgSpellNoChanges		: "Kontrola pravopisu dokončena: Beze změn",
+DlgSpellOneChange		: "Kontrola pravopisu dokončena: Jedno slovo změněno",
+DlgSpellManyChanges		: "Kontrola pravopisu dokončena: %1 slov změněno",
+
+IeSpellDownload			: "Kontrola pravopisu není nainstalována. Chcete ji nyní stáhnout?",
+
+// Button Dialog
+DlgButtonText		: "Popisek",
+DlgButtonType		: "Typ",
+DlgButtonTypeBtn	: "Tlačítko",
+DlgButtonTypeSbm	: "Odeslat",
+DlgButtonTypeRst	: "Obnovit",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Název",
+DlgCheckboxValue	: "Hodnota",
+DlgCheckboxSelected	: "Zaškrtnuto",
+
+// Form Dialog
+DlgFormName		: "Název",
+DlgFormAction	: "Akce",
+DlgFormMethod	: "Metoda",
+
+// Select Field Dialog
+DlgSelectName		: "Název",
+DlgSelectValue		: "Hodnota",
+DlgSelectSize		: "Velikost",
+DlgSelectLines		: "Řádků",
+DlgSelectChkMulti	: "Povolit mnohonásobné výběry",
+DlgSelectOpAvail	: "Dostupná nastavení",
+DlgSelectOpText		: "Text",
+DlgSelectOpValue	: "Hodnota",
+DlgSelectBtnAdd		: "Přidat",
+DlgSelectBtnModify	: "Změnit",
+DlgSelectBtnUp		: "Nahoru",
+DlgSelectBtnDown	: "Dolů",
+DlgSelectBtnSetValue : "Nastavit jako vybranou hodnotu",
+DlgSelectBtnDelete	: "Smazat",
+
+// Textarea Dialog
+DlgTextareaName	: "Název",
+DlgTextareaCols	: "Sloupců",
+DlgTextareaRows	: "Řádků",
+
+// Text Field Dialog
+DlgTextName			: "Název",
+DlgTextValue		: "Hodnota",
+DlgTextCharWidth	: "Šířka ve znacích",
+DlgTextMaxChars		: "Maximální počet znaků",
+DlgTextType			: "Typ",
+DlgTextTypeText		: "Text",
+DlgTextTypePass		: "Heslo",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Název",
+DlgHiddenValue	: "Hodnota",
+
+// Bulleted List Dialog
+BulletedListProp	: "Vlastnosti odrážek",
+NumberedListProp	: "Vlastnosti číslovaného seznamu",
+DlgLstStart			: "Začátek",
+DlgLstType			: "Typ",
+DlgLstTypeCircle	: "Kružnice",
+DlgLstTypeDisc		: "Kruh",
+DlgLstTypeSquare	: "Čtverec",
+DlgLstTypeNumbers	: "Čísla (1, 2, 3)",
+DlgLstTypeLCase		: "Malá písmena (a, b, c)",
+DlgLstTypeUCase		: "Velká písmena (A, B, C)",
+DlgLstTypeSRoman	: "Malé římská číslice (i, ii, iii)",
+DlgLstTypeLRoman	: "Velké římské číslice (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Obecné",
+DlgDocBackTab		: "Pozadí",
+DlgDocColorsTab		: "Barvy a okraje",
+DlgDocMetaTab		: "Metadata",
+
+DlgDocPageTitle		: "Titulek stránky",
+DlgDocLangDir		: "Směr jazyku",
+DlgDocLangDirLTR	: "Zleva do prava ",
+DlgDocLangDirRTL	: "Zprava doleva",
+DlgDocLangCode		: "Kód jazyku",
+DlgDocCharSet		: "Znaková sada",
+DlgDocCharSetCE		: "Středoevropské jazyky",
+DlgDocCharSetCT		: "Tradiční čínština (Big5)",
+DlgDocCharSetCR		: "Cyrilice",
+DlgDocCharSetGR		: "Řečtina",
+DlgDocCharSetJP		: "Japonština",
+DlgDocCharSetKR		: "Korejština",
+DlgDocCharSetTR		: "Turečtina",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Západoevropské jazyky",
+DlgDocCharSetOther	: "Další znaková sada",
+
+DlgDocDocType		: "Typ dokumentu",
+DlgDocDocTypeOther	: "Jiný typ dokumetu",
+DlgDocIncXHTML		: "Zahrnou deklarace XHTML",
+DlgDocBgColor		: "Barva pozadí",
+DlgDocBgImage		: "URL obrázku na pozadí",
+DlgDocBgNoScroll	: "Nerolovatelné pozadí",
+DlgDocCText			: "Text",
+DlgDocCLink			: "Odkaz",
+DlgDocCVisited		: "Navštívený odkaz",
+DlgDocCActive		: "Vybraný odkaz",
+DlgDocMargins		: "Okraje stránky",
+DlgDocMaTop			: "Horní",
+DlgDocMaLeft		: "Levý",
+DlgDocMaRight		: "Pravý",
+DlgDocMaBottom		: "Dolní",
+DlgDocMeIndex		: "Klíčová slova (oddělená čárkou)",
+DlgDocMeDescr		: "Popis dokumentu",
+DlgDocMeAuthor		: "Autor",
+DlgDocMeCopy		: "Autorská práva",
+DlgDocPreview		: "Náhled",
+
+// Templates Dialog
+Templates			: "Šablony",
+DlgTemplatesTitle	: "Šablony obsahu",
+DlgTemplatesSelMsg	: "Prosím zvolte šablonu pro otevření v editoru<br>(aktuální obsah editoru bude ztracen):",
+DlgTemplatesLoading	: "Nahrávám přeheld šablon. Prosím čekejte...",
+DlgTemplatesNoTpl	: "(Není definována žádná šablona)",
+DlgTemplatesReplace	: "Nahradit aktuální obsah",
+
+// About Dialog
+DlgAboutAboutTab	: "O aplikaci",
+DlgAboutBrowserInfoTab	: "Informace o prohlížeči",
+DlgAboutLicenseTab	: "Licence",
+DlgAboutVersion		: "verze",
+DlgAboutInfo		: "Více informací získáte na",
+
+// Div Dialog
+DlgDivGeneralTab	: "Obecné",
+DlgDivAdvancedTab	: "Rozšířené",
+DlgDivStyle		: "Styl",
+DlgDivInlineStyle	: "Vložený styl"
+};

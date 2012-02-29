@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Esperanto language file.
+ */
 
-CKEDITOR.lang.eo={dir:'ltr',editorTitle:'Rich text editor, %1, press ALT 0 for help.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'Fonto',newPage:'Nova Paĝo',save:'Sekurigi',preview:'Vidigi Aspekton',cut:'Eltondi',copy:'Kopii',paste:'Interglui',print:'Presi',underline:'Substreko',bold:'Grasa',italic:'Kursiva',selectAll:'Elekti ĉion',removeFormat:'Forigi Formaton',strike:'Trastreko',subscript:'Subskribo',superscript:'Superskribo',horizontalrule:'Enmeti Horizonta Linio',pagebreak:'Insert Page Break for Printing',pagebreakAlt:'Page Break',unlink:'Forigi Ligilon',undo:'Malfari',redo:'Refari',common:{browseServer:'Foliumi en la Servilo',url:'URL',protocol:'Protokolo',upload:'Alŝuti',uploadSubmit:'Sendu al Servilo',image:'Bildo',flash:'Flash',form:'Formularo',checkbox:'Markobutono',radio:'Radiobutono',textField:'Teksta kampo',textarea:'Teksta Areo',hiddenField:'Kaŝita Kampo',button:'Butono',select:'Elekta Kampo',imageButton:'Bildbutono',notSet:'<Defaŭlta>',id:'Id',name:'Nomo',langDir:'Skribdirekto',langDirLtr:'De maldekstro dekstren (LTR)',langDirRtl:'De dekstro maldekstren (RTL)',langCode:'Lingva Kodo',longDescr:'URL de Longa Priskribo',cssClass:'Klasoj de Stilfolioj',advisoryTitle:'Indika Titolo',cssStyle:'Stilo',ok:'Akcepti',cancel:'Rezigni',close:'Close',preview:'Preview',generalTab:'General',advancedTab:'Speciala',validateNumberFailed:'This value is not a number.',confirmNewPage:'Any unsaved changes to this content will be lost. Are you sure you want to load new page?',confirmCancel:'Some of the options have been changed. Are you sure to close the dialog?',options:'Options',target:'Target',targetNew:'New Window (_blank)',targetTop:'Topmost Window (_top)',targetSelf:'Same Window (_self)',targetParent:'Parent Window (_parent)',langDirLTR:'Left to Right (LTR)',langDirRTL:'Right to Left (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'Larĝo',height:'Alto',align:'Ĝisrandigo',alignLeft:'Maldekstre',alignRight:'Dekstre',alignCenter:'Centre',alignTop:'Supre',alignMiddle:'Centre',alignBottom:'Malsupre',invalidHeight:'Height must be a number.',invalidWidth:'Width must be a number.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, unavailable</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'Enmeti Specialan Signon',title:'Enmeti Specialan Signon',options:'Special Character Options'},link:{toolbar:'Enmeti/Ŝanĝi Ligilon',other:'<other>',menu:'Modifier Ligilon',title:'Ligilo',info:'Informoj pri la Ligilo',target:'Celo',upload:'Alŝuti',advanced:'Speciala',type:'Tipo de Ligilo',toUrl:'URL',toAnchor:'Ankri en tiu ĉi paĝo',toEmail:'Retpoŝto',targetFrame:'<kadro>',targetPopup:'<ŝprucfenestro>',targetFrameName:'Nomo de Kadro',targetPopupName:'Nomo de Ŝprucfenestro',popupFeatures:'Atributoj de la Ŝprucfenestro',popupResizable:'Resizable',popupStatusBar:'Statobreto',popupLocationBar:'Adresobreto',popupToolbar:'Ilobreto',popupMenuBar:'Menubreto',popupFullScreen:'Tutekrane (IE)',popupScrollBars:'Rulumlisteloj',popupDependent:'Dependa (Netscape)',popupLeft:'Pozicio de Maldekstro',popupTop:'Pozicio de Supro',id:'Id',langDir:'Skribdirekto',langDirLTR:'De maldekstro dekstren (LTR)',langDirRTL:'De dekstro maldekstren (RTL)',acccessKey:'Fulmoklavo',name:'Nomo',langCode:'Skribdirekto',tabIndex:'Taba Ordo',advisoryTitle:'Indika Titolo',advisoryContentType:'Indika Enhavotipo',cssClasses:'Klasoj de Stilfolioj',charset:'Signaro de la Ligita Rimedo',styles:'Stilo',rel:'Relationship',selectAnchor:'Elekti Ankron',anchorName:'Per Ankronomo',anchorId:'Per Elementidentigilo',emailAddress:'Retadreso',emailSubject:'Temlinio',emailBody:'Mesaĝa korpo',noAnchors:'<Ne disponeblas ankroj en la dokumento>',noUrl:'Bonvolu entajpi la URL-on',noEmail:'Bonvolu entajpi la retadreson'},anchor:{toolbar:'Enmeti/Ŝanĝi Ankron',menu:'Ankraj Atributoj',title:'Ankraj Atributoj',name:'Ankra Nomo',errorName:'Bv tajpi la ankran nomon',remove:'Remove Anchor'},list:{numberedTitle:'Numbered List Properties',bulletedTitle:'Bulleted List Properties',type:'Type',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Circle',disc:'Disc',square:'Square',none:'None',notset:'<not set>',armenian:'Armenian numbering',georgian:'Georgian numbering (an, ban, gan, etc.)',lowerRoman:'Lower Roman (i, ii, iii, iv, v, etc.)',upperRoman:'Upper Roman (I, II, III, IV, V, etc.)',lowerAlpha:'Lower Alpha (a, b, c, d, e, etc.)',upperAlpha:'Upper Alpha (A, B, C, D, E, etc.)',lowerGreek:'Lower Greek (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal leading zero (01, 02, 03, etc.)'},findAndReplace:{title:'Find and Replace',find:'Serĉi',replace:'Anstataŭigi',findWhat:'Serĉi:',replaceWith:'Anstataŭigi per:',notFoundMsg:'La celteksto ne estas trovita.',findOptions:'Find Options',matchCase:'Kongruigi Usklecon',matchWord:'Tuta Vorto',matchCyclic:'Match cyclic',replaceAll:'Anstataŭigi Ĉiun',replaceSuccessMsg:'%1 occurrence(s) replaced.'},table:{toolbar:'Tabelo',title:'Atributoj de Tabelo',menu:'Atributoj de Tabelo',deleteTable:'Delete Table',rows:'Linioj',columns:'Kolumnoj',border:'Bordero',widthPx:'Bitbilderoj',widthPc:'elcentoj',widthUnit:'width unit',cellSpace:'Interspacigo de Ĉeloj',cellPad:'Ĉirkaŭenhava Plenigado',caption:'Titolo',summary:'Summary',headers:'Headers',headersNone:'None',headersColumn:'First column',headersRow:'First Row',headersBoth:'Both',invalidRows:'Number of rows must be a number greater than 0.',invalidCols:'Number of columns must be a number greater than 0.',invalidBorder:'Border size must be a number.',invalidWidth:'Table width must be a number.',invalidHeight:'Table height must be a number.',invalidCellSpacing:'Cell spacing must be a positive number.',invalidCellPadding:'Cell padding must be a positive number.',cell:{menu:'Cell',insertBefore:'Insert Cell Before',insertAfter:'Insert Cell After',deleteCell:'Forigi Ĉelojn',merge:'Kunfandi Ĉelojn',mergeRight:'Merge Right',mergeDown:'Merge Down',splitHorizontal:'Split Cell Horizontally',splitVertical:'Split Cell Vertically',title:'Cell Properties',cellType:'Cell Type',rowSpan:'Rows Span',colSpan:'Columns Span',wordWrap:'Word Wrap',hAlign:'Horizontal Alignment',vAlign:'Vertical Alignment',alignBaseline:'Baseline',bgColor:'Background Color',borderColor:'Border Color',data:'Data',header:'Header',yes:'Yes',no:'No',invalidWidth:'Cell width must be a number.',invalidHeight:'Cell height must be a number.',invalidRowSpan:'Rows span must be a whole number.',invalidColSpan:'Columns span must be a whole number.',chooseColor:'Choose'},row:{menu:'Row',insertBefore:'Insert Row Before',insertAfter:'Insert Row After',deleteRow:'Forigi Liniojn'},column:{menu:'Column',insertBefore:'Insert Column Before',insertAfter:'Insert Column After',deleteColumn:'Forigi Kolumnojn'}},button:{title:'Butonaj Atributoj',text:'Teksto (Valoro)',type:'Tipo',typeBtn:'Button',typeSbm:'Submit',typeRst:'Reset'},checkboxAndRadio:{checkboxTitle:'Markobutonaj Atributoj',radioTitle:'Radiobutonaj Atributoj',value:'Valoro',selected:'Elektita'},form:{title:'Formularaj Atributoj',menu:'Formularaj Atributoj',action:'Ago',method:'Metodo',encoding:'Encoding'},select:{title:'Atributoj de Elekta Kampo',selectInfo:'Select Info',opAvail:'Elektoj Disponeblaj',value:'Valoro',size:'Grando',lines:'Linioj',chkMulti:'Permesi Plurajn Elektojn',opText:'Teksto',opValue:'Valoro',btnAdd:'Aldoni',btnModify:'Modifi',btnUp:'Supren',btnDown:'Malsupren',btnSetValue:'Agordi kiel Elektitan Valoron',btnDelete:'Forigi'},textarea:{title:'Atributoj de Teksta Areo',cols:'Kolumnoj',rows:'Vicoj'},textfield:{title:'Atributoj de Teksta Kampo',name:'Nomo',value:'Valoro',charWidth:'Signolarĝo',maxChars:'Maksimuma Nombro da Signoj',type:'Tipo',typeText:'Teksto',typePass:'Pasvorto'},hidden:{title:'Atributoj de Kaŝita Kampo',name:'Nomo',value:'Valoro'},image:{title:'Atributoj de Bildo',titleButton:'Bildbutonaj Atributoj',menu:'Atributoj de Bildo',infoTab:'Informoj pri Bildo',btnUpload:'Sendu al Servilo',upload:'Alŝuti',alt:'Anstataŭiga Teksto',lockRatio:'Konservi Proporcion',resetSize:'Origina Grando',border:'Bordero',hSpace:'HSpaco',vSpace:'VSpaco',alertUrl:'Bonvolu tajpi la URL de la bildo',linkTab:'Link',button2Img:'Do you want to transform the selected image button on a simple image?',img2Button:'Do you want to transform the selected image on a image button?',urlMissing:'Image source URL is missing.',validateBorder:'Border must be a whole number.',validateHSpace:'HSpace must be a whole number.',validateVSpace:'VSpace must be a whole number.'},flash:{properties:'Flash Properties',propertiesTab:'Properties',title:'Flash Properties',chkPlay:'Auto Play',chkLoop:'Loop',chkMenu:'Enable Flash Menu',chkFull:'Allow Fullscreen',scale:'Scale',scaleAll:'Show all',scaleNoBorder:'No Border',scaleFit:'Exact Fit',access:'Script Access',accessAlways:'Always',accessSameDomain:'Same domain',accessNever:'Never',alignAbsBottom:'Abs Malsupre',alignAbsMiddle:'Abs Centre',alignBaseline:'Je Malsupro de Teksto',alignTextTop:'Je Supro de Teksto',quality:'Quality',qualityBest:'Best',qualityHigh:'High',qualityAutoHigh:'Auto High',qualityMedium:'Medium',qualityAutoLow:'Auto Low',qualityLow:'Low',windowModeWindow:'Window',windowModeOpaque:'Opaque',windowModeTransparent:'Transparent',windowMode:'Window mode',flashvars:'Variables for Flash',bgcolor:'Fona Koloro',hSpace:'HSpaco',vSpace:'VSpaco',validateSrc:'Bonvolu entajpi la URL-on',validateHSpace:'HSpace must be a number.',validateVSpace:'VSpace must be a number.'},spellCheck:{toolbar:'Literumada Kontrolilo',title:'Spell Check',notAvailable:'Sorry, but service is unavailable now.',errorLoading:'Error loading application service host: %s.',notInDic:'Ne trovita en la vortaro',changeTo:'Ŝanĝi al',btnIgnore:'Malatenti',btnIgnoreAll:'Malatenti Ĉiun',btnReplace:'Anstataŭigi',btnReplaceAll:'Anstataŭigi Ĉiun',btnUndo:'Malfari',noSuggestions:'- Neniu propono -',progress:'Literumkontrolado daŭras...',noMispell:'Literumkontrolado finita: neniu fuŝo trovita',noChanges:'Literumkontrolado finita: neniu vorto ŝanĝita',oneChange:'Literumkontrolado finita: unu vorto ŝanĝita',manyChanges:'Literumkontrolado finita: %1 vortoj ŝanĝitaj',ieSpellDownload:'Literumada Kontrolilo ne instalita. Ĉu vi volas elŝuti ĝin nun?'},smiley:{toolbar:'Mienvinjeto',title:'Enmeti Mienvinjeton',options:'Smiley Options'},elementsPath:{eleLabel:'Elements path',eleTitle:'%1 element'},numberedlist:'Numera Listo',bulletedlist:'Bula Listo',indent:'Pligrandigi Krommarĝenon',outdent:'Malpligrandigi Krommarĝenon',justify:{left:'Maldekstrigi',center:'Centrigi',right:'Dekstrigi',block:'Ĝisrandigi Ambaŭflanke'},blockquote:'Block Quote',clipboard:{title:'Interglui',cutError:'La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras eltondajn operaciojn. Bonvolu uzi la klavaron por tio (Ctrl/Cmd-X).',copyError:'La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras kopiajn operaciojn. Bonvolu uzi la klavaron por tio (Ctrl/Cmd-C).',pasteMsg:'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',securityMsg:'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:'The text you want to paste seems to be copied from Word. Do you want to clean it before pasting?',toolbar:'Interglui el Word',title:'Interglui el Word',error:'It was not possible to clean up the pasted data due to an internal error'},pasteText:{button:'Interglui kiel Tekston',title:'Interglui kiel Tekston'},templates:{button:'Templates',title:'Content Templates',options:'Template Options',insertOption:'Replace actual contents',selectPromptMsg:'Please select the template to open in the editor',emptyListMsg:'(No templates defined)'},showBlocks:'Show Blocks',stylesCombo:{label:'Stilo',panelTitle:'Formatting Styles',panelTitle1:'Block Styles',panelTitle2:'Inline Styles',panelTitle3:'Object Styles'},format:{label:'Formato',panelTitle:'Formato',tag_p:'Normala',tag_pre:'Formatita',tag_address:'Adreso',tag_h1:'Titolo 1',tag_h2:'Titolo 2',tag_h3:'Titolo 3',tag_h4:'Titolo 4',tag_h5:'Titolo 5',tag_h6:'Titolo 6',tag_div:'Paragrafo (DIV)'},div:{title:'Create Div Container',toolbar:'Create Div Container',cssClassInputLabel:'Stylesheet Classes',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:' Language Code',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Advisory Title',langDirLabel:'Language Direction',langDirLTRLabel:'Left to Right (LTR)',langDirRTLLabel:'Right to Left (RTL)',edit:'Edit Div',remove:'Remove Div'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'Tiparo',voiceLabel:'Font',panelTitle:'Tiparo'},fontSize:{label:'Grando',voiceLabel:'Font Size',panelTitle:'Grando'},colorButton:{textColorTitle:'Teksta Koloro',bgColorTitle:'Fona Koloro',panelTitle:'Colors',auto:'Aŭtomata',more:'Pli da Koloroj...'},colors:{'000':'Black',800000:'Maroon','8B4513':'Saddle Brown','2F4F4F':'Dark Slate Gray','008080':'Teal','000080':'Navy','4B0082':'Indigo',696969:'Dark Gray',B22222:'Fire Brick',A52A2A:'Brown',DAA520:'Golden Rod','006400':'Dark Green','40E0D0':'Turquoise','0000CD':'Medium Blue',800080:'Purple',808080:'Gray',F00:'Red',FF8C00:'Dark Orange',FFD700:'Gold','008000':'Green','0FF':'Cyan','00F':'Blue',EE82EE:'Violet',A9A9A9:'Dim Gray',FFA07A:'Light Salmon',FFA500:'Orange',FFFF00:'Yellow','00FF00':'Lime',AFEEEE:'Pale Turquoise',ADD8E6:'Light Blue',DDA0DD:'Plum',D3D3D3:'Light Grey',FFF0F5:'Lavender Blush',FAEBD7:'Antique White',FFFFE0:'Light Yellow',F0FFF0:'Honeydew',F0FFFF:'Azure',F0F8FF:'Alice Blue',E6E6FA:'Lavender',FFF:'White'},scayt:{title:'Spell Check As You Type',opera_title:'Not supported by Opera',enable:'Enable SCAYT',disable:'Disable SCAYT',about:'About SCAYT',toggle:'Toggle SCAYT',options:'Options',langs:'Languages',moreSuggestions:'More suggestions',ignore:'Ignore',ignoreAll:'Ignore All',addWord:'Add Word',emptyDic:'Dictionary name should not be empty.',optionsTab:'Options',allCaps:'Ignore All-Caps Words',ignoreDomainNames:'Ignore Domain Names',mixedCase:'Ignore Words with Mixed Case',mixedWithDigits:'Ignore Words with Numbers',languagesTab:'Languages',dictionariesTab:'Dictionaries',dic_field_name:'Dictionary name',dic_create:'Create',dic_restore:'Restore',dic_delete:'Delete',dic_rename:'Rename',dic_info:'Initially the User Dictionary is stored in a Cookie. However, Cookies are limited in size. When the User Dictionary grows to a point where it cannot be stored in a Cookie, then the dictionary may be stored on our server. To store your personal dictionary on our server you should specify a name for your dictionary. If you already have a stored dictionary, please type its name and click the Restore button.',aboutTab:'About'},about:{title:'About CKEditor',dlgTitle:'About CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'For licensing information please visit our web site:',copy:'Copyright &copy; $1. All rights reserved.'},maximize:'Maximize',minimize:'Minimize',fakeobjects:{anchor:'Anchor',flash:'Flash Animation',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:'Unknown Object'},resize:'Drag to resize',colordialog:{title:'Select color',options:'Color Options',highlight:'Highlight',selected:'Selected Color',clear:'Clear'},toolbarCollapse:'Collapse Toolbar',toolbarExpand:'Expand Toolbar',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text direction from left to right',rtl:'Text direction from right to left'},docprops:{label:'Dokumentaj Atributoj',title:'Dokumentaj Atributoj',design:'Design',meta:'Metadatumoj',chooseColor:'Choose',other:'<other>',docTitle:'Paĝotitolo',charset:'Signara Kodo',charsetOther:'Alia Signara Kodo',charsetASCII:'ASCII',charsetCE:'Central European',charsetCT:'Chinese Traditional (Big5)',charsetCR:'Cyrillic',charsetGR:'Greek',charsetJP:'Japanese',charsetKR:'Korean',charsetTR:'Turkish',charsetUN:'Unicode (UTF-8)',charsetWE:'Western European',docType:'Dokumenta Tipo',docTypeOther:'Alia Dokumenta Tipo',xhtmlDec:'Inkluzivi XHTML Deklaroj',bgColor:'Fona Koloro',bgImage:'URL de Fona Bildo',bgFixed:'Neruluma Fono',txtColor:'Teksta Koloro',margin:'Paĝaj Marĝenoj',marginTop:'Supra',marginLeft:'Maldekstra',marginRight:'Dekstra',marginBottom:'Malsupra',metaKeywords:'Ŝlosilvortoj de la Dokumento (apartigita de komoj)',metaDescription:'Dokumenta Priskribo',metaAuthor:'Verkinto',metaCopyright:'Kopirajto',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Kaŝi Ilobreton",
+ToolbarExpand		: "Vidigi Ilojn",
+
+// Toolbar Items and Context Menu
+Save				: "Sekurigi",
+NewPage				: "Nova Paĝo",
+Preview				: "Vidigi Aspekton",
+Cut					: "Eltondi",
+Copy				: "Kopii",
+Paste				: "Interglui",
+PasteText			: "Interglui kiel Tekston",
+PasteWord			: "Interglui el Word",
+Print				: "Presi",
+SelectAll			: "Elekti ĉion",
+RemoveFormat		: "Forigi Formaton",
+InsertLinkLbl		: "Ligilo",
+InsertLink			: "Enmeti/Ŝanĝi Ligilon",
+RemoveLink			: "Forigi Ligilon",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Enmeti/Ŝanĝi Ankron",
+AnchorDelete		: "Remove Anchor",	//MISSING
+InsertImageLbl		: "Bildo",
+InsertImage			: "Enmeti/Ŝanĝi Bildon",
+InsertFlashLbl		: "Flash",	//MISSING
+InsertFlash			: "Insert/Edit Flash",	//MISSING
+InsertTableLbl		: "Tabelo",
+InsertTable			: "Enmeti/Ŝanĝi Tabelon",
+InsertLineLbl		: "Horizonta Linio",
+InsertLine			: "Enmeti Horizonta Linio",
+InsertSpecialCharLbl: "Speciala Signo",
+InsertSpecialChar	: "Enmeti Specialan Signon",
+InsertSmileyLbl		: "Mienvinjeto",
+InsertSmiley		: "Enmeti Mienvinjeton",
+About				: "Pri FCKeditor",
+Bold				: "Grasa",
+Italic				: "Kursiva",
+Underline			: "Substreko",
+StrikeThrough		: "Trastreko",
+Subscript			: "Subskribo",
+Superscript			: "Superskribo",
+LeftJustify			: "Maldekstrigi",
+CenterJustify		: "Centrigi",
+RightJustify		: "Dekstrigi",
+BlockJustify		: "Ĝisrandigi Ambaŭflanke",
+DecreaseIndent		: "Malpligrandigi Krommarĝenon",
+IncreaseIndent		: "Pligrandigi Krommarĝenon",
+Blockquote			: "Blockquote",	//MISSING
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Malfari",
+Redo				: "Refari",
+NumberedListLbl		: "Numera Listo",
+NumberedList		: "Enmeti/Forigi Numeran Liston",
+BulletedListLbl		: "Bula Listo",
+BulletedList		: "Enmeti/Forigi Bulan Liston",
+ShowTableBorders	: "Vidigi Borderojn de Tabelo",
+ShowDetails			: "Vidigi Detalojn",
+Style				: "Stilo",
+FontFormat			: "Formato",
+Font				: "Tiparo",
+FontSize			: "Grando",
+TextColor			: "Teksta Koloro",
+BGColor				: "Fona Koloro",
+Source				: "Fonto",
+Find				: "Serĉi",
+Replace				: "Anstataŭigi",
+SpellCheck			: "Literumada Kontrolilo",
+UniversalKeyboard	: "Universala Klavaro",
+PageBreakLbl		: "Page Break",	//MISSING
+PageBreak			: "Insert Page Break",	//MISSING
+
+Form			: "Formularo",
+Checkbox		: "Markobutono",
+RadioButton		: "Radiobutono",
+TextField		: "Teksta kampo",
+Textarea		: "Teksta Areo",
+HiddenField		: "Kaŝita Kampo",
+Button			: "Butono",
+SelectionField	: "Elekta Kampo",
+ImageButton		: "Bildbutono",
+
+FitWindow		: "Maximize the editor size",	//MISSING
+ShowBlocks		: "Show Blocks",	//MISSING
+
+// Context Menu
+EditLink			: "Modifier Ligilon",
+CellCM				: "Cell",	//MISSING
+RowCM				: "Row",	//MISSING
+ColumnCM			: "Column",	//MISSING
+InsertRowAfter		: "Insert Row After",	//MISSING
+InsertRowBefore		: "Insert Row Before",	//MISSING
+DeleteRows			: "Forigi Liniojn",
+InsertColumnAfter	: "Insert Column After",	//MISSING
+InsertColumnBefore	: "Insert Column Before",	//MISSING
+DeleteColumns		: "Forigi Kolumnojn",
+InsertCellAfter		: "Insert Cell After",	//MISSING
+InsertCellBefore	: "Insert Cell Before",	//MISSING
+DeleteCells			: "Forigi Ĉelojn",
+MergeCells			: "Kunfandi Ĉelojn",
+MergeRight			: "Merge Right",	//MISSING
+MergeDown			: "Merge Down",	//MISSING
+HorizontalSplitCell	: "Split Cell Horizontally",	//MISSING
+VerticalSplitCell	: "Split Cell Vertically",	//MISSING
+TableDelete			: "Delete Table",	//MISSING
+CellProperties		: "Atributoj de Ĉelo",
+TableProperties		: "Atributoj de Tabelo",
+ImageProperties		: "Atributoj de Bildo",
+FlashProperties		: "Flash Properties",	//MISSING
+
+AnchorProp			: "Ankraj Atributoj",
+ButtonProp			: "Butonaj Atributoj",
+CheckboxProp		: "Markobutonaj Atributoj",
+HiddenFieldProp		: "Atributoj de Kaŝita Kampo",
+RadioButtonProp		: "Radiobutonaj Atributoj",
+ImageButtonProp		: "Bildbutonaj Atributoj",
+TextFieldProp		: "Atributoj de Teksta Kampo",
+SelectionFieldProp	: "Atributoj de Elekta Kampo",
+TextareaProp		: "Atributoj de Teksta Areo",
+FormProp			: "Formularaj Atributoj",
+
+FontFormats			: "Normala;Formatita;Adreso;Titolo 1;Titolo 2;Titolo 3;Titolo 4;Titolo 5;Titolo 6;Paragrafo (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Traktado de XHTML. Bonvolu pacienci...",
+Done				: "Finita",
+PasteWordConfirm	: "La algluota teksto ŝajnas esti Word-devena. Ĉu vi volas purigi ĝin antaŭ ol interglui?",
+NotCompatiblePaste	: "Tiu ĉi komando bezonas almenaŭ Internet Explorer 5.5. Ĉu vi volas daŭrigi sen purigado?",
+UnknownToolbarItem	: "Ilobretero nekonata \"%1\"",
+UnknownCommand		: "Komandonomo nekonata \"%1\"",
+NotImplemented		: "Komando ne ankoraŭ realigita",
+UnknownToolbarSet	: "La ilobreto \"%1\" ne ekzistas",
+NoActiveX			: "Your browser's security settings could limit some features of the editor. You must enable the option \"Run ActiveX controls and plug-ins\". You may experience errors and notice missing features.",	//MISSING
+BrowseServerBlocked : "The resources browser could not be opened. Make sure that all popup blockers are disabled.",	//MISSING
+DialogBlocked		: "It was not possible to open the dialog window. Make sure all popup blockers are disabled.",	//MISSING
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "Akcepti",
+DlgBtnCancel		: "Rezigni",
+DlgBtnClose			: "Fermi",
+DlgBtnBrowseServer	: "Foliumi en la Servilo",
+DlgAdvancedTag		: "Speciala",
+DlgOpOther			: "<Alia>",
+DlgInfoTab			: "Info",	//MISSING
+DlgAlertUrl			: "Please insert the URL",	//MISSING
+
+// General Dialogs Labels
+DlgGenNotSet		: "<Defaŭlta>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Skribdirekto",
+DlgGenLangDirLtr	: "De maldekstro dekstren (LTR)",
+DlgGenLangDirRtl	: "De dekstro maldekstren (RTL)",
+DlgGenLangCode		: "Lingva Kodo",
+DlgGenAccessKey		: "Fulmoklavo",
+DlgGenName			: "Nomo",
+DlgGenTabIndex		: "Taba Ordo",
+DlgGenLongDescr		: "URL de Longa Priskribo",
+DlgGenClass			: "Klasoj de Stilfolioj",
+DlgGenTitle			: "Indika Titolo",
+DlgGenContType		: "Indika Enhavotipo",
+DlgGenLinkCharset	: "Signaro de la Ligita Rimedo",
+DlgGenStyle			: "Stilo",
+
+// Image Dialog
+DlgImgTitle			: "Atributoj de Bildo",
+DlgImgInfoTab		: "Informoj pri Bildo",
+DlgImgBtnUpload		: "Sendu al Servilo",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Alŝuti",
+DlgImgAlt			: "Anstataŭiga Teksto",
+DlgImgWidth			: "Larĝo",
+DlgImgHeight		: "Alto",
+DlgImgLockRatio		: "Konservi Proporcion",
+DlgBtnResetSize		: "Origina Grando",
+DlgImgBorder		: "Bordero",
+DlgImgHSpace		: "HSpaco",
+DlgImgVSpace		: "VSpaco",
+DlgImgAlign			: "Ĝisrandigo",
+DlgImgAlignLeft		: "Maldekstre",
+DlgImgAlignAbsBottom: "Abs Malsupre",
+DlgImgAlignAbsMiddle: "Abs Centre",
+DlgImgAlignBaseline	: "Je Malsupro de Teksto",
+DlgImgAlignBottom	: "Malsupre",
+DlgImgAlignMiddle	: "Centre",
+DlgImgAlignRight	: "Dekstre",
+DlgImgAlignTextTop	: "Je Supro de Teksto",
+DlgImgAlignTop		: "Supre",
+DlgImgPreview		: "Vidigi Aspekton",
+DlgImgAlertUrl		: "Bonvolu tajpi la URL de la bildo",
+DlgImgLinkTab		: "Link",	//MISSING
+
+// Flash Dialog
+DlgFlashTitle		: "Flash Properties",	//MISSING
+DlgFlashChkPlay		: "Auto Play",	//MISSING
+DlgFlashChkLoop		: "Loop",	//MISSING
+DlgFlashChkMenu		: "Enable Flash Menu",	//MISSING
+DlgFlashScale		: "Scale",	//MISSING
+DlgFlashScaleAll	: "Show all",	//MISSING
+DlgFlashScaleNoBorder	: "No Border",	//MISSING
+DlgFlashScaleFit	: "Exact Fit",	//MISSING
+
+// Link Dialog
+DlgLnkWindowTitle	: "Ligilo",
+DlgLnkInfoTab		: "Informoj pri la Ligilo",
+DlgLnkTargetTab		: "Celo",
+
+DlgLnkType			: "Tipo de Ligilo",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Ankri en tiu ĉi paĝo",
+DlgLnkTypeEMail		: "Retpoŝto",
+DlgLnkProto			: "Protokolo",
+DlgLnkProtoOther	: "<alia>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Elekti Ankron",
+DlgLnkAnchorByName	: "Per Ankronomo",
+DlgLnkAnchorById	: "Per Elementidentigilo",
+DlgLnkNoAnchors		: "<Ne disponeblas ankroj en la dokumento>",
+DlgLnkEMail			: "Retadreso",
+DlgLnkEMailSubject	: "Temlinio",
+DlgLnkEMailBody		: "Mesaĝa korpo",
+DlgLnkUpload		: "Alŝuti",
+DlgLnkBtnUpload		: "Sendi al Servilo",
+
+DlgLnkTarget		: "Celo",
+DlgLnkTargetFrame	: "<kadro>",
+DlgLnkTargetPopup	: "<ŝprucfenestro>",
+DlgLnkTargetBlank	: "Nova Fenestro (_blank)",
+DlgLnkTargetParent	: "Gepatra Fenestro (_parent)",
+DlgLnkTargetSelf	: "Sama Fenestro (_self)",
+DlgLnkTargetTop		: "Plej Supra Fenestro (_top)",
+DlgLnkTargetFrameName	: "Nomo de Kadro",
+DlgLnkPopWinName	: "Nomo de Ŝprucfenestro",
+DlgLnkPopWinFeat	: "Atributoj de la Ŝprucfenestro",
+DlgLnkPopResize		: "Grando Ŝanĝebla",
+DlgLnkPopLocation	: "Adresobreto",
+DlgLnkPopMenu		: "Menubreto",
+DlgLnkPopScroll		: "Rulumlisteloj",
+DlgLnkPopStatus		: "Statobreto",
+DlgLnkPopToolbar	: "Ilobreto",
+DlgLnkPopFullScrn	: "Tutekrane (IE)",
+DlgLnkPopDependent	: "Dependa (Netscape)",
+DlgLnkPopWidth		: "Larĝo",
+DlgLnkPopHeight		: "Alto",
+DlgLnkPopLeft		: "Pozicio de Maldekstro",
+DlgLnkPopTop		: "Pozicio de Supro",
+
+DlnLnkMsgNoUrl		: "Bonvolu entajpi la URL-on",
+DlnLnkMsgNoEMail	: "Bonvolu entajpi la retadreson",
+DlnLnkMsgNoAnchor	: "Bonvolu elekti ankron",
+DlnLnkMsgInvPopName	: "The popup name must begin with an alphabetic character and must not contain spaces",	//MISSING
+
+// Color Dialog
+DlgColorTitle		: "Elekti",
+DlgColorBtnClear	: "Forigi",
+DlgColorHighlight	: "Emfazi",
+DlgColorSelected	: "Elektita",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Enmeti Mienvinjeton",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Enmeti Specialan Signon",
+
+// Table Dialog
+DlgTableTitle		: "Atributoj de Tabelo",
+DlgTableRows		: "Linioj",
+DlgTableColumns		: "Kolumnoj",
+DlgTableBorder		: "Bordero",
+DlgTableAlign		: "Ĝisrandigo",
+DlgTableAlignNotSet	: "<Defaŭlte>",
+DlgTableAlignLeft	: "Maldekstre",
+DlgTableAlignCenter	: "Centre",
+DlgTableAlignRight	: "Dekstre",
+DlgTableWidth		: "Larĝo",
+DlgTableWidthPx		: "Bitbilderoj",
+DlgTableWidthPc		: "elcentoj",
+DlgTableHeight		: "Alto",
+DlgTableCellSpace	: "Interspacigo de Ĉeloj",
+DlgTableCellPad		: "Ĉirkaŭenhava Plenigado",
+DlgTableCaption		: "Titolo",
+DlgTableSummary		: "Summary",	//MISSING
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Atributoj de Celo",
+DlgCellWidth		: "Larĝo",
+DlgCellWidthPx		: "bitbilderoj",
+DlgCellWidthPc		: "elcentoj",
+DlgCellHeight		: "Alto",
+DlgCellWordWrap		: "Linifaldo",
+DlgCellWordWrapNotSet	: "<Defaŭlte>",
+DlgCellWordWrapYes	: "Jes",
+DlgCellWordWrapNo	: "Ne",
+DlgCellHorAlign		: "Horizonta Ĝisrandigo",
+DlgCellHorAlignNotSet	: "<Defaŭlte>",
+DlgCellHorAlignLeft	: "Maldekstre",
+DlgCellHorAlignCenter	: "Centre",
+DlgCellHorAlignRight: "Dekstre",
+DlgCellVerAlign		: "Vertikala Ĝisrandigo",
+DlgCellVerAlignNotSet	: "<Defaŭlte>",
+DlgCellVerAlignTop	: "Supre",
+DlgCellVerAlignMiddle	: "Centre",
+DlgCellVerAlignBottom	: "Malsupre",
+DlgCellVerAlignBaseline	: "Je Malsupro de Teksto",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Linioj Kunfanditaj",
+DlgCellCollSpan		: "Kolumnoj Kunfanditaj",
+DlgCellBackColor	: "Fono",
+DlgCellBorderColor	: "Bordero",
+DlgCellBtnSelect	: "Elekti...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Find and Replace",	//MISSING
+
+// Find Dialog
+DlgFindTitle		: "Serĉi",
+DlgFindFindBtn		: "Serĉi",
+DlgFindNotFoundMsg	: "La celteksto ne estas trovita.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Anstataŭigi",
+DlgReplaceFindLbl		: "Serĉi:",
+DlgReplaceReplaceLbl	: "Anstataŭigi per:",
+DlgReplaceCaseChk		: "Kongruigi Usklecon",
+DlgReplaceReplaceBtn	: "Anstataŭigi",
+DlgReplaceReplAllBtn	: "Anstataŭigi Ĉiun",
+DlgReplaceWordChk		: "Tuta Vorto",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras eltondajn operaciojn. Bonvolu uzi la klavaron por tio (ctrl-X).",
+PasteErrorCopy	: "La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras kopiajn operaciojn. Bonvolu uzi la klavaron por tio (ctrl-C).",
+
+PasteAsText		: "Interglui kiel Tekston",
+PasteFromWord	: "Interglui el Word",
+
+DlgPasteMsg2	: "Please paste inside the following box using the keyboard (<strong>Ctrl+V</strong>) and hit <strong>OK</strong>.",	//MISSING
+DlgPasteSec		: "Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.",	//MISSING
+DlgPasteIgnoreFont		: "Ignore Font Face definitions",	//MISSING
+DlgPasteRemoveStyles	: "Remove Styles definitions",	//MISSING
+
+// Color Picker
+ColorAutomatic	: "Aŭtomata",
+ColorMoreColors	: "Pli da Koloroj...",
+
+// Document Properties
+DocProps		: "Dokumentaj Atributoj",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Ankraj Atributoj",
+DlgAnchorName		: "Ankra Nomo",
+DlgAnchorErrorName	: "Bv tajpi la ankran nomon",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Ne trovita en la vortaro",
+DlgSpellChangeTo		: "Ŝanĝi al",
+DlgSpellBtnIgnore		: "Malatenti",
+DlgSpellBtnIgnoreAll	: "Malatenti Ĉiun",
+DlgSpellBtnReplace		: "Anstataŭigi",
+DlgSpellBtnReplaceAll	: "Anstataŭigi Ĉiun",
+DlgSpellBtnUndo			: "Malfari",
+DlgSpellNoSuggestions	: "- Neniu propono -",
+DlgSpellProgress		: "Literumkontrolado daŭras...",
+DlgSpellNoMispell		: "Literumkontrolado finita: neniu fuŝo trovita",
+DlgSpellNoChanges		: "Literumkontrolado finita: neniu vorto ŝanĝita",
+DlgSpellOneChange		: "Literumkontrolado finita: unu vorto ŝanĝita",
+DlgSpellManyChanges		: "Literumkontrolado finita: %1 vortoj ŝanĝitaj",
+
+IeSpellDownload			: "Literumada Kontrolilo ne instalita. Ĉu vi volas elŝuti ĝin nun?",
+
+// Button Dialog
+DlgButtonText		: "Teksto (Valoro)",
+DlgButtonType		: "Tipo",
+DlgButtonTypeBtn	: "Button",	//MISSING
+DlgButtonTypeSbm	: "Submit",	//MISSING
+DlgButtonTypeRst	: "Reset",	//MISSING
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Nomo",
+DlgCheckboxValue	: "Valoro",
+DlgCheckboxSelected	: "Elektita",
+
+// Form Dialog
+DlgFormName		: "Nomo",
+DlgFormAction	: "Ago",
+DlgFormMethod	: "Metodo",
+
+// Select Field Dialog
+DlgSelectName		: "Nomo",
+DlgSelectValue		: "Valoro",
+DlgSelectSize		: "Grando",
+DlgSelectLines		: "Linioj",
+DlgSelectChkMulti	: "Permesi Plurajn Elektojn",
+DlgSelectOpAvail	: "Elektoj Disponeblaj",
+DlgSelectOpText		: "Teksto",
+DlgSelectOpValue	: "Valoro",
+DlgSelectBtnAdd		: "Aldoni",
+DlgSelectBtnModify	: "Modifi",
+DlgSelectBtnUp		: "Supren",
+DlgSelectBtnDown	: "Malsupren",
+DlgSelectBtnSetValue : "Agordi kiel Elektitan Valoron",
+DlgSelectBtnDelete	: "Forigi",
+
+// Textarea Dialog
+DlgTextareaName	: "Nomo",
+DlgTextareaCols	: "Kolumnoj",
+DlgTextareaRows	: "Vicoj",
+
+// Text Field Dialog
+DlgTextName			: "Nomo",
+DlgTextValue		: "Valoro",
+DlgTextCharWidth	: "Signolarĝo",
+DlgTextMaxChars		: "Maksimuma Nombro da Signoj",
+DlgTextType			: "Tipo",
+DlgTextTypeText		: "Teksto",
+DlgTextTypePass		: "Pasvorto",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Nomo",
+DlgHiddenValue	: "Valoro",
+
+// Bulleted List Dialog
+BulletedListProp	: "Atributoj de Bula Listo",
+NumberedListProp	: "Atributoj de Numera Listo",
+DlgLstStart			: "Start",	//MISSING
+DlgLstType			: "Tipo",
+DlgLstTypeCircle	: "Cirklo",
+DlgLstTypeDisc		: "Disc",	//MISSING
+DlgLstTypeSquare	: "Kvadrato",
+DlgLstTypeNumbers	: "Ciferoj (1, 2, 3)",
+DlgLstTypeLCase		: "Minusklaj Literoj (a, b, c)",
+DlgLstTypeUCase		: "Majusklaj Literoj (A, B, C)",
+DlgLstTypeSRoman	: "Malgrandaj Romanaj Ciferoj (i, ii, iii)",
+DlgLstTypeLRoman	: "Grandaj Romanaj Ciferoj (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Ĝeneralaĵoj",
+DlgDocBackTab		: "Fono",
+DlgDocColorsTab		: "Koloroj kaj Marĝenoj",
+DlgDocMetaTab		: "Metadatumoj",
+
+DlgDocPageTitle		: "Paĝotitolo",
+DlgDocLangDir		: "Skribdirekto de la Lingvo",
+DlgDocLangDirLTR	: "De maldekstro dekstren (LTR)",
+DlgDocLangDirRTL	: "De dekstro maldekstren (LTR)",
+DlgDocLangCode		: "Lingvokodo",
+DlgDocCharSet		: "Signara Kodo",
+DlgDocCharSetCE		: "Central European",	//MISSING
+DlgDocCharSetCT		: "Chinese Traditional (Big5)",	//MISSING
+DlgDocCharSetCR		: "Cyrillic",	//MISSING
+DlgDocCharSetGR		: "Greek",	//MISSING
+DlgDocCharSetJP		: "Japanese",	//MISSING
+DlgDocCharSetKR		: "Korean",	//MISSING
+DlgDocCharSetTR		: "Turkish",	//MISSING
+DlgDocCharSetUN		: "Unicode (UTF-8)",	//MISSING
+DlgDocCharSetWE		: "Western European",	//MISSING
+DlgDocCharSetOther	: "Alia Signara Kodo",
+
+DlgDocDocType		: "Dokumenta Tipo",
+DlgDocDocTypeOther	: "Alia Dokumenta Tipo",
+DlgDocIncXHTML		: "Inkluzivi XHTML Deklaroj",
+DlgDocBgColor		: "Fona Koloro",
+DlgDocBgImage		: "URL de Fona Bildo",
+DlgDocBgNoScroll	: "Neruluma Fono",
+DlgDocCText			: "Teksto",
+DlgDocCLink			: "Ligilo",
+DlgDocCVisited		: "Vizitita Ligilo",
+DlgDocCActive		: "Aktiva Ligilo",
+DlgDocMargins		: "Paĝaj Marĝenoj",
+DlgDocMaTop			: "Supra",
+DlgDocMaLeft		: "Maldekstra",
+DlgDocMaRight		: "Dekstra",
+DlgDocMaBottom		: "Malsupra",
+DlgDocMeIndex		: "Ŝlosilvortoj de la Dokumento (apartigita de komoj)",
+DlgDocMeDescr		: "Dokumenta Priskribo",
+DlgDocMeAuthor		: "Verkinto",
+DlgDocMeCopy		: "Kopirajto",
+DlgDocPreview		: "Aspekto",
+
+// Templates Dialog
+Templates			: "Templates",	//MISSING
+DlgTemplatesTitle	: "Content Templates",	//MISSING
+DlgTemplatesSelMsg	: "Please select the template to open in the editor<br />(the actual contents will be lost):",	//MISSING
+DlgTemplatesLoading	: "Loading templates list. Please wait...",	//MISSING
+DlgTemplatesNoTpl	: "(No templates defined)",	//MISSING
+DlgTemplatesReplace	: "Replace actual contents",	//MISSING
+
+// About Dialog
+DlgAboutAboutTab	: "Pri",
+DlgAboutBrowserInfoTab	: "Informoj pri TTT-legilo",
+DlgAboutLicenseTab	: "License",	//MISSING
+DlgAboutVersion		: "versio",
+DlgAboutInfo		: "Por pli da informoj, vizitu",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

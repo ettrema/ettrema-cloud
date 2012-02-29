@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Arabic language file.
+ */
 
-CKEDITOR.lang.ar={dir:'rtl',editorTitle:'Rich text editor, %1, press ALT 0 for help.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'المصدر',newPage:'صفحة جديدة',save:'حفظ',preview:'معاينة الصفحة',cut:'قص',copy:'نسخ',paste:'لصق',print:'طباعة',underline:'تسطير',bold:'غامق',italic:'مائل',selectAll:'تحديد الكل',removeFormat:'إزالة التنسيقات',strike:'يتوسطه خط',subscript:'منخفض',superscript:'مرتفع',horizontalrule:'خط فاصل',pagebreak:'إدخال صفحة جديدة',pagebreakAlt:'Page Break',unlink:'إزالة رابط',undo:'تراجع',redo:'إعادة',common:{browseServer:'تصفح',url:'الرابط',protocol:'البروتوكول',upload:'رفع',uploadSubmit:'أرسل',image:'صورة',flash:'فلاش',form:'نموذج',checkbox:'خانة إختيار',radio:'زر اختيار',textField:'مربع نص',textarea:'مساحة نصية',hiddenField:'إدراج حقل خفي',button:'زر ضغط',select:'اختار',imageButton:'زر صورة',notSet:'<بدون تحديد>',id:'الرقم',name:'الاسم',langDir:'إتجاه النص',langDirLtr:'اليسار لليمين (LTR)',langDirRtl:'اليمين لليسار (RTL)',langCode:'رمز اللغة',longDescr:'الوصف التفصيلى',cssClass:'فئات التنسيق',advisoryTitle:'عنوان التقرير',cssStyle:'نمط',ok:'موافق',cancel:'إلغاء الأمر',close:'Close',preview:'Preview',generalTab:'عام',advancedTab:'متقدم',validateNumberFailed:'لايوجد نتيجة',confirmNewPage:'ستفقد أي متغييرات اذا لم تقم بحفظها اولا. هل أنت متأكد أنك تريد صفحة جديدة؟',confirmCancel:'بعض الخيارات قد تغيرت. هل أنت متأكد من إغلاق مربع النص؟',options:'Options',target:'Target',targetNew:'New Window (_blank)',targetTop:'Topmost Window (_top)',targetSelf:'Same Window (_self)',targetParent:'Parent Window (_parent)',langDirLTR:'Left to Right (LTR)',langDirRTL:'Right to Left (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'العرض',height:'الإرتفاع',align:'محاذاة',alignLeft:'يسار',alignRight:'يمين',alignCenter:'وسط',alignTop:'أعلى',alignMiddle:'وسط',alignBottom:'أسفل',invalidHeight:'الارتفاع يجب أن يكون عدداً.',invalidWidth:'العرض يجب أن يكون عدداً.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, غير متاح</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'إدراج  خاص.ِ',title:'اختر الخواص',options:'Special Character Options'},link:{toolbar:'رابط',other:'<أخرى>',menu:'تحرير رابط',title:'إرتباط تشعبي',info:'معلومات الرابط',target:'هدف الرابط',upload:'رفع',advanced:'متقدم',type:'نوع الربط',toUrl:'URL',toAnchor:'مكان في هذا المستند',toEmail:'بريد إلكتروني',targetFrame:'<إطار>',targetPopup:'<نافذة منبثقة>',targetFrameName:'اسم الإطار المستهدف',targetPopupName:'اسم النافذة المنبثقة',popupFeatures:'خصائص النافذة المنبثقة',popupResizable:'قابلة التشكيل',popupStatusBar:'شريط الحالة',popupLocationBar:'شريط العنوان',popupToolbar:'شريط الأدوات',popupMenuBar:'القوائم الرئيسية',popupFullScreen:'ملئ الشاشة (IE)',popupScrollBars:'أشرطة التمرير',popupDependent:'تابع (Netscape)',popupLeft:'التمركز لليسار',popupTop:'التمركز للأعلى',id:'هوية',langDir:'إتجاه النص',langDirLTR:'اليسار لليمين (LTR)',langDirRTL:'اليمين لليسار (RTL)',acccessKey:'مفاتيح الإختصار',name:'الاسم',langCode:'كود النص',tabIndex:'الترتيب',advisoryTitle:'عنوان التقرير',advisoryContentType:'نوع التقرير',cssClasses:'فئات التنسيق',charset:'ترميز المادة المطلوبة',styles:'نمط',rel:'Relationship',selectAnchor:'اختر علامة مرجعية',anchorName:'حسب الاسم',anchorId:'حسب رقم العنصر',emailAddress:'عنوان البريد إلكتروني',emailSubject:'موضوع الرسالة',emailBody:'محتوى الرسالة',noAnchors:'(لا توجد علامات مرجعية في هذا المستند)',noUrl:'من فضلك أدخل عنوان الموقع الذي يشير إليه الرابط',noEmail:'من فضلك أدخل عنوان البريد الإلكتروني'},anchor:{toolbar:'إشارة مرجعية',menu:'تحرير الإشارة المرجعية',title:'خصائص الإشارة المرجعية',name:'اسم الإشارة المرجعية',errorName:'الرجاء كتابة اسم الإشارة المرجعية',remove:'Remove Anchor'},list:{numberedTitle:'Numbered List Properties',bulletedTitle:'Bulleted List Properties',type:'Type',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Circle',disc:'Disc',square:'Square',none:'None',notset:'<not set>',armenian:'Armenian numbering',georgian:'Georgian numbering (an, ban, gan, etc.)',lowerRoman:'Lower Roman (i, ii, iii, iv, v, etc.)',upperRoman:'Upper Roman (I, II, III, IV, V, etc.)',lowerAlpha:'Lower Alpha (a, b, c, d, e, etc.)',upperAlpha:'Upper Alpha (A, B, C, D, E, etc.)',lowerGreek:'Lower Greek (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal leading zero (01, 02, 03, etc.)'},findAndReplace:{title:'بحث واستبدال',find:'بحث',replace:'إستبدال',findWhat:'البحث بـ:',replaceWith:'إستبدال بـ:',notFoundMsg:'لم يتم العثور على النص المحدد.',findOptions:'Find Options',matchCase:'مطابقة حالة الأحرف',matchWord:'مطابقة بالكامل',matchCyclic:'مطابقة دورية',replaceAll:'إستبدال الكل',replaceSuccessMsg:'تم استبدال 1% من الحالات '},table:{toolbar:'جدول',title:'خصائص الجدول',menu:'خصائص الجدول',deleteTable:'حذف الجدول',rows:'صفوف',columns:'أعمدة',border:'الحدود',widthPx:'بكسل',widthPc:'بالمئة',widthUnit:'width unit',cellSpace:'تباعد الخلايا',cellPad:'المسافة البادئة',caption:'الوصف',summary:'الخلاصة',headers:'العناوين',headersNone:'بدون',headersColumn:'العمود الأول',headersRow:'الصف الأول',headersBoth:'كلاهما',invalidRows:'عدد الصفوف يجب أن يكون عدداً أكبر من صفر.',invalidCols:'عدد الأعمدة يجب أن يكون عدداً أكبر من صفر.',invalidBorder:'حجم الحد يجب أن يكون عدداً.',invalidWidth:'عرض الجدول يجب أن يكون عدداً.',invalidHeight:'ارتفاع الجدول يجب أن يكون عدداً.',invalidCellSpacing:'المسافة بين الخلايا يجب أن تكون عدداً.',invalidCellPadding:'المسافة البادئة يجب أن تكون عدداً',cell:{menu:'خلية',insertBefore:'إدراج خلية قبل',insertAfter:'إدراج خلية بعد',deleteCell:'حذف خلية',merge:'دمج خلايا',mergeRight:'دمج لليمين',mergeDown:'دمج للأسفل',splitHorizontal:'تقسيم الخلية أفقياً',splitVertical:'تقسيم الخلية عمودياً',title:'خصائص الخلية',cellType:'نوع الخلية',rowSpan:'امتداد الصفوف',colSpan:'امتداد الأعمدة',wordWrap:'التفاف النص',hAlign:'محاذاة أفقية',vAlign:'محاذاة رأسية',alignBaseline:'خط القاعدة',bgColor:'لون الخلفية',borderColor:'لون الحدود',data:'بيانات',header:'عنوان',yes:'نعم',no:'لا',invalidWidth:'عرض الخلية يجب أن يكون عدداً.',invalidHeight:'ارتفاع الخلية يجب أن يكون عدداً.',invalidRowSpan:'امتداد الصفوف يجب أن يكون عدداً صحيحاً.',invalidColSpan:'امتداد الأعمدة يجب أن يكون عدداً صحيحاً.',chooseColor:'اختر'},row:{menu:'صف',insertBefore:'إدراج صف قبل',insertAfter:'إدراج صف بعد',deleteRow:'حذف صفوف'},column:{menu:'عمود',insertBefore:'إدراج عمود قبل',insertAfter:'إدراج عمود بعد',deleteColumn:'حذف أعمدة'}},button:{title:'خصائص زر الضغط',text:'القيمة/التسمية',type:'نوع الزر',typeBtn:'زر',typeSbm:'إرسال',typeRst:'إعادة تعيين'},checkboxAndRadio:{checkboxTitle:'خصائص خانة الإختيار',radioTitle:'خصائص زر الخيار',value:'القيمة',selected:'محدد'},form:{title:'خصائص النموذج',menu:'خصائص النموذج',action:'اسم الملف',method:'الأسلوب',encoding:'تشفير'},select:{title:'خصائص اختيار الحقل',selectInfo:'اختار معلومات',opAvail:'الخيارات المتاحة',value:'القيمة',size:'الحجم',lines:'الأسطر',chkMulti:'السماح بتحديدات متعددة',opText:'النص',opValue:'القيمة',btnAdd:'إضافة',btnModify:'تعديل',btnUp:'أعلى',btnDown:'أسفل',btnSetValue:'إجعلها محددة',btnDelete:'إزالة'},textarea:{title:'خصائص مساحة النص',cols:'الأعمدة',rows:'الصفوف'},textfield:{title:'خصائص مربع النص',name:'الاسم',value:'القيمة',charWidth:'عرض السمات',maxChars:'اقصى عدد للسمات',type:'نوع المحتوى',typeText:'نص',typePass:'كلمة مرور'},hidden:{title:'خصائص الحقل المخفي',name:'الاسم',value:'القيمة'},image:{title:'خصائص الصورة',titleButton:'خصائص زر الصورة',menu:'خصائص الصورة',infoTab:'معلومات الصورة',btnUpload:'أرسلها للخادم',upload:'رفع',alt:'عنوان الصورة',lockRatio:'تناسق الحجم',resetSize:'إستعادة الحجم الأصلي',border:'سمك الحدود',hSpace:'تباعد أفقي',vSpace:'تباعد عمودي',alertUrl:'فضلاً أكتب الموقع الذي توجد عليه هذه الصورة.',linkTab:'الرابط',button2Img:'هل تريد تحويل زر الصورة المختار إلى صورة بسيطة؟',img2Button:'هل تريد تحويل الصورة المختارة إلى زر صورة؟',urlMissing:'عنوان مصدر الصورة مفقود',validateBorder:'Border must be a whole number.',validateHSpace:'HSpace must be a whole number.',validateVSpace:'VSpace must be a whole number.'},flash:{properties:'خصائص الفلاش',propertiesTab:'الخصائص',title:'خصائص فيلم الفلاش',chkPlay:'تشغيل تلقائي',chkLoop:'تكرار',chkMenu:'تمكين قائمة فيلم الفلاش',chkFull:'ملء الشاشة',scale:'الحجم',scaleAll:'إظهار الكل',scaleNoBorder:'بلا حدود',scaleFit:'ضبط تام',access:'دخول النص البرمجي',accessAlways:'دائماً',accessSameDomain:'نفس النطاق',accessNever:'مطلقاً',alignAbsBottom:'أسفل النص',alignAbsMiddle:'وسط السطر',alignBaseline:'على السطر',alignTextTop:'أعلى النص',quality:'جودة',qualityBest:'أفضل',qualityHigh:'عالية',qualityAutoHigh:'عالية تلقائياً',qualityMedium:'متوسطة',qualityAutoLow:'منخفضة تلقائياً',qualityLow:'منخفضة',windowModeWindow:'نافذة',windowModeOpaque:'غير شفاف',windowModeTransparent:'شفاف',windowMode:'وضع النافذة',flashvars:'متغيرات الفلاش',bgcolor:'لون الخلفية',hSpace:'تباعد أفقي',vSpace:'تباعد عمودي',validateSrc:'فضلاً أدخل عنوان الموقع الذي يشير إليه الرابط',validateHSpace:'HSpace يجب أن يكون عدداً.',validateVSpace:'VSpace يجب أن يكون عدداً.'},spellCheck:{toolbar:'تدقيق إملائي',title:'التدقيق الإملائي',notAvailable:'عفواً، ولكن هذه الخدمة غير متاحة الان',errorLoading:'خطأ في تحميل تطبيق خدمة الاستضافة: %s.',notInDic:'ليست في القاموس',changeTo:'التغيير إلى',btnIgnore:'تجاهل',btnIgnoreAll:'تجاهل الكل',btnReplace:'تغيير',btnReplaceAll:'تغيير الكل',btnUndo:'تراجع',noSuggestions:'- لا توجد إقتراحات -',progress:'جاري التدقيق الاملائى',noMispell:'تم التدقيق الإملائي: لم يتم العثور على أي أخطاء إملائية',noChanges:'تم التدقيق الإملائي: لم يتم تغيير أي كلمة',oneChange:'تم التدقيق الإملائي: تم تغيير كلمة واحدة فقط',manyChanges:'تم إكمال التدقيق الإملائي: تم تغيير %1 من كلمات',ieSpellDownload:'المدقق الإملائي (الإنجليزي) غير مثبّت. هل تود تحميله الآن؟'},smiley:{toolbar:'ابتسامات',title:'إدراج ابتسامات',options:'Smiley Options'},elementsPath:{eleLabel:'Elements path',eleTitle:'عنصر 1%'},numberedlist:'ادخال/حذف تعداد رقمي',bulletedlist:'ادخال/حذف تعداد نقطي',indent:'زيادة المسافة البادئة',outdent:'إنقاص المسافة البادئة',justify:{left:'محاذاة إلى اليسار',center:'توسيط',right:'محاذاة إلى اليمين',block:'ضبط'},blockquote:'اقتباس',clipboard:{title:'لصق',cutError:'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+X).',copyError:'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع النسخ التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+C).',pasteMsg:'الصق داخل الصندوق بإستخدام زرائر (<STRONG>Ctrl/Cmd+V</STRONG>) في لوحة المفاتيح، ثم اضغط زر  <STRONG>موافق</STRONG>.',securityMsg:'نظراً لإعدادات الأمان الخاصة بمتصفحك، لن يتمكن هذا المحرر من الوصول لمحتوى حافظتك، لذلك يجب عليك لصق المحتوى مرة أخرى في هذه النافذة.',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:'يبدو أن النص المراد لصقه منسوخ من برنامج وورد. هل تود تنظيفه قبل الشروع في عملية اللصق؟',toolbar:'لصق من وورد',title:'لصق من وورد',error:'It was not possible to clean up the pasted data due to an internal error'},pasteText:{button:'لصق كنص بسيط',title:'لصق كنص بسيط'},templates:{button:'القوالب',title:'قوالب المحتوى',options:'Template Options',insertOption:'استبدال المحتوى',selectPromptMsg:'اختر القالب الذي تود وضعه في المحرر',emptyListMsg:'(لم يتم تعريف أي قالب)'},showBlocks:'مخطط تفصيلي',stylesCombo:{label:'أنماط',panelTitle:'Formatting Styles',panelTitle1:'أنماط الفقرة',panelTitle2:'أنماط مضمنة',panelTitle3:'أنماط الكائن'},format:{label:'تنسيق',panelTitle:'تنسيق الفقرة',tag_p:'عادي',tag_pre:'منسّق',tag_address:'عنوان',tag_h1:'العنوان 1',tag_h2:'العنوان  2',tag_h3:'العنوان  3',tag_h4:'العنوان  4',tag_h5:'العنوان  5',tag_h6:'العنوان  6',tag_div:'عادي (DIV)'},div:{title:'Create Div Container',toolbar:'Create Div Container',cssClassInputLabel:'Stylesheet Classes',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:' Language Code',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Advisory Title',langDirLabel:'Language Direction',langDirLTRLabel:'Left to Right (LTR)',langDirRTLLabel:'Right to Left (RTL)',edit:'Edit Div',remove:'Remove Div'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'خط',voiceLabel:'حجم الخط',panelTitle:'حجم الخط'},fontSize:{label:'حجم الخط',voiceLabel:'حجم الخط',panelTitle:'حجم الخط'},colorButton:{textColorTitle:'لون النص',bgColorTitle:'لون الخلفية',panelTitle:'Colors',auto:'تلقائي',more:'ألوان إضافية...'},colors:{'000':'أسود',800000:'كستنائي','8B4513':'بني فاتح','2F4F4F':'رمادي أردوازي غامق','008080':'أزرق مخضر','000080':'أزرق داكن','4B0082':'كحلي',696969:'رمادي داكن',B22222:'طوبي',A52A2A:'بني',DAA520:'ذهبي داكن','006400':'أخضر داكن','40E0D0':'فيروزي','0000CD':'أزرق متوسط',800080:'بنفسجي غامق',808080:'رمادي',F00:'أحمر',FF8C00:'برتقالي داكن',FFD700:'ذهبي','008000':'أخضر','0FF':'تركواز','00F':'أزرق',EE82EE:'بنفسجي',A9A9A9:'رمادي شاحب',FFA07A:'برتقالي وردي',FFA500:'برتقالي',FFFF00:'أصفر','00FF00':'ليموني',AFEEEE:'فيروزي شاحب',ADD8E6:'أزرق فاتح',DDA0DD:'بنفسجي فاتح',D3D3D3:'رمادي فاتح',FFF0F5:'وردي فاتح',FAEBD7:'أبيض عتيق',FFFFE0:'أصفر فاتح',F0FFF0:'أبيض مائل للأخضر',F0FFFF:'سماوي',F0F8FF:'لبني',E6E6FA:'أرجواني',FFF:'أبيض'},scayt:{title:'تدقيق إملائي أثناء الكتابة',opera_title:'Not supported by Opera',enable:'تفعيل SCAYT',disable:'تعطيل SCAYT',about:'عن SCAYT',toggle:'تثبيت SCAYT',options:'خيارات',langs:'لغات',moreSuggestions:'المزيد من المقترحات',ignore:'تجاهل',ignoreAll:'تجاهل الكل',addWord:'إضافة كلمة',emptyDic:'اسم القاموس يجب ألا يكون فارغاً.',optionsTab:'خيارات',allCaps:'Ignore All-Caps Words',ignoreDomainNames:'Ignore Domain Names',mixedCase:'Ignore Words with Mixed Case',mixedWithDigits:'Ignore Words with Numbers',languagesTab:'لغات',dictionariesTab:'قواميس',dic_field_name:'Dictionary name',dic_create:'Create',dic_restore:'Restore',dic_delete:'Delete',dic_rename:'Rename',dic_info:'Initially the User Dictionary is stored in a Cookie. However, Cookies are limited in size. When the User Dictionary grows to a point where it cannot be stored in a Cookie, then the dictionary may be stored on our server. To store your personal dictionary on our server you should specify a name for your dictionary. If you already have a stored dictionary, please type its name and click the Restore button.',aboutTab:'عن'},about:{title:'عن CKEditor',dlgTitle:'عن CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'للحصول على معلومات الترخيص ، يرجى زيارة موقعنا على شبكة الانترنت:',copy:'حقوق النشر &copy; $1. جميع الحقوق محفوظة.'},maximize:'تكبير',minimize:'تصغير',fakeobjects:{anchor:'إرساء',flash:'رسم متحرك بالفلاش',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:'كائن غير معروف'},resize:'اسحب لتغيير الحجم',colordialog:{title:'اختر لون',options:'Color Options',highlight:'إلقاء الضوء',selected:'مُختار',clear:'مسح'},toolbarCollapse:'Collapse Toolbar',toolbarExpand:'Expand Toolbar',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text direction from left to right',rtl:'Text direction from right to left'},docprops:{label:'خصائص الصفحة',title:'خصائص الصفحة',design:'Design',meta:'المعرّفات الرأسية',chooseColor:'اختر',other:'<أخرى>',docTitle:'عنوان الصفحة',charset:'ترميز الحروف',charsetOther:'ترميز آخر',charsetASCII:'ASCII',charsetCE:'أوروبا الوسطى',charsetCT:'الصينية التقليدية (Big5)',charsetCR:'السيريلية',charsetGR:'اليونانية',charsetJP:'اليابانية',charsetKR:'الكورية',charsetTR:'التركية',charsetUN:'Unicode (UTF-8)',charsetWE:'أوروبا الغربية',docType:'ترويسة نوع  الصفحة',docTypeOther:'ترويسة نوع  صفحة أخرى',xhtmlDec:'تضمين   إعلانات لغة XHTMLَ',bgColor:'لون الخلفية',bgImage:'رابط الصورة الخلفية',bgFixed:'جعلها علامة مائية',txtColor:'لون النص',margin:'هوامش الصفحة',marginTop:'علوي',marginLeft:'أيسر',marginRight:'أيمن',marginBottom:'سفلي',metaKeywords:'الكلمات الأساسية (مفصولة بفواصل)َ',metaDescription:'وصف الصفحة',metaAuthor:'الكاتب',metaCopyright:'المالك',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "rtl",
+
+ToolbarCollapse		: "ضم شريط الأدوات",
+ToolbarExpand		: "تمدد شريط الأدوات",
+
+// Toolbar Items and Context Menu
+Save				: "حفظ",
+NewPage				: "صفحة جديدة",
+Preview				: "معاينة الصفحة",
+Cut					: "قص",
+Copy				: "نسخ",
+Paste				: "لصق",
+PasteText			: "لصق كنص بسيط",
+PasteWord			: "لصق من وورد",
+Print				: "طباعة",
+SelectAll			: "تحديد الكل",
+RemoveFormat		: "إزالة التنسيقات",
+InsertLinkLbl		: "رابط",
+InsertLink			: "إدراج/تحرير رابط",
+RemoveLink			: "إزالة رابط",
+VisitLink			: "افتح الرابط",
+Anchor				: "إدراج/تحرير إشارة مرجعية",
+AnchorDelete		: "إزالة إشارة مرجعية",
+InsertImageLbl		: "صورة",
+InsertImage			: "إدراج/تحرير صورة",
+InsertFlashLbl		: "فلاش",
+InsertFlash			: "إدراج/تحرير فيلم فلاش",
+InsertTableLbl		: "جدول",
+InsertTable			: "إدراج/تحرير جدول",
+InsertLineLbl		: "خط فاصل",
+InsertLine			: "إدراج خط فاصل",
+InsertSpecialCharLbl: "رموز",
+InsertSpecialChar	: "إدراج  رموز..ِ",
+InsertSmileyLbl		: "ابتسامات",
+InsertSmiley		: "إدراج ابتسامات",
+About				: "حول FCKeditor",
+Bold				: "غامق",
+Italic				: "مائل",
+Underline			: "تسطير",
+StrikeThrough		: "يتوسطه خط",
+Subscript			: "منخفض",
+Superscript			: "مرتفع",
+LeftJustify			: "محاذاة إلى اليسار",
+CenterJustify		: "توسيط",
+RightJustify		: "محاذاة إلى اليمين",
+BlockJustify		: "ضبط",
+DecreaseIndent		: "إنقاص المسافة البادئة",
+IncreaseIndent		: "زيادة المسافة البادئة",
+Blockquote			: "اقتباس",
+CreateDiv			: "إنشاء حاوية Div",
+EditDiv				: "تعديل حاوية Div",
+DeleteDiv			: "إزالة حاوية Div",
+Undo				: "تراجع",
+Redo				: "إعادة",
+NumberedListLbl		: "تعداد رقمي",
+NumberedList		: "إدراج/إلغاء تعداد رقمي",
+BulletedListLbl		: "تعداد نقطي",
+BulletedList		: "إدراج/إلغاء تعداد نقطي",
+ShowTableBorders	: "معاينة حدود الجداول",
+ShowDetails			: "معاينة التفاصيل",
+Style				: "نمط",
+FontFormat			: "تنسيق",
+Font				: "خط",
+FontSize			: "حجم الخط",
+TextColor			: "لون النص",
+BGColor				: "لون الخلفية",
+Source				: "شفرة المصدر",
+Find				: "بحث",
+Replace				: "إستبدال",
+SpellCheck			: "تدقيق إملائي",
+UniversalKeyboard	: "لوحة المفاتيح العالمية",
+PageBreakLbl		: "فصل الصفحة",
+PageBreak			: "إدخال صفحة جديدة",
+
+Form			: "نموذج",
+Checkbox		: "خانة إختيار",
+RadioButton		: "زر خيار",
+TextField		: "مربع نص",
+Textarea		: "ناحية نص",
+HiddenField		: "إدراج حقل خفي",
+Button			: "زر ضغط",
+SelectionField	: "قائمة منسدلة",
+ImageButton		: "زر صورة",
+
+FitWindow		: "تكبير حجم المحرر",
+ShowBlocks		: "مخطط تفصيلي",
+
+// Context Menu
+EditLink			: "تحرير رابط",
+CellCM				: "خلية",
+RowCM				: "صف",
+ColumnCM			: "عمود",
+InsertRowAfter		: "إدراج صف بعد",
+InsertRowBefore		: "إدراج صف قبل",
+DeleteRows			: "حذف صفوف",
+InsertColumnAfter	: "إدراج عمود بعد",
+InsertColumnBefore	: "إدراج عمود قبل",
+DeleteColumns		: "حذف أعمدة",
+InsertCellAfter		: "إدراج خلية بعد",
+InsertCellBefore	: "إدراج خلية قبل",
+DeleteCells			: "حذف خلايا",
+MergeCells			: "دمج خلايا",
+MergeRight			: "دمج لليمين",
+MergeDown			: "دمج للأسفل",
+HorizontalSplitCell	: "تقسيم الخلية أفقياً",
+VerticalSplitCell	: "تقسيم الخلية عمودياً",
+TableDelete			: "حذف الجدول",
+CellProperties		: "خصائص الخلية",
+TableProperties		: "خصائص الجدول",
+ImageProperties		: "خصائص الصورة",
+FlashProperties		: "خصائص فيلم الفلاش",
+
+AnchorProp			: "خصائص الإشارة المرجعية",
+ButtonProp			: "خصائص زر الضغط",
+CheckboxProp		: "خصائص خانة الإختيار",
+HiddenFieldProp		: "خصائص الحقل الخفي",
+RadioButtonProp		: "خصائص زر الخيار",
+ImageButtonProp		: "خصائص زر الصورة",
+TextFieldProp		: "خصائص مربع النص",
+SelectionFieldProp	: "خصائص القائمة المنسدلة",
+TextareaProp		: "خصائص ناحية النص",
+FormProp			: "خصائص النموذج",
+
+FontFormats			: "عادي;منسّق;دوس;العنوان 1;العنوان  2;العنوان  3;العنوان  4;العنوان  5;العنوان  6",
+
+// Alerts and Messages
+ProcessingXHTML		: "إنتظر قليلاً ريثما تتم   معالَجة‏ XHTML. لن يستغرق طويلاً...",
+Done				: "تم",
+PasteWordConfirm	: "يبدو أن النص المراد لصقه منسوخ من برنامج وورد. هل تود تنظيفه قبل الشروع في عملية اللصق؟",
+NotCompatiblePaste	: "هذه الميزة تحتاج لمتصفح من النوعInternet Explorer إصدار 5.5 فما فوق. هل تود اللصق دون تنظيف الكود؟",
+UnknownToolbarItem	: "عنصر شريط أدوات غير معروف \"%1\"",
+UnknownCommand		: "أمر غير معروف \"%1\"",
+NotImplemented		: "لم يتم دعم هذا الأمر",
+UnknownToolbarSet	: "لم أتمكن من العثور على طقم الأدوات \"%1\" ",
+NoActiveX			: "لتأمين متصفحك يجب أن تحدد بعض مميزات المحرر. يتوجب عليك تمكين الخيار \"Run ActiveX controls and plug-ins\". قد تواجة أخطاء وتلاحظ مميزات مفقودة",
+BrowseServerBlocked : "لايمكن فتح مصدر المتصفح. فضلا يجب التأكد بأن جميع موانع النوافذ المنبثقة معطلة",
+DialogBlocked		: "لايمكن فتح نافذة الحوار . فضلا تأكد من أن  مانع النوافذ المنبثة معطل .",
+VisitLinkBlocked	: "لا يمكن فتح نافذة جديدة. تأكد من إيقاف كل مانعي فتح النوافذ من العمل.",
+
+// Dialogs
+DlgBtnOK			: "موافق",
+DlgBtnCancel		: "إلغاء الأمر",
+DlgBtnClose			: "إغلاق",
+DlgBtnBrowseServer	: "تصفح الخادم",
+DlgAdvancedTag		: "متقدم",
+DlgOpOther			: "<أخرى>",
+DlgInfoTab			: "معلومات",
+DlgAlertUrl			: "الرجاء كتابة عنوان الإنترنت",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<بدون تحديد>",
+DlgGenId			: "الرقم",
+DlgGenLangDir		: "إتجاه النص",
+DlgGenLangDirLtr	: "اليسار لليمين (LTR)",
+DlgGenLangDirRtl	: "اليمين لليسار (RTL)",
+DlgGenLangCode		: "رمز اللغة",
+DlgGenAccessKey		: "مفاتيح الإختصار",
+DlgGenName			: "الاسم",
+DlgGenTabIndex		: "الترتيب",
+DlgGenLongDescr		: "عنوان الوصف المفصّل",
+DlgGenClass			: "فئات التنسيق",
+DlgGenTitle			: "تلميح الشاشة",
+DlgGenContType		: "نوع التلميح",
+DlgGenLinkCharset	: "ترميز المادة المطلوبة",
+DlgGenStyle			: "نمط",
+
+// Image Dialog
+DlgImgTitle			: "خصائص الصورة",
+DlgImgInfoTab		: "معلومات الصورة",
+DlgImgBtnUpload		: "أرسلها للخادم",
+DlgImgURL			: "موقع الصورة",
+DlgImgUpload		: "رفع",
+DlgImgAlt			: "الوصف",
+DlgImgWidth			: "العرض",
+DlgImgHeight		: "الإرتفاع",
+DlgImgLockRatio		: "تناسق الحجم",
+DlgBtnResetSize		: "إستعادة الحجم الأصلي",
+DlgImgBorder		: "سمك الحدود",
+DlgImgHSpace		: "تباعد أفقي",
+DlgImgVSpace		: "تباعد عمودي",
+DlgImgAlign			: "محاذاة",
+DlgImgAlignLeft		: "يسار",
+DlgImgAlignAbsBottom: "أسفل النص",
+DlgImgAlignAbsMiddle: "وسط السطر",
+DlgImgAlignBaseline	: "على السطر",
+DlgImgAlignBottom	: "أسفل",
+DlgImgAlignMiddle	: "وسط",
+DlgImgAlignRight	: "يمين",
+DlgImgAlignTextTop	: "أعلى النص",
+DlgImgAlignTop		: "أعلى",
+DlgImgPreview		: "معاينة",
+DlgImgAlertUrl		: "فضلاً أكتب الموقع الذي توجد عليه هذه الصورة.",
+DlgImgLinkTab		: "الرابط",
+
+// Flash Dialog
+DlgFlashTitle		: "خصائص فيلم الفلاش",
+DlgFlashChkPlay		: "تشغيل تلقائي",
+DlgFlashChkLoop		: "تكرار",
+DlgFlashChkMenu		: "تمكين قائمة فيلم الفلاش",
+DlgFlashScale		: "الحجم",
+DlgFlashScaleAll	: "إظهار الكل",
+DlgFlashScaleNoBorder	: "بلا حدود",
+DlgFlashScaleFit	: "ضبط تام",
+
+// Link Dialog
+DlgLnkWindowTitle	: "إرتباط تشعبي",
+DlgLnkInfoTab		: "معلومات الرابط",
+DlgLnkTargetTab		: "الهدف",
+
+DlgLnkType			: "نوع الربط",
+DlgLnkTypeURL		: "العنوان",
+DlgLnkTypeAnchor	: "مكان في هذا المستند",
+DlgLnkTypeEMail		: "بريد إلكتروني",
+DlgLnkProto			: "البروتوكول",
+DlgLnkProtoOther	: "<أخرى>",
+DlgLnkURL			: "الموقع",
+DlgLnkAnchorSel		: "اختر علامة مرجعية",
+DlgLnkAnchorByName	: "حسب اسم العلامة",
+DlgLnkAnchorById	: "حسب تعريف العنصر",
+DlgLnkNoAnchors		: "(لا يوجد علامات مرجعية في هذا المستند)",
+DlgLnkEMail			: "عنوان بريد إلكتروني",
+DlgLnkEMailSubject	: "موضوع الرسالة",
+DlgLnkEMailBody		: "محتوى الرسالة",
+DlgLnkUpload		: "رفع",
+DlgLnkBtnUpload		: "أرسلها للخادم",
+
+DlgLnkTarget		: "الهدف",
+DlgLnkTargetFrame	: "<إطار>",
+DlgLnkTargetPopup	: "<نافذة منبثقة>",
+DlgLnkTargetBlank	: "إطار جديد (_blank)",
+DlgLnkTargetParent	: "الإطار الأصل (_parent)",
+DlgLnkTargetSelf	: "نفس الإطار (_self)",
+DlgLnkTargetTop		: "صفحة كاملة (_top)",
+DlgLnkTargetFrameName	: "اسم الإطار الهدف",
+DlgLnkPopWinName	: "تسمية النافذة المنبثقة",
+DlgLnkPopWinFeat	: "خصائص النافذة المنبثقة",
+DlgLnkPopResize		: "قابلة للتحجيم",
+DlgLnkPopLocation	: "شريط العنوان",
+DlgLnkPopMenu		: "القوائم الرئيسية",
+DlgLnkPopScroll		: "أشرطة التمرير",
+DlgLnkPopStatus		: "شريط الحالة السفلي",
+DlgLnkPopToolbar	: "شريط الأدوات",
+DlgLnkPopFullScrn	: "ملئ الشاشة (IE)",
+DlgLnkPopDependent	: "تابع (Netscape)",
+DlgLnkPopWidth		: "العرض",
+DlgLnkPopHeight		: "الإرتفاع",
+DlgLnkPopLeft		: "التمركز لليسار",
+DlgLnkPopTop		: "التمركز للأعلى",
+
+DlnLnkMsgNoUrl		: "فضلاً أدخل عنوان الموقع الذي يشير إليه الرابط",
+DlnLnkMsgNoEMail	: "فضلاً أدخل عنوان البريد الإلكتروني",
+DlnLnkMsgNoAnchor	: "فضلاً حدد العلامة المرجعية المرغوبة",
+DlnLnkMsgInvPopName	: "اسم النافذة المنبثقة يجب أن يبدأ بحرف أبجدي دون مسافات",
+
+// Color Dialog
+DlgColorTitle		: "اختر لوناً",
+DlgColorBtnClear	: "مسح",
+DlgColorHighlight	: "تحديد",
+DlgColorSelected	: "إختيار",
+
+// Smiley Dialog
+DlgSmileyTitle		: "إدراج إبتسامات ",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "إدراج رمز",
+
+// Table Dialog
+DlgTableTitle		: "إدراج جدول",
+DlgTableRows		: "صفوف",
+DlgTableColumns		: "أعمدة",
+DlgTableBorder		: "سمك الحدود",
+DlgTableAlign		: "المحاذاة",
+DlgTableAlignNotSet	: "<بدون تحديد>",
+DlgTableAlignLeft	: "يسار",
+DlgTableAlignCenter	: "وسط",
+DlgTableAlignRight	: "يمين",
+DlgTableWidth		: "العرض",
+DlgTableWidthPx		: "بكسل",
+DlgTableWidthPc		: "بالمئة",
+DlgTableHeight		: "الإرتفاع",
+DlgTableCellSpace	: "تباعد الخلايا",
+DlgTableCellPad		: "المسافة البادئة",
+DlgTableCaption		: "الوصف",
+DlgTableSummary		: "الخلاصة",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "خصائص الخلية",
+DlgCellWidth		: "العرض",
+DlgCellWidthPx		: "بكسل",
+DlgCellWidthPc		: "بالمئة",
+DlgCellHeight		: "الإرتفاع",
+DlgCellWordWrap		: "التفاف النص",
+DlgCellWordWrapNotSet	: "<بدون تحديد>",
+DlgCellWordWrapYes	: "نعم",
+DlgCellWordWrapNo	: "لا",
+DlgCellHorAlign		: "المحاذاة الأفقية",
+DlgCellHorAlignNotSet	: "<بدون تحديد>",
+DlgCellHorAlignLeft	: "يسار",
+DlgCellHorAlignCenter	: "وسط",
+DlgCellHorAlignRight: "يمين",
+DlgCellVerAlign		: "المحاذاة العمودية",
+DlgCellVerAlignNotSet	: "<بدون تحديد>",
+DlgCellVerAlignTop	: "أعلى",
+DlgCellVerAlignMiddle	: "وسط",
+DlgCellVerAlignBottom	: "أسفل",
+DlgCellVerAlignBaseline	: "على السطر",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "إمتداد الصفوف",
+DlgCellCollSpan		: "إمتداد الأعمدة",
+DlgCellBackColor	: "لون الخلفية",
+DlgCellBorderColor	: "لون الحدود",
+DlgCellBtnSelect	: "حدّد...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "بحث واستبدال",
+
+// Find Dialog
+DlgFindTitle		: "بحث",
+DlgFindFindBtn		: "ابحث",
+DlgFindNotFoundMsg	: "لم يتم العثور على النص المحدد.",
+
+// Replace Dialog
+DlgReplaceTitle			: "إستبدال",
+DlgReplaceFindLbl		: "البحث عن:",
+DlgReplaceReplaceLbl	: "إستبدال بـ:",
+DlgReplaceCaseChk		: "مطابقة حالة الأحرف",
+DlgReplaceReplaceBtn	: "إستبدال",
+DlgReplaceReplAllBtn	: "إستبدال الكل",
+DlgReplaceWordChk		: "الكلمة بالكامل فقط",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl+X).",
+PasteErrorCopy	: "الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع النسخ التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl+C).",
+
+PasteAsText		: "لصق كنص بسيط",
+PasteFromWord	: "لصق من وورد",
+
+DlgPasteMsg2	: "الصق داخل الصندوق بإستخدام زرّي (<STRONG>Ctrl+V</STRONG>) في لوحة المفاتيح، ثم اضغط زر  <STRONG>موافق</STRONG>.",
+DlgPasteSec		: "نظراً لإعدادات الأمان الخاصة بمتصفحك، لن يتمكن هذا المحرر من الوصول لمحتوى حافظتك، لذا وجب عليك لصق المحتوى مرة أخرى في هذه النافذة.",
+DlgPasteIgnoreFont		: "تجاهل تعريفات أسماء الخطوط",
+DlgPasteRemoveStyles	: "إزالة تعريفات الأنماط",
+
+// Color Picker
+ColorAutomatic	: "تلقائي",
+ColorMoreColors	: "ألوان إضافية...",
+
+// Document Properties
+DocProps		: "خصائص الصفحة",
+
+// Anchor Dialog
+DlgAnchorTitle		: "خصائص إشارة مرجعية",
+DlgAnchorName		: "اسم الإشارة المرجعية",
+DlgAnchorErrorName	: "الرجاء كتابة اسم الإشارة المرجعية",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "ليست في القاموس",
+DlgSpellChangeTo		: "التغيير إلى",
+DlgSpellBtnIgnore		: "تجاهل",
+DlgSpellBtnIgnoreAll	: "تجاهل الكل",
+DlgSpellBtnReplace		: "تغيير",
+DlgSpellBtnReplaceAll	: "تغيير الكل",
+DlgSpellBtnUndo			: "تراجع",
+DlgSpellNoSuggestions	: "- لا توجد إقتراحات -",
+DlgSpellProgress		: "جاري التدقيق إملائياً",
+DlgSpellNoMispell		: "تم إكمال التدقيق الإملائي: لم يتم العثور على أي أخطاء إملائية",
+DlgSpellNoChanges		: "تم إكمال التدقيق الإملائي: لم يتم تغيير أي كلمة",
+DlgSpellOneChange		: "تم إكمال التدقيق الإملائي: تم تغيير كلمة واحدة فقط",
+DlgSpellManyChanges		: "تم إكمال التدقيق الإملائي: تم تغيير %1 كلمات\كلمة",
+
+IeSpellDownload			: "المدقق الإملائي (الإنجليزي) غير مثبّت. هل تود تحميله الآن؟",
+
+// Button Dialog
+DlgButtonText		: "القيمة/التسمية",
+DlgButtonType		: "نوع الزر",
+DlgButtonTypeBtn	: "زر",
+DlgButtonTypeSbm	: "إرسال",
+DlgButtonTypeRst	: "إعادة تعيين",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "الاسم",
+DlgCheckboxValue	: "القيمة",
+DlgCheckboxSelected	: "محدد",
+
+// Form Dialog
+DlgFormName		: "الاسم",
+DlgFormAction	: "اسم الملف",
+DlgFormMethod	: "الأسلوب",
+
+// Select Field Dialog
+DlgSelectName		: "الاسم",
+DlgSelectValue		: "القيمة",
+DlgSelectSize		: "الحجم",
+DlgSelectLines		: "الأسطر",
+DlgSelectChkMulti	: "السماح بتحديدات متعددة",
+DlgSelectOpAvail	: "الخيارات المتاحة",
+DlgSelectOpText		: "النص",
+DlgSelectOpValue	: "القيمة",
+DlgSelectBtnAdd		: "إضافة",
+DlgSelectBtnModify	: "تعديل",
+DlgSelectBtnUp		: "تحريك لأعلى",
+DlgSelectBtnDown	: "تحريك لأسفل",
+DlgSelectBtnSetValue : "إجعلها محددة",
+DlgSelectBtnDelete	: "إزالة",
+
+// Textarea Dialog
+DlgTextareaName	: "الاسم",
+DlgTextareaCols	: "الأعمدة",
+DlgTextareaRows	: "الصفوف",
+
+// Text Field Dialog
+DlgTextName			: "الاسم",
+DlgTextValue		: "القيمة",
+DlgTextCharWidth	: "العرض بالأحرف",
+DlgTextMaxChars		: "عدد الحروف الأقصى",
+DlgTextType			: "نوع المحتوى",
+DlgTextTypeText		: "نص",
+DlgTextTypePass		: "كلمة مرور",
+
+// Hidden Field Dialog
+DlgHiddenName	: "الاسم",
+DlgHiddenValue	: "القيمة",
+
+// Bulleted List Dialog
+BulletedListProp	: "خصائص التعداد النقطي",
+NumberedListProp	: "خصائص التعداد الرقمي",
+DlgLstStart			: "البدء عند",
+DlgLstType			: "النوع",
+DlgLstTypeCircle	: "دائرة",
+DlgLstTypeDisc		: "قرص",
+DlgLstTypeSquare	: "مربع",
+DlgLstTypeNumbers	: "أرقام (1، 2، 3)َ",
+DlgLstTypeLCase		: "حروف صغيرة (a, b, c)َ",
+DlgLstTypeUCase		: "حروف كبيرة (A, B, C)َ",
+DlgLstTypeSRoman	: "ترقيم روماني صغير (i, ii, iii)َ",
+DlgLstTypeLRoman	: "ترقيم روماني كبير (I, II, III)َ",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "عام",
+DlgDocBackTab		: "الخلفية",
+DlgDocColorsTab		: "الألوان والهوامش",
+DlgDocMetaTab		: "المعرّفات الرأسية",
+
+DlgDocPageTitle		: "عنوان الصفحة",
+DlgDocLangDir		: "إتجاه اللغة",
+DlgDocLangDirLTR	: "اليسار لليمين (LTR)",
+DlgDocLangDirRTL	: "اليمين لليسار (RTL)",
+DlgDocLangCode		: "رمز اللغة",
+DlgDocCharSet		: "ترميز الحروف",
+DlgDocCharSetCE		: "أوروبا الوسطى",
+DlgDocCharSetCT		: "الصينية التقليدية (Big5)",
+DlgDocCharSetCR		: "السيريلية",
+DlgDocCharSetGR		: "اليونانية",
+DlgDocCharSetJP		: "اليابانية",
+DlgDocCharSetKR		: "الكورية",
+DlgDocCharSetTR		: "التركية",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "أوروبا الغربية",
+DlgDocCharSetOther	: "ترميز آخر",
+
+DlgDocDocType		: "ترويسة نوع  الصفحة",
+DlgDocDocTypeOther	: "ترويسة نوع  صفحة أخرى",
+DlgDocIncXHTML		: "تضمين   إعلانات‏ لغة XHTMLَ",
+DlgDocBgColor		: "لون الخلفية",
+DlgDocBgImage		: "رابط الصورة الخلفية",
+DlgDocBgNoScroll	: "جعلها علامة مائية",
+DlgDocCText			: "النص",
+DlgDocCLink			: "الروابط",
+DlgDocCVisited		: "المزارة",
+DlgDocCActive		: "النشطة",
+DlgDocMargins		: "هوامش الصفحة",
+DlgDocMaTop			: "علوي",
+DlgDocMaLeft		: "أيسر",
+DlgDocMaRight		: "أيمن",
+DlgDocMaBottom		: "سفلي",
+DlgDocMeIndex		: "الكلمات الأساسية (مفصولة بفواصل)َ",
+DlgDocMeDescr		: "وصف الصفحة",
+DlgDocMeAuthor		: "الكاتب",
+DlgDocMeCopy		: "المالك",
+DlgDocPreview		: "معاينة",
+
+// Templates Dialog
+Templates			: "القوالب",
+DlgTemplatesTitle	: "قوالب المحتوى",
+DlgTemplatesSelMsg	: "اختر القالب الذي تود وضعه في المحرر <br>(سيتم فقدان المحتوى الحالي):",
+DlgTemplatesLoading	: "جاري تحميل قائمة القوالب، الرجاء الإنتظار...",
+DlgTemplatesNoTpl	: "(لم يتم تعريف أي قالب)",
+DlgTemplatesReplace	: "استبدال المحتوى",
+
+// About Dialog
+DlgAboutAboutTab	: "نبذة",
+DlgAboutBrowserInfoTab	: "معلومات متصفحك",
+DlgAboutLicenseTab	: "الترخيص",
+DlgAboutVersion		: "الإصدار",
+DlgAboutInfo		: "لمزيد من المعلومات تفضل بزيارة",
+
+// Div Dialog
+DlgDivGeneralTab	: "عام",
+DlgDivAdvancedTab	: "متقدم",
+DlgDivStyle		: "المظهر",
+DlgDivInlineStyle	: "المظهر المضمن"
+};

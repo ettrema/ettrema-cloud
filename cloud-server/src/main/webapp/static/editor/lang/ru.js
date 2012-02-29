@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Russian language file.
+ */
 
-CKEDITOR.lang.ru={dir:'ltr',editorTitle:'Визуальный редактор текста, %1, нажмите ALT-0 для открытия справки.',toolbars:'Панели инструментов редактора',editor:'Визуальный редактор текста',source:'Источник',newPage:'Новая страница',save:'Сохранить',preview:'Предварительный просмотр',cut:'Вырезать',copy:'Копировать',paste:'Вставить',print:'Печать',underline:'Подчеркнутый',bold:'Полужирный',italic:'Курсив',selectAll:'Выделить все',removeFormat:'Убрать форматирование',strike:'Зачеркнутый',subscript:'Подстрочный индекс',superscript:'Надстрочный индекс',horizontalrule:'Вставить горизонтальную линию',pagebreak:'Вставить разрыв страницы для печати',pagebreakAlt:'Разрыв страницы',unlink:'Убрать ссылку',undo:'Отменить',redo:'Повторить',common:{browseServer:'Выбор на сервере',url:'Ссылка',protocol:'Протокол',upload:'Загрузка',uploadSubmit:'Загрузить на сервер',image:'Изображение',flash:'Flash',form:'Форма',checkbox:'Флаговая кнопка',radio:'Кнопка выбора',textField:'Текстовое поле',textarea:'Многострочное текстовое поле',hiddenField:'Скрытое поле',button:'Кнопка',select:'Список выбора',imageButton:'Изображение-кнопка',notSet:'<не указано>',id:'Идентификатор',name:'Имя',langDir:'Направление текста',langDirLtr:'Слева направо (LTR)',langDirRtl:'Справа налево (RTL)',langCode:'Код языка',longDescr:'Длинное описание ссылки',cssClass:'Класс CSS',advisoryTitle:'Заголовок',cssStyle:'Стиль',ok:'ОК',cancel:'Отмена',close:'Закрыть',preview:'Предпросмотр',generalTab:'Основное',advancedTab:'Дополнительно',validateNumberFailed:'Это значение не является числом.',confirmNewPage:'Несохранённые изменения будут потеряны! Вы действительно желаете перейти на другую страницу?',confirmCancel:'Некоторые параметры были изменены. Вы уверены, что желаете закрыть без сохранения?',options:'Параметры',target:'Цель',targetNew:'Новое окно (_blank)',targetTop:'Главное окно (_top)',targetSelf:'Текущее окно (_self)',targetParent:'Родительское окно (_parent)',langDirLTR:'Слева направо (LTR)',langDirRTL:'Справа налево (RTL)',styles:'Стиль',cssClasses:'Классы CSS',width:'Ширина',height:'Высота',align:'Выравнивание',alignLeft:'По левому краю',alignRight:'По правому краю',alignCenter:'По центру',alignTop:'По верху',alignMiddle:'По середине',alignBottom:'По низу',invalidHeight:'Высота задается числом.',invalidWidth:'Ширина задается числом.',invalidCssLength:'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',invalidHtmlLength:'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры HTML (px или %).',invalidInlineStyle:'Значение, указанное для стиля элемента, должно состоять из одной или нескольких пар данных в формате "параметр : значение", разделённых точкой с запятой.',cssLengthTooltip:'Введите значение в пикселях, либо число с корректной единицей меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',unavailable:'%1<span class="cke_accessibility">, недоступно</span>'},contextmenu:{options:'Параметры контекстного меню'},specialChar:{toolbar:'Вставить специальный символ',title:'Выберите специальный символ',options:'Выбор специального символа'},link:{toolbar:'Вставить/Редактировать ссылку',other:'<другой>',menu:'Редактировать ссылку',title:'Ссылка',info:'Информация о ссылке',target:'Цель',upload:'Загрузка',advanced:'Дополнительно',type:'Тип ссылки',toUrl:'Ссылка',toAnchor:'Ссылка на якорь в тексте',toEmail:'Email',targetFrame:'<фрейм>',targetPopup:'<всплывающее окно>',targetFrameName:'Имя целевого фрейма',targetPopupName:'Имя всплывающего окна',popupFeatures:'Параметры всплывающего окна',popupResizable:'Изменяемый размер',popupStatusBar:'Строка состояния',popupLocationBar:'Панель адреса',popupToolbar:'Панель инструментов',popupMenuBar:'Панель меню',popupFullScreen:'Полноэкранное (IE)',popupScrollBars:'Полосы прокрутки',popupDependent:'Зависимое (Netscape)',popupLeft:'Отступ слева',popupTop:'Отступ сверху',id:'Идентификатор',langDir:'Направление текста',langDirLTR:'Слева направо (LTR)',langDirRTL:'Справа налево (RTL)',acccessKey:'Клавиша доступа',name:'Имя',langCode:'Код языка',tabIndex:'Последовательность перехода',advisoryTitle:'Заголовок',advisoryContentType:'Тип содержимого',cssClasses:'Классы CSS',charset:'Кодировка ресурса',styles:'Стиль',rel:'Отношение',selectAnchor:'Выберите якорь',anchorName:'По имени',anchorId:'По идентификатору',emailAddress:'Email адрес',emailSubject:'Тема сообщения',emailBody:'Текст сообщения',noAnchors:'(В документе нет ни одного якоря)',noUrl:'Пожалуйста, введите ссылку',noEmail:'Пожалуйста, введите email адрес'},anchor:{toolbar:'Вставить / редактировать якорь',menu:'Изменить якорь',title:'Свойства якоря',name:'Имя якоря',errorName:'Пожалуйста, введите имя якоря',remove:'Удалить якорь'},list:{numberedTitle:'Свойства нумерованного списка',bulletedTitle:'Свойства маркированного списка',type:'Тип',start:'Начиная с',validateStartNumber:'Первый номер списка должен быть задан обычным целым числом.',circle:'Круг',disc:'Окружность',square:'Квадрат',none:'Нет',notset:'<не указано>',armenian:'Армянская нумерация',georgian:'Грузинская нумерация (ани, бани, гани, и т.д.)',lowerRoman:'Строчные римские (i, ii, iii, iv, v, и т.д.)',upperRoman:'Заглавные римские (I, II, III, IV, V, и т.д.)',lowerAlpha:'Строчные латинские (a, b, c, d, e, и т.д.)',upperAlpha:'Заглавные латинские (A, B, C, D, E, и т.д.)',lowerGreek:'Строчные греческие (альфа, бета, гамма, и т.д.)',decimal:'Десятичные (1, 2, 3, и т.д.)',decimalLeadingZero:'Десятичные с ведущим нулём (01, 02, 03, и т.д.)'},findAndReplace:{title:'Поиск и замена',find:'Найти',replace:'Заменить',findWhat:'Найти:',replaceWith:'Заменить на:',notFoundMsg:'Искомый текст не найден.',findOptions:'Опции поиска',matchCase:'Учитывать регистр',matchWord:'Только слово целиком',matchCyclic:'По всему тексту',replaceAll:'Заменить всё',replaceSuccessMsg:'Успешно заменено %1 раз(а).'},table:{toolbar:'Таблица',title:'Свойства таблицы',menu:'Свойства таблицы',deleteTable:'Удалить таблицу',rows:'Строки',columns:'Колонки',border:'Размер границ',widthPx:'пикселей',widthPc:'процентов',widthUnit:'единица измерения',cellSpace:'Внешний отступ ячеек',cellPad:'Внутренний отступ ячеек',caption:'Заголовок',summary:'Итоги',headers:'Заголовки',headersNone:'Без заголовков',headersColumn:'Левая колонка',headersRow:'Верхняя строка',headersBoth:'Сверху и слева',invalidRows:'Количество строк должно быть больше 0.',invalidCols:'Количество столбцов должно быть больше 0.',invalidBorder:'Размер границ должен быть числом.',invalidWidth:'Ширина таблицы должна быть числом.',invalidHeight:'Высота таблицы должна быть числом.',invalidCellSpacing:'Внешний отступ ячеек (cellspacing) должен быть числом.',invalidCellPadding:'Внутренний отступ ячеек (cellpadding) должен быть числом.',cell:{menu:'Ячейка',insertBefore:'Вставить ячейку слева',insertAfter:'Вставить ячейку справа',deleteCell:'Удалить ячейки',merge:'Объединить ячейки',mergeRight:'Объединить с правой',mergeDown:'Объединить с нижней',splitHorizontal:'Разделить ячейку по горизонтали',splitVertical:'Разделить ячейку по вертикали',title:'Свойства ячейки',cellType:'Тип ячейки',rowSpan:'Объединяет строк',colSpan:'Объединяет колонок',wordWrap:'Перенос по словам',hAlign:'Горизонтальное выравнивание',vAlign:'Вертикальное выравнивание',alignBaseline:'По базовой линии',bgColor:'Цвет фона',borderColor:'Цвет границ',data:'Данные',header:'Заголовок',yes:'Да',no:'Нет',invalidWidth:'Ширина ячейки должна быть числом.',invalidHeight:'Высота ячейки должна быть числом.',invalidRowSpan:'Количество объединяемых строк должно быть задано числом.',invalidColSpan:'Количество объединяемых колонок должно быть задано числом.',chooseColor:'Выберите'},row:{menu:'Строка',insertBefore:'Вставить строку сверху',insertAfter:'Вставить строку снизу',deleteRow:'Удалить строки'},column:{menu:'Колонка',insertBefore:'Вставить колонку слева',insertAfter:'Вставить колонку справа',deleteColumn:'Удалить колонки'}},button:{title:'Свойства кнопки',text:'Текст (Значение)',type:'Тип',typeBtn:'Кнопка',typeSbm:'Отправка',typeRst:'Сброс'},checkboxAndRadio:{checkboxTitle:'Свойства флаговой кнопки',radioTitle:'Свойства кнопки выбора',value:'Значение',selected:'Выбрано'},form:{title:'Свойства формы',menu:'Свойства формы',action:'Действие',method:'Метод',encoding:'Кодировка'},select:{title:'Свойства списка выбора',selectInfo:'Информация о списке выбора',opAvail:'Доступные варианты',value:'Значение',size:'Размер',lines:'строк(и)',chkMulti:'Разрешить выбор нескольких вариантов',opText:'Текст',opValue:'Значение',btnAdd:'Добавить',btnModify:'Изменить',btnUp:'Поднять',btnDown:'Опустить',btnSetValue:'Пометить как выбранное',btnDelete:'Удалить'},textarea:{title:'Свойства многострочного текстового поля',cols:'Колонок',rows:'Строк'},textfield:{title:'Свойства текстового поля',name:'Имя',value:'Значение',charWidth:'Ширина поля (в символах)',maxChars:'Макс. количество символов',type:'Тип содержимого',typeText:'Текст',typePass:'Пароль'},hidden:{title:'Свойства скрытого поля',name:'Имя',value:'Значение'},image:{title:'Свойства изображения',titleButton:'Свойства изображения-кнопки',menu:'Свойства изображения',infoTab:'Данные об изображении',btnUpload:'Загрузить на сервер',upload:'Загрузить',alt:'Альтернативный текст',lockRatio:'Сохранять пропорции',resetSize:'Вернуть обычные размеры',border:'Граница',hSpace:'Гориз. отступ',vSpace:'Вертик. отступ',alertUrl:'Пожалуйста, введите ссылку на изображение',linkTab:'Ссылка',button2Img:'Вы желаете преобразовать это изображение-кнопку в обычное изображение?',img2Button:'Вы желаете преобразовать это обычное изображение в изображение-кнопку?',urlMissing:'Не указана ссылка на изображение.',validateBorder:'Размер границ должен быть задан числом.',validateHSpace:'Горизонтальный отступ должен быть задан числом.',validateVSpace:'Вертикальный отступ должен быть задан числом.'},flash:{properties:'Свойства Flash',propertiesTab:'Свойства',title:'Свойства Flash',chkPlay:'Автоматическое воспроизведение',chkLoop:'Повторять',chkMenu:'Включить меню Flash',chkFull:'Разрешить полноэкранный режим',scale:'Масштабировать',scaleAll:'Пропорционально',scaleNoBorder:'Заходить за границы',scaleFit:'Заполнять',access:'Доступ к скриптам',accessAlways:'Всегда',accessSameDomain:'В том же домене',accessNever:'Никогда',alignAbsBottom:'По низу текста',alignAbsMiddle:'По середине текста',alignBaseline:'По базовой линии',alignTextTop:'По верху текста',quality:'Качество',qualityBest:'Лучшее',qualityHigh:'Высокое',qualityAutoHigh:'Запуск на высоком',qualityMedium:'Среднее',qualityAutoLow:'Запуск на низком',qualityLow:'Низкое',windowModeWindow:'Обычный',windowModeOpaque:'Непрозрачный',windowModeTransparent:'Прозрачный',windowMode:'Взаимодействие с окном',flashvars:'Переменные для Flash',bgcolor:'Цвет фона',hSpace:'Гориз. отступ',vSpace:'Вертик. отступ',validateSrc:'Вы должны ввести ссылку',validateHSpace:'Горизонтальный отступ задается числом.',validateVSpace:'Вертикальный отступ задается числом.'},spellCheck:{toolbar:'Проверить орфографию',title:'Проверка орфографии',notAvailable:'Извините, но в данный момент сервис недоступен.',errorLoading:'Произошла ошибка при подключении к серверу проверки орфографии: %s.',notInDic:'Отсутствует в словаре',changeTo:'Изменить на',btnIgnore:'Пропустить',btnIgnoreAll:'Пропустить всё',btnReplace:'Заменить',btnReplaceAll:'Заменить всё',btnUndo:'Отменить',noSuggestions:'- Варианты отсутствуют -',progress:'Орфография проверяется...',noMispell:'Проверка орфографии завершена. Ошибок не найдено',noChanges:'Проверка орфографии завершена. Не изменено ни одного слова',oneChange:'Проверка орфографии завершена. Изменено одно слово',manyChanges:'Проверка орфографии завершена. Изменено слов: %1',ieSpellDownload:'Модуль проверки орфографии не установлен. Хотите скачать его?'},smiley:{toolbar:'Смайлы',title:'Вставить смайл',options:'Выбор смайла'},elementsPath:{eleLabel:'Путь элементов',eleTitle:'Элемент %1'},numberedlist:'Вставить / удалить нумерованный список',bulletedlist:'Вставить / удалить маркированный список',indent:'Увеличить отступ',outdent:'Уменьшить отступ',justify:{left:'По левому краю',center:'По центру',right:'По правому краю',block:'По ширине'},blockquote:'Цитата',clipboard:{title:'Вставить',cutError:'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по вырезке текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+X).',copyError:'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по копированию текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+C).',pasteMsg:'Пожалуйста, вставьте текст в зону ниже, используя клавиатуру (<strong>Ctrl/Cmd+V</strong>) и нажмите кнопку "OK".',securityMsg:'Настройки безопасности вашего браузера не разрешают редактору напрямую обращаться к буферу обмена. Вы должны вставить текст снова в это окно.',pasteArea:'Зона для вставки'},pastefromword:{confirmCleanup:'Текст, который вы желаете вставить, по всей видимости, был скопирован из Word. Следует ли очистить его перед вставкой?',toolbar:'Вставить из Word',title:'Вставить из Word',error:'Невозможно очистить вставленные данные из-за внутренней ошибки'},pasteText:{button:'Вставить только текст',title:'Вставить только текст'},templates:{button:'Шаблоны',title:'Шаблоны содержимого',options:'Параметры шаблона',insertOption:'Заменить текущее содержимое',selectPromptMsg:'Пожалуйста, выберите, какой шаблон следует открыть в редакторе',emptyListMsg:'(не определено ни одного шаблона)'},showBlocks:'Отображать блоки',stylesCombo:{label:'Стили',panelTitle:'Стили форматирования',panelTitle1:'Стили блока',panelTitle2:'Стили элемента',panelTitle3:'Стили объекта'},format:{label:'Форматирование',panelTitle:'Форматирование',tag_p:'Обычное',tag_pre:'Моноширинное',tag_address:'Адрес',tag_h1:'Заголовок 1',tag_h2:'Заголовок 2',tag_h3:'Заголовок 3',tag_h4:'Заголовок 4',tag_h5:'Заголовок 5',tag_h6:'Заголовок 6',tag_div:'Обычное (div)'},div:{title:'Создать Div-контейнер',toolbar:'Создать Div-контейнер',cssClassInputLabel:'Классы CSS',styleSelectLabel:'Стиль',IdInputLabel:'Идентификатор',languageCodeInputLabel:'Код языка',inlineStyleInputLabel:'Стиль элемента',advisoryTitleInputLabel:'Заголовок',langDirLabel:'Направление текста',langDirLTRLabel:'Слева направо (LTR)',langDirRTLLabel:'Справа налево (RTL)',edit:'Редактировать контейнер',remove:'Удалить контейнер'},iframe:{title:'Свойства iFrame',toolbar:'iFrame',noUrl:'Пожалуйста, введите ссылку фрейма',scrolling:'Отображать полосы прокрутки',border:'Показать границы фрейма'},font:{label:'Шрифт',voiceLabel:'Шрифт',panelTitle:'Шрифт'},fontSize:{label:'Размер',voiceLabel:'Размер шрифта',panelTitle:'Размер шрифта'},colorButton:{textColorTitle:'Цвет текста',bgColorTitle:'Цвет фона',panelTitle:'Цвета',auto:'Автоматически',more:'Ещё цвета...'},colors:{'000':'Чёрный',800000:'Бордовый','8B4513':'Кожано-коричневый','2F4F4F':'Темный синевато-серый','008080':'Сине-зелёный','000080':'Тёмно-синий','4B0082':'Индиго',696969:'Тёмно-серый',B22222:'Кирпичный',A52A2A:'Коричневый',DAA520:'Золотисто-берёзовый','006400':'Темно-зелёный','40E0D0':'Бирюзовый','0000CD':'Умеренно синий',800080:'Пурпурный',808080:'Серый',F00:'Красный',FF8C00:'Темно-оранжевый',FFD700:'Золотистый','008000':'Зелёный','0FF':'Васильковый','00F':'Синий',EE82EE:'Фиолетовый',A9A9A9:'Тускло-серый',FFA07A:'Светло-лососевый',FFA500:'Оранжевый',FFFF00:'Жёлтый','00FF00':'Лайма',AFEEEE:'Бледно-синий',ADD8E6:'Свелто-голубой',DDA0DD:'Сливовый',D3D3D3:'Светло-серый',FFF0F5:'Розово-лавандовый',FAEBD7:'Античный белый',FFFFE0:'Светло-жёлтый',F0FFF0:'Медвяной росы',F0FFFF:'Лазурный',F0F8FF:'Бледно-голубой',E6E6FA:'Лавандовый',FFF:'Белый'},scayt:{title:'Проверка орфографии по мере ввода (SCAYT)',opera_title:'Не поддерживается Opera',enable:'Включить SCAYT',disable:'Отключить SCAYT',about:'О SCAYT',toggle:'Переключить SCAYT',options:'Настройки',langs:'Языки',moreSuggestions:'Ещё варианты',ignore:'Пропустить',ignoreAll:'Пропустить всё',addWord:'Добавить слово',emptyDic:'Вы должны указать название словаря.',optionsTab:'Параметры',allCaps:'Игнорировать слова из заглавных букв',ignoreDomainNames:'Игнорировать доменные имена',mixedCase:'Игнорировать слова из букв в разном регистре',mixedWithDigits:'Игнорировать слова, содержащие цифры',languagesTab:'Языки',dictionariesTab:'Словари',dic_field_name:'Название словаря',dic_create:'Создать',dic_restore:'Восстановить',dic_delete:'Удалить',dic_rename:'Переименовать',dic_info:'Изначально, пользовательский словарь хранится в cookie, которые ограничены в размере. Когда словарь пользователя вырастает до размеров, что его невозможно хранить в cookie, он переносится на хранение на наш сервер. Чтобы сохранить ваш словарь на нашем сервере, вам следует указать название вашего словаря. Если у вас уже был словарь, который вы сохраняли на нашем сервере, то укажите здесь его название и нажмите кнопку Восстановить.',aboutTab:'О SCAYT'},about:{title:'О CKEditor',dlgTitle:'О CKEditor',help:'$1 содержит подробную справку по использованию.',userGuide:'Руководство пользователя CKEditor',moreInfo:'Для получения информации о лицензии, пожалуйста, перейдите на наш сайт:',copy:'Copyright &copy; $1. Все права защищены.'},maximize:'Развернуть',minimize:'Свернуть',fakeobjects:{anchor:'Якорь',flash:'Flash анимация',iframe:'iFrame',hiddenfield:'Скрытое поле',unknown:'Неизвестный объект'},resize:'Перетащите для изменения размера',colordialog:{title:'Выберите цвет',options:'Настройки цвета',highlight:'Под курсором',selected:'Выбранный цвет',clear:'Очистить'},toolbarCollapse:'Свернуть панель инструментов',toolbarExpand:'Развернуть панель инструментов',toolbarGroups:{document:'Документ',clipboard:'Буфер обмена / Отмена действий',editing:'Корректировка',forms:'Формы',basicstyles:'Простые стили',paragraph:'Абзац',links:'Ссылки',insert:'Вставка',styles:'Стили',colors:'Цвета',tools:'Инструменты'},bidi:{ltr:'Направление текста слева направо',rtl:'Направление текста справа налево'},docprops:{label:'Свойства документа',title:'Свойства документа',design:'Дизайн',meta:'Метаданные',chooseColor:'Выберите',other:'Другой ...',docTitle:'Заголовок страницы',charset:'Кодировка набора символов',charsetOther:'Другая кодировка набора символов',charsetASCII:'ASCII',charsetCE:'Центрально-европейская',charsetCT:'Китайская традиционная (Big5)',charsetCR:'Кириллица',charsetGR:'Греческая',charsetJP:'Японская',charsetKR:'Корейская',charsetTR:'Турецкая',charsetUN:'Юникод (UTF-8)',charsetWE:'Западно-европейская',docType:'Заголовок типа документа',docTypeOther:'Другой заголовок типа документа',xhtmlDec:'Включить объявления XHTML',bgColor:'Цвет фона',bgImage:'Ссылка на фоновое изображение',bgFixed:'Фон прикреплён (не проматывается)',txtColor:'Цвет текста',margin:'Отступы страницы',marginTop:'Верхний',marginLeft:'Левый',marginRight:'Правый',marginBottom:'Нижний',metaKeywords:'Ключевые слова документа (через запятую)',metaDescription:'Описание документа',metaAuthor:'Автор',metaCopyright:'Авторские права',previewHtml:'<p>Это <strong>пример</strong> текста, написанного с помощью <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Свернуть панель инструментов",
+ToolbarExpand		: "Развернуть панель инструментов",
+
+// Toolbar Items and Context Menu
+Save				: "Сохранить",
+NewPage				: "Новая страница",
+Preview				: "Предварительный просмотр",
+Cut					: "Вырезать",
+Copy				: "Копировать",
+Paste				: "Вставить",
+PasteText			: "Вставить только текст",
+PasteWord			: "Вставить из Word",
+Print				: "Печать",
+SelectAll			: "Выделить все",
+RemoveFormat		: "Убрать форматирование",
+InsertLinkLbl		: "Ссылка",
+InsertLink			: "Вставить/Редактировать ссылку",
+RemoveLink			: "Убрать ссылку",
+VisitLink			: "Перейти по ссылке",
+Anchor				: "Вставить/Редактировать якорь",
+AnchorDelete		: "Убрать якорь",
+InsertImageLbl		: "Изображение",
+InsertImage			: "Вставить/Редактировать изображение",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Вставить/Редактировать Flash",
+InsertTableLbl		: "Таблица",
+InsertTable			: "Вставить/Редактировать таблицу",
+InsertLineLbl		: "Линия",
+InsertLine			: "Вставить горизонтальную линию",
+InsertSpecialCharLbl: "Специальный символ",
+InsertSpecialChar	: "Вставить специальный символ",
+InsertSmileyLbl		: "Смайлик",
+InsertSmiley		: "Вставить смайлик",
+About				: "О FCKeditor",
+Bold				: "Жирный",
+Italic				: "Курсив",
+Underline			: "Подчеркнутый",
+StrikeThrough		: "Зачеркнутый",
+Subscript			: "Подстрочный индекс",
+Superscript			: "Надстрочный индекс",
+LeftJustify			: "По левому краю",
+CenterJustify		: "По центру",
+RightJustify		: "По правому краю",
+BlockJustify		: "По ширине",
+DecreaseIndent		: "Уменьшить отступ",
+IncreaseIndent		: "Увеличить отступ",
+Blockquote			: "Цитата",
+CreateDiv			: "Создать Div контейнер",
+EditDiv				: "Редактировать Div контейнер",
+DeleteDiv			: "Удалить Div контейнер",
+Undo				: "Отменить",
+Redo				: "Повторить",
+NumberedListLbl		: "Нумерованный список",
+NumberedList		: "Вставить/Удалить нумерованный список",
+BulletedListLbl		: "Маркированный список",
+BulletedList		: "Вставить/Удалить маркированный список",
+ShowTableBorders	: "Показать бордюры таблицы",
+ShowDetails			: "Показать детали",
+Style				: "Стиль",
+FontFormat			: "Форматирование",
+Font				: "Шрифт",
+FontSize			: "Размер",
+TextColor			: "Цвет текста",
+BGColor				: "Цвет фона",
+Source				: "Источник",
+Find				: "Найти",
+Replace				: "Заменить",
+SpellCheck			: "Проверить орфографию",
+UniversalKeyboard	: "Универсальная клавиатура",
+PageBreakLbl		: "Разрыв страницы",
+PageBreak			: "Вставить разрыв страницы",
+
+Form			: "Форма",
+Checkbox		: "Флаговая кнопка",
+RadioButton		: "Кнопка выбора",
+TextField		: "Текстовое поле",
+Textarea		: "Текстовая область",
+HiddenField		: "Скрытое поле",
+Button			: "Кнопка",
+SelectionField	: "Список",
+ImageButton		: "Кнопка с изображением",
+
+FitWindow		: "Развернуть окно редактора",
+ShowBlocks		: "Показать блоки",
+
+// Context Menu
+EditLink			: "Вставить ссылку",
+CellCM				: "Ячейка",
+RowCM				: "Строка",
+ColumnCM			: "Колонка",
+InsertRowAfter		: "Вставить строку после",
+InsertRowBefore		: "Вставить строку до",
+DeleteRows			: "Удалить строки",
+InsertColumnAfter	: "Вставить колонку после",
+InsertColumnBefore	: "Вставить колонку до",
+DeleteColumns		: "Удалить колонки",
+InsertCellAfter		: "Вставить ячейку после",
+InsertCellBefore	: "Вставить ячейку до",
+DeleteCells			: "Удалить ячейки",
+MergeCells			: "Соединить ячейки",
+MergeRight			: "Соединить вправо",
+MergeDown			: "Соединить вниз",
+HorizontalSplitCell	: "Разбить ячейку горизонтально",
+VerticalSplitCell	: "Разбить ячейку вертикально",
+TableDelete			: "Удалить таблицу",
+CellProperties		: "Свойства ячейки",
+TableProperties		: "Свойства таблицы",
+ImageProperties		: "Свойства изображения",
+FlashProperties		: "Свойства Flash",
+
+AnchorProp			: "Свойства якоря",
+ButtonProp			: "Свойства кнопки",
+CheckboxProp		: "Свойства флаговой кнопки",
+HiddenFieldProp		: "Свойства скрытого поля",
+RadioButtonProp		: "Свойства кнопки выбора",
+ImageButtonProp		: "Свойства кнопки с изображением",
+TextFieldProp		: "Свойства текстового поля",
+SelectionFieldProp	: "Свойства списка",
+TextareaProp		: "Свойства текстовой области",
+FormProp			: "Свойства формы",
+
+FontFormats			: "Нормальный;Форматированный;Адрес;Заголовок 1;Заголовок 2;Заголовок 3;Заголовок 4;Заголовок 5;Заголовок 6;Нормальный (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Обработка XHTML. Пожалуйста, подождите...",
+Done				: "Сделано",
+PasteWordConfirm	: "Текст, который вы хотите вставить, похож на копируемый из Word. Вы хотите очистить его перед вставкой?",
+NotCompatiblePaste	: "Эта команда доступна для Internet Explorer версии 5.5 или выше. Вы хотите вставить без очистки?",
+UnknownToolbarItem	: "Не известный элемент панели инструментов \"%1\"",
+UnknownCommand		: "Не известное имя команды \"%1\"",
+NotImplemented		: "Команда не реализована",
+UnknownToolbarSet	: "Панель инструментов \"%1\" не существует",
+NoActiveX			: "Настройки безопасности вашего браузера могут ограничивать некоторые свойства редактора. Вы должны включить опцию \"Запускать элементы управления ActiveX и плугины\". Вы можете видеть ошибки и замечать отсутствие возможностей.",
+BrowseServerBlocked : "Ресурсы браузера не могут быть открыты. Проверьте что блокировки всплывающих окон выключены.",
+DialogBlocked		: "Невозможно открыть окно диалога. Проверьте что блокировки всплывающих окон выключены.",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "ОК",
+DlgBtnCancel		: "Отмена",
+DlgBtnClose			: "Закрыть",
+DlgBtnBrowseServer	: "Просмотреть на сервере",
+DlgAdvancedTag		: "Расширенный",
+DlgOpOther			: "<Другое>",
+DlgInfoTab			: "Информация",
+DlgAlertUrl			: "Пожалуйста, вставьте URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<не определено>",
+DlgGenId			: "Идентификатор",
+DlgGenLangDir		: "Направление языка",
+DlgGenLangDirLtr	: "Слева на право (LTR)",
+DlgGenLangDirRtl	: "Справа на лево (RTL)",
+DlgGenLangCode		: "Язык",
+DlgGenAccessKey		: "Горячая клавиша",
+DlgGenName			: "Имя",
+DlgGenTabIndex		: "Последовательность перехода",
+DlgGenLongDescr		: "Длинное описание URL",
+DlgGenClass			: "Класс CSS",
+DlgGenTitle			: "Заголовок",
+DlgGenContType		: "Тип содержимого",
+DlgGenLinkCharset	: "Кодировка",
+DlgGenStyle			: "Стиль CSS",
+
+// Image Dialog
+DlgImgTitle			: "Свойства изображения",
+DlgImgInfoTab		: "Информация о изображении",
+DlgImgBtnUpload		: "Послать на сервер",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Закачать",
+DlgImgAlt			: "Альтернативный текст",
+DlgImgWidth			: "Ширина",
+DlgImgHeight		: "Высота",
+DlgImgLockRatio		: "Сохранять пропорции",
+DlgBtnResetSize		: "Сбросить размер",
+DlgImgBorder		: "Бордюр",
+DlgImgHSpace		: "Горизонтальный отступ",
+DlgImgVSpace		: "Вертикальный отступ",
+DlgImgAlign			: "Выравнивание",
+DlgImgAlignLeft		: "По левому краю",
+DlgImgAlignAbsBottom: "Абс понизу",
+DlgImgAlignAbsMiddle: "Абс посередине",
+DlgImgAlignBaseline	: "По базовой линии",
+DlgImgAlignBottom	: "Понизу",
+DlgImgAlignMiddle	: "Посередине",
+DlgImgAlignRight	: "По правому краю",
+DlgImgAlignTextTop	: "Текст наверху",
+DlgImgAlignTop		: "По верху",
+DlgImgPreview		: "Предварительный просмотр",
+DlgImgAlertUrl		: "Пожалуйста, введите URL изображения",
+DlgImgLinkTab		: "Ссылка",
+
+// Flash Dialog
+DlgFlashTitle		: "Свойства Flash",
+DlgFlashChkPlay		: "Авто проигрывание",
+DlgFlashChkLoop		: "Повтор",
+DlgFlashChkMenu		: "Включить меню Flash",
+DlgFlashScale		: "Масштабировать",
+DlgFlashScaleAll	: "Показывать все",
+DlgFlashScaleNoBorder	: "Без бордюра",
+DlgFlashScaleFit	: "Точное совпадение",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Ссылка",
+DlgLnkInfoTab		: "Информация ссылки",
+DlgLnkTargetTab		: "Цель",
+
+DlgLnkType			: "Тип ссылки",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Якорь на эту страницу",
+DlgLnkTypeEMail		: "Эл. почта",
+DlgLnkProto			: "Протокол",
+DlgLnkProtoOther	: "<другое>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Выберите якорь",
+DlgLnkAnchorByName	: "По имени якоря",
+DlgLnkAnchorById	: "По идентификатору элемента",
+DlgLnkNoAnchors		: "(Нет якорей доступных в этом документе)",
+DlgLnkEMail			: "Адрес эл. почты",
+DlgLnkEMailSubject	: "Заголовок сообщения",
+DlgLnkEMailBody		: "Тело сообщения",
+DlgLnkUpload		: "Закачать",
+DlgLnkBtnUpload		: "Послать на сервер",
+
+DlgLnkTarget		: "Цель",
+DlgLnkTargetFrame	: "<фрейм>",
+DlgLnkTargetPopup	: "<всплывающее окно>",
+DlgLnkTargetBlank	: "Новое окно (_blank)",
+DlgLnkTargetParent	: "Родительское окно (_parent)",
+DlgLnkTargetSelf	: "Тоже окно (_self)",
+DlgLnkTargetTop		: "Самое верхнее окно (_top)",
+DlgLnkTargetFrameName	: "Имя целевого фрейма",
+DlgLnkPopWinName	: "Имя всплывающего окна",
+DlgLnkPopWinFeat	: "Свойства всплывающего окна",
+DlgLnkPopResize		: "Изменяющееся в размерах",
+DlgLnkPopLocation	: "Панель локации",
+DlgLnkPopMenu		: "Панель меню",
+DlgLnkPopScroll		: "Полосы прокрутки",
+DlgLnkPopStatus		: "Строка состояния",
+DlgLnkPopToolbar	: "Панель инструментов",
+DlgLnkPopFullScrn	: "Полный экран (IE)",
+DlgLnkPopDependent	: "Зависимый (Netscape)",
+DlgLnkPopWidth		: "Ширина",
+DlgLnkPopHeight		: "Высота",
+DlgLnkPopLeft		: "Позиция слева",
+DlgLnkPopTop		: "Позиция сверху",
+
+DlnLnkMsgNoUrl		: "Пожалуйста, введите URL ссылки",
+DlnLnkMsgNoEMail	: "Пожалуйста, введите адрес эл. почты",
+DlnLnkMsgNoAnchor	: "Пожалуйста, выберете якорь",
+DlnLnkMsgInvPopName	: "Название вспывающего окна должно начинаться буквы и не может содержать пробелов",
+
+// Color Dialog
+DlgColorTitle		: "Выберите цвет",
+DlgColorBtnClear	: "Очистить",
+DlgColorHighlight	: "Подсвеченный",
+DlgColorSelected	: "Выбранный",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Вставить смайлик",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Выберите специальный символ",
+
+// Table Dialog
+DlgTableTitle		: "Свойства таблицы",
+DlgTableRows		: "Строки",
+DlgTableColumns		: "Колонки",
+DlgTableBorder		: "Размер бордюра",
+DlgTableAlign		: "Выравнивание",
+DlgTableAlignNotSet	: "<Не уст.>",
+DlgTableAlignLeft	: "Слева",
+DlgTableAlignCenter	: "По центру",
+DlgTableAlignRight	: "Справа",
+DlgTableWidth		: "Ширина",
+DlgTableWidthPx		: "пикселей",
+DlgTableWidthPc		: "процентов",
+DlgTableHeight		: "Высота",
+DlgTableCellSpace	: "Промежуток (spacing)",
+DlgTableCellPad		: "Отступ (padding)",
+DlgTableCaption		: "Заголовок",
+DlgTableSummary		: "Резюме",
+DlgTableHeaders		: "Заголовки",
+DlgTableHeadersNone		: "Нет",
+DlgTableHeadersColumn	: "Первый столбец",
+DlgTableHeadersRow		: "Первая строка",
+DlgTableHeadersBoth		: "Оба варианта",
+
+// Table Cell Dialog
+DlgCellTitle		: "Свойства ячейки",
+DlgCellWidth		: "Ширина",
+DlgCellWidthPx		: "пикселей",
+DlgCellWidthPc		: "процентов",
+DlgCellHeight		: "Высота",
+DlgCellWordWrap		: "Заворачивание текста",
+DlgCellWordWrapNotSet	: "<Не уст.>",
+DlgCellWordWrapYes	: "Да",
+DlgCellWordWrapNo	: "Нет",
+DlgCellHorAlign		: "Гор. выравнивание",
+DlgCellHorAlignNotSet	: "<Не уст.>",
+DlgCellHorAlignLeft	: "Слева",
+DlgCellHorAlignCenter	: "По центру",
+DlgCellHorAlignRight: "Справа",
+DlgCellVerAlign		: "Верт. выравнивание",
+DlgCellVerAlignNotSet	: "<Не уст.>",
+DlgCellVerAlignTop	: "Сверху",
+DlgCellVerAlignMiddle	: "Посередине",
+DlgCellVerAlignBottom	: "Снизу",
+DlgCellVerAlignBaseline	: "По базовой линии",
+DlgCellType		: "Тип ячейки",
+DlgCellTypeData		: "Данные",
+DlgCellTypeHeader	: "Заголовок",
+DlgCellRowSpan		: "Диапазон строк (span)",
+DlgCellCollSpan		: "Диапазон колонок (span)",
+DlgCellBackColor	: "Цвет фона",
+DlgCellBorderColor	: "Цвет бордюра",
+DlgCellBtnSelect	: "Выберите...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Найти и заменить",
+
+// Find Dialog
+DlgFindTitle		: "Найти",
+DlgFindFindBtn		: "Найти",
+DlgFindNotFoundMsg	: "Указанный текст не найден.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Заменить",
+DlgReplaceFindLbl		: "Найти:",
+DlgReplaceReplaceLbl	: "Заменить на:",
+DlgReplaceCaseChk		: "Учитывать регистр",
+DlgReplaceReplaceBtn	: "Заменить",
+DlgReplaceReplAllBtn	: "Заменить все",
+DlgReplaceWordChk		: "Совпадение целых слов",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Настройки безопасности вашего браузера не позволяют редактору автоматически выполнять операции вырезания. Пожалуйста, используйте клавиатуру для этого (Ctrl+X).",
+PasteErrorCopy	: "Настройки безопасности вашего браузера не позволяют редактору автоматически выполнять операции копирования. Пожалуйста, используйте клавиатуру для этого (Ctrl+C).",
+
+PasteAsText		: "Вставить только текст",
+PasteFromWord	: "Вставить из Word",
+
+DlgPasteMsg2	: "Пожалуйста, вставьте текст в прямоугольник, используя сочетание клавиш (<STRONG>Ctrl+V</STRONG>), и нажмите <STRONG>OK</STRONG>.",
+DlgPasteSec		: "По причине настроек безопасности браузера, редактор не имеет доступа к данным буфера обмена напрямую. Вам необходимо вставить текст снова в это окно.",
+DlgPasteIgnoreFont		: "Игнорировать определения гарнитуры",
+DlgPasteRemoveStyles	: "Убрать определения стилей",
+
+// Color Picker
+ColorAutomatic	: "Автоматический",
+ColorMoreColors	: "Цвета...",
+
+// Document Properties
+DocProps		: "Свойства документа",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Свойства якоря",
+DlgAnchorName		: "Имя якоря",
+DlgAnchorErrorName	: "Пожалуйста, введите имя якоря",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Нет в словаре",
+DlgSpellChangeTo		: "Заменить на",
+DlgSpellBtnIgnore		: "Игнорировать",
+DlgSpellBtnIgnoreAll	: "Игнорировать все",
+DlgSpellBtnReplace		: "Заменить",
+DlgSpellBtnReplaceAll	: "Заменить все",
+DlgSpellBtnUndo			: "Отменить",
+DlgSpellNoSuggestions	: "- Нет предположений -",
+DlgSpellProgress		: "Идет проверка орфографии...",
+DlgSpellNoMispell		: "Проверка орфографии закончена: ошибок не найдено",
+DlgSpellNoChanges		: "Проверка орфографии закончена: ни одного слова не изменено",
+DlgSpellOneChange		: "Проверка орфографии закончена: одно слово изменено",
+DlgSpellManyChanges		: "Проверка орфографии закончена: 1% слов изменен",
+
+IeSpellDownload			: "Модуль проверки орфографии не установлен. Хотите скачать его сейчас?",
+
+// Button Dialog
+DlgButtonText		: "Текст (Значение)",
+DlgButtonType		: "Тип",
+DlgButtonTypeBtn	: "Кнопка",
+DlgButtonTypeSbm	: "Отправить",
+DlgButtonTypeRst	: "Сбросить",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Имя",
+DlgCheckboxValue	: "Значение",
+DlgCheckboxSelected	: "Выбранная",
+
+// Form Dialog
+DlgFormName		: "Имя",
+DlgFormAction	: "Действие",
+DlgFormMethod	: "Метод",
+
+// Select Field Dialog
+DlgSelectName		: "Имя",
+DlgSelectValue		: "Значение",
+DlgSelectSize		: "Размер",
+DlgSelectLines		: "линии",
+DlgSelectChkMulti	: "Разрешить множественный выбор",
+DlgSelectOpAvail	: "Доступные варианты",
+DlgSelectOpText		: "Текст",
+DlgSelectOpValue	: "Значение",
+DlgSelectBtnAdd		: "Добавить",
+DlgSelectBtnModify	: "Модифицировать",
+DlgSelectBtnUp		: "Вверх",
+DlgSelectBtnDown	: "Вниз",
+DlgSelectBtnSetValue : "Установить как выбранное значение",
+DlgSelectBtnDelete	: "Удалить",
+
+// Textarea Dialog
+DlgTextareaName	: "Имя",
+DlgTextareaCols	: "Колонки",
+DlgTextareaRows	: "Строки",
+
+// Text Field Dialog
+DlgTextName			: "Имя",
+DlgTextValue		: "Значение",
+DlgTextCharWidth	: "Ширина",
+DlgTextMaxChars		: "Макс. кол-во символов",
+DlgTextType			: "Тип",
+DlgTextTypeText		: "Текст",
+DlgTextTypePass		: "Пароль",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Имя",
+DlgHiddenValue	: "Значение",
+
+// Bulleted List Dialog
+BulletedListProp	: "Свойства маркированного списка",
+NumberedListProp	: "Свойства нумерованного списка",
+DlgLstStart			: "Начало",
+DlgLstType			: "Тип",
+DlgLstTypeCircle	: "Круг",
+DlgLstTypeDisc		: "Диск",
+DlgLstTypeSquare	: "Квадрат",
+DlgLstTypeNumbers	: "Номера (1, 2, 3)",
+DlgLstTypeLCase		: "Буквы нижнего регистра (a, b, c)",
+DlgLstTypeUCase		: "Буквы верхнего регистра (A, B, C)",
+DlgLstTypeSRoman	: "Малые римские буквы (i, ii, iii)",
+DlgLstTypeLRoman	: "Большие римские буквы (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Общие",
+DlgDocBackTab		: "Задний фон",
+DlgDocColorsTab		: "Цвета и отступы",
+DlgDocMetaTab		: "Мета данные",
+
+DlgDocPageTitle		: "Заголовок страницы",
+DlgDocLangDir		: "Направление текста",
+DlgDocLangDirLTR	: "Слева направо (LTR)",
+DlgDocLangDirRTL	: "Справа налево (RTL)",
+DlgDocLangCode		: "Код языка",
+DlgDocCharSet		: "Кодировка набора символов",
+DlgDocCharSetCE		: "Центрально-европейская",
+DlgDocCharSetCT		: "Китайская традиционная (Big5)",
+DlgDocCharSetCR		: "Кириллица",
+DlgDocCharSetGR		: "Греческая",
+DlgDocCharSetJP		: "Японская",
+DlgDocCharSetKR		: "Корейская",
+DlgDocCharSetTR		: "Турецкая",
+DlgDocCharSetUN		: "Юникод (UTF-8)",
+DlgDocCharSetWE		: "Западно-европейская",
+DlgDocCharSetOther	: "Другая кодировка набора символов",
+
+DlgDocDocType		: "Заголовок типа документа",
+DlgDocDocTypeOther	: "Другой заголовок типа документа",
+DlgDocIncXHTML		: "Включить XHTML объявления",
+DlgDocBgColor		: "Цвет фона",
+DlgDocBgImage		: "URL изображения фона",
+DlgDocBgNoScroll	: "Нескроллируемый фон",
+DlgDocCText			: "Текст",
+DlgDocCLink			: "Ссылка",
+DlgDocCVisited		: "Посещенная ссылка",
+DlgDocCActive		: "Активная ссылка",
+DlgDocMargins		: "Отступы страницы",
+DlgDocMaTop			: "Верхний",
+DlgDocMaLeft		: "Левый",
+DlgDocMaRight		: "Правый",
+DlgDocMaBottom		: "Нижний",
+DlgDocMeIndex		: "Ключевые слова документа (разделенные запятой)",
+DlgDocMeDescr		: "Описание документа",
+DlgDocMeAuthor		: "Автор",
+DlgDocMeCopy		: "Авторские права",
+DlgDocPreview		: "Предварительный просмотр",
+
+// Templates Dialog
+Templates			: "Шаблоны",
+DlgTemplatesTitle	: "Шаблоны содержимого",
+DlgTemplatesSelMsg	: "Пожалуйста, выберете шаблон для открытия в редакторе<br>(текущее содержимое будет потеряно):",
+DlgTemplatesLoading	: "Загрузка списка шаблонов. Пожалуйста, подождите...",
+DlgTemplatesNoTpl	: "(Ни одного шаблона не определено)",
+DlgTemplatesReplace	: "Заменить текущее содержание",
+
+// About Dialog
+DlgAboutAboutTab	: "О программе",
+DlgAboutBrowserInfoTab	: "Информация браузера",
+DlgAboutLicenseTab	: "Лицензия",
+DlgAboutVersion		: "Версия",
+DlgAboutInfo		: "Для большей информации, посетите",
+
+// Div Dialog
+DlgDivGeneralTab	: "Информация",
+DlgDivAdvancedTab	: "Расширенные настройки",
+DlgDivStyle		: "Стиль",
+DlgDivInlineStyle	: "Встроенные стили"
+};

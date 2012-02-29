@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Hebrew language file.
+ */
 
-CKEDITOR.lang.he={dir:'rtl',editorTitle:'עורך טקסט עשיר, %1, לחץ אלט (ALT) + 0 לעזרה.',toolbars:'סרגלי כלים של העורך',editor:'עורך טקסט עשיר',source:'מקור',newPage:'דף חדש',save:'שמירה',preview:'תצוגה מקדימה',cut:'גזירה',copy:'העתקה',paste:'הדבקה',print:'הדפסה',underline:'קו תחתון',bold:'מודגש',italic:'נטוי',selectAll:'בחירת הכל',removeFormat:'הסרת העיצוב',strike:'כתיב מחוק',subscript:'כתיב תחתון',superscript:'כתיב עליון',horizontalrule:'הוספת קו אופקי',pagebreak:'הוספת שבירת דף',pagebreakAlt:'שבירת דף',unlink:'הסרת הקישור',undo:'ביטול צעד אחרון',redo:'חזרה על צעד אחרון',common:{browseServer:'סייר השרת',url:'כתובת (URL)',protocol:'פרוטוקול',upload:'העלאה',uploadSubmit:'שליחה לשרת',image:'תמונה',flash:'פלאש',form:'טופס',checkbox:'תיבת סימון',radio:'לחצן אפשרויות',textField:'שדה טקסט',textarea:'איזור טקסט',hiddenField:'שדה חבוי',button:'כפתור',select:'שדה בחירה',imageButton:'כפתור תמונה',notSet:'<לא נקבע>',id:'זיהוי (ID)',name:'שם',langDir:'כיוון שפה',langDirLtr:'שמאל לימין (LTR)',langDirRtl:'ימין לשמאל (RTL)',langCode:'קוד שפה',longDescr:'קישור לתיאור מפורט',cssClass:'מחלקת עיצוב (CSS Class)',advisoryTitle:'כותרת מוצעת',cssStyle:'סגנון',ok:'אישור',cancel:'ביטול',close:'סגירה',preview:'תצוגה מקדימה',generalTab:'כללי',advancedTab:'אפשרויות מתקדמות',validateNumberFailed:'הערך חייב להיות מספרי.',confirmNewPage:'כל השינויים שלא נשמרו יאבדו. האם להעלות דף חדש?',confirmCancel:'חלק מהאפשרויות שונו, האם לסגור את הדיאלוג?',options:'אפשרויות',target:'מטרה',targetNew:'חלון חדש (_blank)',targetTop:'החלון העליון ביותר (_top)',targetSelf:'אותו חלון (_self)',targetParent:'חלון האב (_parent)',langDirLTR:'שמאל לימין (LTR)',langDirRTL:'ימין לשמאל (RTL)',styles:'סגנון',cssClasses:'מחלקות גליונות סגנון',width:'רוחב',height:'גובה',align:'יישור',alignLeft:'לשמאל',alignRight:'לימין',alignCenter:'מרכז',alignTop:'למעלה',alignMiddle:'לאמצע',alignBottom:'לתחתית',invalidHeight:'הגובה חייב להיות מספר.',invalidWidth:'הרוחב חייב להיות מספר.',invalidCssLength:'הערך שצוין לשדה "%1" חייב להיות מספר חיובי עם או ללא יחידת מידה חוקית של CSS (px, %, in, cm, mm, em, ex, pt, או pc).',invalidHtmlLength:'הערך שצוין לשדה "%1" חייב להיות מספר חיובי עם או ללא יחידת מידה חוקית של HTML (px או %).',invalidInlineStyle:'הערך שצויין לשדה הסגנון חייב להכיל זוג ערכים אחד או יותר בפורמט "שם : ערך", מופרדים על ידי נקודה-פסיק.',cssLengthTooltip:'יש להכניס מספר המייצג פיקסלים או מספר עם יחידת גליונות סגנון תקינה (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, לא זמין</span>'},contextmenu:{options:'אפשרויות תפריט ההקשר'},specialChar:{toolbar:'הוספת תו מיוחד',title:'בחירת תו מיוחד',options:'אפשרויות תווים מיוחדים'},link:{toolbar:'הוספת/עריכת קישור',other:'<אחר>',menu:'מאפייני קישור',title:'קישור',info:'מידע על הקישור',target:'מטרה',upload:'העלאה',advanced:'אפשרויות מתקדמות',type:'סוג קישור',toUrl:'כתובת (URL)',toAnchor:'עוגן בעמוד זה',toEmail:'דוא"ל',targetFrame:'<מסגרת>',targetPopup:'<חלון קופץ>',targetFrameName:'שם מסגרת היעד',targetPopupName:'שם החלון הקופץ',popupFeatures:'תכונות החלון הקופץ',popupResizable:'שינוי גודל',popupStatusBar:'סרגל חיווי',popupLocationBar:'סרגל כתובת',popupToolbar:'סרגל הכלים',popupMenuBar:'סרגל תפריט',popupFullScreen:'מסך מלא (IE)',popupScrollBars:'ניתן לגלילה',popupDependent:'תלוי (Netscape)',popupLeft:'מיקום צד שמאל',popupTop:'מיקום צד עליון',id:'זיהוי (ID)',langDir:'כיוון שפה',langDirLTR:'שמאל לימין (LTR)',langDirRTL:'ימין לשמאל (RTL)',acccessKey:'מקש גישה',name:'שם',langCode:'קוד שפה',tabIndex:'מספר טאב',advisoryTitle:'כותרת מוצעת',advisoryContentType:'Content Type מוצע',cssClasses:'גיליונות עיצוב קבוצות',charset:'קידוד המשאב המקושר',styles:'סגנון',rel:'קשר גומלין',selectAnchor:'בחירת עוגן',anchorName:'עפ"י שם העוגן',anchorId:'עפ"י זיהוי (ID) האלמנט',emailAddress:'כתובת הדוא"ל',emailSubject:'נושא ההודעה',emailBody:'גוף ההודעה',noAnchors:'(אין עוגנים זמינים בדף)',noUrl:'יש להקליד את כתובת הקישור (URL)',noEmail:'יש להקליד את כתובת הדוא"ל'},anchor:{toolbar:'הוספת/עריכת נקודת עיגון',menu:'מאפייני נקודת עיגון',title:'מאפייני נקודת עיגון',name:'שם לנקודת עיגון',errorName:'יש להקליד שם לנקודת עיגון',remove:'מחיקת נקודת עיגון'},list:{numberedTitle:'תכונות רשימה ממוספרת',bulletedTitle:'תכונות רשימת תבליטים',type:'סוג',start:'תחילת מספור',validateStartNumber:'שדה תחילת המספור חייב להכיל מספר שלם.',circle:'עיגול ריק',disc:'עיגול מלא',square:'ריבוע',none:'ללא',notset:'<לא נקבע>',armenian:'ספרות ארמניות',georgian:"ספרות גיאורגיות (an, ban, gan וכו')",lowerRoman:"ספירה רומית באותיות קטנות (i, ii, iii, iv, v וכו')",upperRoman:"ספירה רומיות באותיות גדולות (I, II, III, IV, V וכו')",lowerAlpha:"אותיות אנגליות קטנות (a, b, c, d, e וכו')",upperAlpha:"אותיות אנגליות גדולות (A, B, C, D, E וכו')",lowerGreek:"אותיות יווניות קטנות (alpha, beta, gamma וכו')",decimal:"ספרות (1, 2, 3 וכו')",decimalLeadingZero:"ספרות עם 0 בהתחלה (01, 02, 03 וכו')"},findAndReplace:{title:'חיפוש והחלפה',find:'חיפוש',replace:'החלפה',findWhat:'חיפוש מחרוזת:',replaceWith:'החלפה במחרוזת:',notFoundMsg:'הטקסט המבוקש לא נמצא.',findOptions:'אפשרויות חיפוש',matchCase:'הבחנה בין אותיות רשיות לקטנות (Case)',matchWord:'התאמה למילה המלאה',matchCyclic:'התאמה מחזורית',replaceAll:'החלפה בכל העמוד',replaceSuccessMsg:'%1 טקסטים הוחלפו.'},table:{toolbar:'טבלה',title:'מאפייני טבלה',menu:'מאפייני טבלה',deleteTable:'מחק טבלה',rows:'שורות',columns:'עמודות',border:'גודל מסגרת',widthPx:'פיקסלים',widthPc:'אחוז',widthUnit:'יחידת רוחב',cellSpace:'מרווח תא',cellPad:'ריפוד תא',caption:'כיתוב',summary:'תקציר',headers:'כותרות',headersNone:'אין',headersColumn:'עמודה ראשונה',headersRow:'שורה ראשונה',headersBoth:'שניהם',invalidRows:'שדה מספר השורות חייב להיות מספר גדול מ 0.',invalidCols:'שדה מספר העמודות חייב להיות מספר גדול מ 0.',invalidBorder:'שדה גודל המסגרת חייב להיות מספר.',invalidWidth:'שדה רוחב הטבלה חייב להיות מספר.',invalidHeight:'שדה גובה הטבלה חייב להיות מספר.',invalidCellSpacing:'שדה ריווח התאים חייב להיות מספר חיובי.',invalidCellPadding:'שדה ריפוד התאים חייב להיות מספר חיובי.',cell:{menu:'מאפייני תא',insertBefore:'הוספת תא לפני',insertAfter:'הוספת תא אחרי',deleteCell:'מחיקת תאים',merge:'מיזוג תאים',mergeRight:'מזג ימינה',mergeDown:'מזג למטה',splitHorizontal:'פיצול תא אופקית',splitVertical:'פיצול תא אנכית',title:'תכונות התא',cellType:'סוג התא',rowSpan:'מתיחת השורות',colSpan:'מתיחת התאים',wordWrap:'מניעת גלישת שורות',hAlign:'יישור אופקי',vAlign:'יישור אנכי',alignBaseline:'שורת בסיס',bgColor:'צבע רקע',borderColor:'צבע מסגרת',data:'מידע',header:'כותרת',yes:'כן',no:'לא',invalidWidth:'שדה רוחב התא חייב להיות מספר.',invalidHeight:'שדה גובה התא חייב להיות מספר.',invalidRowSpan:'שדה מתיחת השורות חייב להיות מספר שלם.',invalidColSpan:'שדה מתיחת העמודות חייב להיות מספר שלם.',chooseColor:'בחר'},row:{menu:'שורה',insertBefore:'הוספת שורה לפני',insertAfter:'הוספת שורה אחרי',deleteRow:'מחיקת שורות'},column:{menu:'עמודה',insertBefore:'הוספת עמודה לפני',insertAfter:'הוספת עמודה אחרי',deleteColumn:'מחיקת עמודות'}},button:{title:'מאפייני כפתור',text:'טקסט (ערך)',type:'סוג',typeBtn:'כפתור',typeSbm:'שליחה',typeRst:'איפוס'},checkboxAndRadio:{checkboxTitle:'מאפייני תיבת סימון',radioTitle:'מאפייני לחצן אפשרויות',value:'ערך',selected:'מסומן'},form:{title:'מאפיני טופס',menu:'מאפיני טופס',action:'שלח אל',method:'סוג שליחה',encoding:'קידוד'},select:{title:'מאפייני שדה בחירה',selectInfo:'מידע',opAvail:'אפשרויות זמינות',value:'ערך',size:'גודל',lines:'שורות',chkMulti:'איפשור בחירות מרובות',opText:'טקסט',opValue:'ערך',btnAdd:'הוספה',btnModify:'שינוי',btnUp:'למעלה',btnDown:'למטה',btnSetValue:'קביעה כברירת מחדל',btnDelete:'מחיקה'},textarea:{title:'מאפייני איזור טקסט',cols:'עמודות',rows:'שורות'},textfield:{title:'מאפייני שדה טקסט',name:'שם',value:'ערך',charWidth:'רוחב לפי תווים',maxChars:'מקסימום תווים',type:'סוג',typeText:'טקסט',typePass:'סיסמה'},hidden:{title:'מאפיני שדה חבוי',name:'שם',value:'ערך'},image:{title:'מאפייני התמונה',titleButton:'מאפיני כפתור תמונה',menu:'תכונות התמונה',infoTab:'מידע על התמונה',btnUpload:'שליחה לשרת',upload:'העלאה',alt:'טקסט חלופי',lockRatio:'נעילת היחס',resetSize:'איפוס הגודל',border:'מסגרת',hSpace:'מרווח אופקי',vSpace:'מרווח אנכי',alertUrl:'יש להקליד את כתובת התמונה',linkTab:'קישור',button2Img:'האם להפוך את תמונת הכפתור לתמונה פשוטה?',img2Button:'האם להפוך את התמונה לכפתור תמונה?',urlMissing:'כתובת התמונה חסרה.',validateBorder:'שדה המסגרת חייב להיות מספר שלם.',validateHSpace:'שדה המרווח האופקי חייב להיות מספר שלם.',validateVSpace:'שדה המרווח האנכי חייב להיות מספר שלם.'},flash:{properties:'מאפייני פלאש',propertiesTab:'מאפיינים',title:'מאפיני פלאש',chkPlay:'ניגון אוטומטי',chkLoop:'לולאה',chkMenu:'אפשר תפריט פלאש',chkFull:'אפשר חלון מלא',scale:'גודל',scaleAll:'הצג הכל',scaleNoBorder:'ללא גבולות',scaleFit:'התאמה מושלמת',access:'גישת סקריפט',accessAlways:'תמיד',accessSameDomain:'דומיין זהה',accessNever:'אף פעם',alignAbsBottom:'לתחתית האבסולוטית',alignAbsMiddle:'מרכוז אבסולוטי',alignBaseline:'לקו התחתית',alignTextTop:'לראש הטקסט',quality:'איכות',qualityBest:'מעולה',qualityHigh:'גבוהה',qualityAutoHigh:'גבוהה אוטומטית',qualityMedium:'ממוצעת',qualityAutoLow:'נמוכה אוטומטית',qualityLow:'נמוכה',windowModeWindow:'חלון',windowModeOpaque:'אטום',windowModeTransparent:'שקוף',windowMode:'מצב חלון',flashvars:'משתנים לפלאש',bgcolor:'צבע רקע',hSpace:'מרווח אופקי',vSpace:'מרווח אנכי',validateSrc:'יש להקליד את כתובת סרטון הפלאש (URL)',validateHSpace:'המרווח האופקי חייב להיות מספר.',validateVSpace:'המרווח האנכי חייב להיות מספר.'},spellCheck:{toolbar:'בדיקת איות',title:'בדיקת איות',notAvailable:'לא נמצא שירות זמין.',errorLoading:'שגיאה בהעלאת השירות: %s.',notInDic:'לא נמצא במילון',changeTo:'שינוי ל',btnIgnore:'התעלמות',btnIgnoreAll:'התעלמות מהכל',btnReplace:'החלפה',btnReplaceAll:'החלפת הכל',btnUndo:'החזרה',noSuggestions:'- אין הצעות -',progress:'בודק האיות בתהליך בדיקה....',noMispell:'בדיקות איות הסתיימה: לא נמצאו שגיאות כתיב',noChanges:'בדיקות איות הסתיימה: לא שונתה אף מילה',oneChange:'בדיקות איות הסתיימה: שונתה מילה אחת',manyChanges:'בדיקות איות הסתיימה: %1 מילים שונו',ieSpellDownload:'בודק האיות לא מותקן, האם להורידו?'},smiley:{toolbar:'סמיילי',title:'הוספת סמיילי',options:'אפשרויות סמיילים'},elementsPath:{eleLabel:'עץ האלמנטים',eleTitle:'%1 אלמנט'},numberedlist:'רשימה ממוספרת',bulletedlist:'רשימת נקודות',indent:'הגדלת הזחה',outdent:'הקטנת הזחה',justify:{left:'יישור לשמאל',center:'מרכוז',right:'יישור לימין',block:'יישור לשוליים'},blockquote:'בלוק ציטוט',clipboard:{title:'הדבקה',cutError:'הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות גזירה אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl/Cmd+X).',copyError:'הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות העתקה אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl/Cmd+C).',pasteMsg:'נא להדביק בתוך הקופסה באמצעות (<b>Ctrl/Cmd+V</b>) וללחוץ על <b>אישור</b>.',securityMsg:'עקב הגדרות אבטחה בדפדפן, לא ניתן לגשת אל לוח הגזירים (Clipboard) בצורה ישירה. נא להדביק שוב בחלון זה.',pasteArea:'איזור הדבקה'},pastefromword:{confirmCleanup:'נראה הטקסט שבכוונתך להדביק מקורו בקובץ וורד. האם ברצונך לנקות אותו טרם ההדבקה?',toolbar:'הדבקה מ-Word',title:'הדבקה מ-Word',error:'לא ניתן היה לנקות את המידע בשל תקלה פנימית.'},pasteText:{button:'הדבקה כטקסט פשוט',title:'הדבקה כטקסט פשוט'},templates:{button:'תבניות',title:'תביות תוכן',options:'אפשרויות התבניות',insertOption:'החלפת תוכן ממשי',selectPromptMsg:'יש לבחור תבנית לפתיחה בעורך.<br />התוכן המקורי ימחק:',emptyListMsg:'(לא הוגדרו תבניות)'},showBlocks:'הצגת בלוקים',stylesCombo:{label:'סגנון',panelTitle:'סגנונות פורמט',panelTitle1:'סגנונות בלוק',panelTitle2:'סגנונות רצף',panelTitle3:'סגנונות אובייקט'},format:{label:'עיצוב',panelTitle:'עיצוב',tag_p:'נורמלי',tag_pre:'קוד',tag_address:'כתובת',tag_h1:'כותרת',tag_h2:'כותרת 2',tag_h3:'כותרת 3',tag_h4:'כותרת 4',tag_h5:'כותרת 5',tag_h6:'כותרת 6',tag_div:'נורמלי (DIV)'},div:{title:'יצירת מיכל (Div)',toolbar:'יצירת מיכל (Div)',cssClassInputLabel:'מחלקת עיצוב',styleSelectLabel:'סגנון',IdInputLabel:'מזהה (ID)',languageCodeInputLabel:'קוד שפה',inlineStyleInputLabel:'סגנון פנימי',advisoryTitleInputLabel:'כותרת מוצעת',langDirLabel:'כיוון שפה',langDirLTRLabel:'שמאל לימין (LTR)',langDirRTLLabel:'ימין לשמאל (RTL)',edit:'עריכת מיכל (Div)',remove:'הסרת מיכל (Div)'},iframe:{title:'מאפייני חלון פנימי (iframe)',toolbar:'חלון פנימי (iframe)',noUrl:'יש להכניס כתובת לחלון.',scrolling:'אפשר פסי גלילה',border:'הראה מסגרת לחלון'},font:{label:'גופן',voiceLabel:'גופן',panelTitle:'גופן'},fontSize:{label:'גודל',voiceLabel:'גודל',panelTitle:'גודל'},colorButton:{textColorTitle:'צבע טקסט',bgColorTitle:'צבע רקע',panelTitle:'צבעים',auto:'אוטומטי',more:'צבעים נוספים...'},colors:{'000':'שחור',800000:'סגול כהה','8B4513':'חום בהיר','2F4F4F':'אפור צפחה','008080':'כחול-ירוק','000080':'כחול-סגול','4B0082':'אינדיגו',696969:'אפור מעומעם',B22222:'אדום-חום',A52A2A:'חום',DAA520:'כתום זהב','006400':'ירוק כהה','40E0D0':'טורקיז','0000CD':'כחול בינוני',800080:'סגול',808080:'אפור',F00:'אדום',FF8C00:'כתום כהה',FFD700:'זהב','008000':'ירוק','0FF':'ציאן','00F':'כחול',EE82EE:'סגלגל',A9A9A9:'אפור כהה',FFA07A:'כתום-וורוד',FFA500:'כתום',FFFF00:'צהוב','00FF00':'ליים',AFEEEE:'טורקיז בהיר',ADD8E6:'כחול בהיר',DDA0DD:'שזיף',D3D3D3:'אפור בהיר',FFF0F5:'לבנדר מסמיק',FAEBD7:'לבן עתיק',FFFFE0:'צהוב בהיר',F0FFF0:'טל דבש',F0FFFF:'תכלת',F0F8FF:'כחול טיפת מים',E6E6FA:'לבנדר',FFF:'לבן'},scayt:{title:'בדיקת איות בזמן כתיבה (SCAYT)',opera_title:'לא זמין בדפדפן אופרה',enable:'אפשר SCAYT',disable:'בטל SCAYT',about:'אודות SCAYT',toggle:'שינוי SCAYT',options:'אפשרויות',langs:'שפות',moreSuggestions:'הצעות נוספות',ignore:'התעלמות',ignoreAll:'התעלמות מהכל',addWord:'הוספת מילה',emptyDic:'יש לבחור מילון.',optionsTab:'אפשרויות',allCaps:'התעלם ממילים שכל אותיותיהן גדולות',ignoreDomainNames:'התעלם משמות מתחם',mixedCase:'התעלם ממילים עם אותיות גדולות וקטנות ביחד',mixedWithDigits:'התעלם ממילים עם מספרים',languagesTab:'שפות',dictionariesTab:'מילון',dic_field_name:'שם המילון',dic_create:'יצירה',dic_restore:'שחזור',dic_delete:'מחיקה',dic_rename:'שינוי שם',dic_info:'בהתחלה מילון המשתמש מאוחסן בעוגיה, אך עוגיות מוגבלות במקום. כאשר המילון מגיע לגודל בו הוא אינו יכול להתאכסן בעוגיה, המילון צריך להתאכסן בשרתנו. לשם כך עליך לתת שם למילון. אם כבר יש לך מילון מאוחסן, יש להכניס את שמו וללחוץ על כפתור השחזור.',aboutTab:'אודות'},about:{title:'אודות CKEditor',dlgTitle:'אודות CKEditor',help:'היכנסו ל$1 לעזרה.',userGuide:'מדריך המשתמש של CKEditor',moreInfo:'למידע נוסף בקרו באתרנו:',copy:'Copyright &copy; $1. כל הזכויות שמורות.'},maximize:'הגדלה למקסימום',minimize:'הקטנה למינימום',fakeobjects:{anchor:'עוגן',flash:'סרטון פלאש',iframe:'חלון פנימי (iframe)',hiddenfield:'שדה חבוי',unknown:'אובייקט לא ידוע'},resize:'יש לגרור בכדי לשנות את הגודל',colordialog:{title:'בחירת צבע',options:'אפשרויות צבע',highlight:'סימון',selected:'בחירה',clear:'ניקוי'},toolbarCollapse:'מזעור סרגל כלים',toolbarExpand:'הרחבת סרגל כלים',toolbarGroups:{document:'מסמך',clipboard:'לוח הגזירים (Clipboard)/צעד אחרון',editing:'עריכה',forms:'טפסים',basicstyles:'עיצוב בסיסי',paragraph:'פסקה',links:'קישורים',insert:'הכנסה',styles:'עיצוב',colors:'צבעים',tools:'כלים'},bidi:{ltr:'כיוון טקסט משמאל לימין (LTR)',rtl:'כיוון טקסט מימין לשמאל (RTL)'},docprops:{label:'מאפייני מסמך',title:'מאפייני מסמך',design:'עיצוב',meta:'תגי Meta',chooseColor:'בחירה',other:'אחר...',docTitle:'כותרת עמוד',charset:'קידוד תווים',charsetOther:'קידוד תווים אחר',charsetASCII:'ASCII',charsetCE:'מרכז אירופאי',charsetCT:'סיני מסורתי (Big5)',charsetCR:'קירילי',charsetGR:'יווני',charsetJP:'יפני',charsetKR:'קוריאני',charsetTR:'טורקי',charsetUN:'יוניקוד (UTF-8)',charsetWE:'מערב אירופאי',docType:'כותר סוג מסמך',docTypeOther:'כותר סוג מסמך אחר',xhtmlDec:'כלול הכרזות XHTML',bgColor:'צבע רקע',bgImage:'כתובת של תמונת רקע',bgFixed:'רקע לא נגלל (צמוד)',txtColor:'צבע טקסט',margin:'מרווחי עמוד',marginTop:'עליון',marginLeft:'שמאלי',marginRight:'ימני',marginBottom:'תחתון',metaKeywords:'מילות מפתח של המסמך (מופרדות בפסיק)',metaDescription:'תיאור המסמך',metaAuthor:'מחבר/ת',metaCopyright:'זכויות יוצרים',previewHtml:'<p>זהו <strong>טקסט הדגמה</strong>. את/ה משתמש/ת ב<a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "rtl",
+
+ToolbarCollapse		: "כיווץ סרגל הכלים",
+ToolbarExpand		: "פתיחת סרגל הכלים",
+
+// Toolbar Items and Context Menu
+Save				: "שמירה",
+NewPage				: "דף חדש",
+Preview				: "תצוגה מקדימה",
+Cut					: "גזירה",
+Copy				: "העתקה",
+Paste				: "הדבקה",
+PasteText			: "הדבקה כטקסט פשוט",
+PasteWord			: "הדבקה מ-וורד",
+Print				: "הדפסה",
+SelectAll			: "בחירת הכל",
+RemoveFormat		: "הסרת העיצוב",
+InsertLinkLbl		: "קישור",
+InsertLink			: "הוספת/עריכת קישור",
+RemoveLink			: "הסרת הקישור",
+VisitLink			: "פתח קישור",
+Anchor				: "הוספת/עריכת נקודת עיגון",
+AnchorDelete		: "הסר נקודת עיגון",
+InsertImageLbl		: "תמונה",
+InsertImage			: "הוספת/עריכת תמונה",
+InsertFlashLbl		: "פלאש",
+InsertFlash			: "הוסף/ערוך פלאש",
+InsertTableLbl		: "טבלה",
+InsertTable			: "הוספת/עריכת טבלה",
+InsertLineLbl		: "קו",
+InsertLine			: "הוספת קו אופקי",
+InsertSpecialCharLbl: "תו מיוחד",
+InsertSpecialChar	: "הוספת תו מיוחד",
+InsertSmileyLbl		: "סמיילי",
+InsertSmiley		: "הוספת סמיילי",
+About				: "אודות FCKeditor",
+Bold				: "מודגש",
+Italic				: "נטוי",
+Underline			: "קו תחתון",
+StrikeThrough		: "כתיב מחוק",
+Subscript			: "כתיב תחתון",
+Superscript			: "כתיב עליון",
+LeftJustify			: "יישור לשמאל",
+CenterJustify		: "מרכוז",
+RightJustify		: "יישור לימין",
+BlockJustify		: "יישור לשוליים",
+DecreaseIndent		: "הקטנת אינדנטציה",
+IncreaseIndent		: "הגדלת אינדנטציה",
+Blockquote			: "בלוק ציטוט",
+CreateDiv			: "צור מיכל(תג)DIV",
+EditDiv				: "ערוך מיכל (תג)DIV",
+DeleteDiv			: "הסר מיכל(תג) DIV",
+Undo				: "ביטול צעד אחרון",
+Redo				: "חזרה על צעד אחרון",
+NumberedListLbl		: "רשימה ממוספרת",
+NumberedList		: "הוספת/הסרת רשימה ממוספרת",
+BulletedListLbl		: "רשימת נקודות",
+BulletedList		: "הוספת/הסרת רשימת נקודות",
+ShowTableBorders	: "הצגת מסגרת הטבלה",
+ShowDetails			: "הצגת פרטים",
+Style				: "סגנון",
+FontFormat			: "עיצוב",
+Font				: "גופן",
+FontSize			: "גודל",
+TextColor			: "צבע טקסט",
+BGColor				: "צבע רקע",
+Source				: "מקור",
+Find				: "חיפוש",
+Replace				: "החלפה",
+SpellCheck			: "בדיקת איות",
+UniversalKeyboard	: "מקלדת אוניברסלית",
+PageBreakLbl		: "שבירת דף",
+PageBreak			: "הוסף שבירת דף",
+
+Form			: "טופס",
+Checkbox		: "תיבת סימון",
+RadioButton		: "לחצן אפשרויות",
+TextField		: "שדה טקסט",
+Textarea		: "איזור טקסט",
+HiddenField		: "שדה חבוי",
+Button			: "כפתור",
+SelectionField	: "שדה בחירה",
+ImageButton		: "כפתור תמונה",
+
+FitWindow		: "הגדל את גודל העורך",
+ShowBlocks		: "הצג בלוקים",
+
+// Context Menu
+EditLink			: "עריכת קישור",
+CellCM				: "תא",
+RowCM				: "שורה",
+ColumnCM			: "עמודה",
+InsertRowAfter		: "הוסף שורה אחרי",
+InsertRowBefore		: "הוסף שורה לפני",
+DeleteRows			: "מחיקת שורות",
+InsertColumnAfter	: "הוסף עמודה אחרי",
+InsertColumnBefore	: "הוסף עמודה לפני",
+DeleteColumns		: "מחיקת עמודות",
+InsertCellAfter		: "הוסף תא אחרי",
+InsertCellBefore	: "הוסף תא אחרי",
+DeleteCells			: "מחיקת תאים",
+MergeCells			: "מיזוג תאים",
+MergeRight			: "מזג ימינה",
+MergeDown			: "מזג למטה",
+HorizontalSplitCell	: "פצל תא אופקית",
+VerticalSplitCell	: "פצל תא אנכית",
+TableDelete			: "מחק טבלה",
+CellProperties		: "תכונות התא",
+TableProperties		: "תכונות הטבלה",
+ImageProperties		: "תכונות התמונה",
+FlashProperties		: "מאפייני פלאש",
+
+AnchorProp			: "מאפייני נקודת עיגון",
+ButtonProp			: "מאפייני כפתור",
+CheckboxProp		: "מאפייני תיבת סימון",
+HiddenFieldProp		: "מאפיני שדה חבוי",
+RadioButtonProp		: "מאפייני לחצן אפשרויות",
+ImageButtonProp		: "מאפיני כפתור תמונה",
+TextFieldProp		: "מאפייני שדה טקסט",
+SelectionFieldProp	: "מאפייני שדה בחירה",
+TextareaProp		: "מאפיני איזור טקסט",
+FormProp			: "מאפיני טופס",
+
+FontFormats			: "נורמלי;קוד;כתובת;כותרת;כותרת 2;כותרת 3;כותרת 4;כותרת 5;כותרת 6",
+
+// Alerts and Messages
+ProcessingXHTML		: "מעבד XHTML, נא להמתין...",
+Done				: "המשימה הושלמה",
+PasteWordConfirm	: "נראה הטקסט שבכוונתך להדביק מקורו בקובץ וורד. האם ברצונך לנקות אותו טרם ההדבקה?",
+NotCompatiblePaste	: "פעולה זו זמינה לדפדפן אינטרנט אקספלורר מגירסא 5.5 ומעלה. האם להמשיך בהדבקה ללא הניקוי?",
+UnknownToolbarItem	: "פריט לא ידוע בסרגל הכלים \"%1\"",
+UnknownCommand		: "שם פעולה לא ידוע \"%1\"",
+NotImplemented		: "הפקודה לא מיושמת",
+UnknownToolbarSet	: "ערכת סרגל הכלים \"%1\" לא קיימת",
+NoActiveX			: "הגדרות אבטחה של הדפדפן עלולות לגביל את אפשרויות העריכה.יש לאפשר את האופציה \"הרץ פקדים פעילים ותוספות\". תוכל לחוות טעויות וחיווים של אפשרויות שחסרים.",
+BrowseServerBlocked : "לא ניתן לגשת לדפדפן משאבים.אנא וודא שחוסם חלונות הקופצים לא פעיל.",
+DialogBlocked		: "לא היה ניתן לפתוח חלון דיאלוג. אנא וודא שחוסם חלונות קופצים לא פעיל.",
+VisitLinkBlocked	: "לא ניתן לפתוח חלון חדש.נא לוודא שחוסמי החלונות הקופצים לא פעילים.",
+
+// Dialogs
+DlgBtnOK			: "אישור",
+DlgBtnCancel		: "ביטול",
+DlgBtnClose			: "סגירה",
+DlgBtnBrowseServer	: "סייר השרת",
+DlgAdvancedTag		: "אפשרויות מתקדמות",
+DlgOpOther			: "<אחר>",
+DlgInfoTab			: "מידע",
+DlgAlertUrl			: "אנא הזן URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<לא נקבע>",
+DlgGenId			: "זיהוי (Id)",
+DlgGenLangDir		: "כיוון שפה",
+DlgGenLangDirLtr	: "שמאל לימין (LTR)",
+DlgGenLangDirRtl	: "ימין לשמאל (RTL)",
+DlgGenLangCode		: "קוד שפה",
+DlgGenAccessKey		: "מקש גישה",
+DlgGenName			: "שם",
+DlgGenTabIndex		: "מספר טאב",
+DlgGenLongDescr		: "קישור לתיאור מפורט",
+DlgGenClass			: "גיליונות עיצוב קבוצות",
+DlgGenTitle			: "כותרת מוצעת",
+DlgGenContType		: "Content Type מוצע",
+DlgGenLinkCharset	: "קידוד המשאב המקושר",
+DlgGenStyle			: "סגנון",
+
+// Image Dialog
+DlgImgTitle			: "תכונות התמונה",
+DlgImgInfoTab		: "מידע על התמונה",
+DlgImgBtnUpload		: "שליחה לשרת",
+DlgImgURL			: "כתובת (URL)",
+DlgImgUpload		: "העלאה",
+DlgImgAlt			: "טקסט חלופי",
+DlgImgWidth			: "רוחב",
+DlgImgHeight		: "גובה",
+DlgImgLockRatio		: "נעילת היחס",
+DlgBtnResetSize		: "איפוס הגודל",
+DlgImgBorder		: "מסגרת",
+DlgImgHSpace		: "מרווח אופקי",
+DlgImgVSpace		: "מרווח אנכי",
+DlgImgAlign			: "יישור",
+DlgImgAlignLeft		: "לשמאל",
+DlgImgAlignAbsBottom: "לתחתית האבסולוטית",
+DlgImgAlignAbsMiddle: "מרכוז אבסולוטי",
+DlgImgAlignBaseline	: "לקו התחתית",
+DlgImgAlignBottom	: "לתחתית",
+DlgImgAlignMiddle	: "לאמצע",
+DlgImgAlignRight	: "לימין",
+DlgImgAlignTextTop	: "לראש הטקסט",
+DlgImgAlignTop		: "למעלה",
+DlgImgPreview		: "תצוגה מקדימה",
+DlgImgAlertUrl		: "נא להקליד את כתובת התמונה",
+DlgImgLinkTab		: "קישור",
+
+// Flash Dialog
+DlgFlashTitle		: "מאפיני פלאש",
+DlgFlashChkPlay		: "נגן אוטומטי",
+DlgFlashChkLoop		: "לולאה",
+DlgFlashChkMenu		: "אפשר תפריט פלאש",
+DlgFlashScale		: "גודל",
+DlgFlashScaleAll	: "הצג הכל",
+DlgFlashScaleNoBorder	: "ללא גבולות",
+DlgFlashScaleFit	: "התאמה מושלמת",
+
+// Link Dialog
+DlgLnkWindowTitle	: "קישור",
+DlgLnkInfoTab		: "מידע על הקישור",
+DlgLnkTargetTab		: "מטרה",
+
+DlgLnkType			: "סוג קישור",
+DlgLnkTypeURL		: "כתובת (URL)",
+DlgLnkTypeAnchor	: "עוגן בעמוד זה",
+DlgLnkTypeEMail		: "דוא''ל",
+DlgLnkProto			: "פרוטוקול",
+DlgLnkProtoOther	: "<אחר>",
+DlgLnkURL			: "כתובת (URL)",
+DlgLnkAnchorSel		: "בחירת עוגן",
+DlgLnkAnchorByName	: "עפ''י שם העוגן",
+DlgLnkAnchorById	: "עפ''י זיהוי (Id) הרכיב",
+DlgLnkNoAnchors		: "(אין עוגנים זמינים בדף)",
+DlgLnkEMail			: "כתובת הדוא''ל",
+DlgLnkEMailSubject	: "נושא ההודעה",
+DlgLnkEMailBody		: "גוף ההודעה",
+DlgLnkUpload		: "העלאה",
+DlgLnkBtnUpload		: "שליחה לשרת",
+
+DlgLnkTarget		: "מטרה",
+DlgLnkTargetFrame	: "<מסגרת>",
+DlgLnkTargetPopup	: "<חלון קופץ>",
+DlgLnkTargetBlank	: "חלון חדש (_blank)",
+DlgLnkTargetParent	: "חלון האב (_parent)",
+DlgLnkTargetSelf	: "באותו החלון (_self)",
+DlgLnkTargetTop		: "חלון ראשי (_top)",
+DlgLnkTargetFrameName	: "שם מסגרת היעד",
+DlgLnkPopWinName	: "שם החלון הקופץ",
+DlgLnkPopWinFeat	: "תכונות החלון הקופץ",
+DlgLnkPopResize		: "בעל גודל ניתן לשינוי",
+DlgLnkPopLocation	: "סרגל כתובת",
+DlgLnkPopMenu		: "סרגל תפריט",
+DlgLnkPopScroll		: "ניתן לגלילה",
+DlgLnkPopStatus		: "סרגל חיווי",
+DlgLnkPopToolbar	: "סרגל הכלים",
+DlgLnkPopFullScrn	: "מסך מלא (IE)",
+DlgLnkPopDependent	: "תלוי (Netscape)",
+DlgLnkPopWidth		: "רוחב",
+DlgLnkPopHeight		: "גובה",
+DlgLnkPopLeft		: "מיקום צד שמאל",
+DlgLnkPopTop		: "מיקום צד עליון",
+
+DlnLnkMsgNoUrl		: "נא להקליד את כתובת הקישור (URL)",
+DlnLnkMsgNoEMail	: "נא להקליד את כתובת הדוא''ל",
+DlnLnkMsgNoAnchor	: "נא לבחור עוגן במסמך",
+DlnLnkMsgInvPopName	: "שם החלון הקופץ חייב להתחיל באותיות ואסור לכלול רווחים",
+
+// Color Dialog
+DlgColorTitle		: "בחירת צבע",
+DlgColorBtnClear	: "איפוס",
+DlgColorHighlight	: "נוכחי",
+DlgColorSelected	: "נבחר",
+
+// Smiley Dialog
+DlgSmileyTitle		: "הוספת סמיילי",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "בחירת תו מיוחד",
+
+// Table Dialog
+DlgTableTitle		: "תכונות טבלה",
+DlgTableRows		: "שורות",
+DlgTableColumns		: "עמודות",
+DlgTableBorder		: "גודל מסגרת",
+DlgTableAlign		: "יישור",
+DlgTableAlignNotSet	: "<לא נקבע>",
+DlgTableAlignLeft	: "שמאל",
+DlgTableAlignCenter	: "מרכז",
+DlgTableAlignRight	: "ימין",
+DlgTableWidth		: "רוחב",
+DlgTableWidthPx		: "פיקסלים",
+DlgTableWidthPc		: "אחוז",
+DlgTableHeight		: "גובה",
+DlgTableCellSpace	: "מרווח תא",
+DlgTableCellPad		: "ריפוד תא",
+DlgTableCaption		: "כיתוב",
+DlgTableSummary		: "סיכום",
+DlgTableHeaders		: "כותרות",
+DlgTableHeadersNone		: "אין",
+DlgTableHeadersColumn	: "עמודה ראשונה",
+DlgTableHeadersRow		: "שורה ראשונה",
+DlgTableHeadersBoth		: "שניהם",
+
+// Table Cell Dialog
+DlgCellTitle		: "תכונות תא",
+DlgCellWidth		: "רוחב",
+DlgCellWidthPx		: "פיקסלים",
+DlgCellWidthPc		: "אחוז",
+DlgCellHeight		: "גובה",
+DlgCellWordWrap		: "גלילת שורות",
+DlgCellWordWrapNotSet	: "<לא נקבע>",
+DlgCellWordWrapYes	: "כן",
+DlgCellWordWrapNo	: "לא",
+DlgCellHorAlign		: "יישור אופקי",
+DlgCellHorAlignNotSet	: "<לא נקבע>",
+DlgCellHorAlignLeft	: "שמאל",
+DlgCellHorAlignCenter	: "מרכז",
+DlgCellHorAlignRight: "ימין",
+DlgCellVerAlign		: "יישור אנכי",
+DlgCellVerAlignNotSet	: "<לא נקבע>",
+DlgCellVerAlignTop	: "למעלה",
+DlgCellVerAlignMiddle	: "לאמצע",
+DlgCellVerAlignBottom	: "לתחתית",
+DlgCellVerAlignBaseline	: "קו תחתית",
+DlgCellType		: "סוג תא",
+DlgCellTypeData		: "סוג",
+DlgCellTypeHeader	: "כותרת",
+DlgCellRowSpan		: "טווח שורות",
+DlgCellCollSpan		: "טווח עמודות",
+DlgCellBackColor	: "צבע רקע",
+DlgCellBorderColor	: "צבע מסגרת",
+DlgCellBtnSelect	: "בחירה...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "חפש והחלף",
+
+// Find Dialog
+DlgFindTitle		: "חיפוש",
+DlgFindFindBtn		: "חיפוש",
+DlgFindNotFoundMsg	: "הטקסט המבוקש לא נמצא.",
+
+// Replace Dialog
+DlgReplaceTitle			: "החלפה",
+DlgReplaceFindLbl		: "חיפוש מחרוזת:",
+DlgReplaceReplaceLbl	: "החלפה במחרוזת:",
+DlgReplaceCaseChk		: "התאמת סוג אותיות (Case)",
+DlgReplaceReplaceBtn	: "החלפה",
+DlgReplaceReplAllBtn	: "החלפה בכל העמוד",
+DlgReplaceWordChk		: "התאמה למילה המלאה",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות גזירה  אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl+X).",
+PasteErrorCopy	: "הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות העתקה אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl+C).",
+
+PasteAsText		: "הדבקה כטקסט פשוט",
+PasteFromWord	: "הדבקה מ-וורד",
+
+DlgPasteMsg2	: "אנא הדבק בתוך הקופסה באמצעות  (<STRONG>Ctrl+V</STRONG>) ולחץ על  <STRONG>אישור</STRONG>.",
+DlgPasteSec		: "עקב הגדרות אבטחה בדפדפן, לא ניתן לגשת אל לוח הגזירים (clipboard) בצורה ישירה.אנא בצע הדבק שוב בחלון זה.",
+DlgPasteIgnoreFont		: "התעלם מהגדרות סוג פונט",
+DlgPasteRemoveStyles	: "הסר הגדרות סגנון",
+
+// Color Picker
+ColorAutomatic	: "אוטומטי",
+ColorMoreColors	: "צבעים נוספים...",
+
+// Document Properties
+DocProps		: "מאפיני מסמך",
+
+// Anchor Dialog
+DlgAnchorTitle		: "מאפיני נקודת עיגון",
+DlgAnchorName		: "שם לנקודת עיגון",
+DlgAnchorErrorName	: "אנא הזן שם לנקודת עיגון",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "לא נמצא במילון",
+DlgSpellChangeTo		: "שנה ל",
+DlgSpellBtnIgnore		: "התעלם",
+DlgSpellBtnIgnoreAll	: "התעלם מהכל",
+DlgSpellBtnReplace		: "החלף",
+DlgSpellBtnReplaceAll	: "החלף הכל",
+DlgSpellBtnUndo			: "החזר",
+DlgSpellNoSuggestions	: "- אין הצעות -",
+DlgSpellProgress		: "בדיקות איות בתהליך ....",
+DlgSpellNoMispell		: "בדיקות איות הסתיימה: לא נמצאו שגיעות כתיב",
+DlgSpellNoChanges		: "בדיקות איות הסתיימה: לא שונתה אף מילה",
+DlgSpellOneChange		: "בדיקות איות הסתיימה: שונתה מילה אחת",
+DlgSpellManyChanges		: "בדיקות איות הסתיימה: %1 מילים שונו",
+
+IeSpellDownload			: "בודק האיות לא מותקן, האם אתה מעוניין להוריד?",
+
+// Button Dialog
+DlgButtonText		: "טקסט (ערך)",
+DlgButtonType		: "סוג",
+DlgButtonTypeBtn	: "כפתור",
+DlgButtonTypeSbm	: "שלח",
+DlgButtonTypeRst	: "אפס",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "שם",
+DlgCheckboxValue	: "ערך",
+DlgCheckboxSelected	: "בחור",
+
+// Form Dialog
+DlgFormName		: "שם",
+DlgFormAction	: "שלח אל",
+DlgFormMethod	: "סוג שליחה",
+
+// Select Field Dialog
+DlgSelectName		: "שם",
+DlgSelectValue		: "ערך",
+DlgSelectSize		: "גודל",
+DlgSelectLines		: "שורות",
+DlgSelectChkMulti	: "אפשר בחירות מרובות",
+DlgSelectOpAvail	: "אפשרויות זמינות",
+DlgSelectOpText		: "טקסט",
+DlgSelectOpValue	: "ערך",
+DlgSelectBtnAdd		: "הוסף",
+DlgSelectBtnModify	: "שנה",
+DlgSelectBtnUp		: "למעלה",
+DlgSelectBtnDown	: "למטה",
+DlgSelectBtnSetValue : "קבע כברירת מחדל",
+DlgSelectBtnDelete	: "מחק",
+
+// Textarea Dialog
+DlgTextareaName	: "שם",
+DlgTextareaCols	: "עמודות",
+DlgTextareaRows	: "שורות",
+
+// Text Field Dialog
+DlgTextName			: "שם",
+DlgTextValue		: "ערך",
+DlgTextCharWidth	: "רוחב באותיות",
+DlgTextMaxChars		: "מקסימות אותיות",
+DlgTextType			: "סוג",
+DlgTextTypeText		: "טקסט",
+DlgTextTypePass		: "סיסמה",
+
+// Hidden Field Dialog
+DlgHiddenName	: "שם",
+DlgHiddenValue	: "ערך",
+
+// Bulleted List Dialog
+BulletedListProp	: "מאפייני רשימה",
+NumberedListProp	: "מאפייני רשימה ממוספרת",
+DlgLstStart			: "התחלה",
+DlgLstType			: "סוג",
+DlgLstTypeCircle	: "עיגול",
+DlgLstTypeDisc		: "דיסק",
+DlgLstTypeSquare	: "מרובע",
+DlgLstTypeNumbers	: "מספרים (1, 2, 3)",
+DlgLstTypeLCase		: "אותיות קטנות (a, b, c)",
+DlgLstTypeUCase		: "אותיות גדולות (A, B, C)",
+DlgLstTypeSRoman	: "ספרות רומאיות קטנות (i, ii, iii)",
+DlgLstTypeLRoman	: "ספרות רומאיות גדולות (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "כללי",
+DlgDocBackTab		: "רקע",
+DlgDocColorsTab		: "צבעים וגבולות",
+DlgDocMetaTab		: "נתוני META",
+
+DlgDocPageTitle		: "כותרת דף",
+DlgDocLangDir		: "כיוון שפה",
+DlgDocLangDirLTR	: "שמאל לימין (LTR)",
+DlgDocLangDirRTL	: "ימין לשמאל (RTL)",
+DlgDocLangCode		: "קוד שפה",
+DlgDocCharSet		: "קידוד אותיות",
+DlgDocCharSetCE		: "מרכז אירופה",
+DlgDocCharSetCT		: "סיני מסורתי (Big5)",
+DlgDocCharSetCR		: "קירילי",
+DlgDocCharSetGR		: "יוונית",
+DlgDocCharSetJP		: "יפנית",
+DlgDocCharSetKR		: "קוראנית",
+DlgDocCharSetTR		: "טורקית",
+DlgDocCharSetUN		: "יוני קוד (UTF-8)",
+DlgDocCharSetWE		: "מערב אירופה",
+DlgDocCharSetOther	: "קידוד אותיות אחר",
+
+DlgDocDocType		: "הגדרות סוג מסמך",
+DlgDocDocTypeOther	: "הגדרות סוג מסמך אחרות",
+DlgDocIncXHTML		: "כלול הגדרות XHTML",
+DlgDocBgColor		: "צבע רקע",
+DlgDocBgImage		: "URL לתמונת רקע",
+DlgDocBgNoScroll	: "רגע ללא גלילה",
+DlgDocCText			: "טקסט",
+DlgDocCLink			: "קישור",
+DlgDocCVisited		: "קישור שבוקר",
+DlgDocCActive		: " קישור פעיל",
+DlgDocMargins		: "גבולות דף",
+DlgDocMaTop			: "למעלה",
+DlgDocMaLeft		: "שמאלה",
+DlgDocMaRight		: "ימינה",
+DlgDocMaBottom		: "למטה",
+DlgDocMeIndex		: "מפתח עניינים של המסמך )מופרד בפסיק(",
+DlgDocMeDescr		: "תאור מסמך",
+DlgDocMeAuthor		: "מחבר",
+DlgDocMeCopy		: "זכויות יוצרים",
+DlgDocPreview		: "תצוגה מקדימה",
+
+// Templates Dialog
+Templates			: "תבניות",
+DlgTemplatesTitle	: "תביות תוכן",
+DlgTemplatesSelMsg	: "אנא בחר תבנית לפתיחה בעורך <BR>התוכן המקורי ימחק:",
+DlgTemplatesLoading	: "מעלה רשימת תבניות אנא המתן",
+DlgTemplatesNoTpl	: "(לא הוגדרו תבניות)",
+DlgTemplatesReplace	: "החלפת תוכן ממשי",
+
+// About Dialog
+DlgAboutAboutTab	: "אודות",
+DlgAboutBrowserInfoTab	: "גירסת דפדפן",
+DlgAboutLicenseTab	: "רשיון",
+DlgAboutVersion		: "גירסא",
+DlgAboutInfo		: "מידע נוסף ניתן למצוא כאן:",
+
+// Div Dialog
+DlgDivGeneralTab	: "כללי",
+DlgDivAdvancedTab	: "מתקדם",
+DlgDivStyle		: "סגנון",
+DlgDivInlineStyle	: "סגנון בתוך השורה"
+};

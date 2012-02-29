@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * German language file.
+ */
 
-CKEDITOR.lang.de={dir:'ltr',editorTitle:'WYSIWYG-Editor, %1, drücken Sie ALT 0 für Hilfe.',toolbars:'Editor Symbolleisten',editor:'WYSIWYG-Editor',source:'Quellcode',newPage:'Neue Seite',save:'Speichern',preview:'Vorschau',cut:'Ausschneiden',copy:'Kopieren',paste:'Einfügen',print:'Drucken',underline:'Unterstrichen',bold:'Fett',italic:'Kursiv',selectAll:'Alles auswählen',removeFormat:'Formatierungen entfernen',strike:'Durchgestrichen',subscript:'Tiefgestellt',superscript:'Hochgestellt',horizontalrule:'Horizontale Linie einfügen',pagebreak:'Seitenumbruch einfügen',pagebreakAlt:'Seitenumbruch einfügen',unlink:'Link entfernen',undo:'Rückgängig',redo:'Wiederherstellen',common:{browseServer:'Server durchsuchen',url:'URL',protocol:'Protokoll',upload:'Hochladen',uploadSubmit:'Zum Server senden',image:'Bild',flash:'Flash',form:'Formular',checkbox:'Checkbox',radio:'Radiobutton',textField:'Textfeld einzeilig',textarea:'Textfeld mehrzeilig',hiddenField:'Verstecktes Feld',button:'Klickbutton',select:'Auswahlfeld',imageButton:'Bildbutton',notSet:'<nichts>',id:'ID',name:'Name',langDir:'Schreibrichtung',langDirLtr:'Links nach Rechts (LTR)',langDirRtl:'Rechts nach Links (RTL)',langCode:'Sprachenkürzel',longDescr:'Langform URL',cssClass:'Stylesheet Klasse',advisoryTitle:'Titel Beschreibung',cssStyle:'Style',ok:'OK',cancel:'Abbrechen',close:'Schließen',preview:'Vorschau',generalTab:'Allgemein',advancedTab:'Erweitert',validateNumberFailed:'Dieser Wert ist keine Nummer.',confirmNewPage:'Alle nicht gespeicherten Änderungen gehen verlohren. Sind Sie sicher die neue Seite zu laden?',confirmCancel:'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schließen?',options:'Optionen',target:'Zielseite',targetNew:'Neues Fenster (_blank)',targetTop:'Oberstes Fenster (_top)',targetSelf:'Gleiches Fenster (_self)',targetParent:'Oberes Fenster (_parent)',langDirLTR:'Links nach Rechts (LNR)',langDirRTL:'Rechts nach Links (RNL)',styles:'Style',cssClasses:'Stylesheet Klasse',width:'Breite',height:'Höhe',align:'Ausrichtung',alignLeft:'Links',alignRight:'Rechts',alignCenter:'Zentriert',alignTop:'Oben',alignMiddle:'Mitte',alignBottom:'Unten',invalidHeight:'Höhe muss eine Zahl sein.',invalidWidth:'Breite muss eine Zahl sein.',invalidCssLength:'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',invalidHtmlLength:'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte HTML Messeinheit (px oder %).',invalidInlineStyle:'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',cssLengthTooltip:'Gebe eine Zahl ein für ein Wert in pixels oder eine Zahl mit einer korrekten CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',unavailable:'%1<span class="cke_accessibility">, nicht verfügbar</span>'},contextmenu:{options:'Kontextmenü Optionen'},specialChar:{toolbar:'Sonderzeichen einfügen/editieren',title:'Sonderzeichen auswählen',options:'Sonderzeichen Optionen'},link:{toolbar:'Link einfügen/editieren',other:'<andere>',menu:'Link editieren',title:'Link',info:'Link-Info',target:'Zielseite',upload:'Hochladen',advanced:'Erweitert',type:'Link-Typ',toUrl:'URL',toAnchor:'Anker in dieser Seite',toEmail:'E-Mail',targetFrame:'<Frame>',targetPopup:'<Pop-up Fenster>',targetFrameName:'Ziel-Fenster-Name',targetPopupName:'Pop-up Fenster-Name',popupFeatures:'Pop-up Fenster-Eigenschaften',popupResizable:'Größe änderbar',popupStatusBar:'Statusleiste',popupLocationBar:'Adress-Leiste',popupToolbar:'Symbolleiste',popupMenuBar:'Menü-Leiste',popupFullScreen:'Vollbild (IE)',popupScrollBars:'Rollbalken',popupDependent:'Abhängig (Netscape)',popupLeft:'Linke Position',popupTop:'Obere Position',id:'Id',langDir:'Schreibrichtung',langDirLTR:'Links nach Rechts (LTR)',langDirRTL:'Rechts nach Links (RTL)',acccessKey:'Zugriffstaste',name:'Name',langCode:'Sprachenkürzel',tabIndex:'Tab-Index',advisoryTitle:'Titel Beschreibung',advisoryContentType:'Inhaltstyp',cssClasses:'Stylesheet Klasse',charset:'Ziel-Zeichensatz',styles:'Style',rel:'Beziehung',selectAnchor:'Anker auswählen',anchorName:'nach Anker Name',anchorId:'nach Element Id',emailAddress:'E-Mail Addresse',emailSubject:'Betreffzeile',emailBody:'Nachrichtentext',noAnchors:'(keine Anker im Dokument vorhanden)',noUrl:'Bitte geben Sie die Link-URL an',noEmail:'Bitte geben Sie e-Mail Adresse an'},anchor:{toolbar:'Anker einfügen/editieren',menu:'Anker-Eigenschaften',title:'Anker-Eigenschaften',name:'Anker Name',errorName:'Bitte geben Sie den Namen des Ankers ein',remove:'Anker entfernen'},list:{numberedTitle:'Nummerierte Listen-Eigenschaften',bulletedTitle:'Listen-Eigenschaften',type:'Typ',start:'Start',validateStartNumber:'List Startnummer muss eine ganze Zahl sein.',circle:'Ring',disc:'Kreis',square:'Quadrat',none:'Keine',notset:'<nicht gesetzt>',armenian:'Armenisch Nummerierung',georgian:'Georgisch Nummerierung (an, ban, gan, etc.)',lowerRoman:'Klein römisch (i, ii, iii, iv, v, etc.)',upperRoman:'Groß römisch (I, II, III, IV, V, etc.)',lowerAlpha:'Klein alpha (a, b, c, d, e, etc.)',upperAlpha:'Groß alpha (A, B, C, D, E, etc.)',lowerGreek:'Klein griechisch (alpha, beta, gamma, etc.)',decimal:'Dezimal (1, 2, 3, etc.)',decimalLeadingZero:'Dezimal mit führende  Null (01, 02, 03, etc.)'},findAndReplace:{title:'Suchen und Ersetzen',find:'Suchen',replace:'Ersetzen',findWhat:'Suche nach:',replaceWith:'Ersetze mit:',notFoundMsg:'Der gesuchte Text wurde nicht gefunden.',findOptions:'Suchoptionen',matchCase:'Groß-Kleinschreibung beachten',matchWord:'Nur ganze Worte suchen',matchCyclic:'Zyklische Suche',replaceAll:'Alle ersetzen',replaceSuccessMsg:'%1 vorkommen ersetzt.'},table:{toolbar:'Tabelle',title:'Tabellen-Eigenschaften',menu:'Tabellen-Eigenschaften',deleteTable:'Tabelle löschen',rows:'Zeile',columns:'Spalte',border:'Rahmen',widthPx:'Pixel',widthPc:'%',widthUnit:'Breite Einheit',cellSpace:'Zellenabstand außen',cellPad:'Zellenabstand innen',caption:'Überschrift',summary:'Inhaltsübersicht',headers:'Kopfzeile',headersNone:'Keine',headersColumn:'Erste Spalte',headersRow:'Erste Zeile',headersBoth:'Beide',invalidRows:'Die Anzahl der Zeilen muß größer als 0 sein.',invalidCols:'Die Anzahl der Spalten muß größer als 0 sein..',invalidBorder:'Die Rahmenbreite muß eine Zahl sein.',invalidWidth:'Die Tabellenbreite muss eine Zahl sein.',invalidHeight:'Die Tabellenbreite muß eine Zahl sein.',invalidCellSpacing:'Der Zellenabstand außen muß eine positive Zahl sein.',invalidCellPadding:'Der Zellenabstand innen muß eine positive Zahl sein.',cell:{menu:'Zelle',insertBefore:'Zelle davor einfügen',insertAfter:'Zelle danach einfügen',deleteCell:'Zelle löschen',merge:'Zellen verbinden',mergeRight:'Nach rechts verbinden',mergeDown:'Nach unten verbinden',splitHorizontal:'Zelle horizontal teilen',splitVertical:'Zelle vertikal teilen',title:'Zellen-Eigenschaften',cellType:'Zellart',rowSpan:'Anzahl Zeilen verbinden',colSpan:'Anzahl Spalten verbinden',wordWrap:'Zeilenumbruch',hAlign:'Horizontale Ausrichtung',vAlign:'Vertikale Ausrichtung',alignBaseline:'Grundlinie',bgColor:'Hintergrundfarbe',borderColor:'Rahmenfarbe',data:'Daten',header:'Überschrift',yes:'Ja',no:'Nein',invalidWidth:'Zellenbreite muß eine Zahl sein.',invalidHeight:'Zellenhöhe muß eine Zahl sein.',invalidRowSpan:'"Anzahl Zeilen verbinden" muss eine Ganzzahl sein.',invalidColSpan:'"Anzahl Spalten verbinden" muss eine Ganzzahl sein.',chooseColor:'Wählen'},row:{menu:'Zeile',insertBefore:'Zeile oberhalb einfügen',insertAfter:'Zeile unterhalb einfügen',deleteRow:'Zeile entfernen'},column:{menu:'Spalte',insertBefore:'Spalte links davor einfügen',insertAfter:'Spalte rechts danach einfügen',deleteColumn:'Spalte löschen'}},button:{title:'Button-Eigenschaften',text:'Text (Wert)',type:'Typ',typeBtn:'Button',typeSbm:'Absenden',typeRst:'Zurücksetzen'},checkboxAndRadio:{checkboxTitle:'Checkbox-Eigenschaften',radioTitle:'Optionsfeld-Eigenschaften',value:'Wert',selected:'ausgewählt'},form:{title:'Formular-Eigenschaften',menu:'Formular-Eigenschaften',action:'Action',method:'Method',encoding:'Zeichenkodierung'},select:{title:'Auswahlfeld-Eigenschaften',selectInfo:'Info',opAvail:'Mögliche Optionen',value:'Wert',size:'Größe',lines:'Linien',chkMulti:'Erlaube Mehrfachauswahl',opText:'Text',opValue:'Wert',btnAdd:'Hinzufügen',btnModify:'Ändern',btnUp:'Hoch',btnDown:'Runter',btnSetValue:'Setze als Standardwert',btnDelete:'Entfernen'},textarea:{title:'Textfeld (mehrzeilig) Eigenschaften',cols:'Spalten',rows:'Reihen'},textfield:{title:'Textfeld (einzeilig) Eigenschaften',name:'Name',value:'Wert',charWidth:'Zeichenbreite',maxChars:'Max. Zeichen',type:'Typ',typeText:'Text',typePass:'Passwort'},hidden:{title:'Verstecktes Feld-Eigenschaften',name:'Name',value:'Wert'},image:{title:'Bild-Eigenschaften',titleButton:'Bildbutton-Eigenschaften',menu:'Bild-Eigenschaften',infoTab:'Bild-Info',btnUpload:'Zum Server senden',upload:'Hochladen',alt:'Alternativer Text',lockRatio:'Größenverhältnis beibehalten',resetSize:'Größe zurücksetzen',border:'Rahmen',hSpace:'Horizontal-Abstand',vSpace:'Vertikal-Abstand',alertUrl:'Bitte geben Sie die Bild-URL an',linkTab:'Link',button2Img:'Möchten Sie den gewählten Bild-Button in ein einfaches Bild umwandeln?',img2Button:'Möchten Sie das gewählten Bild in einen Bild-Button umwandeln?',urlMissing:'Imagequelle URL fehlt.',validateBorder:'Rahmen muß eine ganze Zahl sein.',validateHSpace:'Horizontal-Abstand muß eine ganze Zahl sein.',validateVSpace:'Vertikal-Abstand muß eine ganze Zahl sein.'},flash:{properties:'Flash-Eigenschaften',propertiesTab:'Eigenschaften',title:'Flash-Eigenschaften',chkPlay:'Automatisch Abspielen',chkLoop:'Endlosschleife',chkMenu:'Flash-Menü aktivieren',chkFull:'Vollbildmodus erlauben',scale:'Skalierung',scaleAll:'Alles anzeigen',scaleNoBorder:'Ohne Rand',scaleFit:'Passgenau',access:'Skript Zugang',accessAlways:'Immer',accessSameDomain:'Gleiche Domain',accessNever:'Nie',alignAbsBottom:'Abs Unten',alignAbsMiddle:'Abs Mitte',alignBaseline:'Baseline',alignTextTop:'Text Oben',quality:'Qualität',qualityBest:'Beste',qualityHigh:'Hoch',qualityAutoHigh:'Auto Hoch',qualityMedium:'Medium',qualityAutoLow:'Auto Niedrig',qualityLow:'Niedrig',windowModeWindow:'Fenster',windowModeOpaque:'Deckend',windowModeTransparent:'Transparent',windowMode:'Fenster Modus',flashvars:'Variablen für Flash',bgcolor:'Hintergrundfarbe',hSpace:'Horizontal-Abstand',vSpace:'Vertikal-Abstand',validateSrc:'Bitte geben Sie die Link-URL an',validateHSpace:'HSpace muss eine Zahl sein.',validateVSpace:'VSpace muss eine Zahl sein.'},spellCheck:{toolbar:'Rechtschreibprüfung',title:'Rechtschreibprüfung',notAvailable:'Entschuldigung, aber dieser Dienst steht im Moment nicht zur Verfügung.',errorLoading:'Fehler beim laden des Dienstanbieters: %s.',notInDic:'Nicht im Wörterbuch',changeTo:'Ändern in',btnIgnore:'Ignorieren',btnIgnoreAll:'Alle Ignorieren',btnReplace:'Ersetzen',btnReplaceAll:'Alle Ersetzen',btnUndo:'Rückgängig',noSuggestions:' - keine Vorschläge - ',progress:'Rechtschreibprüfung läuft...',noMispell:'Rechtschreibprüfung abgeschlossen - keine Fehler gefunden',noChanges:'Rechtschreibprüfung abgeschlossen - keine Worte geändert',oneChange:'Rechtschreibprüfung abgeschlossen - ein Wort geändert',manyChanges:'Rechtschreibprüfung abgeschlossen - %1 Wörter geändert',ieSpellDownload:'Rechtschreibprüfung nicht installiert. Möchten Sie sie jetzt herunterladen?'},smiley:{toolbar:'Smiley',title:'Smiley auswählen',options:'Smiley Optionen'},elementsPath:{eleLabel:'Elements Pfad',eleTitle:'%1 Element'},numberedlist:'Nummerierte Liste',bulletedlist:'Liste',indent:'Einzug erhöhen',outdent:'Einzug verringern',justify:{left:'Linksbündig',center:'Zentriert',right:'Rechtsbündig',block:'Blocksatz'},blockquote:'Zitatblock',clipboard:{title:'Einfügen',cutError:'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',copyError:'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',pasteMsg:'Bitte fügen Sie den Text in der folgenden Box über die Tastatur (mit <STRONG>Strg+V</STRONG>) ein und bestätigen Sie mit <STRONG>OK</STRONG>.',securityMsg:'Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.',pasteArea:'Einfügebereich'},pastefromword:{confirmCleanup:'Der Text, den Sie einfügen möchten, scheint aus MS-Word kopiert zu sein. Möchten Sie ihn zuvor bereinigen lassen?',toolbar:'Aus MS-Word einfügen',title:'Aus MS-Word einfügen',error:'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen'},pasteText:{button:'Als Text einfügen',title:'Als Text einfügen'},templates:{button:'Vorlagen',title:'Vorlagen',options:'Vorlagen Optionen',insertOption:'Aktuellen Inhalt ersetzen',selectPromptMsg:'Klicken Sie auf eine Vorlage, um sie im Editor zu öffnen (der aktuelle Inhalt wird dabei gelöscht!):',emptyListMsg:'(keine Vorlagen definiert)'},showBlocks:'Blöcke anzeigen',stylesCombo:{label:'Stil',panelTitle:'Formatierungenstil',panelTitle1:'Block Stilart',panelTitle2:'Inline Stilart',panelTitle3:'Objekt Stilart'},format:{label:'Format',panelTitle:'Format',tag_p:'Normal',tag_pre:'Formatiert',tag_address:'Addresse',tag_h1:'Überschrift 1',tag_h2:'Überschrift 2',tag_h3:'Überschrift 3',tag_h4:'Überschrift 4',tag_h5:'Überschrift 5',tag_h6:'Überschrift 6',tag_div:'Normal (DIV)'},div:{title:'Div Container erzeugen',toolbar:'Div Container erzeugen',cssClassInputLabel:'Stylesheet Klasse',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:'Sprachenkürzel',inlineStyleInputLabel:'Inline Stil',advisoryTitleInputLabel:'Tooltip',langDirLabel:'Sprache Richtung',langDirLTRLabel:'Links nach Rechs (LTR)',langDirRTLLabel:'Rechs nach Links (RTL)',edit:'Div bearbeiten',remove:'Div entfernen'},iframe:{title:'IFrame-Eigenschaften',toolbar:'IFrame',noUrl:'Bitte geben Sie die IFrame-URL an',scrolling:'Rollbalken anzeigen',border:'Rahmen anzeigen'},font:{label:'Schriftart',voiceLabel:'Schriftart',panelTitle:'Schriftart'},fontSize:{label:'Größe',voiceLabel:'Schrifgröße',panelTitle:'Größe'},colorButton:{textColorTitle:'Textfarbe',bgColorTitle:'Hintergrundfarbe',panelTitle:'Farben',auto:'Automatisch',more:'Weitere Farben...'},colors:{'000':'Schwarz',800000:'Kastanienbraun','8B4513':'Braun','2F4F4F':'Dunkles Schiefergrau','008080':'Blaugrün','000080':'Navy','4B0082':'Indigo',696969:'Dunkelgrau',B22222:'Ziegelrot',A52A2A:'Braun',DAA520:'Goldgelb','006400':'Dunkelgrün','40E0D0':'Türkis','0000CD':'Medium Blau',800080:'Lila',808080:'Grau',F00:'Rot',FF8C00:'Dunkelorange',FFD700:'Gold','008000':'Grün','0FF':'Cyan','00F':'Blau',EE82EE:'Hellviolett',A9A9A9:'Dunkelgrau',FFA07A:'Helles Lachsrosa',FFA500:'Orange',FFFF00:'Gelb','00FF00':'Lime',AFEEEE:'Blaß-Türkis',ADD8E6:'Hellblau',DDA0DD:'Pflaumenblau',D3D3D3:'Hellgrau',FFF0F5:'Lavendel',FAEBD7:'Antik Weiß',FFFFE0:'Hellgelb',F0FFF0:'Honigtau',F0FFFF:'Azurblau',F0F8FF:'Alice Blau',E6E6FA:'Lavendel',FFF:'Weiß'},scayt:{title:'Rechtschreibprüfung während der Texteingabe (SCAYT)',opera_title:'Nicht von Opera unterstützt',enable:'SCAYT einschalten',disable:'SCAYT ausschalten',about:'Über SCAYT',toggle:'SCAYT umschalten',options:'Optionen',langs:'Sprachen',moreSuggestions:'Mehr Vorschläge',ignore:'Ignorieren',ignoreAll:'Alle ignorieren',addWord:'Wort hinzufügen',emptyDic:'Wörterbuchname sollte leer sein.',optionsTab:'Optionen',allCaps:'Groß geschriebenen Wörter ignorieren',ignoreDomainNames:'Domain-Namen ignorieren',mixedCase:'Wörter mit gemischte Setzkasten ignorieren',mixedWithDigits:'Wörter mit Zahlen ignorieren',languagesTab:'Sprachen',dictionariesTab:'Wörterbücher',dic_field_name:'Wörterbuchname',dic_create:'Erzeugen',dic_restore:'Wiederherstellen',dic_delete:'Löschen',dic_rename:'Umbenennen',dic_info:'Anfangs wird das Benutzerwörterbuch in einem Cookie gespeichert. Allerdings sind Cookies in der Größe begrenzt. Wenn das Benutzerwörterbuch bis zu einem Punkt wächst, wo es nicht mehr in einem Cookie gespeichert werden kann, wird das Benutzerwörterbuch auf dem Server gespeichert. Um Ihr persönliches Wörterbuch auf dem Server zu speichern, müssen Sie einen Namen für das Wörterbuch angeben. Falls  Sie schon ein gespeicherte Wörterbuch haben, geben Sie bitte dessen Namen ein und klicken Sie auf die Schaltfläche Wiederherstellen.',aboutTab:'Über'},about:{title:'Über CKEditor',dlgTitle:'Über CKEditor',help:'Prüfe $1 für Hilfe.',userGuide:'CKEditor Benutzerhandbuch',moreInfo:'Für Informationen über unsere Lizenzbestimmungen besuchen sie bitte unsere Webseite:',copy:'Copyright &copy; $1. Alle Rechte vorbehalten.'},maximize:'Maximieren',minimize:'Minimieren',fakeobjects:{anchor:'Anker',flash:'Flash Animation',iframe:'IFrame',hiddenfield:'Verstecktes Feld',unknown:'Unbekanntes Objekt'},resize:'Zum Vergrößern ziehen',colordialog:{title:'Farbe wählen',options:'Farbeoptionen',highlight:'Hervorheben',selected:'Ausgewählte Farbe',clear:'Entfernen'},toolbarCollapse:'Symbolleiste einklappen',toolbarExpand:'Symbolleiste ausklappen',toolbarGroups:{document:'Dokument',clipboard:'Zwischenablage/Rückgängig',editing:'Editieren',forms:'Formularen',basicstyles:'Grundstile',paragraph:'Absatz',links:'Links',insert:'Einfügen',styles:'Stile',colors:'Farben',tools:'Werkzeuge'},bidi:{ltr:'Leserichtung von Links nach Rechts',rtl:'Leserichtung von Rechts nach Links'},docprops:{label:'Dokument-Eigenschaften',title:'Dokument-Eigenschaften',design:'Design',meta:'Metadaten',chooseColor:'Wählen',other:'<andere>',docTitle:'Seitentitel',charset:'Zeichenkodierung',charsetOther:'Andere Zeichenkodierung',charsetASCII:'ASCII',charsetCE:'Zentraleuropäisch',charsetCT:'traditionell Chinesisch (Big5)',charsetCR:'Kyrillisch',charsetGR:'Griechisch',charsetJP:'Japanisch',charsetKR:'Koreanisch',charsetTR:'Türkisch',charsetUN:'Unicode (UTF-8)',charsetWE:'Westeuropäisch',docType:'Dokumententyp',docTypeOther:'Anderer Dokumententyp',xhtmlDec:'Beziehe XHTML Deklarationen ein',bgColor:'Hintergrundfarbe',bgImage:'Hintergrundbild URL',bgFixed:'feststehender Hintergrund',txtColor:'Textfarbe',margin:'Seitenränder',marginTop:'Oben',marginLeft:'Links',marginRight:'Rechts',marginBottom:'Unten',metaKeywords:'Schlüsselwörter (durch Komma getrennt)',metaDescription:'Dokument-Beschreibung',metaAuthor:'Autor',metaCopyright:'Copyright',previewHtml:'<p>Das ist ein <strong>Beispieltext</strong>. Du schreibst in <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Symbolleiste einklappen",
+ToolbarExpand		: "Symbolleiste ausklappen",
+
+// Toolbar Items and Context Menu
+Save				: "Speichern",
+NewPage				: "Neue Seite",
+Preview				: "Vorschau",
+Cut					: "Ausschneiden",
+Copy				: "Kopieren",
+Paste				: "Einfügen",
+PasteText			: "aus Textdatei einfügen",
+PasteWord			: "aus MS-Word einfügen",
+Print				: "Drucken",
+SelectAll			: "Alles auswählen",
+RemoveFormat		: "Formatierungen entfernen",
+InsertLinkLbl		: "Link",
+InsertLink			: "Link einfügen/editieren",
+RemoveLink			: "Link entfernen",
+VisitLink			: "Link aufrufen",
+Anchor				: "Anker einfügen/editieren",
+AnchorDelete		: "Anker entfernen",
+InsertImageLbl		: "Bild",
+InsertImage			: "Bild einfügen/editieren",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Flash einfügen/editieren",
+InsertTableLbl		: "Tabelle",
+InsertTable			: "Tabelle einfügen/editieren",
+InsertLineLbl		: "Linie",
+InsertLine			: "Horizontale Linie einfügen",
+InsertSpecialCharLbl: "Sonderzeichen",
+InsertSpecialChar	: "Sonderzeichen einfügen/editieren",
+InsertSmileyLbl		: "Smiley",
+InsertSmiley		: "Smiley einfügen",
+About				: "Über FCKeditor",
+Bold				: "Fett",
+Italic				: "Kursiv",
+Underline			: "Unterstrichen",
+StrikeThrough		: "Durchgestrichen",
+Subscript			: "Tiefgestellt",
+Superscript			: "Hochgestellt",
+LeftJustify			: "Linksbündig",
+CenterJustify		: "Zentriert",
+RightJustify		: "Rechtsbündig",
+BlockJustify		: "Blocksatz",
+DecreaseIndent		: "Einzug verringern",
+IncreaseIndent		: "Einzug erhöhen",
+Blockquote			: "Zitatblock",
+CreateDiv			: "Erzeuge Div Block",
+EditDiv				: "Bearbeite Div Block",
+DeleteDiv			: "Entferne Div Block",
+Undo				: "Rückgängig",
+Redo				: "Wiederherstellen",
+NumberedListLbl		: "Nummerierte Liste",
+NumberedList		: "Nummerierte Liste einfügen/entfernen",
+BulletedListLbl		: "Liste",
+BulletedList		: "Liste einfügen/entfernen",
+ShowTableBorders	: "Zeige Tabellenrahmen",
+ShowDetails			: "Zeige Details",
+Style				: "Stil",
+FontFormat			: "Format",
+Font				: "Schriftart",
+FontSize			: "Größe",
+TextColor			: "Textfarbe",
+BGColor				: "Hintergrundfarbe",
+Source				: "Quellcode",
+Find				: "Suchen",
+Replace				: "Ersetzen",
+SpellCheck			: "Rechtschreibprüfung",
+UniversalKeyboard	: "Universal-Tastatur",
+PageBreakLbl		: "Seitenumbruch",
+PageBreak			: "Seitenumbruch einfügen",
+
+Form			: "Formular",
+Checkbox		: "Checkbox",
+RadioButton		: "Radiobutton",
+TextField		: "Textfeld einzeilig",
+Textarea		: "Textfeld mehrzeilig",
+HiddenField		: "verstecktes Feld",
+Button			: "Klickbutton",
+SelectionField	: "Auswahlfeld",
+ImageButton		: "Bildbutton",
+
+FitWindow		: "Editor maximieren",
+ShowBlocks		: "Blöcke anzeigen",
+
+// Context Menu
+EditLink			: "Link editieren",
+CellCM				: "Zelle",
+RowCM				: "Zeile",
+ColumnCM			: "Spalte",
+InsertRowAfter		: "Zeile unterhalb einfügen",
+InsertRowBefore		: "Zeile oberhalb einfügen",
+DeleteRows			: "Zeile entfernen",
+InsertColumnAfter	: "Spalte rechts danach einfügen",
+InsertColumnBefore	: "Spalte links davor einfügen",
+DeleteColumns		: "Spalte löschen",
+InsertCellAfter		: "Zelle danach einfügen",
+InsertCellBefore	: "Zelle davor einfügen",
+DeleteCells			: "Zelle löschen",
+MergeCells			: "Zellen verbinden",
+MergeRight			: "nach rechts verbinden",
+MergeDown			: "nach unten verbinden",
+HorizontalSplitCell	: "Zelle horizontal teilen",
+VerticalSplitCell	: "Zelle vertikal teilen",
+TableDelete			: "Tabelle löschen",
+CellProperties		: "Zellen-Eigenschaften",
+TableProperties		: "Tabellen-Eigenschaften",
+ImageProperties		: "Bild-Eigenschaften",
+FlashProperties		: "Flash-Eigenschaften",
+
+AnchorProp			: "Anker-Eigenschaften",
+ButtonProp			: "Button-Eigenschaften",
+CheckboxProp		: "Checkbox-Eigenschaften",
+HiddenFieldProp		: "Verstecktes Feld-Eigenschaften",
+RadioButtonProp		: "Optionsfeld-Eigenschaften",
+ImageButtonProp		: "Bildbutton-Eigenschaften",
+TextFieldProp		: "Textfeld (einzeilig) Eigenschaften",
+SelectionFieldProp	: "Auswahlfeld-Eigenschaften",
+TextareaProp		: "Textfeld (mehrzeilig) Eigenschaften",
+FormProp			: "Formular-Eigenschaften",
+
+FontFormats			: "Normal;Formatiert;Addresse;Überschrift 1;Überschrift 2;Überschrift 3;Überschrift 4;Überschrift 5;Überschrift 6;Normal (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Bearbeite XHTML. Bitte warten...",
+Done				: "Fertig",
+PasteWordConfirm	: "Der Text, den Sie einfügen möchten, scheint aus MS-Word kopiert zu sein. Möchten Sie ihn zuvor bereinigen lassen?",
+NotCompatiblePaste	: "Diese Funktion steht nur im Internet Explorer ab Version 5.5 zur Verfügung. Möchten Sie den Text unbereinigt einfügen?",
+UnknownToolbarItem	: "Unbekanntes Menüleisten-Objekt \"%1\"",
+UnknownCommand		: "Unbekannter Befehl \"%1\"",
+NotImplemented		: "Befehl nicht implementiert",
+UnknownToolbarSet	: "Menüleiste \"%1\" existiert nicht",
+NoActiveX			: "Die Sicherheitseinstellungen Ihres Browsers beschränken evtl. einige Funktionen des Editors. Aktivieren Sie die Option \"ActiveX-Steuerelemente und Plugins ausführen\" in den Sicherheitseinstellungen, um diese Funktionen nutzen zu können",
+BrowseServerBlocked : "Ein Auswahlfenster konnte nicht geöffnet werden. Stellen Sie sicher, das alle Popup-Blocker ausgeschaltet sind.",
+DialogBlocked		: "Das Dialog-Fenster konnte nicht geöffnet werden. Stellen Sie sicher, das alle Popup-Blocker ausgeschaltet sind.",
+VisitLinkBlocked	: "Es war leider nicht möglich ein neues Fenster zu öffnen. Bitte versichern Sie sich das der Popup-Blocker ausgeschaltet ist.",
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Abbrechen",
+DlgBtnClose			: "Schließen",
+DlgBtnBrowseServer	: "Server durchsuchen",
+DlgAdvancedTag		: "Erweitert",
+DlgOpOther			: "<andere>",
+DlgInfoTab			: "Info",
+DlgAlertUrl			: "Bitte tragen Sie die URL ein",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<nichts>",
+DlgGenId			: "ID",
+DlgGenLangDir		: "Schreibrichtung",
+DlgGenLangDirLtr	: "Links nach Rechts (LTR)",
+DlgGenLangDirRtl	: "Rechts nach Links (RTL)",
+DlgGenLangCode		: "Sprachenkürzel",
+DlgGenAccessKey		: "Zugriffstaste",
+DlgGenName			: "Name",
+DlgGenTabIndex		: "Tab-Index",
+DlgGenLongDescr		: "Langform URL",
+DlgGenClass			: "Stylesheet Klasse",
+DlgGenTitle			: "Titel Beschreibung",
+DlgGenContType		: "Inhaltstyp",
+DlgGenLinkCharset	: "Ziel-Zeichensatz",
+DlgGenStyle			: "Style",
+
+// Image Dialog
+DlgImgTitle			: "Bild-Eigenschaften",
+DlgImgInfoTab		: "Bild-Info",
+DlgImgBtnUpload		: "Zum Server senden",
+DlgImgURL			: "Bildauswahl",
+DlgImgUpload		: "Upload",
+DlgImgAlt			: "Alternativer Text",
+DlgImgWidth			: "Breite",
+DlgImgHeight		: "Höhe",
+DlgImgLockRatio		: "Größenverhältniss beibehalten",
+DlgBtnResetSize		: "Größe zurücksetzen",
+DlgImgBorder		: "Rahmen",
+DlgImgHSpace		: "Horizontal-Abstand",
+DlgImgVSpace		: "Vertikal-Abstand",
+DlgImgAlign			: "Ausrichtung",
+DlgImgAlignLeft		: "Links",
+DlgImgAlignAbsBottom: "Abs Unten",
+DlgImgAlignAbsMiddle: "Abs Mitte",
+DlgImgAlignBaseline	: "Baseline",
+DlgImgAlignBottom	: "Unten",
+DlgImgAlignMiddle	: "Mitte",
+DlgImgAlignRight	: "Rechts",
+DlgImgAlignTextTop	: "Text Oben",
+DlgImgAlignTop		: "Oben",
+DlgImgPreview		: "Vorschau",
+DlgImgAlertUrl		: "Bitte geben Sie die Bild-URL an",
+DlgImgLinkTab		: "Link",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash-Eigenschaften",
+DlgFlashChkPlay		: "autom. Abspielen",
+DlgFlashChkLoop		: "Endlosschleife",
+DlgFlashChkMenu		: "Flash-Menü aktivieren",
+DlgFlashScale		: "Skalierung",
+DlgFlashScaleAll	: "Alles anzeigen",
+DlgFlashScaleNoBorder	: "ohne Rand",
+DlgFlashScaleFit	: "Passgenau",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Link",
+DlgLnkInfoTab		: "Link-Info",
+DlgLnkTargetTab		: "Zielseite",
+
+DlgLnkType			: "Link-Typ",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Anker in dieser Seite",
+DlgLnkTypeEMail		: "E-Mail",
+DlgLnkProto			: "Protokoll",
+DlgLnkProtoOther	: "<anderes>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Anker auswählen",
+DlgLnkAnchorByName	: "nach Anker Name",
+DlgLnkAnchorById	: "nach Element Id",
+DlgLnkNoAnchors		: "(keine Anker im Dokument vorhanden)",
+DlgLnkEMail			: "E-Mail Addresse",
+DlgLnkEMailSubject	: "Betreffzeile",
+DlgLnkEMailBody		: "Nachrichtentext",
+DlgLnkUpload		: "Upload",
+DlgLnkBtnUpload		: "Zum Server senden",
+
+DlgLnkTarget		: "Zielseite",
+DlgLnkTargetFrame	: "<Frame>",
+DlgLnkTargetPopup	: "<Pop-up Fenster>",
+DlgLnkTargetBlank	: "Neues Fenster (_blank)",
+DlgLnkTargetParent	: "Oberes Fenster (_parent)",
+DlgLnkTargetSelf	: "Gleiches Fenster (_self)",
+DlgLnkTargetTop		: "Oberstes Fenster (_top)",
+DlgLnkTargetFrameName	: "Ziel-Fenster-Name",
+DlgLnkPopWinName	: "Pop-up Fenster-Name",
+DlgLnkPopWinFeat	: "Pop-up Fenster-Eigenschaften",
+DlgLnkPopResize		: "Vergrößerbar",
+DlgLnkPopLocation	: "Adress-Leiste",
+DlgLnkPopMenu		: "Menü-Leiste",
+DlgLnkPopScroll		: "Rollbalken",
+DlgLnkPopStatus		: "Statusleiste",
+DlgLnkPopToolbar	: "Werkzeugleiste",
+DlgLnkPopFullScrn	: "Vollbild (IE)",
+DlgLnkPopDependent	: "Abhängig (Netscape)",
+DlgLnkPopWidth		: "Breite",
+DlgLnkPopHeight		: "Höhe",
+DlgLnkPopLeft		: "Linke Position",
+DlgLnkPopTop		: "Obere Position",
+
+DlnLnkMsgNoUrl		: "Bitte geben Sie die Link-URL an",
+DlnLnkMsgNoEMail	: "Bitte geben Sie e-Mail Adresse an",
+DlnLnkMsgNoAnchor	: "Bitte wählen Sie einen Anker aus",
+DlnLnkMsgInvPopName	: "Der Name des Popups muss mit einem Buchstaben beginnen und darf keine Leerzeichen enthalten",
+
+// Color Dialog
+DlgColorTitle		: "Farbauswahl",
+DlgColorBtnClear	: "Keine Farbe",
+DlgColorHighlight	: "Vorschau",
+DlgColorSelected	: "Ausgewählt",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Smiley auswählen",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Sonderzeichen auswählen",
+
+// Table Dialog
+DlgTableTitle		: "Tabellen-Eigenschaften",
+DlgTableRows		: "Zeile",
+DlgTableColumns		: "Spalte",
+DlgTableBorder		: "Rahmen",
+DlgTableAlign		: "Ausrichtung",
+DlgTableAlignNotSet	: "<keine>",
+DlgTableAlignLeft	: "Links",
+DlgTableAlignCenter	: "Zentriert",
+DlgTableAlignRight	: "Rechts",
+DlgTableWidth		: "Breite",
+DlgTableWidthPx		: "Pixel",
+DlgTableWidthPc		: "%",
+DlgTableHeight		: "Höhe",
+DlgTableCellSpace	: "Zellenabstand außen",
+DlgTableCellPad		: "Zellenabstand innen",
+DlgTableCaption		: "Überschrift",
+DlgTableSummary		: "Inhaltsübersicht",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Zellen-Eigenschaften",
+DlgCellWidth		: "Breite",
+DlgCellWidthPx		: "Pixel",
+DlgCellWidthPc		: "%",
+DlgCellHeight		: "Höhe",
+DlgCellWordWrap		: "Umbruch",
+DlgCellWordWrapNotSet	: "<keiner>",
+DlgCellWordWrapYes	: "Ja",
+DlgCellWordWrapNo	: "Nein",
+DlgCellHorAlign		: "Horizontale Ausrichtung",
+DlgCellHorAlignNotSet	: "<keine>",
+DlgCellHorAlignLeft	: "Links",
+DlgCellHorAlignCenter	: "Zentriert",
+DlgCellHorAlignRight: "Rechts",
+DlgCellVerAlign		: "Vertikale Ausrichtung",
+DlgCellVerAlignNotSet	: "<keine>",
+DlgCellVerAlignTop	: "Oben",
+DlgCellVerAlignMiddle	: "Mitte",
+DlgCellVerAlignBottom	: "Unten",
+DlgCellVerAlignBaseline	: "Grundlinie",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Zeilen zusammenfassen",
+DlgCellCollSpan		: "Spalten zusammenfassen",
+DlgCellBackColor	: "Hintergrundfarbe",
+DlgCellBorderColor	: "Rahmenfarbe",
+DlgCellBtnSelect	: "Auswahl...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Suchen und Ersetzen",
+
+// Find Dialog
+DlgFindTitle		: "Finden",
+DlgFindFindBtn		: "Finden",
+DlgFindNotFoundMsg	: "Der gesuchte Text wurde nicht gefunden.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Ersetzen",
+DlgReplaceFindLbl		: "Suche nach:",
+DlgReplaceReplaceLbl	: "Ersetze mit:",
+DlgReplaceCaseChk		: "Groß-Kleinschreibung beachten",
+DlgReplaceReplaceBtn	: "Ersetzen",
+DlgReplaceReplAllBtn	: "Alle Ersetzen",
+DlgReplaceWordChk		: "Nur ganze Worte suchen",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).",
+PasteErrorCopy	: "Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).",
+
+PasteAsText		: "Als Text einfügen",
+PasteFromWord	: "Aus Word einfügen",
+
+DlgPasteMsg2	: "Bitte fügen Sie den Text in der folgenden Box über die Tastatur (mit <STRONG>Strg+V</STRONG>) ein und bestätigen Sie mit <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.",
+DlgPasteIgnoreFont		: "Ignoriere Schriftart-Definitionen",
+DlgPasteRemoveStyles	: "Entferne Style-Definitionen",
+
+// Color Picker
+ColorAutomatic	: "Automatisch",
+ColorMoreColors	: "Weitere Farben...",
+
+// Document Properties
+DocProps		: "Dokument-Eigenschaften",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Anker-Eigenschaften",
+DlgAnchorName		: "Anker Name",
+DlgAnchorErrorName	: "Bitte geben Sie den Namen des Ankers ein",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Nicht im Wörterbuch",
+DlgSpellChangeTo		: "Ändern in",
+DlgSpellBtnIgnore		: "Ignorieren",
+DlgSpellBtnIgnoreAll	: "Alle Ignorieren",
+DlgSpellBtnReplace		: "Ersetzen",
+DlgSpellBtnReplaceAll	: "Alle Ersetzen",
+DlgSpellBtnUndo			: "Rückgängig",
+DlgSpellNoSuggestions	: " - keine Vorschläge - ",
+DlgSpellProgress		: "Rechtschreibprüfung läuft...",
+DlgSpellNoMispell		: "Rechtschreibprüfung abgeschlossen - keine Fehler gefunden",
+DlgSpellNoChanges		: "Rechtschreibprüfung abgeschlossen - keine Worte geändert",
+DlgSpellOneChange		: "Rechtschreibprüfung abgeschlossen - ein Wort geändert",
+DlgSpellManyChanges		: "Rechtschreibprüfung abgeschlossen - %1 Wörter geändert",
+
+IeSpellDownload			: "Rechtschreibprüfung nicht installiert. Möchten Sie sie jetzt herunterladen?",
+
+// Button Dialog
+DlgButtonText		: "Text (Wert)",
+DlgButtonType		: "Typ",
+DlgButtonTypeBtn	: "Button",
+DlgButtonTypeSbm	: "Absenden",
+DlgButtonTypeRst	: "Zurücksetzen",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Name",
+DlgCheckboxValue	: "Wert",
+DlgCheckboxSelected	: "ausgewählt",
+
+// Form Dialog
+DlgFormName		: "Name",
+DlgFormAction	: "Action",
+DlgFormMethod	: "Method",
+
+// Select Field Dialog
+DlgSelectName		: "Name",
+DlgSelectValue		: "Wert",
+DlgSelectSize		: "Größe",
+DlgSelectLines		: "Linien",
+DlgSelectChkMulti	: "Erlaube Mehrfachauswahl",
+DlgSelectOpAvail	: "Mögliche Optionen",
+DlgSelectOpText		: "Text",
+DlgSelectOpValue	: "Wert",
+DlgSelectBtnAdd		: "Hinzufügen",
+DlgSelectBtnModify	: "Ändern",
+DlgSelectBtnUp		: "Hoch",
+DlgSelectBtnDown	: "Runter",
+DlgSelectBtnSetValue : "Setze als Standardwert",
+DlgSelectBtnDelete	: "Entfernen",
+
+// Textarea Dialog
+DlgTextareaName	: "Name",
+DlgTextareaCols	: "Spalten",
+DlgTextareaRows	: "Reihen",
+
+// Text Field Dialog
+DlgTextName			: "Name",
+DlgTextValue		: "Wert",
+DlgTextCharWidth	: "Zeichenbreite",
+DlgTextMaxChars		: "Max. Zeichen",
+DlgTextType			: "Typ",
+DlgTextTypeText		: "Text",
+DlgTextTypePass		: "Passwort",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Name",
+DlgHiddenValue	: "Wert",
+
+// Bulleted List Dialog
+BulletedListProp	: "Listen-Eigenschaften",
+NumberedListProp	: "Nummerierte Listen-Eigenschaften",
+DlgLstStart			: "Start",
+DlgLstType			: "Typ",
+DlgLstTypeCircle	: "Ring",
+DlgLstTypeDisc		: "Kreis",
+DlgLstTypeSquare	: "Quadrat",
+DlgLstTypeNumbers	: "Nummern (1, 2, 3)",
+DlgLstTypeLCase		: "Kleinbuchstaben (a, b, c)",
+DlgLstTypeUCase		: "Großbuchstaben (A, B, C)",
+DlgLstTypeSRoman	: "Kleine römische Zahlen (i, ii, iii)",
+DlgLstTypeLRoman	: "Große römische Zahlen (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Allgemein",
+DlgDocBackTab		: "Hintergrund",
+DlgDocColorsTab		: "Farben und Abstände",
+DlgDocMetaTab		: "Metadaten",
+
+DlgDocPageTitle		: "Seitentitel",
+DlgDocLangDir		: "Schriftrichtung",
+DlgDocLangDirLTR	: "Links nach Rechts",
+DlgDocLangDirRTL	: "Rechts nach Links",
+DlgDocLangCode		: "Sprachkürzel",
+DlgDocCharSet		: "Zeichenkodierung",
+DlgDocCharSetCE		: "Zentraleuropäisch",
+DlgDocCharSetCT		: "traditionell Chinesisch (Big5)",
+DlgDocCharSetCR		: "Kyrillisch",
+DlgDocCharSetGR		: "Griechisch",
+DlgDocCharSetJP		: "Japanisch",
+DlgDocCharSetKR		: "Koreanisch",
+DlgDocCharSetTR		: "Türkisch",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Westeuropäisch",
+DlgDocCharSetOther	: "Andere Zeichenkodierung",
+
+DlgDocDocType		: "Dokumententyp",
+DlgDocDocTypeOther	: "Anderer Dokumententyp",
+DlgDocIncXHTML		: "Beziehe XHTML Deklarationen ein",
+DlgDocBgColor		: "Hintergrundfarbe",
+DlgDocBgImage		: "Hintergrundbild URL",
+DlgDocBgNoScroll	: "feststehender Hintergrund",
+DlgDocCText			: "Text",
+DlgDocCLink			: "Link",
+DlgDocCVisited		: "Besuchter Link",
+DlgDocCActive		: "Aktiver Link",
+DlgDocMargins		: "Seitenränder",
+DlgDocMaTop			: "Oben",
+DlgDocMaLeft		: "Links",
+DlgDocMaRight		: "Rechts",
+DlgDocMaBottom		: "Unten",
+DlgDocMeIndex		: "Schlüsselwörter (durch Komma getrennt)",
+DlgDocMeDescr		: "Dokument-Beschreibung",
+DlgDocMeAuthor		: "Autor",
+DlgDocMeCopy		: "Copyright",
+DlgDocPreview		: "Vorschau",
+
+// Templates Dialog
+Templates			: "Vorlagen",
+DlgTemplatesTitle	: "Vorlagen",
+DlgTemplatesSelMsg	: "Klicken Sie auf eine Vorlage, um sie im Editor zu öffnen (der aktuelle Inhalt wird dabei gelöscht!):",
+DlgTemplatesLoading	: "Liste der Vorlagen wird geladen. Bitte warten...",
+DlgTemplatesNoTpl	: "(keine Vorlagen definiert)",
+DlgTemplatesReplace	: "Aktuellen Inhalt ersetzen",
+
+// About Dialog
+DlgAboutAboutTab	: "Über",
+DlgAboutBrowserInfoTab	: "Browser-Info",
+DlgAboutLicenseTab	: "Lizenz",
+DlgAboutVersion		: "Version",
+DlgAboutInfo		: "Für weitere Informationen siehe",
+
+// Div Dialog
+DlgDivGeneralTab	: "Allgemein",
+DlgDivAdvancedTab	: "Erweitert",
+DlgDivStyle		: "Style",
+DlgDivInlineStyle	: "Inline Style"
+};

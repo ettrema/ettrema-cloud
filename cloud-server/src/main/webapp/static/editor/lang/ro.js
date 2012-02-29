@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Romanian language file.
+ */
 
-CKEDITOR.lang.ro={dir:'ltr',editorTitle:'Rich text editor, %1, press ALT 0 for help.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'Sursa',newPage:'Pagină nouă',save:'Salvează',preview:'Previzualizare',cut:'Taie',copy:'Copiază',paste:'Adaugă',print:'Printează',underline:'Subliniat (underline)',bold:'Îngroşat (bold)',italic:'Înclinat (italic)',selectAll:'Selectează tot',removeFormat:'Înlătură formatarea',strike:'Tăiat (strike through)',subscript:'Indice (subscript)',superscript:'Putere (superscript)',horizontalrule:'Inserează linie orizontă',pagebreak:'Inserează separator de pagină (Page Break)',pagebreakAlt:'Page Break',unlink:'Înlătură link (legătură web)',undo:'Starea anterioară (undo)',redo:'Starea ulterioară (redo)',common:{browseServer:'Răsfoieşte server',url:'URL',protocol:'Protocol',upload:'Încarcă',uploadSubmit:'Trimite la server',image:'Imagine',flash:'Flash',form:'Formular (Form)',checkbox:'Bifă (Checkbox)',radio:'Buton radio (RadioButton)',textField:'Câmp text (TextField)',textarea:'Suprafaţă text (Textarea)',hiddenField:'Câmp ascuns (HiddenField)',button:'Buton',select:'Câmp selecţie (SelectionField)',imageButton:'Buton imagine (ImageButton)',notSet:'<nesetat>',id:'Id',name:'Nume',langDir:'Direcţia cuvintelor',langDirLtr:'stânga-dreapta (LTR)',langDirRtl:'dreapta-stânga (RTL)',langCode:'Codul limbii',longDescr:'Descrierea lungă URL',cssClass:'Clasele cu stilul paginii (CSS)',advisoryTitle:'Titlul consultativ',cssStyle:'Stil',ok:'Bine',cancel:'Anulare',close:'Close',preview:'Preview',generalTab:'General',advancedTab:'Avansat',validateNumberFailed:'This value is not a number.',confirmNewPage:'Any unsaved changes to this content will be lost. Are you sure you want to load new page?',confirmCancel:'Some of the options have been changed. Are you sure to close the dialog?',options:'Options',target:'Target',targetNew:'New Window (_blank)',targetTop:'Topmost Window (_top)',targetSelf:'Same Window (_self)',targetParent:'Parent Window (_parent)',langDirLTR:'Left to Right (LTR)',langDirRTL:'Right to Left (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'Lăţime',height:'Înălţime',align:'Aliniere',alignLeft:'Stânga',alignRight:'Dreapta',alignCenter:'Centru',alignTop:'Sus',alignMiddle:'Mijloc',alignBottom:'Jos',invalidHeight:'Height must be a number.',invalidWidth:'Width must be a number.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, unavailable</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'Inserează caracter special',title:'Selectează caracter special',options:'Special Character Options'},link:{toolbar:'Inserează/Editează link (legătură web)',other:'<alt>',menu:'Editează Link',title:'Link (Legătură web)',info:'Informaţii despre link (Legătură web)',target:'Ţintă (Target)',upload:'Încarcă',advanced:'Avansat',type:'Tipul link-ului (al legăturii web)',toUrl:'URL',toAnchor:'Ancoră în această pagină',toEmail:'E-Mail',targetFrame:'<frame>',targetPopup:'<fereastra popup>',targetFrameName:'Numele frame-ului ţintă',targetPopupName:'Numele ferestrei popup',popupFeatures:'Proprietăţile ferestrei popup',popupResizable:'Resizable',popupStatusBar:'Bara de status',popupLocationBar:'Bara de locaţie',popupToolbar:'Bara de opţiuni',popupMenuBar:'Bara de meniu',popupFullScreen:'Tot ecranul (Full Screen)(IE)',popupScrollBars:'Scroll Bars',popupDependent:'Dependent (Netscape)',popupLeft:'Poziţia la stânga',popupTop:'Poziţia la dreapta',id:'Id',langDir:'Direcţia cuvintelor',langDirLTR:'stânga-dreapta (LTR)',langDirRTL:'dreapta-stânga (RTL)',acccessKey:'Tasta de acces',name:'Nume',langCode:'Direcţia cuvintelor',tabIndex:'Indexul tabului',advisoryTitle:'Titlul consultativ',advisoryContentType:'Tipul consultativ al titlului',cssClasses:'Clasele cu stilul paginii (CSS)',charset:'Setul de caractere al resursei legate',styles:'Stil',rel:'Relationship',selectAnchor:'Selectaţi o ancoră',anchorName:'după numele ancorei',anchorId:'după Id-ul elementului',emailAddress:'Adresă de e-mail',emailSubject:'Subiectul mesajului',emailBody:'Conţinutul mesajului',noAnchors:'(Nicio ancoră disponibilă în document)',noUrl:'Vă rugăm să scrieţi URL-ul',noEmail:'Vă rugăm să scrieţi adresa de e-mail'},anchor:{toolbar:'Inserează/Editează ancoră',menu:'Proprietăţi ancoră',title:'Proprietăţi ancoră',name:'Numele ancorei',errorName:'Vă rugăm scrieţi numele ancorei',remove:'Remove Anchor'},list:{numberedTitle:'Numbered List Properties',bulletedTitle:'Bulleted List Properties',type:'Type',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Circle',disc:'Disc',square:'Square',none:'None',notset:'<not set>',armenian:'Armenian numbering',georgian:'Georgian numbering (an, ban, gan, etc.)',lowerRoman:'Lower Roman (i, ii, iii, iv, v, etc.)',upperRoman:'Upper Roman (I, II, III, IV, V, etc.)',lowerAlpha:'Lower Alpha (a, b, c, d, e, etc.)',upperAlpha:'Upper Alpha (A, B, C, D, E, etc.)',lowerGreek:'Lower Greek (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal leading zero (01, 02, 03, etc.)'},findAndReplace:{title:'Găseşte şi înlocuieşte',find:'Găseşte',replace:'Înlocuieşte',findWhat:'Găseşte:',replaceWith:'Înlocuieşte cu:',notFoundMsg:'Textul specificat nu a fost găsit.',findOptions:'Find Options',matchCase:'Deosebeşte majuscule de minuscule (Match case)',matchWord:'Doar cuvintele întregi',matchCyclic:'Match cyclic',replaceAll:'Înlocuieşte tot',replaceSuccessMsg:'%1 occurrence(s) replaced.'},table:{toolbar:'Tabel',title:'Proprietăţile tabelului',menu:'Proprietăţile tabelului',deleteTable:'Şterge tabel',rows:'Linii',columns:'Coloane',border:'Mărimea marginii',widthPx:'pixeli',widthPc:'procente',widthUnit:'width unit',cellSpace:'Spaţiu între celule',cellPad:'Spaţiu în cadrul celulei',caption:'Titlu (Caption)',summary:'Rezumat',headers:'Headers',headersNone:'None',headersColumn:'First column',headersRow:'First Row',headersBoth:'Both',invalidRows:'Number of rows must be a number greater than 0.',invalidCols:'Number of columns must be a number greater than 0.',invalidBorder:'Border size must be a number.',invalidWidth:'Table width must be a number.',invalidHeight:'Table height must be a number.',invalidCellSpacing:'Cell spacing must be a positive number.',invalidCellPadding:'Cell padding must be a positive number.',cell:{menu:'Celulă',insertBefore:'Inserează celulă înainte',insertAfter:'Inserează celulă după',deleteCell:'Şterge celule',merge:'Uneşte celule',mergeRight:'Uneşte la dreapta',mergeDown:'Uneşte jos',splitHorizontal:'Împarte celula pe orizontală',splitVertical:'Împarte celula pe verticală',title:'Cell Properties',cellType:'Cell Type',rowSpan:'Rows Span',colSpan:'Columns Span',wordWrap:'Word Wrap',hAlign:'Horizontal Alignment',vAlign:'Vertical Alignment',alignBaseline:'Baseline',bgColor:'Background Color',borderColor:'Border Color',data:'Data',header:'Header',yes:'Yes',no:'No',invalidWidth:'Cell width must be a number.',invalidHeight:'Cell height must be a number.',invalidRowSpan:'Rows span must be a whole number.',invalidColSpan:'Columns span must be a whole number.',chooseColor:'Choose'},row:{menu:'Linie',insertBefore:'Inserează linie înainte',insertAfter:'Inserează linie după',deleteRow:'Şterge linii'},column:{menu:'Coloană',insertBefore:'Inserează coloană înainte',insertAfter:'Inserează coloană după',deleteColumn:'Şterge celule'}},button:{title:'Proprietăţi buton',text:'Text (Valoare)',type:'Tip',typeBtn:'Button',typeSbm:'Submit',typeRst:'Reset'},checkboxAndRadio:{checkboxTitle:'Proprietăţi bifă (Checkbox)',radioTitle:'Proprietăţi buton radio (Radio Button)',value:'Valoare',selected:'Selectat'},form:{title:'Proprietăţi formular (Form)',menu:'Proprietăţi formular (Form)',action:'Acţiune',method:'Metodă',encoding:'Encoding'},select:{title:'Proprietăţi câmp selecţie (Selection Field)',selectInfo:'Informaţii',opAvail:'Opţiuni disponibile',value:'Valoare',size:'Mărime',lines:'linii',chkMulti:'Permite selecţii multiple',opText:'Text',opValue:'Valoare',btnAdd:'Adaugă',btnModify:'Modifică',btnUp:'Sus',btnDown:'Jos',btnSetValue:'Setează ca valoare selectată',btnDelete:'Şterge'},textarea:{title:'Proprietăţi suprafaţă text (Textarea)',cols:'Coloane',rows:'Linii'},textfield:{title:'Proprietăţi câmp text (Text Field)',name:'Nume',value:'Valoare',charWidth:'Lărgimea caracterului',maxChars:'Caractere maxime',type:'Tip',typeText:'Text',typePass:'Parolă'},hidden:{title:'Proprietăţi câmp ascuns (Hidden Field)',name:'Nume',value:'Valoare'},image:{title:'Proprietăţile imaginii',titleButton:'Proprietăţi buton imagine (Image Button)',menu:'Proprietăţile imaginii',infoTab:'Informaţii despre imagine',btnUpload:'Trimite la server',upload:'Încarcă',alt:'Text alternativ',lockRatio:'Păstrează proporţiile',resetSize:'Resetează mărimea',border:'Margine',hSpace:'HSpace',vSpace:'VSpace',alertUrl:'Vă rugăm să scrieţi URL-ul imaginii',linkTab:'Link (Legătură web)',button2Img:'Do you want to transform the selected image button on a simple image?',img2Button:'Do you want to transform the selected image on a image button?',urlMissing:'Image source URL is missing.',validateBorder:'Border must be a whole number.',validateHSpace:'HSpace must be a whole number.',validateVSpace:'VSpace must be a whole number.'},flash:{properties:'Proprietăţile flash-ului',propertiesTab:'Properties',title:'Proprietăţile flash-ului',chkPlay:'Rulează automat',chkLoop:'Repetă (Loop)',chkMenu:'Activează meniul flash',chkFull:'Allow Fullscreen',scale:'Scală',scaleAll:'Arată tot',scaleNoBorder:'Fără margini (No border)',scaleFit:'Potriveşte',access:'Script Access',accessAlways:'Always',accessSameDomain:'Same domain',accessNever:'Never',alignAbsBottom:'Jos absolut (Abs Bottom)',alignAbsMiddle:'Mijloc absolut (Abs Middle)',alignBaseline:'Linia de jos (Baseline)',alignTextTop:'Text sus',quality:'Quality',qualityBest:'Best',qualityHigh:'High',qualityAutoHigh:'Auto High',qualityMedium:'Medium',qualityAutoLow:'Auto Low',qualityLow:'Low',windowModeWindow:'Window',windowModeOpaque:'Opaque',windowModeTransparent:'Transparent',windowMode:'Window mode',flashvars:'Variables for Flash',bgcolor:'Coloarea fundalului',hSpace:'HSpace',vSpace:'VSpace',validateSrc:'Vă rugăm să scrieţi URL-ul',validateHSpace:'HSpace must be a number.',validateVSpace:'VSpace must be a number.'},spellCheck:{toolbar:'Verifică text',title:'Spell Check',notAvailable:'Sorry, but service is unavailable now.',errorLoading:'Error loading application service host: %s.',notInDic:'Nu e în dicţionar',changeTo:'Schimbă în',btnIgnore:'Ignoră',btnIgnoreAll:'Ignoră toate',btnReplace:'Înlocuieşte',btnReplaceAll:'Înlocuieşte tot',btnUndo:'Starea anterioară (undo)',noSuggestions:'- Fără sugestii -',progress:'Verificarea textului în desfăşurare...',noMispell:'Verificarea textului terminată: Nicio greşeală găsită',noChanges:'Verificarea textului terminată: Niciun cuvânt modificat',oneChange:'Verificarea textului terminată: Un cuvânt modificat',manyChanges:'Verificarea textului terminată: 1% cuvinte modificate',ieSpellDownload:'Unealta pentru verificat textul (Spell checker) neinstalată. Doriţi să o descărcaţi acum?'},smiley:{toolbar:'Figură expresivă (Emoticon)',title:'Inserează o figură expresivă (Emoticon)',options:'Smiley Options'},elementsPath:{eleLabel:'Elements path',eleTitle:'%1 element'},numberedlist:'Listă numerotată',bulletedlist:'Listă cu puncte',indent:'Creşte indentarea',outdent:'Scade indentarea',justify:{left:'Aliniere la stânga',center:'Aliniere centrală',right:'Aliniere la dreapta',block:'Aliniere în bloc (Block Justify)'},blockquote:'Citat',clipboard:{title:'Adaugă',cutError:'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de tăiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+X).',copyError:'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de copiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+C).',pasteMsg:'Vă rugăm adăugaţi în căsuţa următoare folosind tastatura (<STRONG>Ctrl/Cmd+V</STRONG>) şi apăsaţi <STRONG>OK</STRONG>.',securityMsg:'Din cauza setărilor de securitate ale programului dvs. cu care navigaţi pe internet (browser), editorul nu poate accesa direct datele din clipboard. Va trebui să adăugaţi din nou datele în această fereastră.',pasteArea:'Paste Area'},pastefromword:{confirmCleanup:'The text you want to paste seems to be copied from Word. Do you want to clean it before pasting?',toolbar:'Adaugă din Word',title:'Adaugă din Word',error:'It was not possible to clean up the pasted data due to an internal error'},pasteText:{button:'Adaugă ca text simplu (Plain Text)',title:'Adaugă ca text simplu (Plain Text)'},templates:{button:'Template-uri (şabloane)',title:'Template-uri (şabloane) de conţinut',options:'Template Options',insertOption:'Înlocuieşte cuprinsul actual',selectPromptMsg:'Vă rugăm selectaţi template-ul (şablonul) ce se va deschide în editor<br>(conţinutul actual va fi pierdut):',emptyListMsg:'(Niciun template (şablon) definit)'},showBlocks:'Arată blocurile',stylesCombo:{label:'Stil',panelTitle:'Formatting Styles',panelTitle1:'Block Styles',panelTitle2:'Inline Styles',panelTitle3:'Object Styles'},format:{label:'Formatare',panelTitle:'Formatare',tag_p:'Normal',tag_pre:'Formatted',tag_address:'Address',tag_h1:'Heading 1',tag_h2:'Heading 2',tag_h3:'Heading 3',tag_h4:'Heading 4',tag_h5:'Heading 5',tag_h6:'Heading 6',tag_div:'Normal (DIV)'},div:{title:'Create Div Container',toolbar:'Create Div Container',cssClassInputLabel:'Stylesheet Classes',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:' Language Code',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Advisory Title',langDirLabel:'Language Direction',langDirLTRLabel:'Left to Right (LTR)',langDirRTLLabel:'Right to Left (RTL)',edit:'Edit Div',remove:'Remove Div'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'Font',voiceLabel:'Font',panelTitle:'Font'},fontSize:{label:'Mărime',voiceLabel:'Font Size',panelTitle:'Mărime'},colorButton:{textColorTitle:'Culoarea textului',bgColorTitle:'Coloarea fundalului',panelTitle:'Colors',auto:'Automatic',more:'Mai multe culori...'},colors:{'000':'Black',800000:'Maroon','8B4513':'Saddle Brown','2F4F4F':'Dark Slate Gray','008080':'Teal','000080':'Navy','4B0082':'Indigo',696969:'Dark Gray',B22222:'Fire Brick',A52A2A:'Brown',DAA520:'Golden Rod','006400':'Dark Green','40E0D0':'Turquoise','0000CD':'Medium Blue',800080:'Purple',808080:'Gray',F00:'Red',FF8C00:'Dark Orange',FFD700:'Gold','008000':'Green','0FF':'Cyan','00F':'Blue',EE82EE:'Violet',A9A9A9:'Dim Gray',FFA07A:'Light Salmon',FFA500:'Orange',FFFF00:'Yellow','00FF00':'Lime',AFEEEE:'Pale Turquoise',ADD8E6:'Light Blue',DDA0DD:'Plum',D3D3D3:'Light Grey',FFF0F5:'Lavender Blush',FAEBD7:'Antique White',FFFFE0:'Light Yellow',F0FFF0:'Honeydew',F0FFFF:'Azure',F0F8FF:'Alice Blue',E6E6FA:'Lavender',FFF:'White'},scayt:{title:'Spell Check As You Type',opera_title:'Not supported by Opera',enable:'Enable SCAYT',disable:'Disable SCAYT',about:'About SCAYT',toggle:'Toggle SCAYT',options:'Options',langs:'Languages',moreSuggestions:'More suggestions',ignore:'Ignore',ignoreAll:'Ignore All',addWord:'Add Word',emptyDic:'Dictionary name should not be empty.',optionsTab:'Options',allCaps:'Ignore All-Caps Words',ignoreDomainNames:'Ignore Domain Names',mixedCase:'Ignore Words with Mixed Case',mixedWithDigits:'Ignore Words with Numbers',languagesTab:'Languages',dictionariesTab:'Dictionaries',dic_field_name:'Dictionary name',dic_create:'Create',dic_restore:'Restore',dic_delete:'Delete',dic_rename:'Rename',dic_info:'Initially the User Dictionary is stored in a Cookie. However, Cookies are limited in size. When the User Dictionary grows to a point where it cannot be stored in a Cookie, then the dictionary may be stored on our server. To store your personal dictionary on our server you should specify a name for your dictionary. If you already have a stored dictionary, please type its name and click the Restore button.',aboutTab:'About'},about:{title:'About CKEditor',dlgTitle:'About CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'For licensing information please visit our web site:',copy:'Copyright &copy; $1. All rights reserved.'},maximize:'Maximize',minimize:'Minimize',fakeobjects:{anchor:'Anchor',flash:'Flash Animation',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:'Unknown Object'},resize:'Drag to resize',colordialog:{title:'Select color',options:'Color Options',highlight:'Highlight',selected:'Selected Color',clear:'Clear'},toolbarCollapse:'Collapse Toolbar',toolbarExpand:'Expand Toolbar',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Text direction from left to right',rtl:'Text direction from right to left'},docprops:{label:'Proprietăţile documentului',title:'Proprietăţile documentului',design:'Design',meta:'Meta Tags',chooseColor:'Choose',other:'<alt>',docTitle:'Titlul paginii',charset:'Encoding setului de caractere',charsetOther:'Alt encoding al setului de caractere',charsetASCII:'ASCII',charsetCE:'Central European',charsetCT:'Chinezesc tradiţional (Big5)',charsetCR:'Chirilic',charsetGR:'Grecesc',charsetJP:'Japonez',charsetKR:'Corean',charsetTR:'Turcesc',charsetUN:'Unicode (UTF-8)',charsetWE:'Vest european',docType:'Document Type Heading',docTypeOther:'Alt Document Type Heading',xhtmlDec:'Include declaraţii XHTML',bgColor:'Culoarea fundalului (Background Color)',bgImage:'URL-ul imaginii din fundal (Background Image URL)',bgFixed:'Fundal neflotant, fix (Non-scrolling Background)',txtColor:'Culoarea textului',margin:'Marginile paginii',marginTop:'Sus',marginLeft:'Stânga',marginRight:'Dreapta',marginBottom:'Jos',metaKeywords:'Cuvinte cheie după care se va indexa documentul (separate prin virgulă)',metaDescription:'Descrierea documentului',metaAuthor:'Autor',metaCopyright:'Drepturi de autor',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Ascunde bara cu opţiuni",
+ToolbarExpand		: "Expandează bara cu opţiuni",
+
+// Toolbar Items and Context Menu
+Save				: "Salvează",
+NewPage				: "Pagină nouă",
+Preview				: "Previzualizare",
+Cut					: "Taie",
+Copy				: "Copiază",
+Paste				: "Adaugă",
+PasteText			: "Adaugă ca text simplu",
+PasteWord			: "Adaugă din Word",
+Print				: "Printează",
+SelectAll			: "Selectează tot",
+RemoveFormat		: "Înlătură formatarea",
+InsertLinkLbl		: "Link (Legătură web)",
+InsertLink			: "Inserează/Editează link (legătură web)",
+RemoveLink			: "Înlătură link (legătură web)",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Inserează/Editează ancoră",
+AnchorDelete		: "Şterge ancoră",
+InsertImageLbl		: "Imagine",
+InsertImage			: "Inserează/Editează imagine",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Inserează/Editează flash",
+InsertTableLbl		: "Tabel",
+InsertTable			: "Inserează/Editează tabel",
+InsertLineLbl		: "Linie",
+InsertLine			: "Inserează linie orizontă",
+InsertSpecialCharLbl: "Caracter special",
+InsertSpecialChar	: "Inserează caracter special",
+InsertSmileyLbl		: "Figură expresivă (Emoticon)",
+InsertSmiley		: "Inserează Figură expresivă (Emoticon)",
+About				: "Despre FCKeditor",
+Bold				: "Îngroşat (bold)",
+Italic				: "Înclinat (italic)",
+Underline			: "Subliniat (underline)",
+StrikeThrough		: "Tăiat (strike through)",
+Subscript			: "Indice (subscript)",
+Superscript			: "Putere (superscript)",
+LeftJustify			: "Aliniere la stânga",
+CenterJustify		: "Aliniere centrală",
+RightJustify		: "Aliniere la dreapta",
+BlockJustify		: "Aliniere în bloc (Block Justify)",
+DecreaseIndent		: "Scade indentarea",
+IncreaseIndent		: "Creşte indentarea",
+Blockquote			: "Citat",
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Starea anterioară (undo)",
+Redo				: "Starea ulterioară (redo)",
+NumberedListLbl		: "Listă numerotată",
+NumberedList		: "Inserează/Şterge listă numerotată",
+BulletedListLbl		: "Listă cu puncte",
+BulletedList		: "Inserează/Şterge listă cu puncte",
+ShowTableBorders	: "Arată marginile tabelului",
+ShowDetails			: "Arată detalii",
+Style				: "Stil",
+FontFormat			: "Formatare",
+Font				: "Font",
+FontSize			: "Mărime",
+TextColor			: "Culoarea textului",
+BGColor				: "Coloarea fundalului",
+Source				: "Sursa",
+Find				: "Găseşte",
+Replace				: "Înlocuieşte",
+SpellCheck			: "Verifică text",
+UniversalKeyboard	: "Tastatură universală",
+PageBreakLbl		: "Separator de pagină (Page Break)",
+PageBreak			: "Inserează separator de pagină (Page Break)",
+
+Form			: "Formular (Form)",
+Checkbox		: "Bifă (Checkbox)",
+RadioButton		: "Buton radio (RadioButton)",
+TextField		: "Câmp text (TextField)",
+Textarea		: "Suprafaţă text (Textarea)",
+HiddenField		: "Câmp ascuns (HiddenField)",
+Button			: "Buton",
+SelectionField	: "Câmp selecţie (SelectionField)",
+ImageButton		: "Buton imagine (ImageButton)",
+
+FitWindow		: "Maximizează mărimea editorului",
+ShowBlocks		: "Arată blocurile",
+
+// Context Menu
+EditLink			: "Editează Link",
+CellCM				: "Celulă",
+RowCM				: "Linie",
+ColumnCM			: "Coloană",
+InsertRowAfter		: "Inserează linie după",
+InsertRowBefore		: "Inserează linie înainte",
+DeleteRows			: "Şterge linii",
+InsertColumnAfter	: "Inserează coloană după",
+InsertColumnBefore	: "Inserează coloană înainte",
+DeleteColumns		: "Şterge celule",
+InsertCellAfter		: "Inserează celulă după",
+InsertCellBefore	: "Inserează celulă înainte",
+DeleteCells			: "Şterge celule",
+MergeCells			: "Uneşte celule",
+MergeRight			: "Uneşte la dreapta",
+MergeDown			: "Uneşte jos",
+HorizontalSplitCell	: "Împarte celula pe orizontală",
+VerticalSplitCell	: "Împarte celula pe verticală",
+TableDelete			: "Şterge tabel",
+CellProperties		: "Proprietăţile celulei",
+TableProperties		: "Proprietăţile tabelului",
+ImageProperties		: "Proprietăţile imaginii",
+FlashProperties		: "Proprietăţile flash-ului",
+
+AnchorProp			: "Proprietăţi ancoră",
+ButtonProp			: "Proprietăţi buton",
+CheckboxProp		: "Proprietăţi bifă (Checkbox)",
+HiddenFieldProp		: "Proprietăţi câmp ascuns (Hidden Field)",
+RadioButtonProp		: "Proprietăţi buton radio (Radio Button)",
+ImageButtonProp		: "Proprietăţi buton imagine (Image Button)",
+TextFieldProp		: "Proprietăţi câmp text (Text Field)",
+SelectionFieldProp	: "Proprietăţi câmp selecţie (Selection Field)",
+TextareaProp		: "Proprietăţi suprafaţă text (Textarea)",
+FormProp			: "Proprietăţi formular (Form)",
+
+FontFormats			: "Normal;Formatted;Address;Heading 1;Heading 2;Heading 3;Heading 4;Heading 5;Heading 6;Normal (DIV)",	//MISSING
+
+// Alerts and Messages
+ProcessingXHTML		: "Procesăm XHTML. Vă rugăm aşteptaţi...",
+Done				: "Am terminat",
+PasteWordConfirm	: "Textul pe care doriţi să-l adăugaţi pare a fi formatat pentru Word. Doriţi să-l curăţaţi de această formatare înainte de a-l adăuga?",
+NotCompatiblePaste	: "Această facilitate e disponibilă doar pentru Microsoft Internet Explorer, versiunea 5.5 sau ulterioară. Vreţi să-l adăugaţi fără a-i fi înlăturat formatarea?",
+UnknownToolbarItem	: "Obiectul \"%1\" din bara cu opţiuni necunoscut",
+UnknownCommand		: "Comanda \"%1\" necunoscută",
+NotImplemented		: "Comandă neimplementată",
+UnknownToolbarSet	: "Grupul din bara cu opţiuni \"%1\" nu există",
+NoActiveX			: "Setările de securitate ale programului dvs. cu care navigaţi pe internet (browser) pot limita anumite funcţionalităţi ale editorului. Pentru a evita asta, trebuie să activaţi opţiunea \"Run ActiveX controls and plug-ins\". Poate veţi întâlni erori sau veţi observa funcţionalităţi lipsă.",
+BrowseServerBlocked : "The resources browser could not be opened. Asiguraţi-vă că nu e activ niciun \"popup blocker\" (funcţionalitate a programului de navigat (browser) sau a unui plug-in al acestuia de a bloca deschiderea unui noi ferestre).",
+DialogBlocked		: "Nu a fost posibilă deschiderea unei ferestre de dialog. Asiguraţi-vă că nu e activ niciun \"popup blocker\" (funcţionalitate a programului de navigat (browser) sau a unui plug-in al acestuia de a bloca deschiderea unui noi ferestre).",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "Bine",
+DlgBtnCancel		: "Anulare",
+DlgBtnClose			: "Închidere",
+DlgBtnBrowseServer	: "Răsfoieşte server",
+DlgAdvancedTag		: "Avansat",
+DlgOpOther			: "<Altul>",
+DlgInfoTab			: "Informaţii",
+DlgAlertUrl			: "Vă rugăm să scrieţi URL-ul",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<nesetat>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Direcţia cuvintelor",
+DlgGenLangDirLtr	: "stânga-dreapta (LTR)",
+DlgGenLangDirRtl	: "dreapta-stânga (RTL)",
+DlgGenLangCode		: "Codul limbii",
+DlgGenAccessKey		: "Tasta de acces",
+DlgGenName			: "Nume",
+DlgGenTabIndex		: "Indexul tabului",
+DlgGenLongDescr		: "Descrierea lungă URL",
+DlgGenClass			: "Clasele cu stilul paginii (CSS)",
+DlgGenTitle			: "Titlul consultativ",
+DlgGenContType		: "Tipul consultativ al titlului",
+DlgGenLinkCharset	: "Setul de caractere al resursei legate",
+DlgGenStyle			: "Stil",
+
+// Image Dialog
+DlgImgTitle			: "Proprietăţile imaginii",
+DlgImgInfoTab		: "Informaţii despre imagine",
+DlgImgBtnUpload		: "Trimite la server",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Încarcă",
+DlgImgAlt			: "Text alternativ",
+DlgImgWidth			: "Lăţime",
+DlgImgHeight		: "Înălţime",
+DlgImgLockRatio		: "Păstrează proporţiile",
+DlgBtnResetSize		: "Resetează mărimea",
+DlgImgBorder		: "Margine",
+DlgImgHSpace		: "HSpace",
+DlgImgVSpace		: "VSpace",
+DlgImgAlign			: "Aliniere",
+DlgImgAlignLeft		: "Stânga",
+DlgImgAlignAbsBottom: "Jos absolut (Abs Bottom)",
+DlgImgAlignAbsMiddle: "Mijloc absolut (Abs Middle)",
+DlgImgAlignBaseline	: "Linia de jos (Baseline)",
+DlgImgAlignBottom	: "Jos",
+DlgImgAlignMiddle	: "Mijloc",
+DlgImgAlignRight	: "Dreapta",
+DlgImgAlignTextTop	: "Text sus",
+DlgImgAlignTop		: "Sus",
+DlgImgPreview		: "Previzualizare",
+DlgImgAlertUrl		: "Vă rugăm să scrieţi URL-ul imaginii",
+DlgImgLinkTab		: "Link (Legătură web)",
+
+// Flash Dialog
+DlgFlashTitle		: "Proprietăţile flash-ului",
+DlgFlashChkPlay		: "Rulează automat",
+DlgFlashChkLoop		: "Repetă (Loop)",
+DlgFlashChkMenu		: "Activează meniul flash",
+DlgFlashScale		: "Scală",
+DlgFlashScaleAll	: "Arată tot",
+DlgFlashScaleNoBorder	: "Fără margini (No border)",
+DlgFlashScaleFit	: "Potriveşte",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Link (Legătură web)",
+DlgLnkInfoTab		: "Informaţii despre link (Legătură web)",
+DlgLnkTargetTab		: "Ţintă (Target)",
+
+DlgLnkType			: "Tipul link-ului (al legăturii web)",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Ancoră în această pagină",
+DlgLnkTypeEMail		: "E-Mail",
+DlgLnkProto			: "Protocol",
+DlgLnkProtoOther	: "<altul>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Selectaţi o ancoră",
+DlgLnkAnchorByName	: "după numele ancorei",
+DlgLnkAnchorById	: "după Id-ul elementului",
+DlgLnkNoAnchors		: "(Nicio ancoră disponibilă în document)",
+DlgLnkEMail			: "Adresă de e-mail",
+DlgLnkEMailSubject	: "Subiectul mesajului",
+DlgLnkEMailBody		: "Conţinutul mesajului",
+DlgLnkUpload		: "Încarcă",
+DlgLnkBtnUpload		: "Trimite la server",
+
+DlgLnkTarget		: "Ţintă (Target)",
+DlgLnkTargetFrame	: "<frame>",
+DlgLnkTargetPopup	: "<fereastra popup>",
+DlgLnkTargetBlank	: "Fereastră nouă (_blank)",
+DlgLnkTargetParent	: "Fereastra părinte (_parent)",
+DlgLnkTargetSelf	: "Aceeaşi fereastră (_self)",
+DlgLnkTargetTop		: "Fereastra din topul ierarhiei (_top)",
+DlgLnkTargetFrameName	: "Numele frame-ului ţintă",
+DlgLnkPopWinName	: "Numele ferestrei popup",
+DlgLnkPopWinFeat	: "Proprietăţile ferestrei popup",
+DlgLnkPopResize		: "Scalabilă",
+DlgLnkPopLocation	: "Bara de locaţie",
+DlgLnkPopMenu		: "Bara de meniu",
+DlgLnkPopScroll		: "Scroll Bars",
+DlgLnkPopStatus		: "Bara de status",
+DlgLnkPopToolbar	: "Bara de opţiuni",
+DlgLnkPopFullScrn	: "Tot ecranul (Full Screen)(IE)",
+DlgLnkPopDependent	: "Dependent (Netscape)",
+DlgLnkPopWidth		: "Lăţime",
+DlgLnkPopHeight		: "Înălţime",
+DlgLnkPopLeft		: "Poziţia la stânga",
+DlgLnkPopTop		: "Poziţia la dreapta",
+
+DlnLnkMsgNoUrl		: "Vă rugăm să scrieţi URL-ul",
+DlnLnkMsgNoEMail	: "Vă rugăm să scrieţi adresa de e-mail",
+DlnLnkMsgNoAnchor	: "Vă rugăm să selectaţi o ancoră",
+DlnLnkMsgInvPopName	: "Numele 'popup'-ului trebuie să înceapă cu un caracter alfabetic şi trebuie să nu conţină spaţii",
+
+// Color Dialog
+DlgColorTitle		: "Selectează culoare",
+DlgColorBtnClear	: "Curăţă",
+DlgColorHighlight	: "Subliniază (Highlight)",
+DlgColorSelected	: "Selectat",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Inserează o figură expresivă (Emoticon)",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Selectează caracter special",
+
+// Table Dialog
+DlgTableTitle		: "Proprietăţile tabelului",
+DlgTableRows		: "Linii",
+DlgTableColumns		: "Coloane",
+DlgTableBorder		: "Mărimea marginii",
+DlgTableAlign		: "Aliniament",
+DlgTableAlignNotSet	: "<Nesetat>",
+DlgTableAlignLeft	: "Stânga",
+DlgTableAlignCenter	: "Centru",
+DlgTableAlignRight	: "Dreapta",
+DlgTableWidth		: "Lăţime",
+DlgTableWidthPx		: "pixeli",
+DlgTableWidthPc		: "procente",
+DlgTableHeight		: "Înălţime",
+DlgTableCellSpace	: "Spaţiu între celule",
+DlgTableCellPad		: "Spaţiu în cadrul celulei",
+DlgTableCaption		: "Titlu (Caption)",
+DlgTableSummary		: "Rezumat",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Proprietăţile celulei",
+DlgCellWidth		: "Lăţime",
+DlgCellWidthPx		: "pixeli",
+DlgCellWidthPc		: "procente",
+DlgCellHeight		: "Înălţime",
+DlgCellWordWrap		: "Desparte cuvintele (Wrap)",
+DlgCellWordWrapNotSet	: "<Nesetat>",
+DlgCellWordWrapYes	: "Da",
+DlgCellWordWrapNo	: "Nu",
+DlgCellHorAlign		: "Aliniament orizontal",
+DlgCellHorAlignNotSet	: "<Nesetat>",
+DlgCellHorAlignLeft	: "Stânga",
+DlgCellHorAlignCenter	: "Centru",
+DlgCellHorAlignRight: "Dreapta",
+DlgCellVerAlign		: "Aliniament vertical",
+DlgCellVerAlignNotSet	: "<Nesetat>",
+DlgCellVerAlignTop	: "Sus",
+DlgCellVerAlignMiddle	: "Mijloc",
+DlgCellVerAlignBottom	: "Jos",
+DlgCellVerAlignBaseline	: "Linia de jos (Baseline)",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Lungimea în linii (Span)",
+DlgCellCollSpan		: "Lungimea în coloane (Span)",
+DlgCellBackColor	: "Culoarea fundalului",
+DlgCellBorderColor	: "Culoarea marginii",
+DlgCellBtnSelect	: "Selectaţi...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Găseşte şi înlocuieşte",
+
+// Find Dialog
+DlgFindTitle		: "Găseşte",
+DlgFindFindBtn		: "Găseşte",
+DlgFindNotFoundMsg	: "Textul specificat nu a fost găsit.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Replace",
+DlgReplaceFindLbl		: "Găseşte:",
+DlgReplaceReplaceLbl	: "Înlocuieşte cu:",
+DlgReplaceCaseChk		: "Deosebeşte majuscule de minuscule (Match case)",
+DlgReplaceReplaceBtn	: "Înlocuieşte",
+DlgReplaceReplAllBtn	: "Înlocuieşte tot",
+DlgReplaceWordChk		: "Doar cuvintele întregi",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de tăiere. Vă rugăm folosiţi tastatura (Ctrl+X).",
+PasteErrorCopy	: "Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de copiere. Vă rugăm folosiţi tastatura (Ctrl+C).",
+
+PasteAsText		: "Adaugă ca text simplu (Plain Text)",
+PasteFromWord	: "Adaugă din Word",
+
+DlgPasteMsg2	: "Vă rugăm adăugaţi în căsuţa următoare folosind tastatura (<STRONG>Ctrl+V</STRONG>) şi apăsaţi <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Din cauza setărilor de securitate ale programului dvs. cu care navigaţi pe internet (browser), editorul nu poate accesa direct datele din clipboard. Va trebui să adăugaţi din nou datele în această fereastră.",
+DlgPasteIgnoreFont		: "Ignoră definiţiile Font Face",
+DlgPasteRemoveStyles	: "Şterge definiţiile stilurilor",
+
+// Color Picker
+ColorAutomatic	: "Automatic",
+ColorMoreColors	: "Mai multe culori...",
+
+// Document Properties
+DocProps		: "Proprietăţile documentului",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Proprietăţile ancorei",
+DlgAnchorName		: "Numele ancorei",
+DlgAnchorErrorName	: "Vă rugăm scrieţi numele ancorei",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Nu e în dicţionar",
+DlgSpellChangeTo		: "Schimbă în",
+DlgSpellBtnIgnore		: "Ignoră",
+DlgSpellBtnIgnoreAll	: "Ignoră toate",
+DlgSpellBtnReplace		: "Înlocuieşte",
+DlgSpellBtnReplaceAll	: "Înlocuieşte tot",
+DlgSpellBtnUndo			: "Starea anterioară (undo)",
+DlgSpellNoSuggestions	: "- Fără sugestii -",
+DlgSpellProgress		: "Verificarea textului în desfăşurare...",
+DlgSpellNoMispell		: "Verificarea textului terminată: Nicio greşeală găsită",
+DlgSpellNoChanges		: "Verificarea textului terminată: Niciun cuvânt modificat",
+DlgSpellOneChange		: "Verificarea textului terminată: Un cuvânt modificat",
+DlgSpellManyChanges		: "Verificarea textului terminată: 1% cuvinte modificate",
+
+IeSpellDownload			: "Unealta pentru verificat textul (Spell checker) neinstalată. Doriţi să o descărcaţi acum?",
+
+// Button Dialog
+DlgButtonText		: "Text (Valoare)",
+DlgButtonType		: "Tip",
+DlgButtonTypeBtn	: "Button",
+DlgButtonTypeSbm	: "Submit",
+DlgButtonTypeRst	: "Reset",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Nume",
+DlgCheckboxValue	: "Valoare",
+DlgCheckboxSelected	: "Selectat",
+
+// Form Dialog
+DlgFormName		: "Nume",
+DlgFormAction	: "Acţiune",
+DlgFormMethod	: "Metodă",
+
+// Select Field Dialog
+DlgSelectName		: "Nume",
+DlgSelectValue		: "Valoare",
+DlgSelectSize		: "Mărime",
+DlgSelectLines		: "linii",
+DlgSelectChkMulti	: "Permite selecţii multiple",
+DlgSelectOpAvail	: "Opţiuni disponibile",
+DlgSelectOpText		: "Text",
+DlgSelectOpValue	: "Valoare",
+DlgSelectBtnAdd		: "Adaugă",
+DlgSelectBtnModify	: "Modifică",
+DlgSelectBtnUp		: "Sus",
+DlgSelectBtnDown	: "Jos",
+DlgSelectBtnSetValue : "Setează ca valoare selectată",
+DlgSelectBtnDelete	: "Şterge",
+
+// Textarea Dialog
+DlgTextareaName	: "Nume",
+DlgTextareaCols	: "Coloane",
+DlgTextareaRows	: "Linii",
+
+// Text Field Dialog
+DlgTextName			: "Nume",
+DlgTextValue		: "Valoare",
+DlgTextCharWidth	: "Lărgimea caracterului",
+DlgTextMaxChars		: "Caractere maxime",
+DlgTextType			: "Tip",
+DlgTextTypeText		: "Text",
+DlgTextTypePass		: "Parolă",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Nume",
+DlgHiddenValue	: "Valoare",
+
+// Bulleted List Dialog
+BulletedListProp	: "Proprietăţile listei punctate (Bulleted List)",
+NumberedListProp	: "Proprietăţile listei numerotate (Numbered List)",
+DlgLstStart			: "Start",
+DlgLstType			: "Tip",
+DlgLstTypeCircle	: "Cerc",
+DlgLstTypeDisc		: "Disc",
+DlgLstTypeSquare	: "Pătrat",
+DlgLstTypeNumbers	: "Numere (1, 2, 3)",
+DlgLstTypeLCase		: "Minuscule-litere mici (a, b, c)",
+DlgLstTypeUCase		: "Majuscule (A, B, C)",
+DlgLstTypeSRoman	: "Cifre romane mici (i, ii, iii)",
+DlgLstTypeLRoman	: "Cifre romane mari (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "General",
+DlgDocBackTab		: "Fundal",
+DlgDocColorsTab		: "Culori si margini",
+DlgDocMetaTab		: "Meta Data",
+
+DlgDocPageTitle		: "Titlul paginii",
+DlgDocLangDir		: "Descrierea limbii",
+DlgDocLangDirLTR	: "stânga-dreapta (LTR)",
+DlgDocLangDirRTL	: "dreapta-stânga (RTL)",
+DlgDocLangCode		: "Codul limbii",
+DlgDocCharSet		: "Encoding setului de caractere",
+DlgDocCharSetCE		: "Central european",
+DlgDocCharSetCT		: "Chinezesc tradiţional (Big5)",
+DlgDocCharSetCR		: "Chirilic",
+DlgDocCharSetGR		: "Grecesc",
+DlgDocCharSetJP		: "Japonez",
+DlgDocCharSetKR		: "Corean",
+DlgDocCharSetTR		: "Turcesc",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Vest european",
+DlgDocCharSetOther	: "Alt encoding al setului de caractere",
+
+DlgDocDocType		: "Document Type Heading",
+DlgDocDocTypeOther	: "Alt Document Type Heading",
+DlgDocIncXHTML		: "Include declaraţii XHTML",
+DlgDocBgColor		: "Culoarea fundalului (Background Color)",
+DlgDocBgImage		: "URL-ul imaginii din fundal (Background Image URL)",
+DlgDocBgNoScroll	: "Fundal neflotant, fix (Nonscrolling Background)",
+DlgDocCText			: "Text",
+DlgDocCLink			: "Link (Legătură web)",
+DlgDocCVisited		: "Link (Legătură web) vizitat",
+DlgDocCActive		: "Link (Legătură web) activ",
+DlgDocMargins		: "Marginile paginii",
+DlgDocMaTop			: "Sus",
+DlgDocMaLeft		: "Stânga",
+DlgDocMaRight		: "Dreapta",
+DlgDocMaBottom		: "Jos",
+DlgDocMeIndex		: "Cuvinte cheie după care se va indexa documentul (separate prin virgulă)",
+DlgDocMeDescr		: "Descrierea documentului",
+DlgDocMeAuthor		: "Autor",
+DlgDocMeCopy		: "Drepturi de autor",
+DlgDocPreview		: "Previzualizare",
+
+// Templates Dialog
+Templates			: "Template-uri (şabloane)",
+DlgTemplatesTitle	: "Template-uri (şabloane) de conţinut",
+DlgTemplatesSelMsg	: "Vă rugăm selectaţi template-ul (şablonul) ce se va deschide în editor<br>(conţinutul actual va fi pierdut):",
+DlgTemplatesLoading	: "Se încarcă lista cu template-uri (şabloane). Vă rugăm aşteptaţi...",
+DlgTemplatesNoTpl	: "(Niciun template (şablon) definit)",
+DlgTemplatesReplace	: "Înlocuieşte cuprinsul actual",
+
+// About Dialog
+DlgAboutAboutTab	: "Despre",
+DlgAboutBrowserInfoTab	: "Informaţii browser",
+DlgAboutLicenseTab	: "Licenţă",
+DlgAboutVersion		: "versiune",
+DlgAboutInfo		: "Pentru informaţii amănunţite, vizitaţi",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Ukrainian language file.
+ */
 
-CKEDITOR.lang.uk={dir:'ltr',editorTitle:'Текстовий редактор, %1, натисніть ALT 0 для довідки.',toolbars:'Editor toolbars',editor:'Текстовий редактор',source:'Джерело',newPage:'Нова сторінка',save:'Зберегти',preview:'Попередній перегляд',cut:'Вирізати',copy:'Копіювати',paste:'Вставити',print:'Друк',underline:'Підкреслений',bold:'Жирний',italic:'Курсив',selectAll:'Виділити все',removeFormat:'Очистити форматування',strike:'Закреслений',subscript:'Нижній індекс',superscript:'Верхній індекс',horizontalrule:'Горизонтальна лінія',pagebreak:'Вставити розрив сторінки',pagebreakAlt:'Page Break',unlink:'Видалити посилання',undo:'Повернути',redo:'Повторити',common:{browseServer:'Огляд',url:'URL',protocol:'Протокол',upload:'Надіслати',uploadSubmit:'Надіслати на сервер',image:'Зображення',flash:'Flash',form:'Форма',checkbox:'Галочка',radio:'Кнопка вибору',textField:'Текстове поле',textarea:'Текстова область',hiddenField:'Приховане поле',button:'Кнопка',select:'Список',imageButton:'Кнопка із зображенням',notSet:'<не визначено>',id:'Ідентифікатор',name:"Ім'я",langDir:'Напрямок мови',langDirLtr:'Зліва направо (LTR)',langDirRtl:'Справа наліво (RTL)',langCode:'Код мови',longDescr:'Довгий опис URL',cssClass:'Клас CSS',advisoryTitle:'Заголовок',cssStyle:'Стиль CSS',ok:'ОК',cancel:'Скасувати',close:'Закрити',preview:'Попередній перегляд',generalTab:'Основне',advancedTab:'Додаткове',validateNumberFailed:'Значення не є цілим числом.',confirmNewPage:'Всі незбережені зміни будуть втрачені. Ви впевнені, що хочете завантажити нову сторінку?',confirmCancel:'Деякі опції змінено. Закрити вікно без збереження змін?',options:'Опції',target:'Ціль',targetNew:'Нове вікно (_blank)',targetTop:'Поточне вікно (_top)',targetSelf:'Поточний фрейм/вікно (_self)',targetParent:'Батьківський фрейм/вікно (_parent)',langDirLTR:'Зліва направо (LTR)',langDirRTL:'Справа наліво (RTL)',styles:'Стиль CSS',cssClasses:'Клас CSS',width:'Ширина',height:'Висота',align:'Вирівнювання',alignLeft:'По лівому краю',alignRight:'По правому краю',alignCenter:'По центру',alignTop:'По верхньому краю',alignMiddle:'По середині',alignBottom:'По нижньому краю',invalidHeight:'Висота повинна бути цілим числом.',invalidWidth:'Ширина повинна бути цілим числом.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, не доступне</span>'},contextmenu:{options:'Опції контекстного меню'},specialChar:{toolbar:'Спеціальний символ',title:'Оберіть спеціальний символ',options:'Опції'},link:{toolbar:'Вставити/Редагувати посилання',other:'<інший>',menu:'Вставити посилання',title:'Посилання',info:'Інформація посилання',target:'Ціль',upload:'Надіслати',advanced:'Додаткове',type:'Тип посилання',toUrl:'URL',toAnchor:'Якір на цю сторінку',toEmail:'Ел. пошта',targetFrame:'<фрейм>',targetPopup:'<випливаюче вікно>',targetFrameName:"Ім'я цільового фрейму",targetPopupName:"Ім'я випливаючого вікна",popupFeatures:'Властивості випливаючого вікна',popupResizable:'Масштабоване',popupStatusBar:'Рядок статусу',popupLocationBar:'Панель локації',popupToolbar:'Панель інструментів',popupMenuBar:'Панель меню',popupFullScreen:'Повний екран (IE)',popupScrollBars:'Стрічки прокрутки',popupDependent:'Залежний (Netscape)',popupLeft:'Позиція зліва',popupTop:'Позиція зверху',id:'Ідентифікатор',langDir:'Напрямок мови',langDirLTR:'Зліва направо (LTR)',langDirRTL:'Справа наліво (RTL)',acccessKey:'Гаряча клавіша',name:"Ім'я",langCode:'Код мови',tabIndex:'Послідовність переходу',advisoryTitle:'Заголовок',advisoryContentType:'Тип вмісту',cssClasses:'Клас CSS',charset:'Кодування',styles:'Стиль CSS',rel:'Relationship',selectAnchor:'Оберіть якір',anchorName:"За ім'ям елементу",anchorId:'За ідентифікатором елементу',emailAddress:'Адреса ел. пошти',emailSubject:'Тема листа',emailBody:'Тіло повідомлення',noAnchors:'(В цьому документі немає якорів)',noUrl:'Будь ласка, вкажіть URL посилання',noEmail:'Будь ласка, вкажіть адрес ел. пошти'},anchor:{toolbar:'Вставити/Редагувати якір',menu:'Властивості якоря',title:'Властивості якоря',name:"Ім'я якоря",errorName:"Будь ласка, вкажіть ім'я якоря",remove:'Remove Anchor'},list:{numberedTitle:'Опції нумерованого списку',bulletedTitle:'Опції маркірованого списку',type:'Тип',start:'Почати з...',validateStartNumber:'Початковий номер списку повинен бути цілим числом.',circle:'Кільце',disc:'Кружечок',square:'Квадратик',none:'Нема',notset:'<не вказано>',armenian:'Вірменська нумерація',georgian:'Грузинська нумерація (an, ban, gan і т.д.)',lowerRoman:'Малі римські (i, ii, iii, iv, v і т.д.)',upperRoman:'Великі римські (I, II, III, IV, V і т.д.)',lowerAlpha:'Малі лат. букви (a, b, c, d, e і т.д.)',upperAlpha:'Великі лат. букви (A, B, C, D, E і т.д.)',lowerGreek:'Малі гр. букви (альфа, бета, гамма і т.д.)',decimal:'Десяткові (1, 2, 3 і т.д.)',decimalLeadingZero:'Десяткові з нулем (01, 02, 03 і т.д.)'},findAndReplace:{title:'Знайти і замінити',find:'Пошук',replace:'Заміна',findWhat:'Шукати:',replaceWith:'Замінити на:',notFoundMsg:'Вказаний текст не знайдено.',findOptions:'Find Options',matchCase:'Враховувати регістр',matchWord:'Збіг цілих слів',matchCyclic:'Циклічна заміна',replaceAll:'Замінити все',replaceSuccessMsg:'%1 співпадінь(ня) замінено.'},table:{toolbar:'Таблиця',title:'Властивості таблиці',menu:'Властивості таблиці',deleteTable:'Видалити таблицю',rows:'Рядки',columns:'Стовбці',border:'Розмір рамки',widthPx:'пікселів',widthPc:'відсотків',widthUnit:'Одиниці вимір.',cellSpace:'Проміжок',cellPad:'Внутр. відступ',caption:'Заголовок таблиці',summary:'Детальний опис заголовку таблиці',headers:'Заголовки стовбців/рядків',headersNone:'Без заголовків',headersColumn:'Стовбці',headersRow:'Рядки',headersBoth:'Стовбці і рядки',invalidRows:'Кількість рядків повинна бути більшою 0.',invalidCols:'Кількість стовбців повинна бути більшою 0.',invalidBorder:'Розмір рамки повинен бути цілим числом.',invalidWidth:'Ширина таблиці повинна бути цілим числом.',invalidHeight:'Висота таблиці повинна бути цілим числом.',invalidCellSpacing:'Проміжок між комірками повинен бути цілим числом.',invalidCellPadding:'Внутр. відступ комірки повинен бути цілим числом.',cell:{menu:'Комірки',insertBefore:'Вставити комірку перед',insertAfter:'Вставити комірку після',deleteCell:'Видалити комірки',merge:"Об'єднати комірки",mergeRight:"Об'єднати справа",mergeDown:"Об'єднати донизу",splitHorizontal:'Розділити комірку по горизонталі',splitVertical:'Розділити комірку по вертикалі',title:'Властивості комірки',cellType:'Тип комірки',rowSpan:"Об'єднання рядків",colSpan:"Об'єднання стовпців",wordWrap:'Автоперенесення тексту',hAlign:'Гориз. вирівнювання',vAlign:'Верт. вирівнювання',alignBaseline:'По базовій лінії',bgColor:'Колір фону',borderColor:'Колір рамки',data:'Дані',header:'Заголовок',yes:'Так',no:'Ні',invalidWidth:'Ширина комірки повинна бути цілим числом.',invalidHeight:'Висота комірки повинна бути цілим числом.',invalidRowSpan:"Кількість об'єднуваних рядків повинна бути цілим числом.",invalidColSpan:"Кількість об'єднуваних стовбців повинна бути цілим числом.",chooseColor:'Обрати'},row:{menu:'Рядки',insertBefore:'Вставити рядок перед',insertAfter:'Вставити рядок після',deleteRow:'Видалити рядки'},column:{menu:'Стовбці',insertBefore:'Вставити стовбець перед',insertAfter:'Вставити стовбець після',deleteColumn:'Видалити стовбці'}},button:{title:'Властивості кнопки',text:'Значення',type:'Тип',typeBtn:'Кнопка (button)',typeSbm:'Надіслати (submit)',typeRst:'Очистити (reset)'},checkboxAndRadio:{checkboxTitle:'Властивості галочки',radioTitle:'Властивості кнопки вибору',value:'Значення',selected:'Обрана'},form:{title:'Властивості форми',menu:'Властивості форми',action:'Дія',method:'Метод',encoding:'Кодування'},select:{title:'Властивості списку',selectInfo:'Інфо',opAvail:'Доступні варіанти',value:'Значення',size:'Кількість',lines:'видимих позицій у списку',chkMulti:'Список з мультивибором',opText:'Текст',opValue:'Значення',btnAdd:'Добавити',btnModify:'Змінити',btnUp:'Вгору',btnDown:'Вниз',btnSetValue:'Встановити як обране значення',btnDelete:'Видалити'},textarea:{title:'Властивості текстової області',cols:'Стовбці',rows:'Рядки'},textfield:{title:'Властивості текстового поля',name:"Ім'я",value:'Значення',charWidth:'Ширина',maxChars:'Макс. к-ть символів',type:'Тип',typeText:'Текст',typePass:'Пароль'},hidden:{title:'Властивості прихованого поля',name:"Ім'я",value:'Значення'},image:{title:'Властивості зображення',titleButton:'Властивості кнопки із зображенням',menu:'Властивості зображення',infoTab:'Інформація про зображення',btnUpload:'Надіслати на сервер',upload:'Надіслати',alt:'Альтернативний текст',lockRatio:'Зберегти пропорції',resetSize:'Очистити поля розмірів',border:'Рамка',hSpace:'Гориз. відступ',vSpace:'Верт. відступ',alertUrl:'Будь ласка, вкажіть URL зображення',linkTab:'Посилання',button2Img:'Бажаєте перетворити обрану кнопку-зображення на просте зображення?',img2Button:'Бажаєте перетворити обране зображення на кнопку-зображення?',urlMissing:'Вкажіть URL зображення.',validateBorder:'Ширина рамки повинна бути цілим числом.',validateHSpace:'Гориз. відступ повинен бути цілим числом.',validateVSpace:'Верт. відступ повинен бути цілим числом.'},flash:{properties:'Властивості Flash',propertiesTab:'Властивості',title:'Властивості Flash',chkPlay:'Автопрогравання',chkLoop:'Циклічно',chkMenu:'Дозволити меню Flash',chkFull:'Дозволити повноекранний перегляд',scale:'Масштаб',scaleAll:'Показати все',scaleNoBorder:'Без рамки',scaleFit:'Поч. розмір',access:'Доступ до скрипта',accessAlways:'Завжди',accessSameDomain:'З того ж домена',accessNever:'Ніколи',alignAbsBottom:'По нижньому краю (abs)',alignAbsMiddle:'По середині (abs)',alignBaseline:'По базовій лінії',alignTextTop:'Текст по верхньому краю',quality:'Якість',qualityBest:'Відмінна',qualityHigh:'Висока',qualityAutoHigh:'Автом. відмінна',qualityMedium:'Середня',qualityAutoLow:'Автом. низька',qualityLow:'Низька',windowModeWindow:'Вікно',windowModeOpaque:'Непрозорість',windowModeTransparent:'Прозорість',windowMode:'Віконний режим',flashvars:'Змінні Flash',bgcolor:'Колір фону',hSpace:'Гориз. відступ',vSpace:'Верт. відступ',validateSrc:'Будь ласка, вкажіть URL посилання',validateHSpace:'Гориз. відступ повинен бути цілим числом.',validateVSpace:'Верт. відступ повинен бути цілим числом.'},spellCheck:{toolbar:'Перевірити орфографію',title:'Перевірка орфографії',notAvailable:'Вибачте, але сервіс наразі недоступний.',errorLoading:'Помилка завантаження : %s.',notInDic:'Немає в словнику',changeTo:'Замінити на',btnIgnore:'Пропустити',btnIgnoreAll:'Пропустити все',btnReplace:'Замінити',btnReplaceAll:'Замінити все',btnUndo:'Назад',noSuggestions:'- немає варіантів -',progress:'Виконується перевірка орфографії...',noMispell:'Перевірку орфографії завершено: помилок не знайдено',noChanges:'Перевірку орфографії завершено: жодне слово не змінено',oneChange:'Перевірку орфографії завершено: змінено одне слово',manyChanges:'Перевірку орфографії завершено: 1% слів(ова) змінено',ieSpellDownload:'Модуль перевірки орфографії не встановлено. Бажаєте завантажити його зараз?'},smiley:{toolbar:'Смайлик',title:'Вставити смайлик',options:'Опції смайликів'},elementsPath:{eleLabel:'Шлях',eleTitle:'%1 елемент'},numberedlist:'Нумерований список',bulletedlist:'Маркірований список',indent:'Збільшити відступ',outdent:'Зменшити відступ',justify:{left:'По лівому краю',center:'По центру',right:'По правому краю',block:'По ширині'},blockquote:'Цитата',clipboard:{title:'Вставити',cutError:'Налаштування безпеки Вашого браузера не дозволяють редактору автоматично виконувати операції вирізування. Будь ласка, використовуйте клавіатуру для цього (Ctrl/Cmd+X)',copyError:'Налаштування безпеки Вашого браузера не дозволяють редактору автоматично виконувати операції копіювання. Будь ласка, використовуйте клавіатуру для цього (Ctrl/Cmd+C).',pasteMsg:'Будь ласка, вставте інформацію з буфера обміну в цю область, користуючись комбінацією клавіш (<STRONG>Ctrl/Cmd+V</STRONG>), та натисніть <STRONG>OK</STRONG>.',securityMsg:"Редактор не може отримати прямий доступ до буферу обміну у зв'язку з налаштуваннями Вашого браузера. Вам потрібно вставити інформацію в це вікно.",pasteArea:'Область вставки'},pastefromword:{confirmCleanup:'Текст, що Ви намагаєтесь вставити, схожий на скопійований з Word. Бажаєте очистити його форматування перед вставлянням?',toolbar:'Вставити з Word',title:'Вставити з Word',error:'Неможливо очистити форматування через внутрішню помилку.'},pasteText:{button:'Вставити тільки текст',title:'Вставити тільки текст'},templates:{button:'Шаблони',title:'Шаблони змісту',options:'Опції шаблону',insertOption:'Замінити поточний вміст',selectPromptMsg:'Оберіть, будь ласка, шаблон для відкриття в редакторі<br>(поточний зміст буде втрачено):',emptyListMsg:'(Не знайдено жодного шаблону)'},showBlocks:'Показувати блоки',stylesCombo:{label:'Стиль',panelTitle:'Стилі форматування',panelTitle1:'Блочні стилі',panelTitle2:'Рядкові стилі',panelTitle3:"Об'єктні стилі"},format:{label:'Форматування',panelTitle:'Форматування',tag_p:'Нормальний',tag_pre:'Форматований',tag_address:'Адреса',tag_h1:'Заголовок 1',tag_h2:'Заголовок 2',tag_h3:'Заголовок 3',tag_h4:'Заголовок 4',tag_h5:'Заголовок 5',tag_h6:'Заголовок 6',tag_div:'Нормальний (div)'},div:{title:'Створити блок-контейнер',toolbar:'Створити блок-контейнер',cssClassInputLabel:'Клас CSS',styleSelectLabel:'Стиль CSS',IdInputLabel:'Ідентифікатор',languageCodeInputLabel:'Код мови',inlineStyleInputLabel:'Вписаний стиль',advisoryTitleInputLabel:'Зміст випливаючої підказки',langDirLabel:'Напрямок мови',langDirLTRLabel:'Зліва направо (LTR)',langDirRTLLabel:'Справа наліво (RTL)',edit:'Редагувати блок',remove:'Видалити блок'},iframe:{title:'IFrame Properties',toolbar:'IFrame',noUrl:'Please type the iframe URL',scrolling:'Enable scrollbars',border:'Show frame border'},font:{label:'Шрифт',voiceLabel:'Шрифт',panelTitle:'Шрифт'},fontSize:{label:'Розмір',voiceLabel:'Розмір шрифту',panelTitle:'Розмір'},colorButton:{textColorTitle:'Колір тексту',bgColorTitle:'Колір фону',panelTitle:'Кольори',auto:'Авто',more:'Кольори...'},colors:{'000':'Чорний',800000:'Бордовий','8B4513':'Коричневий','2F4F4F':'Темний сіро-зелений','008080':'Морської хвилі','000080':'Сливовий','4B0082':'Індиго',696969:'Темносірий',B22222:'Темночервоний',A52A2A:'Каштановий',DAA520:'Бежевий','006400':'Темнозелений','40E0D0':'Бірюзовий','0000CD':'Темносиній',800080:'Пурпурний',808080:'Сірий',F00:'Червоний',FF8C00:'Темнооранжевий',FFD700:'Жовтий','008000':'Зелений','0FF':'Синьо-зелений','00F':'Синій',EE82EE:'Фіолетовий',A9A9A9:'Світлосірий',FFA07A:'Рожевий',FFA500:'Оранжевий',FFFF00:'Яскравожовтий','00FF00':'Салатовий',AFEEEE:'Світлобірюзовий',ADD8E6:'Блакитний',DDA0DD:'Світлофіолетовий',D3D3D3:'Сріблястий',FFF0F5:'Світлорожевий',FAEBD7:'Світлооранжевий',FFFFE0:'Світложовтий',F0FFF0:'Світлозелений',F0FFFF:'Світлий синьо-зелений',F0F8FF:'Світлоблакитний',E6E6FA:'Лавандовий',FFF:'Білий'},scayt:{title:'Перефірка орфографії по мірі набору',opera_title:'Не підтримується в Opera',enable:'Ввімкнути SCAYT',disable:'Вимкнути SCAYT',about:'Про SCAYT',toggle:'Перемкнути SCAYT',options:'Опції',langs:'Мови',moreSuggestions:'Більше варіантів',ignore:'Пропустити',ignoreAll:'Пропустити всі',addWord:'Додати слово',emptyDic:'Назва словника повинна бути вказана.',optionsTab:'Опції',allCaps:'Пропустити прописні слова',ignoreDomainNames:'Пропустити доменні назви',mixedCase:'Пропустити слова зі змішаним регістром',mixedWithDigits:'Пропустити слова, що містять цифри',languagesTab:'Мови',dictionariesTab:'Словники',dic_field_name:'Назва словника',dic_create:'Створити',dic_restore:'Відновити',dic_delete:'Видалити',dic_rename:'Перейменувати',dic_info:'Як правило, користувацькі словники зберігаються у cookie-файлах. Однак, cookie-файли мають обмеження на розмір. Якщо користувацький словник зростає в обсязі настільки, що вже не може бути збережений у cookie-файлі, тоді його можна зберегти на нашому сервері. Щоб зберегти Ваш персональний словник на нашому сервері необхідно вказати назву словника. Якщо Ви вже зберігали словник на сервері, будь ласка, вкажіть назву збереженого словника і натисніть кнопку Відновити.',aboutTab:'Про SCAYT'},about:{title:'Про CKEditor',dlgTitle:'Про CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'Щодо інформації з ліцензування завітайте на наш сайт:',copy:'Copyright &copy; $1. Всі права застережено.'},maximize:'Максимізувати',minimize:'Мінімізувати',fakeobjects:{anchor:'Якір',flash:'Flash-анімація',iframe:'IFrame',hiddenfield:'Hidden Field',unknown:"Невідомий об'єкт"},resize:'Потягніть для зміни розмірів',colordialog:{title:'Обрати колір',options:'Опції кольорів',highlight:'Колір, на який вказує курсор',selected:'Обраний колір',clear:'Очистити'},toolbarCollapse:'Згорнути панель інструментів',toolbarExpand:'Розгорнути панель інструментів',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Напрямок тексту зліва направо',rtl:'Напрямок тексту справа наліво'},docprops:{label:'Властивості документа',title:'Властивості документа',design:'Design',meta:'Мета дані',chooseColor:'Обрати',other:'<інший>',docTitle:'Заголовок сторінки',charset:'Кодування набору символів',charsetOther:'Інше кодування набору символів',charsetASCII:'ASCII',charsetCE:'Центрально-європейська',charsetCT:'Китайська традиційна (Big5)',charsetCR:'Кирилиця',charsetGR:'Грецька',charsetJP:'Японська',charsetKR:'Корейська',charsetTR:'Турецька',charsetUN:'Юнікод (UTF-8)',charsetWE:'Західно-европейская',docType:'Заголовок типу документу',docTypeOther:'Інший заголовок типу документу',xhtmlDec:'Ввімкнути XHTML оголошення',bgColor:'Колір тла',bgImage:'URL зображення тла',bgFixed:'Тло без прокрутки',txtColor:'Колір тексту',margin:'Відступи сторінки',marginTop:'Верхній',marginLeft:'Лівий',marginRight:'Правий',marginBottom:'Нижній',metaKeywords:'Ключові слова документа (розділені комами)',metaDescription:'Опис документа',metaAuthor:'Автор',metaCopyright:'Авторські права',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Згорнути панель інструментів",
+ToolbarExpand		: "Розгорнути панель інструментів",
+
+// Toolbar Items and Context Menu
+Save				: "Зберегти",
+NewPage				: "Нова сторінка",
+Preview				: "Попередній перегляд",
+Cut					: "Вирізати",
+Copy				: "Копіювати",
+Paste				: "Вставити",
+PasteText			: "Вставити тільки текст",
+PasteWord			: "Вставити з Word",
+Print				: "Друк",
+SelectAll			: "Виділити все",
+RemoveFormat		: "Прибрати форматування",
+InsertLinkLbl		: "Посилання",
+InsertLink			: "Вставити/Редагувати посилання",
+RemoveLink			: "Знищити посилання",
+VisitLink			: "Відкрити посилання",
+Anchor				: "Вставити/Редагувати якір",
+AnchorDelete		: "Видалити якір",
+InsertImageLbl		: "Зображення",
+InsertImage			: "Вставити/Редагувати зображення",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Вставити/Редагувати Flash",
+InsertTableLbl		: "Таблиця",
+InsertTable			: "Вставити/Редагувати таблицю",
+InsertLineLbl		: "Лінія",
+InsertLine			: "Вставити горизонтальну лінію",
+InsertSpecialCharLbl: "Спеціальний символ",
+InsertSpecialChar	: "Вставити спеціальний символ",
+InsertSmileyLbl		: "Смайлик",
+InsertSmiley		: "Вставити смайлик",
+About				: "Про FCKeditor",
+Bold				: "Жирний",
+Italic				: "Курсив",
+Underline			: "Підкреслений",
+StrikeThrough		: "Закреслений",
+Subscript			: "Підрядковий індекс",
+Superscript			: "Надрядковий индекс",
+LeftJustify			: "По лівому краю",
+CenterJustify		: "По центру",
+RightJustify		: "По правому краю",
+BlockJustify		: "По ширині",
+DecreaseIndent		: "Зменшити відступ",
+IncreaseIndent		: "Збільшити відступ",
+Blockquote			: "Цитата",
+CreateDiv			: "Створити Div контейнер",
+EditDiv				: "Редагувати Div контейнер",
+DeleteDiv			: "Видалити Div контейнер",
+Undo				: "Повернути",
+Redo				: "Повторити",
+NumberedListLbl		: "Нумерований список",
+NumberedList		: "Вставити/Видалити нумерований список",
+BulletedListLbl		: "Маркований список",
+BulletedList		: "Вставити/Видалити маркований список",
+ShowTableBorders	: "Показати бордюри таблиці",
+ShowDetails			: "Показати деталі",
+Style				: "Стиль",
+FontFormat			: "Форматування",
+Font				: "Шрифт",
+FontSize			: "Розмір",
+TextColor			: "Колір тексту",
+BGColor				: "Колір фону",
+Source				: "Джерело",
+Find				: "Пошук",
+Replace				: "Заміна",
+SpellCheck			: "Перевірити орфографію",
+UniversalKeyboard	: "Універсальна клавіатура",
+PageBreakLbl		: "Розривши сторінки",
+PageBreak			: "Вставити розривши сторінки",
+
+Form			: "Форма",
+Checkbox		: "Флагова кнопка",
+RadioButton		: "Кнопка вибору",
+TextField		: "Текстове поле",
+Textarea		: "Текстова область",
+HiddenField		: "Приховане поле",
+Button			: "Кнопка",
+SelectionField	: "Список",
+ImageButton		: "Кнопка із зображенням",
+
+FitWindow		: "Розвернути вікно редактора",
+ShowBlocks		: "Показувати блоки",
+
+// Context Menu
+EditLink			: "Вставити посилання",
+CellCM				: "Осередок",
+RowCM				: "Рядок",
+ColumnCM			: "Колонка",
+InsertRowAfter		: "Вставити рядок після",
+InsertRowBefore		: "Вставити рядок до",
+DeleteRows			: "Видалити строки",
+InsertColumnAfter	: "Вставити колонку після",
+InsertColumnBefore	: "Вставити колонку до",
+DeleteColumns		: "Видалити колонки",
+InsertCellAfter		: "Вставити комірку після",
+InsertCellBefore	: "Вставити комірку до",
+DeleteCells			: "Видалити комірки",
+MergeCells			: "Об'єднати комірки",
+MergeRight			: "Об'єднати зправа",
+MergeDown			: "Об'єднати до низу",
+HorizontalSplitCell	: "Розділити комірку по горизонталі",
+VerticalSplitCell	: "Розділити комірку по вертикалі",
+TableDelete			: "Видалити таблицю",
+CellProperties		: "Властивості комірки",
+TableProperties		: "Властивості таблиці",
+ImageProperties		: "Властивості зображення",
+FlashProperties		: "Властивості Flash",
+
+AnchorProp			: "Властивості якоря",
+ButtonProp			: "Властивості кнопки",
+CheckboxProp		: "Властивості флагової кнопки",
+HiddenFieldProp		: "Властивості прихованого поля",
+RadioButtonProp		: "Властивості кнопки вибору",
+ImageButtonProp		: "Властивості кнопки із зображенням",
+TextFieldProp		: "Властивості текстового поля",
+SelectionFieldProp	: "Властивості списку",
+TextareaProp		: "Властивості текстової області",
+FormProp			: "Властивості форми",
+
+FontFormats			: "Нормальний;Форматований;Адреса;Заголовок 1;Заголовок 2;Заголовок 3;Заголовок 4;Заголовок 5;Заголовок 6;Нормальний (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Обробка XHTML. Зачекайте, будь ласка...",
+Done				: "Зроблено",
+PasteWordConfirm	: "Текст, що ви хочете вставити, схожий на копійований з Word. Ви хочете очистити його перед вставкою?",
+NotCompatiblePaste	: "Ця команда доступна для Internet Explorer версії 5.5 або вище. Ви хочете вставити без очищення?",
+UnknownToolbarItem	: "Невідомий елемент панелі інструментів \"%1\"",
+UnknownCommand		: "Невідоме ім'я команди \"%1\"",
+NotImplemented		: "Команда не реалізована",
+UnknownToolbarSet	: "Панель інструментів \"%1\" не існує",
+NoActiveX			: "Настройки безпеки вашого браузера можуть обмежувати деякі властивості редактора. Ви повинні включити опцію \"Запускати елементи управління ACTIVEX і плугіни\". Ви можете бачити помилки і помічати відсутність можливостей.",
+BrowseServerBlocked : "Ресурси браузера не можуть бути відкриті. Перевірте що блокування спливаючих вікон вимкнені.",
+DialogBlocked		: "Не можливо відкрити вікно діалогу. Перевірте що блокування спливаючих вікон вимкнені.",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "ОК",
+DlgBtnCancel		: "Скасувати",
+DlgBtnClose			: "Зачинити",
+DlgBtnBrowseServer	: "Передивитися на сервері",
+DlgAdvancedTag		: "Розширений",
+DlgOpOther			: "<Інше>",
+DlgInfoTab			: "Інфо",
+DlgAlertUrl			: "Вставте, будь-ласка, URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<не визначено>",
+DlgGenId			: "Ідентифікатор",
+DlgGenLangDir		: "Напрямок мови",
+DlgGenLangDirLtr	: "Зліва на право (LTR)",
+DlgGenLangDirRtl	: "Зправа на ліво (RTL)",
+DlgGenLangCode		: "Мова",
+DlgGenAccessKey		: "Гаряча клавіша",
+DlgGenName			: "Им'я",
+DlgGenTabIndex		: "Послідовність переходу",
+DlgGenLongDescr		: "Довгий опис URL",
+DlgGenClass			: "Клас CSS",
+DlgGenTitle			: "Заголовок",
+DlgGenContType		: "Тип вмісту",
+DlgGenLinkCharset	: "Кодировка",
+DlgGenStyle			: "Стиль CSS",
+
+// Image Dialog
+DlgImgTitle			: "Властивості зображення",
+DlgImgInfoTab		: "Інформація про изображении",
+DlgImgBtnUpload		: "Надіслати на сервер",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Закачати",
+DlgImgAlt			: "Альтернативний текст",
+DlgImgWidth			: "Ширина",
+DlgImgHeight		: "Висота",
+DlgImgLockRatio		: "Зберегти пропорції",
+DlgBtnResetSize		: "Скинути розмір",
+DlgImgBorder		: "Бордюр",
+DlgImgHSpace		: "Горизонтальний відступ",
+DlgImgVSpace		: "Вертикальний відступ",
+DlgImgAlign			: "Вирівнювання",
+DlgImgAlignLeft		: "По лівому краю",
+DlgImgAlignAbsBottom: "Абс по низу",
+DlgImgAlignAbsMiddle: "Абс по середині",
+DlgImgAlignBaseline	: "По базовій лінії",
+DlgImgAlignBottom	: "По низу",
+DlgImgAlignMiddle	: "По середині",
+DlgImgAlignRight	: "По правому краю",
+DlgImgAlignTextTop	: "Текст на верху",
+DlgImgAlignTop		: "По верху",
+DlgImgPreview		: "Попередній перегляд",
+DlgImgAlertUrl		: "Будь ласка, введіть URL зображення",
+DlgImgLinkTab		: "Посилання",
+
+// Flash Dialog
+DlgFlashTitle		: "Властивості Flash",
+DlgFlashChkPlay		: "Авто програвання",
+DlgFlashChkLoop		: "Зациклити",
+DlgFlashChkMenu		: "Дозволити меню Flash",
+DlgFlashScale		: "Масштаб",
+DlgFlashScaleAll	: "Показати всі",
+DlgFlashScaleNoBorder	: "Без рамки",
+DlgFlashScaleFit	: "Дійсний розмір",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Посилання",
+DlgLnkInfoTab		: "Інформація посилання",
+DlgLnkTargetTab		: "Ціль",
+
+DlgLnkType			: "Тип посилання",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Якір на цю сторінку",
+DlgLnkTypeEMail		: "Эл. пошта",
+DlgLnkProto			: "Протокол",
+DlgLnkProtoOther	: "<інше>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Оберіть якір",
+DlgLnkAnchorByName	: "За ім'ям якоря",
+DlgLnkAnchorById	: "За ідентифікатором елемента",
+DlgLnkNoAnchors		: "(Немає якорів доступних в цьому документі)",
+DlgLnkEMail			: "Адреса ел. пошти",
+DlgLnkEMailSubject	: "Тема листа",
+DlgLnkEMailBody		: "Тіло повідомлення",
+DlgLnkUpload		: "Закачати",
+DlgLnkBtnUpload		: "Переслати на сервер",
+
+DlgLnkTarget		: "Ціль",
+DlgLnkTargetFrame	: "<фрейм>",
+DlgLnkTargetPopup	: "<спливаюче вікно>",
+DlgLnkTargetBlank	: "Нове вікно (_blank)",
+DlgLnkTargetParent	: "Батьківське вікно (_parent)",
+DlgLnkTargetSelf	: "Теж вікно (_self)",
+DlgLnkTargetTop		: "Найвище вікно (_top)",
+DlgLnkTargetFrameName	: "Ім'я целевого фрейма",
+DlgLnkPopWinName	: "Ім'я спливаючого вікна",
+DlgLnkPopWinFeat	: "Властивості спливаючого вікна",
+DlgLnkPopResize		: "Змінюється в розмірах",
+DlgLnkPopLocation	: "Панель локації",
+DlgLnkPopMenu		: "Панель меню",
+DlgLnkPopScroll		: "Полоси прокрутки",
+DlgLnkPopStatus		: "Строка статусу",
+DlgLnkPopToolbar	: "Панель інструментів",
+DlgLnkPopFullScrn	: "Повний екран (IE)",
+DlgLnkPopDependent	: "Залежний (Netscape)",
+DlgLnkPopWidth		: "Ширина",
+DlgLnkPopHeight		: "Висота",
+DlgLnkPopLeft		: "Позиція зліва",
+DlgLnkPopTop		: "Позиція зверху",
+
+DlnLnkMsgNoUrl		: "Будь ласка, занесіть URL посилання",
+DlnLnkMsgNoEMail	: "Будь ласка, занесіть адрес эл. почты",
+DlnLnkMsgNoAnchor	: "Будь ласка, оберіть якір",
+DlnLnkMsgInvPopName	: "Назва спливаючого вікна повинна починатися букви і не може містити пропусків",
+
+// Color Dialog
+DlgColorTitle		: "Оберіть колір",
+DlgColorBtnClear	: "Очистити",
+DlgColorHighlight	: "Підсвічений",
+DlgColorSelected	: "Обраний",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Вставити смайлик",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Оберіть спеціальний символ",
+
+// Table Dialog
+DlgTableTitle		: "Властивості таблиці",
+DlgTableRows		: "Строки",
+DlgTableColumns		: "Колонки",
+DlgTableBorder		: "Розмір бордюра",
+DlgTableAlign		: "Вирівнювання",
+DlgTableAlignNotSet	: "<Не вст.>",
+DlgTableAlignLeft	: "Зліва",
+DlgTableAlignCenter	: "По центру",
+DlgTableAlignRight	: "Зправа",
+DlgTableWidth		: "Ширина",
+DlgTableWidthPx		: "пікселів",
+DlgTableWidthPc		: "відсотків",
+DlgTableHeight		: "Висота",
+DlgTableCellSpace	: "Проміжок (spacing)",
+DlgTableCellPad		: "Відступ (padding)",
+DlgTableCaption		: "Заголовок",
+DlgTableSummary		: "Резюме",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Властивості комірки",
+DlgCellWidth		: "Ширина",
+DlgCellWidthPx		: "пікселів",
+DlgCellWidthPc		: "відсотків",
+DlgCellHeight		: "Висота",
+DlgCellWordWrap		: "Згортання текста",
+DlgCellWordWrapNotSet	: "<Не вст.>",
+DlgCellWordWrapYes	: "Так",
+DlgCellWordWrapNo	: "Ні",
+DlgCellHorAlign		: "Горизонтальне вирівнювання",
+DlgCellHorAlignNotSet	: "<Не вст.>",
+DlgCellHorAlignLeft	: "Зліва",
+DlgCellHorAlignCenter	: "По центру",
+DlgCellHorAlignRight: "Зправа",
+DlgCellVerAlign		: "Вертикальное вирівнювання",
+DlgCellVerAlignNotSet	: "<Не вст.>",
+DlgCellVerAlignTop	: "Зверху",
+DlgCellVerAlignMiddle	: "Посередині",
+DlgCellVerAlignBottom	: "Знизу",
+DlgCellVerAlignBaseline	: "По базовій лінії",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Діапазон строк (span)",
+DlgCellCollSpan		: "Діапазон колонок (span)",
+DlgCellBackColor	: "Колір фона",
+DlgCellBorderColor	: "Колір бордюра",
+DlgCellBtnSelect	: "Оберіть...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Знайти і замінити",
+
+// Find Dialog
+DlgFindTitle		: "Пошук",
+DlgFindFindBtn		: "Пошук",
+DlgFindNotFoundMsg	: "Вказаний текст не знайдений.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Замінити",
+DlgReplaceFindLbl		: "Шукати:",
+DlgReplaceReplaceLbl	: "Замінити на:",
+DlgReplaceCaseChk		: "Учитывать регистр",
+DlgReplaceReplaceBtn	: "Замінити",
+DlgReplaceReplAllBtn	: "Замінити все",
+DlgReplaceWordChk		: "Збіг цілих слів",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Настройки безпеки вашого браузера не дозволяють редактору автоматично виконувати операції вирізування. Будь ласка, використовуйте клавіатуру для цього (Ctrl+X).",
+PasteErrorCopy	: "Настройки безпеки вашого браузера не дозволяють редактору автоматично виконувати операції копіювання. Будь ласка, використовуйте клавіатуру для цього (Ctrl+C).",
+
+PasteAsText		: "Вставити тільки текст",
+PasteFromWord	: "Вставити з Word",
+
+DlgPasteMsg2	: "Будь-ласка, вставте з буфера обміну в цю область, користуючись комбінацією клавіш (<STRONG>Ctrl+V</STRONG>) та натисніть <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Редактор не може отримати прямий доступ до буферу обміну у зв'язку з налаштуваннями вашого браузера. Вам потрібно вставити інформацію повторно в це вікно.",
+DlgPasteIgnoreFont		: "Ігнорувати налаштування шрифтів",
+DlgPasteRemoveStyles	: "Видалити налаштування стилів",
+
+// Color Picker
+ColorAutomatic	: "Автоматичний",
+ColorMoreColors	: "Кольори...",
+
+// Document Properties
+DocProps		: "Властивості документа",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Властивості якоря",
+DlgAnchorName		: "Ім'я якоря",
+DlgAnchorErrorName	: "Будь ласка, занесіть ім'я якоря",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Не має в словнику",
+DlgSpellChangeTo		: "Замінити на",
+DlgSpellBtnIgnore		: "Ігнорувати",
+DlgSpellBtnIgnoreAll	: "Ігнорувати все",
+DlgSpellBtnReplace		: "Замінити",
+DlgSpellBtnReplaceAll	: "Замінити все",
+DlgSpellBtnUndo			: "Назад",
+DlgSpellNoSuggestions	: "- Немає припущень -",
+DlgSpellProgress		: "Виконується перевірка орфографії...",
+DlgSpellNoMispell		: "Перевірку орфографії завершено: помилок не знайдено",
+DlgSpellNoChanges		: "Перевірку орфографії завершено: жодне слово не змінено",
+DlgSpellOneChange		: "Перевірку орфографії завершено: змінено одно слово",
+DlgSpellManyChanges		: "Перевірку орфографії завершено: 1% слів змінено",
+
+IeSpellDownload			: "Модуль перевірки орфографії не встановлено. Бажаєтн завантажити його зараз?",
+
+// Button Dialog
+DlgButtonText		: "Текст (Значення)",
+DlgButtonType		: "Тип",
+DlgButtonTypeBtn	: "Кнопка",
+DlgButtonTypeSbm	: "Відправити",
+DlgButtonTypeRst	: "Скинути",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Ім'я",
+DlgCheckboxValue	: "Значення",
+DlgCheckboxSelected	: "Обрана",
+
+// Form Dialog
+DlgFormName		: "Ім'я",
+DlgFormAction	: "Дія",
+DlgFormMethod	: "Метод",
+
+// Select Field Dialog
+DlgSelectName		: "Ім'я",
+DlgSelectValue		: "Значення",
+DlgSelectSize		: "Розмір",
+DlgSelectLines		: "лінії",
+DlgSelectChkMulti	: "Дозволити обрання декількох позицій",
+DlgSelectOpAvail	: "Доступні варіанти",
+DlgSelectOpText		: "Текст",
+DlgSelectOpValue	: "Значення",
+DlgSelectBtnAdd		: "Добавити",
+DlgSelectBtnModify	: "Змінити",
+DlgSelectBtnUp		: "Вгору",
+DlgSelectBtnDown	: "Вниз",
+DlgSelectBtnSetValue : "Встановити як вибране значення",
+DlgSelectBtnDelete	: "Видалити",
+
+// Textarea Dialog
+DlgTextareaName	: "Ім'я",
+DlgTextareaCols	: "Колонки",
+DlgTextareaRows	: "Строки",
+
+// Text Field Dialog
+DlgTextName			: "Ім'я",
+DlgTextValue		: "Значення",
+DlgTextCharWidth	: "Ширина",
+DlgTextMaxChars		: "Макс. кіл-ть символів",
+DlgTextType			: "Тип",
+DlgTextTypeText		: "Текст",
+DlgTextTypePass		: "Пароль",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Ім'я",
+DlgHiddenValue	: "Значення",
+
+// Bulleted List Dialog
+BulletedListProp	: "Властивості маркованого списка",
+NumberedListProp	: "Властивості нумерованного списка",
+DlgLstStart			: "Початок",
+DlgLstType			: "Тип",
+DlgLstTypeCircle	: "Коло",
+DlgLstTypeDisc		: "Диск",
+DlgLstTypeSquare	: "Квадрат",
+DlgLstTypeNumbers	: "Номери (1, 2, 3)",
+DlgLstTypeLCase		: "Літери нижнього регістра(a, b, c)",
+DlgLstTypeUCase		: "Букви верхнього регістра (A, B, C)",
+DlgLstTypeSRoman	: "Малі римські літери (i, ii, iii)",
+DlgLstTypeLRoman	: "Великі римські літери (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Загальні",
+DlgDocBackTab		: "Заднє тло",
+DlgDocColorsTab		: "Кольори та відступи",
+DlgDocMetaTab		: "Мета дані",
+
+DlgDocPageTitle		: "Заголовок сторінки",
+DlgDocLangDir		: "Напрямок тексту",
+DlgDocLangDirLTR	: "Зліва на право (LTR)",
+DlgDocLangDirRTL	: "Зправа на лево (RTL)",
+DlgDocLangCode		: "Код мови",
+DlgDocCharSet		: "Кодування набору символів",
+DlgDocCharSetCE		: "Центрально-європейська",
+DlgDocCharSetCT		: "Китайська традиційна (Big5)",
+DlgDocCharSetCR		: "Кирилиця",
+DlgDocCharSetGR		: "Грецька",
+DlgDocCharSetJP		: "Японська",
+DlgDocCharSetKR		: "Корейська",
+DlgDocCharSetTR		: "Турецька",
+DlgDocCharSetUN		: "Юнікод (UTF-8)",
+DlgDocCharSetWE		: "Західно-европейская",
+DlgDocCharSetOther	: "Інше кодування набору символів",
+
+DlgDocDocType		: "Заголовок типу документу",
+DlgDocDocTypeOther	: "Інший заголовок типу документу",
+DlgDocIncXHTML		: "Ввімкнути XHTML оголошення",
+DlgDocBgColor		: "Колір тла",
+DlgDocBgImage		: "URL зображення тла",
+DlgDocBgNoScroll	: "Тло без прокрутки",
+DlgDocCText			: "Текст",
+DlgDocCLink			: "Посилання",
+DlgDocCVisited		: "Відвідане посилання",
+DlgDocCActive		: "Активне посилання",
+DlgDocMargins		: "Відступи сторінки",
+DlgDocMaTop			: "Верхній",
+DlgDocMaLeft		: "Лівий",
+DlgDocMaRight		: "Правий",
+DlgDocMaBottom		: "Нижній",
+DlgDocMeIndex		: "Ключові слова документа (розділені комами)",
+DlgDocMeDescr		: "Опис документа",
+DlgDocMeAuthor		: "Автор",
+DlgDocMeCopy		: "Авторські права",
+DlgDocPreview		: "Попередній перегляд",
+
+// Templates Dialog
+Templates			: "Шаблони",
+DlgTemplatesTitle	: "Шаблони змісту",
+DlgTemplatesSelMsg	: "Оберіть, будь ласка, шаблон для відкриття в редакторі<br>(поточний зміст буде втрачено):",
+DlgTemplatesLoading	: "Завантаження списку шаблонів. Зачекайте, будь ласка...",
+DlgTemplatesNoTpl	: "(Не визначено жодного шаблону)",
+DlgTemplatesReplace	: "Замінити поточний вміст",
+
+// About Dialog
+DlgAboutAboutTab	: "Про програму",
+DlgAboutBrowserInfoTab	: "Інформація браузера",
+DlgAboutLicenseTab	: "Ліцензія",
+DlgAboutVersion		: "Версія",
+DlgAboutInfo		: "Додаткову інформацію дивіться на ",
+
+// Div Dialog
+DlgDivGeneralTab	: "Загальна",
+DlgDivAdvancedTab	: "Розширена",
+DlgDivStyle		: "Стиль",
+DlgDivInlineStyle	: "Inline стиль"
+};

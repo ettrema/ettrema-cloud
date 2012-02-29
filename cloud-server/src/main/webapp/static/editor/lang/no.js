@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Norwegian language file.
+ */
 
-CKEDITOR.lang.no={dir:'ltr',editorTitle:'Rikteksteditor, %1, trykk ALT 0 for hjelp.',toolbars:'Verktøylinjer for editor',editor:'Rikteksteditor',source:'Kilde',newPage:'Ny side',save:'Lagre',preview:'Forhåndsvis',cut:'Klipp ut',copy:'Kopier',paste:'Lim inn',print:'Skriv ut',underline:'Understreking',bold:'Fet',italic:'Kursiv',selectAll:'Merk alt',removeFormat:'Fjern formatering',strike:'Gjennomstreking',subscript:'Senket skrift',superscript:'Hevet skrift',horizontalrule:'Sett inn horisontal linje',pagebreak:'Sett inn sideskift for utskrift',pagebreakAlt:'Sideskift',unlink:'Fjern lenke',undo:'Angre',redo:'Gjør om',common:{browseServer:'Bla igjennom server',url:'URL',protocol:'Protokoll',upload:'Last opp',uploadSubmit:'Send det til serveren',image:'Bilde',flash:'Flash',form:'Skjema',checkbox:'Avmerkingsboks',radio:'Alternativknapp',textField:'Tekstboks',textarea:'Tekstområde',hiddenField:'Skjult felt',button:'Knapp',select:'Rullegardinliste',imageButton:'Bildeknapp',notSet:'<ikke satt>',id:'Id',name:'Navn',langDir:'Språkretning',langDirLtr:'Venstre til høyre (VTH)',langDirRtl:'Høyre til venstre (HTV)',langCode:'Språkkode',longDescr:'Utvidet beskrivelse',cssClass:'Stilarkklasser',advisoryTitle:'Tittel',cssStyle:'Stil',ok:'OK',cancel:'Avbryt',close:'Lukk',preview:'Forhåndsvis',generalTab:'Generelt',advancedTab:'Avansert',validateNumberFailed:'Denne verdien er ikke et tall.',confirmNewPage:'Alle ulagrede endringer som er gjort i dette innholdet vil bli tapt. Er du sikker på at du vil laste en ny side?',confirmCancel:'Noen av valgene har blitt endret. Er du sikker på at du vil lukke dialogen?',options:'Valg',target:'Mål',targetNew:'Nytt vindu (_blank)',targetTop:'Hele vindu (_top)',targetSelf:'Samme vindu (_self)',targetParent:'Foreldrevindu (_parent)',langDirLTR:'Venstre til høyre (VTH)',langDirRTL:'Høyre til venstre (HTV)',styles:'Stil',cssClasses:'Stilarkklasser',width:'Bredde',height:'Høyde',align:'Juster',alignLeft:'Venstre',alignRight:'Høyre',alignCenter:'Midtjuster',alignTop:'Topp',alignMiddle:'Midten',alignBottom:'Bunn',invalidHeight:'Høyde må være et tall.',invalidWidth:'Bredde må være et tall.',invalidCssLength:'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig CSS-målingsenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',invalidHtmlLength:'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig HTML-målingsenhet (px eller %).',invalidInlineStyle:'Verdi angitt for inline stil må bestå av en eller flere sett med formatet "navn : verdi", separert med semikolon',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, utilgjenglig</span>'},contextmenu:{options:'Alternativer for høyreklikkmeny'},specialChar:{toolbar:'Sett inn spesialtegn',title:'Velg spesialtegn',options:'Alternativer for spesialtegn'},link:{toolbar:'Sett inn/Rediger lenke',other:'<annen>',menu:'Rediger lenke',title:'Lenke',info:'Lenkeinfo',target:'Mål',upload:'Last opp',advanced:'Avansert',type:'Lenketype',toUrl:'URL',toAnchor:'Lenke til anker i teksten',toEmail:'E-post',targetFrame:'<ramme>',targetPopup:'<popup-vindu>',targetFrameName:'Målramme',targetPopupName:'Navn på popup-vindu',popupFeatures:'Egenskaper for popup-vindu',popupResizable:'Skalerbar',popupStatusBar:'Statuslinje',popupLocationBar:'Adresselinje',popupToolbar:'Verktøylinje',popupMenuBar:'Menylinje',popupFullScreen:'Fullskjerm (IE)',popupScrollBars:'Scrollbar',popupDependent:'Avhenging (Netscape)',popupLeft:'Venstre posisjon',popupTop:'Topp-posisjon',id:'Id',langDir:'Språkretning',langDirLTR:'Venstre til høyre (VTH)',langDirRTL:'Høyre til venstre (HTV)',acccessKey:'Aksessknapp',name:'Navn',langCode:'Språkkode',tabIndex:'Tabindeks',advisoryTitle:'Tittel',advisoryContentType:'Type',cssClasses:'Stilarkklasser',charset:'Lenket tegnsett',styles:'Stil',rel:'Relasjon (rel)',selectAnchor:'Velg et anker',anchorName:'Anker etter navn',anchorId:'Element etter ID',emailAddress:'E-postadresse',emailSubject:'Meldingsemne',emailBody:'Melding',noAnchors:'(Ingen anker i dokumentet)',noUrl:'Vennligst skriv inn lenkens URL',noEmail:'Vennligst skriv inn e-postadressen'},anchor:{toolbar:'Sett inn/Rediger anker',menu:'Egenskaper for anker',title:'Egenskaper for anker',name:'Ankernavn',errorName:'Vennligst skriv inn ankernavnet',remove:'Fjern anker'},list:{numberedTitle:'Egenskaper for nummerert liste',bulletedTitle:'Egenskaper for punktmerket liste',type:'Type',start:'Start',validateStartNumber:'Starten på listen må være et heltall.',circle:'Sirkel',disc:'Disk',square:'Firkant',none:'Ingen',notset:'<ikke satt>',armenian:'Armensk nummerering',georgian:'Georgisk nummerering (an, ban, gan, osv.)',lowerRoman:'Romertall, små (i, ii, iii, iv, v, osv.)',upperRoman:'Romertall, store (I, II, III, IV, V, osv.)',lowerAlpha:'Alfabetisk, små (a, b, c, d, e, osv.)',upperAlpha:'Alfabetisk, store (A, B, C, D, E, osv.)',lowerGreek:'Gresk, små (alpha, beta, gamma, osv.)',decimal:'Tall (1, 2, 3, osv.)',decimalLeadingZero:'Tall, med førstesiffer null (01, 02, 03, osv.)'},findAndReplace:{title:'Søk og erstatt',find:'Søk',replace:'Erstatt',findWhat:'Søk etter:',replaceWith:'Erstatt med:',notFoundMsg:'Fant ikke søketeksten.',findOptions:'Søkealternativer',matchCase:'Skill mellom store og små bokstaver',matchWord:'Bare hele ord',matchCyclic:'Søk i hele dokumentet',replaceAll:'Erstatt alle',replaceSuccessMsg:'%1 tilfelle(r) erstattet.'},table:{toolbar:'Tabell',title:'Egenskaper for tabell',menu:'Egenskaper for tabell',deleteTable:'Slett tabell',rows:'Rader',columns:'Kolonner',border:'Rammestørrelse',widthPx:'piksler',widthPc:'prosent',widthUnit:'Bredde-enhet',cellSpace:'Cellemarg',cellPad:'Cellepolstring',caption:'Tittel',summary:'Sammendrag',headers:'Overskrifter',headersNone:'Ingen',headersColumn:'Første kolonne',headersRow:'Første rad',headersBoth:'Begge',invalidRows:'Antall rader må være et tall større enn 0.',invalidCols:'Antall kolonner må være et tall større enn 0.',invalidBorder:'Rammestørrelse må være et tall.',invalidWidth:'Tabellbredde må være et tall.',invalidHeight:'Tabellhøyde må være et tall.',invalidCellSpacing:'Cellemarg må være et positivt tall.',invalidCellPadding:'Cellepolstring må være et positivt tall.',cell:{menu:'Celle',insertBefore:'Sett inn celle før',insertAfter:'Sett inn celle etter',deleteCell:'Slett celler',merge:'Slå sammen celler',mergeRight:'Slå sammen høyre',mergeDown:'Slå sammen ned',splitHorizontal:'Del celle horisontalt',splitVertical:'Del celle vertikalt',title:'Celleegenskaper',cellType:'Celletype',rowSpan:'Radspenn',colSpan:'Kolonnespenn',wordWrap:'Tekstbrytning',hAlign:'Horisontal justering',vAlign:'Vertikal justering',alignBaseline:'Grunnlinje',bgColor:'Bakgrunnsfarge',borderColor:'Rammefarge',data:'Data',header:'Overskrift',yes:'Ja',no:'Nei',invalidWidth:'Cellebredde må være et tall.',invalidHeight:'Cellehøyde må være et tall.',invalidRowSpan:'Radspenn må være et heltall.',invalidColSpan:'Kolonnespenn må være et heltall.',chooseColor:'Velg'},row:{menu:'Rader',insertBefore:'Sett inn rad før',insertAfter:'Sett inn rad etter',deleteRow:'Slett rader'},column:{menu:'Kolonne',insertBefore:'Sett inn kolonne før',insertAfter:'Sett inn kolonne etter',deleteColumn:'Slett kolonner'}},button:{title:'Egenskaper for knapp',text:'Tekst (verdi)',type:'Type',typeBtn:'Knapp',typeSbm:'Send',typeRst:'Nullstill'},checkboxAndRadio:{checkboxTitle:'Egenskaper for avmerkingsboks',radioTitle:'Egenskaper for alternativknapp',value:'Verdi',selected:'Valgt'},form:{title:'Egenskaper for skjema',menu:'Egenskaper for skjema',action:'Handling',method:'Metode',encoding:'Encoding'},select:{title:'Egenskaper for rullegardinliste',selectInfo:'Info',opAvail:'Tilgjenglige alternativer',value:'Verdi',size:'Størrelse',lines:'Linjer',chkMulti:'Tillat flervalg',opText:'Tekst',opValue:'Verdi',btnAdd:'Legg til',btnModify:'Endre',btnUp:'Opp',btnDown:'Ned',btnSetValue:'Sett som valgt',btnDelete:'Slett'},textarea:{title:'Egenskaper for tekstområde',cols:'Kolonner',rows:'Rader'},textfield:{title:'Egenskaper for tekstfelt',name:'Navn',value:'Verdi',charWidth:'Tegnbredde',maxChars:'Maks antall tegn',type:'Type',typeText:'Tekst',typePass:'Passord'},hidden:{title:'Egenskaper for skjult felt',name:'Navn',value:'Verdi'},image:{title:'Bildeegenskaper',titleButton:'Egenskaper for bildeknapp',menu:'Bildeegenskaper',infoTab:'Bildeinformasjon',btnUpload:'Send det til serveren',upload:'Last opp',alt:'Alternativ tekst',lockRatio:'Lås forhold',resetSize:'Tilbakestill størrelse',border:'Ramme',hSpace:'HMarg',vSpace:'VMarg',alertUrl:'Vennligst skriv bilde-urlen',linkTab:'Lenke',button2Img:'Vil du endre den valgte bildeknappen til et vanlig bilde?',img2Button:'Vil du endre det valgte bildet til en bildeknapp?',urlMissing:'Bildets adresse mangler.',validateBorder:'Ramme må være et heltall.',validateHSpace:'HMarg må være et heltall.',validateVSpace:'VMarg må være et heltall.'},flash:{properties:'Egenskaper for Flash-objekt',propertiesTab:'Egenskaper',title:'Flash-egenskaper',chkPlay:'Autospill',chkLoop:'Loop',chkMenu:'Slå på Flash-meny',chkFull:'Tillat fullskjerm',scale:'Skaler',scaleAll:'Vis alt',scaleNoBorder:'Ingen ramme',scaleFit:'Skaler til å passe',access:'Scripttilgang',accessAlways:'Alltid',accessSameDomain:'Samme domene',accessNever:'Aldri',alignAbsBottom:'Abs bunn',alignAbsMiddle:'Abs midten',alignBaseline:'Bunnlinje',alignTextTop:'Tekst topp',quality:'Kvalitet',qualityBest:'Best',qualityHigh:'Høy',qualityAutoHigh:'Auto høy',qualityMedium:'Medium',qualityAutoLow:'Auto lav',qualityLow:'Lav',windowModeWindow:'Vindu',windowModeOpaque:'Opaque',windowModeTransparent:'Gjennomsiktig',windowMode:'Vindumodus',flashvars:'Variabler for flash',bgcolor:'Bakgrunnsfarge',hSpace:'HMarg',vSpace:'VMarg',validateSrc:'Vennligst skriv inn lenkens url.',validateHSpace:'HMarg må være et tall.',validateVSpace:'VMarg må være et tall.'},spellCheck:{toolbar:'Stavekontroll',title:'Stavekontroll',notAvailable:'Beklager, tjenesten er utilgjenglig nå.',errorLoading:'Feil under lasting av applikasjonstjenestetjener: %s.',notInDic:'Ikke i ordboken',changeTo:'Endre til',btnIgnore:'Ignorer',btnIgnoreAll:'Ignorer alle',btnReplace:'Erstatt',btnReplaceAll:'Erstatt alle',btnUndo:'Angre',noSuggestions:'- Ingen forslag -',progress:'Stavekontroll pågår...',noMispell:'Stavekontroll fullført: ingen feilstavinger funnet',noChanges:'Stavekontroll fullført: ingen ord endret',oneChange:'Stavekontroll fullført: Ett ord endret',manyChanges:'Stavekontroll fullført: %1 ord endret',ieSpellDownload:'Stavekontroll er ikke installert. Vil du laste den ned nå?'},smiley:{toolbar:'Smil',title:'Sett inn smil',options:'Alternativer for smil'},elementsPath:{eleLabel:'Element-sti',eleTitle:'%1 element'},numberedlist:'Legg til/Fjern nummerert liste',bulletedlist:'Legg til/Fjern punktmerket liste',indent:'Øk innrykk',outdent:'Reduser innrykk',justify:{left:'Venstrejuster',center:'Midtstill',right:'Høyrejuster',block:'Blokkjuster'},blockquote:'Sitatblokk',clipboard:{title:'Lim inn',cutError:'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk klipping av tekst. Vennligst bruk snareveien (Ctrl/Cmd+X).',copyError:'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk kopiering av tekst. Vennligst bruk snareveien (Ctrl/Cmd+C).',pasteMsg:'Vennligst lim inn i følgende boks med tastaturet (<STRONG>Ctrl/Cmd+V</STRONG>) og trykk <STRONG>OK</STRONG>.',securityMsg:'Din nettlesers sikkerhetsinstillinger gir ikke redigeringsverktøyet direkte tilgang til utklippstavlen. Du må derfor lime det inn på nytt i dette vinduet.',pasteArea:'Innlimingsområde'},pastefromword:{confirmCleanup:'Teksten du limer inn ser ut til å være kopiert fra Word. Vil du renske den før du limer den inn?',toolbar:'Lim inn fra Word',title:'Lim inn fra Word',error:'Det var ikke mulig å renske den innlimte teksten på grunn av en intern feil'},pasteText:{button:'Lim inn som ren tekst',title:'Lim inn som ren tekst'},templates:{button:'Maler',title:'Innholdsmaler',options:'Alternativer for mal',insertOption:'Erstatt gjeldende innhold',selectPromptMsg:'Velg malen du vil åpne i redigeringsverktøyet:',emptyListMsg:'(Ingen maler definert)'},showBlocks:'Vis blokker',stylesCombo:{label:'Stil',panelTitle:'Stilformater',panelTitle1:'Blokkstiler',panelTitle2:'Inlinestiler',panelTitle3:'Objektstiler'},format:{label:'Format',panelTitle:'Avsnittsformat',tag_p:'Normal',tag_pre:'Formatert',tag_address:'Adresse',tag_h1:'Overskrift 1',tag_h2:'Overskrift 2',tag_h3:'Overskrift 3',tag_h4:'Overskrift 4',tag_h5:'Overskrift 5',tag_h6:'Overskrift 6',tag_div:'Normal (DIV)'},div:{title:'Sett inn Div Container',toolbar:'Sett inn Div Container',cssClassInputLabel:'Stilark-klasser',styleSelectLabel:'Stil',IdInputLabel:'Id',languageCodeInputLabel:' Språkkode',inlineStyleInputLabel:'Inlinestiler',advisoryTitleInputLabel:'Tittel',langDirLabel:'Språkretning',langDirLTRLabel:'Venstre til høyre (VTH)',langDirRTLLabel:'Høyre til venstre (HTV)',edit:'Rediger Div',remove:'Fjern Div'},iframe:{title:'Egenskaper for IFrame',toolbar:'IFrame',noUrl:'Vennligst skriv inn URL for iframe',scrolling:'Aktiver scrollefelt',border:'Viss ramme rundt iframe'},font:{label:'Skrift',voiceLabel:'Font',panelTitle:'Skrift'},fontSize:{label:'Størrelse',voiceLabel:'Font Størrelse',panelTitle:'Størrelse'},colorButton:{textColorTitle:'Tekstfarge',bgColorTitle:'Bakgrunnsfarge',panelTitle:'Farger',auto:'Automatisk',more:'Flere farger...'},colors:{'000':'Svart',800000:'Rødbrun','8B4513':'Salbrun','2F4F4F':'Grønnsvart','008080':'Blågrønn','000080':'Marineblått','4B0082':'Indigo',696969:'Mørk grå',B22222:'Mørkerød',A52A2A:'Brun',DAA520:'Lys brun','006400':'Mørk grønn','40E0D0':'Turkis','0000CD':'Medium blå',800080:'Purpur',808080:'Grå',F00:'Rød',FF8C00:'Mørk oransje',FFD700:'Gull','008000':'Grønn','0FF':'Cyan','00F':'Blå',EE82EE:'Fiolett',A9A9A9:'Svak grå',FFA07A:'Rosa-oransje',FFA500:'Oransje',FFFF00:'Gul','00FF00':'Lime',AFEEEE:'Svak turkis',ADD8E6:'Lys Blå',DDA0DD:'Plomme',D3D3D3:'Lys grå',FFF0F5:'Svak lavendelrosa',FAEBD7:'Antikk-hvit',FFFFE0:'Lys gul',F0FFF0:'Honningmelon',F0FFFF:'Svakt asurblått',F0F8FF:'Svak cyan',E6E6FA:'Lavendel',FFF:'Hvit'},scayt:{title:'Stavekontroll mens du skriver',opera_title:'Ikke støttet av Opera',enable:'Slå på SCAYT',disable:'Slå av SCAYT',about:'Om SCAYT',toggle:'Veksle SCAYT',options:'Valg',langs:'Språk',moreSuggestions:'Flere forslag',ignore:'Ignorer',ignoreAll:'Ignorer Alle',addWord:'Legg til ord',emptyDic:'Ordboknavn bør ikke være tom.',optionsTab:'Valg',allCaps:'Ikke kontroller ord med kun store bokstaver',ignoreDomainNames:'Ikke kontroller domenenavn',mixedCase:'Ikke kontroller ord med blandet små og store bokstaver',mixedWithDigits:'Ikke kontroller ord som inneholder tall',languagesTab:'Språk',dictionariesTab:'Ordbøker',dic_field_name:'Ordboknavn',dic_create:'Opprett',dic_restore:'Gjenopprett',dic_delete:'Slett',dic_rename:'Gi nytt navn',dic_info:'Brukerordboken lagres først i en informasjonskapsel på din maskin, men det er en begrensning på hvor mye som kan lagres her. Når ordboken blir for stor til å lagres i en informasjonskapsel, vil vi i stedet lagre ordboken på vår server. For å lagre din personlige ordbok på vår server, burde du velge et navn for ordboken din. Hvis du allerede har lagret en ordbok, vennligst skriv inn ordbokens navn og klikk på Gjenopprett-knappen.',aboutTab:'Om'},about:{title:'Om CKEditor',dlgTitle:'Om CKEditor',help:'Se $1 for hjelp.',userGuide:'CKEditors brukerveiledning',moreInfo:'For lisensieringsinformasjon, vennligst besøk vårt nettsted:',copy:'Copyright &copy; $1. Alle rettigheter reservert.'},maximize:'Maksimer',minimize:'Minimer',fakeobjects:{anchor:'Anker',flash:'Flash-animasjon',iframe:'IFrame',hiddenfield:'Skjult felt',unknown:'Ukjent objekt'},resize:'Dra for å skalere',colordialog:{title:'Velg farge',options:'Alternativer for farge',highlight:'Merk',selected:'Valgt',clear:'Tøm'},toolbarCollapse:'Skjul verktøylinje',toolbarExpand:'Vis verktøylinje',toolbarGroups:{document:'Dokument',clipboard:'Utklippstavle/Angre',editing:'Redigering',forms:'Skjema',basicstyles:'Basisstiler',paragraph:'Avsnitt',links:'Lenker',insert:'Innsetting',styles:'Stiler',colors:'Farger',tools:'Verktøy'},bidi:{ltr:'Tekstretning fra venstre til høyre',rtl:'Tekstretning fra høyre til venstre'},docprops:{label:'Dokumentegenskaper',title:'Dokumentegenskaper',design:'Design',meta:'Meta-data',chooseColor:'Velg',other:'<annen>',docTitle:'Sidetittel',charset:'Tegnsett',charsetOther:'Annet tegnsett',charsetASCII:'ASCII',charsetCE:'Sentraleuropeisk',charsetCT:'Tradisonell kinesisk(Big5)',charsetCR:'Kyrillisk',charsetGR:'Gresk',charsetJP:'Japansk',charsetKR:'Koreansk',charsetTR:'Tyrkisk',charsetUN:'Unicode (UTF-8)',charsetWE:'Vesteuropeisk',docType:'Dokumenttype header',docTypeOther:'Annet dokumenttype header',xhtmlDec:'Inkluder XHTML-deklarasjon',bgColor:'Bakgrunnsfarge',bgImage:'URL for bakgrunnsbilde',bgFixed:'Lås bakgrunnsbilde',txtColor:'Tekstfarge',margin:'Sidemargin',marginTop:'Topp',marginLeft:'Venstre',marginRight:'Høyre',marginBottom:'Bunn',metaKeywords:'Dokument nøkkelord (kommaseparert)',metaDescription:'Dokumentbeskrivelse',metaAuthor:'Forfatter',metaCopyright:'Kopirett',previewHtml:'<p>Dette er en <strong>eksempeltekst</strong>. Du bruker <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Skjul verktøylinje",
+ToolbarExpand		: "Vis verktøylinje",
+
+// Toolbar Items and Context Menu
+Save				: "Lagre",
+NewPage				: "Ny Side",
+Preview				: "Forhåndsvis",
+Cut					: "Klipp ut",
+Copy				: "Kopier",
+Paste				: "Lim inn",
+PasteText			: "Lim inn som ren tekst",
+PasteWord			: "Lim inn fra Word",
+Print				: "Skriv ut",
+SelectAll			: "Merk alt",
+RemoveFormat		: "Fjern format",
+InsertLinkLbl		: "Lenke",
+InsertLink			: "Sett inn/Rediger lenke",
+RemoveLink			: "Fjern lenke",
+VisitLink			: "Åpne lenke",
+Anchor				: "Sett inn/Rediger anker",
+AnchorDelete		: "Fjern anker",
+InsertImageLbl		: "Bilde",
+InsertImage			: "Sett inn/Rediger bilde",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Sett inn/Rediger Flash",
+InsertTableLbl		: "Tabell",
+InsertTable			: "Sett inn/Rediger tabell",
+InsertLineLbl		: "Linje",
+InsertLine			: "Sett inn horisontal linje",
+InsertSpecialCharLbl: "Spesielt tegn",
+InsertSpecialChar	: "Sett inn spesielt tegn",
+InsertSmileyLbl		: "Smil",
+InsertSmiley		: "Sett inn smil",
+About				: "Om FCKeditor",
+Bold				: "Fet",
+Italic				: "Kursiv",
+Underline			: "Understrek",
+StrikeThrough		: "Gjennomstrek",
+Subscript			: "Senket skrift",
+Superscript			: "Hevet skrift",
+LeftJustify			: "Venstrejuster",
+CenterJustify		: "Midtjuster",
+RightJustify		: "Høyrejuster",
+BlockJustify		: "Blokkjuster",
+DecreaseIndent		: "Senk nivå",
+IncreaseIndent		: "Øk nivå",
+Blockquote			: "Blockquote",	//MISSING
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Angre",
+Redo				: "Gjør om",
+NumberedListLbl		: "Nummerert liste",
+NumberedList		: "Sett inn/Fjern nummerert liste",
+BulletedListLbl		: "Uordnet liste",
+BulletedList		: "Sett inn/Fjern uordnet liste",
+ShowTableBorders	: "Vis tabellrammer",
+ShowDetails			: "Vis detaljer",
+Style				: "Stil",
+FontFormat			: "Format",
+Font				: "Skrift",
+FontSize			: "Størrelse",
+TextColor			: "Tekstfarge",
+BGColor				: "Bakgrunnsfarge",
+Source				: "Kilde",
+Find				: "Søk",
+Replace				: "Erstatt",
+SpellCheck			: "Stavekontroll",
+UniversalKeyboard	: "Universelt tastatur",
+PageBreakLbl		: "Sideskift",
+PageBreak			: "Sett inn sideskift",
+
+Form			: "Skjema",
+Checkbox		: "Avmerkingsboks",
+RadioButton		: "Alternativknapp",
+TextField		: "Tekstboks",
+Textarea		: "Tekstområde",
+HiddenField		: "Skjult felt",
+Button			: "Knapp",
+SelectionField	: "Rullegardinliste",
+ImageButton		: "Bildeknapp",
+
+FitWindow		: "Maksimer størrelsen på redigeringsverktøyet",
+ShowBlocks		: "Show Blocks",	//MISSING
+
+// Context Menu
+EditLink			: "Rediger lenke",
+CellCM				: "Celle",
+RowCM				: "Rader",
+ColumnCM			: "Kolonne",
+InsertRowAfter		: "Sett inn rad etter",
+InsertRowBefore		: "Sett inn rad før",
+DeleteRows			: "Slett rader",
+InsertColumnAfter	: "Sett inn kolonne etter",
+InsertColumnBefore	: "Sett inn kolonne før",
+DeleteColumns		: "Slett kolonner",
+InsertCellAfter		: "Sett inn celle etter",
+InsertCellBefore	: "Sett inn celle før",
+DeleteCells			: "Slett celler",
+MergeCells			: "Slå sammen celler",
+MergeRight			: "Slå sammen høyre",
+MergeDown			: "Slå sammen ned",
+HorizontalSplitCell	: "Del celle horisontalt",
+VerticalSplitCell	: "Del celle vertikalt",
+TableDelete			: "Slett tabell",
+CellProperties		: "Egenskaper for celle",
+TableProperties		: "Egenskaper for tabell",
+ImageProperties		: "Egenskaper for bilde",
+FlashProperties		: "Egenskaper for Flash-objekt",
+
+AnchorProp			: "Egenskaper for anker",
+ButtonProp			: "Egenskaper for knapp",
+CheckboxProp		: "Egenskaper for avmerkingsboks",
+HiddenFieldProp		: "Egenskaper for skjult felt",
+RadioButtonProp		: "Egenskaper for alternativknapp",
+ImageButtonProp		: "Egenskaper for bildeknapp",
+TextFieldProp		: "Egenskaper for tekstfelt",
+SelectionFieldProp	: "Egenskaper for rullegardinliste",
+TextareaProp		: "Egenskaper for tekstområde",
+FormProp			: "Egenskaper for skjema",
+
+FontFormats			: "Normal;Formatert;Adresse;Tittel 1;Tittel 2;Tittel 3;Tittel 4;Tittel 5;Tittel 6;Normal (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Lager XHTML. Vennligst vent...",
+Done				: "Ferdig",
+PasteWordConfirm	: "Teksten du prøver å lime inn ser ut som om den kommer fra Word. Vil du rense den for unødvendig kode før du limer inn?",
+NotCompatiblePaste	: "Denne kommandoen er kun tilgjenglig for Internet Explorer versjon 5.5 eller bedre. Vil du fortsette uten å rense? (Du kan lime inn som ren tekst)",
+UnknownToolbarItem	: "Ukjent menyvalg \"%1\"",
+UnknownCommand		: "Ukjent kommando \"%1\"",
+NotImplemented		: "Kommando ikke implimentert",
+UnknownToolbarSet	: "Verktøylinjesett \"%1\" finnes ikke",
+NoActiveX			: "Din nettlesers sikkerhetsinstillinger kan begrense noen av funksjonene i redigeringsverktøyet. Du må aktivere \"Kjør ActiveX-kontroller og plugin-modeller\". Du kan oppleve feil og advarsler om manglende funksjoner",
+BrowseServerBlocked : "Kunne ikke åpne dialogboksen for filarkiv. Sjekk at popup-blokkering er deaktivert.",
+DialogBlocked		: "Kunne ikke åpne dialogboksen. Sjekk at popup-blokkering er deaktivert.",
+VisitLinkBlocked	: "Kunne ikke åpne et nytt vindu. Sjekk at popup-blokkering er deaktivert.",
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Avbryt",
+DlgBtnClose			: "Lukk",
+DlgBtnBrowseServer	: "Bla igjennom server",
+DlgAdvancedTag		: "Avansert",
+DlgOpOther			: "<Annet>",
+DlgInfoTab			: "Info",
+DlgAlertUrl			: "Vennligst skriv inn URL-en",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<ikke satt>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Språkretning",
+DlgGenLangDirLtr	: "Venstre til høyre (VTH)",
+DlgGenLangDirRtl	: "Høyre til venstre (HTV)",
+DlgGenLangCode		: "Språkkode",
+DlgGenAccessKey		: "Aksessknapp",
+DlgGenName			: "Navn",
+DlgGenTabIndex		: "Tab Indeks",
+DlgGenLongDescr		: "Utvidet beskrivelse",
+DlgGenClass			: "Stilarkklasser",
+DlgGenTitle			: "Tittel",
+DlgGenContType		: "Type",
+DlgGenLinkCharset	: "Lenket språkkart",
+DlgGenStyle			: "Stil",
+
+// Image Dialog
+DlgImgTitle			: "Bildeegenskaper",
+DlgImgInfoTab		: "Bildeinformasjon",
+DlgImgBtnUpload		: "Send det til serveren",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Last opp",
+DlgImgAlt			: "Alternativ tekst",
+DlgImgWidth			: "Bredde",
+DlgImgHeight		: "Høyde",
+DlgImgLockRatio		: "Lås forhold",
+DlgBtnResetSize		: "Tilbakestill størrelse",
+DlgImgBorder		: "Ramme",
+DlgImgHSpace		: "HMarg",
+DlgImgVSpace		: "VMarg",
+DlgImgAlign			: "Juster",
+DlgImgAlignLeft		: "Venstre",
+DlgImgAlignAbsBottom: "Abs bunn",
+DlgImgAlignAbsMiddle: "Abs midten",
+DlgImgAlignBaseline	: "Bunnlinje",
+DlgImgAlignBottom	: "Bunn",
+DlgImgAlignMiddle	: "Midten",
+DlgImgAlignRight	: "Høyre",
+DlgImgAlignTextTop	: "Tekst topp",
+DlgImgAlignTop		: "Topp",
+DlgImgPreview		: "Forhåndsvis",
+DlgImgAlertUrl		: "Vennligst skriv bilde-urlen",
+DlgImgLinkTab		: "Lenke",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash-egenskaper",
+DlgFlashChkPlay		: "Autospill",
+DlgFlashChkLoop		: "Loop",
+DlgFlashChkMenu		: "Slå på Flash-meny",
+DlgFlashScale		: "Skaler",
+DlgFlashScaleAll	: "Vis alt",
+DlgFlashScaleNoBorder	: "Ingen ramme",
+DlgFlashScaleFit	: "Skaler til å passe",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Lenke",
+DlgLnkInfoTab		: "Lenkeinfo",
+DlgLnkTargetTab		: "Mål",
+
+DlgLnkType			: "Lenketype",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Lenke til anker i teksten",
+DlgLnkTypeEMail		: "E-post",
+DlgLnkProto			: "Protokoll",
+DlgLnkProtoOther	: "<annet>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Velg et anker",
+DlgLnkAnchorByName	: "Anker etter navn",
+DlgLnkAnchorById	: "Element etter ID",
+DlgLnkNoAnchors		: "(Ingen anker i dokumentet)",
+DlgLnkEMail			: "E-postadresse",
+DlgLnkEMailSubject	: "Meldingsemne",
+DlgLnkEMailBody		: "Melding",
+DlgLnkUpload		: "Last opp",
+DlgLnkBtnUpload		: "Send til server",
+
+DlgLnkTarget		: "Mål",
+DlgLnkTargetFrame	: "<ramme>",
+DlgLnkTargetPopup	: "<popup vindu>",
+DlgLnkTargetBlank	: "Nytt vindu (_blank)",
+DlgLnkTargetParent	: "Foreldrevindu (_parent)",
+DlgLnkTargetSelf	: "Samme vindu (_self)",
+DlgLnkTargetTop		: "Hele vindu (_top)",
+DlgLnkTargetFrameName	: "Målramme",
+DlgLnkPopWinName	: "Navn på popup-vindus",
+DlgLnkPopWinFeat	: "Egenskaper for popup-vindu",
+DlgLnkPopResize		: "Endre størrelse",
+DlgLnkPopLocation	: "Adresselinje",
+DlgLnkPopMenu		: "Menylinje",
+DlgLnkPopScroll		: "Scrollbar",
+DlgLnkPopStatus		: "Statuslinje",
+DlgLnkPopToolbar	: "Verktøylinje",
+DlgLnkPopFullScrn	: "Full skjerm (IE)",
+DlgLnkPopDependent	: "Avhenging (Netscape)",
+DlgLnkPopWidth		: "Bredde",
+DlgLnkPopHeight		: "Høyde",
+DlgLnkPopLeft		: "Venstre posisjon",
+DlgLnkPopTop		: "Topp-posisjon",
+
+DlnLnkMsgNoUrl		: "Vennligst skriv inn lenkens url",
+DlnLnkMsgNoEMail	: "Vennligst skriv inn e-postadressen",
+DlnLnkMsgNoAnchor	: "Vennligst velg et anker",
+DlnLnkMsgInvPopName	: "Popup-vinduets navn må begynne med en bokstav, og kan ikke inneholde mellomrom",
+
+// Color Dialog
+DlgColorTitle		: "Velg farge",
+DlgColorBtnClear	: "Tøm",
+DlgColorHighlight	: "Marker",
+DlgColorSelected	: "Valgt",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Sett inn smil",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Velg spesielt tegn",
+
+// Table Dialog
+DlgTableTitle		: "Egenskaper for tabell",
+DlgTableRows		: "Rader",
+DlgTableColumns		: "Kolonner",
+DlgTableBorder		: "Rammestørrelse",
+DlgTableAlign		: "Justering",
+DlgTableAlignNotSet	: "<Ikke satt>",
+DlgTableAlignLeft	: "Venstre",
+DlgTableAlignCenter	: "Midtjuster",
+DlgTableAlignRight	: "Høyre",
+DlgTableWidth		: "Bredde",
+DlgTableWidthPx		: "piksler",
+DlgTableWidthPc		: "prosent",
+DlgTableHeight		: "Høyde",
+DlgTableCellSpace	: "Cellemarg",
+DlgTableCellPad		: "Cellepolstring",
+DlgTableCaption		: "Tittel",
+DlgTableSummary		: "Sammendrag",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Celleegenskaper",
+DlgCellWidth		: "Bredde",
+DlgCellWidthPx		: "piksler",
+DlgCellWidthPc		: "prosent",
+DlgCellHeight		: "Høyde",
+DlgCellWordWrap		: "Tekstbrytning",
+DlgCellWordWrapNotSet	: "<Ikke satt>",
+DlgCellWordWrapYes	: "Ja",
+DlgCellWordWrapNo	: "Nei",
+DlgCellHorAlign		: "Horisontal justering",
+DlgCellHorAlignNotSet	: "<Ikke satt>",
+DlgCellHorAlignLeft	: "Venstre",
+DlgCellHorAlignCenter	: "Midtjuster",
+DlgCellHorAlignRight: "Høyre",
+DlgCellVerAlign		: "Vertikal justering",
+DlgCellVerAlignNotSet	: "<Ikke satt>",
+DlgCellVerAlignTop	: "Topp",
+DlgCellVerAlignMiddle	: "Midten",
+DlgCellVerAlignBottom	: "Bunn",
+DlgCellVerAlignBaseline	: "Bunnlinje",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Radspenn",
+DlgCellCollSpan		: "Kolonnespenn",
+DlgCellBackColor	: "Bakgrunnsfarge",
+DlgCellBorderColor	: "Rammefarge",
+DlgCellBtnSelect	: "Velg...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Søk og erstatt",
+
+// Find Dialog
+DlgFindTitle		: "Søk",
+DlgFindFindBtn		: "Søk",
+DlgFindNotFoundMsg	: "Fant ikke søketeksten.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Erstatt",
+DlgReplaceFindLbl		: "Søk etter:",
+DlgReplaceReplaceLbl	: "Erstatt med:",
+DlgReplaceCaseChk		: "Skill mellom store og små bokstaver",
+DlgReplaceReplaceBtn	: "Erstatt",
+DlgReplaceReplAllBtn	: "Erstatt alle",
+DlgReplaceWordChk		: "Bare hele ord",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Din nettlesers sikkerhetsinstillinger tillater ikke automatisk klipping av tekst. Vennligst bruk snareveien (Ctrl+X).",
+PasteErrorCopy	: "Din nettlesers sikkerhetsinstillinger tillater ikke automatisk kopiering av tekst. Vennligst bruk snareveien (Ctrl+C).",
+
+PasteAsText		: "Lim inn som ren tekst",
+PasteFromWord	: "Lim inn fra Word",
+
+DlgPasteMsg2	: "Vennligst lim inn i den følgende boksen med tastaturet (<STRONG>Ctrl+V</STRONG>) og trykk <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Din nettlesers sikkerhetsinstillinger gir ikke redigeringsverktøyet direkte tilgang til utklippstavlen. Du må lime det igjen i dette vinduet.",
+DlgPasteIgnoreFont		: "Fjern skrifttyper",
+DlgPasteRemoveStyles	: "Fjern stildefinisjoner",
+
+// Color Picker
+ColorAutomatic	: "Automatisk",
+ColorMoreColors	: "Flere farger...",
+
+// Document Properties
+DocProps		: "Dokumentegenskaper",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Ankeregenskaper",
+DlgAnchorName		: "Ankernavn",
+DlgAnchorErrorName	: "Vennligst skriv inn ankernavnet",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Ikke i ordboken",
+DlgSpellChangeTo		: "Endre til",
+DlgSpellBtnIgnore		: "Ignorer",
+DlgSpellBtnIgnoreAll	: "Ignorer alle",
+DlgSpellBtnReplace		: "Erstatt",
+DlgSpellBtnReplaceAll	: "Erstatt alle",
+DlgSpellBtnUndo			: "Angre",
+DlgSpellNoSuggestions	: "- Ingen forslag -",
+DlgSpellProgress		: "Stavekontroll pågår...",
+DlgSpellNoMispell		: "Stavekontroll fullført: ingen feilstavinger funnet",
+DlgSpellNoChanges		: "Stavekontroll fullført: ingen ord endret",
+DlgSpellOneChange		: "Stavekontroll fullført: Ett ord endret",
+DlgSpellManyChanges		: "Stavekontroll fullført: %1 ord endret",
+
+IeSpellDownload			: "Stavekontroll er ikke installert. Vil du laste den ned nå?",
+
+// Button Dialog
+DlgButtonText		: "Tekst (verdi)",
+DlgButtonType		: "Type",
+DlgButtonTypeBtn	: "Knapp",
+DlgButtonTypeSbm	: "Send",
+DlgButtonTypeRst	: "Nullstill",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Navn",
+DlgCheckboxValue	: "Verdi",
+DlgCheckboxSelected	: "Valgt",
+
+// Form Dialog
+DlgFormName		: "Navn",
+DlgFormAction	: "Handling",
+DlgFormMethod	: "Metode",
+
+// Select Field Dialog
+DlgSelectName		: "Navn",
+DlgSelectValue		: "Verdi",
+DlgSelectSize		: "Størrelse",
+DlgSelectLines		: "Linjer",
+DlgSelectChkMulti	: "Tillat flervalg",
+DlgSelectOpAvail	: "Tilgjenglige alternativer",
+DlgSelectOpText		: "Tekst",
+DlgSelectOpValue	: "Verdi",
+DlgSelectBtnAdd		: "Legg til",
+DlgSelectBtnModify	: "Endre",
+DlgSelectBtnUp		: "Opp",
+DlgSelectBtnDown	: "Ned",
+DlgSelectBtnSetValue : "Sett som valgt",
+DlgSelectBtnDelete	: "Slett",
+
+// Textarea Dialog
+DlgTextareaName	: "Navn",
+DlgTextareaCols	: "Kolonner",
+DlgTextareaRows	: "Rader",
+
+// Text Field Dialog
+DlgTextName			: "Navn",
+DlgTextValue		: "Verdi",
+DlgTextCharWidth	: "Tegnbredde",
+DlgTextMaxChars		: "Maks antall tegn",
+DlgTextType			: "Type",
+DlgTextTypeText		: "Tekst",
+DlgTextTypePass		: "Passord",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Navn",
+DlgHiddenValue	: "Verdi",
+
+// Bulleted List Dialog
+BulletedListProp	: "Egenskaper for uordnet liste",
+NumberedListProp	: "Egenskaper for ordnet liste",
+DlgLstStart			: "Start",
+DlgLstType			: "Type",
+DlgLstTypeCircle	: "Sirkel",
+DlgLstTypeDisc		: "Hel sirkel",
+DlgLstTypeSquare	: "Firkant",
+DlgLstTypeNumbers	: "Numre (1, 2, 3)",
+DlgLstTypeLCase		: "Små bokstaver (a, b, c)",
+DlgLstTypeUCase		: "Store bokstaver (A, B, C)",
+DlgLstTypeSRoman	: "Små romerske tall (i, ii, iii)",
+DlgLstTypeLRoman	: "Store romerske tall (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Generelt",
+DlgDocBackTab		: "Bakgrunn",
+DlgDocColorsTab		: "Farger og marginer",
+DlgDocMetaTab		: "Meta-data",
+
+DlgDocPageTitle		: "Sidetittel",
+DlgDocLangDir		: "Språkretning",
+DlgDocLangDirLTR	: "Venstre til høyre (LTR)",
+DlgDocLangDirRTL	: "Høyre til venstre (RTL)",
+DlgDocLangCode		: "Språkkode",
+DlgDocCharSet		: "Tegnsett",
+DlgDocCharSetCE		: "Sentraleuropeisk",
+DlgDocCharSetCT		: "Tradisonell kinesisk(Big5)",
+DlgDocCharSetCR		: "Cyrillic",
+DlgDocCharSetGR		: "Gresk",
+DlgDocCharSetJP		: "Japansk",
+DlgDocCharSetKR		: "Koreansk",
+DlgDocCharSetTR		: "Tyrkisk",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Vesteuropeisk",
+DlgDocCharSetOther	: "Annet tegnsett",
+
+DlgDocDocType		: "Dokumenttype header",
+DlgDocDocTypeOther	: "Annet dokumenttype header",
+DlgDocIncXHTML		: "Inkluder XHTML-deklarasjon",
+DlgDocBgColor		: "Bakgrunnsfarge",
+DlgDocBgImage		: "URL for bakgrunnsbilde",
+DlgDocBgNoScroll	: "Lås bakgrunnsbilde",
+DlgDocCText			: "Tekst",
+DlgDocCLink			: "Link",
+DlgDocCVisited		: "Besøkt lenke",
+DlgDocCActive		: "Aktiv lenke",
+DlgDocMargins		: "Sidemargin",
+DlgDocMaTop			: "Topp",
+DlgDocMaLeft		: "Venstre",
+DlgDocMaRight		: "Høyre",
+DlgDocMaBottom		: "Bunn",
+DlgDocMeIndex		: "Dokument nøkkelord (kommaseparert)",
+DlgDocMeDescr		: "Dokumentbeskrivelse",
+DlgDocMeAuthor		: "Forfatter",
+DlgDocMeCopy		: "Kopirett",
+DlgDocPreview		: "Forhåndsvising",
+
+// Templates Dialog
+Templates			: "Maler",
+DlgTemplatesTitle	: "Innholdsmaler",
+DlgTemplatesSelMsg	: "Velg malen du vil åpne<br>(innholdet du har skrevet blir tapt!):",
+DlgTemplatesLoading	: "Laster malliste. Vennligst vent...",
+DlgTemplatesNoTpl	: "(Ingen maler definert)",
+DlgTemplatesReplace	: "Erstatt faktisk innold",
+
+// About Dialog
+DlgAboutAboutTab	: "Om",
+DlgAboutBrowserInfoTab	: "Nettleserinfo",
+DlgAboutLicenseTab	: "Lisens",
+DlgAboutVersion		: "versjon",
+DlgAboutInfo		: "For mer informasjon, se",
+
+// Div Dialog
+DlgDivGeneralTab	: "Generelt",
+DlgDivAdvancedTab	: "Avansert",
+DlgDivStyle		: "Stil",
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

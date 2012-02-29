@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Chinese Simplified language file.
+ */
 
-CKEDITOR.lang['zh-cn']={dir:'ltr',editorTitle:'所见即所得编辑器, %1, 按 ALT+0 查看帮助。',toolbars:'工具栏',editor:'所见即所得编辑器',source:'源码',newPage:'新建',save:'保存',preview:'预览',cut:'剪切',copy:'复制',paste:'粘贴',print:'打印',underline:'下划线',bold:'加粗',italic:'倾斜',selectAll:'全选',removeFormat:'清除格式',strike:'删除线',subscript:'下标',superscript:'上标',horizontalrule:'插入水平线',pagebreak:'插入分页符',pagebreakAlt:'分页符',unlink:'取消超链接',undo:'撤消',redo:'重做',common:{browseServer:'浏览服务器',url:'源文件',protocol:'协议',upload:'上传',uploadSubmit:'上传到服务器上',image:'图象',flash:'Flash',form:'表单',checkbox:'复选框',radio:'单选按钮',textField:'单行文本',textarea:'多行文本',hiddenField:'隐藏域',button:'按钮',select:'列表/菜单',imageButton:'图像域',notSet:'<没有设置>',id:'ID',name:'名称',langDir:'语言方向',langDirLtr:'从左到右 (LTR)',langDirRtl:'从右到左 (RTL)',langCode:'语言代码',longDescr:'详细说明地址',cssClass:'样式类名称',advisoryTitle:'标题',cssStyle:'行内样式',ok:'确定',cancel:'取消',close:'关闭',preview:'预览',generalTab:'常规',advancedTab:'高级',validateNumberFailed:'需要输入数字格式',confirmNewPage:'当前文档内容未保存,是否确认新建文档？',confirmCancel:'部分修改尚未保存，是否确认关闭对话框？',options:'选项',target:'目标窗口',targetNew:'新窗口 (_blank)',targetTop:'整页 (_top)',targetSelf:'本窗口 (_self)',targetParent:'父窗口 (_parent)',langDirLTR:'从左到右 (LTR)',langDirRTL:'从右到左 (RTL)',styles:'样式',cssClasses:'样式类',width:'宽度',height:'高度',align:'对齐方式',alignLeft:'左对齐',alignRight:'右对齐',alignCenter:'居中',alignTop:'顶端',alignMiddle:'居中',alignBottom:'底部',invalidHeight:'高度必须为数字格式',invalidWidth:'宽度必须为数字格式',invalidCssLength:'该字段必须为合式的CSS长度值，包括单位(px, %, in, cm, mm, em, ex, pt 或 pc)',invalidHtmlLength:'该字段必须为合式的HTML长度值，包括单位(px 或 %)',invalidInlineStyle:'内联样式必须为格式是以分号分隔的一个或多个“属性名 : 属性值”',cssLengthTooltip:'该字段必须为合式的CSS长度值，包括单位(px, %, in, cm, mm, em, ex, pt 或 pc)',unavailable:'%1<span class="cke_accessibility">, 不可用</span>'},contextmenu:{options:'快捷菜单选项'},specialChar:{toolbar:'插入特殊符号',title:'选择特殊符号',options:'特殊符号选项'},link:{toolbar:'插入/编辑超链接',other:'<其他>',menu:'编辑超链接',title:'超链接',info:'超链接信息',target:'目标',upload:'上传',advanced:'高级',type:'超链接类型',toUrl:'地址',toAnchor:'页内锚点链接',toEmail:'电子邮件',targetFrame:'<框架>',targetPopup:'<弹出窗口>',targetFrameName:'目标框架名称',targetPopupName:'弹出窗口名称',popupFeatures:'弹出窗口属性',popupResizable:'可缩放',popupStatusBar:'状态栏',popupLocationBar:'地址栏',popupToolbar:'工具栏',popupMenuBar:'菜单栏',popupFullScreen:'全屏 (IE)',popupScrollBars:'滚动条',popupDependent:'依附 (NS)',popupLeft:'左',popupTop:'右',id:'ID',langDir:'语言方向',langDirLTR:'从左到右 (LTR)',langDirRTL:'从右到左 (RTL)',acccessKey:'访问键',name:'名称',langCode:'语言代码',tabIndex:'Tab 键次序',advisoryTitle:'标题',advisoryContentType:'内容类型',cssClasses:'样式类名称',charset:'字符编码',styles:'行内样式',rel:'关联',selectAnchor:'选择一个锚点',anchorName:'按锚点名称',anchorId:'按锚点 ID',emailAddress:'地址',emailSubject:'主题',emailBody:'内容',noAnchors:'(此文档没有可用的锚点)',noUrl:'请输入超链接地址',noEmail:'请输入电子邮件地址'},anchor:{toolbar:'插入/编辑锚点链接',menu:'锚点链接属性',title:'锚点链接属性',name:'锚点名称',errorName:'请输入锚点名称',remove:'删除锚点'},list:{numberedTitle:'编号列表属性',bulletedTitle:'项目列表属性',type:'标记类型',start:'开始序号',validateStartNumber:'列表开始序号必须为整数格式',circle:'空心圆',disc:'实心圆',square:'实心方块',none:'无标记',notset:'<没有设置>',armenian:'传统的亚美尼亚编号方式',georgian:'传统的乔治亚编号方式(an, ban, gan, 等)',lowerRoman:'小写罗马数字(i, ii, iii, iv, v, 等)',upperRoman:'大写罗马数字(I, II, III, IV, V, 等)',lowerAlpha:'小写英文字母(a, b, c, d, e, 等)',upperAlpha:'大写英文字母(A, B, C, D, E, 等)',lowerGreek:'小写希腊字母(alpha, beta, gamma, 等)',decimal:'数字 (1, 2, 3, 等)',decimalLeadingZero:'0开头的数字标记(01, 02, 03, 等)'},findAndReplace:{title:'查找和替换',find:'查找',replace:'替换',findWhat:'查找:',replaceWith:'替换:',notFoundMsg:'指定文本没有找到',findOptions:'查找选项',matchCase:'区分大小写',matchWord:'全字匹配',matchCyclic:'循环匹配',replaceAll:'全部替换',replaceSuccessMsg:'共完成 %1 处替换.'},table:{toolbar:'表格',title:'表格属性',menu:'表格属性',deleteTable:'删除表格',rows:'行数',columns:'列数',border:'边框',widthPx:'像素',widthPc:'百分比',widthUnit:'宽度单位',cellSpace:'间距',cellPad:'边距',caption:'标题',summary:'摘要',headers:'标题单元格',headersNone:'无',headersColumn:'第一列',headersRow:'第一行',headersBoth:'第一列和第一行',invalidRows:'指定的列数必须大于零',invalidCols:'指定的行数必须大于零',invalidBorder:'边框粗细必须为数字格式',invalidWidth:'表格宽度必须为数字格式',invalidHeight:'表格高度必须为数字格式',invalidCellSpacing:'单元格间距必须为数字格式',invalidCellPadding:'单元格填充必须为数字格式',cell:{menu:'单元格',insertBefore:'在左侧插入单元格',insertAfter:'在右侧插入单元格',deleteCell:'删除单元格',merge:'合并单元格',mergeRight:'向右合并单元格',mergeDown:'向下合并单元格',splitHorizontal:'水平拆分单元格',splitVertical:'垂直拆分单元格',title:'单元格属性',cellType:'单元格类型',rowSpan:'纵跨行数',colSpan:'横跨列数',wordWrap:'自动换行',hAlign:'水平对齐',vAlign:'垂直对齐',alignBaseline:'基线',bgColor:'背景颜色',borderColor:'边框颜色',data:'数据',header:'表头',yes:'是',no:'否',invalidWidth:'单元格宽度必须为数字格式',invalidHeight:'单元格高度必须为数字格式',invalidRowSpan:'行跨度必须为整数格式',invalidColSpan:'列跨度必须为整数格式',chooseColor:'选择'},row:{menu:'行',insertBefore:'在上方插入行',insertAfter:'在下方插入行',deleteRow:'删除行'},column:{menu:'列',insertBefore:'在左侧插入列',insertAfter:'在右侧插入列',deleteColumn:'删除列'}},button:{title:'按钮属性',text:'标签(值)',type:'类型',typeBtn:'按钮',typeSbm:'提交',typeRst:'重设'},checkboxAndRadio:{checkboxTitle:'复选框属性',radioTitle:'单选按钮属性',value:'选定值',selected:'已勾选'},form:{title:'表单属性',menu:'表单属性',action:'动作',method:'方法',encoding:'表单编码'},select:{title:'菜单/列表属性',selectInfo:'选择信息',opAvail:'可选项',value:'值',size:'高度',lines:'行',chkMulti:'允许多选',opText:'选项文本',opValue:'选项值',btnAdd:'添加',btnModify:'修改',btnUp:'上移',btnDown:'下移',btnSetValue:'设为初始选定',btnDelete:'删除'},textarea:{title:'多行文本属性',cols:'字符宽度',rows:'行数'},textfield:{title:'单行文本属性',name:'名称',value:'初始值',charWidth:'字符宽度',maxChars:'最多字符数',type:'类型',typeText:'文本',typePass:'密码'},hidden:{title:'隐藏域属性',name:'名称',value:'初始值'},image:{title:'图象属性',titleButton:'图像域属性',menu:'图象属性',infoTab:'图象',btnUpload:'上传到服务器上',upload:'上传',alt:'替换文本',lockRatio:'锁定比例',resetSize:'原始尺寸',border:'边框大小',hSpace:'水平间距',vSpace:'垂直间距',alertUrl:'请输入图象地址',linkTab:'链接',button2Img:'确定要把当前按钮改变为图像吗?',img2Button:'确定要把当前图像改变为按钮吗?',urlMissing:'缺少图像源文件地址',validateBorder:'边框大小必须为整数格式',validateHSpace:'水平间距必须为整数格式',validateVSpace:'垂直间距必须为整数格式'},flash:{properties:'Flash 属性',propertiesTab:'属性',title:'标题',chkPlay:'自动播放',chkLoop:'循环',chkMenu:'启用 Flash 菜单',chkFull:'启用全屏',scale:'缩放',scaleAll:'全部显示',scaleNoBorder:'无边框',scaleFit:'严格匹配',access:'允许脚本访问',accessAlways:'总是',accessSameDomain:'同域',accessNever:'从不',alignAbsBottom:'绝对底部',alignAbsMiddle:'绝对居中',alignBaseline:'基线',alignTextTop:'文本上方',quality:'质量',qualityBest:'最好',qualityHigh:'高',qualityAutoHigh:'高(自动)',qualityMedium:'中(自动)',qualityAutoLow:'低(自动)',qualityLow:'低',windowModeWindow:'窗体',windowModeOpaque:'不透明',windowModeTransparent:'透明',windowMode:'窗体模式',flashvars:'Flash 变量',bgcolor:'背景颜色',hSpace:'水平间距',vSpace:'垂直间距',validateSrc:'请输入源文件地址',validateHSpace:'水平间距必须为数字格式',validateVSpace:'垂直间距必须为数字格式'},spellCheck:{toolbar:'拼写检查',title:'拼写检查',notAvailable:'抱歉, 服务目前暂不可用',errorLoading:'加载应该服务主机时出错: %s.',notInDic:'没有在字典里',changeTo:'更改为',btnIgnore:'忽略',btnIgnoreAll:'全部忽略',btnReplace:'替换',btnReplaceAll:'全部替换',btnUndo:'撤消',noSuggestions:'- 没有建议 -',progress:'正在进行拼写检查...',noMispell:'拼写检查完成: 没有发现拼写错误',noChanges:'拼写检查完成: 没有更改任何单词',oneChange:'拼写检查完成: 更改了一个单词',manyChanges:'拼写检查完成: 更改了 %1 个单词',ieSpellDownload:'拼写检查插件还没安装, 你是否想现在就下载?'},smiley:{toolbar:'表情符',title:'插入表情图标',options:'表情图标选项'},elementsPath:{eleLabel:'元素路径',eleTitle:'%1 元素'},numberedlist:'编号列表',bulletedlist:'项目列表',indent:'增加缩进量',outdent:'减少缩进量',justify:{left:'左对齐',center:'居中',right:'右对齐',block:'两端对齐'},blockquote:'块引用',clipboard:{title:'粘贴',cutError:'您的浏览器安全设置不允许编辑器自动执行剪切操作, 请使用键盘快捷键(Ctrl/Cmd+X)来完成',copyError:'您的浏览器安全设置不允许编辑器自动执行复制操作, 请使用键盘快捷键(Ctrl/Cmd+C)来完成',pasteMsg:'请使用键盘快捷键(<STRONG>Ctrl/Cmd+V</STRONG>)把内容粘贴到下面的方框里，再按 <STRONG>确定</STRONG>',securityMsg:'因为你的浏览器的安全设置原因, 本编辑器不能直接访问你的剪贴板内容, 你需要在本窗口重新粘贴一次',pasteArea:'粘贴区域'},pastefromword:{confirmCleanup:'您要粘贴的内容好像是来自 MS Word, 是否要清除 MS Word 格式后再粘贴?',toolbar:'从 MS Word 粘贴',title:'从 MS Word 粘贴',error:'由于内部错误无法清理要粘贴的数据'},pasteText:{button:'粘贴为无格式文本',title:'粘贴为无格式文本'},templates:{button:'模板',title:'内容模板',options:'模板选项',insertOption:'替换当前内容',selectPromptMsg:'请选择编辑器内容模板:',emptyListMsg:'(没有模板)'},showBlocks:'显示区块',stylesCombo:{label:'样式',panelTitle:'样式',panelTitle1:'块级元素样式',panelTitle2:'内联元素样式',panelTitle3:'对象元素样式'},format:{label:'格式',panelTitle:'格式',tag_p:'普通',tag_pre:'已编排格式',tag_address:'地址',tag_h1:'标题 1',tag_h2:'标题 2',tag_h3:'标题 3',tag_h4:'标题 4',tag_h5:'标题 5',tag_h6:'标题 6',tag_div:'段落(DIV)'},div:{title:'创建 DIV 容器',toolbar:'创建 DIV 容器',cssClassInputLabel:'样式类名称',styleSelectLabel:'样式',IdInputLabel:'ID',languageCodeInputLabel:'语言代码',inlineStyleInputLabel:'行内样式',advisoryTitleInputLabel:'标题',langDirLabel:'语言方向',langDirLTRLabel:'从左到右 (LTR)',langDirRTLLabel:'从右到左 (RTL)',edit:'编辑 DIV',remove:'移除 DIV'},iframe:{title:'iFrame属性',toolbar:'iFrame',noUrl:'请输入框架的 URL',scrolling:'允许滚动条',border:'显示框架边框'},font:{label:'字体',voiceLabel:'字体',panelTitle:'字体'},fontSize:{label:'大小',voiceLabel:'文字大小',panelTitle:'大小'},colorButton:{textColorTitle:'文本颜色',bgColorTitle:'背景颜色',panelTitle:'颜色',auto:'自动',more:'其它颜色...'},colors:{'000':'黑',800000:'褐红','8B4513':'深褐','2F4F4F':'墨绿','008080':'绿松石','000080':'海军蓝','4B0082':'靛蓝',696969:'暗灰',B22222:'砖红',A52A2A:'褐',DAA520:'金黄','006400':'深绿','40E0D0':'蓝绿','0000CD':'中蓝',800080:'紫',808080:'灰',F00:'红',FF8C00:'深橙',FFD700:'金','008000':'绿','0FF':'青','00F':'蓝',EE82EE:'紫罗兰',A9A9A9:'深灰',FFA07A:'亮橙',FFA500:'橙',FFFF00:'黄','00FF00':'水绿',AFEEEE:'粉蓝',ADD8E6:'亮蓝',DDA0DD:'梅红',D3D3D3:'淡灰',FFF0F5:'淡紫红',FAEBD7:'古董白',FFFFE0:'淡黄',F0FFF0:'蜜白',F0FFFF:'天蓝',F0F8FF:'淡蓝',E6E6FA:'淡紫',FFF:'白'},scayt:{title:'即时拼写检查',opera_title:'不支持 Opera 浏览器',enable:'启用即时拼写检查',disable:'禁用即时拼写检查',about:'关于即时拼写检查',toggle:'暂停/启用即时拼写检查',options:'选项',langs:'语言',moreSuggestions:'更多拼写建议',ignore:'忽略',ignoreAll:'全部忽略',addWord:'添加单词',emptyDic:'字典名不应为空.',optionsTab:'选项',allCaps:'忽略所有大写单词',ignoreDomainNames:'忽略域名',mixedCase:'忽略大小写混合的单词',mixedWithDigits:'忽略带数字的单词',languagesTab:'语言',dictionariesTab:'字典',dic_field_name:'字典名称',dic_create:'创建',dic_restore:'还原',dic_delete:'删除',dic_rename:'重命名',dic_info:'一开始用户词典储存在 Cookie 中, 但是 Cookies 的容量是有限的, 当用户词典增长到超出 Cookie 限制时就无法再储存了, 这时您可以将词典储存到我们的服务器上. 要把您的个人词典到储存到我们的服务器上的话, 需要为您的词典指定一个名称, 如果您在我们的服务器上已经有储存有一个词典, 请输入词典名称并按还原按钮.',aboutTab:'关于'},about:{title:'关于CKEditor',dlgTitle:'关于CKEditor',help:'请访问 $1 以获取帮助.',userGuide:'CKEditor 用户向导',moreInfo:'访问我们的网站以获取更多关于协议的信息',copy:'Copyright &copy; $1. 版权所有。'},maximize:'全屏',minimize:'最小化',fakeobjects:{anchor:'锚点',flash:'Flash 动画',iframe:'IFrame',hiddenfield:'隐藏域',unknown:'未知对象'},resize:'拖拽以改变尺寸',colordialog:{title:'选择颜色',options:'颜色选项',highlight:'高亮',selected:'选择颜色',clear:'清除'},toolbarCollapse:'折叠工具栏',toolbarExpand:'展开工具栏',toolbarGroups:{document:'文档',clipboard:'剪贴板/撤销',editing:'编辑',forms:'表单',basicstyles:'基本格式',paragraph:'段落',links:'链接',insert:'插入',styles:'样式',colors:'颜色',tools:'工具'},bidi:{ltr:'文字方向为从左至右',rtl:'文字方向为从右至左'},docprops:{label:'页面属性',title:'页面属性',design:'设计',meta:'Meta 数据',chooseColor:'选择',other:'<其他>',docTitle:'页面标题',charset:'字符编码',charsetOther:'其它字符编码',charsetASCII:'ASCII',charsetCE:'中欧',charsetCT:'繁体中文 (Big5)',charsetCR:'西里尔文',charsetGR:'希腊文',charsetJP:'日文',charsetKR:'韩文',charsetTR:'土耳其文',charsetUN:'Unicode (UTF-8)',charsetWE:'西欧',docType:'文档类型',docTypeOther:'其它文档类型',xhtmlDec:'包含 XHTML 声明',bgColor:'背景颜色',bgImage:'背景图像',bgFixed:'不滚动背景图像',txtColor:'文本颜色',margin:'页面边距',marginTop:'上',marginLeft:'左',marginRight:'右',marginBottom:'下',metaKeywords:'页面索引关键字 (用半角逗号[,]分隔)',metaDescription:'页面说明',metaAuthor:'作者',metaCopyright:'版权',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "折叠工具栏",
+ToolbarExpand		: "展开工具栏",
+
+// Toolbar Items and Context Menu
+Save				: "保存",
+NewPage				: "新建",
+Preview				: "预览",
+Cut					: "剪切",
+Copy				: "复制",
+Paste				: "粘贴",
+PasteText			: "粘贴为无格式文本",
+PasteWord			: "从 MS Word 粘贴",
+Print				: "打印",
+SelectAll			: "全选",
+RemoveFormat		: "清除格式",
+InsertLinkLbl		: "超链接",
+InsertLink			: "插入/编辑超链接",
+RemoveLink			: "取消超链接",
+VisitLink			: "打开超链接",
+Anchor				: "插入/编辑锚点链接",
+AnchorDelete		: "清除锚点链接",
+InsertImageLbl		: "图象",
+InsertImage			: "插入/编辑图象",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "插入/编辑 Flash",
+InsertTableLbl		: "表格",
+InsertTable			: "插入/编辑表格",
+InsertLineLbl		: "水平线",
+InsertLine			: "插入水平线",
+InsertSpecialCharLbl: "特殊符号",
+InsertSpecialChar	: "插入特殊符号",
+InsertSmileyLbl		: "表情符",
+InsertSmiley		: "插入表情图标",
+About				: "关于 FCKeditor",
+Bold				: "加粗",
+Italic				: "倾斜",
+Underline			: "下划线",
+StrikeThrough		: "删除线",
+Subscript			: "下标",
+Superscript			: "上标",
+LeftJustify			: "左对齐",
+CenterJustify		: "居中对齐",
+RightJustify		: "右对齐",
+BlockJustify		: "两端对齐",
+DecreaseIndent		: "减少缩进量",
+IncreaseIndent		: "增加缩进量",
+Blockquote			: "块引用",
+CreateDiv			: "插入 Div 标签",
+EditDiv				: "编辑 Div 标签",
+DeleteDiv			: "删除 Div 标签",
+Undo				: "撤消",
+Redo				: "重做",
+NumberedListLbl		: "编号列表",
+NumberedList		: "插入/删除编号列表",
+BulletedListLbl		: "项目列表",
+BulletedList		: "插入/删除项目列表",
+ShowTableBorders	: "显示表格边框",
+ShowDetails			: "显示详细资料",
+Style				: "样式",
+FontFormat			: "格式",
+Font				: "字体",
+FontSize			: "大小",
+TextColor			: "文本颜色",
+BGColor				: "背景颜色",
+Source				: "源代码",
+Find				: "查找",
+Replace				: "替换",
+SpellCheck			: "拼写检查",
+UniversalKeyboard	: "软键盘",
+PageBreakLbl		: "分页符",
+PageBreak			: "插入分页符",
+
+Form			: "表单",
+Checkbox		: "复选框",
+RadioButton		: "单选按钮",
+TextField		: "单行文本",
+Textarea		: "多行文本",
+HiddenField		: "隐藏域",
+Button			: "按钮",
+SelectionField	: "列表/菜单",
+ImageButton		: "图像域",
+
+FitWindow		: "全屏编辑",
+ShowBlocks		: "显示区块",
+
+// Context Menu
+EditLink			: "编辑超链接",
+CellCM				: "单元格",
+RowCM				: "行",
+ColumnCM			: "列",
+InsertRowAfter		: "在下方插入行",
+InsertRowBefore		: "在上方插入行",
+DeleteRows			: "删除行",
+InsertColumnAfter	: "在右侧插入列",
+InsertColumnBefore	: "在左侧插入列",
+DeleteColumns		: "删除列",
+InsertCellAfter		: "在右侧插入单元格",
+InsertCellBefore	: "在左侧插入单元格",
+DeleteCells			: "删除单元格",
+MergeCells			: "合并单元格",
+MergeRight			: "向右合并单元格",
+MergeDown			: "向下合并单元格",
+HorizontalSplitCell	: "水平拆分单元格",
+VerticalSplitCell	: "垂直拆分单元格",
+TableDelete			: "删除表格",
+CellProperties		: "单元格属性",
+TableProperties		: "表格属性",
+ImageProperties		: "图象属性",
+FlashProperties		: "Flash 属性",
+
+AnchorProp			: "锚点链接属性",
+ButtonProp			: "按钮属性",
+CheckboxProp		: "复选框属性",
+HiddenFieldProp		: "隐藏域属性",
+RadioButtonProp		: "单选按钮属性",
+ImageButtonProp		: "图像域属性",
+TextFieldProp		: "单行文本属性",
+SelectionFieldProp	: "菜单/列表属性",
+TextareaProp		: "多行文本属性",
+FormProp			: "表单属性",
+
+FontFormats			: "普通;已编排格式;地址;标题 1;标题 2;标题 3;标题 4;标题 5;标题 6;段落(DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "正在处理 XHTML，请稍等...",
+Done				: "完成",
+PasteWordConfirm	: "您要粘贴的内容好像是来自 MS Word，是否要清除 MS Word 格式后再粘贴？",
+NotCompatiblePaste	: "该命令需要 Internet Explorer 5.5 或更高版本的支持，是否按常规粘贴进行？",
+UnknownToolbarItem	: "未知工具栏项目 \"%1\"",
+UnknownCommand		: "未知命令名称 \"%1\"",
+NotImplemented		: "命令无法执行",
+UnknownToolbarSet	: "工具栏设置 \"%1\" 不存在",
+NoActiveX			: "浏览器安全设置限制了本编辑器的某些功能。您必须启用安全设置中的“运行 ActiveX 控件和插件”，否则将出现某些错误并缺少功能。",
+BrowseServerBlocked : "无法打开资源浏览器，请确认是否启用了禁止弹出窗口。",
+DialogBlocked		: "无法打开对话框窗口，请确认是否启用了禁止弹出窗口或网页对话框（IE）。",
+VisitLinkBlocked	: "无法打开新窗口，请确认是否启用了禁止弹出窗口或网页对话框（IE）。",
+
+// Dialogs
+DlgBtnOK			: "确定",
+DlgBtnCancel		: "取消",
+DlgBtnClose			: "关闭",
+DlgBtnBrowseServer	: "浏览服务器",
+DlgAdvancedTag		: "高级",
+DlgOpOther			: "<其它>",
+DlgInfoTab			: "信息",
+DlgAlertUrl			: "请插入 URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<没有设置>",
+DlgGenId			: "ID",
+DlgGenLangDir		: "语言方向",
+DlgGenLangDirLtr	: "从左到右 (LTR)",
+DlgGenLangDirRtl	: "从右到左 (RTL)",
+DlgGenLangCode		: "语言代码",
+DlgGenAccessKey		: "访问键",
+DlgGenName			: "名称",
+DlgGenTabIndex		: "Tab 键次序",
+DlgGenLongDescr		: "详细说明地址",
+DlgGenClass			: "样式类名称",
+DlgGenTitle			: "标题",
+DlgGenContType		: "内容类型",
+DlgGenLinkCharset	: "字符编码",
+DlgGenStyle			: "行内样式",
+
+// Image Dialog
+DlgImgTitle			: "图象属性",
+DlgImgInfoTab		: "图象",
+DlgImgBtnUpload		: "发送到服务器上",
+DlgImgURL			: "源文件",
+DlgImgUpload		: "上传",
+DlgImgAlt			: "替换文本",
+DlgImgWidth			: "宽度",
+DlgImgHeight		: "高度",
+DlgImgLockRatio		: "锁定比例",
+DlgBtnResetSize		: "恢复尺寸",
+DlgImgBorder		: "边框大小",
+DlgImgHSpace		: "水平间距",
+DlgImgVSpace		: "垂直间距",
+DlgImgAlign			: "对齐方式",
+DlgImgAlignLeft		: "左对齐",
+DlgImgAlignAbsBottom: "绝对底边",
+DlgImgAlignAbsMiddle: "绝对居中",
+DlgImgAlignBaseline	: "基线",
+DlgImgAlignBottom	: "底边",
+DlgImgAlignMiddle	: "居中",
+DlgImgAlignRight	: "右对齐",
+DlgImgAlignTextTop	: "文本上方",
+DlgImgAlignTop		: "顶端",
+DlgImgPreview		: "预览",
+DlgImgAlertUrl		: "请输入图象地址",
+DlgImgLinkTab		: "链接",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash 属性",
+DlgFlashChkPlay		: "自动播放",
+DlgFlashChkLoop		: "循环",
+DlgFlashChkMenu		: "启用 Flash 菜单",
+DlgFlashScale		: "缩放",
+DlgFlashScaleAll	: "全部显示",
+DlgFlashScaleNoBorder	: "无边框",
+DlgFlashScaleFit	: "严格匹配",
+
+// Link Dialog
+DlgLnkWindowTitle	: "超链接",
+DlgLnkInfoTab		: "超链接信息",
+DlgLnkTargetTab		: "目标",
+
+DlgLnkType			: "超链接类型",
+DlgLnkTypeURL		: "超链接",
+DlgLnkTypeAnchor	: "页内锚点链接",
+DlgLnkTypeEMail		: "电子邮件",
+DlgLnkProto			: "协议",
+DlgLnkProtoOther	: "<其它>",
+DlgLnkURL			: "地址",
+DlgLnkAnchorSel		: "选择一个锚点",
+DlgLnkAnchorByName	: "按锚点名称",
+DlgLnkAnchorById	: "按锚点 ID",
+DlgLnkNoAnchors		: "(此文档没有可用的锚点)",
+DlgLnkEMail			: "地址",
+DlgLnkEMailSubject	: "主题",
+DlgLnkEMailBody		: "内容",
+DlgLnkUpload		: "上传",
+DlgLnkBtnUpload		: "发送到服务器上",
+
+DlgLnkTarget		: "目标",
+DlgLnkTargetFrame	: "<框架>",
+DlgLnkTargetPopup	: "<弹出窗口>",
+DlgLnkTargetBlank	: "新窗口 (_blank)",
+DlgLnkTargetParent	: "父窗口 (_parent)",
+DlgLnkTargetSelf	: "本窗口 (_self)",
+DlgLnkTargetTop		: "整页 (_top)",
+DlgLnkTargetFrameName	: "目标框架名称",
+DlgLnkPopWinName	: "弹出窗口名称",
+DlgLnkPopWinFeat	: "弹出窗口属性",
+DlgLnkPopResize		: "调整大小",
+DlgLnkPopLocation	: "地址栏",
+DlgLnkPopMenu		: "菜单栏",
+DlgLnkPopScroll		: "滚动条",
+DlgLnkPopStatus		: "状态栏",
+DlgLnkPopToolbar	: "工具栏",
+DlgLnkPopFullScrn	: "全屏 (IE)",
+DlgLnkPopDependent	: "依附 (NS)",
+DlgLnkPopWidth		: "宽",
+DlgLnkPopHeight		: "高",
+DlgLnkPopLeft		: "左",
+DlgLnkPopTop		: "右",
+
+DlnLnkMsgNoUrl		: "请输入超链接地址",
+DlnLnkMsgNoEMail	: "请输入电子邮件地址",
+DlnLnkMsgNoAnchor	: "请选择一个锚点",
+DlnLnkMsgInvPopName	: "弹出窗口名称必须以字母开头，并且不能含有空格。",
+
+// Color Dialog
+DlgColorTitle		: "选择颜色",
+DlgColorBtnClear	: "清除",
+DlgColorHighlight	: "预览",
+DlgColorSelected	: "选择",
+
+// Smiley Dialog
+DlgSmileyTitle		: "插入表情图标",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "选择特殊符号",
+
+// Table Dialog
+DlgTableTitle		: "表格属性",
+DlgTableRows		: "行数",
+DlgTableColumns		: "列数",
+DlgTableBorder		: "边框",
+DlgTableAlign		: "对齐",
+DlgTableAlignNotSet	: "<没有设置>",
+DlgTableAlignLeft	: "左对齐",
+DlgTableAlignCenter	: "居中",
+DlgTableAlignRight	: "右对齐",
+DlgTableWidth		: "宽度",
+DlgTableWidthPx		: "像素",
+DlgTableWidthPc		: "百分比",
+DlgTableHeight		: "高度",
+DlgTableCellSpace	: "间距",
+DlgTableCellPad		: "边距",
+DlgTableCaption		: "标题",
+DlgTableSummary		: "摘要",
+DlgTableHeaders		: "标题单元格",
+DlgTableHeadersNone		: "无",
+DlgTableHeadersColumn	: "第一列",
+DlgTableHeadersRow		: "第一行",
+DlgTableHeadersBoth		: "第一列和第一行",
+
+// Table Cell Dialog
+DlgCellTitle		: "单元格属性",
+DlgCellWidth		: "宽度",
+DlgCellWidthPx		: "像素",
+DlgCellWidthPc		: "百分比",
+DlgCellHeight		: "高度",
+DlgCellWordWrap		: "自动换行",
+DlgCellWordWrapNotSet	: "<没有设置>",
+DlgCellWordWrapYes	: "是",
+DlgCellWordWrapNo	: "否",
+DlgCellHorAlign		: "水平对齐",
+DlgCellHorAlignNotSet	: "<没有设置>",
+DlgCellHorAlignLeft	: "左对齐",
+DlgCellHorAlignCenter	: "居中",
+DlgCellHorAlignRight: "右对齐",
+DlgCellVerAlign		: "垂直对齐",
+DlgCellVerAlignNotSet	: "<没有设置>",
+DlgCellVerAlignTop	: "顶端",
+DlgCellVerAlignMiddle	: "居中",
+DlgCellVerAlignBottom	: "底部",
+DlgCellVerAlignBaseline	: "基线",
+DlgCellType		: "单元格类型",
+DlgCellTypeData		: "资料",
+DlgCellTypeHeader	: "标题",
+DlgCellRowSpan		: "纵跨行数",
+DlgCellCollSpan		: "横跨列数",
+DlgCellBackColor	: "背景颜色",
+DlgCellBorderColor	: "边框颜色",
+DlgCellBtnSelect	: "选择...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "查找和替换",
+
+// Find Dialog
+DlgFindTitle		: "查找",
+DlgFindFindBtn		: "查找",
+DlgFindNotFoundMsg	: "指定文本没有找到。",
+
+// Replace Dialog
+DlgReplaceTitle			: "替换",
+DlgReplaceFindLbl		: "查找:",
+DlgReplaceReplaceLbl	: "替换:",
+DlgReplaceCaseChk		: "区分大小写",
+DlgReplaceReplaceBtn	: "替换",
+DlgReplaceReplAllBtn	: "全部替换",
+DlgReplaceWordChk		: "全字匹配",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "您的浏览器安全设置不允许编辑器自动执行剪切操作，请使用键盘快捷键(Ctrl+X)来完成。",
+PasteErrorCopy	: "您的浏览器安全设置不允许编辑器自动执行复制操作，请使用键盘快捷键(Ctrl+C)来完成。",
+
+PasteAsText		: "粘贴为无格式文本",
+PasteFromWord	: "从 MS Word 粘贴",
+
+DlgPasteMsg2	: "请使用键盘快捷键(<STRONG>Ctrl+V</STRONG>)把内容粘贴到下面的方框里，再按 <STRONG>确定</STRONG>。",
+DlgPasteSec		: "因为你的浏览器的安全设置原因，本编辑器不能直接访问你的剪贴板内容，你需要在本窗口重新粘贴一次。",
+DlgPasteIgnoreFont		: "忽略 Font 标签",
+DlgPasteRemoveStyles	: "清理 CSS 样式",
+
+// Color Picker
+ColorAutomatic	: "自动",
+ColorMoreColors	: "其它颜色...",
+
+// Document Properties
+DocProps		: "页面属性",
+
+// Anchor Dialog
+DlgAnchorTitle		: "命名锚点",
+DlgAnchorName		: "锚点名称",
+DlgAnchorErrorName	: "请输入锚点名称",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "没有在字典里",
+DlgSpellChangeTo		: "更改为",
+DlgSpellBtnIgnore		: "忽略",
+DlgSpellBtnIgnoreAll	: "全部忽略",
+DlgSpellBtnReplace		: "替换",
+DlgSpellBtnReplaceAll	: "全部替换",
+DlgSpellBtnUndo			: "撤消",
+DlgSpellNoSuggestions	: "- 没有建议 -",
+DlgSpellProgress		: "正在进行拼写检查...",
+DlgSpellNoMispell		: "拼写检查完成：没有发现拼写错误",
+DlgSpellNoChanges		: "拼写检查完成：没有更改任何单词",
+DlgSpellOneChange		: "拼写检查完成：更改了一个单词",
+DlgSpellManyChanges		: "拼写检查完成：更改了 %1 个单词",
+
+IeSpellDownload			: "拼写检查插件还没安装，你是否想现在就下载？",
+
+// Button Dialog
+DlgButtonText		: "标签(值)",
+DlgButtonType		: "类型",
+DlgButtonTypeBtn	: "按钮",
+DlgButtonTypeSbm	: "提交",
+DlgButtonTypeRst	: "重设",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "名称",
+DlgCheckboxValue	: "选定值",
+DlgCheckboxSelected	: "已勾选",
+
+// Form Dialog
+DlgFormName		: "名称",
+DlgFormAction	: "动作",
+DlgFormMethod	: "方法",
+
+// Select Field Dialog
+DlgSelectName		: "名称",
+DlgSelectValue		: "选定",
+DlgSelectSize		: "高度",
+DlgSelectLines		: "行",
+DlgSelectChkMulti	: "允许多选",
+DlgSelectOpAvail	: "列表值",
+DlgSelectOpText		: "标签",
+DlgSelectOpValue	: "值",
+DlgSelectBtnAdd		: "新增",
+DlgSelectBtnModify	: "修改",
+DlgSelectBtnUp		: "上移",
+DlgSelectBtnDown	: "下移",
+DlgSelectBtnSetValue : "设为初始化时选定",
+DlgSelectBtnDelete	: "删除",
+
+// Textarea Dialog
+DlgTextareaName	: "名称",
+DlgTextareaCols	: "字符宽度",
+DlgTextareaRows	: "行数",
+
+// Text Field Dialog
+DlgTextName			: "名称",
+DlgTextValue		: "初始值",
+DlgTextCharWidth	: "字符宽度",
+DlgTextMaxChars		: "最多字符数",
+DlgTextType			: "类型",
+DlgTextTypeText		: "文本",
+DlgTextTypePass		: "密码",
+
+// Hidden Field Dialog
+DlgHiddenName	: "名称",
+DlgHiddenValue	: "初始值",
+
+// Bulleted List Dialog
+BulletedListProp	: "项目列表属性",
+NumberedListProp	: "编号列表属性",
+DlgLstStart			: "开始序号",
+DlgLstType			: "列表类型",
+DlgLstTypeCircle	: "圆圈",
+DlgLstTypeDisc		: "圆点",
+DlgLstTypeSquare	: "方块",
+DlgLstTypeNumbers	: "数字 (1, 2, 3)",
+DlgLstTypeLCase		: "小写字母 (a, b, c)",
+DlgLstTypeUCase		: "大写字母 (A, B, C)",
+DlgLstTypeSRoman	: "小写罗马数字 (i, ii, iii)",
+DlgLstTypeLRoman	: "大写罗马数字 (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "常规",
+DlgDocBackTab		: "背景",
+DlgDocColorsTab		: "颜色和边距",
+DlgDocMetaTab		: "Meta 数据",
+
+DlgDocPageTitle		: "页面标题",
+DlgDocLangDir		: "语言方向",
+DlgDocLangDirLTR	: "从左到右 (LTR)",
+DlgDocLangDirRTL	: "从右到左 (RTL)",
+DlgDocLangCode		: "语言代码",
+DlgDocCharSet		: "字符编码",
+DlgDocCharSetCE		: "中欧",
+DlgDocCharSetCT		: "繁体中文 (Big5)",
+DlgDocCharSetCR		: "西里尔文",
+DlgDocCharSetGR		: "希腊文",
+DlgDocCharSetJP		: "日文",
+DlgDocCharSetKR		: "韩文",
+DlgDocCharSetTR		: "土耳其文",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "西欧",
+DlgDocCharSetOther	: "其它字符编码",
+
+DlgDocDocType		: "文档类型",
+DlgDocDocTypeOther	: "其它文档类型",
+DlgDocIncXHTML		: "包含 XHTML 声明",
+DlgDocBgColor		: "背景颜色",
+DlgDocBgImage		: "背景图像",
+DlgDocBgNoScroll	: "不滚动背景图像",
+DlgDocCText			: "文本",
+DlgDocCLink			: "超链接",
+DlgDocCVisited		: "已访问的超链接",
+DlgDocCActive		: "活动超链接",
+DlgDocMargins		: "页面边距",
+DlgDocMaTop			: "上",
+DlgDocMaLeft		: "左",
+DlgDocMaRight		: "右",
+DlgDocMaBottom		: "下",
+DlgDocMeIndex		: "页面索引关键字 (用半角逗号[,]分隔)",
+DlgDocMeDescr		: "页面说明",
+DlgDocMeAuthor		: "作者",
+DlgDocMeCopy		: "版权",
+DlgDocPreview		: "预览",
+
+// Templates Dialog
+Templates			: "模板",
+DlgTemplatesTitle	: "内容模板",
+DlgTemplatesSelMsg	: "请选择编辑器内容模板:",
+DlgTemplatesLoading	: "正在加载模板列表，请稍等...",
+DlgTemplatesNoTpl	: "(没有模板)",
+DlgTemplatesReplace	: "替换当前内容",
+
+// About Dialog
+DlgAboutAboutTab	: "关于",
+DlgAboutBrowserInfoTab	: "浏览器信息",
+DlgAboutLicenseTab	: "许可证",
+DlgAboutVersion		: "版本",
+DlgAboutInfo		: "要获得更多信息请访问 ",
+
+// Div Dialog
+DlgDivGeneralTab	: "常规",
+DlgDivAdvancedTab	: "高级",
+DlgDivStyle		: "样式",
+DlgDivInlineStyle	: "CSS 样式"
+};

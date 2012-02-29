@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Catalan language file.
+ */
 
-CKEDITOR.lang.ca={dir:'ltr',editorTitle:'Editor de text enriquit, %1, prem ALT 0 per obtenir ajuda.',toolbars:'Editor toolbars',editor:'Editor de text enriquit',source:'Codi font',newPage:'Nova pàgina',save:'Desa',preview:'Visualització prèvia',cut:'Retalla',copy:'Copia',paste:'Enganxa',print:'Imprimeix',underline:'Subratllat',bold:'Negreta',italic:'Cursiva',selectAll:'Selecciona-ho tot',removeFormat:'Elimina Format',strike:'Barrat',subscript:'Subíndex',superscript:'Superíndex',horizontalrule:'Insereix línia horitzontal',pagebreak:'Insereix salt de pàgina',pagebreakAlt:'Salt de pàgina',unlink:"Elimina l'enllaç",undo:'Desfés',redo:'Refés',common:{browseServer:'Veure servidor',url:'URL',protocol:'Protocol',upload:'Puja',uploadSubmit:'Envia-la al servidor',image:'Imatge',flash:'Flash',form:'Formulari',checkbox:'Casella de verificació',radio:"Botó d'opció",textField:'Camp de text',textarea:'Àrea de text',hiddenField:'Camp ocult',button:'Botó',select:'Camp de selecció',imageButton:"Botó d'imatge",notSet:'<no definit>',id:'Id',name:'Nom',langDir:"Direcció de l'idioma",langDirLtr:"D'esquerra a dreta (LTR)",langDirRtl:'De dreta a esquerra (RTL)',langCode:"Codi d'idioma",longDescr:'Descripció llarga de la URL',cssClass:"Classes del full d'estil",advisoryTitle:'Títol consultiu',cssStyle:'Estil',ok:"D'acord",cancel:'Cancel·la',close:'Tanca',preview:'Previsualitza',generalTab:'General',advancedTab:'Avançat',validateNumberFailed:'Aquest valor no és un número.',confirmNewPage:'Els canvis en aquest contingut que no es desin es perdran. Esteu segur que voleu carregar una pàgina nova?',confirmCancel:"Algunes opcions s'han canviat. Esteu segur que voleu tancar la finestra de diàleg?",options:'Opcions',target:'Destí',targetNew:'Nova finestra (_blank)',targetTop:'Finestra major (_top)',targetSelf:'Mateixa finestra (_self)',targetParent:'Finestra pare (_parent)',langDirLTR:"D'esquerra a dreta (LTR)",langDirRTL:'De dreta a esquerra (RTL)',styles:'Estil',cssClasses:"Classes del full d'estil",width:'Amplada',height:'Alçada',align:'Alineació',alignLeft:"Ajusta a l'esquerra",alignRight:'Ajusta a la dreta',alignCenter:'Centre',alignTop:'Superior',alignMiddle:'Centre',alignBottom:'Inferior',invalidHeight:"L'alçada ha de ser un nombre.",invalidWidth:"L'amplada ha de ser un nombre.",invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, no disponible</span>'},contextmenu:{options:'Opcions del menú contextual'},specialChar:{toolbar:'Insereix caràcter especial',title:'Selecciona el caràcter especial',options:'Opcions de caràcters especials'},link:{toolbar:'Insereix/Edita enllaç',other:'<altre>',menu:"Edita l'enllaç",title:'Enllaç',info:"Informació de l'enllaç",target:'Destí',upload:'Puja',advanced:'Avançat',type:"Tipus d'enllaç",toUrl:'URL',toAnchor:'Àncora en aquesta pàgina',toEmail:'Correu electrònic',targetFrame:'<marc>',targetPopup:'<finestra emergent>',targetFrameName:'Nom del marc de destí',targetPopupName:'Nom finestra popup',popupFeatures:'Característiques finestra popup',popupResizable:'Redimensionable',popupStatusBar:"Barra d'estat",popupLocationBar:"Barra d'adreça",popupToolbar:"Barra d'eines",popupMenuBar:'Barra de menú',popupFullScreen:'Pantalla completa (IE)',popupScrollBars:"Barres d'scroll",popupDependent:'Depenent (Netscape)',popupLeft:'Posició esquerra',popupTop:'Posició dalt',id:'Id',langDir:"Direcció de l'idioma",langDirLTR:"D'esquerra a dreta (LTR)",langDirRTL:'De dreta a esquerra (RTL)',acccessKey:"Clau d'accés",name:'Nom',langCode:"Direcció de l'idioma",tabIndex:'Index de Tab',advisoryTitle:'Títol consultiu',advisoryContentType:'Tipus de contingut consultiu',cssClasses:"Classes del full d'estil",charset:'Conjunt de caràcters font enllaçat',styles:'Estil',rel:'Relationship',selectAnchor:'Selecciona una àncora',anchorName:"Per nom d'àncora",anchorId:"Per Id d'element",emailAddress:'Adreça de correu electrònic',emailSubject:'Assumpte del missatge',emailBody:'Cos del missatge',noAnchors:'(No hi ha àncores disponibles en aquest document)',noUrl:"Si us plau, escrigui l'enllaç URL",noEmail:"Si us plau, escrigui l'adreça correu electrònic"},anchor:{toolbar:'Insereix/Edita àncora',menu:"Propietats de l'àncora",title:"Propietats de l'àncora",name:"Nom de l'àncora",errorName:"Si us plau, escriviu el nom de l'ancora",remove:'Remove Anchor'},list:{numberedTitle:'Numbered List Properties',bulletedTitle:'Bulleted List Properties',type:'Type',start:'Start',validateStartNumber:'List start number must be a whole number.',circle:'Circle',disc:'Disc',square:'Square',none:'None',notset:'<not set>',armenian:'Armenian numbering',georgian:'Georgian numbering (an, ban, gan, etc.)',lowerRoman:'Lower Roman (i, ii, iii, iv, v, etc.)',upperRoman:'Upper Roman (I, II, III, IV, V, etc.)',lowerAlpha:'Lower Alpha (a, b, c, d, e, etc.)',upperAlpha:'Upper Alpha (A, B, C, D, E, etc.)',lowerGreek:'Lower Greek (alpha, beta, gamma, etc.)',decimal:'Decimal (1, 2, 3, etc.)',decimalLeadingZero:'Decimal leading zero (01, 02, 03, etc.)'},findAndReplace:{title:'Cerca i reemplaça',find:'Cerca',replace:'Reemplaça',findWhat:'Cerca:',replaceWith:'Remplaça amb:',notFoundMsg:"El text especificat no s'ha trobat.",findOptions:'Find Options',matchCase:'Distingeix majúscules/minúscules',matchWord:'Només paraules completes',matchCyclic:'Match cyclic',replaceAll:'Reemplaça-ho tot',replaceSuccessMsg:'%1 ocurrència/es reemplaçada/es.'},table:{toolbar:'Taula',title:'Propietats de la taula',menu:'Propietats de la taula',deleteTable:'Suprimeix la taula',rows:'Files',columns:'Columnes',border:'Mida vora',widthPx:'píxels',widthPc:'percentatge',widthUnit:"unitat d'amplada",cellSpace:'Espaiat de cel·les',cellPad:'Encoixinament de cel·les',caption:'Títol',summary:'Resum',headers:'Capçaleres',headersNone:'Cap',headersColumn:'Primera columna',headersRow:'Primera fila',headersBoth:'Ambdues',invalidRows:'El nombre de files ha de ser un nombre major que 0.',invalidCols:'El nombre de columnes ha de ser un nombre major que 0.',invalidBorder:'El gruix de la vora ha de ser un nombre.',invalidWidth:"L'amplada de la taula  ha de ser un nombre.",invalidHeight:"L'alçada de la taula  ha de ser un nombre.",invalidCellSpacing:"L'espaiat de cel·la  ha de ser un nombre.",invalidCellPadding:"L'encoixinament de cel·la  ha de ser un nombre.",cell:{menu:'Cel·la',insertBefore:'Insereix abans',insertAfter:'Insereix després',deleteCell:'Suprimeix',merge:'Fusiona',mergeRight:'Fusiona a la dreta',mergeDown:'Fusiona avall',splitHorizontal:'Divideix horitzontalment',splitVertical:'Divideix verticalment',title:'Propietats de la cel·la',cellType:'Tipus de cel·la',rowSpan:'Expansió de files',colSpan:'Expansió de columnes',wordWrap:'Ajustar al contingut',hAlign:'Alineació Horizontal',vAlign:'Alineació Vertical',alignBaseline:'A la línia base',bgColor:'Color de fons',borderColor:'Color de la vora',data:'Dades',header:'Capçalera',yes:'Sí',no:'No',invalidWidth:"L'amplada de cel·la ha de ser un nombre.",invalidHeight:"L'alçada de cel·la ha de ser un nombre.",invalidRowSpan:"L'expansió de files ha de ser un nombre enter.",invalidColSpan:"L'expansió de columnes ha de ser un nombre enter.",chooseColor:'Trieu'},row:{menu:'Fila',insertBefore:'Insereix fila abans de',insertAfter:'Insereix fila darrera',deleteRow:'Suprimeix una fila'},column:{menu:'Columna',insertBefore:'Insereix columna abans de',insertAfter:'Insereix columna darrera',deleteColumn:'Suprimeix una columna'}},button:{title:'Propietats del botó',text:'Text (Valor)',type:'Tipus',typeBtn:'Botó',typeSbm:'Transmet formulari',typeRst:'Reinicia formulari'},checkboxAndRadio:{checkboxTitle:'Propietats de la casella de verificació',radioTitle:"Propietats del botó d'opció",value:'Valor',selected:'Seleccionat'},form:{title:'Propietats del formulari',menu:'Propietats del formulari',action:'Acció',method:'Mètode',encoding:'Codificació'},select:{title:'Propietats del camp de selecció',selectInfo:'Info',opAvail:'Opcions disponibles',value:'Valor',size:'Mida',lines:'Línies',chkMulti:'Permet múltiples seleccions',opText:'Text',opValue:'Valor',btnAdd:'Afegeix',btnModify:'Modifica',btnUp:'Amunt',btnDown:'Avall',btnSetValue:'Selecciona per defecte',btnDelete:'Elimina'},textarea:{title:"Propietats de l'àrea de text",cols:'Columnes',rows:'Files'},textfield:{title:'Propietats del camp de text',name:'Nom',value:'Valor',charWidth:'Amplada',maxChars:'Nombre màxim de caràcters',type:'Tipus',typeText:'Text',typePass:'Contrasenya'},hidden:{title:'Propietats del camp ocult',name:'Nom',value:'Valor'},image:{title:'Propietats de la imatge',titleButton:"Propietats del botó d'imatge",menu:'Propietats de la imatge',infoTab:'Informació de la imatge',btnUpload:'Envia-la al servidor',upload:'Puja',alt:'Text alternatiu',lockRatio:'Bloqueja les proporcions',resetSize:'Restaura la mida',border:'Vora',hSpace:'Espaiat horit.',vSpace:'Espaiat vert.',alertUrl:'Si us plau, escriviu la URL de la imatge',linkTab:'Enllaç',button2Img:"Voleu transformar el botó d'imatge seleccionat en una simple imatge?",img2Button:"Voleu transformar la imatge seleccionada en un botó d'imatge?",urlMissing:'Falta la URL de la imatge.',validateBorder:'La vora ha de ser un nombre enter.',validateHSpace:'HSpace ha de ser un nombre enter.',validateVSpace:'VSpace ha de ser un nombre enter.'},flash:{properties:'Propietats del Flash',propertiesTab:'Propietats',title:'Propietats del Flash',chkPlay:'Reprodució automàtica',chkLoop:'Bucle',chkMenu:'Habilita menú Flash',chkFull:'Permetre la pantalla completa',scale:'Escala',scaleAll:'Mostra-ho tot',scaleNoBorder:'Sense vores',scaleFit:'Mida exacta',access:'Accés a scripts',accessAlways:'Sempre',accessSameDomain:'El mateix domini',accessNever:'Mai',alignAbsBottom:'Abs Bottom',alignAbsMiddle:'Abs Middle',alignBaseline:'Baseline',alignTextTop:'Text Top',quality:'Qualitat',qualityBest:'La millor',qualityHigh:'Alta',qualityAutoHigh:'Alta automàtica',qualityMedium:'Mitjana',qualityAutoLow:'Baixa automàtica',qualityLow:'Baixa',windowModeWindow:'Finestra',windowModeOpaque:'Opaca',windowModeTransparent:'Transparent',windowMode:'Mode de la finestra',flashvars:'Variables de Flash',bgcolor:'Color de Fons',hSpace:'Espaiat horit.',vSpace:'Espaiat vert.',validateSrc:"Si us plau, escrigui l'enllaç URL",validateHSpace:"L'espaiat horitzonatal ha de ser un nombre.",validateVSpace:"L'espaiat vertical ha de ser un nombre."},spellCheck:{toolbar:"Revisa l'ortografia",title:"Comprova l'ortografia",notAvailable:'El servei no es troba disponible ara.',errorLoading:'Error carregant el servidor: %s.',notInDic:'No és al diccionari',changeTo:'Reemplaça amb',btnIgnore:'Ignora',btnIgnoreAll:'Ignora-les totes',btnReplace:'Canvia',btnReplaceAll:'Canvia-les totes',btnUndo:'Desfés',noSuggestions:'Cap suggeriment',progress:'Verificació ortogràfica en curs...',noMispell:'Verificació ortogràfica acabada: no hi ha cap paraula mal escrita',noChanges:"Verificació ortogràfica: no s'ha canviat cap paraula",oneChange:"Verificació ortogràfica: s'ha canviat una paraula",manyChanges:"Verificació ortogràfica: s'han canviat %1 paraules",ieSpellDownload:'Verificació ortogràfica no instal·lada. Voleu descarregar-ho ara?'},smiley:{toolbar:'Icona',title:'Insereix una icona',options:"Opcions d'emoticones"},elementsPath:{eleLabel:'Elements path',eleTitle:'%1 element'},numberedlist:'Llista numerada',bulletedlist:'Llista de pics',indent:'Augmenta el sagnat',outdent:'Redueix el sagnat',justify:{left:"Alinea a l'esquerra",center:'Centrat',right:'Alinea a la dreta',block:'Justificat'},blockquote:'Bloc de cita',clipboard:{title:'Enganxa',cutError:'La seguretat del vostre navegador no permet executar automàticament les operacions de retallar. Si us plau, utilitzeu el teclat (Ctrl+X).',copyError:'La seguretat del vostre navegador no permet executar automàticament les operacions de copiar. Si us plau, utilitzeu el teclat (Ctrl+C).',pasteMsg:'Si us plau, enganxeu dins del següent camp utilitzant el teclat (<STRONG>Ctrl+V</STRONG>) i premeu <STRONG>OK</STRONG>.',securityMsg:"A causa de la configuració de seguretat del vostre navegador, l'editor no pot accedir al porta-retalls directament. Enganxeu-ho un altre cop en aquesta finestra.",pasteArea:"Àrea d'enganxat"},pastefromword:{confirmCleanup:'El text que voleu enganxar sembla provenir de Word. Voleu netejar aquest text abans que sigui enganxat?',toolbar:'Enganxa des del Word',title:'Enganxa des del Word',error:'No ha estat possible netejar les dades enganxades degut a un error intern'},pasteText:{button:'Enganxa com a text no formatat',title:'Enganxa com a text no formatat'},templates:{button:'Plantilles',title:'Plantilles de contingut',options:'Opcions de plantilla',insertOption:'Reemplaça el contingut actual',selectPromptMsg:"Seleccioneu una plantilla per usar a l'editor<br>(per defecte s'elimina el contingut actual):",emptyListMsg:'(No hi ha plantilles definides)'},showBlocks:'Mostra els blocs',stylesCombo:{label:'Estil',panelTitle:'Estils de format',panelTitle1:'Estils de bloc',panelTitle2:'Estils incrustats',panelTitle3:"Estils d'objecte"},format:{label:'Format',panelTitle:'Format',tag_p:'Normal',tag_pre:'Formatejat',tag_address:'Adreça',tag_h1:'Encapçalament 1',tag_h2:'Encapçalament 2',tag_h3:'Encapçalament 3',tag_h4:'Encapçalament 4',tag_h5:'Encapçalament 5',tag_h6:'Encapçalament 6',tag_div:'Normal (DIV)'},div:{title:'Crea un contenidor Div',toolbar:'Crea un contenidor Div',cssClassInputLabel:"Classes de la fulla d'estils",styleSelectLabel:'Estil',IdInputLabel:'Id',languageCodeInputLabel:" Codi d'idioma",inlineStyleInputLabel:'Estil en línia',advisoryTitleInputLabel:'Títol de guia',langDirLabel:"Direcció de l'idioma",langDirLTRLabel:"D'esquerra a dreta (LTR)",langDirRTLLabel:'De dreta a esquerra (RTL)',edit:'Edita Div',remove:'Elimina Div'},iframe:{title:'Propietats IFrame',toolbar:'IFrame',noUrl:"Si us plau, introduïu la URL de l'iframe URL",scrolling:'Activa les barrres de desplaçament',border:'Mostra la vora del marc'},font:{label:'Tipus de lletra',voiceLabel:'Tipus de lletra',panelTitle:'Tipus de lletra'},fontSize:{label:'Mida',voiceLabel:'Mida de la lletra',panelTitle:'Mida'},colorButton:{textColorTitle:'Color de Text',bgColorTitle:'Color de Fons',panelTitle:'Colors',auto:'Automàtic',more:'Més colors...'},colors:{'000':'Negre',800000:'Granat','8B4513':'Marró sella','2F4F4F':'Gris pissarra fosca','008080':'Blau xarxet','000080':'Blau marí','4B0082':'Indi',696969:'Gris intens',B22222:'Maó',A52A2A:'Marró (web)',DAA520:'Solidago','006400':'Verd fosc','40E0D0':'Turquesa','0000CD':'Atzur',800080:'Lila',808080:'Gris',F00:'Vermell',FF8C00:'Taronja fosc',FFD700:'Or','008000':'Verd','0FF':'Cian','00F':'Blau',EE82EE:'Lavanda rosat',A9A9A9:'Gris clar',FFA07A:'Salmó clar',FFA500:'Taronja',FFFF00:'Groc','00FF00':'Verd llima',AFEEEE:'Blau pàlid',ADD8E6:'Blau clar',DDA0DD:'Pruna',D3D3D3:'Gris clar',FFF0F5:'Lavanda rosat',FAEBD7:'Blanc antic',FFFFE0:'Groc clar',F0FFF0:'Verd pàlid',F0FFFF:'Blau cel pàlid',F0F8FF:'Cian pàlid',E6E6FA:'Lavanda',FFF:'Blanc'},scayt:{title:'Spell Check As You Type',opera_title:"No és compatible amb l'Opera",enable:"Habilitat l'SCAYT",disable:'Deshabilita SCAYT',about:"Quant a l'SCAYT",toggle:"Commuta l'SCAYT",options:'Opcions',langs:'Idiomes',moreSuggestions:'Més suggerències',ignore:'Ignora',ignoreAll:"Ignora'ls tots",addWord:'Afegeix una paraula',emptyDic:"El nom del diccionari no hauria d'estar buit.",optionsTab:'Opcions',allCaps:'Ignora paraules en majúscules',ignoreDomainNames:'Ignora els noms de domini',mixedCase:'Ignora paraules amb majúscules i minúscules',mixedWithDigits:'Ignora paraules amb números ',languagesTab:'Idiomes',dictionariesTab:'Diccionaris',dic_field_name:'Nom del diccionari',dic_create:'Crea',dic_restore:'Restaura',dic_delete:'Elimina',dic_rename:'Canvia el nom',dic_info:"Inicialment el diccionari d'usuari s'emmagatzema en una galeta. De totes maneres, les galetes tenen la mida limitada. Quan el diccionari creix massa, llavors el diccionari es pot emmagatzemar al nostre servidor. Per desar el vostre diccionari personal al nostre servidor heu d.'especificar un nom pel diccionari. Si ja heu desat un diccionari, teclegeu si us plau el seu nom i cliqueu el botó de restauració.",aboutTab:'Quant a'},about:{title:'Quant al CKEditor',dlgTitle:'Quant al CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'Per informació sobre llicències visiteu el web:',copy:'Copyright &copy; $1. Tots els drets reservats.'},maximize:'Maximitza',minimize:'Minimitza',fakeobjects:{anchor:'Àncora',flash:'Animació Flash',iframe:'IFrame',hiddenfield:'Camp ocult',unknown:'Objecte desconegut'},resize:'Arrossegueu per redimensionar',colordialog:{title:'Selecciona el color',options:'Opcions del color',highlight:'Destacat',selected:'Seleccionat',clear:'Neteja'},toolbarCollapse:"Redueix la barra d'eines",toolbarExpand:"Amplia la barra d'eines",toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:"Direcció del text d'esquerra a dreta",rtl:'Direcció del text de dreta a esquerra'},docprops:{label:'Propietats del document',title:'Propietats del document',design:'Design',meta:'Metadades',chooseColor:'Trieu',other:'<altre>',docTitle:'Títol de la pàgina',charset:'Codificació de conjunt de caràcters',charsetOther:'Una altra codificació de caràcters',charsetASCII:'ASCII',charsetCE:'Centreeuropeu',charsetCT:'Xinès tradicional (Big5)',charsetCR:'Ciríl·lic',charsetGR:'Grec',charsetJP:'Japonès',charsetKR:'Coreà',charsetTR:'Turc',charsetUN:'Unicode (UTF-8)',charsetWE:'Europeu occidental',docType:'Capçalera de tipus de document',docTypeOther:'Un altra capçalera de tipus de document',xhtmlDec:'Incloure declaracions XHTML',bgColor:'Color de fons',bgImage:'URL de la imatge de fons',bgFixed:'Fons fixe',txtColor:'Color de Text',margin:'Marges de pàgina',marginTop:'Cap',marginLeft:'Esquerra',marginRight:'Dreta',marginBottom:'Peu',metaKeywords:'Mots clau per a indexació (separats per coma)',metaDescription:'Descripció del document',metaAuthor:'Autor',metaCopyright:'Copyright',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Redueix la barra d'eines",
+ToolbarExpand		: "Amplia la barra d'eines",
+
+// Toolbar Items and Context Menu
+Save				: "Desa",
+NewPage				: "Nova Pàgina",
+Preview				: "Visualització prèvia",
+Cut					: "Retalla",
+Copy				: "Copia",
+Paste				: "Enganxa",
+PasteText			: "Enganxa com a text no formatat",
+PasteWord			: "Enganxa des del Word",
+Print				: "Imprimeix",
+SelectAll			: "Selecciona-ho tot",
+RemoveFormat		: "Elimina Format",
+InsertLinkLbl		: "Enllaç",
+InsertLink			: "Insereix/Edita enllaç",
+RemoveLink			: "Elimina l'enllaç",
+VisitLink			: "Obre l'enllaç",
+Anchor				: "Insereix/Edita àncora",
+AnchorDelete		: "Elimina àncora",
+InsertImageLbl		: "Imatge",
+InsertImage			: "Insereix/Edita imatge",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Insereix/Edita Flash",
+InsertTableLbl		: "Taula",
+InsertTable			: "Insereix/Edita taula",
+InsertLineLbl		: "Línia",
+InsertLine			: "Insereix línia horitzontal",
+InsertSpecialCharLbl: "Caràcter Especial",
+InsertSpecialChar	: "Insereix caràcter especial",
+InsertSmileyLbl		: "Icona",
+InsertSmiley		: "Insereix icona",
+About				: "Quant a l'FCKeditor",
+Bold				: "Negreta",
+Italic				: "Cursiva",
+Underline			: "Subratllat",
+StrikeThrough		: "Barrat",
+Subscript			: "Subíndex",
+Superscript			: "Superíndex",
+LeftJustify			: "Alinia a l'esquerra",
+CenterJustify		: "Centrat",
+RightJustify		: "Alinia a la dreta",
+BlockJustify		: "Justificat",
+DecreaseIndent		: "Redueix el sagnat",
+IncreaseIndent		: "Augmenta el sagnat",
+Blockquote			: "Bloc de cita",
+CreateDiv			: "Crea un contenidor Div",
+EditDiv				: "Edita el contenidor Div",
+DeleteDiv			: "Elimina el contenidor Div",
+Undo				: "Desfés",
+Redo				: "Refés",
+NumberedListLbl		: "Llista numerada",
+NumberedList		: "Numeració activada/desactivada",
+BulletedListLbl		: "Llista de pics",
+BulletedList		: "Pics activats/descativats",
+ShowTableBorders	: "Mostra les vores de les taules",
+ShowDetails			: "Mostra detalls",
+Style				: "Estil",
+FontFormat			: "Format",
+Font				: "Tipus de lletra",
+FontSize			: "Mida",
+TextColor			: "Color de Text",
+BGColor				: "Color de Fons",
+Source				: "Codi font",
+Find				: "Cerca",
+Replace				: "Reemplaça",
+SpellCheck			: "Revisa l'ortografia",
+UniversalKeyboard	: "Teclat universal",
+PageBreakLbl		: "Salt de pàgina",
+PageBreak			: "Insereix salt de pàgina",
+
+Form			: "Formulari",
+Checkbox		: "Casella de verificació",
+RadioButton		: "Botó d'opció",
+TextField		: "Camp de text",
+Textarea		: "Àrea de text",
+HiddenField		: "Camp ocult",
+Button			: "Botó",
+SelectionField	: "Camp de selecció",
+ImageButton		: "Botó d'imatge",
+
+FitWindow		: "Maximiza la mida de l'editor",
+ShowBlocks		: "Mostra els blocs",
+
+// Context Menu
+EditLink			: "Edita l'enllaç",
+CellCM				: "Cel·la",
+RowCM				: "Fila",
+ColumnCM			: "Columna",
+InsertRowAfter		: "Insereix fila darrera",
+InsertRowBefore		: "Insereix fila abans de",
+DeleteRows			: "Suprimeix una fila",
+InsertColumnAfter	: "Insereix columna darrera",
+InsertColumnBefore	: "Insereix columna abans de",
+DeleteColumns		: "Suprimeix una columna",
+InsertCellAfter		: "Insereix cel·la darrera",
+InsertCellBefore	: "Insereix cel·la abans de",
+DeleteCells			: "Suprimeix les cel·les",
+MergeCells			: "Fusiona les cel·les",
+MergeRight			: "Fusiona cap a la dreta",
+MergeDown			: "Fusiona cap avall",
+HorizontalSplitCell	: "Divideix la cel·la horitzontalment",
+VerticalSplitCell	: "Divideix la cel·la verticalment",
+TableDelete			: "Suprimeix la taula",
+CellProperties		: "Propietats de la cel·la",
+TableProperties		: "Propietats de la taula",
+ImageProperties		: "Propietats de la imatge",
+FlashProperties		: "Propietats del Flash",
+
+AnchorProp			: "Propietats de l'àncora",
+ButtonProp			: "Propietats del botó",
+CheckboxProp		: "Propietats de la casella de verificació",
+HiddenFieldProp		: "Propietats del camp ocult",
+RadioButtonProp		: "Propietats del botó d'opció",
+ImageButtonProp		: "Propietats del botó d'imatge",
+TextFieldProp		: "Propietats del camp de text",
+SelectionFieldProp	: "Propietats del camp de selecció",
+TextareaProp		: "Propietats de l'àrea de text",
+FormProp			: "Propietats del formulari",
+
+FontFormats			: "Normal;Formatejat;Adreça;Encapçalament 1;Encapçalament 2;Encapçalament 3;Encapçalament 4;Encapçalament 5;Encapçalament 6;Normal (DIV)",
+
+// Alerts and Messages
+ProcessingXHTML		: "Processant XHTML. Si us plau esperi...",
+Done				: "Fet",
+PasteWordConfirm	: "El text que voleu enganxar sembla provenir de Word. Voleu netejar aquest text abans que sigui enganxat?",
+NotCompatiblePaste	: "Aquesta funció és disponible per a Internet Explorer versió 5.5 o superior. Voleu enganxar sense netejar?",
+UnknownToolbarItem	: "Element de la barra d'eines desconegut \"%1\"",
+UnknownCommand		: "Nom de comanda desconegut \"%1\"",
+NotImplemented		: "Mètode no implementat",
+UnknownToolbarSet	: "Conjunt de barra d'eines \"%1\" inexistent",
+NoActiveX			: "Les preferències del navegador poden limitar algunes funcions d'aquest editor. Cal habilitar l'opció \"Executa controls ActiveX i plug-ins\". Poden sorgir errors i poden faltar algunes funcions.",
+BrowseServerBlocked : "El visualitzador de recursos no s'ha pogut obrir. Assegura't de que els bloquejos de finestres emergents estan desactivats.",
+DialogBlocked		: "No ha estat possible obrir una finestra de diàleg. Assegureu-vos que els bloquejos de finestres emergents estan desactivats.",
+VisitLinkBlocked	: "No ha estat possible obrir una nova finestra. Assegureu-vos que els bloquejos de finestres emergents estan desactivats.",
+
+// Dialogs
+DlgBtnOK			: "D'acord",
+DlgBtnCancel		: "Cancel·la",
+DlgBtnClose			: "Tanca",
+DlgBtnBrowseServer	: "Veure servidor",
+DlgAdvancedTag		: "Avançat",
+DlgOpOther			: "Altres",
+DlgInfoTab			: "Info",
+DlgAlertUrl			: "Si us plau, afegiu la URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<no definit>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Direcció de l'idioma",
+DlgGenLangDirLtr	: "D'esquerra a dreta (LTR)",
+DlgGenLangDirRtl	: "De dreta a esquerra (RTL)",
+DlgGenLangCode		: "Codi d'idioma",
+DlgGenAccessKey		: "Clau d'accés",
+DlgGenName			: "Nom",
+DlgGenTabIndex		: "Index de Tab",
+DlgGenLongDescr		: "Descripció llarga de la URL",
+DlgGenClass			: "Classes del full d'estil",
+DlgGenTitle			: "Títol consultiu",
+DlgGenContType		: "Tipus de contingut consultiu",
+DlgGenLinkCharset	: "Conjunt de caràcters font enllaçat",
+DlgGenStyle			: "Estil",
+
+// Image Dialog
+DlgImgTitle			: "Propietats de la imatge",
+DlgImgInfoTab		: "Informació de la imatge",
+DlgImgBtnUpload		: "Envia-la al servidor",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Puja",
+DlgImgAlt			: "Text alternatiu",
+DlgImgWidth			: "Amplada",
+DlgImgHeight		: "Alçada",
+DlgImgLockRatio		: "Bloqueja les proporcions",
+DlgBtnResetSize		: "Restaura la mida",
+DlgImgBorder		: "Vora",
+DlgImgHSpace		: "Espaiat horit.",
+DlgImgVSpace		: "Espaiat vert.",
+DlgImgAlign			: "Alineació",
+DlgImgAlignLeft		: "Ajusta a l'esquerra",
+DlgImgAlignAbsBottom: "Abs Bottom",
+DlgImgAlignAbsMiddle: "Abs Middle",
+DlgImgAlignBaseline	: "Baseline",
+DlgImgAlignBottom	: "Bottom",
+DlgImgAlignMiddle	: "Middle",
+DlgImgAlignRight	: "Ajusta a la dreta",
+DlgImgAlignTextTop	: "Text Top",
+DlgImgAlignTop		: "Top",
+DlgImgPreview		: "Vista prèvia",
+DlgImgAlertUrl		: "Si us plau, escriviu la URL de la imatge",
+DlgImgLinkTab		: "Enllaç",
+
+// Flash Dialog
+DlgFlashTitle		: "Propietats del Flash",
+DlgFlashChkPlay		: "Reprodució automàtica",
+DlgFlashChkLoop		: "Bucle",
+DlgFlashChkMenu		: "Habilita menú Flash",
+DlgFlashScale		: "Escala",
+DlgFlashScaleAll	: "Mostra-ho tot",
+DlgFlashScaleNoBorder	: "Sense vores",
+DlgFlashScaleFit	: "Mida exacta",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Enllaç",
+DlgLnkInfoTab		: "Informació de l'enllaç",
+DlgLnkTargetTab		: "Destí",
+
+DlgLnkType			: "Tipus d'enllaç",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Àncora en aquesta pàgina",
+DlgLnkTypeEMail		: "Correu electrònic",
+DlgLnkProto			: "Protocol",
+DlgLnkProtoOther	: "<altra>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Selecciona una àncora",
+DlgLnkAnchorByName	: "Per nom d'àncora",
+DlgLnkAnchorById	: "Per Id d'element",
+DlgLnkNoAnchors		: "(No hi ha àncores disponibles en aquest document)",
+DlgLnkEMail			: "Adreça de correu electrònic",
+DlgLnkEMailSubject	: "Assumpte del missatge",
+DlgLnkEMailBody		: "Cos del missatge",
+DlgLnkUpload		: "Puja",
+DlgLnkBtnUpload		: "Envia al servidor",
+
+DlgLnkTarget		: "Destí",
+DlgLnkTargetFrame	: "<marc>",
+DlgLnkTargetPopup	: "<finestra emergent>",
+DlgLnkTargetBlank	: "Nova finestra (_blank)",
+DlgLnkTargetParent	: "Finestra pare (_parent)",
+DlgLnkTargetSelf	: "Mateixa finestra (_self)",
+DlgLnkTargetTop		: "Finestra Major (_top)",
+DlgLnkTargetFrameName	: "Nom del marc de destí",
+DlgLnkPopWinName	: "Nom finestra popup",
+DlgLnkPopWinFeat	: "Característiques finestra popup",
+DlgLnkPopResize		: "Redimensionable",
+DlgLnkPopLocation	: "Barra d'adreça",
+DlgLnkPopMenu		: "Barra de menú",
+DlgLnkPopScroll		: "Barres d'scroll",
+DlgLnkPopStatus		: "Barra d'estat",
+DlgLnkPopToolbar	: "Barra d'eines",
+DlgLnkPopFullScrn	: "Pantalla completa (IE)",
+DlgLnkPopDependent	: "Depenent (Netscape)",
+DlgLnkPopWidth		: "Amplada",
+DlgLnkPopHeight		: "Alçada",
+DlgLnkPopLeft		: "Posició esquerra",
+DlgLnkPopTop		: "Posició dalt",
+
+DlnLnkMsgNoUrl		: "Si us plau, escrigui l'enllaç URL",
+DlnLnkMsgNoEMail	: "Si us plau, escrigui l'adreça correu electrònic",
+DlnLnkMsgNoAnchor	: "Si us plau, escrigui l'àncora",
+DlnLnkMsgInvPopName	: "El nom de la finestra emergent ha de començar amb una lletra i no pot tenir espais",
+
+// Color Dialog
+DlgColorTitle		: "Selecciona el color",
+DlgColorBtnClear	: "Neteja",
+DlgColorHighlight	: "Realça",
+DlgColorSelected	: "Selecciona",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Insereix una icona",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Selecciona el caràcter especial",
+
+// Table Dialog
+DlgTableTitle		: "Propietats de la taula",
+DlgTableRows		: "Files",
+DlgTableColumns		: "Columnes",
+DlgTableBorder		: "Mida vora",
+DlgTableAlign		: "Alineació",
+DlgTableAlignNotSet	: "<No Definit>",
+DlgTableAlignLeft	: "Esquerra",
+DlgTableAlignCenter	: "Centre",
+DlgTableAlignRight	: "Dreta",
+DlgTableWidth		: "Amplada",
+DlgTableWidthPx		: "píxels",
+DlgTableWidthPc		: "percentatge",
+DlgTableHeight		: "Alçada",
+DlgTableCellSpace	: "Espaiat de cel·les",
+DlgTableCellPad		: "Encoixinament de cel·les",
+DlgTableCaption		: "Títol",
+DlgTableSummary		: "Resum",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Propietats de la cel·la",
+DlgCellWidth		: "Amplada",
+DlgCellWidthPx		: "píxels",
+DlgCellWidthPc		: "percentatge",
+DlgCellHeight		: "Alçada",
+DlgCellWordWrap		: "Ajust de paraula",
+DlgCellWordWrapNotSet	: "<No Definit>",
+DlgCellWordWrapYes	: "Si",
+DlgCellWordWrapNo	: "No",
+DlgCellHorAlign		: "Alineació horitzontal",
+DlgCellHorAlignNotSet	: "<No Definit>",
+DlgCellHorAlignLeft	: "Esquerra",
+DlgCellHorAlignCenter	: "Centre",
+DlgCellHorAlignRight: "Dreta",
+DlgCellVerAlign		: "Alineació vertical",
+DlgCellVerAlignNotSet	: "<No definit>",
+DlgCellVerAlignTop	: "Top",
+DlgCellVerAlignMiddle	: "Middle",
+DlgCellVerAlignBottom	: "Bottom",
+DlgCellVerAlignBaseline	: "Baseline",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Rows Span",
+DlgCellCollSpan		: "Columns Span",
+DlgCellBackColor	: "Color de fons",
+DlgCellBorderColor	: "Color de la vora",
+DlgCellBtnSelect	: "Seleccioneu...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Cerca i reemplaça",
+
+// Find Dialog
+DlgFindTitle		: "Cerca",
+DlgFindFindBtn		: "Cerca",
+DlgFindNotFoundMsg	: "El text especificat no s'ha trobat.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Reemplaça",
+DlgReplaceFindLbl		: "Cerca:",
+DlgReplaceReplaceLbl	: "Remplaça amb:",
+DlgReplaceCaseChk		: "Distingeix majúscules/minúscules",
+DlgReplaceReplaceBtn	: "Reemplaça",
+DlgReplaceReplAllBtn	: "Reemplaça-ho tot",
+DlgReplaceWordChk		: "Només paraules completes",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "La seguretat del vostre navegador no permet executar automàticament les operacions de retallar. Si us plau, utilitzeu el teclat (Ctrl+X).",
+PasteErrorCopy	: "La seguretat del vostre navegador no permet executar automàticament les operacions de copiar. Si us plau, utilitzeu el teclat (Ctrl+C).",
+
+PasteAsText		: "Enganxa com a text no formatat",
+PasteFromWord	: "Enganxa com a Word",
+
+DlgPasteMsg2	: "Si us plau, enganxeu dins del següent camp utilitzant el teclat (<STRONG>Ctrl+V</STRONG>) i premeu <STRONG>OK</STRONG>.",
+DlgPasteSec		: "A causa de la configuració de seguretat del vostre navegador, l'editor no pot accedir al porta-retalls directament. Enganxeu-ho un altre cop en aquesta finestra.",
+DlgPasteIgnoreFont		: "Ignora definicions de font",
+DlgPasteRemoveStyles	: "Elimina definicions d'estil",
+
+// Color Picker
+ColorAutomatic	: "Automàtic",
+ColorMoreColors	: "Més colors...",
+
+// Document Properties
+DocProps		: "Propietats del document",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Propietats de l'àncora",
+DlgAnchorName		: "Nom de l'àncora",
+DlgAnchorErrorName	: "Si us plau, escriviu el nom de l'ancora",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "No és al diccionari",
+DlgSpellChangeTo		: "Reemplaça amb",
+DlgSpellBtnIgnore		: "Ignora",
+DlgSpellBtnIgnoreAll	: "Ignora-les totes",
+DlgSpellBtnReplace		: "Canvia",
+DlgSpellBtnReplaceAll	: "Canvia-les totes",
+DlgSpellBtnUndo			: "Desfés",
+DlgSpellNoSuggestions	: "Cap suggeriment",
+DlgSpellProgress		: "Verificació ortogràfica en curs...",
+DlgSpellNoMispell		: "Verificació ortogràfica acabada: no hi ha cap paraula mal escrita",
+DlgSpellNoChanges		: "Verificació ortogràfica: no s'ha canviat cap paraula",
+DlgSpellOneChange		: "Verificació ortogràfica: s'ha canviat una paraula",
+DlgSpellManyChanges		: "Verificació ortogràfica: s'han canviat %1 paraules",
+
+IeSpellDownload			: "Verificació ortogràfica no instal·lada. Voleu descarregar-ho ara?",
+
+// Button Dialog
+DlgButtonText		: "Text (Valor)",
+DlgButtonType		: "Tipus",
+DlgButtonTypeBtn	: "Botó",
+DlgButtonTypeSbm	: "Transmet formulari",
+DlgButtonTypeRst	: "Reinicia formulari",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Nom",
+DlgCheckboxValue	: "Valor",
+DlgCheckboxSelected	: "Seleccionat",
+
+// Form Dialog
+DlgFormName		: "Nom",
+DlgFormAction	: "Acció",
+DlgFormMethod	: "Mètode",
+
+// Select Field Dialog
+DlgSelectName		: "Nom",
+DlgSelectValue		: "Valor",
+DlgSelectSize		: "Mida",
+DlgSelectLines		: "Línies",
+DlgSelectChkMulti	: "Permet múltiples seleccions",
+DlgSelectOpAvail	: "Opcions disponibles",
+DlgSelectOpText		: "Text",
+DlgSelectOpValue	: "Valor",
+DlgSelectBtnAdd		: "Afegeix",
+DlgSelectBtnModify	: "Modifica",
+DlgSelectBtnUp		: "Amunt",
+DlgSelectBtnDown	: "Avall",
+DlgSelectBtnSetValue : "Selecciona per defecte",
+DlgSelectBtnDelete	: "Elimina",
+
+// Textarea Dialog
+DlgTextareaName	: "Nom",
+DlgTextareaCols	: "Columnes",
+DlgTextareaRows	: "Files",
+
+// Text Field Dialog
+DlgTextName			: "Nom",
+DlgTextValue		: "Valor",
+DlgTextCharWidth	: "Amplada",
+DlgTextMaxChars		: "Nombre màxim de caràcters",
+DlgTextType			: "Tipus",
+DlgTextTypeText		: "Text",
+DlgTextTypePass		: "Contrasenya",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Nom",
+DlgHiddenValue	: "Valor",
+
+// Bulleted List Dialog
+BulletedListProp	: "Propietats de la llista de pics",
+NumberedListProp	: "Propietats de llista numerada",
+DlgLstStart			: "Inici",
+DlgLstType			: "Tipus",
+DlgLstTypeCircle	: "Cercle",
+DlgLstTypeDisc		: "Disc",
+DlgLstTypeSquare	: "Quadrat",
+DlgLstTypeNumbers	: "Números (1, 2, 3)",
+DlgLstTypeLCase		: "Lletres minúscules (a, b, c)",
+DlgLstTypeUCase		: "Lletres majúscules (A, B, C)",
+DlgLstTypeSRoman	: "Números romans en minúscules (i, ii, iii)",
+DlgLstTypeLRoman	: "Números romans en majúscules (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "General",
+DlgDocBackTab		: "Fons",
+DlgDocColorsTab		: "Colors i marges",
+DlgDocMetaTab		: "Metadades",
+
+DlgDocPageTitle		: "Títol de la pàgina",
+DlgDocLangDir		: "Direcció idioma",
+DlgDocLangDirLTR	: "Esquerra a dreta (LTR)",
+DlgDocLangDirRTL	: "Dreta a esquerra (RTL)",
+DlgDocLangCode		: "Codi d'idioma",
+DlgDocCharSet		: "Codificació de conjunt de caràcters",
+DlgDocCharSetCE		: "Centreeuropeu",
+DlgDocCharSetCT		: "Xinès tradicional (Big5)",
+DlgDocCharSetCR		: "Ciríl·lic",
+DlgDocCharSetGR		: "Grec",
+DlgDocCharSetJP		: "Japonès",
+DlgDocCharSetKR		: "Coreà",
+DlgDocCharSetTR		: "Turc",
+DlgDocCharSetUN		: "Unicode (UTF-8)",
+DlgDocCharSetWE		: "Europeu occidental",
+DlgDocCharSetOther	: "Una altra codificació de caràcters",
+
+DlgDocDocType		: "Capçalera de tipus de document",
+DlgDocDocTypeOther	: "Un altra capçalera de tipus de document",
+DlgDocIncXHTML		: "Incloure declaracions XHTML",
+DlgDocBgColor		: "Color de fons",
+DlgDocBgImage		: "URL de la imatge de fons",
+DlgDocBgNoScroll	: "Fons fixe",
+DlgDocCText			: "Text",
+DlgDocCLink			: "Enllaç",
+DlgDocCVisited		: "Enllaç visitat",
+DlgDocCActive		: "Enllaç actiu",
+DlgDocMargins		: "Marges de pàgina",
+DlgDocMaTop			: "Cap",
+DlgDocMaLeft		: "Esquerra",
+DlgDocMaRight		: "Dreta",
+DlgDocMaBottom		: "Peu",
+DlgDocMeIndex		: "Mots clau per a indexació (separats per coma)",
+DlgDocMeDescr		: "Descripció del document",
+DlgDocMeAuthor		: "Autor",
+DlgDocMeCopy		: "Copyright",
+DlgDocPreview		: "Vista prèvia",
+
+// Templates Dialog
+Templates			: "Plantilles",
+DlgTemplatesTitle	: "Contingut plantilles",
+DlgTemplatesSelMsg	: "Si us plau, seleccioneu la plantilla per obrir a l'editor<br>(el contingut actual no serà enregistrat):",
+DlgTemplatesLoading	: "Carregant la llista de plantilles. Si us plau, espereu...",
+DlgTemplatesNoTpl	: "(No hi ha plantilles definides)",
+DlgTemplatesReplace	: "Reemplaça el contingut actual",
+
+// About Dialog
+DlgAboutAboutTab	: "Quant a",
+DlgAboutBrowserInfoTab	: "Informació del navegador",
+DlgAboutLicenseTab	: "Llicència",
+DlgAboutVersion		: "versió",
+DlgAboutInfo		: "Per a més informació aneu a",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",
+DlgDivAdvancedTab	: "Avançat",
+DlgDivStyle		: "Estil",
+DlgDivInlineStyle	: "Estil en línia"
+};

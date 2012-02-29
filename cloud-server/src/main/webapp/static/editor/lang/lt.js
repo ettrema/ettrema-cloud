@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Lithuanian language file.
+ */
 
-CKEDITOR.lang.lt={dir:'ltr',editorTitle:'Pilnas redaktorius, %1, spauskite ALT 0 dėl pagalbos.',toolbars:'Redaktoriaus įrankiai',editor:'Pilnas redaktorius',source:'Šaltinis',newPage:'Naujas puslapis',save:'Išsaugoti',preview:'Peržiūra',cut:'Iškirpti',copy:'Kopijuoti',paste:'Įdėti',print:'Spausdinti',underline:'Pabrauktas',bold:'Pusjuodis',italic:'Kursyvas',selectAll:'Pažymėti viską',removeFormat:'Panaikinti formatą',strike:'Perbrauktas',subscript:'Apatinis indeksas',superscript:'Viršutinis indeksas',horizontalrule:'Įterpti horizontalią liniją',pagebreak:'Įterpti puslapių skirtuką',pagebreakAlt:'Puslapio skirtukas',unlink:'Panaikinti nuorodą',undo:'Atšaukti',redo:'Atstatyti',common:{browseServer:'Naršyti po serverį',url:'URL',protocol:'Protokolas',upload:'Siųsti',uploadSubmit:'Siųsti į serverį',image:'Vaizdas',flash:'Flash',form:'Forma',checkbox:'Žymimasis langelis',radio:'Žymimoji akutė',textField:'Teksto laukas',textarea:'Teksto sritis',hiddenField:'Nerodomas laukas',button:'Mygtukas',select:'Atrankos laukas',imageButton:'Vaizdinis mygtukas',notSet:'<nėra nustatyta>',id:'Id',name:'Vardas',langDir:'Teksto kryptis',langDirLtr:'Iš kairės į dešinę (LTR)',langDirRtl:'Iš dešinės į kairę (RTL)',langCode:'Kalbos kodas',longDescr:'Ilgas aprašymas URL',cssClass:'Stilių lentelės klasės',advisoryTitle:'Konsultacinė antraštė',cssStyle:'Stilius',ok:'OK',cancel:'Nutraukti',close:'Uždaryti',preview:'Peržiūrėti',generalTab:'Bendros savybės',advancedTab:'Papildomas',validateNumberFailed:'Ši reikšmė nėra skaičius.',confirmNewPage:'Visas neišsaugotas turinys bus prarastas. Ar tikrai norite įkrauti naują puslapį?',confirmCancel:'Kai kurie parametrai pasikeitė. Ar tikrai norite užverti langą?',options:'Parametrai',target:'Tikslinė nuoroda',targetNew:'Naujas langas (_blank)',targetTop:'Viršutinis langas (_top)',targetSelf:'Esamas langas (_self)',targetParent:'Paskutinis langas (_parent)',langDirLTR:'Iš kairės į dešinę (LTR)',langDirRTL:'Iš dešinės į kairę (RTL)',styles:'Stilius',cssClasses:'Stilių klasės',width:'Plotis',height:'Aukštis',align:'Lygiuoti',alignLeft:'Kairę',alignRight:'Dešinę',alignCenter:'Centrą',alignTop:'Viršūnę',alignMiddle:'Vidurį',alignBottom:'Apačią',invalidHeight:'Aukštis turi būti nurodytas skaičiais.',invalidWidth:'Plotis turi būti nurodytas skaičiais.',invalidCssLength:'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo CSS matavimo vieneto (px, %, in, cm, mm, em, ex, pt arba pc).',invalidHtmlLength:'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo HTML matavimo vieneto (px arba %).',invalidInlineStyle:'Reikšmė nurodyta vidiniame stiliuje turi būti sudaryta iš vieno šių reikšmių "vardas : reikšmė", atskirta kabliataškiais.',cssLengthTooltip:'Įveskite reikšmę pikseliais arba skaičiais su tinkamu CSS vienetu (px, %, in, cm, mm, em, ex, pt arba pc).',unavailable:'%1<span class="cke_accessibility">, netinkamas</span>'},contextmenu:{options:'Kontekstinio meniu parametrai'},specialChar:{toolbar:'Įterpti specialų simbolį',title:'Pasirinkite specialų simbolį',options:'Specialaus simbolio nustatymai'},link:{toolbar:'Įterpti/taisyti nuorodą',other:'<kitas>',menu:'Taisyti nuorodą',title:'Nuoroda',info:'Nuorodos informacija',target:'Paskirties vieta',upload:'Siųsti',advanced:'Papildomas',type:'Nuorodos tipas',toUrl:'Nuoroda',toAnchor:'Žymė šiame puslapyje',toEmail:'El.paštas',targetFrame:'<kadras>',targetPopup:'<išskleidžiamas langas>',targetFrameName:'Paskirties kadro vardas',targetPopupName:'Paskirties lango vardas',popupFeatures:'Išskleidžiamo lango savybės',popupResizable:'Kintamas dydis',popupStatusBar:'Būsenos juosta',popupLocationBar:'Adreso juosta',popupToolbar:'Mygtukų juosta',popupMenuBar:'Meniu juosta',popupFullScreen:'Visas ekranas (IE)',popupScrollBars:'Slinkties juostos',popupDependent:'Priklausomas (Netscape)',popupLeft:'Kairė pozicija',popupTop:'Viršutinė pozicija',id:'Id',langDir:'Teksto kryptis',langDirLTR:'Iš kairės į dešinę (LTR)',langDirRTL:'Iš dešinės į kairę (RTL)',acccessKey:'Prieigos raktas',name:'Vardas',langCode:'Teksto kryptis',tabIndex:'Tabuliavimo indeksas',advisoryTitle:'Konsultacinė antraštė',advisoryContentType:'Konsultacinio turinio tipas',cssClasses:'Stilių lentelės klasės',charset:'Susietų išteklių simbolių lentelė',styles:'Stilius',rel:'Sąsajos',selectAnchor:'Pasirinkite žymę',anchorName:'Pagal žymės vardą',anchorId:'Pagal žymės Id',emailAddress:'El.pašto adresas',emailSubject:'Žinutės tema',emailBody:'Žinutės turinys',noAnchors:'(Šiame dokumente žymių nėra)',noUrl:'Prašome įvesti nuorodos URL',noEmail:'Prašome įvesti el.pašto adresą'},anchor:{toolbar:'Įterpti/modifikuoti žymę',menu:'Žymės savybės',title:'Žymės savybės',name:'Žymės vardas',errorName:'Prašome įvesti žymės vardą',remove:'Pašalinti žymę'},list:{numberedTitle:'Skaitmeninio sąrašo nustatymai',bulletedTitle:'Ženklelinio sąrašo nustatymai',type:'Rūšis',start:'Pradžia',validateStartNumber:'Sąrašo pradžios skaitmuo turi būti sveikas skaičius.',circle:'Apskritimas',disc:'Diskas',square:'Kvadratas',none:'Niekas',notset:'<nenurodytas>',armenian:'Armėniški skaitmenys',georgian:'Gruziniški skaitmenys (an, ban, gan, t.t)',lowerRoman:'Mažosios Romėnų (i, ii, iii, iv, v, t.t)',upperRoman:'Didžiosios Romėnų (I, II, III, IV, V, t.t)',lowerAlpha:'Mažosios Alpha (a, b, c, d, e, t.t)',upperAlpha:'Didžiosios Alpha (A, B, C, D, E, t.t)',lowerGreek:'Mažosios Graikų (alpha, beta, gamma, t.t)',decimal:'Dešimtainis (1, 2, 3, t.t)',decimalLeadingZero:'Dešimtainis su nuliu priekyje (01, 02, 03, t.t)'},findAndReplace:{title:'Surasti ir pakeisti',find:'Rasti',replace:'Pakeisti',findWhat:'Surasti tekstą:',replaceWith:'Pakeisti tekstu:',notFoundMsg:'Nurodytas tekstas nerastas.',findOptions:'Paieškos nustatymai',matchCase:'Skirti didžiąsias ir mažąsias raides',matchWord:'Atitikti pilną žodį',matchCyclic:'Sutampantis cikliškumas',replaceAll:'Pakeisti viską',replaceSuccessMsg:'%1 sutapimas(ų) buvo pakeisti.'},table:{toolbar:'Lentelė',title:'Lentelės savybės',menu:'Lentelės savybės',deleteTable:'Šalinti lentelę',rows:'Eilutės',columns:'Stulpeliai',border:'Rėmelio dydis',widthPx:'taškais',widthPc:'procentais',widthUnit:'pločio vienetas',cellSpace:'Tarpas tarp langelių',cellPad:'Trapas nuo langelio rėmo iki teksto',caption:'Antraštė',summary:'Santrauka',headers:'Antraštės',headersNone:'Nėra',headersColumn:'Pirmas stulpelis',headersRow:'Pirma eilutė',headersBoth:'Abu',invalidRows:'Skaičius turi būti didesnis nei 0.',invalidCols:'Skaičius turi būti didesnis nei 0.',invalidBorder:'Reikšmė turi būti nurodyta skaičiumi.',invalidWidth:'Reikšmė turi būti nurodyta skaičiumi.',invalidHeight:'Reikšmė turi būti nurodyta skaičiumi.',invalidCellSpacing:'Reikšmė turi būti nurodyta skaičiumi.',invalidCellPadding:'Reikšmė turi būti nurodyta skaičiumi.',cell:{menu:'Langelis',insertBefore:'Įterpti langelį prieš',insertAfter:'Įterpti langelį po',deleteCell:'Šalinti langelius',merge:'Sujungti langelius',mergeRight:'Sujungti su dešine',mergeDown:'Sujungti su apačia',splitHorizontal:'Skaidyti langelį horizontaliai',splitVertical:'Skaidyti langelį vertikaliai',title:'Cell nustatymai',cellType:'Cell rūšis',rowSpan:'Eilučių Span',colSpan:'Stulpelių Span',wordWrap:'Sutraukti raides',hAlign:'Horizontalus lygiavimas',vAlign:'Vertikalus lygiavimas',alignBaseline:'Apatinė linija',bgColor:'Fono spalva',borderColor:'Rėmelio spalva',data:'Data',header:'Antraštė',yes:'Taip',no:'Ne',invalidWidth:'Reikšmė turi būti skaičius.',invalidHeight:'Reikšmė turi būti skaičius.',invalidRowSpan:'Reikšmė turi būti skaičius.',invalidColSpan:'Reikšmė turi būti skaičius.',chooseColor:'Pasirinkite'},row:{menu:'Eilutė',insertBefore:'Įterpti eilutę prieš',insertAfter:'Įterpti eilutę po',deleteRow:'Šalinti eilutes'},column:{menu:'Stulpelis',insertBefore:'Įterpti stulpelį prieš',insertAfter:'Įterpti stulpelį po',deleteColumn:'Šalinti stulpelius'}},button:{title:'Mygtuko savybės',text:'Tekstas (Reikšmė)',type:'Tipas',typeBtn:'Mygtukas',typeSbm:'Siųsti',typeRst:'Išvalyti'},checkboxAndRadio:{checkboxTitle:'Žymimojo langelio savybės',radioTitle:'Žymimosios akutės savybės',value:'Reikšmė',selected:'Pažymėtas'},form:{title:'Formos savybės',menu:'Formos savybės',action:'Veiksmas',method:'Metodas',encoding:'Kodavimas'},select:{title:'Atrankos lauko savybės',selectInfo:'Informacija',opAvail:'Galimos parinktys',value:'Reikšmė',size:'Dydis',lines:'eilučių',chkMulti:'Leisti daugeriopą atranką',opText:'Tekstas',opValue:'Reikšmė',btnAdd:'Įtraukti',btnModify:'Modifikuoti',btnUp:'Aukštyn',btnDown:'Žemyn',btnSetValue:'Laikyti pažymėta reikšme',btnDelete:'Trinti'},textarea:{title:'Teksto srities savybės',cols:'Ilgis',rows:'Plotis'},textfield:{title:'Teksto lauko savybės',name:'Vardas',value:'Reikšmė',charWidth:'Ilgis simboliais',maxChars:'Maksimalus simbolių skaičius',type:'Tipas',typeText:'Tekstas',typePass:'Slaptažodis'},hidden:{title:'Nerodomo lauko savybės',name:'Vardas',value:'Reikšmė'},image:{title:'Vaizdo savybės',titleButton:'Vaizdinio mygtuko savybės',menu:'Vaizdo savybės',infoTab:'Vaizdo informacija',btnUpload:'Siųsti į serverį',upload:'Nusiųsti',alt:'Alternatyvus Tekstas',lockRatio:'Išlaikyti proporciją',resetSize:'Atstatyti dydį',border:'Rėmelis',hSpace:'Hor.Erdvė',vSpace:'Vert.Erdvė',alertUrl:'Prašome įvesti vaizdo URL',linkTab:'Nuoroda',button2Img:'Ar norite mygtuką paversti paprastu paveiksliuku?',img2Button:'Ar norite paveiksliuką paversti mygtuku?',urlMissing:'Paveiksliuko nuorodos nėra.',validateBorder:'Reikšmė turi būti sveikas skaičius.',validateHSpace:'Reikšmė turi būti sveikas skaičius.',validateVSpace:'Reikšmė turi būti sveikas skaičius.'},flash:{properties:'Flash savybės',propertiesTab:'Nustatymai',title:'Flash savybės',chkPlay:'Automatinis paleidimas',chkLoop:'Ciklas',chkMenu:'Leisti Flash meniu',chkFull:'Leisti per visą ekraną',scale:'Mastelis',scaleAll:'Rodyti visą',scaleNoBorder:'Be rėmelio',scaleFit:'Tikslus atitikimas',access:'Skripto priėjimas',accessAlways:'Visada',accessSameDomain:'Tas pats domenas',accessNever:'Niekada',alignAbsBottom:'Absoliučią apačią',alignAbsMiddle:'Absoliutų vidurį',alignBaseline:'Apatinę liniją',alignTextTop:'Teksto viršūnę',quality:'Kokybė',qualityBest:'Geriausia',qualityHigh:'Gera',qualityAutoHigh:'Automatiškai Gera',qualityMedium:'Vidutinė',qualityAutoLow:'Automatiškai Žema',qualityLow:'Žema',windowModeWindow:'Langas',windowModeOpaque:'Nepermatomas',windowModeTransparent:'Permatomas',windowMode:'Lango režimas',flashvars:'Flash kintamieji',bgcolor:'Fono spalva',hSpace:'Hor.Erdvė',vSpace:'Vert.Erdvė',validateSrc:'Prašome įvesti nuorodos URL',validateHSpace:'HSpace turi būti skaičius.',validateVSpace:'VSpace turi būti skaičius.'},spellCheck:{toolbar:'Rašybos tikrinimas',title:'Tikrinti klaidas',notAvailable:'Atleiskite, šiuo metu servisas neprieinamas.',errorLoading:'Klaida įkraunant servisą: %s.',notInDic:'Žodyne nerastas',changeTo:'Pakeisti į',btnIgnore:'Ignoruoti',btnIgnoreAll:'Ignoruoti visus',btnReplace:'Pakeisti',btnReplaceAll:'Pakeisti visus',btnUndo:'Atšaukti',noSuggestions:'- Nėra pasiūlymų -',progress:'Vyksta rašybos tikrinimas...',noMispell:'Rašybos tikrinimas baigtas: Nerasta rašybos klaidų',noChanges:'Rašybos tikrinimas baigtas: Nėra pakeistų žodžių',oneChange:'Rašybos tikrinimas baigtas: Vienas žodis pakeistas',manyChanges:'Rašybos tikrinimas baigtas: Pakeista %1 žodžių',ieSpellDownload:'Rašybos tikrinimas neinstaliuotas. Ar Jūs norite jį dabar atsisiųsti?'},smiley:{toolbar:'Veideliai',title:'Įterpti veidelį',options:'Šypsenėlių nustatymai'},elementsPath:{eleLabel:'Elemento kelias',eleTitle:'%1 elementas'},numberedlist:'Numeruotas sąrašas',bulletedlist:'Suženklintas sąrašas',indent:'Padidinti įtrauką',outdent:'Sumažinti įtrauką',justify:{left:'Lygiuoti kairę',center:'Centruoti',right:'Lygiuoti dešinę',block:'Lygiuoti abi puses'},blockquote:'Citata',clipboard:{title:'Įdėti',cutError:'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+X).',copyError:'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti kopijavimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+C).',pasteMsg:'Žemiau esančiame įvedimo lauke įdėkite tekstą, naudodami klaviatūrą (<STRONG>Ctrl/Cmd+V</STRONG>) ir paspauskite mygtuką <STRONG>OK</STRONG>.',securityMsg:'Dėl jūsų naršyklės saugumo nustatymų, redaktorius negali tiesiogiai pasiekti laikinosios atminties. Jums reikia nukopijuoti dar kartą į šį langą.',pasteArea:'Įkelti dalį'},pastefromword:{confirmCleanup:'Tekstas, kurį įkeliate yra kopijuojamas iš Word. Ar norite jį išvalyti prieš įkeliant?',toolbar:'Įdėti iš Word',title:'Įdėti iš Word',error:'Dėl vidinių sutrikimų, nepavyko išvalyti įkeliamo teksto'},pasteText:{button:'Įdėti kaip gryną tekstą',title:'Įdėti kaip gryną tekstą'},templates:{button:'Šablonai',title:'Turinio šablonai',options:'Template Options',insertOption:'Pakeisti dabartinį turinį pasirinktu šablonu',selectPromptMsg:'Pasirinkite norimą šabloną<br>(<b>Dėmesio!</b> esamas turinys bus prarastas):',emptyListMsg:'(Šablonų sąrašas tuščias)'},showBlocks:'Rodyti blokus',stylesCombo:{label:'Stilius',panelTitle:'Stilių formatavimas',panelTitle1:'Blokų stiliai',panelTitle2:'Vidiniai stiliai',panelTitle3:'Objektų stiliai'},format:{label:'Šrifto formatas',panelTitle:'Šrifto formatas',tag_p:'Normalus',tag_pre:'Formuotas',tag_address:'Kreipinio',tag_h1:'Antraštinis 1',tag_h2:'Antraštinis 2',tag_h3:'Antraštinis 3',tag_h4:'Antraštinis 4',tag_h5:'Antraštinis 5',tag_h6:'Antraštinis 6',tag_div:'Normalus (DIV)'},div:{title:'Sukurti Div elementą',toolbar:'Sukurti Div elementą',cssClassInputLabel:'Stilių klasės',styleSelectLabel:'Stilius',IdInputLabel:'Id',languageCodeInputLabel:' Kalbos kodas',inlineStyleInputLabel:'Vidiniai stiliai',advisoryTitleInputLabel:'Patariamas pavadinimas',langDirLabel:'Kalbos nurodymai',langDirLTRLabel:'Iš kairės į dešinę (LTR)',langDirRTLLabel:'Iš dešinės į kairę (RTL)',edit:'Redaguoti Div',remove:'Pašalinti Div'},iframe:{title:'IFrame nustatymai',toolbar:'IFrame',noUrl:'Nurodykite iframe nuorodą',scrolling:'Įjungti slankiklius',border:'Rodyti rėmelį'},font:{label:'Šriftas',voiceLabel:'Šriftas',panelTitle:'Šriftas'},fontSize:{label:'Šrifto dydis',voiceLabel:'Šrifto dydis',panelTitle:'Šrifto dydis'},colorButton:{textColorTitle:'Teksto spalva',bgColorTitle:'Fono spalva',panelTitle:'Spalva',auto:'Automatinis',more:'Daugiau spalvų...'},colors:{'000':'Juoda',800000:'Kaštoninė','8B4513':'Tamsiai ruda','2F4F4F':'Pilka tamsaus šiferio','008080':'Teal','000080':'Karinis','4B0082':'Indigo',696969:'Tamsiai pilka',B22222:'Ugnies',A52A2A:'Ruda',DAA520:'Aukso','006400':'Tamsiai žalia','40E0D0':'Turquoise','0000CD':'Vidutinė mėlyna',800080:'Violetinė',808080:'Pilka',F00:'Raudona',FF8C00:'Tamsiai oranžinė',FFD700:'Auksinė','008000':'Žalia','0FF':'Žydra','00F':'Mėlyna',EE82EE:'Violetinė',A9A9A9:'Dim Gray',FFA07A:'Light Salmon',FFA500:'Oranžinė',FFFF00:'Geltona','00FF00':'Citrinų',AFEEEE:'Pale Turquoise',ADD8E6:'Šviesiai mėlyna',DDA0DD:'Plum',D3D3D3:'Šviesiai pilka',FFF0F5:'Lavender Blush',FAEBD7:'Antique White',FFFFE0:'Šviesiai geltona',F0FFF0:'Honeydew',F0FFFF:'Azure',F0F8FF:'Alice Blue',E6E6FA:'Lavender',FFF:'Balta'},scayt:{title:'Tikrinti klaidas kai rašoma',opera_title:'Nepalaikoma naršyklėje Opera',enable:'Įjungti SCAYT',disable:'Išjungti SCAYT',about:'Apie SCAYT',toggle:'Perjungti SCAYT',options:'Parametrai',langs:'Kalbos',moreSuggestions:'Daugiau patarimų',ignore:'Ignoruoti',ignoreAll:'Ignoruoti viską',addWord:'Pridėti žodį',emptyDic:'Žodyno vardas neturėtų būti tuščias.',optionsTab:'Parametrai',allCaps:'Ignoruoti visas didžiąsias raides',ignoreDomainNames:'Ignoruoti domenų vardus',mixedCase:'Ignoruoti maišyto dydžio raides',mixedWithDigits:'Ignoruoti raides su skaičiais',languagesTab:'Kalbos',dictionariesTab:'Žodynai',dic_field_name:'Žodyno pavadinimas',dic_create:'Sukurti',dic_restore:'Atstatyti',dic_delete:'Ištrinti',dic_rename:'Pervadinti',dic_info:'Paprastai žodynas yra saugojamas sausainėliuose (cookies), kurių dydis, bet kokiu atveju, yra apribotas. Esant sausainėlių apimties pervišiui, viskas bus saugoma serveryje. Jei norite iš kart viską saugoti serveryje, turite sugalvoti žodynui pavadinimą. Jei jau turite žodyną, įrašykite pavadinimą ir nuspauskite Atstatyti mygtuką.',aboutTab:'Apie'},about:{title:'Apie CKEditor',dlgTitle:'Apie CKEditor',help:'Patikrinkite $1 dėl pagalbos.',userGuide:'CKEditor Vartotojo Gidas',moreInfo:'Dėl licencijavimo apsilankykite mūsų svetainėje:',copy:'Copyright &copy; $1. Visos teiss saugomos.'},maximize:'Išdidinti',minimize:'Sumažinti',fakeobjects:{anchor:'Žymė',flash:'Flash animacija',iframe:'IFrame',hiddenfield:'Paslėptas laukas',unknown:'Nežinomas objektas'},resize:'Pavilkite, kad pakeistumėte dydį',colordialog:{title:'Pasirinkite spalvą',options:'Spalvos nustatymai',highlight:'Paryškinti',selected:'Pasirinkta spalva',clear:'Išvalyti'},toolbarCollapse:'Apjungti įrankių juostą',toolbarExpand:'Išplėsti įrankių juostą',toolbarGroups:{document:'Dokumentas',clipboard:'Atmintinė/Atgal',editing:'Redagavimas',forms:'Formos',basicstyles:'Pagrindiniai stiliai',paragraph:'Paragrafas',links:'Nuorodos',insert:'Įterpti',styles:'Stiliai',colors:'Spalvos',tools:'Įrankiai'},bidi:{ltr:'Tekstas iš kairės į dešinę',rtl:'Tekstas iš dešinės į kairę'},docprops:{label:'Dokumento savybės',title:'Dokumento savybės',design:'Išdėstymas',meta:'Meta duomenys',chooseColor:'Pasirinkite',other:'<kitas>',docTitle:'Puslapio antraštė',charset:'Simbolių kodavimo lentelė',charsetOther:'Kita simbolių kodavimo lentelė',charsetASCII:'ASCII',charsetCE:'Centrinės Europos',charsetCT:'Tradicinės kinų (Big5)',charsetCR:'Kirilica',charsetGR:'Graikų',charsetJP:'Japonų',charsetKR:'Korėjiečių',charsetTR:'Turkų',charsetUN:'Unikodas (UTF-8)',charsetWE:'Vakarų Europos',docType:'Dokumento tipo antraštė',docTypeOther:'Kita dokumento tipo antraštė',xhtmlDec:'Įtraukti XHTML deklaracijas',bgColor:'Fono spalva',bgImage:'Fono paveikslėlio nuoroda (URL)',bgFixed:'Neslenkantis fonas',txtColor:'Teksto spalva',margin:'Puslapio kraštinės',marginTop:'Viršuje',marginLeft:'Kairėje',marginRight:'Dešinėje',marginBottom:'Apačioje',metaKeywords:'Dokumento indeksavimo raktiniai žodžiai (atskirti kableliais)',metaDescription:'Dokumento apibūdinimas',metaAuthor:'Autorius',metaCopyright:'Autorinės teisės',previewHtml:'<p>Tai yra <strong>pavyzdinis tekstas</strong>. Jūs naudojate <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Sutraukti mygtukų juostą",
+ToolbarExpand		: "Išplėsti mygtukų juostą",
+
+// Toolbar Items and Context Menu
+Save				: "Išsaugoti",
+NewPage				: "Naujas puslapis",
+Preview				: "Peržiūra",
+Cut					: "Iškirpti",
+Copy				: "Kopijuoti",
+Paste				: "Įdėti",
+PasteText			: "Įdėti kaip gryną tekstą",
+PasteWord			: "Įdėti iš Word",
+Print				: "Spausdinti",
+SelectAll			: "Pažymėti viską",
+RemoveFormat		: "Panaikinti formatą",
+InsertLinkLbl		: "Nuoroda",
+InsertLink			: "Įterpti/taisyti nuorodą",
+RemoveLink			: "Panaikinti nuorodą",
+VisitLink			: "Open Link",	//MISSING
+Anchor				: "Įterpti/modifikuoti žymę",
+AnchorDelete		: "Remove Anchor",	//MISSING
+InsertImageLbl		: "Vaizdas",
+InsertImage			: "Įterpti/taisyti vaizdą",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Įterpti/taisyti Flash",
+InsertTableLbl		: "Lentelė",
+InsertTable			: "Įterpti/taisyti lentelę",
+InsertLineLbl		: "Linija",
+InsertLine			: "Įterpti horizontalią liniją",
+InsertSpecialCharLbl: "Spec. simbolis",
+InsertSpecialChar	: "Įterpti specialų simbolį",
+InsertSmileyLbl		: "Veideliai",
+InsertSmiley		: "Įterpti veidelį",
+About				: "Apie FCKeditor",
+Bold				: "Pusjuodis",
+Italic				: "Kursyvas",
+Underline			: "Pabrauktas",
+StrikeThrough		: "Perbrauktas",
+Subscript			: "Apatinis indeksas",
+Superscript			: "Viršutinis indeksas",
+LeftJustify			: "Lygiuoti kairę",
+CenterJustify		: "Centruoti",
+RightJustify		: "Lygiuoti dešinę",
+BlockJustify		: "Lygiuoti abi puses",
+DecreaseIndent		: "Sumažinti įtrauką",
+IncreaseIndent		: "Padidinti įtrauką",
+Blockquote			: "Blockquote",	//MISSING
+CreateDiv			: "Create Div Container",	//MISSING
+EditDiv				: "Edit Div Container",	//MISSING
+DeleteDiv			: "Remove Div Container",	//MISSING
+Undo				: "Atšaukti",
+Redo				: "Atstatyti",
+NumberedListLbl		: "Numeruotas sąrašas",
+NumberedList		: "Įterpti/Panaikinti numeruotą sąrašą",
+BulletedListLbl		: "Suženklintas sąrašas",
+BulletedList		: "Įterpti/Panaikinti suženklintą sąrašą",
+ShowTableBorders	: "Rodyti lentelės rėmus",
+ShowDetails			: "Rodyti detales",
+Style				: "Stilius",
+FontFormat			: "Šrifto formatas",
+Font				: "Šriftas",
+FontSize			: "Šrifto dydis",
+TextColor			: "Teksto spalva",
+BGColor				: "Fono spalva",
+Source				: "Šaltinis",
+Find				: "Rasti",
+Replace				: "Pakeisti",
+SpellCheck			: "Rašybos tikrinimas",
+UniversalKeyboard	: "Universali klaviatūra",
+PageBreakLbl		: "Puslapių skirtukas",
+PageBreak			: "Įterpti puslapių skirtuką",
+
+Form			: "Forma",
+Checkbox		: "Žymimasis langelis",
+RadioButton		: "Žymimoji akutė",
+TextField		: "Teksto laukas",
+Textarea		: "Teksto sritis",
+HiddenField		: "Nerodomas laukas",
+Button			: "Mygtukas",
+SelectionField	: "Atrankos laukas",
+ImageButton		: "Vaizdinis mygtukas",
+
+FitWindow		: "Maximize the editor size",	//MISSING
+ShowBlocks		: "Show Blocks",	//MISSING
+
+// Context Menu
+EditLink			: "Taisyti nuorodą",
+CellCM				: "Cell",	//MISSING
+RowCM				: "Row",	//MISSING
+ColumnCM			: "Column",	//MISSING
+InsertRowAfter		: "Insert Row After",	//MISSING
+InsertRowBefore		: "Insert Row Before",	//MISSING
+DeleteRows			: "Šalinti eilutes",
+InsertColumnAfter	: "Insert Column After",	//MISSING
+InsertColumnBefore	: "Insert Column Before",	//MISSING
+DeleteColumns		: "Šalinti stulpelius",
+InsertCellAfter		: "Insert Cell After",	//MISSING
+InsertCellBefore	: "Insert Cell Before",	//MISSING
+DeleteCells			: "Šalinti langelius",
+MergeCells			: "Sujungti langelius",
+MergeRight			: "Merge Right",	//MISSING
+MergeDown			: "Merge Down",	//MISSING
+HorizontalSplitCell	: "Split Cell Horizontally",	//MISSING
+VerticalSplitCell	: "Split Cell Vertically",	//MISSING
+TableDelete			: "Šalinti lentelę",
+CellProperties		: "Langelio savybės",
+TableProperties		: "Lentelės savybės",
+ImageProperties		: "Vaizdo savybės",
+FlashProperties		: "Flash savybės",
+
+AnchorProp			: "Žymės savybės",
+ButtonProp			: "Mygtuko savybės",
+CheckboxProp		: "Žymimojo langelio savybės",
+HiddenFieldProp		: "Nerodomo lauko savybės",
+RadioButtonProp		: "Žymimosios akutės savybės",
+ImageButtonProp		: "Vaizdinio mygtuko savybės",
+TextFieldProp		: "Teksto lauko savybės",
+SelectionFieldProp	: "Atrankos lauko savybės",
+TextareaProp		: "Teksto srities savybės",
+FormProp			: "Formos savybės",
+
+FontFormats			: "Normalus;Formuotas;Kreipinio;Antraštinis 1;Antraštinis 2;Antraštinis 3;Antraštinis 4;Antraštinis 5;Antraštinis 6",
+
+// Alerts and Messages
+ProcessingXHTML		: "Apdorojamas XHTML. Prašome palaukti...",
+Done				: "Baigta",
+PasteWordConfirm	: "Įdedamas tekstas yra panašus į kopiją iš Word. Ar Jūs norite prieš įdėjimą išvalyti jį?",
+NotCompatiblePaste	: "Ši komanda yra prieinama tik per Internet Explorer 5.5 ar aukštesnę versiją. Ar Jūs norite įterpti be valymo?",
+UnknownToolbarItem	: "Nežinomas mygtukų juosta elementas \"%1\"",
+UnknownCommand		: "Nežinomas komandos vardas \"%1\"",
+NotImplemented		: "Komanda nėra įgyvendinta",
+UnknownToolbarSet	: "Mygtukų juostos rinkinys \"%1\" neegzistuoja",
+NoActiveX			: "Jūsų naršyklės saugumo nuostatos gali riboti kai kurias redaktoriaus savybes. Jūs turite aktyvuoti opciją \"Run ActiveX controls and plug-ins\". Kitu atveju Jums bus pranešama apie klaidas ir trūkstamas savybes.",
+BrowseServerBlocked : "Neįmanoma atidaryti naujo naršyklės lango. Įsitikinkite, kad iškylančių langų blokavimo programos neveiksnios.",
+DialogBlocked		: "Neįmanoma atidaryti dialogo lango. Įsitikinkite, kad iškylančių langų blokavimo programos neveiksnios.",
+VisitLinkBlocked	: "It was not possible to open a new window. Make sure all popup blockers are disabled.",	//MISSING
+
+// Dialogs
+DlgBtnOK			: "OK",
+DlgBtnCancel		: "Nutraukti",
+DlgBtnClose			: "Uždaryti",
+DlgBtnBrowseServer	: "Naršyti po serverį",
+DlgAdvancedTag		: "Papildomas",
+DlgOpOther			: "<Kita>",
+DlgInfoTab			: "Informacija",
+DlgAlertUrl			: "Prašome įrašyti URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<nėra nustatyta>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Teksto kryptis",
+DlgGenLangDirLtr	: "Iš kairės į dešinę (LTR)",
+DlgGenLangDirRtl	: "Iš dešinės į kairę (RTL)",
+DlgGenLangCode		: "Kalbos kodas",
+DlgGenAccessKey		: "Prieigos raktas",
+DlgGenName			: "Vardas",
+DlgGenTabIndex		: "Tabuliavimo indeksas",
+DlgGenLongDescr		: "Ilgas aprašymas URL",
+DlgGenClass			: "Stilių lentelės klasės",
+DlgGenTitle			: "Konsultacinė antraštė",
+DlgGenContType		: "Konsultacinio turinio tipas",
+DlgGenLinkCharset	: "Susietų išteklių simbolių lentelė",
+DlgGenStyle			: "Stilius",
+
+// Image Dialog
+DlgImgTitle			: "Vaizdo savybės",
+DlgImgInfoTab		: "Vaizdo informacija",
+DlgImgBtnUpload		: "Siųsti į serverį",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Nusiųsti",
+DlgImgAlt			: "Alternatyvus Tekstas",
+DlgImgWidth			: "Plotis",
+DlgImgHeight		: "Aukštis",
+DlgImgLockRatio		: "Išlaikyti proporciją",
+DlgBtnResetSize		: "Atstatyti dydį",
+DlgImgBorder		: "Rėmelis",
+DlgImgHSpace		: "Hor.Erdvė",
+DlgImgVSpace		: "Vert.Erdvė",
+DlgImgAlign			: "Lygiuoti",
+DlgImgAlignLeft		: "Kairę",
+DlgImgAlignAbsBottom: "Absoliučią apačią",
+DlgImgAlignAbsMiddle: "Absoliutų vidurį",
+DlgImgAlignBaseline	: "Apatinę liniją",
+DlgImgAlignBottom	: "Apačią",
+DlgImgAlignMiddle	: "Vidurį",
+DlgImgAlignRight	: "Dešinę",
+DlgImgAlignTextTop	: "Teksto viršūnę",
+DlgImgAlignTop		: "Viršūnę",
+DlgImgPreview		: "Peržiūra",
+DlgImgAlertUrl		: "Prašome įvesti vaizdo URL",
+DlgImgLinkTab		: "Nuoroda",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash savybės",
+DlgFlashChkPlay		: "Automatinis paleidimas",
+DlgFlashChkLoop		: "Ciklas",
+DlgFlashChkMenu		: "Leisti Flash meniu",
+DlgFlashScale		: "Mastelis",
+DlgFlashScaleAll	: "Rodyti visą",
+DlgFlashScaleNoBorder	: "Be rėmelio",
+DlgFlashScaleFit	: "Tikslus atitikimas",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Nuoroda",
+DlgLnkInfoTab		: "Nuorodos informacija",
+DlgLnkTargetTab		: "Paskirtis",
+
+DlgLnkType			: "Nuorodos tipas",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Žymė šiame puslapyje",
+DlgLnkTypeEMail		: "El.paštas",
+DlgLnkProto			: "Protokolas",
+DlgLnkProtoOther	: "<kitas>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Pasirinkite žymę",
+DlgLnkAnchorByName	: "Pagal žymės vardą",
+DlgLnkAnchorById	: "Pagal žymės Id",
+DlgLnkNoAnchors		: "(Šiame dokumente žymių nėra)",
+DlgLnkEMail			: "El.pašto adresas",
+DlgLnkEMailSubject	: "Žinutės tema",
+DlgLnkEMailBody		: "Žinutės turinys",
+DlgLnkUpload		: "Siųsti",
+DlgLnkBtnUpload		: "Siųsti į serverį",
+
+DlgLnkTarget		: "Paskirties vieta",
+DlgLnkTargetFrame	: "<kadras>",
+DlgLnkTargetPopup	: "<išskleidžiamas langas>",
+DlgLnkTargetBlank	: "Naujas langas (_blank)",
+DlgLnkTargetParent	: "Pirminis langas (_parent)",
+DlgLnkTargetSelf	: "Tas pats langas (_self)",
+DlgLnkTargetTop		: "Svarbiausias langas (_top)",
+DlgLnkTargetFrameName	: "Paskirties kadro vardas",
+DlgLnkPopWinName	: "Paskirties lango vardas",
+DlgLnkPopWinFeat	: "Išskleidžiamo lango savybės",
+DlgLnkPopResize		: "Keičiamas dydis",
+DlgLnkPopLocation	: "Adreso juosta",
+DlgLnkPopMenu		: "Meniu juosta",
+DlgLnkPopScroll		: "Slinkties juostos",
+DlgLnkPopStatus		: "Būsenos juosta",
+DlgLnkPopToolbar	: "Mygtukų juosta",
+DlgLnkPopFullScrn	: "Visas ekranas (IE)",
+DlgLnkPopDependent	: "Priklausomas (Netscape)",
+DlgLnkPopWidth		: "Plotis",
+DlgLnkPopHeight		: "Aukštis",
+DlgLnkPopLeft		: "Kairė pozicija",
+DlgLnkPopTop		: "Viršutinė pozicija",
+
+DlnLnkMsgNoUrl		: "Prašome įvesti nuorodos URL",
+DlnLnkMsgNoEMail	: "Prašome įvesti el.pašto adresą",
+DlnLnkMsgNoAnchor	: "Prašome pasirinkti žymę",
+DlnLnkMsgInvPopName	: "The popup name must begin with an alphabetic character and must not contain spaces",	//MISSING
+
+// Color Dialog
+DlgColorTitle		: "Pasirinkite spalvą",
+DlgColorBtnClear	: "Trinti",
+DlgColorHighlight	: "Paryškinta",
+DlgColorSelected	: "Pažymėta",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Įterpti veidelį",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Pasirinkite specialų simbolį",
+
+// Table Dialog
+DlgTableTitle		: "Lentelės savybės",
+DlgTableRows		: "Eilutės",
+DlgTableColumns		: "Stulpeliai",
+DlgTableBorder		: "Rėmelio dydis",
+DlgTableAlign		: "Lygiuoti",
+DlgTableAlignNotSet	: "<Nenustatyta>",
+DlgTableAlignLeft	: "Kairę",
+DlgTableAlignCenter	: "Centrą",
+DlgTableAlignRight	: "Dešinę",
+DlgTableWidth		: "Plotis",
+DlgTableWidthPx		: "taškais",
+DlgTableWidthPc		: "procentais",
+DlgTableHeight		: "Aukštis",
+DlgTableCellSpace	: "Tarpas tarp langelių",
+DlgTableCellPad		: "Trapas nuo langelio rėmo iki teksto",
+DlgTableCaption		: "Antraštė",
+DlgTableSummary		: "Santrauka",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Langelio savybės",
+DlgCellWidth		: "Plotis",
+DlgCellWidthPx		: "taškais",
+DlgCellWidthPc		: "procentais",
+DlgCellHeight		: "Aukštis",
+DlgCellWordWrap		: "Teksto laužymas",
+DlgCellWordWrapNotSet	: "<Nenustatyta>",
+DlgCellWordWrapYes	: "Taip",
+DlgCellWordWrapNo	: "Ne",
+DlgCellHorAlign		: "Horizontaliai lygiuoti",
+DlgCellHorAlignNotSet	: "<Nenustatyta>",
+DlgCellHorAlignLeft	: "Kairę",
+DlgCellHorAlignCenter	: "Centrą",
+DlgCellHorAlignRight: "Dešinę",
+DlgCellVerAlign		: "Vertikaliai lygiuoti",
+DlgCellVerAlignNotSet	: "<Nenustatyta>",
+DlgCellVerAlignTop	: "Viršų",
+DlgCellVerAlignMiddle	: "Vidurį",
+DlgCellVerAlignBottom	: "Apačią",
+DlgCellVerAlignBaseline	: "Apatinę liniją",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Eilučių apjungimas",
+DlgCellCollSpan		: "Stulpelių apjungimas",
+DlgCellBackColor	: "Fono spalva",
+DlgCellBorderColor	: "Rėmelio spalva",
+DlgCellBtnSelect	: "Pažymėti...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Find and Replace",	//MISSING
+
+// Find Dialog
+DlgFindTitle		: "Paieška",
+DlgFindFindBtn		: "Surasti",
+DlgFindNotFoundMsg	: "Nurodytas tekstas nerastas.",
+
+// Replace Dialog
+DlgReplaceTitle			: "Pakeisti",
+DlgReplaceFindLbl		: "Surasti tekstą:",
+DlgReplaceReplaceLbl	: "Pakeisti tekstu:",
+DlgReplaceCaseChk		: "Skirti didžiąsias ir mažąsias raides",
+DlgReplaceReplaceBtn	: "Pakeisti",
+DlgReplaceReplAllBtn	: "Pakeisti viską",
+DlgReplaceWordChk		: "Atitikti pilną žodį",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl+X).",
+PasteErrorCopy	: "Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti kopijavimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl+C).",
+
+PasteAsText		: "Įdėti kaip gryną tekstą",
+PasteFromWord	: "Įdėti iš Word",
+
+DlgPasteMsg2	: "Žemiau esančiame įvedimo lauke įdėkite tekstą, naudodami klaviatūrą (<STRONG>Ctrl+V</STRONG>) ir spūstelkite mygtuką <STRONG>OK</STRONG>.",
+DlgPasteSec		: "Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.",	//MISSING
+DlgPasteIgnoreFont		: "Ignoruoti šriftų nustatymus",
+DlgPasteRemoveStyles	: "Pašalinti stilių nustatymus",
+
+// Color Picker
+ColorAutomatic	: "Automatinis",
+ColorMoreColors	: "Daugiau spalvų...",
+
+// Document Properties
+DocProps		: "Dokumento savybės",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Žymės savybės",
+DlgAnchorName		: "Žymės vardas",
+DlgAnchorErrorName	: "Prašome įvesti žymės vardą",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Žodyne nerastas",
+DlgSpellChangeTo		: "Pakeisti į",
+DlgSpellBtnIgnore		: "Ignoruoti",
+DlgSpellBtnIgnoreAll	: "Ignoruoti visus",
+DlgSpellBtnReplace		: "Pakeisti",
+DlgSpellBtnReplaceAll	: "Pakeisti visus",
+DlgSpellBtnUndo			: "Atšaukti",
+DlgSpellNoSuggestions	: "- Nėra pasiūlymų -",
+DlgSpellProgress		: "Vyksta rašybos tikrinimas...",
+DlgSpellNoMispell		: "Rašybos tikrinimas baigtas: Nerasta rašybos klaidų",
+DlgSpellNoChanges		: "Rašybos tikrinimas baigtas: Nėra pakeistų žodžių",
+DlgSpellOneChange		: "Rašybos tikrinimas baigtas: Vienas žodis pakeistas",
+DlgSpellManyChanges		: "Rašybos tikrinimas baigtas: Pakeista %1 žodžių",
+
+IeSpellDownload			: "Rašybos tikrinimas neinstaliuotas. Ar Jūs norite jį dabar atsisiųsti?",
+
+// Button Dialog
+DlgButtonText		: "Tekstas (Reikšmė)",
+DlgButtonType		: "Tipas",
+DlgButtonTypeBtn	: "Button",	//MISSING
+DlgButtonTypeSbm	: "Submit",	//MISSING
+DlgButtonTypeRst	: "Reset",	//MISSING
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Vardas",
+DlgCheckboxValue	: "Reikšmė",
+DlgCheckboxSelected	: "Pažymėtas",
+
+// Form Dialog
+DlgFormName		: "Vardas",
+DlgFormAction	: "Veiksmas",
+DlgFormMethod	: "Metodas",
+
+// Select Field Dialog
+DlgSelectName		: "Vardas",
+DlgSelectValue		: "Reikšmė",
+DlgSelectSize		: "Dydis",
+DlgSelectLines		: "eilučių",
+DlgSelectChkMulti	: "Leisti daugeriopą atranką",
+DlgSelectOpAvail	: "Galimos parinktys",
+DlgSelectOpText		: "Tekstas",
+DlgSelectOpValue	: "Reikšmė",
+DlgSelectBtnAdd		: "Įtraukti",
+DlgSelectBtnModify	: "Modifikuoti",
+DlgSelectBtnUp		: "Aukštyn",
+DlgSelectBtnDown	: "Žemyn",
+DlgSelectBtnSetValue : "Laikyti pažymėta reikšme",
+DlgSelectBtnDelete	: "Trinti",
+
+// Textarea Dialog
+DlgTextareaName	: "Vardas",
+DlgTextareaCols	: "Ilgis",
+DlgTextareaRows	: "Plotis",
+
+// Text Field Dialog
+DlgTextName			: "Vardas",
+DlgTextValue		: "Reikšmė",
+DlgTextCharWidth	: "Ilgis simboliais",
+DlgTextMaxChars		: "Maksimalus simbolių skaičius",
+DlgTextType			: "Tipas",
+DlgTextTypeText		: "Tekstas",
+DlgTextTypePass		: "Slaptažodis",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Vardas",
+DlgHiddenValue	: "Reikšmė",
+
+// Bulleted List Dialog
+BulletedListProp	: "Suženklinto sąrašo savybės",
+NumberedListProp	: "Numeruoto sąrašo savybės",
+DlgLstStart			: "Start",	//MISSING
+DlgLstType			: "Tipas",
+DlgLstTypeCircle	: "Apskritimas",
+DlgLstTypeDisc		: "Diskas",
+DlgLstTypeSquare	: "Kvadratas",
+DlgLstTypeNumbers	: "Skaičiai (1, 2, 3)",
+DlgLstTypeLCase		: "Mažosios raidės (a, b, c)",
+DlgLstTypeUCase		: "Didžiosios raidės (A, B, C)",
+DlgLstTypeSRoman	: "Romėnų mažieji skaičiai (i, ii, iii)",
+DlgLstTypeLRoman	: "Romėnų didieji skaičiai (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Bendros savybės",
+DlgDocBackTab		: "Fonas",
+DlgDocColorsTab		: "Spalvos ir kraštinės",
+DlgDocMetaTab		: "Meta duomenys",
+
+DlgDocPageTitle		: "Puslapio antraštė",
+DlgDocLangDir		: "Kalbos kryptis",
+DlgDocLangDirLTR	: "Iš kairės į dešinę (LTR)",
+DlgDocLangDirRTL	: "Iš dešinės į kairę (RTL)",
+DlgDocLangCode		: "Kalbos kodas",
+DlgDocCharSet		: "Simbolių kodavimo lentelė",
+DlgDocCharSetCE		: "Central European",	//MISSING
+DlgDocCharSetCT		: "Chinese Traditional (Big5)",	//MISSING
+DlgDocCharSetCR		: "Cyrillic",	//MISSING
+DlgDocCharSetGR		: "Greek",	//MISSING
+DlgDocCharSetJP		: "Japanese",	//MISSING
+DlgDocCharSetKR		: "Korean",	//MISSING
+DlgDocCharSetTR		: "Turkish",	//MISSING
+DlgDocCharSetUN		: "Unicode (UTF-8)",	//MISSING
+DlgDocCharSetWE		: "Western European",	//MISSING
+DlgDocCharSetOther	: "Kita simbolių kodavimo lentelė",
+
+DlgDocDocType		: "Dokumento tipo antraštė",
+DlgDocDocTypeOther	: "Kita dokumento tipo antraštė",
+DlgDocIncXHTML		: "Įtraukti XHTML deklaracijas",
+DlgDocBgColor		: "Fono spalva",
+DlgDocBgImage		: "Fono paveikslėlio nuoroda (URL)",
+DlgDocBgNoScroll	: "Neslenkantis fonas",
+DlgDocCText			: "Tekstas",
+DlgDocCLink			: "Nuoroda",
+DlgDocCVisited		: "Aplankyta nuoroda",
+DlgDocCActive		: "Aktyvi nuoroda",
+DlgDocMargins		: "Puslapio kraštinės",
+DlgDocMaTop			: "Viršuje",
+DlgDocMaLeft		: "Kairėje",
+DlgDocMaRight		: "Dešinėje",
+DlgDocMaBottom		: "Apačioje",
+DlgDocMeIndex		: "Dokumento indeksavimo raktiniai žodžiai (atskirti kableliais)",
+DlgDocMeDescr		: "Dokumento apibūdinimas",
+DlgDocMeAuthor		: "Autorius",
+DlgDocMeCopy		: "Autorinės teisės",
+DlgDocPreview		: "Peržiūra",
+
+// Templates Dialog
+Templates			: "Šablonai",
+DlgTemplatesTitle	: "Turinio šablonai",
+DlgTemplatesSelMsg	: "Pasirinkite norimą šabloną<br>(<b>Dėmesio!</b> esamas turinys bus prarastas):",
+DlgTemplatesLoading	: "Įkeliamas šablonų sąrašas. Prašome palaukti...",
+DlgTemplatesNoTpl	: "(Šablonų sąrašas tuščias)",
+DlgTemplatesReplace	: "Replace actual contents",	//MISSING
+
+// About Dialog
+DlgAboutAboutTab	: "Apie",
+DlgAboutBrowserInfoTab	: "Naršyklės informacija",
+DlgAboutLicenseTab	: "License",	//MISSING
+DlgAboutVersion		: "versija",
+DlgAboutInfo		: "Papildomą informaciją galima gauti",
+
+// Div Dialog
+DlgDivGeneralTab	: "General",	//MISSING
+DlgDivAdvancedTab	: "Advanced",	//MISSING
+DlgDivStyle		: "Style",	//MISSING
+DlgDivInlineStyle	: "Inline Style"	//MISSING
+};

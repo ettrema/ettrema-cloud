@@ -1,6 +1,534 @@
 ﻿/*
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * Faroese language file.
+ */
 
-CKEDITOR.lang.fo={dir:'ltr',editorTitle:'Rich text editor, %1, trýst ALT og 0 fyri vegleiðing.',toolbars:'Editor toolbars',editor:'Rich Text Editor',source:'Kelda',newPage:'Nýggj síða',save:'Goym',preview:'Frumsýning',cut:'Kvett',copy:'Avrita',paste:'Innrita',print:'Prenta',underline:'Undirstrikað',bold:'Feit skrift',italic:'Skráskrift',selectAll:'Markera alt',removeFormat:'Strika sniðgeving',strike:'Yvirstrikað',subscript:'Lækkað skrift',superscript:'Hækkað skrift',horizontalrule:'Ger vatnrætta linju',pagebreak:'Ger síðuskift',pagebreakAlt:'Síðuskift',unlink:'Strika tilknýti',undo:'Angra',redo:'Vend aftur',common:{browseServer:'Ambætarakagi',url:'URL',protocol:'Protokoll',upload:'Send til ambætaran',uploadSubmit:'Send til ambætaran',image:'Myndir',flash:'Flash',form:'Formur',checkbox:'Flugubein',radio:'Radioknøttur',textField:'Tekstteigur',textarea:'Tekstumráði',hiddenField:'Fjaldur teigur',button:'Knøttur',select:'Valskrá',imageButton:'Myndaknøttur',notSet:'<ikki sett>',id:'Id',name:'Navn',langDir:'Tekstkós',langDirLtr:'Frá vinstru til høgru (LTR)',langDirRtl:'Frá høgru til vinstru (RTL)',langCode:'Málkoda',longDescr:'Víðkað URL frágreiðing',cssClass:'Typografi klassar',advisoryTitle:'Vegleiðandi heiti',cssStyle:'Typografi',ok:'Góðkent',cancel:'Avlýst',close:'Lat aftur',preview:'Frumsýn',generalTab:'Generelt',advancedTab:'Fjølbroytt',validateNumberFailed:'Hetta er ikki eitt tal.',confirmNewPage:'Allar ikki goymdar broytingar í hesum innihaldið hvørva. Skal nýggj síða lesast kortini?',confirmCancel:'Nakrir valmøguleikar eru broyttir. Ert tú vísur í, at dialogurin skal latast aftur?',options:'Options',target:'Target',targetNew:'Nýtt vindeyga (_blank)',targetTop:'Vindeyga ovast (_top)',targetSelf:'Sama vindeyga (_self)',targetParent:'Upphavligt vindeyga (_parent)',langDirLTR:'Frá vinstru til høgru (LTR)',langDirRTL:'Frá høgru til vinstru (RTL)',styles:'Style',cssClasses:'Stylesheet Classes',width:'Breidd',height:'Hædd',align:'Justering',alignLeft:'Vinstra',alignRight:'Høgra',alignCenter:'Miðsett',alignTop:'Ovast',alignMiddle:'Miðja',alignBottom:'Botnur',invalidHeight:'Hædd má vera eitt tal.',invalidWidth:'Breidd má vera eitt tal.',invalidCssLength:'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',invalidHtmlLength:'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',invalidInlineStyle:'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',cssLengthTooltip:'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',unavailable:'%1<span class="cke_accessibility">, ikki tøkt</span>'},contextmenu:{options:'Context Menu Options'},specialChar:{toolbar:'Set inn sertekn',title:'Vel sertekn',options:'Møguleikar við serteknum'},link:{toolbar:'Ger/broyt tilknýti',other:'<annað>',menu:'Broyt tilknýti',title:'Tilknýti',info:'Tilknýtis upplýsingar',target:'Target',upload:'Send til ambætaran',advanced:'Fjølbroytt',type:'Tilknýtisslag',toUrl:'URL',toAnchor:'Tilknýti til marknastein í tekstinum',toEmail:'Teldupostur',targetFrame:'<ramma>',targetPopup:'<popup vindeyga>',targetFrameName:'Vís navn vindeygans',targetPopupName:'Popup vindeygans navn',popupFeatures:'Popup vindeygans víðkaðu eginleikar',popupResizable:'Stødd kann broytast',popupStatusBar:'Støðufrágreiðingarbjálki',popupLocationBar:'Adressulinja',popupToolbar:'Amboðsbjálki',popupMenuBar:'Skrábjálki',popupFullScreen:'Fullur skermur (IE)',popupScrollBars:'Rullibjálki',popupDependent:'Bundið (Netscape)',popupLeft:'Frástøða frá vinstru',popupTop:'Frástøða frá íerva',id:'Id',langDir:'Tekstkós',langDirLTR:'Frá vinstru til høgru (LTR)',langDirRTL:'Frá høgru til vinstru (RTL)',acccessKey:'Snarvegisknöttur',name:'Navn',langCode:'Tekstkós',tabIndex:'Tabulator indeks',advisoryTitle:'Vegleiðandi heiti',advisoryContentType:'Vegleiðandi innihaldsslag',cssClasses:'Typografi klassar',charset:'Atknýtt teknsett',styles:'Typografi',rel:'Relationship',selectAnchor:'Vel ein marknastein',anchorName:'Eftir navni á marknasteini',anchorId:'Eftir element Id',emailAddress:'Teldupost-adressa',emailSubject:'Evni',emailBody:'Breyðtekstur',noAnchors:'(Eingir marknasteinar eru í hesum dokumentið)',noUrl:'Vinarliga skriva tilknýti (URL)',noEmail:'Vinarliga skriva teldupost-adressu'},anchor:{toolbar:'Ger/broyt marknastein',menu:'Eginleikar fyri marknastein',title:'Eginleikar fyri marknastein',name:'Heiti marknasteinsins',errorName:'Vinarliga rita marknasteinsins heiti',remove:'Remove Anchor'},list:{numberedTitle:'Eginleikar fyri lista við tølum',bulletedTitle:'Eginleikar fyri lista við prikkum',type:'Slag',start:'Byrjan',validateStartNumber:'Byrjunartalið fyri lista má vera eitt heiltal.',circle:'Sirkul',disc:'Disc',square:'Fýrkantur',none:'Einki',notset:'<ikki sett>',armenian:'Armensk talskipan',georgian:'Georgisk talskipan (an, ban, gan, osv.)',lowerRoman:'Lítil rómaratøl (i, ii, iii, iv, v, etc.)',upperRoman:'Stór rómaratøl (I, II, III, IV, V, etc.)',lowerAlpha:'Lítlir bókstavir (a, b, c, d, e, etc.)',upperAlpha:'Stórir bókstavir (A, B, C, D, E, etc.)',lowerGreek:'Grikskt við lítlum (alpha, beta, gamma, etc.)',decimal:'Vanlig tøl (1, 2, 3, etc.)',decimalLeadingZero:'Tøl við null frammanfyri (01, 02, 03, etc.)'},findAndReplace:{title:'Finn og broyt',find:'Leita',replace:'Yvirskriva',findWhat:'Finn:',replaceWith:'Yvirskriva við:',notFoundMsg:'Leititeksturin varð ikki funnin',findOptions:'Find Options',matchCase:'Munur á stórum og smáum bókstavum',matchWord:'Bert heil orð',matchCyclic:'Match cyclic',replaceAll:'Yvirskriva alt',replaceSuccessMsg:'%1 úrslit broytt.'},table:{toolbar:'Tabell',title:'Eginleikar fyri tabell',menu:'Eginleikar fyri tabell',deleteTable:'Strika tabell',rows:'Røðir',columns:'Kolonnur',border:'Bordabreidd',widthPx:'pixels',widthPc:'prosent',widthUnit:'breiddar unit',cellSpace:'Fjarstøða millum meskar',cellPad:'Meskubreddi',caption:'Tabellfrágreiðing',summary:'Samandráttur',headers:'Yvirskriftir',headersNone:'Eingin',headersColumn:'Fyrsta kolonna',headersRow:'Fyrsta rað',headersBoth:'Báðir',invalidRows:'Talið av røðum má vera eitt tal størri enn 0.',invalidCols:'Talið av kolonnum má vera eitt tal størri enn 0.',invalidBorder:'Borda-stødd má vera eitt tal.',invalidWidth:'Tabell-breidd má vera eitt tal.',invalidHeight:'Tabell-hædd má vera eitt tal.',invalidCellSpacing:'Cell spacing má vera eitt tal.',invalidCellPadding:'Cell padding má vera eitt tal.',cell:{menu:'Meski',insertBefore:'Set meska inn áðrenn',insertAfter:'Set meska inn aftaná',deleteCell:'Strika meskar',merge:'Flætta meskar',mergeRight:'Flætta meskar til høgru',mergeDown:'Flætta saman',splitHorizontal:'Kloyv meska vatnrætt',splitVertical:'Kloyv meska loddrætt',title:'Mesku eginleikar',cellType:'Mesku slag',rowSpan:'Ræð spenni',colSpan:'Kolonnu spenni',wordWrap:'Orðkloyving',hAlign:'Horisontal plasering',vAlign:'Loddrøtt plasering',alignBaseline:'Basislinja',bgColor:'Bakgrundslitur',borderColor:'Bordalitur',data:'Data',header:'Header',yes:'Ja',no:'Nei',invalidWidth:'Meskubreidd má vera eitt tal.',invalidHeight:'Meskuhædd má vera eitt tal.',invalidRowSpan:'Raðspennið má vera eitt heiltal.',invalidColSpan:'Kolonnuspennið má vera eitt heiltal.',chooseColor:'Vel'},row:{menu:'Rað',insertBefore:'Set rað inn áðrenn',insertAfter:'Set rað inn aftaná',deleteRow:'Strika røðir'},column:{menu:'Kolonna',insertBefore:'Set kolonnu inn áðrenn',insertAfter:'Set kolonnu inn aftaná',deleteColumn:'Strika kolonnur'}},button:{title:'Eginleikar fyri knøtt',text:'Tekstur',type:'Slag',typeBtn:'Knøttur',typeSbm:'Send',typeRst:'Nullstilla'},checkboxAndRadio:{checkboxTitle:'Eginleikar fyri flugubein',radioTitle:'Eginleikar fyri radioknøtt',value:'Virði',selected:'Valt'},form:{title:'Eginleikar fyri Form',menu:'Eginleikar fyri Form',action:'Hending',method:'Háttur',encoding:'Encoding'},select:{title:'Eginleikar fyri valskrá',selectInfo:'Upplýsingar',opAvail:'Tøkir møguleikar',value:'Virði',size:'Stødd',lines:'Linjur',chkMulti:'Loyv fleiri valmøguleikum samstundis',opText:'Tekstur',opValue:'Virði',btnAdd:'Legg afturat',btnModify:'Broyt',btnUp:'Upp',btnDown:'Niður',btnSetValue:'Set sum valt virði',btnDelete:'Strika'},textarea:{title:'Eginleikar fyri tekstumráði',cols:'kolonnur',rows:'røðir'},textfield:{title:'Eginleikar fyri tekstteig',name:'Navn',value:'Virði',charWidth:'Breidd (sjónlig tekn)',maxChars:'Mest loyvdu tekn',type:'Slag',typeText:'Tekstur',typePass:'Loyniorð'},hidden:{title:'Eginleikar fyri fjaldan teig',name:'Navn',value:'Virði'},image:{title:'Myndaeginleikar',titleButton:'Eginleikar fyri myndaknøtt',menu:'Myndaeginleikar',infoTab:'Myndaupplýsingar',btnUpload:'Send til ambætaran',upload:'Send',alt:'Alternativur tekstur',lockRatio:'Læs lutfallið',resetSize:'Upprunastødd',border:'Bordi',hSpace:'Høgri breddi',vSpace:'Vinstri breddi',alertUrl:'Rita slóðina til myndina',linkTab:'Tilknýti',button2Img:'Skal valdi myndaknøttur gerast til vanliga mynd?',img2Button:'Skal valda mynd gerast til myndaknøtt?',urlMissing:'URL til mynd manglar.',validateBorder:'Bordi má vera eitt heiltal.',validateHSpace:'HSpace má vera eitt heiltal.',validateVSpace:'VSpace má vera eitt heiltal.'},flash:{properties:'Flash eginleikar',propertiesTab:'Eginleikar',title:'Flash eginleikar',chkPlay:'Avspælingin byrjar sjálv',chkLoop:'Endurspæl',chkMenu:'Ger Flash skrá virkna',chkFull:'Loyv fullan skerm',scale:'Skalering',scaleAll:'Vís alt',scaleNoBorder:'Eingin bordi',scaleFit:'Neyv skalering',access:'Script atgongd',accessAlways:'Altíð',accessSameDomain:'Sama navnaøki',accessNever:'Ongantíð',alignAbsBottom:'Abs botnur',alignAbsMiddle:'Abs miðja',alignBaseline:'Basislinja',alignTextTop:'Tekst toppur',quality:'Góðska',qualityBest:'Besta',qualityHigh:'Høg',qualityAutoHigh:'Auto høg',qualityMedium:'Meðal',qualityAutoLow:'Auto Lág',qualityLow:'Lág',windowModeWindow:'Rútur',windowModeOpaque:'Ikki transparent',windowModeTransparent:'Transparent',windowMode:'Slag av rúti',flashvars:'Variablar fyri Flash',bgcolor:'Bakgrundslitur',hSpace:'Høgri breddi',vSpace:'Vinstri breddi',validateSrc:'Vinarliga skriva tilknýti (URL)',validateHSpace:'HSpace má vera eitt tal.',validateVSpace:'VSpace má vera eitt tal.'},spellCheck:{toolbar:'Kanna stavseting',title:'Kanna stavseting',notAvailable:'Tíverri, ikki tøkt í løtuni.',errorLoading:'Feilur við innlesing av application service host: %s.',notInDic:'Finst ikki í orðabókini',changeTo:'Broyt til',btnIgnore:'Forfjóna',btnIgnoreAll:'Forfjóna alt',btnReplace:'Yvirskriva',btnReplaceAll:'Yvirskriva alt',btnUndo:'Angra',noSuggestions:'- Einki uppskot -',progress:'Rættstavarin arbeiðir...',noMispell:'Rættstavarain liðugur: Eingin feilur funnin',noChanges:'Rættstavarain liðugur: Einki orð varð broytt',oneChange:'Rættstavarain liðugur: Eitt orð er broytt',manyChanges:'Rættstavarain liðugur: %1 orð broytt',ieSpellDownload:'Rættstavarin er ikki tøkur í tekstviðgeranum. Vilt tú heinta hann nú?'},smiley:{toolbar:'Smiley',title:'Vel Smiley',options:'Møguleikar fyri Smiley'},elementsPath:{eleLabel:'Slóð til elementir',eleTitle:'%1 element'},numberedlist:'Talmerktur listi',bulletedlist:'Punktmerktur listi',indent:'Økja reglubrotarinntriv',outdent:'Minka reglubrotarinntriv',justify:{left:'Vinstrasett',center:'Miðsett',right:'Høgrasett',block:'Javnir tekstkantar'},blockquote:'Blockquote',clipboard:{title:'Innrita',cutError:'Trygdaruppseting alnótskagans forðar tekstviðgeranum í at kvetta tekstin. Vinarliga nýt knappaborðið til at kvetta tekstin (Ctrl/Cmd+X).',copyError:'Trygdaruppseting alnótskagans forðar tekstviðgeranum í at avrita tekstin. Vinarliga nýt knappaborðið til at avrita tekstin (Ctrl/Cmd+C).',pasteMsg:'Vinarliga koyr tekstin í hendan rútin við knappaborðinum (<strong>Ctrl/Cmd+V</strong>) og klikk á <strong>Góðtak</strong>.',securityMsg:'Trygdaruppseting alnótskagans forðar tekstviðgeranum í beinleiðis atgongd til avritingarminnið. Tygum mugu royna aftur í hesum rútinum.',pasteArea:'Avritingarumráði'},pastefromword:{confirmCleanup:'Teksturin, tú roynir at seta inn, sýnist at stava frá Word. Skal teksturin reinsast fyrst?',toolbar:'Innrita frá Word',title:'Innrita frá Word',error:'Tað eydnaðist ikki at reinsa tekstin vegna ein internan feil'},pasteText:{button:'Innrita som reinan tekst',title:'Innrita som reinan tekst'},templates:{button:'Skabelónir',title:'Innihaldsskabelónir',options:'Møguleikar fyri Template',insertOption:'Yvirskriva núverandi innihald',selectPromptMsg:'Vinarliga vel ta skabelón, ið skal opnast í tekstviðgeranum<br>(Hetta yvirskrivar núverandi innihald):',emptyListMsg:'(Ongar skabelónir tøkar)'},showBlocks:'Vís blokkar',stylesCombo:{label:'Typografi',panelTitle:'Formatterings stílir',panelTitle1:'Blokk stílir',panelTitle2:'Inline stílir',panelTitle3:'Object stílir'},format:{label:'Skriftsnið',panelTitle:'Skriftsnið',tag_p:'Vanligt',tag_pre:'Sniðgivið',tag_address:'Adressa',tag_h1:'Yvirskrift 1',tag_h2:'Yvirskrift 2',tag_h3:'Yvirskrift 3',tag_h4:'Yvirskrift 4',tag_h5:'Yvirskrift 5',tag_h6:'Yvirskrift 6',tag_div:'Vanligt (DIV)'},div:{title:'Ger Div Container',toolbar:'Ger Div Container',cssClassInputLabel:'Stylesheet Classes',styleSelectLabel:'Style',IdInputLabel:'Id',languageCodeInputLabel:' Language Code',inlineStyleInputLabel:'Inline Style',advisoryTitleInputLabel:'Advisory Title',langDirLabel:'Language Direction',langDirLTRLabel:'Vinstru til høgru (LTR)',langDirRTLLabel:'Høgru til vinstru (RTL)',edit:'Redigera Div',remove:'Strika Div'},iframe:{title:'Møguleikar fyri IFrame',toolbar:'IFrame',noUrl:'Vinarliga skriva URL til iframe',scrolling:'Loyv scrollbars',border:'Vís frame kant'},font:{label:'Skrift',voiceLabel:'Skrift',panelTitle:'Skrift'},fontSize:{label:'Skriftstødd',voiceLabel:'Skriftstødd',panelTitle:'Skriftstødd'},colorButton:{textColorTitle:'Tekstlitur',bgColorTitle:'Bakgrundslitur',panelTitle:'Litir',auto:'Automatiskt',more:'Fleiri litir...'},colors:{'000':'Svart',800000:'Maroon','8B4513':'Saðilsbrúnt','2F4F4F':'Dark Slate Gray','008080':'Teal','000080':'Navy','4B0082':'Indigo',696969:'Myrkagrátt',B22222:'Fire Brick',A52A2A:'Brúnt',DAA520:'Gullstavur','006400':'Myrkagrønt','40E0D0':'Turquoise','0000CD':'Meðal blátt',800080:'Purple',808080:'Grátt',F00:'Reytt',FF8C00:'Myrkt appelsingult',FFD700:'Gull','008000':'Grønt','0FF':'Cyan','00F':'Blátt',EE82EE:'Violet',A9A9A9:'Døkt grátt',FFA07A:'Ljósur laksur',FFA500:'Appelsingult',FFFF00:'Gult','00FF00':'Lime',AFEEEE:'Pale Turquoise',ADD8E6:'Ljósablátt',DDA0DD:'Plum',D3D3D3:'Ljósagrátt',FFF0F5:'Lavender Blush',FAEBD7:'Klassiskt hvítt',FFFFE0:'Ljósagult',F0FFF0:'Hunangsdøggur',F0FFFF:'Azure',F0F8FF:'Alice Blátt',E6E6FA:'Lavender',FFF:'Hvítt'},scayt:{title:'Kanna stavseting, meðan tú skrivar',opera_title:'Ikki stuðlað í Opera',enable:'Loyv SCAYT',disable:'Nokta SCAYT',about:'Um SCAYT',toggle:'Toggle SCAYT',options:'Uppseting',langs:'Tungumál',moreSuggestions:'Fleiri tilráðingar',ignore:'Ignorera',ignoreAll:'Ignorera alt',addWord:'Legg orð afturat',emptyDic:'Heiti á orðabók eigur ikki at vera tómt.',optionsTab:'Uppseting',allCaps:'Loyp orð við bert stórum stavum um',ignoreDomainNames:'loyp økisnøvn um',mixedCase:'Loyp orð við blandaðum smáum og stórum stavum um',mixedWithDigits:'Loyp orð við tølum um',languagesTab:'Tungumál',dictionariesTab:'Orðabøkur',dic_field_name:'Orðabókanavn',dic_create:'Upprætta nýggja',dic_restore:'Endurskapa',dic_delete:'Strika',dic_rename:'Broyt',dic_info:'Upprunaliga er brúkara-orðabókin goymd í eini cookie í tínum egna kaga. Men hesar eru avmarkaðar í stødd. Tá brúkara-orðabókin veksur seg ov stóra til eina cookie, so er møguligt at goyma hana á ambætara okkara. Fyri at goyma persónligu orðabókina á ambætaranum eigur tú at velja eitt navn til tína skuffu. Hevur tú longu goymt eina orðabók, so vinarliga skriva navnið og klikk á knøttin Endurskapa.',aboutTab:'Um'},about:{title:'Um CKEditor',dlgTitle:'Um CKEditor',help:'Check $1 for help.',userGuide:"CKEditor User's Guide",moreInfo:'Licens upplýsingar finnast á heimasíðu okkara:',copy:'Copyright &copy; $1. All rights reserved.'},maximize:'Maksimera',minimize:'Minimera',fakeobjects:{anchor:'Anchor',flash:'Flash Animation',iframe:'IFrame',hiddenfield:'Fjaldur teigur',unknown:'Ókent Object'},resize:'Drag fyri at broyta stødd',colordialog:{title:'Vel lit',options:'Litmøguleikar',highlight:'Framheva',selected:'Valdur litur',clear:'Strika'},toolbarCollapse:'Lat Toolbar aftur',toolbarExpand:'Vís Toolbar',toolbarGroups:{document:'Document',clipboard:'Clipboard/Undo',editing:'Editing',forms:'Forms',basicstyles:'Basic Styles',paragraph:'Paragraph',links:'Links',insert:'Insert',styles:'Styles',colors:'Colors',tools:'Tools'},bidi:{ltr:'Tekstkós frá vinstru til høgru',rtl:'Tekstkós frá høgru til vinstru'},docprops:{label:'Eginleikar fyri dokument',title:'Eginleikar fyri dokument',design:'Design',meta:'META-upplýsingar',chooseColor:'Vel',other:'<annað>',docTitle:'Síðuheiti',charset:'Teknsett koda',charsetOther:'Onnur teknsett koda',charsetASCII:'ASCII',charsetCE:'Miðeuropa',charsetCT:'Kinesiskt traditionelt (Big5)',charsetCR:'Cyrilliskt',charsetGR:'Grikst',charsetJP:'Japanskt',charsetKR:'Koreanskt',charsetTR:'Turkiskt',charsetUN:'Unicode (UTF-8)',charsetWE:'Vestureuropa',docType:'Dokumentslag yvirskrift',docTypeOther:'Annað dokumentslag yvirskrift',xhtmlDec:'Viðfest XHTML deklaratiónir',bgColor:'Bakgrundslitur',bgImage:'Leið til bakgrundsmynd (URL)',bgFixed:'Læst bakgrund (rullar ikki)',txtColor:'Tekstlitur',margin:'Síðubreddar',marginTop:'Ovast',marginLeft:'Vinstra',marginRight:'Høgra',marginBottom:'Niðast',metaKeywords:'Dokument index lyklaorð (sundurbýtt við komma)',metaDescription:'Dokumentlýsing',metaAuthor:'Høvundur',metaCopyright:'Upphavsrættindi',previewHtml:'<p>This is some <strong>sample text</strong>. You are using <a href="javascript:void(0)">CKEditor</a>.</p>'}};
+var FCKLang =
+{
+// Language direction : "ltr" (left to right) or "rtl" (right to left).
+Dir					: "ltr",
+
+ToolbarCollapse		: "Fjal amboðsbjálkan",
+ToolbarExpand		: "Vís amboðsbjálkan",
+
+// Toolbar Items and Context Menu
+Save				: "Goym",
+NewPage				: "Nýggj síða",
+Preview				: "Frumsýning",
+Cut					: "Kvett",
+Copy				: "Avrita",
+Paste				: "Innrita",
+PasteText			: "Innrita reinan tekst",
+PasteWord			: "Innrita frá Word",
+Print				: "Prenta",
+SelectAll			: "Markera alt",
+RemoveFormat		: "Strika sniðgeving",
+InsertLinkLbl		: "Tilknýti",
+InsertLink			: "Ger/broyt tilknýti",
+RemoveLink			: "Strika tilknýti",
+VisitLink			: "Opna tilknýti",
+Anchor				: "Ger/broyt marknastein",
+AnchorDelete		: "Strika marknastein",
+InsertImageLbl		: "Myndir",
+InsertImage			: "Set inn/broyt mynd",
+InsertFlashLbl		: "Flash",
+InsertFlash			: "Set inn/broyt Flash",
+InsertTableLbl		: "Tabell",
+InsertTable			: "Set inn/broyt tabell",
+InsertLineLbl		: "Linja",
+InsertLine			: "Ger vatnrætta linju",
+InsertSpecialCharLbl: "Sertekn",
+InsertSpecialChar	: "Set inn sertekn",
+InsertSmileyLbl		: "Smiley",
+InsertSmiley		: "Set inn Smiley",
+About				: "Um FCKeditor",
+Bold				: "Feit skrift",
+Italic				: "Skráskrift",
+Underline			: "Undirstrikað",
+StrikeThrough		: "Yvirstrikað",
+Subscript			: "Lækkað skrift",
+Superscript			: "Hækkað skrift",
+LeftJustify			: "Vinstrasett",
+CenterJustify		: "Miðsett",
+RightJustify		: "Høgrasett",
+BlockJustify		: "Javnir tekstkantar",
+DecreaseIndent		: "Minka reglubrotarinntriv",
+IncreaseIndent		: "Økja reglubrotarinntriv",
+Blockquote			: "Blockquote",
+CreateDiv			: "Ger DIV øki",
+EditDiv				: "Broyt DIV øki",
+DeleteDiv			: "Strika DIV øki",
+Undo				: "Angra",
+Redo				: "Vend aftur",
+NumberedListLbl		: "Talmerktur listi",
+NumberedList		: "Ger/strika talmerktan lista",
+BulletedListLbl		: "Punktmerktur listi",
+BulletedList		: "Ger/strika punktmerktan lista",
+ShowTableBorders	: "Vís tabellbordar",
+ShowDetails			: "Vís í smálutum",
+Style				: "Typografi",
+FontFormat			: "Skriftsnið",
+Font				: "Skrift",
+FontSize			: "Skriftstødd",
+TextColor			: "Tekstlitur",
+BGColor				: "Bakgrundslitur",
+Source				: "Kelda",
+Find				: "Leita",
+Replace				: "Yvirskriva",
+SpellCheck			: "Kanna stavseting",
+UniversalKeyboard	: "Knappaborð",
+PageBreakLbl		: "Síðuskift",
+PageBreak			: "Ger síðuskift",
+
+Form			: "Formur",
+Checkbox		: "Flugubein",
+RadioButton		: "Radioknøttur",
+TextField		: "Tekstteigur",
+Textarea		: "Tekstumráði",
+HiddenField		: "Fjaldur teigur",
+Button			: "Knøttur",
+SelectionField	: "Valskrá",
+ImageButton		: "Myndaknøttur",
+
+FitWindow		: "Set tekstviðgera til fulla stødd",
+ShowBlocks		: "Vís blokkar",
+
+// Context Menu
+EditLink			: "Broyt tilknýti",
+CellCM				: "Meski",
+RowCM				: "Rað",
+ColumnCM			: "Kolonna",
+InsertRowAfter		: "Set rað inn aftaná",
+InsertRowBefore		: "Set rað inn áðrenn",
+DeleteRows			: "Strika røðir",
+InsertColumnAfter	: "Set kolonnu inn aftaná",
+InsertColumnBefore	: "Set kolonnu inn áðrenn",
+DeleteColumns		: "Strika kolonnur",
+InsertCellAfter		: "Set meska inn aftaná",
+InsertCellBefore	: "Set meska inn áðrenn",
+DeleteCells			: "Strika meskar",
+MergeCells			: "Flætta meskar",
+MergeRight			: "Flætta meskar til høgru",
+MergeDown			: "Flætta saman",
+HorizontalSplitCell	: "Kloyv meska vatnrætt",
+VerticalSplitCell	: "Kloyv meska loddrætt",
+TableDelete			: "Strika tabell",
+CellProperties		: "Meskueginleikar",
+TableProperties		: "Tabelleginleikar",
+ImageProperties		: "Myndaeginleikar",
+FlashProperties		: "Flash eginleikar",
+
+AnchorProp			: "Eginleikar fyri marknastein",
+ButtonProp			: "Eginleikar fyri knøtt",
+CheckboxProp		: "Eginleikar fyri flugubein",
+HiddenFieldProp		: "Eginleikar fyri fjaldan teig",
+RadioButtonProp		: "Eginleikar fyri radioknøtt",
+ImageButtonProp		: "Eginleikar fyri myndaknøtt",
+TextFieldProp		: "Eginleikar fyri tekstteig",
+SelectionFieldProp	: "Eginleikar fyri valskrá",
+TextareaProp		: "Eginleikar fyri tekstumráði",
+FormProp			: "Eginleikar fyri Form",
+
+FontFormats			: "Vanligt;Sniðgivið;Adressa;Yvirskrift 1;Yvirskrift 2;Yvirskrift 3;Yvirskrift 4;Yvirskrift 5;Yvirskrift 6",
+
+// Alerts and Messages
+ProcessingXHTML		: "XHTML verður viðgjørt. Bíða við...",
+Done				: "Liðugt",
+PasteWordConfirm	: "Teksturin, royndur verður at seta inn, tykist at stava frá Word. Vilt tú reinsa tekstin, áðrenn hann verður settur inn?",
+NotCompatiblePaste	: "Hetta er bert tøkt í Internet Explorer 5.5 og nýggjari. Vilt tú seta tekstin inn kortini - óreinsaðan?",
+UnknownToolbarItem	: "Ókendur lutur í amboðsbjálkanum \"%1\"",
+UnknownCommand		: "Ókend kommando \"%1\"",
+NotImplemented		: "Hetta er ikki tøkt í hesi útgávuni",
+UnknownToolbarSet	: "Amboðsbjálkin \"%1\" finst ikki",
+NoActiveX			: "Trygdaruppsetingin í alnótskaganum kann sum er avmarka onkrar hentleikar í tekstviðgeranum. Tú mást loyva møguleikanum \"Run/Kør ActiveX controls and plug-ins\". Tú kanst uppliva feilir og ávaringar um tvørrandi hentleikar.",
+BrowseServerBlocked : "Ambætarakagin kundi ikki opnast. Tryggja tær, at allar pop-up forðingar eru óvirknar.",
+DialogBlocked		: "Tað eyðnaðist ikki at opna samskiftisrútin. Tryggja tær, at allar pop-up forðingar eru óvirknar.",
+VisitLinkBlocked	: "Tað eyðnaðist ikki at opna nýggjan rút. Tryggja tær, at allar pop-up forðingar eru óvirknar.",
+
+// Dialogs
+DlgBtnOK			: "Góðkent",
+DlgBtnCancel		: "Avlýst",
+DlgBtnClose			: "Lat aftur",
+DlgBtnBrowseServer	: "Ambætarakagi",
+DlgAdvancedTag		: "Fjølbroytt",
+DlgOpOther			: "<Annað>",
+DlgInfoTab			: "Upplýsingar",
+DlgAlertUrl			: "Vinarliga veit ein URL",
+
+// General Dialogs Labels
+DlgGenNotSet		: "<ikki sett>",
+DlgGenId			: "Id",
+DlgGenLangDir		: "Tekstkós",
+DlgGenLangDirLtr	: "Frá vinstru til høgru (LTR)",
+DlgGenLangDirRtl	: "Frá høgru til vinstru (RTL)",
+DlgGenLangCode		: "Málkoda",
+DlgGenAccessKey		: "Snarvegisknappur",
+DlgGenName			: "Navn",
+DlgGenTabIndex		: "Inntriv indeks",
+DlgGenLongDescr		: "Víðkað URL frágreiðing",
+DlgGenClass			: "Typografi klassar",
+DlgGenTitle			: "Vegleiðandi heiti",
+DlgGenContType		: "Vegleiðandi innihaldsslag",
+DlgGenLinkCharset	: "Atknýtt teknsett",
+DlgGenStyle			: "Typografi",
+
+// Image Dialog
+DlgImgTitle			: "Myndaeginleikar",
+DlgImgInfoTab		: "Myndaupplýsingar",
+DlgImgBtnUpload		: "Send til ambætaran",
+DlgImgURL			: "URL",
+DlgImgUpload		: "Send",
+DlgImgAlt			: "Alternativur tekstur",
+DlgImgWidth			: "Breidd",
+DlgImgHeight		: "Hædd",
+DlgImgLockRatio		: "Læs lutfallið",
+DlgBtnResetSize		: "Upprunastødd",
+DlgImgBorder		: "Bordi",
+DlgImgHSpace		: "Høgri breddi",
+DlgImgVSpace		: "Vinstri breddi",
+DlgImgAlign			: "Justering",
+DlgImgAlignLeft		: "Vinstra",
+DlgImgAlignAbsBottom: "Abs botnur",
+DlgImgAlignAbsMiddle: "Abs miðja",
+DlgImgAlignBaseline	: "Basislinja",
+DlgImgAlignBottom	: "Botnur",
+DlgImgAlignMiddle	: "Miðja",
+DlgImgAlignRight	: "Høgra",
+DlgImgAlignTextTop	: "Tekst toppur",
+DlgImgAlignTop		: "Ovast",
+DlgImgPreview		: "Frumsýning",
+DlgImgAlertUrl		: "Rita slóðina til myndina",
+DlgImgLinkTab		: "Tilknýti",
+
+// Flash Dialog
+DlgFlashTitle		: "Flash eginleikar",
+DlgFlashChkPlay		: "Avspælingin byrjar sjálv",
+DlgFlashChkLoop		: "Endurspæl",
+DlgFlashChkMenu		: "Ger Flash skrá virkna",
+DlgFlashScale		: "Skalering",
+DlgFlashScaleAll	: "Vís alt",
+DlgFlashScaleNoBorder	: "Eingin bordi",
+DlgFlashScaleFit	: "Neyv skalering",
+
+// Link Dialog
+DlgLnkWindowTitle	: "Tilknýti",
+DlgLnkInfoTab		: "Tilknýtis upplýsingar",
+DlgLnkTargetTab		: "Mál",
+
+DlgLnkType			: "Tilknýtisslag",
+DlgLnkTypeURL		: "URL",
+DlgLnkTypeAnchor	: "Tilknýti til marknastein í tekstinum",
+DlgLnkTypeEMail		: "Teldupostur",
+DlgLnkProto			: "Protokoll",
+DlgLnkProtoOther	: "<Annað>",
+DlgLnkURL			: "URL",
+DlgLnkAnchorSel		: "Vel ein marknastein",
+DlgLnkAnchorByName	: "Eftir navni á marknasteini",
+DlgLnkAnchorById	: "Eftir element Id",
+DlgLnkNoAnchors		: "(Eingir marknasteinar eru í hesum dokumentið)",
+DlgLnkEMail			: "Teldupost-adressa",
+DlgLnkEMailSubject	: "Evni",
+DlgLnkEMailBody		: "Breyðtekstur",
+DlgLnkUpload		: "Send til ambætaran",
+DlgLnkBtnUpload		: "Send til ambætaran",
+
+DlgLnkTarget		: "Mál",
+DlgLnkTargetFrame	: "<ramma>",
+DlgLnkTargetPopup	: "<popup vindeyga>",
+DlgLnkTargetBlank	: "Nýtt vindeyga (_blank)",
+DlgLnkTargetParent	: "Upphavliga vindeygað (_parent)",
+DlgLnkTargetSelf	: "Sama vindeygað (_self)",
+DlgLnkTargetTop		: "Alt vindeygað (_top)",
+DlgLnkTargetFrameName	: "Vís navn vindeygans",
+DlgLnkPopWinName	: "Popup vindeygans navn",
+DlgLnkPopWinFeat	: "Popup vindeygans víðkaðu eginleikar",
+DlgLnkPopResize		: "Kann broyta stødd",
+DlgLnkPopLocation	: "Adressulinja",
+DlgLnkPopMenu		: "Skrábjálki",
+DlgLnkPopScroll		: "Rullibjálki",
+DlgLnkPopStatus		: "Støðufrágreiðingarbjálki",
+DlgLnkPopToolbar	: "Amboðsbjálki",
+DlgLnkPopFullScrn	: "Fullur skermur (IE)",
+DlgLnkPopDependent	: "Bundið (Netscape)",
+DlgLnkPopWidth		: "Breidd",
+DlgLnkPopHeight		: "Hædd",
+DlgLnkPopLeft		: "Frástøða frá vinstru",
+DlgLnkPopTop		: "Frástøða frá íerva",
+
+DlnLnkMsgNoUrl		: "Vinarliga skriva tilknýti (URL)",
+DlnLnkMsgNoEMail	: "Vinarliga skriva teldupost-adressu",
+DlnLnkMsgNoAnchor	: "Vinarliga vel marknastein",
+DlnLnkMsgInvPopName	: "Popup navnið má byrja við bókstavi og má ikki hava millumrúm",
+
+// Color Dialog
+DlgColorTitle		: "Vel lit",
+DlgColorBtnClear	: "Strika alt",
+DlgColorHighlight	: "Framhevja",
+DlgColorSelected	: "Valt",
+
+// Smiley Dialog
+DlgSmileyTitle		: "Vel Smiley",
+
+// Special Character Dialog
+DlgSpecialCharTitle	: "Vel sertekn",
+
+// Table Dialog
+DlgTableTitle		: "Eginleikar fyri tabell",
+DlgTableRows		: "Røðir",
+DlgTableColumns		: "Kolonnur",
+DlgTableBorder		: "Bordabreidd",
+DlgTableAlign		: "Justering",
+DlgTableAlignNotSet	: "<Einki valt>",
+DlgTableAlignLeft	: "Vinstrasett",
+DlgTableAlignCenter	: "Miðsett",
+DlgTableAlignRight	: "Høgrasett",
+DlgTableWidth		: "Breidd",
+DlgTableWidthPx		: "pixels",
+DlgTableWidthPc		: "prosent",
+DlgTableHeight		: "Hædd",
+DlgTableCellSpace	: "Fjarstøða millum meskar",
+DlgTableCellPad		: "Meskubreddi",
+DlgTableCaption		: "Tabellfrágreiðing",
+DlgTableSummary		: "Samandráttur",
+DlgTableHeaders		: "Headers",	//MISSING
+DlgTableHeadersNone		: "None",	//MISSING
+DlgTableHeadersColumn	: "First column",	//MISSING
+DlgTableHeadersRow		: "First Row",	//MISSING
+DlgTableHeadersBoth		: "Both",	//MISSING
+
+// Table Cell Dialog
+DlgCellTitle		: "Mesku eginleikar",
+DlgCellWidth		: "Breidd",
+DlgCellWidthPx		: "pixels",
+DlgCellWidthPc		: "prosent",
+DlgCellHeight		: "Hædd",
+DlgCellWordWrap		: "Orðkloyving",
+DlgCellWordWrapNotSet	: "<Einki valt>",
+DlgCellWordWrapYes	: "Ja",
+DlgCellWordWrapNo	: "Nei",
+DlgCellHorAlign		: "Vatnrøtt justering",
+DlgCellHorAlignNotSet	: "<Einki valt>",
+DlgCellHorAlignLeft	: "Vinstrasett",
+DlgCellHorAlignCenter	: "Miðsett",
+DlgCellHorAlignRight: "Høgrasett",
+DlgCellVerAlign		: "Lodrøtt justering",
+DlgCellVerAlignNotSet	: "<Ikki sett>",
+DlgCellVerAlignTop	: "Ovast",
+DlgCellVerAlignMiddle	: "Miðjan",
+DlgCellVerAlignBottom	: "Niðast",
+DlgCellVerAlignBaseline	: "Basislinja",
+DlgCellType		: "Cell Type",	//MISSING
+DlgCellTypeData		: "Data",	//MISSING
+DlgCellTypeHeader	: "Header",	//MISSING
+DlgCellRowSpan		: "Røðir, meskin fevnir um",
+DlgCellCollSpan		: "Kolonnur, meskin fevnir um",
+DlgCellBackColor	: "Bakgrundslitur",
+DlgCellBorderColor	: "Litur á borda",
+DlgCellBtnSelect	: "Vel...",
+
+// Find and Replace Dialog
+DlgFindAndReplaceTitle	: "Finn og broyt",
+
+// Find Dialog
+DlgFindTitle		: "Finn",
+DlgFindFindBtn		: "Finn",
+DlgFindNotFoundMsg	: "Leititeksturin varð ikki funnin",
+
+// Replace Dialog
+DlgReplaceTitle			: "Yvirskriva",
+DlgReplaceFindLbl		: "Finn:",
+DlgReplaceReplaceLbl	: "Yvirskriva við:",
+DlgReplaceCaseChk		: "Munur á stórum og smáðum bókstavum",
+DlgReplaceReplaceBtn	: "Yvirskriva",
+DlgReplaceReplAllBtn	: "Yvirskriva alt",
+DlgReplaceWordChk		: "Bert heil orð",
+
+// Paste Operations / Dialog
+PasteErrorCut	: "Trygdaruppseting alnótskagans forðar tekstviðgeranum í at kvetta tekstin. Vinarliga nýt knappaborðið til at kvetta tekstin (CTRL+X).",
+PasteErrorCopy	: "Trygdaruppseting alnótskagans forðar tekstviðgeranum í at avrita tekstin. Vinarliga nýt knappaborðið til at avrita tekstin (CTRL+C).",
+
+PasteAsText		: "Innrita som reinan tekst",
+PasteFromWord	: "Innrita fra Word",
+
+DlgPasteMsg2	: "Vinarliga koyr tekstin í hendan rútin við knappaborðinum (<strong>CTRL+V</strong>) og klikk á <strong>Góðtak</strong>.",
+DlgPasteSec		: "Trygdaruppseting alnótskagans forðar tekstviðgeranum í beinleiðis atgongd til avritingarminnið. Tygum mugu royna aftur í hesum rútinum.",
+DlgPasteIgnoreFont		: "Forfjóna Font definitiónirnar",
+DlgPasteRemoveStyles	: "Strika typografi definitiónir",
+
+// Color Picker
+ColorAutomatic	: "Automatiskt",
+ColorMoreColors	: "Fleiri litir...",
+
+// Document Properties
+DocProps		: "Eginleikar fyri dokument",
+
+// Anchor Dialog
+DlgAnchorTitle		: "Eginleikar fyri marknastein",
+DlgAnchorName		: "Heiti marknasteinsins",
+DlgAnchorErrorName	: "Vinarliga rita marknasteinsins heiti",
+
+// Speller Pages Dialog
+DlgSpellNotInDic		: "Finst ikki í orðabókini",
+DlgSpellChangeTo		: "Broyt til",
+DlgSpellBtnIgnore		: "Forfjóna",
+DlgSpellBtnIgnoreAll	: "Forfjóna alt",
+DlgSpellBtnReplace		: "Yvirskriva",
+DlgSpellBtnReplaceAll	: "Yvirskriva alt",
+DlgSpellBtnUndo			: "Angra",
+DlgSpellNoSuggestions	: "- Einki uppskot -",
+DlgSpellProgress		: "Rættstavarin arbeiðir...",
+DlgSpellNoMispell		: "Rættstavarain liðugur: Eingin feilur funnin",
+DlgSpellNoChanges		: "Rættstavarain liðugur: Einki orð varð broytt",
+DlgSpellOneChange		: "Rættstavarain liðugur: Eitt orð er broytt",
+DlgSpellManyChanges		: "Rættstavarain liðugur: %1 orð broytt",
+
+IeSpellDownload			: "Rættstavarin er ikki tøkur í tekstviðgeranum. Vilt tú heinta hann nú?",
+
+// Button Dialog
+DlgButtonText		: "Tekstur",
+DlgButtonType		: "Slag",
+DlgButtonTypeBtn	: "Knøttur",
+DlgButtonTypeSbm	: "Send",
+DlgButtonTypeRst	: "Nullstilla",
+
+// Checkbox and Radio Button Dialogs
+DlgCheckboxName		: "Navn",
+DlgCheckboxValue	: "Virði",
+DlgCheckboxSelected	: "Valt",
+
+// Form Dialog
+DlgFormName		: "Navn",
+DlgFormAction	: "Hending",
+DlgFormMethod	: "Háttur",
+
+// Select Field Dialog
+DlgSelectName		: "Navn",
+DlgSelectValue		: "Virði",
+DlgSelectSize		: "Stødd",
+DlgSelectLines		: "Linjur",
+DlgSelectChkMulti	: "Loyv fleiri valmøguleikum samstundis",
+DlgSelectOpAvail	: "Tøkir møguleikar",
+DlgSelectOpText		: "Tekstur",
+DlgSelectOpValue	: "Virði",
+DlgSelectBtnAdd		: "Legg afturat",
+DlgSelectBtnModify	: "Broyt",
+DlgSelectBtnUp		: "Upp",
+DlgSelectBtnDown	: "Niður",
+DlgSelectBtnSetValue : "Set sum valt virði",
+DlgSelectBtnDelete	: "Strika",
+
+// Textarea Dialog
+DlgTextareaName	: "Navn",
+DlgTextareaCols	: "kolonnur",
+DlgTextareaRows	: "røðir",
+
+// Text Field Dialog
+DlgTextName			: "Navn",
+DlgTextValue		: "Virði",
+DlgTextCharWidth	: "Breidd (sjónlig tekn)",
+DlgTextMaxChars		: "Mest loyvdu tekn",
+DlgTextType			: "Slag",
+DlgTextTypeText		: "Tekstur",
+DlgTextTypePass		: "Loyniorð",
+
+// Hidden Field Dialog
+DlgHiddenName	: "Navn",
+DlgHiddenValue	: "Virði",
+
+// Bulleted List Dialog
+BulletedListProp	: "Eginleikar fyri punktmerktan lista",
+NumberedListProp	: "Eginleikar fyri talmerktan lista",
+DlgLstStart			: "Byrjan",
+DlgLstType			: "Slag",
+DlgLstTypeCircle	: "Sirkul",
+DlgLstTypeDisc		: "Fyltur sirkul",
+DlgLstTypeSquare	: "Fjórhyrningur",
+DlgLstTypeNumbers	: "Talmerkt (1, 2, 3)",
+DlgLstTypeLCase		: "Smáir bókstavir (a, b, c)",
+DlgLstTypeUCase		: "Stórir bókstavir (A, B, C)",
+DlgLstTypeSRoman	: "Smá rómaratøl (i, ii, iii)",
+DlgLstTypeLRoman	: "Stór rómaratøl (I, II, III)",
+
+// Document Properties Dialog
+DlgDocGeneralTab	: "Generelt",
+DlgDocBackTab		: "Bakgrund",
+DlgDocColorsTab		: "Litir og breddar",
+DlgDocMetaTab		: "META-upplýsingar",
+
+DlgDocPageTitle		: "Síðuheiti",
+DlgDocLangDir		: "Tekstkós",
+DlgDocLangDirLTR	: "Frá vinstru móti høgru (LTR)",
+DlgDocLangDirRTL	: "Frá høgru móti vinstru (RTL)",
+DlgDocLangCode		: "Málkoda",
+DlgDocCharSet		: "Teknsett koda",
+DlgDocCharSetCE		: "Miðeuropa",
+DlgDocCharSetCT		: "Kinesiskt traditionelt (Big5)",
+DlgDocCharSetCR		: "Cyrilliskt",
+DlgDocCharSetGR		: "Grikst",
+DlgDocCharSetJP		: "Japanskt",
+DlgDocCharSetKR		: "Koreanskt",
+DlgDocCharSetTR		: "Turkiskt",
+DlgDocCharSetUN		: "UNICODE (UTF-8)",
+DlgDocCharSetWE		: "Vestureuropa",
+DlgDocCharSetOther	: "Onnur teknsett koda",
+
+DlgDocDocType		: "Dokumentslag yvirskrift",
+DlgDocDocTypeOther	: "Annað dokumentslag yvirskrift",
+DlgDocIncXHTML		: "Viðfest XHTML deklaratiónir",
+DlgDocBgColor		: "Bakgrundslitur",
+DlgDocBgImage		: "Leið til bakgrundsmynd (URL)",
+DlgDocBgNoScroll	: "Læst bakgrund (rullar ikki)",
+DlgDocCText			: "Tekstur",
+DlgDocCLink			: "Tilknýti",
+DlgDocCVisited		: "Vitjaði tilknýti",
+DlgDocCActive		: "Virkin tilknýti",
+DlgDocMargins		: "Síðubreddar",
+DlgDocMaTop			: "Ovast",
+DlgDocMaLeft		: "Vinstra",
+DlgDocMaRight		: "Høgra",
+DlgDocMaBottom		: "Niðast",
+DlgDocMeIndex		: "Dokument index lyklaorð (sundurbýtt við komma)",
+DlgDocMeDescr		: "Dokumentlýsing",
+DlgDocMeAuthor		: "Høvundur",
+DlgDocMeCopy		: "Upphavsrættindi",
+DlgDocPreview		: "Frumsýning",
+
+// Templates Dialog
+Templates			: "Skabelónir",
+DlgTemplatesTitle	: "Innihaldsskabelónir",
+DlgTemplatesSelMsg	: "Vinarliga vel ta skabelón, ið skal opnast í tekstviðgeranum<br>(Hetta yvirskrivar núverandi innihald):",
+DlgTemplatesLoading	: "Heinti yvirlit yvir skabelónir. Vinarliga bíða við...",
+DlgTemplatesNoTpl	: "(Ongar skabelónir tøkar)",
+DlgTemplatesReplace	: "Yvirskriva núverandi innihald",
+
+// About Dialog
+DlgAboutAboutTab	: "Um",
+DlgAboutBrowserInfoTab	: "Upplýsingar um alnótskagan",
+DlgAboutLicenseTab	: "License",
+DlgAboutVersion		: "version",
+DlgAboutInfo		: "Fyri fleiri upplýsingar, far til",
+
+// Div Dialog
+DlgDivGeneralTab	: "Generelt",
+DlgDivAdvancedTab	: "Fjølbroytt",
+DlgDivStyle		: "Typografi",
+DlgDivInlineStyle	: "Inline typografi"
+};
