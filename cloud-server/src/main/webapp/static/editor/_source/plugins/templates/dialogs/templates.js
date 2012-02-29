@@ -203,7 +203,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 				{
 					var templatesListField = this.getContentElement( 'selectTpl' , 'templatesList' );
 					listContainer = templatesListField.getElement();
-
+                                        //alert("hi");
 					CKEDITOR.loadTemplates( config.templates_files, function()
 						{
 							var templates = ( config.templates || 'default' ).split( ',' );

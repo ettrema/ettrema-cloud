@@ -8,4 +8,5 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+//        config.templates_files = [ '/templates/editor-templates/mytemplates.js' ];
 };
