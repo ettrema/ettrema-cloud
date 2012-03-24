@@ -171,13 +171,24 @@
             <bean class="com.ettrema.media.DefaultMediaLinkGenerator"/>
         </property>
     </bean>
+    
+    
+    <bean id="underlay.locator" class="com.ettrema.underlay.ClydeUnderlayLocator">
+        <property name="underlayHost" value="${sys.admin.domain}" />
+    </bean>
+    
+    <bean id="underlay.resource.factory" class="com.ettrema.underlay.UnderlayResourceFactory">        
+        <constructor-arg ref="host.finder" />
+        <constructor-arg ref="underlay.locator" />
+    </bean>
 
     <bean id="multi.resource.factory" class="com.bradmcevoy.http.MultipleResourceFactory">
         <constructor-arg>
             <list>
                 <ref local="edit.resource.factory"/>				
                 <ref local="static.resource.factory"/>
-                <ref local="servlet.resource.factory"/>								
+                <ref local="servlet.resource.factory"/>
+                <ref local="underlay.resource.factory"/>                
                 <ref local="json.resource.factory"/>				
                 <ref local="fck.resource.factory"/>
                 <ref local="console.resource.factory"/>

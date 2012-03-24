@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.ettrema</groupId>
     <artifactId>cloud-server</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.2</version>
     <packaging>war</packaging>
     <name>cloud-server</name>
 
@@ -389,7 +389,85 @@
                         </configuration>
                     </plugin>   					
                 </plugins>
+            </build>         
+        </profile>
+        <profile>
+            <id>run-learning</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.mortbay.jetty</groupId>
+                        <artifactId>maven-jetty-plugin</artifactId>
+                        <version>6.1.26</version>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <contextPath>/</contextPath>
+                            <connectors>
+                                <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                                    <port>8080</port>
+                                    <maxIdleTime>60000</maxIdleTime>
+                                </connector>
+                            </connectors>
+                            <stopKey>stop</stopKey>
+                            <stopPort>8089</stopPort>
+                            <systemProperties>
+                                <systemProperty>
+                                    <name>log4j.configuration</name>
+                                    <value>file:${basedir}/src/test/resources/log4j.properties</value>
+                                </systemProperty>
+
+                                <!-- Underlays -->
+                                <systemProperty>
+                                    <name>underlay.1-1.0.2.base-web.com.ettrema</name>
+                                    <value>/proj/ettrema-sites/ettrema/base-web/src/main/webapp/autoload</value>
+                                </systemProperty>                                                                  
+                                
+                                <systemProperty> <!-- user-web is packaged into learning-web -->
+                                    <name>underlay.2-1.1.8.learning-web.com.ettrema</name>
+                                    <value>/proj/ettrema-sites/ettrema/user-web/src/main/webapp/autoload</value>
+                                </systemProperty>
+                                
+                                <systemProperty>
+                                    <name>underlay.3-1.1.8.learning-web.com.ettrema</name>
+                                    <value>/proj/ettrema-sites/learning/learning-web/src/main/webapp/autoload</value>
+                                </systemProperty>                                                                                                                                 
+
+                                <systemProperty>
+                                    <name>underlay.4-1.0.8.ettrema-theme.com.ettrema</name>
+                                    <value>/proj/ettrema-sites/ettrema-style/src/main/webapp/autoload</value>
+                                </systemProperty>                                                                  
+                                
+                                <systemProperty>
+                                    <name>underlay.5-1.0.1.jplayer-plugin.com.ettrema</name>
+                                    <value>/proj/ettrema-sites/ettrema/jplayer-plugin/src/main/webapp/autoload</value>
+                                </systemProperty>                                                                  
+
+                                
+                                <!-- Autoloaders -->
+       
+                                <systemProperty>
+                                    <name>autoloader.4-3dm-web.force</name>
+                                    <value>/proj/ettrema-sites/learning/3dm-web/src/main/webapp/autoload</value>
+                                </systemProperty>                                                                  
+<!--                         
+                                <systemProperty>
+                                    <name>autoloader.5-3dm-web.nodeploy</name>
+                                    <value>/proj/ettrema-sites/learning/3dm-web/src/main/webapp/nodeploy</value>
+                                </systemProperty>                                   
+           -->                     
+                            </systemProperties>                            
+                                
+                        </configuration>
+                    </plugin>   					
+                </plugins>
             </build>
-        </profile>		
+        </profile>           
     </profiles>
 </project>

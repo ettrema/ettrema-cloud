@@ -9,4 +9,7 @@ CKEDITOR.editorConfig = function( config )
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 //        config.templates_files = [ '/templates/editor-templates/mytemplates.js' ];
+
+    // BM: See toolbars.js for toolbar definitions
+
 };
