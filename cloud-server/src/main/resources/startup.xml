@@ -45,9 +45,8 @@
                 <ref bean="startup.deployment.service"/>       
                 <ref bean="search.index.manager"/>                       
                 
-                <ref bean="sync.sysproperty.file.watcher.factory"/>               
-                <ref bean="sync.sysproperty.underlay.watcher.factory"/>                
-                
+                <ref bean="sync.sysproperty.underlay.watcher.factory"/>                                
+                <ref bean="sync.sysproperty.file.watcher.factory"/>                               
             </list>
         </constructor-arg>
     </bean>

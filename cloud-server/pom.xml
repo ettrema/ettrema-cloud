@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.ettrema</groupId>
     <artifactId>cloud-server</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
     <packaging>war</packaging>
     <name>cloud-server</name>
 
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>endrick-filesystem</artifactId>
-            <version>${endrick.version}</version>
+            <version>1.7.8-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>javax</groupId>

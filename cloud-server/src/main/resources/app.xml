@@ -233,10 +233,15 @@
         </property>
     </bean>
 
-    <bean id="template.manager.base" class="com.ettrema.web.TemplateManagerImpl"/>
+    <bean id="template.manager.base" class="com.ettrema.web.templates.TemplateManagerImpl"/>
 
-    <bean id="template.manager" class="com.ettrema.web.RelativeTemplateManager">
-        <constructor-arg ref="template.manager.base"/>
+    <bean id="template.manager.underlays" class="com.ettrema.web.templates.UnderlayTemplateManager">
+        <constructor-arg  ref="underlay.locator" />
+        <constructor-arg  ref="template.manager.base" />
+    </bean>
+
+    <bean id="template.manager" class="com.ettrema.web.templates.RelativeTemplateManager">
+        <constructor-arg ref="template.manager.underlays"/>
     </bean>
 
     <bean id="base.binary.service" class="com.ettrema.binary.DefaultClydeBinaryService"/>
@@ -279,14 +284,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="theme.finder" class="com.ettrema.web.children.ThemeFinder"/>
-
-    <bean id="default.child.finder" class="com.ettrema.web.children.DefaultChildFinder"/>
-
-    <bean id="child.finder" class="com.ettrema.web.children.ThemeResourceChildFinder">
-        <constructor-arg ref="theme.finder"/>
-        <constructor-arg ref="default.child.finder"/>
-    </bean>
+    <bean id="child.finder" class="com.ettrema.web.children.DefaultChildFinder"/>
     
     <bean id="search.indexing.listener" class="com.ettrema.web.search.SearchIndexingCommitListener">
         <constructor-arg ref="vfs.provider.postgres"/>
@@ -470,7 +468,6 @@
                 <ref bean="href.service"/>
                 <ref bean="redirect.service"/>
                 <ref bean="authoring.permission.service" />
-                <ref bean="theme.finder"/>
                 <ref bean="child.finder"/>
                 <bean class="com.ettrema.web.locking.ClydeLockManagerImpl">
                     <constructor-arg ref="current.user.service"/>
