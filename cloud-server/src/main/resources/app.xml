@@ -93,8 +93,6 @@
     <!-- unqualified names are recursively validated against each host in the tree, starting with the current. Qualified names are authenticated against the named host-->
     <bean id="recursive.authenticator" class="com.ettrema.web.security.RecursiveAuthenticator"/>
 
-    <bean id="facebook.manager" class="com.ettrema.facebook.FaceBookGalleryManagerImpl"/>
-
     <bean id="standardPermissionChecker" class="com.ettrema.web.security.ClydePermissionChecker"/>
 
     <bean id="userEditPermissionChecker" class="com.ettrema.web.security.EditOwnUserPermissionChecker">
@@ -399,10 +397,6 @@
 
                 <bean class="com.ettrema.context.SingletonFactory">
                     <property name="bean" ref="authoriser"/>
-                </bean>
-
-                <bean class="com.ettrema.context.SingletonFactory">
-                    <property name="bean" ref="facebook.manager"/>
                 </bean>
 
                 <bean class="com.ettrema.context.SingletonFactory">
