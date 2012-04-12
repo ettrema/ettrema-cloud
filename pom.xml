@@ -10,7 +10,7 @@
     <properties>
         <clyde.version>2.0.2-SNAPSHOT</clyde.version>
         <milton.version>1.7.2</milton.version>
-        <endrick.version>1.7.9-SNAPSHOT</endrick.version>
+        <endrick.version>1.7.9</endrick.version>
         <berry.version>1.5</berry.version>
         <geroa.version>1.5</geroa.version>
 

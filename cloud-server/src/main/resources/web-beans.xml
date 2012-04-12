@@ -95,6 +95,7 @@
                 <bean class="com.ettrema.web.console2.ThreadDumpFactory" />
                 <bean class="com.ettrema.web.console2.DeployFactory" >
                     <constructor-arg ref="deployment.service"/>
+                    <constructor-arg ref="underlay.locator"/>
                     <property name="mavenRoot" value="http://www.ettrema.com/maven2"/>
                 </bean>                
                 <bean class="com.ettrema.web.console2.ProcessScanFactory" />
@@ -136,7 +137,6 @@
                     <constructor-arg ref="migration.helper"/>
                 </bean>
                 <bean class="com.ettrema.web.console2.DuFactory" />
-                <bean class="com.ettrema.web.console2.RecreateFactory" />
                 <bean class="com.ettrema.web.console2.GenThumbsFactory" >
                     <constructor-arg ref="root.context.locator"/>
                     <property name="updateWall" value="false"/>
