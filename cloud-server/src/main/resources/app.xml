@@ -351,10 +351,14 @@
     <bean id="state.token.manager" class="com.ettrema.binary.StateTokenManager">
         <constructor-arg ref="event.manager" />
     </bean>
+
+    <bean id="comment.dao" class="com.ettrema.web.comments.CommentDao">
+    </bean>
     
     <bean id="comment.service" class="com.ettrema.web.comments.CommentServiceImpl">
         <constructor-arg ref="current.user.service" />
         <constructor-arg ref="current.date.service" />
+        <constructor-arg ref="comment.dao" />
     </bean>
 
     <bean id="endrick.catalog" class="com.ettrema.context.FactoryCatalog">
@@ -519,6 +523,7 @@ in the config on subsequent restarts
                 <ref bean="endrick.table.defs"/>
                 <ref bean="media.log.service"/>
                 <ref bean="recent.manager"/>
+                <ref bean="comment.dao"/>                
             </list>
         </constructor-arg>
         <constructor-arg>

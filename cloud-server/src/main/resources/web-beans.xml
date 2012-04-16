@@ -172,6 +172,10 @@
         </property>
     </bean>
     
+    <bean id="commentfeed.resource.factory" class="com.ettrema.web.comments.CommentFeedResourceFactory">
+        <constructor-arg ref="existing.resource.factory"/>
+        <constructor-arg ref="comment.dao"/>
+    </bean>
     
     <bean id="underlay.locator" class="com.ettrema.underlay.ClydeUnderlayLocator">
         <property name="underlayHost" value="${sys.admin.domain}" />
@@ -194,6 +198,7 @@
                 <ref local="console.resource.factory"/>
                 <ref local="rss.resource.factory"/>
                 <ref local="mediafeed.resource.factory"/>
+                <ref local="commentfeed.resource.factory"/>                
                 <ref local="ajax.resource.factory"/>
                 <ref local="code.resource.factory"/>
                 <ref local="deploy.resource.factory"/>                
