@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.ettrema</groupId>
     <artifactId>cloud-server</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
     <packaging>war</packaging>
     <name>cloud-server</name>
 
@@ -167,6 +167,20 @@
             <groupId>com.ettrema</groupId>
             <artifactId>endrick-cache</artifactId>
             <version>${endrick.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>kryo</artifactId>
+                    <groupId>com.esotericsoftware</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>minilog</artifactId>
+                    <groupId>com.esotericsoftware</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>reflectasm</artifactId>
+                    <groupId>com.esotericsoftware</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- This dependency is for email notifications -->
         <dependency>
