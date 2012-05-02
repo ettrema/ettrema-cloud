@@ -48,7 +48,8 @@
 
     <bean id="sql.backup.task" class="com.ettrema.scheduled.SqlBackupTask">
         <constructor-arg ref="current.date.service"/>
-        <property name="sql" value="${db.backup.dir}"/>
+        <property name="sql" value="${db.backup.sql}"/>
+        <property name="backupDir" value="${db.backup.dir}"/>
         <property name="notBeforeHour" value="${db.backup.notBeforeHour}"/>
         <property name="noLaterThenHour" value="${db.backup.noLaterThenHour}"/>
         <property name="intervalMinutes" value="${db.backup.intervalMinutes}"/>
